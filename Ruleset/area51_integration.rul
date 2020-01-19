@@ -1,0 +1,6 @@
+items:
+  - type: STR_ALLOY_SWORD
+    tags:
+      SWORD_TYPE: 1
+      CRIT_CHANCE: 50
+      CRIT_DAMAGE: 20

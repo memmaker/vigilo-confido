@@ -1,0 +1,1852 @@
+# Class & Skill System inspired by XCOM2012/XCOM2, written by memmaker
+
+# classes
+# Ranger        - str: Movement/Melee,      wkn: Armor, Attack Range
+# Heavy         - str: Armor/Heavy Weapons, wkn: Movement, Accuracy
+# Sharpshooter  - str: Damage/Range,        wkn: Health, Melee
+# Medic         - str: Medikits/Support,    wkn: Offense
+# Psi Op        - str: Psi,                 wkn: Health, Conventional Weapons
+
+# Possible Skill Types:
+# 1. Passive Skills
+#    Always active or trigger on specific conditions (via SoldierBonus)
+# 2. Active Self
+#    Player activated without a target (via Medikit)
+# 3. Active Enemy
+#    Player activated with an enemy unit as target (via Psi-Amp)
+# 4. Item Bound
+#    Player activated via scripted item use (eg. Grenades, Firearms)
+
+# Concept:
+# Soldiers start out as STR_SOLDIER of rank Rookie.
+# Soldiers of rank Squaddie or higher can choose to undergo the military molding process, being assigned a class in the process.
+# Classed soldiers receive two class specific skills initially a passive one and an active one via SoldierBonus.
+# The active one is activated with empty hands and the passive one is always active.
+#
+# There are three training phases. The initial molding process is the first one.
+# Second Phase (or Advanced Training) adds two additional passive skills.
+# Third Phase (or Elite Training) adds another  passive skill and an elite level active skill.
+#
+# The elite level active skill has to be activated via the SKILL_AMP usable item.
+
+# So every class ends up with 6 skills if they get promotod to colonel.
+
+# Initial Class Skills (p/a)
+# ranger: blademaster / run & gun
+# heavy: shredder / rapid deployment
+# sharpshooter: death from above / headshot
+# medic: field medic / aid protocol
+
+# Advanced Class Skills (p/p)
+# ranger: phantom / shadowstrike
+# heavy: blast padding / mayhem
+# sharpshooter: aim / center mass
+# medic: steadfast / revive
+
+# Elite Class Skills (p/a)
+# ranger: untouchable / reaper
+# heavy: sting grenades / rupture
+# sharpshooter: alpha mike foxtrot / serial
+# medic: savior / restoration
+
+# psi op: stasis
+
+# rank based skills:
+# 0 rookie: No Skills
+# 1 squaddie: Active + Passive
+# 2 sergeant skills: No additional skills
+# 3 captain skills: 2 Passives
+# 4 colonel skills: Active + Passive
+# 5 commander skills: No Additional skills
+
+# dmg calc.
+# power of hitUnit / original_damage of damageUnit = (power of weapon +/- randomRange%) * damageModifier(Armor,Type)
+# damage of damageUnit = (power output of hitUnit) - Armor(Side) * ArmorEffectiveness
+# output of damageUnit is applied immediately
+
+# Vanilla Starting Stats & Caps
+# tu: 50-60 (80)
+# stamina: 40-70 (100)
+# health: 25-40 (60)
+# bravery: 10-60 (100)
+# reactions: 30-60 (100)
+# firing: 40-70 (120)
+# throwing: 50-80 (120)
+# strength: 20-40 (70)
+# psiStrength: 0-100
+# psiSkill: 0 (170)
+# melee: 20-40 (120)
+
+# ideas: have a smoke grenade that applies special states on hit. use newTurn to react on these states-
+# gun disabling smoke
+# flashbang
+# combat drugs
+
+# NOTE: You can set tags on GeoscapeSoldier in returnFromMissionUnit which you could read back in createUnit.
+# NOTE: One item can be used as Armor.SpecialWeapon thus removing the item as long as that armor is worn.
+
+# Symbols: P = Passive Skill, A = Active Skill, E = Elite Level Skill, I = Skill could be bound to item, X = Is implemented
+# == Possibly Possible Skills
+# === Ranger
+# P Phantom            - Begin a mission in concealment.
+# P Sprinter           - Grants +4 mobility (roughly 3 tiles movement).
+# P Blademaster        - Deal increased damage on all sword attacks.
+# P Shadowstrike       - While concealed, gain bonus aim and bonus critical chance when attacking enemies.
+# P Shadowstep         - This soldier does not trigger overwatch or reaction fire.
+# P Bladestorm         - Free sword attacks on any enemies that enter or attack from melee range.
+# P Untouchable        - If you score a kill during your turn, the next attack against you during the enemy turn will miss. Includes area-of-effect attacks such as grenades.
+# AE Reaper            - A devastating chain melee attack where the first melee attack cannot miss. Each melee kill in Reaper mode grants an extra action, but further melee attacks deal reduced damage. 4-turn cooldown.
+# === Heavy
+# P Blast Padding      - Your gear includes layers of extra padding and blast plates, granting a bonus point of Armor and 66% less damage from explosive attacks.
+# P Will to Survive    - Reduces all normal damage taken by 2 if not flanked.
+# P Shredder           - Your cannon attacks shred armor. Higher rank weapons shred more points of armor. The shredding effect applies before damage.
+# P Mayhem             - Confers additional damage to all area of effect weapons & Machine Guns
+# P Platform Stability - Shots taken before any costly actions have +10 Aim and +10% critical chance. Also grants +10 aim for purposes of reducing scatter if the soldier has not moved this turn
+# P Extra Conditioning - Confers bonus health + strength based on which type of armor is equipped. Heavier armor increases the bonus.
+# AI Rapid Deployment  - Activate this ability before throwing or launching a support grenade, and the throw will not cost an action.
+# P HEAT Warheads      - Your grenades now pierce armor and shred additional points of armor.
+# P Sting Grenades     - Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect.
+# AE Rupture           - A Rupture shot deals critical damage and ensures that the target takes an additional +3 damage from all attacks in the future. Uses 3 ammo. 3-turn cooldown.
+# === Sharpshooter
+# P Sharpshooter       - +10 critical chance in all situations, +10 Aim
+# AI Headshot          - Fire a shot with +30% critical chance and extra damage on critical hits based on the tech level of the sniper rifle. 2 turn cooldown.
+# P Steady Hands       - If you did not move last turn, gain +10 Aim and +10 Critical chance.
+# AI Disabling Shot    - Allows sniper rifles to fire a shot that causes the target's main weapon to malfunction. The target may use Reload to fix the weapon. 2 turn cooldown. Cannot cause critical hits.
+# P Death from Above   - Killing an enemy at a lower elevation with your sniper rifle costs only a single action, and does not end your turn.
+# P Aim                - Kneel now confers +20 Aim to the first shot on the following turn.
+# AI Double Tap        - Fire a standard shot and gain a bonus shot or overwatch action.
+# P Center Mass        - You do additional points of base damage when using guns.
+# P Alpha Mike Foxtrot - You do 4 additional points of base damage and 2 additional points of crit damage with your primary weapon.
+# AE Serial            - A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded. Critical chance decreases per chained kill. 4 turn cooldown.
+# === Medic
+# AI Aid Protocol      - It grants that target a bonus to Defense until the start of the next player turn. The basic Gremlin grants +20 Defense.
+# P Field Surgeon      - Reduces (or, for 1 HP flesh wounds, eliminates) Wounded timer on soldiers who sustained HP damage but were not Critically Wounded. Does not affect wound sustained by sending fatigued soldier on a mission.
+# P Sprinter           - Grants +4 mobility (roughly 3 tiles movement).
+# P Steadfast          - Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the intimidation ability.
+# P Revive             - Allows Medikits to revive critically wounded Soldiers at 33% of maximum health instead of just stabilizing them.
+# P Paramedic          - Once per turn, this unit may use a medikit without spending an action.
+# P Ever Vigilant      - If you spend all your actions on moves, you are granted an automatic overwatch shot at the end of the turn.
+# P Guardian           - With every successful Overwatch shot, there is a 50% chance that another shot will be taken.
+# P Combat Drugs       - Smoke grenades confer +20 Will and +20% critical chance in addition to the original 20 defense. The area of effect is also increased by 25%.
+# P Savior             - Medikits restore health per use.
+# AE Restoration       - Each squad member is healed or revived as needed.
+# === Psi 
+# Panic
+# Inspire            - Give all your TU (>75%) in order to restore TU of an ally
+# Mind Merge         - Grants bonus will, crit and ablative hit points to an ally until the beginning of the player's next turn.
+# Stasis             - No damage received and no action possible for one turn
+# Soul Fire          - Guaranteed Psi Damage
+# Soul Steal         - Damage enemy and heal the user
+# Mind Control
+# === Other
+# X Sustain          - Instead of being killed, go into stasis with 1 hp once per mission
+# X Executioner      - Increased damage against targets with HP < 50%
+
+# Genetics Lab Projects
+# Neural Dampening      - Confers +20 Will when defending against psi attacks, and immunity to panic. If the soldier is Mind Controlled, the control is cancelled, and the soldier is stunned for 1 turn instead.
+# Neural Feedback       - Causes damage to psi attackers and puts all of their psi attacks on cooldown. Does not reduce the attacker's chance of success.
+# Hyper Reactive Pupils - Confers +10 Aim to any shot after a miss.
+# Secondary Heart       - Causes soldiers to bleed out instead of dying the first time they go to zero health during a mission. The bleed out timer is extended for 2 turns. Prevents loss of will from critical wounds.
+# Adrenal Neurosymathy  - Overloads the soldiers adrenal glands: when a kill is confirmed the soldier emits pheromones that grant offensive benefits to all nearby squad mates. Cannot occur more than once on every 5 turns.
+# Adaptive Bone Marrow  - Soldier regenerates 2 HP per turn up to the HP max without armor.
+# Iron Skin             - All damage taken is reduced by 25%.
+# Adrenaline Surge      - Confers +10 Aim and +10% critical chance. Activated on getting wounded.
+
+# == Possible Item Skills
+# === Shotguns
+# Rapid Fire       - Fire twice in a row at an enemy. Each shot suffers an Aim penalty of -15. There is no cooldown on this ability.
+# === Rocket Launchers
+# Shredder Rocket  - Fire a rocket that causes all enemies hit to take +33% damage from all sources for the next 4 turns. The rocket's blast is weaker than a standard rocket's. (4 Damage)
+# === Sniper Rifles
+# Deadeye          - Take a shot with a small aim penalty for a significant damage boost. 2 turn cooldown.
+# Precision Shot   - Take a special shot with +30 bonus to critical chance and 33% bonus critical damage. Three-turn cooldown.
+# === Machine Guns
+# Demolition       - Unleash a volley of bullets at your target's cover, significantly damaging or destroying it. Deals no damage to your target. Uses 2 ammo. 3-turn cooldown.
+# === Ammo
+# Venom Rounds	   - increased damage, chance to poison the target
+# Talon Rounds	   - +20% critical chance, increased critical damage
+# Dragon Rounds	   - increased damage, chance to inflict burning
+# === Utility
+# Mimic Beacon     - Conjures a holographic decoy soldier for the enemy to shoot at.
+
+# Wishlist:
+# - Ability to spawn map objects not just units from grenades
+# - Ability to count visible units from scripts (eg. BattleUnit.getVisibleUnits.getLength)
+# - Script Hook for missed shots? I want to know when a solder fired but didn't hit his target.
+# - Script Hook for movement? I want to know if a soldier has moved this turn or not.
+# - A reference to the current weapon being used in the accuracyMultiplierBonusStats hook
+
+# Since we use promotions as a kind of leveling system we allow more soldiers to get promoted:
+
+soldiersPerSergeant: 1
+soldiersPerCaptain: 2
+soldiersPerColonel: 4
+soldiersPerCommander: 16
+
+soldierTransformation:
+  - name: STR_RANGER_MOLDING
+    producedSoldierType: STR_RANGER
+    soldierBonusType: STR_BLADEMASTER_BONUS
+    minRank: 1 # squaddie
+    keepSoldierArmor: true
+    createsClone: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
+    allowsLiveSoldiers: true
+    allowedSoldierTypes:
+      - STR_SOLDIER
+    requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
+      tu: 50
+      stamina: 50
+      health: 0
+      bravery: 0
+      reactions: 0
+      firing: 0
+      throwing: 0
+      strength: 0
+      psiStrength: 0
+      psiSkill: 0
+      melee: 30
+    cost: 50000      #				The cost of the project in dollars
+    transferTime: 72 #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3 #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: 10
+      stamina: 10
+      health: -5
+      bravery: 5
+      reactions: 5
+      firing: -5
+      throwing: -5
+      strength: 5
+      psiStrength: 0
+      psiSkill: -100
+      melee: 10
+    lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
+    upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
+    upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
+  - name: STR_HEAVY_MOLDING
+    producedSoldierType: STR_HEAVY
+    soldierBonusType: STR_BLAST_PADDING_BONUS
+    keepSoldierArmor: true
+    createsClone: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
+    allowsLiveSoldiers: true
+    minRank: 1 # squaddie
+    allowedSoldierTypes:
+      - STR_SOLDIER
+    requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
+      tu: 0
+      stamina: 40
+      health: 40
+      bravery: 0
+      reactions: 0
+      firing: 0
+      throwing: 0
+      strength: 30
+      psiStrength: 0
+      psiSkill: 0
+      melee: 0
+    cost: 50000      #				The cost of the project in dollars
+    transferTime: 72 #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3 #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: -10
+      stamina: 10
+      health: 10
+      bravery: 5
+      reactions: -15
+      firing: -10
+      throwing: -5
+      strength: 10
+      psiStrength: 0
+      psiSkill: -100
+      melee: 0
+    lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
+    upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
+    upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
+  - name: STR_SHARPSHOOTER_MOLDING
+    producedSoldierType: STR_SHARPSHOOTER
+    soldierBonusType: STR_DEATH_FROM_ABOVE_BONUS
+    keepSoldierArmor: true
+    createsClone: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
+    allowsLiveSoldiers: true
+    minRank: 1 # squaddie
+    allowedSoldierTypes:
+      - STR_SOLDIER
+    requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
+      tu: 0
+      stamina: 0
+      health: 0
+      bravery: 0
+      reactions: 40
+      firing: 60
+      throwing: 0
+      strength: 0
+      psiStrength: 0
+      psiSkill: 0
+      melee: 0
+    cost: 50000      #				The cost of the project in dollars
+    transferTime: 72 #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3 #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: 0
+      stamina: 0
+      health: -10
+      bravery: 5
+      reactions: 0
+      firing: 20
+      throwing: -5
+      strength: -5
+      psiStrength: 0
+      psiSkill: -100
+      melee: -20
+    lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
+    upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
+    upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
+  - name: STR_PSI_OPERATIVE_MOLDING
+    producedSoldierType: STR_PSI_OPERATIVE
+    keepSoldierArmor: true
+    createsClone: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
+    allowsLiveSoldiers: true
+    minRank: 1 # squaddie
+    allowedSoldierTypes:
+      - STR_SOLDIER
+    requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
+      tu: 0
+      stamina: 0
+      health: 0
+      bravery: 0
+      reactions: 0
+      firing: 0
+      throwing: 0
+      strength: 0
+      psiStrength: 65
+      psiSkill: 0
+      melee: 0
+    cost: 50000      #				The cost of the project in dollars
+    transferTime: 72 #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3 #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: -5
+      stamina: -5
+      health: -10
+      bravery: -5
+      reactions: -10
+      firing: -10
+      throwing: -10
+      strength: -5
+      psiStrength: 20
+      psiSkill: 10
+      melee: -20
+    lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
+    upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
+    upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
+  - name: STR_MEDIC_MOLDING
+    producedSoldierType: STR_MEDIC
+    soldierBonusType: STR_FIELD_MEDIC_BONUS
+    keepSoldierArmor: true
+    createsClone: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
+    allowsLiveSoldiers: true
+    minRank: 1 # squaddie
+    allowedSoldierTypes:
+      - STR_SOLDIER
+    requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
+      tu: 45
+      stamina: 45
+      health: 0
+      bravery: 50
+      reactions: 0
+      firing: 0
+      throwing: 0
+      strength: 0
+      psiStrength: 0
+      psiSkill: 0
+      melee: 0
+    cost: 50000      #				The cost of the project in dollars
+    transferTime: 72 #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3 #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: 10
+      stamina: 10
+      health: 0
+      bravery: 20
+      reactions: -10
+      firing: -20
+      throwing: -20
+      strength: -5
+      psiStrength: 0
+      psiSkill: -100
+      melee: -20
+    lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
+    upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
+    upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
+  - name: STR_TRAIN_REAPER
+    listOrder: 1
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_REAPER
+    cost: 100000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 5
+    transferTime: 72
+    soldierBonusType: STR_REAPER_BONUS
+  - name: STR_TRAIN_UNTOUCHABLE
+    listOrder: 2
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_UNTOUCHABLE
+    cost: 50000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 3
+    transferTime: 72
+    soldierBonusType: STR_UNTOUCHABLE_BONUS
+  - name: STR_TRAIN_LIGHTNING_REFLEXES
+    listOrder: 3
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_LIGHTNING_REFLEXES
+    cost: 10000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 0
+    transferTime: 72
+    soldierBonusType: STR_LIGHTNING_REFLEXES_BONUS
+  - name: STR_TRAIN_CAMOUFLAGE
+    listOrder: 3
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_CAMOUFLAGE
+    cost: 100000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 4
+    transferTime: 72
+    soldierBonusType: STR_CAMOUFLAGE_BONUS
+  - name: STR_TRAIN_SUSTAIN
+    listOrder: 3
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_SUSTAIN
+    cost: 200000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 4
+    transferTime: 72
+    soldierBonusType: STR_SUSTAIN_BONUS
+  - name: STR_TRAIN_EXECUTIONER
+    listOrder: 3
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_EXECUTIONER
+    cost: 80000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 3
+    transferTime: 72
+    soldierBonusType: STR_EXECUTIONER_BONUS
+  - name: STR_TRAIN_THREAT_ASSESSMENT
+    listOrder: 3
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_THREAT_ASSESSMENT
+    cost: 20000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 2
+    transferTime: 72
+    soldierBonusType: STR_THREAT_ASSESSMENT_BONUS
+  - name: STR_TRAIN_BACKSTAB
+    listOrder: 3
+    allowedSoldierTypes:
+      - STR_SOLDIER
+      - STR_PILOT     # area 51
+      - STR_OFFICER   # area 51
+      - STR_RANGER
+      - STR_HEAVY
+      - STR_MEDIC
+      - STR_SHARPSHOOTER
+    forbiddenPreviousTransformations:
+      - STR_TRAIN_BACKSTAB
+    cost: 15000
+    keepSoldierArmor: true
+    createsClone: false
+    allowsDeadSoldiers: false
+    allowsLiveSoldiers: true
+    allowsWoundedSoldiers: true
+    minRank: 2
+    transferTime: 72
+    soldierBonusType: STR_BACKSTAB_BONUS
+
+soldiers:
+  - type: STR_RANGER
+    tags:
+      CLASS: 1
+    costBuy: 0
+    costSalary: 50000
+    value: 30
+    minStats:
+      tu: 60
+      stamina: 60
+      health: 25
+      bravery: 50
+      reactions: 50
+      firing: 20
+      throwing: 20
+      strength: 30
+      psiStrength: 50
+      psiSkill: 0
+      melee: 40
+      mana: 10
+    maxStats:
+      tu: 80
+      stamina: 80
+      health: 40
+      bravery: 70
+      reactions: 70
+      firing: 70
+      throwing: 80
+      strength: 50
+      psiStrength: 100
+      psiSkill: 0
+      melee: 80
+      mana: 10
+    statCaps:
+      tu: 100
+      stamina: 100
+      health: 50
+      bravery: 100
+      reactions: 100
+      firing: 100
+      throwing: 100
+      strength: 90
+      psiStrength: 100
+      psiSkill: 60
+      melee: 120
+      mana: 10
+    standHeight: 22
+    kneelHeight: 14
+    femaleFrequency: 50
+    allowPromotion: true
+    soldierNames:
+      - SoldierName/
+    deathMale: [41, 42, 43]
+    deathFemale: [44, 45, 46]
+    rankStrings:
+      - STR_ROOKIE_RANGER_RANK
+      - STR_SQUADDIE_RANGER_RANK
+      - STR_SERGEANT_RANGER_RANK
+      - STR_CAPTAIN_RANGER_RANK
+      - STR_COLONEL_RANGER_RANK
+      - STR_COMMANDER_RANGER_RANK
+    armor: STR_NONE_UC
+  - type: STR_HEAVY
+    tags:
+      CLASS: 2
+    costBuy: 0
+    costSalary: 50000
+    value: 30
+    minStats:
+      tu: 30
+      stamina: 60
+      health: 40
+      bravery: 50
+      reactions: 0
+      firing: 20
+      throwing: 20
+      strength: 40
+      psiStrength: 40
+      psiSkill: 0
+      melee: 10
+      mana: 10
+    maxStats:
+      tu: 40
+      stamina: 70
+      health: 50
+      bravery: 70
+      reactions: 10
+      firing: 40
+      throwing: 80
+      strength: 60
+      psiStrength: 100
+      psiSkill: 0
+      melee: 40
+      mana: 10
+    statCaps:
+      tu: 50
+      stamina: 100
+      health: 80
+      bravery: 100
+      reactions: 50
+      firing: 70
+      throwing: 70
+      strength: 110
+      psiStrength: 100
+      psiSkill: 50
+      melee: 60
+      mana: 10
+    standHeight: 22
+    kneelHeight: 14
+    femaleFrequency: 50
+    allowPromotion: true
+    soldierNames:
+      - SoldierName/
+    deathMale: [41, 42, 43]
+    deathFemale: [44, 45, 46]
+    rankStrings:
+      - STR_ROOKIE_HEAVY_RANK
+      - STR_SQUADDIE_HEAVY_RANK
+      - STR_SERGEANT_HEAVY_RANK
+      - STR_CAPTAIN_HEAVY_RANK
+      - STR_COLONEL_HEAVY_RANK
+      - STR_COMMANDER_HEAVY_RANK
+    armor: STR_NONE_UC
+  - type: STR_SHARPSHOOTER
+    tags:
+      CLASS: 3
+    costBuy: 0
+    costSalary: 50000
+    value: 30
+    minStats:
+      tu: 50
+      stamina: 50
+      health: 20
+      bravery: 30
+      reactions: 50
+      firing: 70
+      throwing: 20
+      strength: 10
+      psiStrength: 50
+      psiSkill: 0
+      melee: 0
+      mana: 10
+    maxStats:
+      tu: 70
+      stamina: 70
+      health: 35
+      bravery: 50
+      reactions: 70
+      firing: 80
+      throwing: 80
+      strength: 30
+      psiStrength: 100
+      psiSkill: 0
+      melee: 10
+      mana: 10
+    statCaps:
+      tu: 80
+      stamina: 100
+      health: 45
+      bravery: 100
+      reactions: 100
+      firing: 150
+      throwing: 120
+      strength: 50
+      psiStrength: 100
+      psiSkill: 60
+      melee: 20
+      mana: 10
+    standHeight: 22
+    kneelHeight: 14
+    femaleFrequency: 50
+    allowPromotion: true
+    soldierNames:
+      - SoldierName/
+    deathMale: [41, 42, 43]
+    deathFemale: [44, 45, 46]
+    rankStrings:
+      - STR_ROOKIE_SHARPSHOOTER_RANK
+      - STR_SQUADDIE_SHARPSHOOTER_RANK
+      - STR_SERGEANT_SHARPSHOOTER_RANK
+      - STR_CAPTAIN_SHARPSHOOTER_RANK
+      - STR_COLONEL_SHARPSHOOTER_RANK
+      - STR_COMMANDER_SHARPSHOOTER_RANK
+    armor: STR_NONE_UC
+  - type: STR_MEDIC
+    tags:
+      CLASS: 4
+    costBuy: 0
+    costSalary: 50000
+    value: 30
+    minStats:
+      tu: 45
+      stamina: 45
+      health: 25
+      bravery: 50
+      reactions: 0
+      firing: 0
+      throwing: 0
+      strength: 20
+      psiStrength: 50
+      psiSkill: 0
+      melee: 0
+      mana: 10
+    maxStats:
+      tu: 80
+      stamina: 80
+      health: 40
+      bravery: 80
+      reactions: 40
+      firing: 40
+      throwing: 40
+      strength: 50
+      psiStrength: 100
+      psiSkill: 0
+      melee: 20
+      mana: 10
+    statCaps:
+      tu: 100
+      stamina: 100
+      health: 50
+      bravery: 120
+      reactions: 70
+      firing: 60
+      throwing: 60
+      strength: 70
+      psiStrength: 100
+      psiSkill: 60
+      melee: 70
+      mana: 10
+    standHeight: 22
+    kneelHeight: 14
+    femaleFrequency: 50
+    allowPromotion: true
+    soldierNames:
+      - SoldierName/
+    deathMale: [41, 42, 43]
+    deathFemale: [44, 45, 46]
+    rankStrings:
+      - STR_ROOKIE_MEDIC_RANK
+      - STR_SQUADDIE_MEDIC_RANK
+      - STR_SERGEANT_MEDIC_RANK
+      - STR_CAPTAIN_MEDIC_RANK
+      - STR_COLONEL_MEDIC_RANK
+      - STR_COMMANDER_MEDIC_RANK
+    armor: STR_NONE_UC
+  - type: STR_PSI_OPERATIVE
+    tags:
+      CLASS: 5
+    costBuy: 0
+    costSalary: 50000
+    value: 30
+    minStats:
+      tu: 45
+      stamina: 40
+      health: 20
+      bravery: 30
+      reactions: 20
+      firing: 20
+      throwing: 20
+      strength: 10
+      psiStrength: 70
+      psiSkill: 16
+      melee: 0
+      mana: 10
+    maxStats:
+      tu: 65
+      stamina: 70
+      health: 35
+      bravery: 50
+      reactions: 50
+      firing: 40
+      throwing: 40
+      strength: 30
+      psiStrength: 100
+      psiSkill: 50
+      melee: 10
+      mana: 10
+    statCaps:
+      tu: 80
+      stamina: 100
+      health: 45
+      bravery: 100
+      reactions: 100
+      firing: 150
+      throwing: 120
+      strength: 50
+      psiStrength: 100
+      psiSkill: 60
+      melee: 20
+      mana: 10
+    standHeight: 22
+    kneelHeight: 14
+    femaleFrequency: 50
+    allowPromotion: true
+    soldierNames:
+      - SoldierName/
+    deathMale: [41, 42, 43]
+    deathFemale: [44, 45, 46]
+    rankStrings:
+      - STR_ROOKIE_PSI_OPERATIVE_RANK
+      - STR_SQUADDIE_PSI_OPERATIVE_RANK
+      - STR_SERGEANT_PSI_OPERATIVE_RANK
+      - STR_CAPTAIN_PSI_OPERATIVE_RANK
+      - STR_COLONEL_PSI_OPERATIVE_RANK
+      - STR_COMMANDER_PSI_OPERATIVE_RANK
+    armor: STR_NONE_UC
+
+extended:
+  tags:
+    RuleSoldier:
+      CLASS: int            # 0 = no class, 1 = Ranger, 2 = Heavy, 3 = Sharpshooter, 4 = Medic, 5 = Psi
+    BattleGame:
+      BATTLE_CRY_STATE: int # 0 = not activated, 1 = active this turn, 2 = disabled
+      BATTLE_CRY_X: int     # x position where battle cry was activated
+      BATTLE_CRY_Y: int     # y position where battle cry was activated
+    BattleUnit:
+      LIGHTNING_REFLEXES_STATE: int
+      UNTOUCHABLE_COUNTER: int
+      UNTOUCHABLE_STATE: int
+      REAPER_STATE: int  # 0 = not available, 1 = not activated yet, available 2 = active in this turn
+      DEATH_FROM_ABOVE_STATE: int
+      BLAST_PADDING_STATE: int
+      CAMOUFLAGE_STATE: int
+      STASIS_STATE: int  # 0 = no stasis, 1 = stasis active until next alien turn, 2 = stasis active until next xcom turn
+      SUSTAIN_STATE: int
+      EXECUTIONER_STATE: int
+      THREAT_ASSESSMENT_STATE: int
+      BACKSTAB_STATE: int
+      BLADEMASTER_STATE: int
+      FIELD_MEDIC_STATE: int
+      RUPTURE_STATE: int
+      SHREDDER_STATE: int
+      PARRY_STATE: int
+      MELEE_DEFENSE_STATE: int
+      SLAYER_STATE: int
+    RuleSoldierBonus:
+      LIGHTNING_REFLEXES: int
+      UNTOUCHABLE: int
+      REAPER: int
+      DEATH_FROM_ABOVE: int
+      BLAST_PADDING: int
+      CAMOUFLAGE: int
+      SUSTAIN: int
+      EXECUTIONER: int
+      THREAT_ASSESSMENT: int
+      BACKSTAB: int
+      BLADEMASTER: int
+      FIELD_MEDIC: int
+    RuleItem:
+      SWORD_TYPE: int
+      RUPTURE_DAMAGE: int
+      SHREDDER_DAMAGE: int
+  scripts:
+    reactionUnitAction: 
+      - offset: 24   # for lightning reflexes
+        code: |
+          var int reflexes;
+          var int action_id;
+          var int reaction_id;
+
+          action_unit.getId action_id;
+          reaction_unit.getId reaction_id;
+
+          action_unit.getTag reflexes Tag.LIGHTNING_REFLEXES_STATE;
+          
+          if gt reflexes 0;
+            debug_log "Reaction chance before LR activation:" reaction_chance;
+            set reaction_chance 100;
+            sub reaction_chance reflexes;
+            debug_log "Lightning Reflexes Activated! RC now:" reaction_chance;
+          end;
+          return reaction_chance;
+    newTurnUnit:
+      - offset: 2    # for camouflage
+        code: |
+          var int turns_since_spotted;
+          var int camouflage;
+
+          unit.getTurnsSinceSpotted turns_since_spotted;
+          
+          if and neq turns_since_spotted 255 gt turns_since_spotted -1;
+            unit.getTag camouflage Tag.CAMOUFLAGE_STATE;
+            if gt camouflage 0;
+              unit.setTag Tag.CAMOUFLAGE_STATE 0;
+              debug_log "You have been spotted! Camouflage disabled.";
+            end;
+          end;
+          return;
+      - offset: 65   # for untouchable
+        code: |
+          var int untouchable;
+          var int unit_id;
+          var int counter;
+
+          if eq side 0; # xcom turns
+            unit.getId unit_id;
+            
+            unit.getTag untouchable Tag.UNTOUCHABLE_STATE;
+
+            if gt untouchable 0;
+              debug_log "New turn for untouchable unit:" unit_id;
+              unit.getTag counter Tag.UNTOUCHABLE_COUNTER;
+              if gt counter 0;
+                debug_log "Untouchable reset!";
+                unit.setTag Tag.UNTOUCHABLE_COUNTER 0;
+              end;
+            end;
+          end;
+          return;
+      - offset: 67   # for reaper
+        code: |
+          var int reaper_state;
+          var int unit_id;
+          if eq side 0; # xcom turns
+            unit.getId unit_id;
+            unit.getTag reaper_state Tag.REAPER_STATE;
+
+            if gt reaper_state 1;
+              debug_log "Reaper was active last turn for:" unit_id;
+              debug_log "Reaper deactivated for this unit.";
+              unit.setTag Tag.REAPER_STATE 0;
+              #unit.setMana 0;
+            end;
+          end;
+          return;
+      - offset: 70   # for stasis
+        code: |
+          var int stasis_state;
+          var int unit_id;
+
+          unit.getTag stasis_state Tag.STASIS_STATE;
+
+          if and eq stasis_state 1 eq side 1; # end on alien turn
+            unit.getId unit_id;
+            debug_log "Stasis was active last turn for:" unit_id;
+            debug_log "Stasis deactivated for this unit.";
+            unit.setTag Tag.STASIS_STATE 0;
+          else and eq stasis_state 2 eq side 0; # end on xcom turn
+            unit.getId unit_id;
+            debug_log "Stasis was active last turn for:" unit_id;
+            debug_log "Stasis deactivated for this unit.";
+            unit.setTag Tag.STASIS_STATE 0;
+          end;
+          return;
+      - offset: 71   # for battle cry (TODO: activation/deactivation)
+        code: |
+          var int battle_cry;
+          var int activation_dist_sq;
+          var int temp;
+          var int two_dee_distance_sq;
+          var int source_x;
+          var int source_y;
+          var int unit_x;
+          var int unit_y;
+
+          set activation_dist_sq 7;
+
+          battle_game.getTag battle_cry Tag.BATTLE_CRY_STATE;
+
+          if eq battle_cry 1;
+            set two_dee_distance_sq 0;
+            mul activation_dist_sq activation_dist_sq;
+
+            battle_game.getTag source_x Tag.BATTLE_CRY_X;
+            battle_game.getTag source_y Tag.BATTLE_CRY_Y;
+
+            unit.getPosition.getX unit_x;
+            unit.getPosition.getY unit_y;
+            
+            sub source_x unit_x;
+            sub source_y unit_y;
+
+            mul source_x source_x;
+            mul source_y source_y;
+
+            add two_dee_distance_sq source_x;
+            add two_dee_distance_sq source_y;
+            
+            debug_log "Battle cry distance (sq)" activation_dist_sq;
+            debug_log "Unit dist from source (sq)" two_dee_distance_sq;
+
+            if gt two_dee_distance_sq activation_dist_sq;
+              debug_log "Too far away. No effect.";
+            else;
+              debug_log "Unit is under effect of battle cry!";
+              unit.getEnergyMax temp;
+              unit.setEnergy temp;
+
+              unit.getTimeUnits temp;
+              add temp 16;
+              unit.setTimeUnits temp;
+
+              unit.getMorale temp;
+              add temp 20;
+              unit.setMorale temp;
+            end;
+          end;
+
+          return;
+    hitUnit:
+      - offset: 2    # for camouflage
+        code: |
+          var int camo_state;
+
+          unit.getTag camo_state Tag.CAMOUFLAGE_STATE;
+          
+          if neq camo_state 0;
+            unit.setTag Tag.CAMOUFLAGE_STATE 0;
+            debug_log "Camouflage disabled. You have been spotted. (hit)";
+          end;
+          return power part side;
+      - offset: 65   # for untouchable
+        code: |
+          var int unit_id;
+          var int untouchable;
+          var int counter;
+
+          unit.getId unit_id;
+
+          unit.getTag untouchable Tag.UNTOUCHABLE_STATE;
+
+          if gt untouchable 0;
+            debug_log "Hit against untouchable unit" unit_id;
+            unit.getTag counter Tag.UNTOUCHABLE_COUNTER;
+            if gt counter 0;
+              debug_log " - with counter " counter;
+              set power 0;
+              debug_log " - DEFLECTED!";
+              sub counter 1;
+              unit.setTag Tag.UNTOUCHABLE_COUNTER counter;
+            end;
+          end;
+          return power part side;
+      - offset: 70   # for stasis
+        code: |
+          var int stasis_state;
+
+          unit.getTag stasis_state Tag.STASIS_STATE;
+
+          if gt stasis_state 0;
+            debug_log "Unit in stasis was hit. Power reduced to zero.";
+            set power 0;
+          end;
+          return power part side;
+      - offset: 40   # for blast padding
+        code: |
+          var int blast_padding;
+
+          unit.getTag blast_padding Tag.BLAST_PADDING_STATE;
+
+          if gt blast_padding 0;
+            if or eq damaging_type 1 eq damaging_type 2 eq damaging_type 3;
+              debug_log "Blast padding against damageType Armor Piercing / Incendiary / HE. Power" power;
+              muldiv power blast_padding 100;
+              debug_log " - Power reduced to" power;
+            end;
+          end;
+          return power part side;
+      - offset: 41   # for threat assessment
+        code: |
+          var int threat_assessment;
+          var int current_time_units;
+          var int half_max_time_units;
+
+          unit.getTag threat_assessment Tag.THREAT_ASSESSMENT_STATE;
+          unit.getTimeUnits current_time_units;
+          unit.getTimeUnitsMax half_max_time_units;
+          div half_max_time_units 2;
+
+          if gt threat_assessment 0;
+            if gt current_time_units half_max_time_units;
+              debug_log "Threat assessment activated. Power" power;
+              muldiv power threat_assessment 100;
+              debug_log " - Power reduced to" power;
+            end;
+          end;
+          return power part side;
+      - offset: 42   # for backstab
+        code: |
+          var int backstab;
+          var ptr RuleArmor armor_rule;
+          
+          unit.getTag backstab Tag.BACKSTAB_STATE;
+
+          if gt backstab 0;
+            if eq side 2;
+              debug_log "Backstab activated with power" power;
+              muldiv power backstab 100; # 150 = 150% power increase
+              debug_log "  - power adjusted to" power;
+            end;
+          end;
+          unit.getRuleArmor armor_rule;
+          debug_log "HIT unit:" unit;
+          debug_log " with armor:" armor_rule;
+          debug_log " Power:" power; # debug
+          return power part side;
+      - offset: 43   # for parry
+        code: |
+          var int unit_id;
+          var int parry;
+          var int parry_chance;
+          var int attacker_x;
+          var int attacker_y;
+          var int target_x;
+          var int target_y;
+          var int two_dee_distance_sq;
+          var int parry_distance_sq;
+
+          unit.getId unit_id;
+
+          set parry_distance_sq 2; # distance in tiles from which an attack can be parried
+
+          unit.getTag parry Tag.PARRY_STATE;  # hit unit has parry skill?
+          set parry_chance parry;  # 40 = 40% chance to parry an attack, can be set on the tag
+
+          if gt parry 0;
+            debug_log "Hit against parrying unit" unit_id;
+
+            set two_dee_distance_sq 0;
+            mul parry_distance_sq parry_distance_sq;
+
+            attacker.getPosition.getX attacker_x;
+            attacker.getPosition.getY attacker_y;
+
+            unit.getPosition.getX target_x;
+            unit.getPosition.getY target_y;
+            
+            sub attacker_x target_x;
+            sub attacker_y target_y;
+
+            mul attacker_x attacker_x;
+            mul attacker_y attacker_y;
+
+            add two_dee_distance_sq attacker_x;
+            add two_dee_distance_sq attacker_y;
+            
+            debug_log "Parry distance (sq)" parry_distance_sq;
+            debug_log "Parry unit attacked from dist (sq)" two_dee_distance_sq;
+
+            if gt two_dee_distance_sq parry_distance_sq;
+              debug_log "Too far. No parry possible.";
+            else;
+              battle_game.randomChance parry_chance;
+              if eq parry_chance 1;
+                debug_log "PARRY activated, attack negated.";
+                set power 0;
+              end;
+            end;
+          end;
+          return power part side;
+      - offset: 44   # for melee defense
+        code: |
+          var int unit_id;
+          var int melee_defense;
+
+          unit.getId unit_id;
+          unit.getTag melee_defense Tag.MELEE_DEFENSE_STATE;  # hit unit has melee defense skill?
+
+          if gt melee_defense 0;
+            if eq battle_action battle_action_hit;
+              debug_log "Melee hit against melee defense unit" unit_id power;
+              muldiv power melee_defense 100; # 50 = 50% damage reduction to health
+              debug_log " - Power reduced to" power;
+            end;
+          end;
+          return power part side;
+    damageUnit:
+      - offset: 65   # for untouchable
+        code: |
+          var int unit_health;
+          var int untouchable;
+
+          attacker.getTag untouchable Tag.UNTOUCHABLE_STATE;
+        
+          unit.getHealth unit_health;
+
+          if gt untouchable 0;    # attacker has untouchable skill
+            debug_log "Untouchable unit has attacked";
+            if ge to_health unit_health;  # unit will be killed
+              attacker.setTag Tag.UNTOUCHABLE_COUNTER untouchable;
+              debug_log " ... and scored a Kill! Untouchable active.";
+            end;
+          end;
+          return;
+      - offset: 70   # for sustain
+        code: |
+          var int unit_health;
+          var int sustain;
+          var int id;
+
+          unit.getTag sustain Tag.SUSTAIN_STATE;
+        
+          unit.getHealth unit_health;
+
+          if gt sustain 0;    # attacked unit has sustain skill
+            unit.getId id;
+            debug_log "Sutained unit was attacked:" id;
+            if ge to_wound 0; # a fatal wound would be inflicted
+               mul to_wound 3; # 3 hp damage for every wound
+               add to_health to_wound;
+               debug_log " .. and a fatal wound would be inflicted. Channeled into HP damage:" to_health;
+               set to_wound 0;
+            end;
+            if ge to_health unit_health;  # unit will be killed
+              unit.setTag Tag.SUSTAIN_STATE 0; # deactivate, sustain for this unit, only once
+              unit.setTimeUnits 0;
+              unit.setEnergy 0;
+              debug_log " .. and would be killed. Going to sleep instead. ZZZ..";
+              set to_health unit_health;
+              sub to_health 1;  # set HP to 1
+            end;
+          end;
+          return;
+      - offset: 99   # for death from above
+        code: |
+          var int unit_health;
+          var int attacker_height_level;
+          var int victim_height_level;
+          var int has_death_from_above;
+
+          attacker.getPosition.getZ attacker_height_level;
+          unit.getPosition.getZ victim_height_level;
+
+          unit.getHealth unit_health;
+          attacker.getTag has_death_from_above Tag.DEATH_FROM_ABOVE_STATE;
+
+          if gt has_death_from_above 0;
+            if ge to_health unit_health;
+              if gt attacker_height_level victim_height_level;
+                debug_log "Death from above activated! " to_health;
+                
+                muldiv to_health has_death_from_above 100; # 150 = 150% damage to health
+                debug_log " - Damaged increased to" to_health;
+
+              end;
+            end;
+          end;
+          return;
+      - offset: 43   # for executioner
+        code: |
+          var int unit_health;
+          var int unit_half_max_health;
+          var int executioner;
+
+          unit.getHealth unit_health;
+          unit.getHealthMax unit_half_max_health;
+          div unit_half_max_health 2;
+
+          attacker.getTag executioner Tag.EXECUTIONER_STATE;
+
+          if gt executioner 0;
+            if lt unit_health unit_half_max_health;
+              
+              debug_log "Executioner activated! " to_health;
+              muldiv to_health executioner 100; # 150 = 150% damage to health
+              debug_log " - Damaged increased to" to_health;
+
+            end;
+          end;
+          return;
+      - offset: 44   # for slayer
+        code: |
+          var int unit_health;
+          var int unit_max_health;
+          var int unit_half_max_health;
+          var int slayer_chance;
+
+          unit.getHealth unit_health;
+          unit.getHealthMax unit_half_max_health;
+          div unit_half_max_health 2;
+
+          attacker.getTag slayer_chance Tag.SLAYER_STATE;
+
+          if gt slayer_chance 0; # attacker must have slayer skill
+            if eq battle_action battle_action_hit; # must be melee attack
+              if lt unit_health unit_half_max_health; # attacked unit hp < 50%
+                battle_game.randomChance slayer_chance;
+                if eq slayer_chance 1;  # slayer chance check
+                  debug_log "Slayer activated! " to_health;
+                  set to_health unit_health;
+                  debug_log " - Damaged increased to" to_health;
+                end;
+              end;  
+            end;
+          end;
+          return;
+      - offset: 67   # for reaper
+        code: |
+          var int unit_health;
+          var int has_reaper;
+          var int state; # 0 = not available, 1 = not activated yet, available 2 = active in this turn
+          var ptr RuleArmor armor_rule;
+          var int current_time_units;
+          var int max_time_units;
+          var int time_units_to_refund;
+          var int time_units_spent;
+
+          attacker.getTag state Tag.REAPER_STATE;
+
+          unit.getHealth unit_health;
+
+          if gt state 0;
+            debug_log "A reaper unit has damaged someone.. (BA/DT)" battle_action damaging_type;
+            if and eq battle_action 10 eq damaging_type 7; # action = hit && damage type = melee
+              if ge to_health unit_health;                 # would be a kill
+                # TRIGGER conditions met
+                if eq state 1; # not yet activated in this mission, activate now
+                  debug_log "REAPER Activated";
+                  set state 2;
+                  attacker.setTag Tag.REAPER_STATE state;
+                end;
+                if eq state 2; # we are active, so refund the action cost
+                  debug_log "REAPER triggered!";
+
+                  attacker.getTimeUnitsMax max_time_units;
+
+                  attacker.setTimeUnits max_time_units;    # set the new TU value
+                  debug_log "TimeUnits refunded!";
+                end;
+              end;
+            end;
+          end;
+          # debug
+          debug_log " Damage to health:" to_health;
+          debug_log " Damage to armor:" to_armor;
+          debug_log " Damage to stun:" to_stun;
+          debug_log " Damage to time:" to_time;
+          debug_log " Damage to energy:" to_energy;
+          debug_log " Damage to morale:" to_morale;
+          debug_log " Damage to wound:" to_wound;          
+          debug_log " Damage to transform (tile?):" to_transform;
+          debug_log " Damage to mana:" to_mana;
+          return;
+      - offset: 68   # for shredder
+        code: |
+          var int weapon_state;
+          var int unit_state;
+          var ptr RuleItem item_rule;
+
+          weapon_item.getRuleItem item_rule;
+
+          attacker.getTag unit_state Tag.SHREDDER_STATE;
+          item_rule.getTag weapon_state Tag.SHREDDER_DAMAGE;
+
+          if and eq battle_action battle_action_autoshoot gt weapon_state 0 gt unit_state 0;
+            debug_log "Shredder activated. to_armor" to_armor;
+            set to_armor weapon_state;
+            debug_log "Shredder adjustment done: " to_armor;
+          end;
+          return;
+      - offset: 69   # for rupture
+        code: |
+          var int weapon_state;
+          var int unit_state;
+          var int attacker_state;
+          var ptr RuleItem item_rule;
+          var int increase_damage;
+          set increase_damage 0;
+          weapon_item.getRuleItem item_rule;
+
+          unit.getTag unit_state Tag.RUPTURE_STATE;
+          attacker.getTag attacker_state Tag.RUPTURE_STATE;
+          item_rule.getTag weapon_state Tag.RUPTURE_DAMAGE;
+
+          if and eq battle_action battle_action_aimshoot gt weapon_state 0 eq attacker_state 1;
+            # tag unit and increase damage by rupture_state
+            unit.setTag Tag.RUPTURE_STATE 2;
+            set increase_damage 1;
+            debug_log "RUPTURED:" unit;
+          else eq unit_state 2;
+            set increase_damage 1;
+          end;
+          if eq increase_damage 1;
+            debug_log " - Damage to health was:" to_health;
+            muldiv to_health weapon_state 100; # factor in the weapon rupture state (150 = 150% damage)
+            debug_log " - changed to:" to_health;
+          end;
+          return;
+    healUnit:
+      - offset: 55   # for field medic
+        code: |
+          var int actor_id;
+          var int target_id;
+          var int field_medic;
+          var int health_to_heal;
+
+          actor.getId actor_id;
+          target.getId target_id;
+
+          actor.getTag field_medic Tag.FIELD_MEDIC_STATE;
+
+          if gt field_medic 0;
+            
+            debug_log "Medikit usage by field medic, unit" actor_id;
+            target.getHealthMax health_to_heal;
+
+            if eq medikit_action_type 1; # heal
+              debug_log " - Medikit target:" target_id;
+              debug_log " - Bodypart:" body_part;
+              debug_log " - Health recovered (org.):" health_recovery;
+              debug_log " - Wounds recovered (org.):" wound_recovery;
+              # we want field_medic% of max_health
+              muldiv health_to_heal field_medic 100;
+              set health_recovery health_to_heal;
+              debug_log " - Health recovered (adj.):" health_recovery;
+            end;
+            if eq medikit_action_type 2; # stim
+              debug_log " - Energy recovered:" energy_recovery;
+              debug_log " - Stun recovered:" stun_recovery;
+              debug_log " - Mana recovered:" mana_recovery;
+            end;
+            if eq medikit_action_type 4; # pain
+              debug_log " - Morale recovered:" morale_recovery;
+              debug_log " - Painkiller effectiveness:" painkiller_recovery;
+            end;
+          end;
+
+          return;
+    recolorUnitSprite:   
+      - offset: 2    # for camouflage
+        code: |
+          var int camo_state;
+          var int turns_since_spotted;
+          var int temp;
+
+          unit.getTag camo_state Tag.CAMOUFLAGE_STATE;        
+
+          if gt camo_state 0;
+            unit.getTurnsSinceSpotted turns_since_spotted;
+            if and neq turns_since_spotted 255 gt turns_since_spotted -1;
+              # just been spotted during own turn! blink!
+              set temp anim_frame;
+              wavegen_tri temp 8 16 15;
+              mul temp -1;
+              add temp 8;
+              add_shade new_pixel temp;
+            else;
+              add_shade new_pixel 6; # camouflage working, darken the armor
+            end;
+          end;
+
+          return new_pixel;
+    visibilityUnit:
+      - offset: 2    # for camouflage
+        code: |
+          var int observer_x;
+          var int observer_y;
+          var int target_x;
+          var int target_y;
+          var int two_dee_distance_sq;
+          var int camo_distance_sq;
+
+          target_unit.getTag camo_distance_sq Tag.CAMOUFLAGE_STATE;
+
+          if neq camo_distance_sq 0;
+            set two_dee_distance_sq 0;
+            mul camo_distance_sq camo_distance_sq;
+
+            observer_unit.getPosition.getX observer_x;
+            observer_unit.getPosition.getY observer_y;
+
+            target_unit.getPosition.getX target_x;
+            target_unit.getPosition.getY target_y;
+            
+            sub observer_x target_x;
+            sub observer_y target_y;
+
+            mul observer_x observer_x;
+            mul observer_y observer_y;
+
+            add two_dee_distance_sq observer_x;
+            add two_dee_distance_sq observer_y;
+            
+            debug_log "Camo units safe distance (sq)" camo_distance_sq;
+            debug_log "Camo unit may be visible in distance (sq)" two_dee_distance_sq;
+
+            if gt two_dee_distance_sq camo_distance_sq;
+              debug_log "Camouflage working!";
+              set current_visibility 0;   # stay unseen
+            else;
+              debug_log "Camo unit spotted!";
+              set current_visibility 100; # expose
+            end;
+          end;
+          return current_visibility visibility_mode;
+    accuracyMultiplierBonusStats:
+      - offset: 80   # for blademaster
+        code: |
+          var int activate;
+          var int blademaster;
+          var ptr BattleItem left_weapon;
+          var ptr RuleItem left_rule;
+          var ptr BattleItem right_weapon;
+          var ptr RuleItem right_rule;
+          
+          var int left_is_sword;
+          var int right_is_sword;
+
+          set activate 0;
+
+          unit.getLeftHandWeapon left_weapon;
+          unit.getRightHandWeapon right_weapon;
+
+          left_weapon.getRuleItem left_rule;
+          right_weapon.getRuleItem right_rule;
+
+          left_rule.getTag left_is_sword Tag.SWORD_TYPE;
+          right_rule.getTag right_is_sword Tag.SWORD_TYPE;
+          
+          unit.getTag blademaster Tag.BLADEMASTER_STATE;
+
+          if gt blademaster 0;
+            debug_log "Accuracy Bonus for Blademaster (LW/RW)" left_weapon right_weapon;
+            if and gt left_is_sword 0 eq right_weapon null; # sword in left hand, no weapon in right hand
+              set activate 1;
+            else and gt right_is_sword 0 eq left_weapon null; # sword in right hand, no weapon in left hand
+              set activate 1;
+            end;
+          end;
+
+          if gt activate 0;
+            debug_log "Blademaster activated at accuracy bonus" bonus;
+            set bonus blademaster;
+            debug_log " - accuracy bonus changed to" bonus;
+          end;
+          return bonus;
+    applySoldierBonuses:
+      - offset: 3
+        code: |
+          var int id;
+          var int has_reaper;
+          var int has_untouchable;
+          var int has_lightning_reflexes;
+          var int has_death_from_above;
+          var int has_blast_padding;
+          var int has_camouflage;
+          var int has_sustain;
+          var int has_executioner;
+          var int has_threat_assessment;
+          var int has_backstab;
+          var int has_blademaster;
+          var int has_field_medic;
+
+          unit.getId id;
+
+          # class skills are awarded via molding transformations otherwise same procedure
+          soldier_bonus.getTag has_blast_padding Tag.BLAST_PADDING;
+          soldier_bonus.getTag has_blademaster Tag.BLADEMASTER;
+          soldier_bonus.getTag has_field_medic Tag.FIELD_MEDIC;
+          soldier_bonus.getTag has_death_from_above Tag.DEATH_FROM_ABOVE;
+
+          # these skills are trainable via transformation -> bonus
+          soldier_bonus.getTag has_reaper Tag.REAPER;
+          soldier_bonus.getTag has_untouchable Tag.UNTOUCHABLE;
+          soldier_bonus.getTag has_lightning_reflexes Tag.LIGHTNING_REFLEXES;
+          soldier_bonus.getTag has_camouflage Tag.CAMOUFLAGE;
+          soldier_bonus.getTag has_sustain Tag.SUSTAIN;
+          soldier_bonus.getTag has_executioner Tag.EXECUTIONER;
+          soldier_bonus.getTag has_threat_assessment Tag.THREAT_ASSESSMENT;
+          soldier_bonus.getTag has_backstab Tag.BACKSTAB;
+          
+          if gt has_reaper 0;
+            debug_log "Unit" id "- Reaper Skill found";
+            unit.setTag Tag.REAPER_STATE 1;
+          end;
+
+          if gt has_untouchable 0;
+            debug_log "Unit" id "-  Untouchable Skill found at" has_untouchable;
+            unit.setTag Tag.UNTOUCHABLE_STATE has_untouchable;
+          end;
+
+          if gt has_lightning_reflexes 0;
+            debug_log "Unit" id "-  Lightning Reflexes Skill found at" has_lightning_reflexes;
+            unit.setTag Tag.LIGHTNING_REFLEXES_STATE has_lightning_reflexes;
+          end;
+
+          if gt has_death_from_above 0;
+            debug_log "Unit" id "-  Death from Above Skill found at" has_death_from_above;
+            unit.setTag Tag.DEATH_FROM_ABOVE_STATE has_death_from_above;
+          end;
+
+          if gt has_blast_padding 0;
+            debug_log "Unit" id "-  Blast padding Skill found at" has_blast_padding;
+            unit.setTag Tag.BLAST_PADDING_STATE has_blast_padding;
+          end;
+
+          if gt has_camouflage 0;
+            debug_log "Unit" id "-  Camouflage Skill found at" has_camouflage;
+            unit.setTag Tag.CAMOUFLAGE_STATE has_camouflage;
+          end;
+
+          if gt has_sustain 0;
+            debug_log "Unit" id "-  Sustain Skill found";
+            unit.setTag Tag.SUSTAIN_STATE 1;
+          end;
+
+          if gt has_executioner 0;
+            debug_log "Unit" id "-  Executioner Skill found at" has_executioner;
+            unit.setTag Tag.EXECUTIONER_STATE has_executioner;
+          end;
+
+          if gt has_threat_assessment 0;
+            debug_log "Unit" id "-  Threat Assessment Skill found at" has_threat_assessment;
+            unit.setTag Tag.THREAT_ASSESSMENT_STATE has_threat_assessment;
+          end;
+
+          if gt has_backstab 0;
+            debug_log "Unit" id "-  Backstab Skill found at" has_backstab;
+            unit.setTag Tag.BACKSTAB_STATE has_backstab;
+          end;
+
+          if gt has_blademaster 0;
+            debug_log "Unit" id "-  Blademaster Skill found at" has_blademaster;
+            unit.setTag Tag.BLADEMASTER_STATE has_blademaster;
+          end;
+
+          if gt has_field_medic 0;
+            debug_log "Unit" id "-  Field Medic Skill found at" has_field_medic;
+            unit.setTag Tag.FIELD_MEDIC_STATE has_field_medic;
+          end;
+          return;
+
+soldierBonuses:
+  - name: STR_REAPER_BONUS
+    tags:
+      REAPER: 1               # (1/0) 1 = on, 0 = off, TU refund after kill
+  - name: STR_UNTOUCHABLE_BONUS
+    tags:
+      UNTOUCHABLE: 2          # (0-n) number of attacks which are deflected after a kill
+  - name: STR_LIGHTNING_REFLEXES_BONUS
+    tags:
+      LIGHTNING_REFLEXES: 80  # (0-100) amount of reaction_chance reduction for enemies
+  - name: STR_DEATH_FROM_ABOVE_BONUS
+    tags:
+      DEATH_FROM_ABOVE: 150   # (100-xxx) percentage of damage to apply (150 = 150% damage)
+  - name: STR_BLAST_PADDING_BONUS
+    tags:
+      BLAST_PADDING: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
+  - name: STR_CAMOUFLAGE_BONUS
+    tags:
+      CAMOUFLAGE: 5           # distance threshold for stealth, 5 means enemies can only see you in a 5 tile range
+  - name: STR_SUSTAIN_BONUS
+    tags:
+      SUSTAIN: 1              # (1/0) 1 = on, 0 = off, unconsciousness instead of death
+  - name: STR_EXECUTIONER_BONUS
+    tags:
+      EXECUTIONER: 150        # (100-xxx) percentage of damage to apply (to units below 50% HP)
+  - name: STR_THREAT_ASSESSMENT_BONUS
+    tags:
+      THREAT_ASSESSMENT: 20   # (0-100) amount of damage reduction when reserved TU>50%
+  - name: STR_BACKSTAB_BONUS
+    tags:
+      BACKSTAB: 150           # (100-xxx) percentage of damage to apply (to units attacked from behind)
+  - name: STR_BLADEMASTER_BONUS
+    tags:
+      BLADEMASTER: 150        # (100-xxx) percentage of aim bonus to apply (to units attacked with sword)
+  - name: STR_FIELD_MEDIC_BONUS
+    tags:
+      FIELD_MEDIC: 20         # (0-100) percentage of health to recover on heal  
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_RANGER: Ranger
+      STR_HEAVY: Heavy
+      STR_SHARPSHOOTER: Sniper
+      STR_PSI_OPERATIVE: Psi-Op
+      STR_MEDIC: Medic
+      STR_RANGER_MOLDING: Ranger molding
+      STR_HEAVY_MOLDING: Heavy molding
+      STR_SHARPSHOOTER_MOLDING: Sniper molding
+      STR_PSI_OPERATIVE_MOLDING: Psi-Op molding
+      STR_MEDIC_MOLDING: Medic molding
+      STR_ROOKIE_RANGER_RANK: Rk. Ranger
+      STR_SQUADDIE_RANGER_RANK: Sq. Ranger
+      STR_SERGEANT_RANGER_RANK: Sgt. Ranger
+      STR_CAPTAIN_RANGER_RANK: Cpt. Ranger
+      STR_COLONEL_RANGER_RANK: Col. Ranger
+      STR_COMMANDER_RANGER_RANK: Cdr. Ranger
+      STR_ROOKIE_HEAVY_RANK: Rk. Heavy
+      STR_SQUADDIE_HEAVY_RANK: Sq. Heavy
+      STR_SERGEANT_HEAVY_RANK: Sgt. Heavy
+      STR_CAPTAIN_HEAVY_RANK: Cpt. Heavy
+      STR_COLONEL_HEAVY_RANK: Col. Heavy
+      STR_COMMANDER_HEAVY_RANK: Cdr. Heavy
+      STR_ROOKIE_SHARPSHOOTER_RANK: Rk. Sniper
+      STR_SQUADDIE_SHARPSHOOTER_RANK: Sq. Sniper
+      STR_SERGEANT_SHARPSHOOTER_RANK: Sgt. Sniper
+      STR_CAPTAIN_SHARPSHOOTER_RANK: Cpt. Sniper
+      STR_COLONEL_SHARPSHOOTER_RANK: Col. Sniper
+      STR_COMMANDER_SHARPSHOOTER_RANK: Cdr. Sniper
+      STR_ROOKIE_PSI_OPERATIVE_RANK: Rk. Psi-Op
+      STR_SQUADDIE_PSI_OPERATIVE_RANK: Sq. Psi-Op
+      STR_SERGEANT_PSI_OPERATIVE_RANK: Sgt. Psi-Op
+      STR_CAPTAIN_PSI_OPERATIVE_RANK: Cpt. Psi-Op
+      STR_COLONEL_PSI_OPERATIVE_RANK: Col. Psi-Op
+      STR_COMMANDER_PSI_OPERATIVE_RANK: Cdr. Psi-Op
+      STR_ROOKIE_MEDIC_RANK: Rk. Medic
+      STR_SQUADDIE_MEDIC_RANK: Sq. Medic
+      STR_SERGEANT_MEDIC_RANK: Sgt. Medic
+      STR_CAPTAIN_MEDIC_RANK: Cpt. Medic
+      STR_COLONEL_MEDIC_RANK: Col. Medic
+      STR_COMMANDER_MEDIC_RANK: Cdr. Medic
+      STR_TRAIN_REAPER: "ST: Reaper"
+      STR_TRAIN_UNTOUCHABLE: "ST: Untouchable"
+      STR_TRAIN_LIGHTNING_REFLEXES: "ST: Lightning Reflexes"
+      STR_TRAIN_DEATH_FROM_ABOVE: "ST: Death from above"
+      STR_TRAIN_BLAST_PADDING: "ST: Blast Padding"
+      STR_TRAIN_CAMOUFLAGE: "ST: Camouflage"
+      STR_TRAIN_SUSTAIN: "ST: Sustain"
+      STR_TRAIN_EXECUTIONER: "ST: Executioner"
+      STR_TRAIN_THREAT_ASSESSMENT: "ST: Threat Assessment"
+      STR_TRAIN_BACKSTAB:  "ST: Backstab"
+      STR_TRAIN_BLADEMASTER: "ST: Blademaster"
+      STR_REAPER_BONUS: "Reaper"
+      STR_UNTOUCHABLE_BONUS: "Untouchable"
+      STR_LIGHTNING_REFLEXES_BONUS: "Lightning Reflexes"
+      STR_DEATH_FROM_ABOVE_BONUS: "Death from above"
+      STR_BLAST_PADDING_BONUS: "Blast Padding"
+      STR_CAMOUFLAGE_BONUS: "Camouflage"
+      STR_SUSTAIN_BONUS: "Sustain"
+      STR_EXECUTIONER_BONUS: "Executioner"
+      STR_THREAT_ASSESSMENT_BONUS: "Threat Assessment"
+      STR_BACKSTAB_BONUS:  "Backstab"
+      STR_BLADEMASTER_BONUS: "Blademaster"
+      STR_FIELD_MEDIC_BONUS: "Field Medic"
+
+statStrings:
+  - string: "Psi" #above average psi skill
+    psiSkill: [40, ~]
+  - string: "Elite"
+    health: [30, ~]
+    strength: [40, ~]
+    reactions: [60, ~]
+    firing: [60, ~]
+    stamina: [60, ~]
+  #--- accuracy/long range class ---
+  - string: "Snipr"
+    firing: [70, ~]
+    reactions: [60, ~]
+  - string: "Mksmn"
+    firing: [70, ~]
+  #--- mobility heavy class ---
+  - string: "HvySct" #mobile medium range
+    health: [30, ~]
+    strength: [40, ~]
+    reactions: [50, ~]
+    stamina: [60, ~]
+    tu: [60, ~]
+  - string: "HvyAsslt" #mobile close range
+    health: [30, ~]
+    strength: [40, ~]
+    reactions: [~, 49]
+    stamina: [70, ~]
+    tu: [60, ~]
+  - string: "HvySupp"
+    health: [30, ~]
+    strength: [40, ~]
+    bravery: [70, ~]
+    stamina: [60, ~]
+    tu: [50, ~]
+  #--- mobility class ---
+  - string: "Sct" #mobile medium range
+    reactions: [50, ~]
+    stamina: [60, ~]
+    tu: [60, ~]
+  - string: "Asslt" #mobile close range
+    reactions: [~, 49]
+    stamina: [70, ~]
+    tu: [60, ~]
+  - string: "Supp"
+    bravery: [70, ~]
+    stamina: [60, ~]
+    tu: [50, ~]
+  #--- heavy class ---
+  - string: "Hvy"
+    health: [30, ~]
+    strength: [40, ~]
+  #--- speciality class ---
+  - string: "Spclst" #good at throwing & melee
+    stamina: [60, ~]
+    tu: [50, ~]
+    strength: [40, ~]
+    throwing: [70, ~]
+    melee: [70, ~]
+  - string: "Grndr" #good at throwing
+    strength: [40, ~]
+    throwing: [70, ~]
+  - string: "Melee" #mobile and good at hand2hand
+    stamina: [60, ~]
+    tu: [50, ~]
+    strength: [40, ~]
+    melee: [70, ~]

@@ -1,0 +1,163 @@
+extended:
+  tags:
+    RuleItem:
+      SKILL_POWER: int
+      CLASS_SKILL_ACTIVATION: int
+    RuleArmor:
+      SKILL_POWER: int
+  scripts:
+    hitUnit:
+      - offset: 1
+        code: |
+          var int amp_type;
+          var ptr RuleItem item_rule;
+
+          damaging_item.getRuleItem item_rule;
+          item_rule.getTag amp_type Tag.SKILL_AMPLIFIER;
+
+          if gt amp_type 0;
+            debug_log "Skil Amp has been used on something.";
+          end;
+          return power part side;
+    healUnit:
+      - offset: 1
+        code: |
+          var int unit_class;
+          var int class_skill;
+          var int skill_power;
+          var int temp;
+          var ptr RuleItem item_rule;
+          var ptr RuleSoldier soldier_rule;
+          var ptr RuleArmor armor_rule;
+
+          set skill_power 0;
+
+          item.getRuleItem item_rule;
+          item_rule.getTag class_skill Tag.CLASS_SKILL_ACTIVATION;
+
+          if gt class_skill 0;
+            unit.getRuleArmor armor_rule;
+            item_rule.getTag skill_power Tag.SKILL_POWER;
+            armor_rule.getTag temp Tag.SKILL_POWER;
+            if gt temp skill_power;
+              set skill_power temp;
+            end;
+            # skill_power is now max(item.skill_power, armor.skill_power)
+            debug_log "Class skill activated with power:" skill_power;
+            unit.getRuleSoldier soldier_rule;
+            soldier_rule.getTag unit_class Tag.CLASS;
+            if eq class 1;    # Ranger
+              debug_log " - for Ranger";
+            else eq class 2;  # Heavy
+              debug_log " - for Heavy";
+            else eq class 3;  # Sharpshooter
+              debug_log " - for Sharpshooter";
+            else eq class 4;  # Medic
+              debug_log " - for Medic";
+            end;
+          end;
+          set wound_recovery 0;
+          set health_recovery 0;
+          return;
+
+armors:
+  - type: STR_NONE_UC
+    tags:
+      SKILL_POWER: 1
+    specialWeapon: STR_CLASS_SKILL_AMPLIFIER
+
+items:
+  - type: STR_CLASS_SKILL_AMPLIFIER  # allows for ONE Skill that can activated at any time
+    tags:
+      CLASS_SKILL_ACTIVATION: 1
+      SKILL_POWER: 1
+    hidePower: true
+    battleType: 6 # medikit
+    damageType: 5 # plasma
+    twoHanded: false
+    power: 300
+    hitSound: 36
+    costUse:
+      time: 25
+    costMelee:
+      time: 25
+    flatRate: false
+    medikitType: 1
+    medikitTargetSelf: true
+    medikitTargetMatrix: 0
+    heal: 1     # number of uses per mission
+    specialUseEmptyHand: true
+    medikitActionName: STR_CLASS_SKILL
+  - type: STR_SKILL_AMP_NEAR  # allows for ONE Skills that can activated at any time
+    tags:
+      SKILL_POWER: 1
+    clipSize: -1
+    size: 0.1
+    costSell: 194700
+    hidePower: true
+    damageType: 5 # plasma
+    power: 300
+    weight: 10
+    bigSprite: 33
+    floorSprite: 32
+    handSprite: 88
+    hitSound: 36
+    battleType: 6 # medikit
+    twoHanded: false
+    invWidth: 1
+    invHeight: 3
+    costUse:
+      time: 25
+    costMelee:
+      time: 25
+    medikitType: 1
+    medikitTargetSelf: true
+    medikitTargetMatrix: 63
+    stimulant: 1
+    heal: 1
+    painKiller: 1
+    flatRate: false
+    damageAlter:
+      ArmorEffectiveness: 0
+    specialUseEmptyHand: true
+    medikitActionName: STR_SKILL_ACTION_NEAR
+  - type: STR_SKILL_AMP_FAR  # allows for THREE Skills that can activated at any time
+    tags:
+      SKILL_POWER: 1
+    clipSize: -1
+    size: 0.1
+    costSell: 194700
+    hidePower: true
+    damageType: 5 # plasma
+    power: 300
+    weight: 10
+    bigSprite: 33
+    floorSprite: 32
+    handSprite: 88
+    hitSound: 36
+    battleType: 9 # psi-amp
+    twoHanded: false
+    invWidth: 1
+    invHeight: 3
+    tuUse: 25
+    costUse:
+      time: 25
+    costAuto:
+      time: 25
+    costAimed:
+      time: 25
+    costSnap:
+      time: 25
+    costMindControl:
+      time: 25
+    costPanic:
+      time: 25
+    costMelee:
+      time: 25
+    accuracyUse: 1000
+    accuracyMindControl: 100
+    accuracyPanic: 100
+    flatRate: false
+    psiAttackName: STR_USE_SKILL
+    damageAlter:
+      ArmorEffectiveness: 0
