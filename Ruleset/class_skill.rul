@@ -198,7 +198,6 @@ commendations:
       totalKills: [1, 2, 2, 2, 3, 3, 3, 4, 4, 4]
       totalMissions: [1, 2, 2, 2, 3, 3, 3, 4, 4, 4]
 
-
 soldierBonuses:
   - name: STR_RANGER_INITIAL_BONUS
     tags:
@@ -1761,6 +1760,16 @@ extended:
           end;
                 
           return power part side;
+      - offset: 38   # for aim
+        code: |
+          var int aim;
+          attacker.getTag aim Tag.AIM_STATE;
+
+          if eq aim 2; # was aiming at the beginning of the turn
+            unit.setTag Tag.AIM_STATE 1;  # reset aim bonus after first hit
+            debug_log "Aim bonus reset for" unit;
+          end;
+          return power part side;
     accuracyMultiplierBonusStats:
       - offset: 23   # for shadowstrike
         code: |
@@ -1794,7 +1803,7 @@ extended:
 
           unit.getTag aim Tag.AIM_STATE;
 
-          if eq aim 2; # was kneeling at the beginning of the turn
+          if eq aim 2; # was aiming at the beginning of the turn
             # check pos and kneeling
 
             unit.isKneeled kneeling;
@@ -2367,24 +2376,40 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_RANGER
     text_width: 158
+  - id: STR_RANGER_SKILLS
+    type_id: 8 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_RANGER_SKILLS
   - id: STR_HEAVY
     type_id: 7 # text & image
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_HEAVY
     text_width: 158
+  - id: STR_HEAVY_SKILLS
+    type_id: 8 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_HEAVY_SKILLS
   - id: STR_SHARPSHOOTER
     type_id: 7 # text & image
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_SHARPSHOOTER
     text_width: 158
+  - id: STR_SHARPSHOOTER_SKILLS
+    type_id: 8 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_SHARPSHOOTER_SKILLS
   - id: STR_MEDIC
     type_id: 7 # text & image
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_MEDIC
     text_width: 158
+  - id: STR_MEDIC_SKILLS
+    type_id: 8 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_MEDIC_SKILLS
   - id: STR_PSI_OPERATIVE
     type_id: 7 # text & image
     section: STR_WEAPONS_AND_EQUIPMENT
@@ -2422,6 +2447,11 @@ extraStrings:
       STR_SHARPSHOOTER: Sniper
       STR_PSI_OPERATIVE: Psi-Op
       STR_MEDIC: Medic
+      STR_RANGER_SKILLS: Ranger Skills
+      STR_HEAVY_SKILLS: Heavy Skills
+      STR_SHARPSHOOTER_SKILLS: Sniper Skills
+      STR_MEDIC_SKILLS: Medic Skills
+      STR_PSI_OP_SKILLS: Psi Operative Skills
       STR_HEAVY_NONE_UC: "NONE (Hv.)"
       STR_MEDIC_NONE_UC: "NONE (Md.)"
       STR_RANGER_NONE_UC: "NONE (Rg.)"
@@ -2488,6 +2518,10 @@ extraStrings:
       STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for XCOM, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}??? - ???"
       STR_MILITARY_MOLDING: "Military Molding"
       STR_UFOPAEDIA_MILITARY_MOLDING: "XCOM units of rank squaddie or higher are eligible for military molding. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers."
+      STR_UFOPAEDIA_RANGER_SKILLS: "BLADEMASTER> Deal increased damage on all sword attacks.{NEWLINE}{NEWLINE}RUN & GUN> Take an extra action after dashing.{NEWLINE}{NEWLINE}PHANTOM> Begin a mission in concealment.{NEWLINE}{NEWLINE}SHADOWSTRIKE> While concealed, gain bonus aim and bonus critical chance when attacking enemies.{NEWLINE}{NEWLINE}UNTOUCHABLE> If you score a kill during your turn, the next two attacks against you during the enemy turn will miss.{NEWLINE}{NEWLINE}REAPER> A devastating chain melee attack where every kill scored will grant an extra action."
+      STR_UFOPAEDIA_HEAVY_SKILLS: "SHREDDER> Your cannon attacks shred armor. Higher rank weapons shred more points of armor.{NEWLINE}{NEWLINE}HEAVY ROCKET> Fire a rocket using an equipped launcher.{NEWLINE}{NEWLINE}BLAST PADDING> Your gear includes layers of extra padding and blast plates, granting bonus pointd of Armor and 66% less damage from explosive attacks.{NEWLINE}{NEWLINE}MAYHEM> Confers additional damage to all area of effect weapons & auto shooting guns.{NEWLINE}{NEWLINE}STING GRENADES> Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect.{NEWLINE}{NEWLINE}RUPTURE> A Rupture shot deals critical damage and ensures that the target takes additional damage from all attacks in the future."
+      STR_UFOPAEDIA_SHARPSHOOTER_SKILLS: "DEATH FROM ABOVE> Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}HEADSHOT> Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}AIM> Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS> You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT> You do additional points of base damage and additional points of crit damage with your primary weapon.{NEWLINE}{NEWLINE}SERIAL> A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
+      STR_UFOPAEDIA_MEDIC_SKILLS: "GUARDIAN> With every successful Overwatch shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}PARAMEDIC> This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}STEADFAST> (Almost) Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the intimidation ability.{NEWLINE}{NEWLINE}FIELD SURGEON> Reduces Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR> Medikits restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT> At the start of the enemy turn your time units are refilled for free reaction fire."
 
 statStrings:
   - string: "Psi" #above average psi skill
