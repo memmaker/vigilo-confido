@@ -82,7 +82,7 @@
 # P Blast Padding      - Your gear includes layers of extra padding and blast plates, granting a bonus point of Armor and 66% less damage from explosive attacks.
 # P Will to Survive    - Reduces all normal damage taken by 2 if not flanked.
 # P Shredder           - Your cannon attacks shred armor. Higher rank weapons shred more points of armor. The shredding effect applies before damage.
-# P Mayhem             - Confers additional damage to all area of effect weapons & Machine Guns
+# P Mayhem             - Confers additional damage to all area of effect weapons & Auto Shooting Guns
 # P Platform Stability - Shots taken before any costly actions have +10 Aim and +10% critical chance. Also grants +10 aim for purposes of reducing scatter if the soldier has not moved this turn
 # P Extra Conditioning - Confers bonus health + strength based on which type of armor is equipped. Heavier armor increases the bonus.
 # AI Rapid Deployment  - Activate this ability before throwing or launching a support grenade, and the throw will not cost an action.
@@ -203,38 +203,38 @@ soldierBonuses:
   - name: STR_RANGER_INITIAL_BONUS
     tags:
       BLADEMASTER: 20         #X (1-xxx) flat bonus to power (for attacks with sword)
-      RUN_AND_GUN: 1          #X (1/0) on / off
+      RUN_AND_GUN: 1          #X (1/0) on / off, extra action on activation
   - name: STR_RANGER_ADVANCED_BONUS
     tags:
-      PHANTOM: 5              # distance threshold for stealth, 5 means enemies can only see you in a 5 tile range
-      SHADOWSTRIKE: 10        # TODO
+      PHANTOM: 5              #X distance threshold for stealth, 5 means enemies can only see you in a 5 tile range
+      SHADOWSTRIKE: 10        #X (1-xxx) bonus to crit chance in percent
   - name: STR_RANGER_ELITE_BONUS
     tags:
-      UNTOUCHABLE: 2          # (0-n) number of attacks which are deflected after a kill
-      REAPER: 1               # (1/0) 1 = on, 0 = off, TU refund after kill
+      UNTOUCHABLE: 2          #X (0-n) number of attacks which are deflected after a kill
+      REAPER: 1               #X (1/0) 1 = on, 0 = off, TU refund after kill
   - name: STR_HEAVY_INITIAL_BONUS
     tags:
-      SHREDDER: 150                # 
-      HEAVY_ROCKET: 1          # TODO
+      SHREDDER: 1             #X (1/0) on/off, while using autoshot and shredder enabled weapons, remove additional armor from enemies
+      HEAVY_ROCKET: 1         #X tag is currently unused, because the skill is simply a built-in specialWeapon
   - name: STR_HEAVY_ADVANCED_BONUS
     tags:
-      BLAST_PADDING: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
-      MAYHEM: 10              # TODO
+      BLAST_PADDING: 60       #X (0-100) amount of damage reduction in percent for HE and Incendiary
+      MAYHEM: 10              #X (1-xxx) additional power, in percent, of auto shot, he and incendiary attacks
   - name: STR_HEAVY_ELITE_BONUS
     tags:
-      STING_GRENADES: 2       
-      RUPTURE: 1           
+      STING_GRENADES: 50      #X (1-xxx) chance to stun enemies when using flashbang, in percent
+      RUPTURE: 1              #X (1/0) on/off enables use rupture skill with compatible weapons, (aimed / auto only)
   - name: STR_SHARPSHOOTER_INITIAL_BONUS
     tags:
-      DEATH_FROM_ABOVE: 150                # 
-      HEADSHOT: 1          # TODO
+      DEATH_FROM_ABOVE: 1     #X (1/0) on/off enables refund of TU when killing from above, once per turn 
+      HEADSHOT: 1             #X (1/0) on/off enables use headshot ability (increased crit chance & damage on next hit)
   - name: STR_SHARPSHOOTER_ADVANCED_BONUS
     tags:
-      AIM: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
-      CENTER_MASS: 10              # TODO
+      AIM: 1                  #X (1/0) enables 30% bonus accuracy when kneeling on the position you were kneeling on the start of the turn
+      CENTER_MASS: 20         #X (1-XXX) additional damage in percent with Standard Rifles & Sniper Rifles
   - name: STR_SHARPSHOOTER_ELITE_BONUS
     tags:
-      ALPHA_MIKE_FOXTROT: 2       
+      ALPHA_MIKE_FOXTROT: 20  #X (1-XXX) additional power for all sniper rifle attacks and half of that as additional crit damage
       SERIAL: 1           
   - name: STR_MEDIC_INITIAL_BONUS
     tags:
@@ -243,7 +243,9 @@ soldierBonuses:
   - name: STR_MEDIC_ADVANCED_BONUS
     tags:
       STEADFAST: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
-      REVIVE: 10              # TODO
+      REVIVE: 10          # TODO
+    stats:
+      bravery: 50
   - name: STR_MEDIC_ELITE_BONUS
     tags:
       SAVIOR: 2       
@@ -362,8 +364,8 @@ items:
     medikitTargetSelf: true
     medikitTargetMatrix: 0
     heal: 10     # max number of uses per mission
-    specialIconSprite: 2
     medikitActionName: STR_RANGER_CLASS_SKILL
+    specialIconSprite: 2
   - type: STR_HEADSHOT_SKILL
     tags:
       CLASS_SKILL_ACTIVATION: 1
@@ -415,14 +417,14 @@ items:
   - type: STR_HEAVY_ROCKET_SKILL
     tags:
       CLASS_SKILL_ACTIVATION: 1
-      SKILL_POWER_ITEM: 1
+      SKILL_POWER_ITEM: 1 
     bigSprite: 15
     floorSprite: 15
     handSprite: 72
     bulletSprite: 0
     fireSound: 52
     specialIconSprite: 0
-    clipSize: 10  # max number of uses per mission
+    clipSize: 2  # max number of uses per mission
     accuracyAimed: 115
     tuSnap: 0
     costAimed:
@@ -439,6 +441,31 @@ items:
     power: 75
     hidePower: true
     damageType: 3
+  - type: STR_SKILL_AMP
+    size: 0.1
+    costBuy: 2000
+    costSell: 194700
+    weight: 10
+    bigSprite: 33
+    floorSprite: 32
+    handSprite: 88
+    hitSound: 36
+    battleType: 6
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+    flatRate: true
+    costUse:
+      time: 1
+      mana: 10
+    costThrow:
+      time: 0
+    flatRate: true
+    medikitType: 1
+    medikitTargetSelf: true
+    medikitTargetMatrix: 0
+    heal: 10     # max number of uses per mission
+    medikitActionName: STR_ELITE_CLASS_SKILL
 
 soldierTransformation:
   - name: STR_RANGER_MOLDING
@@ -1136,7 +1163,7 @@ extended:
       REAPER_STATE: int  # 0 = not available, 1 = not activated yet, available 2 = active in this turn
       DEATH_FROM_ABOVE_STATE: int
       BLAST_PADDING_STATE: int
-      CAMOUFLAGE_STATE: int
+      PHANTOM_STATE: int
       STASIS_STATE: int  # 0 = no stasis, 1 = stasis active until next alien turn, 2 = stasis active until next xcom turn
       SUSTAIN_STATE: int
       EXECUTIONER_STATE: int
@@ -1151,13 +1178,14 @@ extended:
       SLAYER_STATE: int
       RUN_AND_GUN_STATE: int
       HEADSHOT_STATE: int
+      SHADOWSTRIKE_STATE: int
     RuleSoldierBonus:
       LIGHTNING_REFLEXES: int
       UNTOUCHABLE: int
       REAPER: int
       DEATH_FROM_ABOVE: int
       BLAST_PADDING: int
-      CAMOUFLAGE: int
+      PHANTOM: int
       SUSTAIN: int
       EXECUTIONER: int
       THREAT_ASSESSMENT: int
@@ -1211,18 +1239,18 @@ extended:
           end;
           return reaction_chance;
     newTurnUnit:
-      - offset: 2    # for camouflage
+      - offset: 2    # for phantom
         code: |
           var int turns_since_spotted;
-          var int camouflage;
+          var int phantom;
 
           unit.getTurnsSinceSpotted turns_since_spotted;
           
           if and neq turns_since_spotted 255 gt turns_since_spotted -1;
-            unit.getTag camouflage Tag.CAMOUFLAGE_STATE;
-            if gt camouflage 0;
-              unit.setTag Tag.CAMOUFLAGE_STATE 0;
-              debug_log "You have been spotted! Camouflage disabled.";
+            unit.getTag phantom Tag.PHANTOM_STATE;
+            if gt phantom 0;
+              unit.setTag Tag.PHANTOM_STATE 0;
+              debug_log "You have been spotted! Concealmeant disabled.";
             end;
           end;
           return;
@@ -1337,17 +1365,60 @@ extended:
           end;
 
           return;
+      - offset: 72   # for stun / sting grenades
+        code: |
+          var int stunned;
+          unit.getTag stunned Tag.STUNNED;
+          if gt stunned 0;
+            sub stunned 1;
+            unit.setTag Tag.STUNNED stunned;            
+            unit.setTimeUnits 0;
+            debug_log unit "is still stunned.";
+          end;
+          return;
+      - offset: 73   # for death from above
+        code: |
+          var int death_from_above;
+          unit.getTag death_from_above Tag.DEATH_FROM_ABOVE_STATE;
+          if eq death_from_above 2;
+            unit.setTag Tag.DEATH_FROM_ABOVE_STATE 1;
+            debug_log unit " - Death from above reset.";
+          end;
+          return;
+      - offset: 74   # for aim
+        code: |
+          var int is_kneeling;
+          var int pos_x;
+          var int pos_y;
+          var int pos_z;
+          var int aim;
+          var int kneeling;
 
+          unit.getTag aim Tag.AIM_STATE;
+          unit.isKneeled kneeling;
+
+          if and gt aim 0 gt kneeling 0;
+            unit.getPosition.getX pos_x;
+            unit.getPosition.getY pos_y;
+            unit.getPosition.getZ pos_z;
+
+            unit.setTag Tag.AIM_STATE 2; # was kneeling at the beginning of the turn
+            
+            unit.setTag Tag.AIM_X pos_x;
+            unit.setTag Tag.AIM_Y pos_y;
+            unit.setTag Tag.AIM_Z pos_z;
+          end;
+          return;
     hitUnit:
-      - offset: 2    # for camouflage
+      - offset: 2    # for phantom
         code: |
           var int camo_state;
 
-          unit.getTag camo_state Tag.CAMOUFLAGE_STATE;
+          unit.getTag camo_state Tag.PHANTOM_STATE;
           
           if neq camo_state 0;
-            unit.setTag Tag.CAMOUFLAGE_STATE 0;
-            debug_log "Camouflage disabled. You have been spotted. (hit)";
+            unit.setTag Tag.PHANTOM_STATE 0;
+            debug_log "Concealment disabled. You have been spotted. (hit)";
           end;
           return power part side;
       - offset: 3    # for blademaster
@@ -1408,8 +1479,9 @@ extended:
           unit.getTag blast_padding Tag.BLAST_PADDING_STATE;
 
           if gt blast_padding 0;
-            if or eq damaging_type 1 eq damaging_type 2 eq damaging_type 3;
-              debug_log "Blast padding against damageType Armor Piercing / Incendiary / HE. Power" power;
+            sub power 5;  # additional armor layer
+            if or eq damaging_type 2 eq damaging_type 3;
+              debug_log "Blast padding against damageType Incendiary / HE. Power" power;
               muldiv power blast_padding 100;
               debug_log " - Power reduced to" power;
             end;
@@ -1523,6 +1595,151 @@ extended:
             end;
           end;
           return power part side;
+      - offset: 45   # for shadowstrike
+        code: |
+          var int camo_state;
+          var int shadowstrike_state;
+          var int turns_since_spotted;
+          var int temp;
+
+          attacker.getTag camo_state Tag.PHANTOM_STATE;
+          attacker.getTag shadowstrike_state Tag.SHADOWSTRIKE_STATE;
+          if and gt shadowstrike_state 0 gt camo_state 0;
+            attacker.getTurnsSinceSpotted turns_since_spotted;
+            if or eq turns_since_spotted 255 le turns_since_spotted -1;
+              # shadowstrike activate
+              debug_log "Shadowstrike Crit Chance (inc.):" shadowstrike_state;
+              attacker.getTag temp Tag.CRIT_CHANCE_NEXT_HIT;
+              add temp shadowstrike_state;
+              attacker.setTag Tag.CRIT_CHANCE_NEXT_HIT temp;
+            end;
+          return power part side;
+      - offset: 46   # for mayhem
+        code: |
+          var int mayhem;
+
+          attacker.getTag mayhem Tag.MAYHEM_STATE;
+          
+          if gt mayhem 0;
+            if or eq damaging_type 2 eq damaging_type 3 eq battle_action battle_action_autoshoot;
+              debug_log "Mayhem triggered (power):" power;
+              # EXPLOSIVE / FIRE / AUTOSHOT
+              add mayhem 100;
+              muldiv power mayhem 100;
+              debug_log " - power increased to:" power;
+            end;
+          end;
+          return power part side;
+      - offset: 47   # for sting grenades
+        code: |
+          var int disorient;
+          var int stun;
+          var int sting_grenades;
+          var ptr RuleItem item_rule;
+
+          attacker.getTag sting_grenades Tag.STING_GRENADES_STATE;
+
+          damaging_item.getRuleItem item_rule;
+          item_rule.getTag disorient Tag.INFLICT_DISORIENT;
+
+          if and gt sting_grenades 0 gt disorient 0;
+            set stun sting_grenades; # = 50% stun chance
+            battle_game.randomChance stun;
+            if gt stun 0;
+              unit.setTag Tag.STUNNED 1;
+              unit.setTimeUnits 0;
+              debug_log unit "is stunned now!";
+            end;
+          end;
+          return power part side;
+      - offset: 48   # for center mass
+        code: |
+          var int center_mass;
+          var int gun_type;
+
+          attacker.getTag center_mass Tag.CENTER_MASS_STATE;
+          
+          if gt center_mass 0;
+            damaging_item.getTag gun_type Tag.GUN_TYPE;
+            if or eq gun_type 2 eq gun_type 3;
+              debug_log "Center mass triggered (power):" power;
+              # Standard Rifles / Sniper Rifles
+              add center_mass 100;
+              muldiv power center_mass 100;
+              debug_log " - power increased to:" power;
+            end;
+          end;
+          return power part side;
+      - offset: 49   # for alpha mike foxtrot
+        code: |
+          var int amf_state;
+          var int temp;
+          var int gun_type;
+
+          damaging_item.getTag gun_type Tag.GUN_TYPE;
+          attacker.getTag amf_state Tag.ALPHA_MIKE_FOXTROT_STATE;
+          if and gt amf_state 0 eq gun_type 3; # sniper rifles only
+            # amf activate
+            debug_log "AMF Damage + Crit Damage (inc./power):" amf_state power;
+            add power amf_state;
+
+            div amf_state 2;
+
+            attacker.getTag temp Tag.CRIT_DAMAGE_NEXT_HIT;
+            add temp amf_state;
+            attacker.setTag Tag.CRIT_DAMAGE_NEXT_HIT temp;
+          end;
+          return power part side;
+    accuracyMultiplierBonusStats:
+      - offset: 2    # for shadowstrike
+        code: |
+          var int camo_state;
+          var int shadowstrike_state;
+          var int turns_since_spotted;
+
+          unit.getTag camo_state Tag.PHANTOM_STATE;
+          attacker.getTag shadowstrike_state Tag.SHADOWSTRIKE_STATE;
+          if and gt shadowstrike_state 0 gt camo_state 0;
+            unit.getTurnsSinceSpotted turns_since_spotted;
+            if or eq turns_since_spotted 255 le turns_since_spotted -1;
+              # shadowstrike activate
+              debug_log "Shadowstrike Accuracy (org./add.):" bonus 30;
+              add bonus 30;
+            end;
+          return bonus;
+      - offset: 3    # for aim
+        code: |
+          var int pos_x;
+          var int pos_y;
+          var int pos_z;
+          var int aim_x;
+          var int aim_y;
+          var int aim_z;
+          var int aim;
+          var int kneeling;
+
+          unit.getTag aim Tag.AIM_STATE;
+
+          if eq aim 2; # was kneeling at the beginning of the turn
+            # check pos and kneeling
+
+            unit.isKneeled kneeling;
+            if gt kneeling 0;
+              unit.getPosition.getX pos_x;
+              unit.getPosition.getY pos_y;
+              unit.getPosition.getZ pos_z;
+
+              unit.getTag aim_x Tag.AIM_X;
+              unit.getTag aim_y Tag.AIM_Y;
+              unit.getTag aim_z Tag.AIM_Z;
+
+              if and eq pos_x aim_x eq pos_y aim_y eq pos_z aim_z;
+                debug_log "Aim Accuracy (org./add.):" bonus 30;
+                add bonus 30;
+              end;
+            end;
+          end;
+          return bonus;
     damageUnit:
       - offset: 65   # for untouchable
         code: |
@@ -1576,6 +1793,8 @@ extended:
           var int attacker_height_level;
           var int victim_height_level;
           var int has_death_from_above;
+          var int current_time_units;
+          var int action_time_units;
 
           attacker.getPosition.getZ attacker_height_level;
           unit.getPosition.getZ victim_height_level;
@@ -1583,14 +1802,16 @@ extended:
           unit.getHealth unit_health;
           attacker.getTag has_death_from_above Tag.DEATH_FROM_ABOVE_STATE;
 
-          if gt has_death_from_above 0;
-            if ge to_health unit_health;
+          if eq has_death_from_above 1;
+            if ge to_health unit_health;  # unit would be killed
               if gt attacker_height_level victim_height_level;
-                debug_log "Death from above activated! " to_health;
-                
-                muldiv to_health has_death_from_above 100; # 150 = 150% damage to health
-                debug_log " - Damaged increased to" to_health;
+                damaging_item.getActionCost.getTimeUnits action_time_units attacker battle_action;
+                attacker.getTimeUnits current_time_units;
+                add current_time_units action_time_units;
 
+                attacker.setTimeUnits current_time_units;
+                attacker.setTag Tag.DEATH_FROM_ABOVE_STATE 2;
+                debug_log "Death from above activated! Action TU refunded.";
               end;
             end;
           end;
@@ -1702,9 +1923,9 @@ extended:
           item_rule.getTag weapon_state Tag.SHREDDER_DAMAGE;
 
           if and eq battle_action battle_action_autoshoot gt weapon_state 0 gt unit_state 0;
-            debug_log "Shredder activated. to_armor" to_armor;
-            set to_armor weapon_state;
-            debug_log "Shredder adjustment done: " to_armor;
+            debug_log "Shredder activated (to_armor/unit/weapon):" unit_state weapon_state;
+            add to_armor weapon_state;
+            debug_log "Shredder adjustment done (to_armor): " to_armor;
           end;
           return;
       - offset: 69   # for rupture
@@ -1721,22 +1942,30 @@ extended:
           attacker.getTag attacker_state Tag.RUPTURE_STATE;
           item_rule.getTag weapon_state Tag.RUPTURE_DAMAGE;
 
-          if and eq battle_action battle_action_aimshoot gt weapon_state 0 eq attacker_state 1;
-            # tag unit and increase damage by rupture_state
-            unit.setTag Tag.RUPTURE_STATE 2;
-            set increase_damage 1;
-            debug_log "RUPTURED:" unit;
-          else eq unit_state 2;
+          if or eq battle_action battle_action_aimshoot eq battle_action battle_action_autoshoot;            
+            if and gt weapon_state 0 eq attacker_state 1;
+              # tag unit and increase damage by rupture_state
+              unit.setTag Tag.RUPTURE_STATE 2;
+              set increase_damage 1;
+              debug_log "RUPTURED:" unit;
+            end;
+          end;
+          
+          if eq unit_state 2;
+            debug_log "RUPTURED unit was hit again:" unit;
             set increase_damage 1;
           end;
+          
           if eq increase_damage 1;
             debug_log " - Damage to health was:" to_health;
+            add weapon_state 100;
             muldiv to_health weapon_state 100; # factor in the weapon rupture state (150 = 150% damage)
             debug_log " - changed to:" to_health;
           end;
+        
           return;
     healUnit:
-      - offset: 1     # Class Skill Activation via Medikit Self Targeting
+      - offset: 1    # Class Skill Activation via Medikit Self Targeting
         code: |
           var int unit_class;
           var int class_skill;
@@ -1830,13 +2059,13 @@ extended:
 
           return;
     recolorUnitSprite:   
-      - offset: 2    # for camouflage
+      - offset: 2    # for phantom
         code: |
           var int camo_state;
           var int turns_since_spotted;
           var int temp;
 
-          unit.getTag camo_state Tag.CAMOUFLAGE_STATE;        
+          unit.getTag camo_state Tag.PHANTOM_STATE;        
 
           if gt camo_state 0;
             unit.getTurnsSinceSpotted turns_since_spotted;
@@ -1848,13 +2077,13 @@ extended:
               add temp 8;
               add_shade new_pixel temp;
             else;
-              add_shade new_pixel 6; # camouflage working, darken the armor
+              add_shade new_pixel 6; # PHANTOM working, darken the armor
             end;
           end;
 
           return new_pixel;
     visibilityUnit:
-      - offset: 2    # for camouflage
+      - offset: 2    # for phantom
         code: |
           var int observer_x;
           var int observer_y;
@@ -1863,7 +2092,7 @@ extended:
           var int two_dee_distance_sq;
           var int camo_distance_sq;
 
-          target_unit.getTag camo_distance_sq Tag.CAMOUFLAGE_STATE;
+          target_unit.getTag camo_distance_sq Tag.PHANTOM_STATE;
 
           if neq camo_distance_sq 0;
             set two_dee_distance_sq 0;
@@ -1888,7 +2117,7 @@ extended:
             debug_log "Camo unit may be visible in distance (sq)" two_dee_distance_sq;
 
             if gt two_dee_distance_sq camo_distance_sq;
-              debug_log "Camouflage working!";
+              debug_log "PHANTOM working!";
               set current_visibility 0;   # stay unseen
             else;
               debug_log "Camo unit spotted!";
@@ -1905,13 +2134,16 @@ extended:
           var int has_lightning_reflexes;
           var int has_death_from_above;
           var int has_blast_padding;
-          var int has_camouflage;
+          var int has_phantom;
           var int has_sustain;
           var int has_executioner;
           var int has_threat_assessment;
           var int has_backstab;
           var int has_blademaster;
           var int has_field_medic;
+          var int has_shadowstrike;
+          var int has_shredder;
+          var int has_amf;
 
           unit.getId id;
 
@@ -1920,12 +2152,15 @@ extended:
           soldier_bonus.getTag has_blademaster Tag.BLADEMASTER;
           soldier_bonus.getTag has_field_medic Tag.FIELD_MEDIC;
           soldier_bonus.getTag has_death_from_above Tag.DEATH_FROM_ABOVE;
+          soldier_bonus.getTag has_shadowstrike Tag.SHADOWSTRIKE;
+          soldier_bonus.getTag has_shredder Tag.SHREDDER;
+          soldier_bonus.getTag has_amf Tag.ALPHA_MIKE_FOXTROT;
 
           # these skills are trainable via transformation -> bonus
           soldier_bonus.getTag has_reaper Tag.REAPER;
           soldier_bonus.getTag has_untouchable Tag.UNTOUCHABLE;
           soldier_bonus.getTag has_lightning_reflexes Tag.LIGHTNING_REFLEXES;
-          soldier_bonus.getTag has_camouflage Tag.CAMOUFLAGE;
+          soldier_bonus.getTag has_phantom Tag.PHANTOM;
           soldier_bonus.getTag has_sustain Tag.SUSTAIN;
           soldier_bonus.getTag has_executioner Tag.EXECUTIONER;
           soldier_bonus.getTag has_threat_assessment Tag.THREAT_ASSESSMENT;
@@ -1956,9 +2191,9 @@ extended:
             unit.setTag Tag.BLAST_PADDING_STATE has_blast_padding;
           end;
 
-          if gt has_camouflage 0;
-            debug_log "Unit" id "-  Camouflage Skill found at" has_camouflage;
-            unit.setTag Tag.CAMOUFLAGE_STATE has_camouflage;
+          if gt has_phantom 0;
+            debug_log "Unit" id "-  phantom Skill found at" has_phantom;
+            unit.setTag Tag.PHANTOM_STATE has_phantom;
           end;
 
           if gt has_sustain 0;
@@ -1990,11 +2225,28 @@ extended:
             debug_log "Unit" id "-  Field Medic Skill found at" has_field_medic;
             unit.setTag Tag.FIELD_MEDIC_STATE has_field_medic;
           end;
+
+          if gt has_shadowstrike 0;
+            debug_log "Unit" id "-  Shadowstrike Skill found at" has_shadowstrike;
+            unit.setTag Tag.SHADOWSTRIKE_STATE has_shadowstrike;
+          end;
+
+          if gt has_shredder 0;
+            debug_log "Unit" id "-  Shredder Skill found at" has_shredder;
+            unit.setTag Tag.SHREDDER_STATE has_shredder;
+          end;
+
+          if gt has_amf 0;
+            debug_log "Unit" id "-  AMF Skill found at" has_amf;
+            unit.setTag Tag.ALPHA_MIKE_FOXTROT_STATE has_amf;
+          end;
           return;
 
 extraStrings:
   - type: en-US
     strings:
+      STR_SKILL_AMP: Skill Amplifier
+      STR_ELITE_CLASS_SKILL: Activate Elite Skill
       STR_CLASS_SKILL: Activate Class Skill
       STR_RANGER_CLASS_SKILL: Run & Gun
       STR_SHARPSHOOTER_CLASS_SKILL: Headshot
@@ -2072,7 +2324,7 @@ extraStrings:
       STR_LIGHTNING_REFLEXES_BONUS: "Lightning Reflexes"
       STR_DEATH_FROM_ABOVE_BONUS: "Death from above"
       STR_BLAST_PADDING_BONUS: "Blast Padding"
-      STR_CAMOUFLAGE_BONUS: "Camouflage"
+      STR_PHANTOM_BONUS: "Phantom"
       STR_SUSTAIN_BONUS: "Sustain"
       STR_EXECUTIONER_BONUS: "Executioner"
       STR_THREAT_ASSESSMENT_BONUS: "Threat Assessment"
