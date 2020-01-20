@@ -68,7 +68,7 @@
 # NOTE: One item can be used as Armor.SpecialWeapon thus removing the item as long as that armor is worn.
 
 # Symbols: P = Passive Skill, A = Active Skill, E = Elite Level Skill, I = Skill could be bound to item, X = Is implemented
-# == Possibly Possible Skills
+# == Possibly Possible Skills (Not all of these are possible and not all are currently implemented)
 # === Ranger
 # P Phantom            - Begin a mission in concealment.
 # P Sprinter           - Grants +4 mobility (roughly 3 tiles movement).
@@ -211,7 +211,7 @@ soldierBonuses:
   - name: STR_RANGER_ELITE_BONUS
     tags:
       UNTOUCHABLE: 2          #X (0-n) number of attacks which are deflected after a kill
-      REAPER: 1               #X (1/0) 1 = on, 0 = off, TU refund after kill
+      REAPER: 1               #X (1/0) 1 = on, 0 = off, TU refund after kill, once per mission
   - name: STR_HEAVY_INITIAL_BONUS
     tags:
       SHREDDER: 1             #X (1/0) on/off, while using autoshot and shredder enabled weapons, remove additional armor from enemies
@@ -235,40 +235,21 @@ soldierBonuses:
   - name: STR_SHARPSHOOTER_ELITE_BONUS
     tags:
       ALPHA_MIKE_FOXTROT: 20  #X (1-XXX) additional power for all sniper rifle attacks and half of that as additional crit damage
-      SERIAL: 1           
+      SERIAL: 1               #X (1/0) enables serial kills with sniper rifles, each kill refunds all TU, once per mission
   - name: STR_MEDIC_INITIAL_BONUS
     tags:
-      FIELD_MEDIC: 150                # 
-      PARAMEDIC: 1          # TODO
+      GUARDIAN: 1             #X (1/0) a 50% chance that TU on reaction fire get refunded
+      PARAMEDIC: 1            #X tag is currently unused, because the skill is simply a built-in specialWeapon
   - name: STR_MEDIC_ADVANCED_BONUS
     tags:
-      STEADFAST: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
-      REVIVE: 10          # TODO
+      STEADFAST: 50           #X (1-XXX) bonus to bravery and psiDefence
+      FIELD_SURGEON: 30       #X (1-XXX) percent reduction in recovery time if healed by field surgeon
     stats:
       bravery: 50
   - name: STR_MEDIC_ELITE_BONUS
     tags:
-      SAVIOR: 2       
-      RESTORATION: 1           
-## currently unused skills
-  - name: STR_LIGHTNING_REFLEXES_BONUS
-    tags:
-      LIGHTNING_REFLEXES: 80  # (0-100) amount of reaction_chance reduction for enemies
-  - name: STR_DEATH_FROM_ABOVE_BONUS
-    tags:
-      DEATH_FROM_ABOVE: 150   # (100-xxx) percentage of damage to apply (150 = 150% damage)
-  - name: STR_SUSTAIN_BONUS
-    tags:
-      SUSTAIN: 1              # (1/0) 1 = on, 0 = off, unconsciousness instead of death
-  - name: STR_EXECUTIONER_BONUS
-    tags:
-      EXECUTIONER: 150        # (100-xxx) percentage of damage to apply (to units below 50% HP)
-  - name: STR_THREAT_ASSESSMENT_BONUS
-    tags:
-      THREAT_ASSESSMENT: 20   # (0-100) amount of damage reduction when reserved TU>50%
-  - name: STR_BACKSTAB_BONUS
-    tags:
-      BACKSTAB: 150           # (100-xxx) percentage of damage to apply (to units attacked from behind)
+      SAVIOR: 10              #X (1-XXX) flat amount of health restored when using heal
+      EVER_VIGILANT: 1        #X (1/0) restores all TU on beginning of enemy turn 
 
 armors:
   - &STR_NONE_UC
@@ -1153,6 +1134,7 @@ extended:
     RuleSoldier:
       CLASS: int            # 0 = no class, 1 = Ranger, 2 = Heavy, 3 = Sharpshooter, 4 = Medic, 5 = Psi
     BattleGame:
+      TURN_SIDE: int
       BATTLE_CRY_STATE: int # 0 = not activated, 1 = active this turn, 2 = disabled
       BATTLE_CRY_X: int     # x position where battle cry was activated
       BATTLE_CRY_Y: int     # y position where battle cry was activated
@@ -1179,6 +1161,22 @@ extended:
       RUN_AND_GUN_STATE: int
       HEADSHOT_STATE: int
       SHADOWSTRIKE_STATE: int
+      AIM_STATE: int
+      ALPHA_MIKE_FOXTROT_STATE: int
+      SERIAL_STATE: int
+      SAVIOR_STATE: int
+      MAYHEM_STATE: int
+      STEADFAST_STATE: int
+      EVER_VIGILANT_STATE: int
+      GUARDIAN_STATE: int
+      STING_GRENADES_STATE: int
+      CENTER_MASS_STATE: int
+      FIELD_SURGEON_STATE: int
+      HEALED_BY_FIELD_SURGEON: int
+      STUNNED: int
+      AIM_X: int
+      AIM_Y: int
+      AIM_Z: int
     RuleSoldierBonus:
       LIGHTNING_REFLEXES: int
       UNTOUCHABLE: int
@@ -1212,10 +1210,14 @@ extended:
       RESTORATION: int
       HEAVY_ROCKET: int
       PARAMEDIC: int
+      GUARDIAN: int
+      FIELD_SURGEON: int
+      EVER_VIGILANT: int
     RuleItem:
       SKILL_POWER_ITEM: int
       CLASS_SKILL_ACTIVATION: int
       SWORD_TYPE: int
+      GUN_TYPE: int
       RUPTURE_DAMAGE: int
       SHREDDER_DAMAGE: int
   scripts:
@@ -1239,6 +1241,10 @@ extended:
           end;
           return reaction_chance;
     newTurnUnit:
+      - offset: -1   # Essentials (Store the turn side in the battle game at the beginning of each turn)
+        code: |
+          battle_game.setTag Tag.TURN_SIDE side;
+          return;
       - offset: 2    # for phantom
         code: |
           var int turns_since_spotted;
@@ -1368,21 +1374,25 @@ extended:
       - offset: 72   # for stun / sting grenades
         code: |
           var int stunned;
-          unit.getTag stunned Tag.STUNNED;
-          if gt stunned 0;
-            sub stunned 1;
-            unit.setTag Tag.STUNNED stunned;            
-            unit.setTimeUnits 0;
-            debug_log unit "is still stunned.";
+          if eq side 0; # xcom turns
+            unit.getTag stunned Tag.STUNNED;
+            if gt stunned 0;
+              sub stunned 1;
+              unit.setTag Tag.STUNNED stunned;            
+              unit.setTimeUnits 0;
+              debug_log unit "is still stunned.";
+            end;
           end;
           return;
       - offset: 73   # for death from above
         code: |
           var int death_from_above;
-          unit.getTag death_from_above Tag.DEATH_FROM_ABOVE_STATE;
-          if eq death_from_above 2;
-            unit.setTag Tag.DEATH_FROM_ABOVE_STATE 1;
-            debug_log unit " - Death from above reset.";
+          if eq side 0; # xcom turns
+            unit.getTag death_from_above Tag.DEATH_FROM_ABOVE_STATE;
+            if eq death_from_above 2;
+              unit.setTag Tag.DEATH_FROM_ABOVE_STATE 1;
+              debug_log unit " - Death from above reset.";
+            end;
           end;
           return;
       - offset: 74   # for aim
@@ -1393,20 +1403,48 @@ extended:
           var int pos_z;
           var int aim;
           var int kneeling;
+          if eq side 0; # xcom turns
+            unit.getTag aim Tag.AIM_STATE;
+            unit.isKneeled kneeling;
 
-          unit.getTag aim Tag.AIM_STATE;
-          unit.isKneeled kneeling;
+            if and gt aim 0 gt kneeling 0;
+              unit.getPosition.getX pos_x;
+              unit.getPosition.getY pos_y;
+              unit.getPosition.getZ pos_z;
 
-          if and gt aim 0 gt kneeling 0;
-            unit.getPosition.getX pos_x;
-            unit.getPosition.getY pos_y;
-            unit.getPosition.getZ pos_z;
+              unit.setTag Tag.AIM_STATE 2; # was kneeling at the beginning of the turn
+              
+              unit.setTag Tag.AIM_X pos_x;
+              unit.setTag Tag.AIM_Y pos_y;
+              unit.setTag Tag.AIM_Z pos_z;
+            end;
+          end;
+          return;
+      - offset: 75   # for ever vigilant
+        code: |
+          var int vigilant;
+          var int tu_max;
+          unit.getTag vigilant Tag.EVER_VIGILANT_STATE;
+          
+          if and eq side 1 gt vigilant 0; # ever vigilant only triggers on enemy turns
+            debug_log unit " - Ever vigilant activated. All TU refunded for beginng of enemy turn.";
+            unit.getTimeUnitsMax tu_max;
+            unit.setTimeUnits tu_max;
+          end;
+          return;
+      - offset: 76   # for serial
+        code: |
+          var int serial_state;
+          var int unit_id;
+          if eq side 0; # xcom turns
+            unit.getId unit_id;
+            unit.getTag serial_state Tag.SERIAL_STATE;
 
-            unit.setTag Tag.AIM_STATE 2; # was kneeling at the beginning of the turn
-            
-            unit.setTag Tag.AIM_X pos_x;
-            unit.setTag Tag.AIM_Y pos_y;
-            unit.setTag Tag.AIM_Z pos_z;
+            if gt serial_state 1;
+              debug_log "Serial was active last turn for:" unit_id;
+              debug_log "Serial deactivated for this unit.";
+              unit.setTag Tag.SERIAL_STATE 0;
+            end;
           end;
           return;
     hitUnit:
@@ -1613,6 +1651,7 @@ extended:
               add temp shadowstrike_state;
               attacker.setTag Tag.CRIT_CHANCE_NEXT_HIT temp;
             end;
+          end;
           return power part side;
       - offset: 46   # for mayhem
         code: |
@@ -1656,11 +1695,14 @@ extended:
         code: |
           var int center_mass;
           var int gun_type;
+          var ptr RuleItem item_rule;
+
+          damaging_item.getRuleItem item_rule;
 
           attacker.getTag center_mass Tag.CENTER_MASS_STATE;
           
           if gt center_mass 0;
-            damaging_item.getTag gun_type Tag.GUN_TYPE;
+            item_rule.getTag gun_type Tag.GUN_TYPE;
             if or eq gun_type 2 eq gun_type 3;
               debug_log "Center mass triggered (power):" power;
               # Standard Rifles / Sniper Rifles
@@ -1675,8 +1717,11 @@ extended:
           var int amf_state;
           var int temp;
           var int gun_type;
+          var ptr RuleItem item_rule;
 
-          damaging_item.getTag gun_type Tag.GUN_TYPE;
+          damaging_item.getRuleItem item_rule;
+
+          item_rule.getTag gun_type Tag.GUN_TYPE;
           attacker.getTag amf_state Tag.ALPHA_MIKE_FOXTROT_STATE;
           if and gt amf_state 0 eq gun_type 3; # sniper rifles only
             # amf activate
@@ -1690,6 +1735,32 @@ extended:
             attacker.setTag Tag.CRIT_DAMAGE_NEXT_HIT temp;
           end;
           return power part side;
+      - offset: 50   # for guardian
+        code: |
+          var int guardian;
+          var int activation_chance;
+          var int turn_side;
+          var int action_time_units;
+          var int current_time_units;
+
+          set activation_chance 50;
+          battle_game.getTag turn_side Tag.TURN_SIDE;
+
+          attacker.getTag guardian Tag.GUARDIAN_STATE;
+
+          if and gt guardian 0 eq turn_side 1; # guardian only activates on enemy turn
+            battle_game.randomChance activation_chance;
+            if gt activation_chance 1;
+              damaging_item.getActionCost.getTimeUnits action_time_units attacker battle_action;
+              attacker.getTimeUnits current_time_units;
+              add current_time_units action_time_units;
+
+              attacker.setTimeUnits current_time_units;
+              debug_log "Guardian Activated! Reaction TU refunded.";
+            end;
+          end;
+                
+          return power part side;
     accuracyMultiplierBonusStats:
       - offset: 2    # for shadowstrike
         code: |
@@ -1698,7 +1769,9 @@ extended:
           var int turns_since_spotted;
 
           unit.getTag camo_state Tag.PHANTOM_STATE;
-          attacker.getTag shadowstrike_state Tag.SHADOWSTRIKE_STATE;
+          
+          unit.getTag shadowstrike_state Tag.SHADOWSTRIKE_STATE;
+          
           if and gt shadowstrike_state 0 gt camo_state 0;
             unit.getTurnsSinceSpotted turns_since_spotted;
             if or eq turns_since_spotted 255 le turns_since_spotted -1;
@@ -1706,6 +1779,7 @@ extended:
               debug_log "Shadowstrike Accuracy (org./add.):" bonus 30;
               add bonus 30;
             end;
+          end;
           return bonus;
       - offset: 3    # for aim
         code: |
@@ -1738,6 +1812,17 @@ extended:
                 add bonus 30;
               end;
             end;
+          end;
+          return bonus;
+    psiDefenceBonusStats:
+      - offset: 2    # for steadfast
+        code: |
+          var int steadfast;
+
+          unit.getTag steadfast Tag.STEADFAST_STATE;
+
+          if gt steadfast 0;
+            add bonus steadfast;
           end;
           return bonus;
     damageUnit:
@@ -1867,21 +1952,15 @@ extended:
       - offset: 67   # for reaper
         code: |
           var int unit_health;
-          var int has_reaper;
           var int state; # 0 = not available, 1 = not activated yet, available 2 = active in this turn
-          var ptr RuleArmor armor_rule;
-          var int current_time_units;
           var int max_time_units;
-          var int time_units_to_refund;
-          var int time_units_spent;
 
           attacker.getTag state Tag.REAPER_STATE;
 
           unit.getHealth unit_health;
 
           if gt state 0;
-            debug_log "A reaper unit has damaged someone.. (BA/DT)" battle_action damaging_type;
-            if and eq battle_action 10 eq damaging_type 7; # action = hit && damage type = melee
+            if and eq battle_action battle_action_hit eq damaging_type 7; # action = hit && damage type = melee
               if ge to_health unit_health;                 # would be a kill
                 # TRIGGER conditions met
                 if eq state 1; # not yet activated in this mission, activate now
@@ -1890,26 +1969,15 @@ extended:
                   attacker.setTag Tag.REAPER_STATE state;
                 end;
                 if eq state 2; # we are active, so refund the action cost
-                  debug_log "REAPER triggered!";
+                  debug_log "REAPER triggered! Refunding TU.";
 
                   attacker.getTimeUnitsMax max_time_units;
 
                   attacker.setTimeUnits max_time_units;    # set the new TU value
-                  debug_log "TimeUnits refunded!";
                 end;
               end;
             end;
           end;
-          # debug
-          debug_log " Damage to health:" to_health;
-          debug_log " Damage to armor:" to_armor;
-          debug_log " Damage to stun:" to_stun;
-          debug_log " Damage to time:" to_time;
-          debug_log " Damage to energy:" to_energy;
-          debug_log " Damage to morale:" to_morale;
-          debug_log " Damage to wound:" to_wound;          
-          debug_log " Damage to transform (tile?):" to_transform;
-          debug_log " Damage to mana:" to_mana;
           return;
       - offset: 68   # for shredder
         code: |
@@ -1964,6 +2032,38 @@ extended:
           end;
         
           return;
+      - offset: 70   # for serial
+        code: |
+          var int unit_health;
+          var int state; # 0 = not available, 1 = not activated yet, available 2 = active in this turn
+          var int max_time_units;
+          var int gun_type;
+          var ptr RuleItem item_rule;
+
+          attacker.getTag state Tag.SERIAL_STATE;
+
+          unit.getHealth unit_health;
+          damaging_item.getRuleItem item_rule;
+          item_rule.getTag gun_type Tag.GUN_TYPE;
+
+          if gt state 0;
+            if eq gun_type 3; # sniper rifle
+              if ge to_health unit_health;                 # would be a kill
+                # TRIGGER conditions met
+                if eq state 1; # not yet activated in this mission, activate now
+                  debug_log "SERIAL Activated";
+                  set state 2;
+                  attacker.setTag Tag.SERIAL_STATE state;
+                end;
+                if eq state 2; # we are active, so refund the action cost
+                  debug_log "SERIAL triggered! Refunding TU.";
+                  attacker.getTimeUnitsMax max_time_units;
+                  attacker.setTimeUnits max_time_units;    # set the new TU value
+                end;
+              end;
+            end;
+          end;
+          return;    
     healUnit:
       - offset: 1    # Class Skill Activation via Medikit Self Targeting
         code: |
@@ -2019,44 +2119,58 @@ extended:
           set wound_recovery 0;
           set health_recovery 0;
           return;
-      - offset: 55   # for field medic
+      - offset: 55   # for savior
         code: |
-          var int actor_id;
-          var int target_id;
-          var int field_medic;
+          var int savior;
           var int health_to_heal;
 
-          actor.getId actor_id;
-          target.getId target_id;
+          actor.getTag savior Tag.SAVIOR_STATE;
 
-          actor.getTag field_medic Tag.FIELD_MEDIC_STATE;
-
-          if gt field_medic 0;
-            
-            debug_log "Medikit usage by field medic, unit" actor_id;
-            target.getHealthMax health_to_heal;
-
+          if gt savior 0;
             if eq medikit_action_type 1; # heal
-              debug_log " - Medikit target:" target_id;
-              debug_log " - Bodypart:" body_part;
+              debug_log "Savior activated.";
               debug_log " - Health recovered (org.):" health_recovery;
-              debug_log " - Wounds recovered (org.):" wound_recovery;
-              # we want field_medic% of max_health
-              muldiv health_to_heal field_medic 100;
-              set health_recovery health_to_heal;
+              set health_recovery savior;
               debug_log " - Health recovered (adj.):" health_recovery;
-            end;
-            if eq medikit_action_type 2; # stim
-              debug_log " - Energy recovered:" energy_recovery;
-              debug_log " - Stun recovered:" stun_recovery;
-              debug_log " - Mana recovered:" mana_recovery;
-            end;
-            if eq medikit_action_type 4; # pain
-              debug_log " - Morale recovered:" morale_recovery;
-              debug_log " - Painkiller effectiveness:" painkiller_recovery;
             end;
           end;
 
+          return;
+      - offset: 56   # for field surgeon
+        code: |
+          var int field_surgeon;
+          var int max_health;
+          var int cur_health;
+
+          actor.getTag field_surgeon Tag.FIELD_SURGEON_STATE;
+
+          if gt field_surgeon 0;
+            
+            target.getHealthMax max_health;
+            target.getHealth cur_health;
+
+            if and eq medikit_action_type 1 gt max_health cur_health; # heal
+              debug_log target "was healed by field surgeon.";
+              target.setTag Tag.HEALED_BY_FIELD_SURGEON 1;
+            end;
+          end;
+
+          return;    
+    returnFromMissionUnit:
+      - offset: 2    # for field surgeon
+        code: |
+          var int healed_by_field_surgeon;
+          var int factor;
+
+          unit.getTag healed_by_field_surgeon Tag.HEALED_BY_FIELD_SURGEON;
+
+          if gt healed_by_field_surgeon 0;
+            debug_log unit " is under Field Surgeon effect. Recovery time changed from" recovery_time;
+            set factor 100;
+            sub factor healed_by_field_surgeon;
+            muldiv recovery_time factor 100;
+            debug_log unit " - to" recovery_time;
+          end;
           return;
     recolorUnitSprite:   
       - offset: 2    # for phantom
