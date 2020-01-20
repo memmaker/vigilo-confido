@@ -2,5 +2,21 @@ items:
   - type: STR_ALLOY_SWORD
     tags:
       SWORD_TYPE: 1
-      CRIT_CHANCE: 50
-      CRIT_DAMAGE: 20
+      CRIT_CHANCE: 10
+      CRIT_DAMAGE: 50
+  - type: STR_SNIPER_RIFLE
+    tags:
+      CRIT_CHANCE: 10
+      CRIT_DAMAGE: 40
+  - type: STR_LASER_SNIPER_RIFLE
+    tags:
+      CRIT_CHANCE: 10
+      CRIT_DAMAGE: 40
+  - type: STR_SHOTGUN
+    tags:
+      CRIT_CHANCE: 10
+      CRIT_DAMAGE: 40
+  - type: STR_ALLOY_SHOTGUN
+    tags:
+      CRIT_CHANCE: 15
+      CRIT_DAMAGE: 50

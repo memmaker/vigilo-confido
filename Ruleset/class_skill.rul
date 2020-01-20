@@ -31,24 +31,6 @@
 
 # So every class ends up with 6 skills if they get promotod to colonel.
 
-# Initial Class Skills (p/a)
-# ranger: blademaster / run & gun
-# heavy: shredder / rapid deployment
-# sharpshooter: death from above / headshot
-# medic: field medic / aid protocol
-
-# Advanced Class Skills (p/p)
-# ranger: phantom / shadowstrike
-# heavy: blast padding / mayhem
-# sharpshooter: aim / center mass
-# medic: steadfast / revive
-
-# Elite Class Skills (p/a)
-# ranger: untouchable / reaper
-# heavy: sting grenades / rupture
-# sharpshooter: alpha mike foxtrot / serial
-# medic: savior / restoration
-
 # psi op: stasis
 
 # rank based skills:
@@ -109,7 +91,7 @@
 # AE Rupture           - A Rupture shot deals critical damage and ensures that the target takes an additional +3 damage from all attacks in the future. Uses 3 ammo. 3-turn cooldown.
 # === Sharpshooter
 # P Sharpshooter       - +10 critical chance in all situations, +10 Aim
-# AI Headshot          - Fire a shot with +30% critical chance and extra damage on critical hits based on the tech level of the sniper rifle. 2 turn cooldown.
+# AI Headshot          - Fire a shot with +30% critical chance and extra damage on critical hits.
 # P Steady Hands       - If you did not move last turn, gain +10 Aim and +10 Critical chance.
 # AI Disabling Shot    - Allows sniper rifles to fire a shot that causes the target's main weapon to malfunction. The target may use Reload to fix the weapon. 2 turn cooldown. Cannot cause critical hits.
 # P Death from Above   - Killing an enemy at a lower elevation with your sniper rifle costs only a single action, and does not end your turn.
@@ -176,19 +158,294 @@
 # - Script Hook for movement? I want to know if a soldier has moved this turn or not.
 # - A reference to the current weapon being used in the accuracyMultiplierBonusStats hook
 
-# Since we use promotions as a kind of leveling system we allow more soldiers to get promoted:
+# TESTING SETUP
+startingBase:
+  randomSoldiers:
+    STR_SOLDIER: 2
+    STR_PILOT: 4
+    STR_RANGER: 2
+    STR_HEAVY: 2
+    STR_MEDIC: 2
+    STR_SHARPSHOOTER: 2
+    STR_PSI_OPERATIVE: 2
 
+
+# Promotions
 soldiersPerSergeant: 1
 soldiersPerCaptain: 2
 soldiersPerColonel: 4
 soldiersPerCommander: 16
 
+# CQC
+enableCloseQuartersCombat: 1       # default is 0 to disable this new code, 1 enables it
+closeQuartersAccuracyGlobal: 65    # default 100, this sets the default weapon close quarters combat
+closeQuartersTuCostGlobal: 12      # TUs required to attempt CQC; unsuccessful attempt doesn't spend the TUs, successful does
+closeQuartersEnergyCostGlobal: 8   # Energy required to attempt CQC; unsuccessful attempt doesn't spend the Energy, successful does
+
+# Mana / Battle Focus
+mana:
+   enabled: true
+   battleUI: true
+   trainingPrimary: false
+   trainingSecondary: false
+   replenishAfterMission: true
+
+commendations:
+  - type: STR_SOLDIER_EXPERIENCE
+    description: STR_SOLDIER_EXPERIENCE_DESCRIPTION
+    sprite: 1
+    criteria:
+      totalKills: [1, 2, 2, 2, 3, 3, 3, 4, 4, 4]
+      totalMissions: [1, 2, 2, 2, 3, 3, 3, 4, 4, 4]
+
+
+soldierBonuses:
+  - name: STR_RANGER_INITIAL_BONUS
+    tags:
+      BLADEMASTER: 20         #X (1-xxx) flat bonus to power (for attacks with sword)
+      RUN_AND_GUN: 1          #X (1/0) on / off
+  - name: STR_RANGER_ADVANCED_BONUS
+    tags:
+      PHANTOM: 5              # distance threshold for stealth, 5 means enemies can only see you in a 5 tile range
+      SHADOWSTRIKE: 10        # TODO
+  - name: STR_RANGER_ELITE_BONUS
+    tags:
+      UNTOUCHABLE: 2          # (0-n) number of attacks which are deflected after a kill
+      REAPER: 1               # (1/0) 1 = on, 0 = off, TU refund after kill
+  - name: STR_HEAVY_INITIAL_BONUS
+    tags:
+      SHREDDER: 150                # 
+      HEAVY_ROCKET: 1          # TODO
+  - name: STR_HEAVY_ADVANCED_BONUS
+    tags:
+      BLAST_PADDING: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
+      MAYHEM: 10              # TODO
+  - name: STR_HEAVY_ELITE_BONUS
+    tags:
+      STING_GRENADES: 2       
+      RUPTURE: 1           
+  - name: STR_SHARPSHOOTER_INITIAL_BONUS
+    tags:
+      DEATH_FROM_ABOVE: 150                # 
+      HEADSHOT: 1          # TODO
+  - name: STR_SHARPSHOOTER_ADVANCED_BONUS
+    tags:
+      AIM: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
+      CENTER_MASS: 10              # TODO
+  - name: STR_SHARPSHOOTER_ELITE_BONUS
+    tags:
+      ALPHA_MIKE_FOXTROT: 2       
+      SERIAL: 1           
+  - name: STR_MEDIC_INITIAL_BONUS
+    tags:
+      FIELD_MEDIC: 150                # 
+      PARAMEDIC: 1          # TODO
+  - name: STR_MEDIC_ADVANCED_BONUS
+    tags:
+      STEADFAST: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
+      REVIVE: 10              # TODO
+  - name: STR_MEDIC_ELITE_BONUS
+    tags:
+      SAVIOR: 2       
+      RESTORATION: 1           
+## currently unused skills
+  - name: STR_LIGHTNING_REFLEXES_BONUS
+    tags:
+      LIGHTNING_REFLEXES: 80  # (0-100) amount of reaction_chance reduction for enemies
+  - name: STR_DEATH_FROM_ABOVE_BONUS
+    tags:
+      DEATH_FROM_ABOVE: 150   # (100-xxx) percentage of damage to apply (150 = 150% damage)
+  - name: STR_SUSTAIN_BONUS
+    tags:
+      SUSTAIN: 1              # (1/0) 1 = on, 0 = off, unconsciousness instead of death
+  - name: STR_EXECUTIONER_BONUS
+    tags:
+      EXECUTIONER: 150        # (100-xxx) percentage of damage to apply (to units below 50% HP)
+  - name: STR_THREAT_ASSESSMENT_BONUS
+    tags:
+      THREAT_ASSESSMENT: 20   # (0-100) amount of damage reduction when reserved TU>50%
+  - name: STR_BACKSTAB_BONUS
+    tags:
+      BACKSTAB: 150           # (100-xxx) percentage of damage to apply (to units attacked from behind)
+
+armors:
+  - &STR_NONE_UC
+    type: STR_NONE_UC
+    spriteSheet: XCOM_0.PCK
+    spriteInv: MAN_0
+    spriteFaceGroup: 6
+    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
+    spriteHairGroup: 9
+    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
+    storeItem: STR_NONE
+    corpseBattle:
+      - STR_CORPSE
+    frontArmor: 12
+    sideArmor: 8
+    rearArmor: 5
+    underArmor: 2
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.2
+      - 1.6
+      - 1.0
+    loftempsSet: [ 3 ]
+  - type: STR_RANGER_NONE_UC
+    refNode: *STR_NONE_UC 
+    tags:
+      SKILL_POWER_ARMOR: 1
+    specialWeapon: STR_RUN_AND_GUN_SKILL
+    storeItem: STR_NONE
+    units:
+      - STR_RANGER
+    recovery:
+      mana:
+        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
+  - type: STR_SHARPSHOOTER_NONE_UC
+    refNode: *STR_NONE_UC 
+    tags:
+      SKILL_POWER_ARMOR: 1
+    specialWeapon: STR_HEADSHOT_SKILL
+    storeItem: STR_NONE
+    units:
+      - STR_SHARPSHOOTER
+    recovery:
+      mana:
+        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
+  - type: STR_MEDIC_NONE_UC
+    refNode: *STR_NONE_UC
+    tags:
+      SKILL_POWER_ARMOR: 1
+    specialWeapon: STR_PARAMEDIC_SKILL
+    storeItem: STR_NONE
+    units:
+      - STR_MEDIC
+    recovery:
+      mana:
+        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
+  - type: STR_HEAVY_NONE_UC
+    refNode: *STR_NONE_UC 
+    tags:
+      SKILL_POWER_ARMOR: 1
+    specialWeapon: STR_HEAVY_ROCKET_SKILL
+    storeItem: STR_NONE
+    units:
+      - STR_HEAVY
+    recovery:
+      mana:
+        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
+
+items:
+  - type: STR_RUN_AND_GUN_SKILL
+    tags:
+      CLASS_SKILL_ACTIVATION: 1
+      SKILL_POWER_ITEM: 1
+    hidePower: true
+    battleType: 6 # medikit
+    damageType: 5 # plasma
+    twoHanded: false
+    power: 300
+    hitSound: 36
+    costUse:
+      time: 1
+      mana: 10
+    costThrow:
+      time: 0
+    flatRate: true
+    medikitType: 1
+    medikitTargetSelf: true
+    medikitTargetMatrix: 0
+    heal: 10     # max number of uses per mission
+    specialIconSprite: 2
+    medikitActionName: STR_RANGER_CLASS_SKILL
+  - type: STR_HEADSHOT_SKILL
+    tags:
+      CLASS_SKILL_ACTIVATION: 1
+      SKILL_POWER_ITEM: 1
+    hidePower: true
+    battleType: 6 # medikit
+    damageType: 5 # plasma
+    twoHanded: false
+    power: 300
+    hitSound: 36
+    costUse:
+      time: 1
+      mana: 10
+    costThrow:
+      time: 0
+    flatRate: true
+    medikitType: 1
+    medikitTargetSelf: true
+    medikitTargetMatrix: 0
+    heal: 10     # max number of uses per mission
+    specialIconSprite: 3
+    medikitActionName: STR_SHARPSHOOTER_CLASS_SKILL
+  - type: STR_PARAMEDIC_SKILL
+    tags:
+      SKILL_POWER_ITEM: 1
+    bigSprite: 24
+    floorSprite: 24
+    battleType: 6
+    invWidth: 1
+    invHeight: 2
+    medikitTargetSelf: true
+    medikitTargetMatrix: 63
+    painKiller: 10
+    heal: 10
+    stimulant: 10
+    woundRecovery: 1
+    healthRecovery: 3
+    stunRecovery: 4
+    energyRecovery: 10
+    moraleRecovery: 2
+    costThrow:
+      time: 0
+    costUse:
+      time: 1
+      mana: 1
+    flatRate: true
+    specialIconSprite: 4
+    medikitActionName: STR_MEDIC_CLASS_SKILL
+  - type: STR_HEAVY_ROCKET_SKILL
+    tags:
+      CLASS_SKILL_ACTIVATION: 1
+      SKILL_POWER_ITEM: 1
+    bigSprite: 15
+    floorSprite: 15
+    handSprite: 72
+    bulletSprite: 0
+    fireSound: 52
+    specialIconSprite: 0
+    clipSize: 10  # max number of uses per mission
+    accuracyAimed: 115
+    tuSnap: 0
+    costAimed:
+      time: 1
+      mana: 10
+    flatRate: true
+    tuThrow: 0
+    battleType: 1
+    twoHanded: false
+    invWidth: 2
+    invHeight: 3
+    hitSound: 0
+    hitAnimation: 0
+    power: 75
+    hidePower: true
+    damageType: 3
+
 soldierTransformation:
   - name: STR_RANGER_MOLDING
     producedSoldierType: STR_RANGER
-    soldierBonusType: STR_BLADEMASTER_BONUS
+    soldierBonusType: STR_RANGER_INITIAL_BONUS
     minRank: 1 # squaddie
-    keepSoldierArmor: true
+    keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
@@ -227,8 +484,8 @@ soldierTransformation:
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_HEAVY_MOLDING
     producedSoldierType: STR_HEAVY
-    soldierBonusType: STR_BLAST_PADDING_BONUS
-    keepSoldierArmor: true
+    soldierBonusType: STR_HEAVY_INITIAL_BONUS
+    keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
@@ -268,8 +525,8 @@ soldierTransformation:
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_SHARPSHOOTER_MOLDING
     producedSoldierType: STR_SHARPSHOOTER
-    soldierBonusType: STR_DEATH_FROM_ABOVE_BONUS
-    keepSoldierArmor: true
+    soldierBonusType: STR_SHARPSHOOTER_INITIAL_BONUS
+    keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
@@ -309,7 +566,7 @@ soldierTransformation:
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_PSI_OPERATIVE_MOLDING
     producedSoldierType: STR_PSI_OPERATIVE
-    keepSoldierArmor: true
+    keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
@@ -349,8 +606,8 @@ soldierTransformation:
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_MEDIC_MOLDING
     producedSoldierType: STR_MEDIC
-    soldierBonusType: STR_FIELD_MEDIC_BONUS
-    keepSoldierArmor: true
+    soldierBonusType: STR_MEDIC_INITIAL_BONUS
+    keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
@@ -388,176 +645,174 @@ soldierTransformation:
     lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
     upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
-  - name: STR_TRAIN_REAPER
-    listOrder: 1
-    allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
-      - STR_RANGER
-      - STR_HEAVY
-      - STR_MEDIC
-      - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_REAPER
-    cost: 100000
+  - name: STR_RANGER_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_RANGER_ADVANCED_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+    soldierBonusType: STR_RANGER_ADVANCED_BONUS
+    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 5
-    transferTime: 72
-    soldierBonusType: STR_REAPER_BONUS
-  - name: STR_TRAIN_UNTOUCHABLE
-    listOrder: 2
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
       - STR_RANGER
-      - STR_HEAVY
-      - STR_MEDIC
-      - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_UNTOUCHABLE
-    cost: 50000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: 5
+      stamina: 5
+  - name: STR_HEAVY_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_HEAVY_ADVANCED_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+    soldierBonusType: STR_HEAVY_ADVANCED_BONUS
+    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 3
-    transferTime: 72
-    soldierBonusType: STR_UNTOUCHABLE_BONUS
-  - name: STR_TRAIN_LIGHTNING_REFLEXES
-    listOrder: 3
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
-      - STR_RANGER
       - STR_HEAVY
-      - STR_MEDIC
-      - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_LIGHTNING_REFLEXES
-    cost: 10000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      health: 5
+      strength: 5
+  - name: STR_SHARPSHOOTER_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_SHARPSHOOTER_ADVANCED_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+    soldierBonusType: STR_SHARPSHOOTER_ADVANCED_BONUS
+    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 0
-    transferTime: 72
-    soldierBonusType: STR_LIGHTNING_REFLEXES_BONUS
-  - name: STR_TRAIN_CAMOUFLAGE
-    listOrder: 3
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
-      - STR_RANGER
-      - STR_HEAVY
-      - STR_MEDIC
       - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_CAMOUFLAGE
-    cost: 100000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      firing: 5
+  - name: STR_MEDIC_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_MEDIC_ADVANCED_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+    soldierBonusType: STR_MEDIC_ADVANCED_BONUS
+    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 4
-    transferTime: 72
-    soldierBonusType: STR_CAMOUFLAGE_BONUS
-  - name: STR_TRAIN_SUSTAIN
-    listOrder: 3
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
-      - STR_RANGER
-      - STR_HEAVY
       - STR_MEDIC
-      - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_SUSTAIN
-    cost: 200000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      bravery: 5
+      stamina: 5
+  - name: STR_RANGER_ELITE_TRAINING
+    requiredPreviousTransformations:
+      - STR_RANGER_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_RANGER_ELITE_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 2 # decoration level
+    soldierBonusType: STR_RANGER_ELITE_BONUS
+    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 4
-    transferTime: 72
-    soldierBonusType: STR_SUSTAIN_BONUS
-  - name: STR_TRAIN_EXECUTIONER
-    listOrder: 3
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
       - STR_RANGER
-      - STR_HEAVY
-      - STR_MEDIC
-      - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_EXECUTIONER
-    cost: 80000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      tu: 5
+      stamina: 5
+  - name: STR_HEAVY_ELITE_TRAINING
+    requiredPreviousTransformations:
+      - STR_HEAVY_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_HEAVY_ELITE_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 2 # decoration level
+    soldierBonusType: STR_HEAVY_ELITE_BONUS
+    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 3
-    transferTime: 72
-    soldierBonusType: STR_EXECUTIONER_BONUS
-  - name: STR_TRAIN_THREAT_ASSESSMENT
-    listOrder: 3
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
-      - STR_RANGER
       - STR_HEAVY
-      - STR_MEDIC
-      - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_THREAT_ASSESSMENT
-    cost: 20000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      health: 5
+      strength: 5
+  - name: STR_SHARPSHOOTER_ELITE_TRAINING
+    requiredPreviousTransformations:
+      - STR_SHARPSHOOTER_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_SHARPSHOOTER_ELITE_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 2 # decoration level 
+    soldierBonusType: STR_SHARPSHOOTER_ELITE_BONUS
+    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 2
-    transferTime: 72
-    soldierBonusType: STR_THREAT_ASSESSMENT_BONUS
-  - name: STR_TRAIN_BACKSTAB
-    listOrder: 3
     allowedSoldierTypes:
-      - STR_SOLDIER
-      - STR_PILOT     # area 51
-      - STR_OFFICER   # area 51
-      - STR_RANGER
-      - STR_HEAVY
-      - STR_MEDIC
       - STR_SHARPSHOOTER
-    forbiddenPreviousTransformations:
-      - STR_TRAIN_BACKSTAB
-    cost: 15000
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      firing: 5
+  - name: STR_MEDIC_ELITE_TRAINING
+    requiredPreviousTransformations:
+      - STR_MEDIC_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_MEDIC_ELITE_TRAINING]
+    requiredCommendations:
+      STR_SOLDIER_EXPERIENCE: 2 # decoration level 
+    soldierBonusType: STR_MEDIC_ELITE_BONUS
+    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
-    allowsDeadSoldiers: false
+    needsCorpseRecovered: false
+    allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    allowsWoundedSoldiers: true
-    minRank: 2
-    transferTime: 72
-    soldierBonusType: STR_BACKSTAB_BONUS
+    allowedSoldierTypes:
+      - STR_MEDIC
+    cost: 50000               #				The cost of the project in dollars
+    transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
+    recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
+    percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
+      bravery: 5
+      stamina: 5
 
 soldiers:
+  - type: STR_SOLDIER
+    minStats:
+      mana: 10
+    maxStats:
+      mana: 10
+    statCaps:
+      mana: 10
+    armor: STR_NONE_UC
   - type: STR_RANGER
     tags:
       CLASS: 1
@@ -618,7 +873,7 @@ soldiers:
       - STR_CAPTAIN_RANGER_RANK
       - STR_COLONEL_RANGER_RANK
       - STR_COMMANDER_RANGER_RANK
-    armor: STR_NONE_UC
+    armor: STR_RANGER_NONE_UC
   - type: STR_HEAVY
     tags:
       CLASS: 2
@@ -679,7 +934,7 @@ soldiers:
       - STR_CAPTAIN_HEAVY_RANK
       - STR_COLONEL_HEAVY_RANK
       - STR_COMMANDER_HEAVY_RANK
-    armor: STR_NONE_UC
+    armor: STR_HEAVY_NONE_UC
   - type: STR_SHARPSHOOTER
     tags:
       CLASS: 3
@@ -740,7 +995,7 @@ soldiers:
       - STR_CAPTAIN_SHARPSHOOTER_RANK
       - STR_COLONEL_SHARPSHOOTER_RANK
       - STR_COMMANDER_SHARPSHOOTER_RANK
-    armor: STR_NONE_UC
+    armor: STR_SHARPSHOOTER_NONE_UC
   - type: STR_MEDIC
     tags:
       CLASS: 4
@@ -801,7 +1056,7 @@ soldiers:
       - STR_CAPTAIN_MEDIC_RANK
       - STR_COLONEL_MEDIC_RANK
       - STR_COMMANDER_MEDIC_RANK
-    armor: STR_NONE_UC
+    armor: STR_MEDIC_NONE_UC
   - type: STR_PSI_OPERATIVE
     tags:
       CLASS: 5
@@ -866,6 +1121,8 @@ soldiers:
 
 extended:
   tags:
+    RuleArmor:
+      SKILL_POWER_ARMOR: int
     RuleSoldier:
       CLASS: int            # 0 = no class, 1 = Ranger, 2 = Heavy, 3 = Sharpshooter, 4 = Medic, 5 = Psi
     BattleGame:
@@ -892,6 +1149,8 @@ extended:
       PARRY_STATE: int
       MELEE_DEFENSE_STATE: int
       SLAYER_STATE: int
+      RUN_AND_GUN_STATE: int
+      HEADSHOT_STATE: int
     RuleSoldierBonus:
       LIGHTNING_REFLEXES: int
       UNTOUCHABLE: int
@@ -905,7 +1164,29 @@ extended:
       BACKSTAB: int
       BLADEMASTER: int
       FIELD_MEDIC: int
+      RUN_AND_GUN: int
+      PHANTOM: int
+      SHADOWSTRIKE: int
+      SHREDDER: int
+      RAPID_DEPLOYMENT: int
+      MAYHEM: int
+      STING_GRENADES: int
+      RUPTURE: int
+      HEADSHOT: int
+      AIM: int
+      CENTER_MASS: int
+      ALPHA_MIKE_FOXTROT: int
+      SERIAL: int
+      AID_PROTOCOL: int
+      STEADFAST: int
+      REVIVE: int
+      SAVIOR: int
+      RESTORATION: int
+      HEAVY_ROCKET: int
+      PARAMEDIC: int
     RuleItem:
+      SKILL_POWER_ITEM: int
+      CLASS_SKILL_ACTIVATION: int
       SWORD_TYPE: int
       RUPTURE_DAMAGE: int
       SHREDDER_DAMAGE: int
@@ -1056,6 +1337,7 @@ extended:
           end;
 
           return;
+
     hitUnit:
       - offset: 2    # for camouflage
         code: |
@@ -1066,6 +1348,24 @@ extended:
           if neq camo_state 0;
             unit.setTag Tag.CAMOUFLAGE_STATE 0;
             debug_log "Camouflage disabled. You have been spotted. (hit)";
+          end;
+          return power part side;
+      - offset: 3    # for blademaster
+        code: |
+          var int blademaster;
+          var int sword;
+          var ptr RuleItem item_rule;
+
+          attacker.getTag blademaster Tag.BLADEMASTER_STATE;
+          
+          if and neq blademaster 0 eq battle_action battle_action_hit;
+            debug_log "Blademaster is doing melee attack";
+            damaging_item.getRuleItem item_rule;
+            item_rule.getTag sword Tag.SWORD_TYPE;
+            if gt sword 0;
+              add power blademaster;
+              debug_log " - power increased by:" blademaster;
+            end;
           end;
           return power part side;
       - offset: 65   # for untouchable
@@ -1139,7 +1439,7 @@ extended:
           var int backstab;
           var ptr RuleArmor armor_rule;
           
-          unit.getTag backstab Tag.BACKSTAB_STATE;
+          attacker.getTag backstab Tag.BACKSTAB_STATE;
 
           if gt backstab 0;
             if eq side 2;
@@ -1436,6 +1736,60 @@ extended:
           end;
           return;
     healUnit:
+      - offset: 1     # Class Skill Activation via Medikit Self Targeting
+        code: |
+          var int unit_class;
+          var int class_skill;
+          var int skill_power;
+          var int temp;
+          var ptr RuleItem item_rule;
+          var ptr RuleSoldier soldier_rule;
+          var ptr RuleArmor armor_rule;
+          var int run_and_gun;
+          var int max;
+          var int cur;
+
+          set skill_power 0;
+
+          item.getRuleItem item_rule;
+          item_rule.getTag class_skill Tag.CLASS_SKILL_ACTIVATION;
+          
+          debug_log "Class skill activated with cs:" class_skill;
+
+          if gt class_skill 0;
+            actor.getRuleArmor armor_rule;
+            item_rule.getTag skill_power Tag.SKILL_POWER_ITEM;
+            armor_rule.getTag temp Tag.SKILL_POWER_ARMOR;
+            if gt temp skill_power;
+              set skill_power temp;
+            end;
+            # skill_power is now max(item.skill_power, armor.skill_power)
+            debug_log "Class skill activated with power:" skill_power;
+            actor.getRuleSoldier soldier_rule;
+            soldier_rule.getTag unit_class Tag.CLASS;
+            set unit_class 1; # DEBUG
+            if eq unit_class 1;    # Ranger
+              debug_log " - for Ranger (Run & Gun)";
+              actor.getTag run_and_gun Tag.RUN_AND_GUN_STATE;
+
+              actor.getTimeUnitsMax max;
+              actor.getTimeUnits cur;
+              add cur max;
+              actor.setTimeUnits cur;
+
+              actor.getEnergyMax max;
+              actor.getEnergy cur;
+              add cur max;
+              actor.setEnergy cur;
+            else eq unit_class 3;  # Sharpshooter
+              debug_log " - for Sharpshooter (Headshot)";
+              actor.setTag Tag.CRIT_CHANCE_NEXT_HIT 30; # increase hit chance by 30% for next hit
+              actor.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
+            end;
+          end;
+          set wound_recovery 0;
+          set health_recovery 0;
+          return;
       - offset: 55   # for field medic
         code: |
           var int actor_id;
@@ -1542,47 +1896,6 @@ extended:
             end;
           end;
           return current_visibility visibility_mode;
-    accuracyMultiplierBonusStats:
-      - offset: 80   # for blademaster
-        code: |
-          var int activate;
-          var int blademaster;
-          var ptr BattleItem left_weapon;
-          var ptr RuleItem left_rule;
-          var ptr BattleItem right_weapon;
-          var ptr RuleItem right_rule;
-          
-          var int left_is_sword;
-          var int right_is_sword;
-
-          set activate 0;
-
-          unit.getLeftHandWeapon left_weapon;
-          unit.getRightHandWeapon right_weapon;
-
-          left_weapon.getRuleItem left_rule;
-          right_weapon.getRuleItem right_rule;
-
-          left_rule.getTag left_is_sword Tag.SWORD_TYPE;
-          right_rule.getTag right_is_sword Tag.SWORD_TYPE;
-          
-          unit.getTag blademaster Tag.BLADEMASTER_STATE;
-
-          if gt blademaster 0;
-            debug_log "Accuracy Bonus for Blademaster (LW/RW)" left_weapon right_weapon;
-            if and gt left_is_sword 0 eq right_weapon null; # sword in left hand, no weapon in right hand
-              set activate 1;
-            else and gt right_is_sword 0 eq left_weapon null; # sword in right hand, no weapon in left hand
-              set activate 1;
-            end;
-          end;
-
-          if gt activate 0;
-            debug_log "Blademaster activated at accuracy bonus" bonus;
-            set bonus blademaster;
-            debug_log " - accuracy bonus changed to" bonus;
-          end;
-          return bonus;
     applySoldierBonuses:
       - offset: 3
         code: |
@@ -1679,57 +1992,51 @@ extended:
           end;
           return;
 
-soldierBonuses:
-  - name: STR_REAPER_BONUS
-    tags:
-      REAPER: 1               # (1/0) 1 = on, 0 = off, TU refund after kill
-  - name: STR_UNTOUCHABLE_BONUS
-    tags:
-      UNTOUCHABLE: 2          # (0-n) number of attacks which are deflected after a kill
-  - name: STR_LIGHTNING_REFLEXES_BONUS
-    tags:
-      LIGHTNING_REFLEXES: 80  # (0-100) amount of reaction_chance reduction for enemies
-  - name: STR_DEATH_FROM_ABOVE_BONUS
-    tags:
-      DEATH_FROM_ABOVE: 150   # (100-xxx) percentage of damage to apply (150 = 150% damage)
-  - name: STR_BLAST_PADDING_BONUS
-    tags:
-      BLAST_PADDING: 60       # (0-100) amount of damage reduction on percent for HE and Incendiary
-  - name: STR_CAMOUFLAGE_BONUS
-    tags:
-      CAMOUFLAGE: 5           # distance threshold for stealth, 5 means enemies can only see you in a 5 tile range
-  - name: STR_SUSTAIN_BONUS
-    tags:
-      SUSTAIN: 1              # (1/0) 1 = on, 0 = off, unconsciousness instead of death
-  - name: STR_EXECUTIONER_BONUS
-    tags:
-      EXECUTIONER: 150        # (100-xxx) percentage of damage to apply (to units below 50% HP)
-  - name: STR_THREAT_ASSESSMENT_BONUS
-    tags:
-      THREAT_ASSESSMENT: 20   # (0-100) amount of damage reduction when reserved TU>50%
-  - name: STR_BACKSTAB_BONUS
-    tags:
-      BACKSTAB: 150           # (100-xxx) percentage of damage to apply (to units attacked from behind)
-  - name: STR_BLADEMASTER_BONUS
-    tags:
-      BLADEMASTER: 150        # (100-xxx) percentage of aim bonus to apply (to units attacked with sword)
-  - name: STR_FIELD_MEDIC_BONUS
-    tags:
-      FIELD_MEDIC: 20         # (0-100) percentage of health to recover on heal  
-
 extraStrings:
   - type: en-US
     strings:
+      STR_CLASS_SKILL: Activate Class Skill
+      STR_RANGER_CLASS_SKILL: Run & Gun
+      STR_SHARPSHOOTER_CLASS_SKILL: Headshot
+      STR_MEDIC_CLASS_SKILL: Paramedic
+      STR_NO_USES_LEFT: Exhausted all activations
+      STR_MANA: "BATTLE FOCUS"
+      STR_MANA_POOL: "FOCUS POINTS"
+      STR_MANA_MISSING: "FOCUS MISSING"
+      STR_MANA_RECOVERY: "FOCUS RECOVERY"
+      STR_NOT_ENOUGH_MANA: "Not Enough Focus!"
+      STR_MANA_ABBREVIATION: "FOC"
+      STR_MANA_CURRENT: "CURRENT FOCUS"
+      STR_MANA_NORMALIZED: "NORMALIZED FOCUS"
+      STR_COST_MANA: "focus"
+      manaExperience: "Focus experience"
+      manaRequired: "Focus required?"
+      ToMana: "Focus dmg multiplier"
+      RandomMana: "Focus dmg RNG?"
+      mana: "Focus"
+      manaRecoveryPerDay: "Focus per day"
       STR_RANGER: Ranger
       STR_HEAVY: Heavy
       STR_SHARPSHOOTER: Sniper
       STR_PSI_OPERATIVE: Psi-Op
       STR_MEDIC: Medic
+      STR_HEAVY_NONE_UC: "NONE (Hv.)"
+      STR_MEDIC_NONE_UC: "NONE (Md.)"
+      STR_RANGER_NONE_UC: "NONE (Rg.)"
+      STR_SHARPSHOOTER_NONE_UC: "NONE (Sn.)"
       STR_RANGER_MOLDING: Ranger molding
       STR_HEAVY_MOLDING: Heavy molding
       STR_SHARPSHOOTER_MOLDING: Sniper molding
-      STR_PSI_OPERATIVE_MOLDING: Psi-Op molding
       STR_MEDIC_MOLDING: Medic molding
+      STR_PSI_OPERATIVE_MOLDING: Psi-Op molding
+      STR_RANGER_ADVANCED_TRAINING: Advanced Ranger Training
+      STR_HEAVY_ADVANCED_TRAINING: Advanced Heavy Training
+      STR_SHARPSHOOTER_ADVANCED_TRAINING: Advanced Sniper Training
+      STR_MEDIC_ADVANCED_TRAINING: Advanced Medic Training
+      STR_RANGER_ELITE_TRAINING: Elite Ranger Training
+      STR_HEAVY_ELITE_TRAINING: Elite Heavy Training
+      STR_SHARPSHOOTER_ELITE_TRAINING: Elite Sniper Training
+      STR_MEDIC_ELITE_TRAINING: Elite Medic Training
       STR_ROOKIE_RANGER_RANK: Rk. Ranger
       STR_SQUADDIE_RANGER_RANK: Sq. Ranger
       STR_SERGEANT_RANGER_RANK: Sgt. Ranger
@@ -1760,17 +2067,6 @@ extraStrings:
       STR_CAPTAIN_MEDIC_RANK: Cpt. Medic
       STR_COLONEL_MEDIC_RANK: Col. Medic
       STR_COMMANDER_MEDIC_RANK: Cdr. Medic
-      STR_TRAIN_REAPER: "ST: Reaper"
-      STR_TRAIN_UNTOUCHABLE: "ST: Untouchable"
-      STR_TRAIN_LIGHTNING_REFLEXES: "ST: Lightning Reflexes"
-      STR_TRAIN_DEATH_FROM_ABOVE: "ST: Death from above"
-      STR_TRAIN_BLAST_PADDING: "ST: Blast Padding"
-      STR_TRAIN_CAMOUFLAGE: "ST: Camouflage"
-      STR_TRAIN_SUSTAIN: "ST: Sustain"
-      STR_TRAIN_EXECUTIONER: "ST: Executioner"
-      STR_TRAIN_THREAT_ASSESSMENT: "ST: Threat Assessment"
-      STR_TRAIN_BACKSTAB:  "ST: Backstab"
-      STR_TRAIN_BLADEMASTER: "ST: Blademaster"
       STR_REAPER_BONUS: "Reaper"
       STR_UNTOUCHABLE_BONUS: "Untouchable"
       STR_LIGHTNING_REFLEXES_BONUS: "Lightning Reflexes"
@@ -1850,3 +2146,13 @@ statStrings:
     tu: [50, ~]
     strength: [40, ~]
     melee: [70, ~]
+
+extraSprites:
+  - type: SPICONS.DAT
+    width: 32
+    height: 24
+    files:
+      2: Resources/UI/SPICON_RANGER.png
+      3: Resources/UI/SPICON_SNIPER.png
+      4: Resources/UI/SPICON_MEDIC.png
+      5: Resources/UI/SPICON_CS.png
