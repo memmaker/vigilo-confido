@@ -2356,6 +2356,42 @@ extended:
           end;
           return;
 
+ufopaedia:
+  - id: STR_MILITARY_MOLDING
+    type_id: 8 # text only
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_MILITARY_MOLDING
+  - id: STR_RANGER
+    type_id: 7 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_SOLDIER
+    text: STR_UFOPAEDIA_RANGER
+    text_width: 158
+  - id: STR_HEAVY
+    type_id: 7 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_SOLDIER
+    text: STR_UFOPAEDIA_HEAVY
+    text_width: 158
+  - id: STR_SHARPSHOOTER
+    type_id: 7 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_SOLDIER
+    text: STR_UFOPAEDIA_SHARPSHOOTER
+    text_width: 158
+  - id: STR_MEDIC
+    type_id: 7 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_SOLDIER
+    text: STR_UFOPAEDIA_MEDIC
+    text_width: 158
+  - id: STR_PSI_OPERATIVE
+    type_id: 7 # text & image
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_SOLDIER
+    text: STR_UFOPAEDIA_PSI_OP
+    text_width: 158
+
 extraStrings:
   - type: en-US
     strings:
@@ -2445,6 +2481,13 @@ extraStrings:
       STR_BACKSTAB_BONUS:  "Backstab"
       STR_BLADEMASTER_BONUS: "Blademaster"
       STR_FIELD_MEDIC_BONUS: "Field Medic"
+      STR_UFOPAEDIA_RANGER: "The Ranger serves as our primary reconnaissance unit, capable of moving independently in concealment while engaging enemies at close range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Blademaster - Run & Gun{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Phantom - Shadowstrike{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Untouchable - Reaper"
+      STR_UFOPAEDIA_HEAVY: "A class specialising in high fire power and area damage with some support capabilities. The Heavy is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Shredder - Heavy Rocket{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Blast Padding - Mayhem{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Sting Grenades - Rupture"
+      STR_UFOPAEDIA_SHARPSHOOTER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Death from above - Headshot{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Aim - Center Mass{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Alpha Mike Foxtrot - Serial"
+      STR_UFOPAEDIA_MEDIC: "Soldiers trained in the Medic class serve as both field medics and logistical support to the squad they are attached to. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Guardian - Paramedic{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Steadfast - Field Surgeon{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Savior - Ever Vigilant"
+      STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for XCOM, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}??? - ???"
+      STR_MILITARY_MOLDING: "Military Molding"
+      STR_UFOPAEDIA_MILITARY_MOLDING: "XCOM units of rank squaddie or higher are eligible for military molding. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers."
 
 statStrings:
   - string: "Psi" #above average psi skill
@@ -2522,3 +2565,9 @@ extraSprites:
       3: Resources/UI/SPICON_SNIPER.png
       4: Resources/UI/SPICON_MEDIC.png
       5: Resources/UI/SPICON_CS.png
+  - type: UFOPAEDIA_IMG_SOLDIER
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/UFOPEDIA_SOLDIER.png
