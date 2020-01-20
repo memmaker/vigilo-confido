@@ -1222,7 +1222,7 @@ extended:
       SHREDDER_DAMAGE: int
   scripts:
     reactionUnitAction: 
-      - offset: 24   # for lightning reflexes
+      - offset: 23   # for lightning reflexes
         code: |
           var int reflexes;
           var int action_id;
@@ -1241,11 +1241,11 @@ extended:
           end;
           return reaction_chance;
     newTurnUnit:
-      - offset: -1   # Essentials (Store the turn side in the battle game at the beginning of each turn)
+      - offset: 23   # Essentials (Store the turn side in the battle game at the beginning of each turn)
         code: |
           battle_game.setTag Tag.TURN_SIDE side;
           return;
-      - offset: 2    # for phantom
+      - offset: 24   # for phantom
         code: |
           var int turns_since_spotted;
           var int phantom;
@@ -1260,7 +1260,7 @@ extended:
             end;
           end;
           return;
-      - offset: 65   # for untouchable
+      - offset: 25   # for untouchable
         code: |
           var int untouchable;
           var int unit_id;
@@ -1281,7 +1281,7 @@ extended:
             end;
           end;
           return;
-      - offset: 67   # for reaper
+      - offset: 26   # for reaper
         code: |
           var int reaper_state;
           var int unit_id;
@@ -1297,7 +1297,7 @@ extended:
             end;
           end;
           return;
-      - offset: 70   # for stasis
+      - offset: 27   # for stasis
         code: |
           var int stasis_state;
           var int unit_id;
@@ -1316,7 +1316,7 @@ extended:
             unit.setTag Tag.STASIS_STATE 0;
           end;
           return;
-      - offset: 71   # for battle cry (TODO: activation/deactivation)
+      - offset: 28   # for battle cry (TODO: activation/deactivation)
         code: |
           var int battle_cry;
           var int activation_dist_sq;
@@ -1371,7 +1371,7 @@ extended:
           end;
 
           return;
-      - offset: 72   # for stun / sting grenades
+      - offset: 29   # for stun / sting grenades
         code: |
           var int stunned;
           if eq side 0; # xcom turns
@@ -1384,7 +1384,7 @@ extended:
             end;
           end;
           return;
-      - offset: 73   # for death from above
+      - offset: 30   # for death from above
         code: |
           var int death_from_above;
           if eq side 0; # xcom turns
@@ -1395,7 +1395,7 @@ extended:
             end;
           end;
           return;
-      - offset: 74   # for aim
+      - offset: 31   # for aim
         code: |
           var int is_kneeling;
           var int pos_x;
@@ -1420,7 +1420,7 @@ extended:
             end;
           end;
           return;
-      - offset: 75   # for ever vigilant
+      - offset: 32   # for ever vigilant
         code: |
           var int vigilant;
           var int tu_max;
@@ -1432,7 +1432,7 @@ extended:
             unit.setTimeUnits tu_max;
           end;
           return;
-      - offset: 76   # for serial
+      - offset: 33   # for serial
         code: |
           var int serial_state;
           var int unit_id;
@@ -1448,7 +1448,7 @@ extended:
           end;
           return;
     hitUnit:
-      - offset: 2    # for phantom
+      - offset: 23   # for phantom
         code: |
           var int camo_state;
 
@@ -1459,7 +1459,7 @@ extended:
             debug_log "Concealment disabled. You have been spotted. (hit)";
           end;
           return power part side;
-      - offset: 3    # for blademaster
+      - offset: 24   # for blademaster
         code: |
           var int blademaster;
           var int sword;
@@ -1477,7 +1477,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 65   # for untouchable
+      - offset: 25   # for untouchable
         code: |
           var int unit_id;
           var int untouchable;
@@ -1499,7 +1499,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 70   # for stasis
+      - offset: 26   # for stasis
         code: |
           var int stasis_state;
 
@@ -1510,7 +1510,7 @@ extended:
             set power 0;
           end;
           return power part side;
-      - offset: 40   # for blast padding
+      - offset: 27   # for blast padding
         code: |
           var int blast_padding;
 
@@ -1525,7 +1525,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 41   # for threat assessment
+      - offset: 28   # for threat assessment
         code: |
           var int threat_assessment;
           var int current_time_units;
@@ -1544,7 +1544,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 42   # for backstab
+      - offset: 29   # for backstab
         code: |
           var int backstab;
           var ptr RuleArmor armor_rule;
@@ -1563,7 +1563,7 @@ extended:
           debug_log " with armor:" armor_rule;
           debug_log " Power:" power; # debug
           return power part side;
-      - offset: 43   # for parry
+      - offset: 30   # for parry
         code: |
           var int unit_id;
           var int parry;
@@ -1617,7 +1617,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 44   # for melee defense
+      - offset: 31   # for melee defense
         code: |
           var int unit_id;
           var int melee_defense;
@@ -1633,7 +1633,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 45   # for shadowstrike
+      - offset: 32   # for shadowstrike
         code: |
           var int camo_state;
           var int shadowstrike_state;
@@ -1653,7 +1653,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 46   # for mayhem
+      - offset: 33   # for mayhem
         code: |
           var int mayhem;
 
@@ -1669,7 +1669,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 47   # for sting grenades
+      - offset: 34   # for sting grenades
         code: |
           var int disorient;
           var int stun;
@@ -1691,7 +1691,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 48   # for center mass
+      - offset: 35   # for center mass
         code: |
           var int center_mass;
           var int gun_type;
@@ -1712,7 +1712,7 @@ extended:
             end;
           end;
           return power part side;
-      - offset: 49   # for alpha mike foxtrot
+      - offset: 36   # for alpha mike foxtrot
         code: |
           var int amf_state;
           var int temp;
@@ -1735,7 +1735,7 @@ extended:
             attacker.setTag Tag.CRIT_DAMAGE_NEXT_HIT temp;
           end;
           return power part side;
-      - offset: 50   # for guardian
+      - offset: 37   # for guardian
         code: |
           var int guardian;
           var int activation_chance;
@@ -1762,7 +1762,7 @@ extended:
                 
           return power part side;
     accuracyMultiplierBonusStats:
-      - offset: 2    # for shadowstrike
+      - offset: 23   # for shadowstrike
         code: |
           var int camo_state;
           var int shadowstrike_state;
@@ -1781,7 +1781,7 @@ extended:
             end;
           end;
           return bonus;
-      - offset: 3    # for aim
+      - offset: 24   # for aim
         code: |
           var int pos_x;
           var int pos_y;
@@ -1815,7 +1815,7 @@ extended:
           end;
           return bonus;
     psiDefenceBonusStats:
-      - offset: 2    # for steadfast
+      - offset: 23   # for steadfast
         code: |
           var int steadfast;
 
@@ -1826,7 +1826,7 @@ extended:
           end;
           return bonus;
     damageUnit:
-      - offset: 65   # for untouchable
+      - offset: 23   # for untouchable
         code: |
           var int unit_health;
           var int untouchable;
@@ -1843,7 +1843,7 @@ extended:
             end;
           end;
           return;
-      - offset: 70   # for sustain
+      - offset: 24   # for sustain
         code: |
           var int unit_health;
           var int sustain;
@@ -1872,7 +1872,7 @@ extended:
             end;
           end;
           return;
-      - offset: 99   # for death from above
+      - offset: 25   # for death from above
         code: |
           var int unit_health;
           var int attacker_height_level;
@@ -1901,7 +1901,7 @@ extended:
             end;
           end;
           return;
-      - offset: 43   # for executioner
+      - offset: 26   # for executioner
         code: |
           var int unit_health;
           var int unit_half_max_health;
@@ -1923,7 +1923,7 @@ extended:
             end;
           end;
           return;
-      - offset: 44   # for slayer
+      - offset: 27   # for slayer
         code: |
           var int unit_health;
           var int unit_max_health;
@@ -1949,7 +1949,7 @@ extended:
             end;
           end;
           return;
-      - offset: 67   # for reaper
+      - offset: 28   # for reaper
         code: |
           var int unit_health;
           var int state; # 0 = not available, 1 = not activated yet, available 2 = active in this turn
@@ -1979,7 +1979,7 @@ extended:
             end;
           end;
           return;
-      - offset: 68   # for shredder
+      - offset: 29   # for shredder
         code: |
           var int weapon_state;
           var int unit_state;
@@ -1996,7 +1996,7 @@ extended:
             debug_log "Shredder adjustment done (to_armor): " to_armor;
           end;
           return;
-      - offset: 69   # for rupture
+      - offset: 30   # for rupture
         code: |
           var int weapon_state;
           var int unit_state;
@@ -2032,7 +2032,7 @@ extended:
           end;
         
           return;
-      - offset: 70   # for serial
+      - offset: 31   # for serial
         code: |
           var int unit_health;
           var int state; # 0 = not available, 1 = not activated yet, available 2 = active in this turn
@@ -2065,7 +2065,7 @@ extended:
           end;
           return;    
     healUnit:
-      - offset: 1    # Class Skill Activation via Medikit Self Targeting
+      - offset: 23   # Class Skill Activation via Medikit Self Targeting
         code: |
           var int unit_class;
           var int class_skill;
@@ -2119,7 +2119,7 @@ extended:
           set wound_recovery 0;
           set health_recovery 0;
           return;
-      - offset: 55   # for savior
+      - offset: 24   # for savior
         code: |
           var int savior;
           var int health_to_heal;
@@ -2136,7 +2136,7 @@ extended:
           end;
 
           return;
-      - offset: 56   # for field surgeon
+      - offset: 25   # for field surgeon
         code: |
           var int field_surgeon;
           var int max_health;
@@ -2157,7 +2157,7 @@ extended:
 
           return;    
     returnFromMissionUnit:
-      - offset: 2    # for field surgeon
+      - offset: 23   # for field surgeon
         code: |
           var int healed_by_field_surgeon;
           var int factor;
@@ -2173,7 +2173,7 @@ extended:
           end;
           return;
     recolorUnitSprite:   
-      - offset: 2    # for phantom
+      - offset: 23   # for phantom
         code: |
           var int camo_state;
           var int turns_since_spotted;
@@ -2197,7 +2197,7 @@ extended:
 
           return new_pixel;
     visibilityUnit:
-      - offset: 2    # for phantom
+      - offset: 23   # for phantom
         code: |
           var int observer_x;
           var int observer_y;
@@ -2240,7 +2240,7 @@ extended:
           end;
           return current_visibility visibility_mode;
     applySoldierBonuses:
-      - offset: 3
+      - offset: 23
         code: |
           var int id;
           var int has_reaper;
