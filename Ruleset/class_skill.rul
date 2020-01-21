@@ -21,7 +21,7 @@
 # Soldiers start out as STR_SOLDIER of rank Rookie.
 # Soldiers of rank Squaddie or higher can choose to undergo the military molding process, being assigned a class in the process.
 # Classed soldiers receive two class specific skills initially a passive one and an active one via SoldierBonus.
-# The active one is activated with empty hands and the passive one is always active.
+# The active one is activated with the special icon and the passive one is always active.
 #
 # There are three training phases. The initial molding process is the first one.
 # Second Phase (or Advanced Training) adds two additional passive skills.
@@ -29,7 +29,7 @@
 #
 # The elite level active skill has to be activated via the SKILL_AMP usable item.
 
-# So every class ends up with 6 skills if they get promotod to colonel.
+# So every class ends up with 6 skills if they get promoted to colonel.
 
 # psi op: stasis
 
@@ -124,7 +124,7 @@
 # X Sustain          - Instead of being killed, go into stasis with 1 hp once per mission
 # X Executioner      - Increased damage against targets with HP < 50%
 
-# Genetics Lab Projects
+# Genetics Lab Projects (Not implemented yet)
 # Neural Dampening      - Confers +20 Will when defending against psi attacks, and immunity to panic. If the soldier is Mind Controlled, the control is cancelled, and the soldier is stunned for 1 turn instead.
 # Neural Feedback       - Causes damage to psi attackers and puts all of their psi attacks on cooldown. Does not reduce the attacker's chance of success.
 # Hyper Reactive Pupils - Confers +10 Aim to any shot after a miss.
@@ -134,7 +134,7 @@
 # Iron Skin             - All damage taken is reduced by 25%.
 # Adrenaline Surge      - Confers +10 Aim and +10% critical chance. Activated on getting wounded.
 
-# == Possible Item Skills
+# == Possible Item Skills (Not implemented yet)
 # === Shotguns
 # Rapid Fire       - Fire twice in a row at an enemy. Each shot suffers an Aim penalty of -15. There is no cooldown on this ability.
 # === Rocket Launchers
@@ -151,30 +151,37 @@
 # === Utility
 # Mimic Beacon     - Conjures a holographic decoy soldier for the enemy to shoot at.
 
-# Wishlist:
-# - Ability to spawn map objects not just units from grenades
+# memmaker's oxce/modscript wishlist:
+# - Ability to change the map from scripts
+# - Ability to overlay tiles with bitmaps/animations from scripts
 # - Ability to count visible units from scripts (eg. BattleUnit.getVisibleUnits.getLength)
-# - Script Hook for missed shots? I want to know when a solder fired but didn't hit his target.
+# - Script Hook for missed shots? I want to know when a soldier fired but didn't hit his target.
 # - Script Hook for movement? I want to know if a soldier has moved this turn or not.
 # - A reference to the current weapon being used in the accuracyMultiplierBonusStats hook
+# - Which faction's turn is it? Expose TURN_SIDE or sth. on BattleGame.
+# - Ability to spawn units and items at will from scripts
+# - A submenu on soldier transformation screens?
+# - Allow specialWeapon on soldiers (currently only possible on armor)
+# - Force explosions/fire/smoke from scripts
+# - Force a unit to move from scripts
+# - Force a unit to fire from scripts
+# - Force a unit to use an item from scripts
+# - Enable changing armor during missions
+# - Enable scripts to make aliens forget XCOM units, effectively reverting being spotted and making the concealed again.
+# - getUnitById, getItemById, etc. for scripts
+# - A switch for the PSI_AMP to allow targeting friendly units.
+# - A better way to define general use actions (preferably also more than one per item) than to use a self-targeting medikit.
 
 # TESTING SETUP
-startingBase:
-  randomSoldiers:
-    STR_SOLDIER: 2
-    STR_PILOT: 4
-    STR_RANGER: 2
-    STR_HEAVY: 2
-    STR_MEDIC: 2
-    STR_SHARPSHOOTER: 2
-    STR_PSI_OPERATIVE: 2
-
-
-# Promotions
-soldiersPerSergeant: 1
-soldiersPerCaptain: 2
-soldiersPerColonel: 4
-soldiersPerCommander: 16
+#startingBase:
+#  randomSoldiers:
+#    STR_SOLDIER: 2
+#    STR_PILOT: 4
+#    STR_RANGER: 2
+#    STR_HEAVY: 2
+#    STR_MEDIC: 2
+#    STR_SHARPSHOOTER: 2
+#    STR_PSI_OPERATIVE: 2
 
 # CQC
 enableCloseQuartersCombat: 1       # default is 0 to disable this new code, 1 enables it
@@ -195,18 +202,24 @@ commendations:
     description: STR_SOLDIER_EXPERIENCE_DESCRIPTION
     sprite: 1
     criteria:
-      totalKills: [1, 2, 2, 2, 3, 3, 3, 4, 4, 4]
-      totalMissions: [1, 2, 2, 2, 3, 3, 3, 4, 4, 4]
+      totalKills: [2, 4, 4, 4, 6, 6, 6, 10, 10, 10]
+      totalMissions: [4, 8, 8, 8, 12, 12, 12, 16, 16, 16]
 
 soldierBonuses:
   - name: STR_RANGER_INITIAL_BONUS
     tags:
       BLADEMASTER: 20         #X (1-xxx) flat bonus to power (for attacks with sword)
       RUN_AND_GUN: 1          #X (1/0) on / off, extra action on activation
+    recovery:
+      energy:
+        flatOne: 10
   - name: STR_RANGER_ADVANCED_BONUS
     tags:
       PHANTOM: 5              #X distance threshold for stealth, 5 means enemies can only see you in a 5 tile range
       SHADOWSTRIKE: 10        #X (1-xxx) bonus to crit chance in percent
+    recovery:
+      energy:
+        flatOne: 20
   - name: STR_RANGER_ELITE_BONUS
     tags:
       UNTOUCHABLE: 2          #X (0-n) number of attacks which are deflected after a kill
@@ -215,6 +228,9 @@ soldierBonuses:
     tags:
       SHREDDER: 1             #X (1/0) on/off, while using autoshot and shredder enabled weapons, remove additional armor from enemies
       HEAVY_ROCKET: 1         #X tag is currently unused, because the skill is simply a built-in specialWeapon
+    recovery:
+      stun:
+        flatOne: 1
   - name: STR_HEAVY_ADVANCED_BONUS
     tags:
       BLAST_PADDING: 60       #X (0-100) amount of damage reduction in percent for HE and Incendiary
@@ -223,6 +239,9 @@ soldierBonuses:
     tags:
       STING_GRENADES: 50      #X (1-xxx) chance to stun enemies when using flashbang, in percent
       RUPTURE: 1              #X (1/0) on/off enables use rupture skill with compatible weapons, (aimed / auto only)
+    recovery:
+      health:
+        flatOne: 1
   - name: STR_SHARPSHOOTER_INITIAL_BONUS
     tags:
       DEATH_FROM_ABOVE: 1     #X (1/0) on/off enables refund of TU when killing from above, once per turn 
@@ -239,6 +258,9 @@ soldierBonuses:
     tags:
       GUARDIAN: 1             #X (1/0) a 50% chance that TU on reaction fire get refunded
       PARAMEDIC: 1            #X tag is currently unused, because the skill is simply a built-in specialWeapon
+    recovery:
+      morale:
+        flatOne: 5
   - name: STR_MEDIC_ADVANCED_BONUS
     tags:
       STEADFAST: 50           #X (1-XXX) bonus to bravery and psiDefence
@@ -431,7 +453,7 @@ items:
     handSprite: 88
     hitSound: 36
     battleType: 6
-    twoHanded: true
+    twoHanded: false
     invWidth: 1
     invHeight: 3
     flatRate: true
@@ -655,7 +677,7 @@ soldierTransformation:
   - name: STR_RANGER_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_RANGER_ADVANCED_TRAINING]
     requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+      STR_SOLDIER_EXPERIENCE: 1 # decoration level
     soldierBonusType: STR_RANGER_ADVANCED_BONUS
     minRank: 2                # sergeant
     keepSoldierArmor: true
@@ -732,7 +754,7 @@ soldierTransformation:
       - STR_RANGER_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_RANGER_ELITE_TRAINING]
     requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 2 # decoration level
+      STR_SOLDIER_EXPERIENCE: 3 # decoration level
     soldierBonusType: STR_RANGER_ELITE_BONUS
     minRank: 3                # captain
     keepSoldierArmor: true
@@ -2092,9 +2114,9 @@ extended:
           item.getRuleItem item_rule;
           item_rule.getTag class_skill Tag.CLASS_SKILL_ACTIVATION;
           
-          debug_log "Class skill activated with cs:" class_skill;
-
           if gt class_skill 0;
+            debug_log "Class skill activated with cs:" class_skill;
+
             actor.getRuleArmor armor_rule;
             item_rule.getTag skill_power Tag.SKILL_POWER_ITEM;
             armor_rule.getTag temp Tag.SKILL_POWER_ARMOR;
@@ -2105,7 +2127,7 @@ extended:
             debug_log "Class skill activated with power:" skill_power;
             actor.getRuleSoldier soldier_rule;
             soldier_rule.getTag unit_class Tag.CLASS;
-            set unit_class 1; # DEBUG
+            # class skills of heavy and medic currently implemented using specialWeapon items
             if eq unit_class 1;    # Ranger
               debug_log " - for Ranger (Run & Gun)";
               actor.getTag run_and_gun Tag.RUN_AND_GUN_STATE;
@@ -2124,9 +2146,10 @@ extended:
               actor.setTag Tag.CRIT_CHANCE_NEXT_HIT 30; # increase hit chance by 30% for next hit
               actor.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
             end;
+            set wound_recovery 0;
+            set health_recovery 0;
           end;
-          set wound_recovery 0;
-          set health_recovery 0;
+          
           return;
       - offset: 24   # for savior
         code: |
@@ -2368,58 +2391,64 @@ extended:
 ufopaedia:
   - id: STR_MILITARY_MOLDING
     type_id: 8 # text only
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_MILITARY_MOLDING
   - id: STR_RANGER
     type_id: 7 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_RANGER
     text_width: 158
   - id: STR_RANGER_SKILLS
     type_id: 8 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_RANGER_SKILLS
   - id: STR_HEAVY
     type_id: 7 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_HEAVY
     text_width: 158
   - id: STR_HEAVY_SKILLS
     type_id: 8 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_HEAVY_SKILLS
   - id: STR_SHARPSHOOTER
     type_id: 7 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_SHARPSHOOTER
     text_width: 158
   - id: STR_SHARPSHOOTER_SKILLS
     type_id: 8 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_SHARPSHOOTER_SKILLS
   - id: STR_MEDIC
     type_id: 7 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_MEDIC
     text_width: 158
   - id: STR_MEDIC_SKILLS
     type_id: 8 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_MEDIC_SKILLS
   - id: STR_PSI_OPERATIVE
     type_id: 7 # text & image
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_COUNCIL_REPORTS
     image_id: UFOPAEDIA_IMG_SOLDIER
     text: STR_UFOPAEDIA_PSI_OP
     text_width: 158
+  - id: STR_SKILL_AMP
+    type_id: 4 # equipment
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_SKILL_AMP
 
 extraStrings:
   - type: en-US
     strings:
+      STR_SOLDIER_EXPERIENCE: Combat Experience
+      STR_SOLDIER_EXPERIENCE_DESCRIPTION: Awarded for missions and kills in the service of XCOM.
       STR_SKILL_AMP: Skill Amplifier
       STR_ELITE_CLASS_SKILL: Activate Elite Skill
       STR_CLASS_SKILL: Activate Class Skill
@@ -2499,7 +2528,18 @@ extraStrings:
       STR_CAPTAIN_MEDIC_RANK: Cpt. Medic
       STR_COLONEL_MEDIC_RANK: Col. Medic
       STR_COMMANDER_MEDIC_RANK: Cdr. Medic
-      STR_REAPER_BONUS: "Reaper"
+      STR_RANGER_INITIAL_BONUS: "Initial Ranger Molding"
+      STR_RANGER_ADVANCED_BONUS: "Advanced Ranger Molding"
+      STR_RANGER_ELITE_BONUS: "Elite Ranger Molding"
+      STR_HEAVY_INITIAL_BONUS: "Initial Heavy Molding"
+      STR_HEAVY_ADVANCED_BONUS: "Advanced Heavy Molding"
+      STR_HEAVY_ELITE_BONUS: "Elite Heavy Molding"
+      STR_SHARPSHOOTER_INITIAL_BONUS: "Initial Sniper Molding"
+      STR_SHARPSHOOTER_ADVANCED_BONUS: "Advanced Sniper Molding"
+      STR_SHARPSHOOTER_ELITE_BONUS: "Elite Sniper Molding"
+      STR_MEDIC_INITIAL_BONUS: "Initial Medic Molding"
+      STR_MEDIC_ADVANCED_BONUS: "Advanced Medic Molding"
+      STR_MEDIC_ELITE_BONUS: "Elite Medic Molding"
       STR_UNTOUCHABLE_BONUS: "Untouchable"
       STR_LIGHTNING_REFLEXES_BONUS: "Lightning Reflexes"
       STR_DEATH_FROM_ABOVE_BONUS: "Death from above"
@@ -2517,11 +2557,12 @@ extraStrings:
       STR_UFOPAEDIA_MEDIC: "Soldiers trained in the Medic class serve as both field medics and logistical support to the squad they are attached to. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Guardian - Paramedic{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Steadfast - Field Surgeon{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Savior - Ever Vigilant"
       STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for XCOM, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}??? - ???"
       STR_MILITARY_MOLDING: "Military Molding"
-      STR_UFOPAEDIA_MILITARY_MOLDING: "XCOM units of rank squaddie or higher are eligible for military molding. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers."
+      STR_UFOPAEDIA_MILITARY_MOLDING: "XCOM units of rank squaddie or higher are eligible for military molding. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers. Each stage of training will unlock two additional combat abilities.{NEWLINE}{NEWLINE}Equip your elite troops with a skill amplifier in order to unlock their full potential and access their final skill."
       STR_UFOPAEDIA_RANGER_SKILLS: "BLADEMASTER> Deal increased damage on all sword attacks.{NEWLINE}{NEWLINE}RUN & GUN> Take an extra action after dashing.{NEWLINE}{NEWLINE}PHANTOM> Begin a mission in concealment.{NEWLINE}{NEWLINE}SHADOWSTRIKE> While concealed, gain bonus aim and bonus critical chance when attacking enemies.{NEWLINE}{NEWLINE}UNTOUCHABLE> If you score a kill during your turn, the next two attacks against you during the enemy turn will miss.{NEWLINE}{NEWLINE}REAPER> A devastating chain melee attack where every kill scored will grant an extra action."
       STR_UFOPAEDIA_HEAVY_SKILLS: "SHREDDER> Your cannon attacks shred armor. Higher rank weapons shred more points of armor.{NEWLINE}{NEWLINE}HEAVY ROCKET> Fire a rocket using an equipped launcher.{NEWLINE}{NEWLINE}BLAST PADDING> Your gear includes layers of extra padding and blast plates, granting bonus pointd of Armor and 66% less damage from explosive attacks.{NEWLINE}{NEWLINE}MAYHEM> Confers additional damage to all area of effect weapons & auto shooting guns.{NEWLINE}{NEWLINE}STING GRENADES> Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect.{NEWLINE}{NEWLINE}RUPTURE> A Rupture shot deals critical damage and ensures that the target takes additional damage from all attacks in the future."
       STR_UFOPAEDIA_SHARPSHOOTER_SKILLS: "DEATH FROM ABOVE> Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}HEADSHOT> Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}AIM> Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS> You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT> You do additional points of base damage and additional points of crit damage with your primary weapon.{NEWLINE}{NEWLINE}SERIAL> A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
       STR_UFOPAEDIA_MEDIC_SKILLS: "GUARDIAN> With every successful Overwatch shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}PARAMEDIC> This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}STEADFAST> (Almost) Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the intimidation ability.{NEWLINE}{NEWLINE}FIELD SURGEON> Reduces Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR> Medikits restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT> At the start of the enemy turn your time units are refilled for free reaction fire."
+      STR_UFOPAEDIA_SKILL_AMP: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
 
 statStrings:
   - string: "Psi" #above average psi skill
