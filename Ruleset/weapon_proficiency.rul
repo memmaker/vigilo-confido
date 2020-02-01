@@ -1,0 +1,354 @@
+# weapon proficicency system - by memmaker
+#
+# how to use: flag weapons with WEAPON_TYPE tags
+# eg. You decide all shotguns are weapon type 3
+# Then you would have something like this:
+# items:
+#   - type: STR_SHOTGUN
+#     tags:
+#       WEAPON_TYPE: 4 # shotguns
+#   - type: STR_ALLOY_SHOTGUN
+#     tags:
+#       WEAPON_TYPE: 4 # shotguns
+#
+# You can decide which WEAPON_TYPE entry to use by using this table:
+#
+# Type 1 -> WEAPON_TYPE: 1
+# Type 2 -> WEAPON_TYPE: 2
+# Type 3 -> WEAPON_TYPE: 4
+# Type 4 -> WEAPON_TYPE: 8
+# Type 5 -> WEAPON_TYPE: 16
+# Type 6 -> WEAPON_TYPE: 32
+# Type 7 -> WEAPON_TYPE: 64
+# Type 8 -> WEAPON_TYPE: 128
+#
+# NOTE1: The current script only allows for a maximum of 8 different weapon types. Could be expanded.
+#
+# All hits with weapons which are tagges with WEAPON_TYPE will be tracked.
+# After the hit_limit is reached (search for "set hit_limit" if you want change it),
+# the soldier is awarded the proficiency with this weapon type.
+#
+# A soldier's accuracy with a proficient weapon is increased (defined at "set accuracy_bonus").
+# IMPORTANT: If a soldier has weapons in both hands the bonus of the right hand weapon is applied.
+#            The technical reason for this is, that we do not know for which item an accuracy bonus is being calculated.
+#            Also, having a proficient weapon equipped also boosts PSI accuracy, since the bonus is not bound
+#            to a specific action.
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_PROFICIENT_MESSAGE_TYPE1: "Soldier became proficient with TYPE1"
+      STR_PROFICIENT_MESSAGE_TYPE2: "Soldier became proficient with TYPE2"
+      STR_PROFICIENT_MESSAGE_TYPE3: "Soldier became proficient with TYPE3"
+      STR_PROFICIENT_MESSAGE_TYPE4: "Soldier became proficient with TYPE4"
+      STR_PROFICIENT_MESSAGE_TYPE5: "Soldier became proficient with TYPE5"
+      STR_PROFICIENT_MESSAGE_TYPE6: "Soldier became proficient with TYPE6"
+      STR_PROFICIENT_MESSAGE_TYPE7: "Soldier became proficient with TYPE7"
+      STR_PROFICIENT_MESSAGE_TYPE8: "Soldier became proficient with TYPE8"
+    
+extended:
+  tags:
+    GeoscapeSoldier:
+      WEAPON_PROFICIENCY_FLAGS: int # 8 bits of flags, one for each weapon type
+      EXP_WITH_TYPE1: int   # tracks the hits a soldier made with these weapon types
+      EXP_WITH_TYPE2: int
+      EXP_WITH_TYPE3: int
+      EXP_WITH_TYPE4: int
+      EXP_WITH_TYPE5: int
+      EXP_WITH_TYPE6: int
+      EXP_WITH_TYPE7: int
+      EXP_WITH_TYPE8: int
+    BattleUnit:
+      HITS_WITH_TYPE1: int   # tracks the hits a unit makes with the specific weapon type during a mission
+      HITS_WITH_TYPE2: int
+      HITS_WITH_TYPE3: int
+      HITS_WITH_TYPE4: int
+      HITS_WITH_TYPE5: int
+      HITS_WITH_TYPE6: int
+      HITS_WITH_TYPE7: int
+      HITS_WITH_TYPE8: int
+    RuleItem:
+      WEAPON_TYPE: int # one of, 0 = none, 1 = type 1, 2 = type 2, 4 = type 3, 8 = type 4, 16, 32, 64, 128
+  scripts:
+    hitUnit:
+      - offset: 66   # get weapon type, track hit for that weapon type on unit
+        code: |
+          var ptr RuleItem item_rule;
+          var int weapon_type;
+          var int temp;
+          var int hit_limit;
+          var int exp;
+          var int wp_flags;
+          var ptre GeoscapeSoldier soldier;
+          var ptr RuleSoldier soldier_rule; # replace with getFaction code, when available
+          
+          unit.getRuleSoldier soldier_rule;
+
+          set hit_limit 30; # award weapon proficiency after this number of hits..
+
+          if neq soldier_rule null; # is xcom unit
+            unit.getGeoscapeSoldier soldier;
+            
+            damaging_item.getRuleItem item_rule;
+            item_rule.getTag weapon_type Tag.WEAPON_TYPE;
+
+            if eq weapon_type 1;
+              soldier.getTag exp Tag.EXP_WITH_TYPE1;
+              unit.getTag temp Tag.HITS_WITH_TYPE1;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE1 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE1";
+              end;
+            else eq weapon_type 2;
+              soldier.getTag exp Tag.EXP_WITH_TYPE2;
+              unit.getTag temp Tag.HITS_WITH_TYPE2;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE2 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE2";
+              end;
+            else eq weapon_type 4;
+              soldier.getTag exp Tag.EXP_WITH_TYPE3;
+              unit.getTag temp Tag.HITS_WITH_TYPE3;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE3 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE3";
+              end;
+            else eq weapon_type 8;
+              soldier.getTag exp Tag.EXP_WITH_TYPE4;
+              unit.getTag temp Tag.HITS_WITH_TYPE4;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE4 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE4";
+              end;
+            else eq weapon_type 16;
+              soldier.getTag exp Tag.EXP_WITH_TYPE5;
+              unit.getTag temp Tag.HITS_WITH_TYPE5;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE5 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE5";
+              end;
+            else eq weapon_type 32;
+              soldier.getTag exp Tag.EXP_WITH_TYPE6;
+              unit.getTag temp Tag.HITS_WITH_TYPE6;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE6 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE6";
+              end;
+            else eq weapon_type 64;
+              soldier.getTag exp Tag.EXP_WITH_TYPE7;
+              unit.getTag temp Tag.HITS_WITH_TYPE7;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE7 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE7";
+              end;
+            else eq weapon_type 128;
+              soldier.getTag exp Tag.EXP_WITH_TYPE8;
+              unit.getTag temp Tag.HITS_WITH_TYPE8;
+              add temp 1;
+              unit.setTag Tag.HITS_WITH_TYPE8 temp;
+              add exp temp;
+              if ge exp hit_limit;
+                soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+                bit_or wp_flags weapon_type;
+                soldier.setTag Tag.WEAPON_PROFICIENCY_FLAGS wp_flags;
+                battle_game.flashMessage "STR_PROFICIENT_MESSAGE_TYPE8";
+              end;
+            end;
+          end;
+          return power part side;
+    accuracyMultiplierBonusStats:
+      - offset: 66   # check if unit is proficient with current weapon type, boost accuracy
+        code: |
+          var ptr RuleItem item_rule;
+          var ptr BattleItem weapon;
+          var int weapon_type;
+          var int temp;
+          var int wp_flags;
+          var ptr GeoscapeSoldier soldier;
+          var int accuracy_bonus;
+          var ptr RuleSoldier soldier_rule; # replace with getFaction code, when available
+
+          set accuracy_bonus 10; # adjusts the bonus accuracy for handling proficient weapons
+
+          unit.getRuleSoldier soldier_rule;
+
+          if neq soldier_rule null; # is xcom unit
+            unit.getGeoscapeSoldier soldier;
+            soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+
+            unit.getRightHandWeapon weapon;
+            if eq weapon null;
+              unit.getLeftHandWeapon weapon;
+            end;
+            if neq weapon null;
+              weapon.getRuleItem item_rule;
+              item_rule.getTag weapon_type Tag.WEAPON_TYPE;
+
+              bit_and wp_flags weapon_type;
+
+              if neq wp_flags 0;
+                # soldier is proficient in this weapon type
+                add bonus accuracy_bonus;
+                debug_log "Weapon proficiency bonus added: " unit weapon;
+              end;
+            end;
+          end;
+          return bonus;
+    meleeMultiplierBonusStats:
+      - offset: 66   # check if unit is proficient with current weapon type, boost accuracy
+        code: |
+          var ptr RuleItem item_rule;
+          var ptr BattleItem weapon;
+          var int weapon_type;
+          var int temp;
+          var int wp_flags;
+          var ptr GeoscapeSoldier soldier;
+          var int accuracy_bonus;
+          var ptr RuleSoldier soldier_rule; # replace with getFaction code, when available
+
+          set accuracy_bonus 10; # adjusts the bonus accuracy for handling proficient weapons
+
+          unit.getRuleSoldier soldier_rule;
+
+          if neq soldier_rule null; # is xcom unit
+            unit.getGeoscapeSoldier soldier;
+            soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+
+            unit.getRightHandWeapon weapon;
+            if eq weapon null;
+              unit.getLeftHandWeapon weapon;
+            end;
+            if neq weapon null;
+              weapon.getRuleItem item_rule;
+              item_rule.getTag weapon_type Tag.WEAPON_TYPE;
+
+              bit_and wp_flags weapon_type;
+
+              if neq wp_flags 0;
+                # soldier is proficient in this weapon type
+                add bonus accuracy_bonus;
+                debug_log "Weapon proficiency bonus added: " unit weapon;
+              end;
+            end;
+          end;
+          return bonus;    
+    throwMultiplierBonusStats:
+      - offset: 66   # check if unit is proficient with current weapon type, boost accuracy
+        code: |
+          var ptr RuleItem item_rule;
+          var ptr BattleItem weapon;
+          var int weapon_type;
+          var int temp;
+          var int wp_flags;
+          var ptr GeoscapeSoldier soldier;
+          var int accuracy_bonus;
+          var ptr RuleSoldier soldier_rule; # replace with getFaction code, when available
+
+          set accuracy_bonus 10; # adjusts the bonus accuracy for handling proficient weapons
+
+          unit.getRuleSoldier soldier_rule;
+
+          if neq soldier_rule null; # is xcom unit
+            unit.getGeoscapeSoldier soldier;
+            soldier.getTag wp_flags Tag.WEAPON_PROFICIENCY_FLAGS;
+
+            unit.getRightHandWeapon weapon;
+            if eq weapon null;
+              unit.getLeftHandWeapon weapon;
+            end;
+            if neq weapon null;
+              weapon.getRuleItem item_rule;
+              item_rule.getTag weapon_type Tag.WEAPON_TYPE;
+
+              bit_and wp_flags weapon_type;
+
+              if neq wp_flags 0;
+                # soldier is proficient in this weapon type
+                add bonus accuracy_bonus;
+                debug_log "Weapon proficiency bonus added: " unit weapon;
+              end;
+            end;
+          end;
+          return bonus;
+    returnFromMissionUnit:
+      - offset: 66   # transfer hits from battlescape unit to geoscape soldier, award weapon proficiency when limit is hit
+        code: |
+          var int hits;
+          var int exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE1;
+          soldier.getTag exp Tag.EXP_WITH_TYPE1;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE1 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE2;
+          soldier.getTag exp Tag.EXP_WITH_TYPE2;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE2 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE3;
+          soldier.getTag exp Tag.EXP_WITH_TYPE3;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE3 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE4;
+          soldier.getTag exp Tag.EXP_WITH_TYPE4;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE4 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE5;
+          soldier.getTag exp Tag.EXP_WITH_TYPE5;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE5 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE6;
+          soldier.getTag exp Tag.EXP_WITH_TYPE6;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE6 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE7;
+          soldier.getTag exp Tag.EXP_WITH_TYPE7;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE7 exp;
+
+          unit.getTag hits Tag.HITS_WITH_TYPE8;
+          soldier.getTag exp Tag.EXP_WITH_TYPE8;
+          add exp hits;
+          soldier.setTag Tag.EXP_WITH_TYPE8 exp;
+
+          return;

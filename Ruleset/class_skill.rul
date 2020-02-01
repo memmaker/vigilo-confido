@@ -3,7 +3,7 @@
 # classes
 # Ranger        - str: Movement/Melee,      wkn: Armor, Attack Range
 # Heavy         - str: Armor/Heavy Weapons, wkn: Movement, Accuracy
-# Sharpshooter  - str: Damage/Range,        wkn: Health, Melee
+# Sniper  - str: Damage/Range,        wkn: Health, Melee
 # Medic         - str: Medikits/Support,    wkn: Offense
 # Psi Op        - str: Psi,                 wkn: Health, Conventional Weapons
 
@@ -30,6 +30,15 @@
 # The elite level active skill has to be activated via the SKILL_AMP usable item.
 
 # So every class ends up with 6 skills if they get promoted to colonel.
+
+# New Concepts:
+# Weapon Proficiency
+# Light vs. Heavy Versions of Armors
+# Class based Armors
+# Weapons have only one shot mode (but get special abilities instead?)
+# Status effects (bleed, fire, poison, acid)
+# Willpower mechanics?
+# Assign Classes directly (no rookies without class)
 
 # psi op: stasis
 
@@ -71,7 +80,9 @@
 # == Possibly Possible Skills (Not all of these are possible and not all are currently implemented)
 # === Ranger
 # P Phantom            - Begin a mission in concealment.
+# A Dash               - Move to a target position within half of the normal movement range.
 # P Sprinter           - Grants +4 mobility (roughly 3 tiles movement).
+# P Ready For Action   - Reloading and inventory actions do not cost an Action Points
 # P Blademaster        - Deal increased damage on all sword attacks.
 # P Shadowstrike       - While concealed, gain bonus aim and bonus critical chance when attacking enemies.
 # P Shadowstep         - This soldier does not trigger overwatch or reaction fire.
@@ -81,6 +92,7 @@
 # === Heavy
 # P Blast Padding      - Your gear includes layers of extra padding and blast plates, granting a bonus point of Armor and 66% less damage from explosive attacks.
 # P Will to Survive    - Reduces all normal damage taken by 2 if not flanked.
+# A War Cry            - All enemies within 10 tiles have their Action Points Reduced to 50% for the next turn.
 # P Shredder           - Your cannon attacks shred armor. Higher rank weapons shred more points of armor. The shredding effect applies before damage.
 # P Mayhem             - Confers additional damage to all area of effect weapons & Auto Shooting Guns
 # P Platform Stability - Shots taken before any costly actions have +10 Aim and +10% critical chance. Also grants +10 aim for purposes of reducing scatter if the soldier has not moved this turn
@@ -88,8 +100,9 @@
 # AI Rapid Deployment  - Activate this ability before throwing or launching a support grenade, and the throw will not cost an action.
 # P HEAT Warheads      - Your grenades now pierce armor and shred additional points of armor.
 # P Sting Grenades     - Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect.
+# A Rage Burst         - Shoot with a proficient direct-fire projectile weapon, using all remaining ammo in the weapon's magazine.
 # AE Rupture           - A Rupture shot deals critical damage and ensures that the target takes an additional +3 damage from all attacks in the future. Uses 3 ammo. 3-turn cooldown.
-# === Sharpshooter
+# === Sniper
 # P Sharpshooter       - +10 critical chance in all situations, +10 Aim
 # AI Headshot          - Fire a shot with +30% critical chance and extra damage on critical hits.
 # P Steady Hands       - If you did not move last turn, gain +10 Aim and +10 Critical chance.
@@ -99,6 +112,7 @@
 # AI Double Tap        - Fire a standard shot and gain a bonus shot or overwatch action.
 # P Center Mass        - You do additional points of base damage when using guns.
 # P Alpha Mike Foxtrot - You do 4 additional points of base damage and 2 additional points of crit damage with your primary weapon.
+# A Mark For Death     - Mark enemy target. Until end of the turn all damage to that  target is increased by 50%.
 # AE Serial            - A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded. Critical chance decreases per chained kill. 4 turn cooldown.
 # === Medic
 # AI Aid Protocol      - It grants that target a bonus to Defense until the start of the next player turn. The basic Gremlin grants +20 Defense.
@@ -111,6 +125,7 @@
 # P Guardian           - With every successful Overwatch shot, there is a 50% chance that another shot will be taken.
 # P Combat Drugs       - Smoke grenades confer +20 Will and +20% critical chance in addition to the original 20 defense. The area of effect is also increased by 25%.
 # P Savior             - Medikits restore health per use.
+# A Electric Reinforcement - All allies gain 20 temporary Armor for 1 turn
 # AE Restoration       - Each squad member is healed or revived as needed.
 # === Psi 
 # Panic
@@ -119,7 +134,9 @@
 # Stasis             - No damage received and no action possible for one turn
 # Soul Fire          - Guaranteed Psi Damage
 # Soul Steal         - Damage enemy and heal the user
+# Mind Sense         - All organic enemies within 15 tiles are automatically reveled
 # Mind Control
+# Mind Crush         - Deal 100 damage to all enemy entities within 10 tiles
 # === Other
 # X Sustain          - Instead of being killed, go into stasis with 1 hp once per mission
 # X Executioner      - Increased damage against targets with HP < 50%
@@ -151,6 +168,15 @@
 # === Utility
 # Mimic Beacon     - Conjures a holographic decoy soldier for the enemy to shoot at.
 
+# Item effects:
+# Chance to inflict burning/poison/acid/etc. and stasis/stun/exhausted/rupture/etc.
+# Critical chance/damage
+# Shred armor (via rules)
+# Destroy environment
+# Boost damage for specific shot type (snap/auto/aimed/etc.)
+# Body part targeting
+# Vampiric
+
 # memmaker's oxce/modscript wishlist:
 # - Ability to change the map from scripts
 # - Ability to overlay tiles with bitmaps/animations from scripts
@@ -171,6 +197,9 @@
 # - getUnitById, getItemById, etc. for scripts
 # - A switch for the PSI_AMP to allow targeting friendly units.
 # - A better way to define general use actions (preferably also more than one per item) than to use a self-targeting medikit.
+# - Allow scripts to display text messages in the battlescape
+# - A script hook allowing for on thy fly changing of action TU costs
+# - A dialogue system for interaction with factions in the geoscape
 
 # TESTING SETUP
 #startingBase:
@@ -180,7 +209,7 @@
 #    STR_RANGER: 2
 #    STR_HEAVY: 2
 #    STR_MEDIC: 2
-#    STR_SHARPSHOOTER: 2
+#    STR_SNIPER: 2
 #    STR_PSI_OPERATIVE: 2
 
 # CQC
@@ -191,11 +220,11 @@ closeQuartersEnergyCostGlobal: 8   # Energy required to attempt CQC; unsuccessfu
 
 # Mana / Battle Focus
 mana:
-   enabled: true
-   battleUI: true
-   trainingPrimary: false
-   trainingSecondary: false
-   replenishAfterMission: true
+  enabled: true
+  battleUI: true
+  trainingPrimary: false
+  trainingSecondary: false
+  replenishAfterMission: true
 
 commendations:
   - type: STR_SOLDIER_EXPERIENCE
@@ -242,15 +271,15 @@ soldierBonuses:
     recovery:
       health:
         flatOne: 1
-  - name: STR_SHARPSHOOTER_INITIAL_BONUS
+  - name: STR_SNIPER_INITIAL_BONUS
     tags:
       DEATH_FROM_ABOVE: 1     #X (1/0) on/off enables refund of TU when killing from above, once per turn 
       HEADSHOT: 1             #X (1/0) on/off enables use headshot ability (increased crit chance & damage on next hit)
-  - name: STR_SHARPSHOOTER_ADVANCED_BONUS
+  - name: STR_SNIPER_ADVANCED_BONUS
     tags:
       AIM: 1                  #X (1/0) enables 30% bonus accuracy when kneeling on the position you were kneeling on the start of the turn
       CENTER_MASS: 20         #X (1-XXX) additional damage in percent with Standard Rifles & Sniper Rifles
-  - name: STR_SHARPSHOOTER_ELITE_BONUS
+  - name: STR_SNIPER_ELITE_BONUS
     tags:
       ALPHA_MIKE_FOXTROT: 20  #X (1-XXX) additional power for all sniper rifle attacks and half of that as additional crit damage
       SERIAL: 1               #X (1/0) enables serial kills with sniper rifles, each kill refunds all TU, once per mission
@@ -273,101 +302,91 @@ soldierBonuses:
       EVER_VIGILANT: 1        #X (1/0) restores all TU on beginning of enemy turn 
 
 armors:
-  - &STR_NONE_UC
-    type: STR_NONE_UC
-    spriteSheet: XCOM_0.PCK
-    spriteInv: MAN_0
-    spriteFaceGroup: 6
-    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
-    spriteHairGroup: 9
-    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
-    storeItem: STR_NONE
-    corpseBattle:
-      - STR_CORPSE
-    frontArmor: 12
-    sideArmor: 8
-    rearArmor: 5
-    underArmor: 2
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 1.0
-    loftempsSet: [ 3 ]
-  - type: STR_RANGER_NONE_UC
-    refNode: *STR_NONE_UC 
-    tags:
-      SKILL_POWER_ARMOR: 1
-    specialWeapon: STR_RUN_AND_GUN_SKILL
-    storeItem: STR_NONE
-    units:
-      - STR_RANGER
-    recovery:
-      mana:
-        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
-  - type: STR_SHARPSHOOTER_NONE_UC
-    refNode: *STR_NONE_UC 
-    tags:
-      SKILL_POWER_ARMOR: 1
-    specialWeapon: STR_HEADSHOT_SKILL
-    storeItem: STR_NONE
-    units:
-      - STR_SHARPSHOOTER
-    recovery:
-      mana:
-        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
-  - type: STR_MEDIC_NONE_UC
-    refNode: *STR_NONE_UC
-    tags:
-      SKILL_POWER_ARMOR: 1
-    specialWeapon: STR_PARAMEDIC_SKILL
-    storeItem: STR_NONE
-    units:
-      - STR_MEDIC
-    recovery:
-      mana:
-        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
-  - type: STR_HEAVY_NONE_UC
-    refNode: *STR_NONE_UC 
-    tags:
-      SKILL_POWER_ARMOR: 1
-    specialWeapon: STR_HEAVY_ROCKET_SKILL
-    storeItem: STR_NONE
-    units:
-      - STR_HEAVY
+  - type: STR_NONE_UC
     recovery:
       mana:
         mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
 
 items:
-  - type: STR_RUN_AND_GUN_SKILL
+  - type: STR_TEST_SCRIPTED_ITEM
     tags:
       CLASS_SKILL_ACTIVATION: 1
       SKILL_POWER_ITEM: 1
+    costBuy: 200
     hidePower: true
-    battleType: 6 # medikit
-    damageType: 5 # plasma
+    battleType: 12 # scripted item
+    friendlyTargetingAllowed: true
     twoHanded: false
-    power: 300
-    hitSound: 36
     costUse:
-      time: 1
+      time: 0
       mana: 10
+    costMindControl:
+      time: 0
+      mana: 10
+    costPanic:
+      time: 0
+      mana: 0
+    costPrime:
+      time: 0
+    costUnprime:
+      time: 0
     costThrow:
       time: 0
+    costMelee:
+      time: 0
+    costSnap:
+      time: 1
+      mana: 0
+    costAimed:
+      time: 1
+      mana: 0
+    costAuto:
+      time: 0
+    confAimed:
+      shots: 1
+      name: STR_AIMED_SHOT
+      ammoSlot: -1 # self-use
+      arcing: false
+    confAuto:
+      shots: 1
+      name: STR_AIMED_SHOT
+      ammoSlot: -1 # self-use
+      arcing: false
     flatRate: true
     medikitType: 1
     medikitTargetSelf: true
     medikitTargetMatrix: 0
     heal: 10     # max number of uses per mission
     medikitActionName: STR_RANGER_CLASS_SKILL
-    specialIconSprite: 2
+    specialIconSprite: 1
+    handSprite: 112
+    bulletSprite: 5
+    fireSound: 11
+    hitSound: 19
+    hitAnimation: 36
+    power: 9000
+    damageType: 4
+    accuracyAuto: 28
+    accuracySnap: 40
+    accuracyAimed: 68
+    clipSize: -1
+  - type: STR_RANGER_SKILLS
+    tags:
+      SKILL_POWER_ITEM: 1
+    hidePower: true
+    battleType: 12 # scripted
+    damageType: 5  # plasma
+    clipSize: -1
+    twoHanded: false
+    power: 300
+    hitSound: 36
+    costUse:
+      time: 0
+      mana: 10
+    costThrow:
+      time: 0
+    flatRate: true
+    specialIconSprite: 5
   - type: STR_HEADSHOT_SKILL
     tags:
       CLASS_SKILL_ACTIVATION: 1
@@ -389,7 +408,7 @@ items:
     medikitTargetMatrix: 0
     heal: 10     # max number of uses per mission
     specialIconSprite: 3
-    medikitActionName: STR_SHARPSHOOTER_CLASS_SKILL
+    medikitActionName: STR_SNIPER_CLASS_SKILL
   - type: STR_PARAMEDIC_SKILL
     tags:
       SKILL_POWER_ITEM: 1
@@ -471,16 +490,15 @@ items:
 
 soldierTransformation:
   - name: STR_RANGER_MOLDING
-    producedSoldierType: STR_RANGER
     soldierBonusType: STR_RANGER_INITIAL_BONUS
-    minRank: 1 # squaddie
-    keepSoldierArmor: false
+    minRank: 0 # rookie
+    keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
     allowedSoldierTypes:
-      - STR_SOLDIER
+      - STR_RANGER
     requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
       tu: 50
       stamina: 50
@@ -512,16 +530,15 @@ soldierTransformation:
     upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_HEAVY_MOLDING
-    producedSoldierType: STR_HEAVY
     soldierBonusType: STR_HEAVY_INITIAL_BONUS
     keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    minRank: 1 # squaddie
+    minRank: 0 # rookie
     allowedSoldierTypes:
-      - STR_SOLDIER
+      - STR_HEAVY
     requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
       tu: 0
       stamina: 40
@@ -552,17 +569,16 @@ soldierTransformation:
     lowerBoundAtMinStats: true  #		Default true, this parameter determines whether or not any changes in stats from this project should go below the minStats defined on the new soldier type.
     upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
-  - name: STR_SHARPSHOOTER_MOLDING
-    producedSoldierType: STR_SHARPSHOOTER
-    soldierBonusType: STR_SHARPSHOOTER_INITIAL_BONUS
+  - name: STR_SNIPER_MOLDING
+    soldierBonusType: STR_SNIPER_INITIAL_BONUS
     keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    minRank: 1 # squaddie
+    minRank: 0 # rookie
     allowedSoldierTypes:
-      - STR_SOLDIER
+      - STR_SNIPER
     requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
       tu: 0
       stamina: 0
@@ -594,7 +610,6 @@ soldierTransformation:
     upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_PSI_OPERATIVE_MOLDING
-    producedSoldierType: STR_PSI_OPERATIVE
     keepSoldierArmor: false
     createsClone: false
     needsCorpseRecovered: false
@@ -602,7 +617,7 @@ soldierTransformation:
     allowsLiveSoldiers: true
     minRank: 1 # squaddie
     allowedSoldierTypes:
-      - STR_SOLDIER
+      - STR_PSI_OPERATIVE
     requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
       tu: 0
       stamina: 0
@@ -634,7 +649,6 @@ soldierTransformation:
     upperBoundAtMaxStats: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the maxStats defined on the new soldier type.
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_MEDIC_MOLDING
-    producedSoldierType: STR_MEDIC
     soldierBonusType: STR_MEDIC_INITIAL_BONUS
     keepSoldierArmor: false
     createsClone: false
@@ -643,7 +657,7 @@ soldierTransformation:
     allowsLiveSoldiers: true
     minRank: 1 # squaddie
     allowedSoldierTypes:
-      - STR_SOLDIER
+      - STR_MEDIC
     requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
       tu: 45
       stamina: 45
@@ -712,11 +726,11 @@ soldierTransformation:
     percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
       health: 5
       strength: 5
-  - name: STR_SHARPSHOOTER_ADVANCED_TRAINING
-    forbiddenPreviousTransformations: [STR_SHARPSHOOTER_ADVANCED_TRAINING]
+  - name: STR_SNIPER_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_SNIPER_ADVANCED_TRAINING]
     requiredCommendations:
       STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
-    soldierBonusType: STR_SHARPSHOOTER_ADVANCED_BONUS
+    soldierBonusType: STR_SNIPER_ADVANCED_BONUS
     minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
@@ -724,7 +738,7 @@ soldierTransformation:
     allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
     allowedSoldierTypes:
-      - STR_SHARPSHOOTER
+      - STR_SNIPER
     cost: 50000               #				The cost of the project in dollars
     transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
     recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
@@ -791,13 +805,13 @@ soldierTransformation:
     percentOverallStatChange: #			  A percent change to the soldier's overall stats when undergoing this project, can be positive or negative - tu: 5 means the soldier will gain an extra 5% of their max time units, while tu: -5 means the soldier will lose 5% of their max time units. The default of 0 means no change.
       health: 5
       strength: 5
-  - name: STR_SHARPSHOOTER_ELITE_TRAINING
+  - name: STR_SNIPER_ELITE_TRAINING
     requiredPreviousTransformations:
-      - STR_SHARPSHOOTER_ADVANCED_TRAINING
-    forbiddenPreviousTransformations: [STR_SHARPSHOOTER_ELITE_TRAINING]
+      - STR_SNIPER_ADVANCED_TRAINING
+    forbiddenPreviousTransformations: [STR_SNIPER_ELITE_TRAINING]
     requiredCommendations:
       STR_SOLDIER_EXPERIENCE: 2 # decoration level 
-    soldierBonusType: STR_SHARPSHOOTER_ELITE_BONUS
+    soldierBonusType: STR_SNIPER_ELITE_BONUS
     minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
@@ -805,7 +819,7 @@ soldierTransformation:
     allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
     allowedSoldierTypes:
-      - STR_SHARPSHOOTER
+      - STR_SNIPER
     cost: 50000               #				The cost of the project in dollars
     transferTime: 72          #				Soldiers can be put in a transfer back to the base where they started if this parameter is greater than the default of 0 hours. New clones or resurrected soldiers are automatically given a transfer to the base with a default of 24 hours.
     recoveryTime: 3           #				The amount of wound recovery time a soldier is given after this project completes and the transfer, if any, is completed. The default value is 0 days.
@@ -834,17 +848,10 @@ soldierTransformation:
       stamina: 5
 
 soldiers:
-  - type: STR_SOLDIER
-    minStats:
-      mana: 10
-    maxStats:
-      mana: 10
-    statCaps:
-      mana: 10
-    armor: STR_NONE_UC
   - type: STR_RANGER
     tags:
       CLASS: 1
+    specialWeapon: STR_RUN_AND_GUN_SKILL
     costBuy: 0
     costSalary: 50000
     value: 30
@@ -891,8 +898,18 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    soldierNames:
-      - SoldierName/
+    nameInTitles: "{NAME}"
+    nameInTitlesLong: "{NAME} aka {CALLSIGN}"
+    nameInLists: "{NAME}"
+    nameInListsLong: "{NAME}{STATSTRING}"
+    nameInPilotLists: "{NAME}"
+    nameInBattleScape: "{CALLSIGN}{TAGSTRING}"
+    nameInBattleScapeAlternate: "{NAME}{STATSTRING}"
+    nameStatStringSeparator: "/"
+    nameTagStatStringSeparator: ">"
+    soldierNames:               # extended *.nam file format allows for male & female callsigns
+      - delete
+      - RangerNames/
     deathMale: [41, 42, 43]
     deathFemale: [44, 45, 46]
     rankStrings:
@@ -902,10 +919,11 @@ soldiers:
       - STR_CAPTAIN_RANGER_RANK
       - STR_COLONEL_RANGER_RANK
       - STR_COMMANDER_RANGER_RANK
-    armor: STR_RANGER_NONE_UC
+    armor: STR_NONE_UC
   - type: STR_HEAVY
     tags:
       CLASS: 2
+    specialWeapon: STR_HEAVY_ROCKET_SKILL
     costBuy: 0
     costSalary: 50000
     value: 30
@@ -952,8 +970,18 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    soldierNames:
-      - SoldierName/
+    nameInTitles: "{NAME}"
+    nameInTitlesLong: "{NAME} aka {CALLSIGN}"
+    nameInLists: "{NAME}"
+    nameInListsLong: "{NAME}{STATSTRING}"
+    nameInPilotLists: "{NAME}"
+    nameInBattleScape: "{CALLSIGN}{TAGSTRING}"
+    nameInBattleScapeAlternate: "{NAME}{STATSTRING}"
+    nameStatStringSeparator: "/"
+    nameTagStatStringSeparator: ">"
+    soldierNames:               # extended *.nam file format allows for male & female callsigns
+      - delete
+      - HeavyNames/
     deathMale: [41, 42, 43]
     deathFemale: [44, 45, 46]
     rankStrings:
@@ -963,10 +991,11 @@ soldiers:
       - STR_CAPTAIN_HEAVY_RANK
       - STR_COLONEL_HEAVY_RANK
       - STR_COMMANDER_HEAVY_RANK
-    armor: STR_HEAVY_NONE_UC
-  - type: STR_SHARPSHOOTER
+    armor: STR_NONE_UC
+  - type: STR_SNIPER
     tags:
       CLASS: 3
+    specialWeapon: STR_HEADSHOT_SKILL
     costBuy: 0
     costSalary: 50000
     value: 30
@@ -1013,21 +1042,23 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    soldierNames:
-      - SoldierName/
+    soldierNames:               # extended *.nam file format allows for male & female callsigns
+      - delete
+      - SniperNames/
     deathMale: [41, 42, 43]
     deathFemale: [44, 45, 46]
     rankStrings:
-      - STR_ROOKIE_SHARPSHOOTER_RANK
-      - STR_SQUADDIE_SHARPSHOOTER_RANK
-      - STR_SERGEANT_SHARPSHOOTER_RANK
-      - STR_CAPTAIN_SHARPSHOOTER_RANK
-      - STR_COLONEL_SHARPSHOOTER_RANK
-      - STR_COMMANDER_SHARPSHOOTER_RANK
-    armor: STR_SHARPSHOOTER_NONE_UC
+      - STR_ROOKIE_SNIPER_RANK
+      - STR_SQUADDIE_SNIPER_RANK
+      - STR_SERGEANT_SNIPER_RANK
+      - STR_CAPTAIN_SNIPER_RANK
+      - STR_COLONEL_SNIPER_RANK
+      - STR_COMMANDER_SNIPER_RANK
+    armor: STR_NONE_UC
   - type: STR_MEDIC
     tags:
       CLASS: 4
+    specialWeapon: STR_PARAMEDIC_SKILL
     costBuy: 0
     costSalary: 50000
     value: 30
@@ -1074,8 +1105,9 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    soldierNames:
-      - SoldierName/
+    soldierNames:               # extended *.nam file format allows for male & female callsigns
+      - delete
+      - MedicNames/
     deathMale: [41, 42, 43]
     deathFemale: [44, 45, 46]
     rankStrings:
@@ -1085,7 +1117,7 @@ soldiers:
       - STR_CAPTAIN_MEDIC_RANK
       - STR_COLONEL_MEDIC_RANK
       - STR_COMMANDER_MEDIC_RANK
-    armor: STR_MEDIC_NONE_UC
+    armor: STR_NONE_UC
   - type: STR_PSI_OPERATIVE
     tags:
       CLASS: 5
@@ -1135,8 +1167,9 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    soldierNames:
-      - SoldierName/
+    soldierNames:               # extended *.nam file format allows for male & female callsigns
+      - delete
+      - PsiOpNames/
     deathMale: [41, 42, 43]
     deathFemale: [44, 45, 46]
     rankStrings:
@@ -1153,7 +1186,7 @@ extended:
     RuleArmor:
       SKILL_POWER_ARMOR: int
     RuleSoldier:
-      CLASS: int            # 0 = no class, 1 = Ranger, 2 = Heavy, 3 = Sharpshooter, 4 = Medic, 5 = Psi
+      CLASS: int            # 0 = no class, 1 = Ranger, 2 = Heavy, 3 = Sniper, 4 = Medic, 5 = Psi
     BattleGame:
       TURN_SIDE: int
       BATTLE_CRY_STATE: int # 0 = not activated, 1 = active this turn, 2 = disabled
@@ -1242,6 +1275,29 @@ extended:
       RUPTURE_DAMAGE: int
       SHREDDER_DAMAGE: int
   scripts:
+    scriptedItemUse:
+      - offset: 23
+        code: |
+          if eq action_type BA_UNPRIME;
+            battle_game.flashMessage "Skill One";
+          end;
+          if eq action_type BA_PRIME;
+            battle_game.flashMessage "Skill Two";
+          end;
+          if eq action_type BA_MINDCONTROL;
+            battle_game.flashMessage "Skill Three";
+          end;
+          if eq action_type BA_PANIC;
+            battle_game.flashMessage "Skill Four";
+          end;
+          if eq action_type BA_USE;
+            battle_game.flashMessage "Skill Five";
+          end;
+          if eq action_type BA_AIMEDSHOT;
+            battle_game.flashMessage "Script Aimed";
+          end;
+          #set action_type BA_USE;
+          return;
     reactionUnitAction: 
       - offset: 23   # for lightning reflexes
         code: |
@@ -1792,6 +1848,46 @@ extended:
             debug_log "Aim bonus reset for" unit;
           end;
           return power part side;
+      - offset: 39   # for remote stamina hype (friendly targeting test)
+        code: |
+          var int battle_type;
+          var ptr RuleItem item_rule;
+          var int energy_max;
+          
+          damaging_item.getRuleItem item_rule;
+
+          item_rule.getBattleType battle_type;
+          debug_log "Unit hit:" unit;
+          if eq battle_type 12; # scripted item
+            debug_log "Unit hit with scripted item:" unit;
+            if or eq battle_action 13 eq battle_action 14;
+              debug_log "Unit hit with Mind / Panic:" unit;
+              # scripted item, mind control or panic
+              unit.getEnergyMax energy_max;
+              unit.setEnergy energy_max;
+              battle_game.flashMessage "Stamina refreshed";
+              set power 0;
+            end;
+          end;
+          return power part side;
+    psiAttack:
+      - offset: 23   # for Scripted Items - Automatic Success
+        code: |
+          var int battle_type;
+          var ptr RuleItem item_rule;
+          var int energy_max;
+          
+          item.getRuleItem item_rule;
+
+          item_rule.getBattleType battle_type;
+          
+          if eq battle_type 12; # scripted item
+            if or eq battle_action 13 eq battle_action 14;
+              debug_log "PsiAttack with scripted item. Automatic success!";
+              set psi_attack_success 1;
+            end;
+          end;
+          return psi_attack_success;
     accuracyMultiplierBonusStats:
       - offset: 23   # for shadowstrike
         code: |
@@ -2141,8 +2237,8 @@ extended:
               actor.getEnergy cur;
               add cur max;
               actor.setEnergy cur;
-            else eq unit_class 3;  # Sharpshooter
-              debug_log " - for Sharpshooter (Headshot)";
+            else eq unit_class 3;  # Sniper
+              debug_log " - for Sniper (Headshot)";
               actor.setTag Tag.CRIT_CHANCE_NEXT_HIT 30; # increase hit chance by 30% for next hit
               actor.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
             end;
@@ -2413,16 +2509,16 @@ ufopaedia:
     type_id: 8 # text & image
     section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_HEAVY_SKILLS
-  - id: STR_SHARPSHOOTER
+  - id: STR_SNIPER
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
     image_id: UFOPAEDIA_IMG_SOLDIER
-    text: STR_UFOPAEDIA_SHARPSHOOTER
+    text: STR_UFOPAEDIA_SNIPER
     text_width: 158
-  - id: STR_SHARPSHOOTER_SKILLS
+  - id: STR_SNIPER_SKILLS
     type_id: 8 # text & image
     section: STR_COUNCIL_REPORTS
-    text: STR_UFOPAEDIA_SHARPSHOOTER_SKILLS
+    text: STR_UFOPAEDIA_SNIPER_SKILLS
   - id: STR_MEDIC
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
@@ -2447,13 +2543,14 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
+      STR_MANA_SHORT: "MA>{ALT}{0}"
       STR_SOLDIER_EXPERIENCE: Combat Experience
       STR_SOLDIER_EXPERIENCE_DESCRIPTION: Awarded for missions and kills in the service of XCOM.
       STR_SKILL_AMP: Skill Amplifier
       STR_ELITE_CLASS_SKILL: Activate Elite Skill
       STR_CLASS_SKILL: Activate Class Skill
       STR_RANGER_CLASS_SKILL: Run & Gun
-      STR_SHARPSHOOTER_CLASS_SKILL: Headshot
+      STR_SNIPER_CLASS_SKILL: Headshot
       STR_MEDIC_CLASS_SKILL: Paramedic
       STR_NO_USES_LEFT: Exhausted all activations
       STR_MANA: "BATTLE FOCUS"
@@ -2473,30 +2570,30 @@ extraStrings:
       manaRecoveryPerDay: "Focus per day"
       STR_RANGER: Ranger
       STR_HEAVY: Heavy
-      STR_SHARPSHOOTER: Sniper
+      STR_SNIPER: Sniper
       STR_PSI_OPERATIVE: Psi-Op
       STR_MEDIC: Medic
       STR_RANGER_SKILLS: Ranger Skills
       STR_HEAVY_SKILLS: Heavy Skills
-      STR_SHARPSHOOTER_SKILLS: Sniper Skills
+      STR_SNIPER_SKILLS: Sniper Skills
       STR_MEDIC_SKILLS: Medic Skills
       STR_PSI_OP_SKILLS: Psi Operative Skills
       STR_HEAVY_NONE_UC: "NONE (Hv.)"
       STR_MEDIC_NONE_UC: "NONE (Md.)"
       STR_RANGER_NONE_UC: "NONE (Rg.)"
-      STR_SHARPSHOOTER_NONE_UC: "NONE (Sn.)"
+      STR_SNIPER_NONE_UC: "NONE (Sn.)"
       STR_RANGER_MOLDING: Ranger molding
       STR_HEAVY_MOLDING: Heavy molding
-      STR_SHARPSHOOTER_MOLDING: Sniper molding
+      STR_SNIPER_MOLDING: Sniper molding
       STR_MEDIC_MOLDING: Medic molding
       STR_PSI_OPERATIVE_MOLDING: Psi-Op molding
       STR_RANGER_ADVANCED_TRAINING: Advanced Ranger Training
       STR_HEAVY_ADVANCED_TRAINING: Advanced Heavy Training
-      STR_SHARPSHOOTER_ADVANCED_TRAINING: Advanced Sniper Training
+      STR_SNIPER_ADVANCED_TRAINING: Advanced Sniper Training
       STR_MEDIC_ADVANCED_TRAINING: Advanced Medic Training
       STR_RANGER_ELITE_TRAINING: Elite Ranger Training
       STR_HEAVY_ELITE_TRAINING: Elite Heavy Training
-      STR_SHARPSHOOTER_ELITE_TRAINING: Elite Sniper Training
+      STR_SNIPER_ELITE_TRAINING: Elite Sniper Training
       STR_MEDIC_ELITE_TRAINING: Elite Medic Training
       STR_ROOKIE_RANGER_RANK: Rk. Ranger
       STR_SQUADDIE_RANGER_RANK: Sq. Ranger
@@ -2510,12 +2607,12 @@ extraStrings:
       STR_CAPTAIN_HEAVY_RANK: Cpt. Heavy
       STR_COLONEL_HEAVY_RANK: Col. Heavy
       STR_COMMANDER_HEAVY_RANK: Cdr. Heavy
-      STR_ROOKIE_SHARPSHOOTER_RANK: Rk. Sniper
-      STR_SQUADDIE_SHARPSHOOTER_RANK: Sq. Sniper
-      STR_SERGEANT_SHARPSHOOTER_RANK: Sgt. Sniper
-      STR_CAPTAIN_SHARPSHOOTER_RANK: Cpt. Sniper
-      STR_COLONEL_SHARPSHOOTER_RANK: Col. Sniper
-      STR_COMMANDER_SHARPSHOOTER_RANK: Cdr. Sniper
+      STR_ROOKIE_SNIPER_RANK: Rk. Sniper
+      STR_SQUADDIE_SNIPER_RANK: Sq. Sniper
+      STR_SERGEANT_SNIPER_RANK: Sgt. Sniper
+      STR_CAPTAIN_SNIPER_RANK: Cpt. Sniper
+      STR_COLONEL_SNIPER_RANK: Col. Sniper
+      STR_COMMANDER_SNIPER_RANK: Cdr. Sniper
       STR_ROOKIE_PSI_OPERATIVE_RANK: Rk. Psi-Op
       STR_SQUADDIE_PSI_OPERATIVE_RANK: Sq. Psi-Op
       STR_SERGEANT_PSI_OPERATIVE_RANK: Sgt. Psi-Op
@@ -2534,9 +2631,9 @@ extraStrings:
       STR_HEAVY_INITIAL_BONUS: "Initial Heavy Molding"
       STR_HEAVY_ADVANCED_BONUS: "Advanced Heavy Molding"
       STR_HEAVY_ELITE_BONUS: "Elite Heavy Molding"
-      STR_SHARPSHOOTER_INITIAL_BONUS: "Initial Sniper Molding"
-      STR_SHARPSHOOTER_ADVANCED_BONUS: "Advanced Sniper Molding"
-      STR_SHARPSHOOTER_ELITE_BONUS: "Elite Sniper Molding"
+      STR_SNIPER_INITIAL_BONUS: "Initial Sniper Molding"
+      STR_SNIPER_ADVANCED_BONUS: "Advanced Sniper Molding"
+      STR_SNIPER_ELITE_BONUS: "Elite Sniper Molding"
       STR_MEDIC_INITIAL_BONUS: "Initial Medic Molding"
       STR_MEDIC_ADVANCED_BONUS: "Advanced Medic Molding"
       STR_MEDIC_ELITE_BONUS: "Elite Medic Molding"
@@ -2553,18 +2650,20 @@ extraStrings:
       STR_FIELD_MEDIC_BONUS: "Field Medic"
       STR_UFOPAEDIA_RANGER: "The Ranger serves as our primary reconnaissance unit, capable of moving independently in concealment while engaging enemies at close range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Blademaster - Run & Gun{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Phantom - Shadowstrike{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Untouchable - Reaper"
       STR_UFOPAEDIA_HEAVY: "A class specialising in high fire power and area damage with some support capabilities. The Heavy is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Shredder - Heavy Rocket{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Blast Padding - Mayhem{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Sting Grenades - Rupture"
-      STR_UFOPAEDIA_SHARPSHOOTER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Death from above - Headshot{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Aim - Center Mass{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Alpha Mike Foxtrot - Serial"
+      STR_UFOPAEDIA_SNIPER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Death from above - Headshot{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Aim - Center Mass{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Alpha Mike Foxtrot - Serial"
       STR_UFOPAEDIA_MEDIC: "Soldiers trained in the Medic class serve as both field medics and logistical support to the squad they are attached to. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Guardian - Paramedic{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Steadfast - Field Surgeon{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Savior - Ever Vigilant"
       STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for XCOM, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}??? - ???"
       STR_MILITARY_MOLDING: "Military Molding"
       STR_UFOPAEDIA_MILITARY_MOLDING: "XCOM units of rank squaddie or higher are eligible for military molding. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers. Each stage of training will unlock two additional combat abilities.{NEWLINE}{NEWLINE}Equip your elite troops with a skill amplifier in order to unlock their full potential and access their final skill."
       STR_UFOPAEDIA_RANGER_SKILLS: "BLADEMASTER> Deal increased damage on all sword attacks.{NEWLINE}{NEWLINE}RUN & GUN> Take an extra action after dashing.{NEWLINE}{NEWLINE}PHANTOM> Begin a mission in concealment.{NEWLINE}{NEWLINE}SHADOWSTRIKE> While concealed, gain bonus aim and bonus critical chance when attacking enemies.{NEWLINE}{NEWLINE}UNTOUCHABLE> If you score a kill during your turn, the next two attacks against you during the enemy turn will miss.{NEWLINE}{NEWLINE}REAPER> A devastating chain melee attack where every kill scored will grant an extra action."
       STR_UFOPAEDIA_HEAVY_SKILLS: "SHREDDER> Your cannon attacks shred armor. Higher rank weapons shred more points of armor.{NEWLINE}{NEWLINE}HEAVY ROCKET> Fire a rocket using an equipped launcher.{NEWLINE}{NEWLINE}BLAST PADDING> Your gear includes layers of extra padding and blast plates, granting bonus pointd of Armor and 66% less damage from explosive attacks.{NEWLINE}{NEWLINE}MAYHEM> Confers additional damage to all area of effect weapons & auto shooting guns.{NEWLINE}{NEWLINE}STING GRENADES> Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect.{NEWLINE}{NEWLINE}RUPTURE> A Rupture shot deals critical damage and ensures that the target takes additional damage from all attacks in the future."
-      STR_UFOPAEDIA_SHARPSHOOTER_SKILLS: "DEATH FROM ABOVE> Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}HEADSHOT> Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}AIM> Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS> You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT> You do additional points of base damage and additional points of crit damage with your primary weapon.{NEWLINE}{NEWLINE}SERIAL> A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
+      STR_UFOPAEDIA_SNIPER_SKILLS: "DEATH FROM ABOVE> Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}HEADSHOT> Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}AIM> Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS> You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT> You do additional points of base damage and additional points of crit damage with your primary weapon.{NEWLINE}{NEWLINE}SERIAL> A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
       STR_UFOPAEDIA_MEDIC_SKILLS: "GUARDIAN> With every successful Overwatch shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}PARAMEDIC> This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}STEADFAST> (Almost) Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the intimidation ability.{NEWLINE}{NEWLINE}FIELD SURGEON> Reduces Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR> Medikits restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT> At the start of the enemy turn your time units are refilled for free reaction fire."
       STR_UFOPAEDIA_SKILL_AMP: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
 
 statStrings:
+  - string: "Dis"
+    Tag.DISORIENTED: [1, ~]
   - string: "Psi" #above average psi skill
     psiSkill: [40, ~]
   - string: "Elite"

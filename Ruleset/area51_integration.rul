@@ -1,3 +1,40 @@
+# add light & heavy starting armor variants (Like in Long War)
+# add rage burst to some weapons
+startingBase:
+  randomSoldiers:
+    STR_RANGER: 3
+    STR_HEAVY: 3
+    STR_MEDIC: 3
+    STR_SNIPER: 3
+
+soldierTransformation:
+  - delete: STR_OFFICER_TRAINING
+
+#soldiers:
+#  - delete: STR_SOLDIER
+#  - delete: STR_PILOT
+#  - delete: STR_OFFICER
+
+crafts:
+  - type: STR_SKYRANGER
+    pilots: 0
+  - type: STR_LIGHTNING
+    pilots: 0
+  - type: STR_AVENGER
+    pilots: 0
+  - type: STR_INTERCEPTOR
+    soldiers: 0
+    pilots: 0
+  - type: STR_FIRESTORM
+    soldiers: 0
+    pilots: 0
+  - type: STR_THUNDERSTORM
+    pilots: 0
+  - type: STR_BLACKBIRD
+    pilots: 0
+  - type: STR_STORMRIDER
+    pilots: 0
+
 # Vanilla & Area 51 Integration Stuff
 items:
   - type: STR_RIFLE
