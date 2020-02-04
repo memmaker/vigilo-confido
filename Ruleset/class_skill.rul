@@ -72,6 +72,7 @@
 # gun disabling smoke
 # flashbang
 # combat drugs
+# Instead of mana, pay with morale and have a recover action or recovery on a turn without hits
 
 # NOTE: You can set tags on GeoscapeSoldier in returnFromMissionUnit which you could read back in createUnit.
 # NOTE: One item can be used as Armor.SpecialWeapon thus removing the item as long as that armor is worn.
@@ -308,68 +309,6 @@ armors:
         mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
 
 items:
-  - type: STR_TEST_SCRIPTED_ITEM
-    tags:
-      CLASS_SKILL_ACTIVATION: 1
-      SKILL_POWER_ITEM: 1
-    costBuy: 200
-    hidePower: true
-    battleType: 12 # scripted item
-    friendlyTargetingAllowed: true
-    twoHanded: false
-    costUse:
-      time: 0
-      mana: 10
-    costMindControl:
-      time: 0
-      mana: 10
-    costPanic:
-      time: 0
-      mana: 0
-    costPrime:
-      time: 0
-    costUnprime:
-      time: 0
-    costThrow:
-      time: 0
-    costMelee:
-      time: 0
-    costSnap:
-      time: 1
-      mana: 0
-    costAimed:
-      time: 1
-      mana: 0
-    costAuto:
-      time: 0
-    confAimed:
-      shots: 1
-      name: STR_AIMED_SHOT
-      ammoSlot: -1 # self-use
-      arcing: false
-    confAuto:
-      shots: 1
-      name: STR_AIMED_SHOT
-      ammoSlot: -1 # self-use
-      arcing: false
-    flatRate: true
-    medikitType: 1
-    medikitTargetSelf: true
-    medikitTargetMatrix: 0
-    heal: 10     # max number of uses per mission
-    medikitActionName: STR_RANGER_CLASS_SKILL
-    specialIconSprite: 1
-    handSprite: 112
-    bulletSprite: 5
-    fireSound: 11
-    hitSound: 19
-    hitAnimation: 36
-    power: 9000
-    damageType: 4
-    accuracyAuto: 28
-    accuracySnap: 40
-    accuracyAimed: 68
-    clipSize: -1
   - type: STR_RANGER_SKILLS
     tags:
       SKILL_POWER_ITEM: 1
@@ -382,7 +321,7 @@ items:
     hitSound: 36
     costUse:
       time: 0
-      mana: 10
+      mana: 12
     costThrow:
       time: 0
     flatRate: true
@@ -399,7 +338,7 @@ items:
     hitSound: 36
     costUse:
       time: 1
-      mana: 10
+      mana: 12
     costThrow:
       time: 0
     flatRate: true
@@ -444,13 +383,23 @@ items:
     handSprite: 72
     bulletSprite: 0
     fireSound: 52
-    specialIconSprite: 0
     clipSize: 2  # max number of uses per mission
     accuracyAimed: 115
-    tuSnap: 0
+    accuracySnap: 115
     costAimed:
-      time: 1
-      mana: 10
+      time: 5
+      mana: 12
+    costSnap:
+      time: 5
+      mana: 12
+    confAimed:
+      shots: 1
+      ammoSlot: -1
+      arcing: false
+    confSnap:
+      shots: 1
+      ammoSlot: -1
+      arcing: false
     flatRate: true
     tuThrow: 0
     battleType: 1
@@ -471,16 +420,19 @@ items:
     floorSprite: 32
     handSprite: 88
     hitSound: 36
-    battleType: 6
+    battleType: 9
     twoHanded: false
     invWidth: 1
     invHeight: 3
     flatRate: true
     costUse:
       time: 1
-      mana: 10
-    costThrow:
-      time: 0
+      mana: 12
+    costPanic:
+      time: 10
+      mana: 5
+    friendlyTargetingAllowed: true
+    enemyTargetingAllowed: false
     flatRate: true
     medikitType: 1
     medikitTargetSelf: true
@@ -655,7 +607,7 @@ soldierTransformation:
     needsCorpseRecovered: false
     allowsDeadSoldiers: false 
     allowsLiveSoldiers: true
-    minRank: 1 # squaddie
+    minRank: 0 # squaddie
     allowedSoldierTypes:
       - STR_MEDIC
     requiredMinStats: #				The minimum stats a soldier must have in order to be eligible for this project, defaults to all 0 so any soldier is eligible
@@ -690,10 +642,10 @@ soldierTransformation:
     upperBoundAtStatCaps: false #		Default false, this parameter determines whether or not any changes in stats from this project should go above the statCaps defined on the new soldier type.
   - name: STR_RANGER_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_RANGER_ADVANCED_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 1 # decoration level
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 1 # decoration level
     soldierBonusType: STR_RANGER_ADVANCED_BONUS
-    minRank: 2                # sergeant
+#    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -709,10 +661,10 @@ soldierTransformation:
       stamina: 5
   - name: STR_HEAVY_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_HEAVY_ADVANCED_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
     soldierBonusType: STR_HEAVY_ADVANCED_BONUS
-    minRank: 2                # sergeant
+#    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -728,10 +680,10 @@ soldierTransformation:
       strength: 5
   - name: STR_SNIPER_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_SNIPER_ADVANCED_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
     soldierBonusType: STR_SNIPER_ADVANCED_BONUS
-    minRank: 2                # sergeant
+#    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -746,10 +698,10 @@ soldierTransformation:
       firing: 5
   - name: STR_MEDIC_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_MEDIC_ADVANCED_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 0 # decoration level 0
     soldierBonusType: STR_MEDIC_ADVANCED_BONUS
-    minRank: 2                # sergeant
+#    minRank: 2                # sergeant
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -767,10 +719,10 @@ soldierTransformation:
     requiredPreviousTransformations:
       - STR_RANGER_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_RANGER_ELITE_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 3 # decoration level
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 3 # decoration level
     soldierBonusType: STR_RANGER_ELITE_BONUS
-    minRank: 3                # captain
+#    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -788,10 +740,10 @@ soldierTransformation:
     requiredPreviousTransformations:
       - STR_HEAVY_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_HEAVY_ELITE_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 2 # decoration level
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 2 # decoration level
     soldierBonusType: STR_HEAVY_ELITE_BONUS
-    minRank: 3                # captain
+#    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -809,10 +761,10 @@ soldierTransformation:
     requiredPreviousTransformations:
       - STR_SNIPER_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_SNIPER_ELITE_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 2 # decoration level 
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 2 # decoration level 
     soldierBonusType: STR_SNIPER_ELITE_BONUS
-    minRank: 3                # captain
+#    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -829,10 +781,10 @@ soldierTransformation:
     requiredPreviousTransformations:
       - STR_MEDIC_ADVANCED_TRAINING
     forbiddenPreviousTransformations: [STR_MEDIC_ELITE_TRAINING]
-    requiredCommendations:
-      STR_SOLDIER_EXPERIENCE: 2 # decoration level 
+#    requiredCommendations:
+#      STR_SOLDIER_EXPERIENCE: 2 # decoration level 
     soldierBonusType: STR_MEDIC_ELITE_BONUS
-    minRank: 3                # captain
+#    minRank: 3                # captain
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
@@ -847,16 +799,93 @@ soldierTransformation:
       bravery: 5
       stamina: 5
 
+
+# features for skill menu
+#  X skill menu actions via ruleset definition
+#  X support of untargeted actions (scriptable)
+#  X support of item actions (with item references taken from hands/inventory by type)
+#  X allow for 0 TU abilities that cost Mana instead
+#  X allow psi targeting modes: friendly, enemy, both
+#  X allow for thrown targeting modes (with instant priming)
+#  X allow firearm targeting mode
+#  X allow melee targeting mode
+#  X allow waypoint targeting mode (BA_LAUNCH)
+
+# Out of scope
+# - support for the following item types in skill menus: medikits, mind probe, motion sensor
+
+# targeting modes:
+# 0   = No target needed (Just activation, script takes over) - BA_NONE
+#       Default Action: no-op
+# 10  = Melee Range Targeted (1 Tile) - BA_HIT
+#       Default Action: Melee with equipped weapon, weapon overridable
+# mul = Firearm (Default firarm targeting) - SNAP = 8, AUTO = 7, AIMED = 9
+#       Default Action: Snapshot with equipped weapon, weapon overridable
+# mul = Psi Targeting (Default PSI Targeting, with or without LOS) - BA_USE = 11, BA_MINDCONTROL = 13, BA_PANIC = 14
+#       Default Action: Use action with equipped Psi Amp, weapon overridable
+# 6   = Thrown Targeting (Default Thrown targeting, uses throwing arc) - BA_THROW
+#       Default Action: Throw equipped throwable item, weapon overridable
+# 12  = Waypoint Targeting (Default blaster launcher targeting) - BA_LAUNCH
+#       Default Action: Launch with equipped weapon, weapon overridable
+
 soldiers:
   - type: STR_RANGER
+    showTypeInInventory: true
     tags:
       CLASS: 1
-    specialWeapon: STR_RUN_AND_GUN_SKILL
-    costBuy: 0
+    skillIconSprite: 5
+    skills:
+      0:
+        name: STR_RUN_AND_GUN
+        requiredBonus: [STR_RANGER_INITIAL_BONUS]
+        costUse:
+          time: 0
+          mana: 12
+        flatUse:
+          mana: true
+      1:
+        name: STR_SLASH
+        requiredBonus: [STR_RANGER_INITIAL_BONUS]
+        costUse:
+          time: 0
+          mana: 5
+        flatUse:
+          mana: true
+        targetMode: 10
+        compatibleWeapons: [STR_STUN_ROD, STR_ALLOY_SWORD]
+      2:
+        name: STR_CONCEAL
+        requiredBonus: [STR_RANGER_ADVANCED_BONUS]
+        costUse:
+          time: 5
+          mana: 12
+        flatUse:
+          mana: true
+          time: true
+      3:
+        name: STR_RAPID_FIRE
+        requiredBonus: [STR_RANGER_ADVANCED_BONUS]
+        costUse:
+          time: 50
+          mana: 5
+        flatUse:
+          mana: true
+          time: false
+        targetMode: 7 # auto
+        compatibleWeapons: [STR_SHOTGUN, STR_ALLOY_SHOTGUN]
+      4:
+        name: STR_REAPER
+        requiredBonus: [STR_RANGER_ELITE_BONUS]
+        costUse:
+          time: 0
+          mana: 12
+        flatUse:
+          mana: true
+    costBuy: 50000
     costSalary: 50000
     value: 30
     minStats:
-      tu: 60
+      tu: 40
       stamina: 60
       health: 25
       bravery: 50
@@ -867,9 +896,9 @@ soldiers:
       psiStrength: 50
       psiSkill: 0
       melee: 40
-      mana: 10
+      mana: 12
     maxStats:
-      tu: 80
+      tu: 70
       stamina: 80
       health: 40
       bravery: 70
@@ -880,7 +909,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 0
       melee: 80
-      mana: 10
+      mana: 12
     statCaps:
       tu: 100
       stamina: 100
@@ -893,7 +922,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 60
       melee: 120
-      mana: 10
+      mana: 12
     standHeight: 22
     kneelHeight: 14
     femaleFrequency: 50
@@ -921,16 +950,76 @@ soldiers:
       - STR_COMMANDER_RANGER_RANK
     armor: STR_NONE_UC
   - type: STR_HEAVY
+    showTypeInInventory: true
     tags:
       CLASS: 2
     specialWeapon: STR_HEAVY_ROCKET_SKILL
-    costBuy: 0
+    skillIconSprite: 5
+    skills:
+      0:
+        name: STR_HEAVY_ROCKET
+        requiredBonus: [STR_HEAVY_INITIAL_BONUS]
+        costUse:
+          time: 20
+          mana: 12
+        flatUse:
+          mana: true
+          time: true
+        compatibleWeapons: [STR_HEAVY_ROCKET_SKILL]
+        checkHandsOnly: false
+        targetMode: 8 # snap
+      1:
+        name: STR_RAPID_DEPLOYMENT
+        requiredBonus: [STR_HEAVY_INITIAL_BONUS]
+        costUse:
+          time: 5
+          mana: 5
+        flatUse:
+          mana: true
+          time: true
+        targetMode: 6 # throw
+        checkHandsOnly: false
+        compatibleWeapons: [STR_GRENADE]
+      2:
+        name: STR_SHREDDER_ROCKET
+        requiredBonus: [STR_HEAVY_ADVANCED_BONUS]
+        costUse:
+          time: 5
+          mana: 12
+        flatUse:
+          mana: true
+          time: true
+        compatibleWeapons: [STR_HEAVY_ROCKET_SKILL]
+        checkHandsOnly: false
+        targetMode: 9 # aimed
+      3:
+        name: STR_RAGE_BURST
+        requiredBonus: [STR_HEAVY_ADVANCED_BONUS]
+        costUse:
+          time: 50
+          mana: 12
+        flatUse:
+          mana: true
+          time: false
+        flatUse:
+          time: false
+        targetMode: 7 # auto
+        compatibleWeapons: [STR_LMG]
+      4:
+        name: STR_RUPTURE
+        requiredBonus: [STR_HEAVY_ELITE_BONUS]
+        costUse:
+          time: 0
+          mana: 12
+        flatUse:
+          mana: true
+    costBuy: 50000
     costSalary: 50000
     value: 30
     minStats:
       tu: 30
       stamina: 60
-      health: 40
+      health: 45
       bravery: 50
       reactions: 0
       firing: 20
@@ -939,11 +1028,11 @@ soldiers:
       psiStrength: 40
       psiSkill: 0
       melee: 10
-      mana: 10
+      mana: 12
     maxStats:
       tu: 40
       stamina: 70
-      health: 50
+      health: 55
       bravery: 70
       reactions: 10
       firing: 40
@@ -952,9 +1041,9 @@ soldiers:
       psiStrength: 100
       psiSkill: 0
       melee: 40
-      mana: 10
+      mana: 12
     statCaps:
-      tu: 50
+      tu: 65
       stamina: 100
       health: 80
       bravery: 100
@@ -965,7 +1054,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 50
       melee: 60
-      mana: 10
+      mana: 12
     standHeight: 22
     kneelHeight: 14
     femaleFrequency: 50
@@ -993,10 +1082,64 @@ soldiers:
       - STR_COMMANDER_HEAVY_RANK
     armor: STR_NONE_UC
   - type: STR_SNIPER
+    showTypeInInventory: true
     tags:
       CLASS: 3
-    specialWeapon: STR_HEADSHOT_SKILL
-    costBuy: 0
+    skillIconSprite: 5
+    skills:
+      0:
+        name: STR_HEADSHOT       # default, increased crit chance + crit damage
+        requiredBonus: [STR_SNIPER_INITIAL_BONUS]
+        costUse:
+          time: 85
+          mana: 4
+        flatUse:
+          mana: true
+          time: false
+        targetMode: 8 # snap
+        compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
+      1:
+        name: STR_DISABLING_SHOT  # default, no damage, disable weapon of target
+        requiredBonus: [STR_SNIPER_INITIAL_BONUS]
+        costUse:
+          time: 85
+          mana: 4
+        flatUse:
+          mana: true
+          time: false
+        targetMode: 8 # snap
+        compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
+      2:
+        name: STR_QUICK_AIM     # X reduce cost / increase aim
+        requiredBonus: [STR_SNIPER_ADVANCED_BONUS]
+        costUse:
+          time: 50
+          mana: 6
+        flatUse:
+          mana: true
+          time: false
+        targetMode: 9 # aimed
+        compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
+      3:
+        name: STR_DOUBLE_TAP     # X default, fire two shots
+        requiredBonus: [STR_SNIPER_ADVANCED_BONUS]
+        costUse:
+          time: 85
+          mana: 8
+        flatUse:
+          mana: true
+          time: false
+        targetMode: 7 # auto
+        compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
+      4:
+        name: STR_SERIAL
+        requiredBonus: [STR_SNIPER_ELITE_BONUS]
+        costUse:
+          time: 0
+          mana: 12
+        flatUse:
+          mana: true
+    costBuy: 50000
     costSalary: 50000
     value: 30
     minStats:
@@ -1011,7 +1154,7 @@ soldiers:
       psiStrength: 50
       psiSkill: 0
       melee: 0
-      mana: 10
+      mana: 12
     maxStats:
       tu: 70
       stamina: 70
@@ -1024,7 +1167,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 0
       melee: 10
-      mana: 10
+      mana: 12
     statCaps:
       tu: 80
       stamina: 100
@@ -1037,7 +1180,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 60
       melee: 20
-      mana: 10
+      mana: 12
     standHeight: 22
     kneelHeight: 14
     femaleFrequency: 50
@@ -1056,10 +1199,11 @@ soldiers:
       - STR_COMMANDER_SNIPER_RANK
     armor: STR_NONE_UC
   - type: STR_MEDIC
+    showTypeInInventory: true
     tags:
       CLASS: 4
     specialWeapon: STR_PARAMEDIC_SKILL
-    costBuy: 0
+    costBuy: 50000
     costSalary: 50000
     value: 30
     minStats:
@@ -1074,7 +1218,7 @@ soldiers:
       psiStrength: 50
       psiSkill: 0
       melee: 0
-      mana: 10
+      mana: 12
     maxStats:
       tu: 80
       stamina: 80
@@ -1087,7 +1231,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 0
       melee: 20
-      mana: 10
+      mana: 12
     statCaps:
       tu: 100
       stamina: 100
@@ -1100,7 +1244,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 60
       melee: 70
-      mana: 10
+      mana: 12
     standHeight: 22
     kneelHeight: 14
     femaleFrequency: 50
@@ -1119,6 +1263,7 @@ soldiers:
       - STR_COMMANDER_MEDIC_RANK
     armor: STR_NONE_UC
   - type: STR_PSI_OPERATIVE
+    showTypeInInventory: true
     tags:
       CLASS: 5
     costBuy: 0
@@ -1136,7 +1281,7 @@ soldiers:
       psiStrength: 70
       psiSkill: 16
       melee: 0
-      mana: 10
+      mana: 12
     maxStats:
       tu: 65
       stamina: 70
@@ -1149,7 +1294,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 50
       melee: 10
-      mana: 10
+      mana: 12
     statCaps:
       tu: 80
       stamina: 100
@@ -1162,7 +1307,7 @@ soldiers:
       psiStrength: 100
       psiSkill: 60
       melee: 20
-      mana: 10
+      mana: 12
     standHeight: 22
     kneelHeight: 14
     femaleFrequency: 50
@@ -1200,6 +1345,7 @@ extended:
       DEATH_FROM_ABOVE_STATE: int
       BLAST_PADDING_STATE: int
       PHANTOM_STATE: int
+      PHANTOM_STATE_ORIGINAL: int
       STASIS_STATE: int  # 0 = no stasis, 1 = stasis active until next alien turn, 2 = stasis active until next xcom turn
       SUSTAIN_STATE: int
       EXECUTIONER_STATE: int
@@ -1207,7 +1353,7 @@ extended:
       BACKSTAB_STATE: int
       BLADEMASTER_STATE: int
       FIELD_MEDIC_STATE: int
-      RUPTURE_STATE: int
+      RUPTURE_STATE: int # 0 = no effect, 1 = active on next hit, 2 = unit is ruptured (takes increased damage)
       SHREDDER_STATE: int
       PARRY_STATE: int
       MELEE_DEFENSE_STATE: int
@@ -1231,6 +1377,7 @@ extended:
       AIM_X: int
       AIM_Y: int
       AIM_Z: int
+      WEAPON_DISABLED: int
     RuleSoldierBonus:
       LIGHTNING_REFLEXES: int
       UNTOUCHABLE: int
@@ -1275,28 +1422,84 @@ extended:
       RUPTURE_DAMAGE: int
       SHREDDER_DAMAGE: int
   scripts:
-    scriptedItemUse:
+    skillUseUnit:
       - offset: 23
         code: |
-          if eq action_type BA_UNPRIME;
-            battle_game.flashMessage "Skill One";
+          var int unit_class;
+          var int temp;
+          var ptr RuleItem item_rule;
+          var ptr RuleSoldier soldier_rule;
+          var ptr RuleArmor armor_rule;
+          var int run_and_gun;
+          var int max;
+          var int cur;
+          var int result;
+
+          debug_log "SkillUse triggered" have_tu;
+
+          if eq have_tu 0;
+            debug_log "No Resources. Aborted.";
+            set continue_action 0;
+            return;
           end;
-          if eq action_type BA_PRIME;
-            battle_game.flashMessage "Skill Two";
+
+          actor.getRuleSoldier soldier_rule;
+          soldier_rule.getTag unit_class Tag.CLASS;
+
+          # class skills of heavy and medic currently implemented using specialWeapon items
+          if eq unit_class 1;    # Ranger
+            debug_log " - by Ranger class";
+            if eq skill_id 0;    # Run & Gun
+              debug_log "Skill activation for Ranger (Run & Gun)";
+
+              actor.getTimeUnitsMax max;
+              actor.getTimeUnits cur;
+              add cur max;
+              actor.setTimeUnits cur;
+
+              actor.getEnergyMax max;
+              actor.getEnergy cur;
+              add cur max;
+              actor.setEnergy cur;
+
+              set spend_tu 1; # spend the mana for skill use
+            else eq skill_id 2;    # Conceal
+              debug_log "Skill activation for Ranger (Conceal)";
+              battle_game.tryConcealUnit actor result;
+              if gt result 0;
+                actor.getTag temp Tag.PHANTOM_STATE_ORIGINAL;
+                actor.setTag Tag.PHANTOM_STATE temp;
+                set spend_tu 1;
+              else;
+                battle_game.flashMessage "Failed. You have been spotted.";
+              end;
+            else eq skill_id 4;    # Reaper
+              actor.getTag temp Tag.REAPER_STATE;
+              if eq temp 1; # not yet activated in this mission, activate now
+                battle_game.flashMessage "REAPER Activated";
+                actor.setTag Tag.REAPER_STATE 2;
+                set spend_tu 1;
+              end;
+            end;
+          else eq unit_class 2;  # Heavy
+            if eq skill_id 4;    # Rupture
+              battle_game.flashMessage "RUPTURE Activated";
+              actor.setTag Tag.RUPTURE_STATE 1;
+              set spend_tu 1;
+            end;
+          else eq unit_class 3;  # Sniper
+            if eq skill_id 4;    # Serial
+              actor.getTag temp Tag.REAPER_STATE;
+              if eq temp 1; # not yet activated in this mission, activate now
+                battle_game.flashMessage "SERIAL Activated";
+                actor.setTag Tag.SERIAL_STATE 2;
+                set spend_tu 1;
+              end;
+            end;
+            #debug_log " - for Sniper (Headshot)";
+            #actor.setTag Tag.CRIT_CHANCE_NEXT_HIT 30; # increase hit chance by 30% for next hit
+            #actor.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
           end;
-          if eq action_type BA_MINDCONTROL;
-            battle_game.flashMessage "Skill Three";
-          end;
-          if eq action_type BA_PANIC;
-            battle_game.flashMessage "Skill Four";
-          end;
-          if eq action_type BA_USE;
-            battle_game.flashMessage "Skill Five";
-          end;
-          if eq action_type BA_AIMEDSHOT;
-            battle_game.flashMessage "Script Aimed";
-          end;
-          #set action_type BA_USE;
           return;
     reactionUnitAction: 
       - offset: 23   # for lightning reflexes
@@ -1370,7 +1573,6 @@ extended:
               debug_log "Reaper was active last turn for:" unit_id;
               debug_log "Reaper deactivated for this unit.";
               unit.setTag Tag.REAPER_STATE 0;
-              #unit.setMana 0;
             end;
           end;
           return;
@@ -1525,15 +1727,24 @@ extended:
           end;
           return;
     hitUnit:
-      - offset: 23   # for phantom
+      - offset: 23   # for disabling shot
         code: |
-          var int camo_state;
-
-          unit.getTag camo_state Tag.PHANTOM_STATE;
+          var ptr RuleSoldier soldier_rule;
+          var int unit_class;
           
-          if neq camo_state 0;
-            unit.setTag Tag.PHANTOM_STATE 0;
-            debug_log "Concealment disabled. You have been spotted. (hit)";
+          # check attacker class
+          # check skill id
+
+          attacker.getRuleSoldier soldier_rule;
+          debug_log "Disabling shot code running" soldier_rule;
+          if neq soldier_rule null;
+            soldier_rule.getTag unit_class Tag.CLASS;
+            debug_log "DC:" unit_class skill_id;
+            if and eq unit_class 3 eq skill_id 1;  # Sniper & Disabling Shot
+              debug_log "Unit hit with disabling shot:" unit;
+              div power 4;
+              unit.setTag Tag.WEAPON_DISABLED 1;
+            end;
           end;
           return power part side;
       - offset: 24   # for blademaster
@@ -1573,6 +1784,7 @@ extended:
               debug_log " - DEFLECTED!";
               sub counter 1;
               unit.setTag Tag.UNTOUCHABLE_COUNTER counter;
+              battle_game.flashMessage "UNTOUCHABLE!";
             end;
           end;
           return power part side;
@@ -1870,7 +2082,33 @@ extended:
             end;
           end;
           return power part side;
-    psiAttack:
+    newTurnItem:
+      - offset: 23   # for disabling shot
+        code: |
+          var ptre BattleUnit owner;
+          var int weapon_disabled;
+          var int temp;
+          var int battle_type;
+          var ptr RuleItem item_rule;
+
+          item.getOwner owner;
+
+          owner.getTag weapon_disabled Tag.WEAPON_DISABLED;
+
+          if gt weapon_disabled 0;
+            sub weapon_disabled 1;
+            owner.setTag Tag.WEAPON_DISABLED weapon_disabled;
+
+            item.getRuleItem item_rule;
+            item_rule.getBattleType battle_type;
+            item.getAmmoQuantity temp;
+            debug_log "Dis.Wep. found:" battle_type temp;
+            if gt temp 0;
+              item.setAmmoQuantity 0;
+            end;
+          end;
+          return;
+    tryPsiAttackUnit:
       - offset: 23   # for Scripted Items - Automatic Success
         code: |
           var int battle_type;
@@ -1903,7 +2141,7 @@ extended:
             unit.getTurnsSinceSpotted turns_since_spotted;
             if or eq turns_since_spotted 255 le turns_since_spotted -1;
               # shadowstrike activate
-              debug_log "Shadowstrike Accuracy (org./add.):" bonus 30;
+              #debug_log "Shadowstrike Accuracy (org./add.):" bonus 30;
               add bonus 30;
             end;
           end;
@@ -2090,11 +2328,6 @@ extended:
             if and eq battle_action battle_action_hit eq damaging_type 7; # action = hit && damage type = melee
               if ge to_health unit_health;                 # would be a kill
                 # TRIGGER conditions met
-                if eq state 1; # not yet activated in this mission, activate now
-                  debug_log "REAPER Activated";
-                  set state 2;
-                  attacker.setTag Tag.REAPER_STATE state;
-                end;
                 if eq state 2; # we are active, so refund the action cost
                   debug_log "REAPER triggered! Refunding TU.";
 
@@ -2141,6 +2374,7 @@ extended:
             if and gt weapon_state 0 eq attacker_state 1;
               # tag unit and increase damage by rupture_state
               unit.setTag Tag.RUPTURE_STATE 2;
+              attacker.setTag Tag.RUPTURE_STATE 0;
               set increase_damage 1;
               debug_log "RUPTURED:" unit;
             end;
@@ -2177,11 +2411,6 @@ extended:
             if eq gun_type 3; # sniper rifle
               if ge to_health unit_health;                 # would be a kill
                 # TRIGGER conditions met
-                if eq state 1; # not yet activated in this mission, activate now
-                  debug_log "SERIAL Activated";
-                  set state 2;
-                  attacker.setTag Tag.SERIAL_STATE state;
-                end;
                 if eq state 2; # we are active, so refund the action cost
                   debug_log "SERIAL triggered! Refunding TU.";
                   attacker.getTimeUnitsMax max_time_units;
@@ -2192,61 +2421,6 @@ extended:
           end;
           return;    
     healUnit:
-      - offset: 23   # Class Skill Activation via Medikit Self Targeting
-        code: |
-          var int unit_class;
-          var int class_skill;
-          var int skill_power;
-          var int temp;
-          var ptr RuleItem item_rule;
-          var ptr RuleSoldier soldier_rule;
-          var ptr RuleArmor armor_rule;
-          var int run_and_gun;
-          var int max;
-          var int cur;
-
-          set skill_power 0;
-
-          item.getRuleItem item_rule;
-          item_rule.getTag class_skill Tag.CLASS_SKILL_ACTIVATION;
-          
-          if gt class_skill 0;
-            debug_log "Class skill activated with cs:" class_skill;
-
-            actor.getRuleArmor armor_rule;
-            item_rule.getTag skill_power Tag.SKILL_POWER_ITEM;
-            armor_rule.getTag temp Tag.SKILL_POWER_ARMOR;
-            if gt temp skill_power;
-              set skill_power temp;
-            end;
-            # skill_power is now max(item.skill_power, armor.skill_power)
-            debug_log "Class skill activated with power:" skill_power;
-            actor.getRuleSoldier soldier_rule;
-            soldier_rule.getTag unit_class Tag.CLASS;
-            # class skills of heavy and medic currently implemented using specialWeapon items
-            if eq unit_class 1;    # Ranger
-              debug_log " - for Ranger (Run & Gun)";
-              actor.getTag run_and_gun Tag.RUN_AND_GUN_STATE;
-
-              actor.getTimeUnitsMax max;
-              actor.getTimeUnits cur;
-              add cur max;
-              actor.setTimeUnits cur;
-
-              actor.getEnergyMax max;
-              actor.getEnergy cur;
-              add cur max;
-              actor.setEnergy cur;
-            else eq unit_class 3;  # Sniper
-              debug_log " - for Sniper (Headshot)";
-              actor.setTag Tag.CRIT_CHANCE_NEXT_HIT 30; # increase hit chance by 30% for next hit
-              actor.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
-            end;
-            set wound_recovery 0;
-            set health_recovery 0;
-          end;
-          
-          return;
       - offset: 24   # for savior
         code: |
           var int savior;
@@ -2435,6 +2609,7 @@ extended:
 
           if gt has_phantom 0;
             debug_log "Unit" id "-  phantom Skill found at" has_phantom;
+            unit.setTag Tag.PHANTOM_STATE_ORIGINAL has_phantom;
             unit.setTag Tag.PHANTOM_STATE has_phantom;
           end;
 
@@ -2660,6 +2835,22 @@ extraStrings:
       STR_UFOPAEDIA_SNIPER_SKILLS: "DEATH FROM ABOVE> Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}HEADSHOT> Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}AIM> Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS> You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT> You do additional points of base damage and additional points of crit damage with your primary weapon.{NEWLINE}{NEWLINE}SERIAL> A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
       STR_UFOPAEDIA_MEDIC_SKILLS: "GUARDIAN> With every successful Overwatch shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}PARAMEDIC> This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}STEADFAST> (Almost) Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the intimidation ability.{NEWLINE}{NEWLINE}FIELD SURGEON> Reduces Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR> Medikits restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT> At the start of the enemy turn your time units are refilled for free reaction fire."
       STR_UFOPAEDIA_SKILL_AMP: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
+      STR_SKILL_NEEDS_ITEM: "Skill needs item!"
+      STR_HEAVY_ROCKET: Heavy Rocket
+      STR_RAPID_DEPLOYMENT: Rpd. Deployment
+      STR_SHREDDER_ROCKET: Shred Rocket
+      STR_RAGE_BURST: Rage Burst
+      STR_RUPTURE: Rupture
+      STR_RUN_AND_GUN: Run and Gun
+      STR_SLASH: Slash
+      STR_CONCEAL: Conceal
+      STR_RAPID_FIRE: Rapid Fire
+      STR_HEADSHOT: Headshot
+      STR_DOUBLE_TAP: Double Tap
+      STR_SERIAL: Serial
+      STR_DISABLING_SHOT: Disabling Shot
+      STR_QUICK_AIM: Quick Aim
+
 
 statStrings:
   - string: "Dis"
