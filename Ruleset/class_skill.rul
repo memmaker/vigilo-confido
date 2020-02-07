@@ -2119,7 +2119,7 @@ extended:
 
           item_rule.getBattleType battle_type;
           
-          if eq battle_type 12; # scripted item
+          if eq battle_type 9; # scripted psi amp
             if or eq battle_action 13 eq battle_action 14;
               debug_log "PsiAttack with scripted item. Automatic success!";
               set psi_attack_success 1;
@@ -2661,13 +2661,15 @@ extended:
 
 ufopaedia:
   - id: STR_MILITARY_MOLDING
-    type_id: 8 # text only
+    type_id: 7 # text only
+    image_id: UFOPAEDIA_IMG_MOLDING_CPAL
     section: STR_COUNCIL_REPORTS
     text: STR_UFOPAEDIA_MILITARY_MOLDING
+    text_width: 260
   - id: STR_RANGER
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
-    image_id: UFOPAEDIA_IMG_SOLDIER
+    image_id: UFOPAEDIA_IMG_RANGER_CPAL
     text: STR_UFOPAEDIA_RANGER
     text_width: 158
   - id: STR_RANGER_SKILLS
@@ -2677,7 +2679,7 @@ ufopaedia:
   - id: STR_HEAVY
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
-    image_id: UFOPAEDIA_IMG_SOLDIER
+    image_id: UFOPAEDIA_IMG_GRENADIER_CPAL
     text: STR_UFOPAEDIA_HEAVY
     text_width: 158
   - id: STR_HEAVY_SKILLS
@@ -2687,7 +2689,7 @@ ufopaedia:
   - id: STR_SNIPER
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
-    image_id: UFOPAEDIA_IMG_SOLDIER
+    image_id: UFOPAEDIA_IMG_SHARPSHOOTER_CPAL
     text: STR_UFOPAEDIA_SNIPER
     text_width: 158
   - id: STR_SNIPER_SKILLS
@@ -2697,7 +2699,7 @@ ufopaedia:
   - id: STR_MEDIC
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
-    image_id: UFOPAEDIA_IMG_SOLDIER
+    image_id: UFOPAEDIA_IMG_SPECIALIST_CPAL
     text: STR_UFOPAEDIA_MEDIC
     text_width: 158
   - id: STR_MEDIC_SKILLS
@@ -2707,7 +2709,7 @@ ufopaedia:
   - id: STR_PSI_OPERATIVE
     type_id: 7 # text & image
     section: STR_COUNCIL_REPORTS
-    image_id: UFOPAEDIA_IMG_SOLDIER
+    image_id: UFOPAEDIA_IMG_PSIOP_CPAL
     text: STR_UFOPAEDIA_PSI_OP
     text_width: 158
   - id: STR_SKILL_AMP
@@ -2851,7 +2853,6 @@ extraStrings:
       STR_DISABLING_SHOT: Disabling Shot
       STR_QUICK_AIM: Quick Aim
 
-
 statStrings:
   - string: "Dis"
     Tag.DISORIENTED: [1, ~]
@@ -2930,9 +2931,39 @@ extraSprites:
       3: Resources/UI/SPICON_SNIPER.png
       4: Resources/UI/SPICON_MEDIC.png
       5: Resources/UI/SPICON_CS.png
-  - type: UFOPAEDIA_IMG_SOLDIER
+  - type: UFOPAEDIA_IMG_MOLDING_CPAL
     singleImage: true
     width: 320
     height: 200
     files:
-      0: Resources/UFOPedia/UFOPEDIA_SOLDIER.png
+      0: Resources/UFOPedia/xcom_molding_new.png
+  - type: UFOPAEDIA_IMG_RANGER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/xcom2_ranger.png
+  - type: UFOPAEDIA_IMG_GRENADIER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/xcom2_grenadier.png
+  - type: UFOPAEDIA_IMG_SPECIALIST_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/xcom2_specialist.png
+  - type: UFOPAEDIA_IMG_SHARPSHOOTER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/xcom2_sharpshooter.png
+  - type: UFOPAEDIA_IMG_PSIOP_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/xcom2_psiop.png
