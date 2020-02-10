@@ -166,12 +166,12 @@ items:
     confAuto:
       shots: 2
     tags:
-      CRIT_CHANCE: 10
+      CRIT_CHANCE: 15
       CRIT_DAMAGE: 40
       GUN_TYPE: 4 # shotgun
   - type: STR_ALLOY_SHOTGUN
     tags:
-      CRIT_CHANCE: 15
+      CRIT_CHANCE: 20
       CRIT_DAMAGE: 50
       GUN_TYPE: 4 # shotgun
   - type: STR_HEAVY_CANNON
