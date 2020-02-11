@@ -54,11 +54,11 @@
 # = Specialist
 # Initial
 #  TA Paramedic
-#  A Aid Protocol
+#  TA Aid Protocol
 #  P Guardian
 # Advanced
-#  A Combat Protocol
-#  A Interference
+#  TA Combat Protocol
+#  TA Interference
 #  P Steadfast
 #  P Field Surgeon
 # Elite
@@ -84,7 +84,7 @@
 #
 # There are three training phases. The initial molding process is the first one.
 # Second Phase (or Advanced Training) adds two additional passive and active skills.
-# Third Phase (or Elite Training) adds another  passive skill and an elite level active skill.
+# Third Phase (or Elite Training) adds another passive skill and an elite level active skill.
 #
 # The elite level active skill has to be activated via the SKILL_AMP usable item.
 
@@ -362,7 +362,13 @@ items:
     power: 75
     hidePower: true
     damageType: 3
-  - type: STR_SKILL_AMP_FRIENDLY_ONLY
+  - type: STR_SKILL_AMP
+    tags:
+      CLASS_SKILL_ACTIVATION: 1
+      SKILL_POWER_ITEM: 1
+    power: 100
+    damageAlter:
+      RandomType: 3
     size: 0.1
     costBuy: 2000
     costSell: 194700
@@ -371,6 +377,7 @@ items:
     floorSprite: 32
     handSprite: 88
     hitSound: 36
+    hitAnimation: 56
     battleType: 9
     twoHanded: false
     psiRequired: false
@@ -383,7 +390,7 @@ items:
     costPanic:
       time: 10
       mana: 5
-    psiTargetMatrix: 1
+    psiTargetMatrix: 7
     flatRate: true
 
 soldierTransformation:
@@ -761,7 +768,8 @@ soldierTransformation:
 
 skills:
   - type: STR_RUN_AND_GUN
-    scriptId: 10
+    tags:
+      SKILL_ID: 10
     requiredBonus: [STR_RANGER_INITIAL_BONUS]
     costUse:
       time: 0
@@ -769,7 +777,8 @@ skills:
     flatUse:
       mana: true
   - type: STR_SLASH
-    scriptId: 11
+    tags:
+      SKILL_ID: 11
     requiredBonus: [STR_RANGER_INITIAL_BONUS]
     costUse:
       time: 0
@@ -779,7 +788,8 @@ skills:
     targetMode: 10
     compatibleWeapons: [STR_STUN_ROD, STR_ALLOY_SWORD]
   - type: STR_CONCEAL
-    scriptId: 12
+    tags:
+      SKILL_ID: 12
     requiredBonus: [STR_RANGER_ADVANCED_BONUS]
     costUse:
       time: 5
@@ -788,7 +798,8 @@ skills:
       mana: true
       time: true
   - type: STR_RAPID_FIRE
-    scriptId: 13
+    tags:
+      SKILL_ID: 13
     requiredBonus: [STR_RANGER_ADVANCED_BONUS]
     costUse:
       time: 50
@@ -799,7 +810,8 @@ skills:
     targetMode: 7 # auto
     compatibleWeapons: [STR_SHOTGUN, STR_ALLOY_SHOTGUN]
   - type: STR_REAPER
-    scriptId: 14
+    tags:
+      SKILL_ID: 14
     requiredBonus: [STR_RANGER_ELITE_BONUS]
     costUse:
       time: 0
@@ -807,7 +819,8 @@ skills:
     flatUse:
       mana: true
   - type: STR_HEAVY_ROCKET
-    scriptId: 20
+    tags:
+      SKILL_ID: 20
     requiredBonus: [STR_GRENADIER_INITIAL_BONUS]
     costUse:
       time: 20
@@ -819,7 +832,8 @@ skills:
     checkHandsOnly: false
     targetMode: 8 # snap
   - type: STR_RAPID_DEPLOYMENT
-    scriptId: 21
+    tags:
+      SKILL_ID: 21
     requiredBonus: [STR_GRENADIER_INITIAL_BONUS]
     costUse:
       time: 5
@@ -831,7 +845,8 @@ skills:
     checkHandsOnly: false
     compatibleWeapons: [STR_GRENADE]
   - type: STR_WAR_CRY
-    scriptId: 22
+    tags:
+      SKILL_ID: 22
     requiredBonus: [STR_GRENADIER_ADVANCED_BONUS]
     costUse:
       time: 10
@@ -840,7 +855,8 @@ skills:
       mana: true
       time: true
   - type: STR_RAGE_BURST
-    scriptId: 23
+    tags:
+      SKILL_ID: 23
     requiredBonus: [STR_GRENADIER_ADVANCED_BONUS]
     costUse:
       time: 50
@@ -853,7 +869,8 @@ skills:
     targetMode: 7 # auto
     compatibleWeapons: [STR_LMG]
   - type: STR_RUPTURE
-    scriptId: 24
+    tags:
+      SKILL_ID: 24
     requiredBonus: [STR_GRENADIER_ELITE_BONUS]
     costUse:
       time: 0
@@ -861,7 +878,8 @@ skills:
     flatUse:
       mana: true
   - type: STR_HEADSHOT       # default, increased crit chance + crit damage
-    scriptId: 30
+    tags:
+      SKILL_ID: 30
     requiredBonus: [STR_SNIPER_INITIAL_BONUS]
     costUse:
       time: 85
@@ -872,7 +890,8 @@ skills:
     targetMode: 8 # snap
     compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
   - type: STR_DISABLING_SHOT  # default, no damage, disable weapon of target
-    scriptId: 31
+    tags:
+      SKILL_ID: 31
     requiredBonus: [STR_SNIPER_INITIAL_BONUS]
     costUse:
       time: 85
@@ -883,7 +902,8 @@ skills:
     targetMode: 8 # snap
     compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
   - type: STR_QUICK_AIM     # X reduce cost / increase aim
-    scriptId: 32
+    tags:
+      SKILL_ID: 32
     requiredBonus: [STR_SNIPER_ADVANCED_BONUS]
     costUse:
       time: 50
@@ -894,7 +914,8 @@ skills:
     targetMode: 9 # aimed
     compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
   - type: STR_DOUBLE_TAP     # X default, fire two shots
-    scriptId: 33
+    tags:
+      SKILL_ID: 33
     requiredBonus: [STR_SNIPER_ADVANCED_BONUS]
     costUse:
       time: 85
@@ -905,7 +926,8 @@ skills:
     targetMode: 7 # auto
     compatibleWeapons: [STR_SNIPER_RIFLE, STR_LASER_SNIPER_RIFLE]
   - type: STR_SERIAL
-    scriptId: 34
+    tags:
+      SKILL_ID: 34
     requiredBonus: [STR_SNIPER_ELITE_BONUS]
     costUse:
       time: 0
@@ -913,7 +935,8 @@ skills:
     flatUse:
       mana: true
   - type: STR_PARAMEDIC
-    scriptId: 40
+    tags:
+      SKILL_ID: 40
     requiredBonus: [STR_SPECIALIST_INITIAL_BONUS]
     costUse:
       time: 2
@@ -925,7 +948,8 @@ skills:
     checkHandsOnly: false
     compatibleWeapons: [STR_MEDI_KIT]
   - type: STR_AID_PROTOCOL
-    scriptId: 41
+    tags:
+      SKILL_ID: 41
     requiredBonus: [STR_SPECIALIST_INITIAL_BONUS]
     costUse:
       time: 50
@@ -935,9 +959,10 @@ skills:
       time: false
     targetMode: 11 # use
     checkHandsOnly: false
-    compatibleWeapons: [STR_SKILL_AMP_FRIENDLY_ONLY]
+    compatibleWeapons: [STR_SKILL_AMP]
   - type: STR_COMBAT_PROTOCOL
-    scriptId: 42
+    tags:
+      SKILL_ID: 42
     requiredBonus: [STR_SPECIALIST_ADVANCED_BONUS]
     costUse:
       time: 50
@@ -947,21 +972,23 @@ skills:
       time: false
     targetMode: 11 # use
     checkHandsOnly: false
-    compatibleWeapons: [STR_SKILL_AMP_FRIENDLY_ONLY]
+    compatibleWeapons: [STR_SKILL_AMP]
   - type: STR_INTERFERENCE
-    scriptId: 43
+    tags:
+      SKILL_ID: 43
     requiredBonus: [STR_SPECIALIST_ADVANCED_BONUS]
     costUse:
-      time: 50
+      time: 65
       mana: 8
     flatUse:
       mana: true
       time: false
     targetMode: 11 # use
     checkHandsOnly: false
-    compatibleWeapons: [STR_SKILL_AMP_FRIENDLY_ONLY]
+    compatibleWeapons: [STR_SKILL_AMP]
   - type: STR_RESTORATION
-    scriptId: 44
+    tags:
+      SKILL_ID: 44
     requiredBonus: [STR_SPECIALIST_ELITE_BONUS]
     costUse:
       time: 55
@@ -1059,7 +1086,7 @@ soldiers:
     skills:
       - STR_HEAVY_ROCKET
       - STR_RAPID_DEPLOYMENT
-      - STR_SHREDDER_ROCKET
+      - STR_WAR_CRY
       - STR_RAGE_BURST
       - STR_RUPTURE
     costBuy: 50000
@@ -1204,7 +1231,7 @@ soldiers:
     showTypeInInventory: true
     tags:
       CLASS: 4
-    specialWeapon: STR_SKILL_AMP_FRIENDLY_ONLY
+    specialWeapon: STR_SKILL_AMP
     skillIconSprite: 5
     skills:
       - STR_PARAMEDIC
@@ -1338,12 +1365,13 @@ soldiers:
 
 extended:
   tags:
+    RuleSkill:
+      SKILL_ID: int
     RuleArmor:
       SKILL_POWER_ARMOR: int
     RuleSoldier:
       CLASS: int            # 0 = no class, 1 = Ranger, 2 = Grenadier, 3 = Sniper, 4 = Specialist, 5 = Psi
     BattleGame:
-      TURN_SIDE: int
       BATTLE_CRY_STATE: int # 0 = not activated, 1 = active this turn, 2 = disabled
       BATTLE_CRY_X: int     # x position where battle cry was activated
       BATTLE_CRY_Y: int     # y position where battle cry was activated
@@ -1389,6 +1417,12 @@ extended:
       AIM_Y: int
       AIM_Z: int
       WEAPON_DISABLED: int
+      TEST_COUNTER: int
+      VIS_EFFECT: int
+      VIS_COLOR: int
+      VIS_DELAY: int
+      VIS_REPLACE_COLOR: int
+      AID_PROTOCOL_STATE: int
     RuleSoldierBonus:
       LIGHTNING_REFLEXES: int
       UNTOUCHABLE: int
@@ -1445,8 +1479,11 @@ extended:
           var int max;
           var int cur;
           var int result;
+          var int skill_id;
 
-          debug_log "SkillUse triggered" have_tu;
+          skill.getTag skill_id Tag.SKILL_ID;
+
+          debug_log "SkillUse triggered" skill_id have_tu;
 
           if eq have_tu 0;
             debug_log "No Resources. Aborted.";
@@ -1534,10 +1571,25 @@ extended:
           end;
           return reaction_chance;
     newTurnUnit:
-      - offset: 23   # Essentials (Store the turn side in the battle game at the beginning of each turn)
+      - offset: 23   # TESTING FOR RECOLOR
         code: |
-          battle_game.setTag Tag.TURN_SIDE side;
+          var int counter;
+          var int id;
+          var int temp;
+
+          unit.getId id;
+          unit.getTag counter Tag.TEST_COUNTER;
+
+          set temp COLOR_X1_GREEN0;
+          add temp id;
+          add temp counter;
+          unit.setTag Tag.VIS_EFFECT 4;
+          unit.setTag Tag.VIS_COLOR temp;
+
+          add counter 1;
+          unit.setTag Tag.TEST_COUNTER counter;
           return;
+
       - offset: 24   # for phantom
         code: |
           var int turns_since_spotted;
@@ -1750,14 +1802,25 @@ extended:
             end;
           end;
           return;
+      - offset: 34   # for aid protocol
+        code: |
+          var int aid_protocol_state;
+          unit.getTag aid_protocol_state Tag.AID_PROTOCOL_STATE;
+          if and eq side 0 gt aid_protocol_state 0; # xcom turns
+            unit.setTag Tag.AID_PROTOCOL_STATE 0;
+            debug_log "Aid Protocol was active last turn for:" unit;
+            debug_log "Aid Protocol deactivated for this unit.";
+          end;
+          return;
     hitUnit:
       - offset: 23   # for disabling shot
         code: |
           var ptr RuleSoldier soldier_rule;
           var int unit_class;
-          
+          var int skill_id;
           # check attacker class
           # check skill id
+          skill.getTag skill_id Tag.SKILL_ID;
 
           attacker.getRuleSoldier soldier_rule;
           if neq soldier_rule null;
@@ -2056,7 +2119,7 @@ extended:
           var int current_time_units;
 
           set activation_chance 50;
-          battle_game.getTag turn_side Tag.TURN_SIDE;
+          battle_game.getTurnSide turn_side;
 
           attacker.getTag guardian Tag.GUARDIAN_STATE;
 
@@ -2083,26 +2146,46 @@ extended:
             debug_log "Aim bonus reset for" unit;
           end;
           return power part side;
-      - offset: 39   # for remote stamina hype (friendly targeting test)
+      - offset: 39   # for Skill Amp Hits (Aid Protocol, Combat Protocol, Interference)
         code: |
           var int battle_type;
           var ptr RuleItem item_rule;
+          var int is_skill_amp;
           var int energy_max;
-          
+          var int skill_id;
+
           damaging_item.getRuleItem item_rule;
 
           item_rule.getBattleType battle_type;
-          debug_log "Unit hit:" unit;
-          if eq battle_type 12; # scripted item
-            debug_log "Unit hit with scripted item:" unit;
-            if or eq battle_action 13 eq battle_action 14;
-              debug_log "Unit hit with Mind / Panic:" unit;
-              # scripted item, mind control or panic
-              unit.getEnergyMax energy_max;
-              unit.setEnergy energy_max;
-              battle_game.flashMessage "Stamina refreshed";
+          item_rule.getTag is_skill_amp Tag.CLASS_SKILL_ACTIVATION;
+          debug_log "HITUNIT:" skill battle_type is_skill_amp;
+          if and neq skill null eq battle_type 9 gt is_skill_amp 0; # scripted psi amp
+            debug_log "Unit hit with scripted psi amp:" unit;
+            # scripted item, mind control or panic
+            # TODO: add visualisation
+            skill.getTag skill_id Tag.SKILL_ID;
+
+            if eq skill_id 41;   # Aid protocol
+              unit.setTag Tag.AID_PROTOCOL_STATE 20;
+              set power 0;
+            else eq skill_id 42; # Combat protocol
+              set power 0;
+            else eq skill_id 43; # Interference
+              unit.setTimeUnits 0;
               set power 0;
             end;
+          end;
+          return power part side;
+      - offset: 40   # for aid protocol
+        code: |
+          var int defense_bonus;
+          var int old_power;
+
+          set old_power power;
+          unit.getTag defense_bonus Tag.AID_PROTOCOL_STATE;
+          if gt defense_bonus 0;
+            sub power defense_bonus;
+            debug_log "Aid protocol: Hit to" unit "reduced from" old_power "to" power;
           end;
           return power part side;
     newTurnItem:
@@ -2136,17 +2219,16 @@ extended:
         code: |
           var int battle_type;
           var ptr RuleItem item_rule;
-          var int energy_max;
+          var int is_skill_amp;
           
           item.getRuleItem item_rule;
 
           item_rule.getBattleType battle_type;
-          
-          if eq battle_type 9; # scripted psi amp
-            if or eq battle_action 13 eq battle_action 14;
+          item_rule.getTag is_skill_amp Tag.CLASS_SKILL_ACTIVATION;
+
+          if and eq battle_type 9 gt is_skill_amp 0; # scripted psi amp
               debug_log "PsiAttack with scripted item. Automatic success!";
               set psi_attack_success 1;
-            end;
           end;
           return psi_attack_success;
     accuracyMultiplierBonusStats:
@@ -2430,16 +2512,48 @@ extended:
           damaging_item.getRuleItem item_rule;
           item_rule.getTag gun_type Tag.GUN_TYPE;
 
-          if gt state 0;
+          if eq state 2;
             if eq gun_type 3; # sniper rifle
               if ge to_health unit_health;                 # would be a kill
                 # TRIGGER conditions met
                 if eq state 2; # we are active, so refund the action cost
                   debug_log "SERIAL triggered! Refunding TU.";
+                  battle_game.flashMessage "SERIAL!";
                   attacker.getTimeUnitsMax max_time_units;
                   attacker.setTimeUnits max_time_units;    # set the new TU value
                 end;
               end;
+            end;
+          end;
+          return;    
+      - offset: 32   # for combat protocol & interference
+        code: |
+          var int unit_state;
+          var ptr RuleItem item_rule;
+          var int battle_type;
+          var int is_skill_amp;
+          var int skill_id;
+
+          weapon_item.getRuleItem item_rule;
+
+          item_rule.getBattleType battle_type;
+          item_rule.getTag is_skill_amp Tag.CLASS_SKILL_ACTIVATION;
+          debug_log "DAMAGEUNIT:" skill battle_type is_skill_amp;
+          if and neq skill null eq battle_type 9 gt is_skill_amp 0; # scripted psi amp
+            # default = never do damage
+            set to_health 0;
+            set to_armor 0;
+            set to_time 0;
+            set to_wound 0;
+            set to_stun 0;
+            set to_energy 0;
+            set to_armor 0;
+            set to_transform 0;
+            set to_morale 0;
+            set to_mana 0;
+            skill.getTag skill_id Tag.SKILL_ID;
+            if eq skill_id 42;   # Combat protocol
+              set to_health 10;
             end;
           end;
           return;    
@@ -2497,8 +2611,54 @@ extended:
             debug_log unit " - to" recovery_time;
           end;
           return;
-    recolorUnitSprite:   
-      - offset: 23   # for phantom
+    recolorUnitSprite:  
+      - offset: 23   # for general visualisation
+        code: |
+          var int effect_type;
+          var int pixel_shade;
+          var int pixel_color;
+
+          var int replace_color;
+          var int color;
+          var int delay;
+          var int temp;
+          
+          #unit.getRecolor new_pixel;
+          #add_burn_shade new_pixel burn shade;
+
+          get_color pixel_color new_pixel;
+          get_shade pixel_shade new_pixel;
+
+          unit.getTag effect_type Tag.VIS_EFFECT;
+          unit.getTag color Tag.VIS_COLOR;
+          unit.getTag replace_color Tag.VIS_REPLACE_COLOR;
+          unit.getTag delay Tag.VIS_DELAY;
+
+          if and eq effect_type 1 lt pixel_shade 7;
+            set_color new_pixel color;
+          else eq effect_type 2;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
+            mul temp -1; # => temp = -15 - 0
+            add temp 8;  # => temp = -7 - +8
+            add_shade new_pixel temp;
+          else and eq effect_type 3 eq pixel_color replace_color;
+            set_color new_pixel color;
+          else eq effect_type 4;
+            if eq pixel_color COLOR_X1_FACE;
+              set temp anim_frame;
+              wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
+              mul temp -1; # => temp = -15 - 0
+              add temp 8;  # => temp = -7 - +8
+              set_color new_pixel color;
+              if gt temp 0;
+                add_shade new_pixel temp;
+              end;
+            end;
+          end;
+
+          return new_pixel; 
+      - offset: 24   # for phantom
         code: |
           var int camo_state;
           var int turns_since_spotted;
@@ -2583,10 +2743,10 @@ extended:
           var int has_shadowstrike;
           var int has_shredder;
           var int has_amf;
+          var int has_serial;
 
           unit.getId id;
 
-          # class skills are awarded via molding transformations otherwise same procedure
           soldier_bonus.getTag has_blast_padding Tag.BLAST_PADDING;
           soldier_bonus.getTag has_blademaster Tag.BLADEMASTER;
           soldier_bonus.getTag has_field_medic Tag.FIELD_SPECIALIST;
@@ -2594,8 +2754,6 @@ extended:
           soldier_bonus.getTag has_shadowstrike Tag.SHADOWSTRIKE;
           soldier_bonus.getTag has_shredder Tag.SHREDDER;
           soldier_bonus.getTag has_amf Tag.ALPHA_MIKE_FOXTROT;
-
-          # these skills are trainable via transformation -> bonus
           soldier_bonus.getTag has_reaper Tag.REAPER;
           soldier_bonus.getTag has_untouchable Tag.UNTOUCHABLE;
           soldier_bonus.getTag has_lightning_reflexes Tag.LIGHTNING_REFLEXES;
@@ -2604,6 +2762,7 @@ extended:
           soldier_bonus.getTag has_executioner Tag.EXECUTIONER;
           soldier_bonus.getTag has_threat_assessment Tag.THREAT_ASSESSMENT;
           soldier_bonus.getTag has_backstab Tag.BACKSTAB;
+          soldier_bonus.getTag has_serial Tag.SERIAL;
           
           if gt has_reaper 0;
             debug_log "Unit" id "- Reaper Skill found";
@@ -2680,6 +2839,12 @@ extended:
             debug_log "Unit" id "-  AMF Skill found at" has_amf;
             unit.setTag Tag.ALPHA_MIKE_FOXTROT_STATE has_amf;
           end;
+
+          if gt has_serial 0;
+            debug_log "Unit" id "- Serial Skill found";
+            unit.setTag Tag.SERIAL_STATE 1;
+          end;
+
           return;
 
 ufopaedia:
@@ -2704,7 +2869,7 @@ ufopaedia:
     section: STR_MILITARY_MOLDING
     image_id: UFOPAEDIA_IMG_GRENADIER_CPAL
     text: STR_UFOPAEDIA_GRENADIER
-    text_width: 143
+    text_width: 150
   - id: STR_GRENADIER_SKILLS
     type_id: 8 # text & image
     section: STR_MILITARY_MOLDING
@@ -2724,7 +2889,7 @@ ufopaedia:
     section: STR_MILITARY_MOLDING
     image_id: UFOPAEDIA_IMG_SPECIALIST_CPAL
     text: STR_UFOPAEDIA_SPECIALIST
-    text_width: 158
+    text_width: 170
   - id: STR_SPECIALIST_SKILLS
     type_id: 8 # text & image
     section: STR_MILITARY_MOLDING
@@ -2770,7 +2935,7 @@ extraStrings:
       STR_RANGER: Ranger
       STR_GRENADIER: Grenadier
       STR_SNIPER: Sniper
-      STR_PSI_OPERATIVE: Psi-Op
+      STR_PSI_OPERATIVE: Psi-Operative
       STR_SPECIALIST: Specialist
       STR_RANGER_SKILLS: Ranger Skills
       STR_GRENADIER_SKILLS: Grenadier Skills
@@ -2843,10 +3008,10 @@ extraStrings:
       STR_BACKSTAB_BONUS:  "Backstab"
       STR_BLADEMASTER_BONUS: "Blademaster"
       STR_FIELD_SPECIALIST_BONUS: "Field Specialist"
-      STR_UFOPAEDIA_RANGER: "The Ranger serves as our primary reconnaissance unit, capable of moving independently in concealment while engaging enemies at close range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Blademaster - Run & Gun{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Phantom - Shadowstrike{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Untouchable - Reaper"
-      STR_UFOPAEDIA_GRENADIER: "A class specialising in high fire power and area damage with some support capabilities. The Grenadier is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Shredder - Heavy Rocket{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Blast Padding - Mayhem{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Sting Grenades - Rupture"
-      STR_UFOPAEDIA_SNIPER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Death from above - Headshot{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Aim - Center Mass{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Alpha Mike Foxtrot - Serial"
-      STR_UFOPAEDIA_SPECIALIST: "Soldiers trained in the Specialist class serve as both field medics and logistical support to the squad they are attached to. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}Guardian - Paramedic{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}Steadfast - Field Surgeon{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}Savior - Ever Vigilant"
+      STR_UFOPAEDIA_RANGER: "The Ranger serves as our primary reconnaissance unit, capable of moving independently in concealment while engaging enemies at close range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}P>Blademaster{NEWLINE}A>Slash - Run & Gun{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}P>Phantom - Shadowstrike{NEWLINE}A>Conceal - Rapid Fire{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}P>Untouchable{NEWLINE}A>Reaper"
+      STR_UFOPAEDIA_GRENADIER: "A class specialising in high fire power and area damage. The Grenadier is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}P>Shredder{NEWLINE}A>Hvy. Rocket - Rpd. Deployment{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}P>Blast Padding - Mayhem{NEWLINE}A>War Cry - Rage Burst{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}P>Sting Grenades{NEWLINE}A>Rupture"
+      STR_UFOPAEDIA_SNIPER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}P>Death from above{NEWLINE}A>Headshot - Disabling Shot{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}P>Aim - Center Mass{NEWLINE}A>Quick Aim - Double Tap{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}P>Alpha Mike Foxtrot{NEWLINE}A>Serial"
+      STR_UFOPAEDIA_SPECIALIST: "Soldiers trained in the Specialist class serve as both field medics and logistical support to their squad. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}P>Guardian{NEWLINE}A>Paramedic - Aid Protocol{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}P>Steadfast - Field Surgeon{NEWLINE}A>Combat Protocol - Interference{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}P>Savior - Ever Vigilant{NEWLINE}A>Restoration"
       STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for XCOM, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ADVANCED SKILLS>{NEWLINE}??? - ???{NEWLINE}{NEWLINE}ELITE SKILLS>{NEWLINE}??? - ???"
       STR_MILITARY_MOLDING: "MILITARY MOLDING"
       STR_UFOPAEDIA_MILITARY_MOLDING: "XCOM units of rank squaddie or higher are eligible for military molding. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers. Each stage of training will unlock two additional combat abilities.{NEWLINE}{NEWLINE}Equip your elite troops with a skill amplifier in order to unlock their full potential and access their final skill."
@@ -2947,6 +3112,13 @@ statStrings:
     melee: [70, ~]
 
 extraSprites:
+  - type: SMOKE.PCK
+    height: 80
+    width: 160
+    subX: 32
+    subY: 40
+    files:
+      56: Resources/Animation/friendly_buff_hit.png
   - type: SPICONS.DAT
     width: 32
     height: 24
