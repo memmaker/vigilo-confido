@@ -27,3 +27,13 @@ Advanced level training requires: At least rank sergeant and the second "Combat 
 Elite level training requires: At least rank captain and the fourth "Combat Experience" decoration.
 
 Required: Presumably OXCE 6.4
+
+== CREDITS ==
+
+Laser & Plasma Weapons from Xeno Operations by J.P. Beaubien, recolored versions by The Martian
+Alloy Sword by Civilian
+Grenade Launcher by Sporb
+Sniper Rifle by ???
+Plasma Sword by ???
+Shotgun by Warboy1982
+Minigun Light by Wicked Wirtz

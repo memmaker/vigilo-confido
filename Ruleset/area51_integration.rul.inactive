@@ -16,75 +16,6 @@ soldiers:
   - delete: STR_PILOT
   - delete: STR_OFFICER
 
-armors:
-  - type: STR_PADDED_SUIT_UC
-    stats:
-      health: 5
-      tu: -2
-      stamina: -2
-    customArmorPreviewIndex: 2
-    spriteSheet: XCOM_6.PCK
-    spriteInv: MAN_6
-    spriteFaceGroup: 6
-    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
-    spriteHairGroup: 9
-    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
-    corpseBattle:
-      - STR_FLIGHT_SUIT_CORPSE
-    storeItem: STR_NONE
-    loftemps: 3
-    frontArmor: 16
-    sideArmor: 10
-    rearArmor: 8
-    underArmor: 4
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 1.0
-    recovery:
-      mana:
-        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
-  - type: STR_LIGHT_SUIT_UC
-    stats:
-      tu: 8
-      stamina: 12
-    customArmorPreviewIndex: 1
-    spriteSheet: XCOM_7.PCK
-    spriteInv: MAN_7
-    spriteFaceGroup: 6
-    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
-    spriteHairGroup: 9
-    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
-    corpseBattle:
-      - STR_FLIGHT_SUIT_CORPSE
-    storeItem: STR_NONE
-    loftemps: 3
-    frontArmor: 6
-    sideArmor: 4
-    rearArmor: 2
-    underArmor: 1
-    damageModifier:
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.2
-      - 1.6
-      - 1.1
-    recovery:
-      mana:
-        mana: 0.40 # recover 40% of max mana each turn = 3 turn cool down
-
 crafts:
   - type: STR_SKYRANGER
     pilots: 0
@@ -104,14 +35,6 @@ crafts:
     pilots: 0
   - type: STR_STORMRIDER
     pilots: 0
-
-
-extraStrings:
-  - type: en-US
-    strings:
-      STR_LIGHT_SUIT_UC: Light Jumpsuit
-      STR_PADDED_SUIT_UC: Padded Jumpsuit
-      STR_NONE_UC: Jumpsuit
 
 # Vanilla & Area 51 Integration Stuff
 items:

@@ -1,0 +1,223 @@
+extraSounds:
+  - type: BATTLE.CAT
+    files:
+      66: Resources/Weapons_Imported/AlloyCannon/fire.wav
+      67: Resources/Weapons_Imported/AlloyShotgun/shotgun_fire.wav
+      68: Resources/Weapons_Imported/AlloyShotgun/shotgun_reload.wav
+      69: Resources/Weapons_Imported/AlloySniper/Fire.wav
+      70: Resources/Weapons_Imported/AlloySniper/Hit.wav
+
+extraSprites:
+  - type: BIGOBS.PCK
+    files:
+      200: Resources/Weapons_Imported/AlloySword/bigob_AlloySword.png
+      201: Resources/Weapons_Imported/LaserSword/bigob_LaserSword.gif
+      202: Resources/Weapons_Imported/PlasmaSword/bigob_PlasmaSword.gif
+      203: Resources/Weapons_Imported/AlloyCannon/bigob_AlloyCannon.png
+      204: Resources/Weapons_Imported/AlloyCannon/bigob_AlloyCannon_Ammo.png
+      205: Resources/Weapons_Imported/AlloyShotgun/bigob_Shotgun.png
+      206: Resources/Weapons_Imported/AlloyShotgun/bigob_ShotgunShells_AP.png
+      207: Resources/Weapons_Imported/AlloyShotgun/bigob_ShotgunShells_BS.png
+      208: Resources/Weapons_Imported/AlloySniper/bigob_AlloySniper.gif
+      209: Resources/Weapons_Imported/AlloySniper/Bigob_AL_CLIP.gif
+      210: Resources/Weapons_Imported/AlloySniper/Bigob_AC_CLIP.gif
+      211: Resources/Weapons_Imported/AlloySniper/Bigob_EL_CLIP.gif
+      212: Resources/Weapons_Imported/GrenadeLauncher/BIGOB_GRENADE_LAUNCHER.png
+      213: Resources/Weapons_Imported/LaserCannon/TFCannon.gif
+      214: Resources/Weapons_Imported/LaserCannon/TFCannonClip.gif
+      215: Resources/Weapons_Imported/LaserCannon/TFCannonClip2.gif
+      216: Resources/Weapons_Imported/LaserCannon/TFCannonClip3.gif
+      217: Resources/Weapons_Imported/LaserPistol/TFPistol.gif
+      218: Resources/Weapons_Imported/LaserPistol/TFPistolClip.gif
+      219: Resources/Weapons_Imported/LaserPistol/TFPistolClip2.gif
+      220: Resources/Weapons_Imported/LaserPistol/TFPistolClip3.gif
+      221: Resources/Weapons_Imported/LaserRifle/TFRifle.gif
+      222: Resources/Weapons_Imported/LaserRifle/TFRifleClip.gif
+      223: Resources/Weapons_Imported/LaserRifle/TFRifleClip2.gif
+      224: Resources/Weapons_Imported/LaserRifle/TFRifleClip3.gif
+      225: Resources/Weapons_Imported/LaserShotgun/TFShotgun.gif
+      226: Resources/Weapons_Imported/LaserShotgun/TFShotgunClip.gif
+      227: Resources/Weapons_Imported/LaserShotgun/TFShotgunClip2.gif
+      228: Resources/Weapons_Imported/LaserShotgun/TFShotgunClip3.gif
+      229: Resources/Weapons_Imported/LaserSniper/TFSniper.gif
+      230: Resources/Weapons_Imported/LaserSniper/TFSniperClip.gif
+      231: Resources/Weapons_Imported/LaserSniper/TFSniperClip2.gif
+      232: Resources/Weapons_Imported/LaserSniper/TFSniperClip3.gif
+      233: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannon.png
+      234: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip.png
+      235: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip2.png
+      236: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip3.png
+      237: Resources/Weapons_Imported/PlasmaPistol/PlasmaPistol.png
+      238: Resources/Weapons_Imported/PlasmaPistol/PlasmaPistolClip.png
+      239: Resources/Weapons_Imported/PlasmaPistol/PlasmaPistolClip2.png
+      240: Resources/Weapons_Imported/PlasmaPistol/PlasmaPistolClip3.png
+      241: Resources/Weapons_Imported/PlasmaRifle/PlasmaRifle.png
+      242: Resources/Weapons_Imported/PlasmaRifle/PlasmaRifleClip.png
+      243: Resources/Weapons_Imported/PlasmaRifle/PlasmaRifleClip2.png
+      244: Resources/Weapons_Imported/PlasmaRifle/PlasmaRifleClip3.png
+      245: Resources/Weapons_Imported/PlasmaShotgun/PlasmaBlaster.png
+      246: Resources/Weapons_Imported/PlasmaShotgun/PlasmaBlasterClip.png
+      247: Resources/Weapons_Imported/PlasmaShotgun/PlasmaBlasterClip2.png
+      248: Resources/Weapons_Imported/PlasmaShotgun/PlasmaBlasterClip3.png
+      249: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifle.png
+      250: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifleClip.png
+      251: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifleClip2.png
+      252: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifleClip3.png
+
+  - type: FLOOROB.PCK
+    files:
+      200: Resources/Weapons_Imported/AlloySword/floorob_AlloySword.png
+      201: Resources/Weapons_Imported/LaserSword/floorob_LaserSword.png
+      202: Resources/Weapons_Imported/PlasmaSword/floorob_PlasmaSword.gif
+      203: Resources/Weapons_Imported/AlloyCannon/floorob_AlloyCannon.png
+      204: Resources/Weapons_Imported/AlloyCannon/floorob_AlloyCannon_Ammo.png
+      205: Resources/Weapons_Imported/AlloyShotgun/floorob_Shotgun.png
+      206: Resources/Weapons_Imported/AlloyShotgun/floorob_ShotgunShells.png
+      207: Resources/Weapons_Imported/AlloySniper/floorob_AlloySniper.gif
+      208: Resources/Weapons_Imported/AlloySniper/Floorob_AL_CLIP.gif
+      209: Resources/Weapons_Imported/AlloySniper/Floorob_AC_CLIP.gif
+      210: Resources/Weapons_Imported/AlloySniper/Floorob_EL_CLIP.gif
+      211: Resources/Weapons_Imported/GrenadeLauncher/FLOOROB_GRENADE_LAUNCHER.png
+      212: Resources/Weapons_Imported/LaserCannon/floorob_LaserCannon.png
+      213: Resources/Weapons_Imported/LaserPistol/floorob_LaserPistol.png
+      214: Resources/Weapons_Imported/LaserRifle/floorob_LaserRifle.png
+      215: Resources/Weapons_Imported/LaserShotgun/floorob_LaserShotgun.png
+      216: Resources/Weapons_Imported/LaserSniper/floorob_LaserSniper.png
+      217: Resources/Weapons_Imported/PlasmaCannon/floorob_HeavyPlasmaCannon.png
+      218: Resources/Weapons_Imported/PlasmaCannon/floorob_HeavyPlasmaCannonClip.png
+      219: Resources/Weapons_Imported/PlasmaCannon/floorob_HeavyPlasmaCannonClip2.png
+      220: Resources/Weapons_Imported/PlasmaCannon/floorob_HeavyPlasmaCannonClip3.png
+      221: Resources/Weapons_Imported/PlasmaPistol/floorob_PlasmaPistol.png
+      222: Resources/Weapons_Imported/PlasmaPistol/floorob_PlasmaPistolClip.png
+      223: Resources/Weapons_Imported/PlasmaPistol/floorob_PlasmaPistolClip2.png
+      224: Resources/Weapons_Imported/PlasmaPistol/floorob_PlasmaPistolClip3.png
+      225: Resources/Weapons_Imported/PlasmaRifle/floorob_PlasmaRifle.png
+      226: Resources/Weapons_Imported/PlasmaRifle/floorob_PlasmaRifleClip.png
+      227: Resources/Weapons_Imported/PlasmaRifle/floorob_PlasmaRifleClip2.png
+      228: Resources/Weapons_Imported/PlasmaRifle/floorob_PlasmaRifleClip3.png
+      229: Resources/Weapons_Imported/PlasmaShotgun/floorob_PlasmaBlaster.png
+      230: Resources/Weapons_Imported/PlasmaShotgun/floorob_PlasmaBlasterClip.png
+      231: Resources/Weapons_Imported/PlasmaShotgun/floorob_PlasmaBlasterClip2.png
+      232: Resources/Weapons_Imported/PlasmaShotgun/floorob_PlasmaBlasterClip3.png
+      233: Resources/Weapons_Imported/PlasmaSniper/floorob_PlasmaSniperRifle.png
+      234: Resources/Weapons_Imported/PlasmaSniper/floorob_PlasmaSniperRifleClip.png
+      235: Resources/Weapons_Imported/PlasmaSniper/floorob_PlasmaSniperRifleClip2.png
+      236: Resources/Weapons_Imported/PlasmaSniper/floorob_PlasmaSniperRifleClip3.png
+
+  - type: HANDOB.PCK
+    height: 40
+    width: 256
+    subX: 32
+    subY: 40
+    files:
+      256: Resources/Weapons_Imported/AlloySword/handob_AlloySword.png
+      264: Resources/Weapons_Imported/LaserSword/handob_LaserSword.png
+      272: Resources/Weapons_Imported/PlasmaSword/handob_PlasmaSword.gif
+      280: Resources/Weapons_Imported/AlloyCannon/handob_AlloyCannon.png
+      288: Resources/Weapons_Imported/AlloyShotgun/handob_Shotgun.png
+      296: Resources/Weapons_Imported/AlloySniper/handob_AlloySniper.gif
+      304: Resources/Weapons_Imported/GrenadeLauncher/HANDOB_GRENADE_LAUNCHER.png
+      312: Resources/Weapons_Imported/LaserCannon/TFCannonHand.gif
+      320: Resources/Weapons_Imported/LaserPistol/TFPistolHand.gif
+      328: Resources/Weapons_Imported/LaserRifle/TFRifleHand.gif
+      336: Resources/Weapons_Imported/LaserShotgun/TFShotgunHand.gif
+      344: Resources/Weapons_Imported/LaserSniper/TFSniperHand.gif
+      352: Resources/Weapons_Imported/PlasmaCannon/PlasmaSupressor.png
+      360: Resources/Weapons_Imported/PlasmaPistol/PlasmaPistol_HandOb.png
+      368: Resources/Weapons_Imported/PlasmaRifle/PlasmaRifle_HandOb.png
+      376: Resources/Weapons_Imported/PlasmaShotgun/PlasmaBlaster_HandOb.png
+      384: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifle_HandOb.png
+
+
+items:
+  - type: STR_ALLOY_SWORD
+    size: 0.2
+    costBuy: 10 # TODO: change
+    costSell: 15000
+    weight: 3
+    bigSprite: 200
+    floorSprite: 200
+    handSprite: 256
+    power: 50
+    strengthApplied: true
+    damageType: 7
+    accuracyMelee: 115
+    tuMelee: 10
+    clipSize: -1
+    battleType: 3
+    invWidth: 1
+    invHeight: 3
+    flatRate: true
+    armor: 30
+    skillApplied: true
+    attraction: 8
+    listOrder: 1800
+  - type: STR_LASER_SWORD
+    size: 0.2
+    costBuy: 10 # TODO: change
+    costSell: 19000
+    weight: 3
+    bigSprite: 201
+    floorSprite: 201
+    handSprite: 264
+    power: 65
+    strengthApplied: true
+    damageType: 4
+    accuracyMelee: 115
+    tuMelee: 10
+    clipSize: -1
+    battleType: 3
+    invWidth: 1
+    invHeight: 3
+    flatRate: true
+    armor: 30
+    skillApplied: true
+    attraction: 8
+    listOrder: 1801
+  - type: STR_PLASMA_SWORD
+    size: 0.2
+    costBuy: 10 # TODO: change
+    costSell: 19000
+    weight: 3
+    bigSprite: 202
+    floorSprite: 202
+    handSprite: 272
+    power: 80
+    strengthApplied: true
+    damageType: 5
+    accuracyMelee: 115
+    tuMelee: 10
+    clipSize: -1
+    battleType: 3
+    invWidth: 1
+    invHeight: 3
+    flatRate: true
+    armor: 30
+    skillApplied: true
+    attraction: 8
+    listOrder: 1802
+
+ufopaedia:
+  - id: STR_ALLOY_SWORD
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_ALLOY_SWORD
+  - id: STR_LASER_SWORD
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_LASER_SWORD
+  - id: STR_PLASMA_SWORD
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_PLASMA_SWORD
+
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_ALLOY_SWORD: Alloy Sword
+      STR_UFOPAEDIA_ALLOY_SWORD: "A simple but effective weapon deployed by mankind for centuries. This combat sword is forged from modern metal alloys and allows for devastating melee attacks."
+      STR_LASER_SWORD: Arc Blade
+      STR_UFOPAEDIA_LASER_SWORD: "When pure kinetic energy is no longer sufficient in the field, the Arc Blade may prove necessary. It boosts the standard Sword's combat effectiveness with the addition of an electric field, capable of stunning enemies not killed outright."
+      STR_PLASMA_SWORD: Fusion Blade
+      STR_UFOPAEDIA_PLASMA_SWORD: "The Fusion Blade encases a plasma heated metallic core in a microthin magnetic field, enabling devastating melee that are capable of setting enemies aflame."
