@@ -1,7 +1,7 @@
-name: Classes & Skills for OXCE
+name: X-COM with Classes
 version: 0.7
 author: memmaker
-description: "A range of classes & skills, reworked for OXCE (+Area 51 Integration)"
+description: "An vanilla X-COM expansion with a class & skill system at its core."
 master: xcom1
 id: "mmx-classes-skills"
 requiredExtendedVersion: "6.2"

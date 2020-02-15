@@ -1,0 +1,111 @@
+armors:
+  - type: GREMLIN_ARMOR
+    spriteSheet: GREMLIN3.PCK
+    deathFrames: 5
+    allowInv: false
+    corpseBattle:
+      - STR_GREMLIN_CORPSE
+    frontArmor: 4
+    sideArmor: 3
+    rearArmor: 3
+    underArmor: 3
+    drawingRoutine: 4
+    size: 1
+    damageModifier: &DRONE_DAMAGE_MODIFIER
+      - 1.0
+      - 1.0
+      - 0.4
+      - 0.8
+      - 1.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.4
+      - 0.0
+    loftempsSet: [ 3 ]
+
+units:
+  - type: STR_GREMLIN
+    race: STR_DRONE_SCOUT
+    stats:
+      tu: 70
+      stamina: 110
+      health: 10
+      bravery: 110
+      reactions: 60
+      firing: 100
+      throwing: 0
+      strength: 50
+      psiStrength: 120
+      psiSkill: 0
+      melee: 0
+    armor: GREMLIN_ARMOR
+    standHeight: 11
+    kneelHeight: 16
+    floatHeight: 12
+    value: 16
+    deathSound: 23
+    moveSound: 14
+
+items:
+  - type: STR_GREMLIN
+    size: 6
+    costSell: 3800
+    costBuy: 10000
+    transferTime: 96
+    weight: 1
+#    bigSprite: 502
+    floorSprite: 0
+    handSprite: 0
+    bulletSprite: 4
+    fireSound: 12
+    accuracySnap: 50
+    accuracyAimed: 85
+    tuSnap: 33
+    tuAimed: 75
+    battleType: 1
+    fixedWeapon: true
+    invWidth: 2
+    invHeight: 3
+    turretType: 0
+    clipSize: -1
+    listOrder: 1390
+
+  - type: STR_GREMLIN_CORPSE
+    size: 2
+    weight: 40
+#    bigSprite: 1170
+#    floorSprite: 1152
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: true
+    listOrder: 4990
+
+extraSprites:
+  - type: GREMLIN3.PCK
+    width: 256
+    height: 400
+    subX: 32
+    subY: 40
+    files:
+      0: Resources/Units/Gremlin/gremlin.spritesheet.png
+  - type: UFOPAEDIA_IMG_GREMLIN_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/xcom2_gremlin.png
+
+ufopaedia:
+  - id: STR_GREMLIN
+    type_id: 3
+    section: STR_HEAVY_WEAPONS_PLATFORMS
+    text: STR_UFOPEDIA_GREMLIN
+    image_id: UFOPAEDIA_IMG_GREMLIN_CPAL
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_GREMLIN: GREMLIN Mk. 1
+      STR_UFOPEDIA_GREMLIN: "The GREMLIN Drone is deployed by the specialist class and augments our troops in the field.  It allows for scouting and the deployment of medical supplies, as well as tactical support."

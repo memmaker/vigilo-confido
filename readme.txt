@@ -1,14 +1,9 @@
 Classes & Skills for OXCE
 -------------------------
 
-While you could use this mod in a vanilla playthrough I would currently not recommend it.
-Vanilla XCOM does not have the weapon arsenal needed to give the classes their specialized arms (eg. Shotgun, LMG, Sword, Sniper Rifle).
-
-I was using Area 51 when building this mod and you can find my integration efforts in Ruleset/area51_integration.rul
-
-You can of course use any other mod that has weapons that would fit the classes and attach the needed tags yourself.
-
-You can find information about the classes and their skills in the Ufopedia under the "MILITARY MOLDING" category.
+In-Game:
+You can find information about the classes and their skills in the Ufopedia
+under the "MILITARY MOLDING" category.
 
 Concept:
 
@@ -26,14 +21,46 @@ Advanced level training requires: At least rank sergeant and the second "Combat 
 
 Elite level training requires: At least rank captain and the fourth "Combat Experience" decoration.
 
+=== Tiers ===
+Weapons and armors all follow the three Tier concept.
+
+T1 is available from the start.
+T2 depends on alien alloys.
+T3 depends on Elerium-115.
+
+Armor & Weapon Tiers
+T1 - Kevlar Armor   & Conventional Weapons
+T2 - Predator Armor & Laser Weapons
+T3 - Warden Armor   & Plasma Weapons
+
+
+=== Additional Vanilla Balancing ===
+
+ - Laser Weapons not reasearchable from the start
+ - Blaster Launcher not that readily available
+ - Laser weapons need recharging
+
 Required: Presumably OXCE 6.4
 
 == CREDITS ==
 
-Laser & Plasma Weapons from Xeno Operations by J.P. Beaubien, recolored versions by The Martian
-Alloy Sword by Civilian
-Grenade Launcher by Sporb
-Sniper Rifle by ???
-Plasma Sword by ???
-Shotgun by Warboy1982
-Minigun Light by Wicked Wirtz
+DISCLAIMER:
+I tried my best to track down the creators of all the assets I borrowed from other mods.
+Since I am only human, I might have made some mistakes. So if you find something that is
+credited falsely, has missing credits or have problems with the inclusion of your creation
+in this mod, then please contact me. (memmaker on the OpenXcom discord.)
+
+Laser & Plasma Weapon Sprites from Xeno Operations by J.P. Beaubien aka XOPs, recolored versions by The Martian and me
+Alloy Sword Sprites by Civilian
+Grenade Launcher Sprites by Sporb
+Sniper Rifle Sprites by ???
+Plasma Sword Sprites by ???
+Shotgun Sprites by Dioxine, efrenespartano
+Minigun Light Sprites by Wicked Wirtz
+
+Special Thanks to:
+Meridian for his fork, his merging of my PRs and his constant support
+Yankes for his script engine which made most of this possible and of course his support
+
+All the great modders of the OXC/OXCE community who have a great spirit and
+create new gameplay experiences for us all to enjoy. You rock!

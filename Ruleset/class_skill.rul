@@ -245,6 +245,13 @@ startingBase:
     STR_SNIPER: 2
     STR_PSI_OPERATIVE: 2
 
+fixedUserOptions:
+  weaponSelfDestruction: true
+  strafe: true
+  battleUFOExtenderAccuracy: true
+  battleInstantGrenade: true
+  alienBleeding: true
+
 enableUnitResponseSounds: true
 unitResponseSoundsFrequency: [50, 50, 50, 20]
 
@@ -400,7 +407,7 @@ items:
     floorSprite: 32
     handSprite: 88
     hitSound: 36
-    hitAnimation: 56
+    hitAnimation: 57
     battleType: 9
     twoHanded: false
     psiRequired: false
@@ -1538,6 +1545,7 @@ extended:
       GUN_TYPE: int
       RUPTURE_DAMAGE: int
       SHREDDER_DAMAGE: int
+      INFLICT_DISORIENT: int
   scripts:
     skillUseUnit:
       - offset: 23
@@ -3232,6 +3240,7 @@ extraSprites:
     subY: 40
     files:
       56: Resources/Animation/friendly_buff_hit.png
+      57: Resources/Animation/blue_cube.png
   - type: SPICONS.DAT
     width: 32
     height: 24

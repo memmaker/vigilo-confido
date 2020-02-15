@@ -1,69 +1,777 @@
-armors:
-  - type: STR_PADDED_SUIT_UC
-    stats:
-      health: 5
-      tu: -2
-      stamina: -2
-    customArmorPreviewIndex: 2
-    spriteSheet: XCOM_6.PCK
-    spriteInv: MAN_6
-    spriteFaceGroup: 6
-    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
-    spriteHairGroup: 9
-    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
-    corpseBattle:
-      - STR_FLIGHT_SUIT_CORPSE
-    storeItem: STR_NONE
-    loftemps: 3
-    frontArmor: 16
-    sideArmor: 10
-    rearArmor: 8
-    underArmor: 4
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 1.0
-  - type: STR_LIGHT_SUIT_UC
-    stats:
-      tu: 8
-      stamina: 12
-    customArmorPreviewIndex: 1
-    spriteSheet: XCOM_7.PCK
-    spriteInv: MAN_7
-    spriteFaceGroup: 6
-    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
-    spriteHairGroup: 9
-    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
-    corpseBattle:
-      - STR_FLIGHT_SUIT_CORPSE
-    storeItem: STR_NONE
-    loftemps: 3
-    frontArmor: 6
-    sideArmor: 4
-    rearArmor: 2
-    underArmor: 1
-    damageModifier:
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.1
-      - 1.2
-      - 1.6
-      - 1.1
+# TODO: add ufopedia entries for armors
+# TODO: add training room
 
+items:
+  - type: STR_ALLOY_ARMOR
+    size: 0.7
+    costBuy: 100 # TODO: change
+    costSell: 60000
+    listOrder: 10611
+  - type: STR_CORPSE_ALLOY_ARMOR
+    name: STR_CORPSE
+    weight: 24
+    bigSprite: 92
+    floorSprite: 92
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_ALLOY_ARMOR_BLUE
+    size: 0.7
+    costBuy: 100 # TODO: change
+    costSell: 60000
+    listOrder: 10613
+  - type: STR_CORPSE_ALLOY_ARMOR_BLUE
+    name: STR_CORPSE
+    weight: 24
+    bigSprite: 94
+    floorSprite: 94
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_SKY_STRIKE_ARMOR
+    size: 0.6
+    costBuy: 100 # TODO: change
+    costSell: 57000
+    listOrder: 10617
+  - type: STR_CORPSE_SKY_STRIKE_ARMOR
+    name: STR_CORPSE
+    weight: 24
+    bigSprite: 106
+    floorSprite: 106
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_SKY_STRIKE_ARMOR_BLUE
+    size: 0.6
+    costBuy: 100 # TODO: change
+    costSell: 57000
+    listOrder: 10618
+  - type: STR_CORPSE_SKY_STRIKE_ARMOR_BLUE
+    name: STR_CORPSE
+    weight: 24
+    bigSprite: 107
+    floorSprite: 107
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_PSI_ARMOR
+    size: 0.5
+    costBuy: 100 # TODO: change
+    costSell: 90000
+    listOrder: 10802
+  - type: STR_CORPSE_PSI_ARMOR_BLUE
+    name: STR_CORPSE
+    weight: 24
+    bigSprite: 123
+    floorSprite: 123
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_XOPS_POWER_ARMOR
+    size: 1
+    costBuy: 100 # TODO: change
+    costSell: 180000
+    listOrder: 10810
+  - type: STR_XOPS_POWER_ARMOR_GREY
+    size: 1
+    costBuy: 100 # TODO: change
+    costSell: 180000
+    listOrder: 10811
+  - type: STR_XOPS_POWER_ARMOR_BLACK
+    size: 1
+    costBuy: 100 # TODO: change
+    costSell: 180000
+    listOrder: 10812
+  - type: STR_CORPSE_XOPS_POWER_ARMOR_WHITE
+    name: STR_CORPSE
+    weight: 26
+    bigSprite: 120
+    floorSprite: 120
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_CORPSE_XOPS_POWER_ARMOR_GREY
+    name: STR_CORPSE
+    weight: 26
+    bigSprite: 121
+    floorSprite: 121
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+  - type: STR_CORPSE_XOPS_POWER_ARMOR_BLACK
+    name: STR_CORPSE
+    weight: 26
+    bigSprite: 122
+    floorSprite: 122
+    invWidth: 2
+    invHeight: 3
+    armor: 30
+    recover: false
+
+armors:
+  - type: STR_PERSONAL_ARMOR_UC
+    frontArmor: 15
+    sideArmor: 13
+    rearArmor: 10
+    underArmor: 8
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 0.8
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.9
+      - 1.0
+      - 1.1
+      - 1.0
+  - type: STR_ALLOY_ARMOR_UC
+    spriteSheet: XOPS_XCOM_10.PCK
+    spriteInv: XOP_10
+    corpseBattle:
+      - STR_CORPSE_ALLOY_ARMOR
+    storeItem: STR_ALLOY_ARMOR
+    loftemps: 3
+    frontArmor: 50
+    sideArmor: 45
+    rearArmor: 40
+    underArmor: 40
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 0.8
+      - 0.9
+      - 1.0
+      - 1.0
+      - 0.9
+      - 1.0
+      - 1.1
+      - 0.5
+  - type: STR_ALLOY_ARMOR_BLUE_UC
+    spriteSheet: XOPS_XCOM_12.PCK
+    spriteInv: XOP_12
+    corpseBattle:
+      - STR_CORPSE_ALLOY_ARMOR_BLUE
+    storeItem: STR_ALLOY_ARMOR
+    loftemps: 3
+    frontArmor: 50
+    sideArmor: 45
+    rearArmor: 40
+    underArmor: 40
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 0.8
+      - 0.9
+      - 1.0
+      - 1.0
+      - 0.9
+      - 1.0
+      - 1.1
+      - 0.5
+  - type: STR_SKY_STRIKE_ARMOR_UC
+    spriteSheet: XOPS_XCOM_27.PCK
+    spriteInv: XOP_27
+    corpseBattle:
+      - STR_CORPSE_SKY_STRIKE_ARMOR
+    storeItem: STR_SKY_STRIKE_ARMOR
+    stats:
+      tu: 15
+    loftemps: 3
+    frontArmor: 38
+    sideArmor: 26
+    rearArmor: 28
+    underArmor: 35
+    movementType: 1
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 0.8
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.9
+      - 1.0
+      - 1.1
+      - 0.0
+  - type: STR_SKY_STRIKE_ARMOR_BLUE_UC
+    spriteSheet: XOPS_XCOM_28.PCK
+    spriteInv: XOP_28
+    corpseBattle:
+      - STR_CORPSE_SKY_STRIKE_ARMOR_BLUE
+    storeItem: STR_SKY_STRIKE_ARMOR
+    stats:
+      tu: 15
+    loftemps: 3
+    frontArmor: 38
+    sideArmor: 26
+    rearArmor: 28
+    underArmor: 35
+    movementType: 1
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 0.8
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.9
+      - 1.0
+      - 1.1
+      - 0.0
+  - type: STR_PSI_ARMOR_BLUE_UC
+    spriteSheet: XOPS_XCOM_45.PCK
+    spriteInv: XOP_45
+    spriteFaceGroup: 6
+    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
+    spriteHairGroup: 9
+    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
+    corpseBattle:
+      - STR_CORPSE_PSI_ARMOR_BLUE
+    storeItem: STR_PSI_ARMOR
+    stats:
+      tu: 10
+      reactions: 20
+      firing: 10
+      throwing: 5
+      psiStrength: 25
+      psiSkill: 25
+    loftemps: 3
+    frontArmor: 70
+    sideArmor: 60
+    rearArmor: 50
+    underArmor: 50
+    movementType: 0
+    damageModifier:
+      - 1.0
+      - 1.5
+      - 0.5
+      - 1.4
+      - 0.6
+      - 0.6
+      - 0.7
+      - 2.0
+      - 1.4
+      - 1.0
+  - type: STR_XOPS_POWER_ARMOR_WHITE_UC
+    spriteSheet: XOPS_XCOM_41.PCK
+    spriteInv: XOP_41
+    corpseBattle:
+      - STR_CORPSE_XOPS_POWER_ARMOR_WHITE
+    storeItem: STR_XOPS_POWER_ARMOR
+    stats:
+      tu: 7
+      stamina: 10
+      bravery: 10
+      reactions: 5
+      firing: 5
+      strength: 10
+      psiStrength: 25
+      psiSkill: -25
+    loftemps: 3
+    frontArmor: 100
+    sideArmor: 90
+    rearArmor: 90
+    underArmor: 80
+    movementType: 1
+    damageModifier:
+      - 1.0
+      - 0.3
+      - 0.0
+      - 0.8
+      - 0.8
+      - 1.0
+      - 0.5
+      - 0.8
+      - 1.5
+      - 0.0
+  - type: STR_XOPS_POWER_ARMOR_UC
+    spriteSheet: XOPS_XCOM_42.PCK
+    spriteInv: XOP_42
+    corpseBattle:
+      - STR_CORPSE_XOPS_POWER_ARMOR_GREY
+    storeItem: STR_XOPS_POWER_ARMOR
+    stats:
+      tu: 7
+      stamina: 10
+      bravery: 10
+      reactions: 5
+      firing: 5
+      strength: 10
+      psiStrength: 25
+      psiSkill: -25
+    loftemps: 3
+    frontArmor: 100
+    sideArmor: 90
+    rearArmor: 90
+    underArmor: 80
+    movementType: 1
+    damageModifier:
+      - 1.0
+      - 0.3
+      - 0.0
+      - 0.8
+      - 0.8
+      - 1.0
+      - 0.5
+      - 0.8
+      - 1.5
+      - 0.0
+  - type: STR_XOPS_POWER_ARMOR_BLACK_UC
+    spriteSheet: XOPS_XCOM_43.PCK
+    spriteInv: XOP_43
+    corpseBattle:
+      - STR_CORPSE_XOPS_POWER_ARMOR_BLACK
+    storeItem: STR_XOPS_POWER_ARMOR
+    stats:
+      tu: 7
+      stamina: 10
+      bravery: 10
+      reactions: 5
+      firing: 5
+      strength: 10
+      psiStrength: 25
+      psiSkill: -25
+    loftemps: 3
+    frontArmor: 100
+    sideArmor: 90
+    rearArmor: 90
+    underArmor: 80
+    movementType: 1
+    damageModifier:
+      - 1.0
+      - 0.3
+      - 0.0
+      - 0.8
+      - 0.8
+      - 1.0
+      - 0.5
+      - 0.8
+      - 1.5
+      - 0.0
+
+extraSprites:
+#---BIG OBJECTS------------------------------------------
+  - type: BIGOBS.PCK
+    files:
+      92: Resources/Armor_Imported/AlloyArmor/BigOb/Alloy_Inventory_Corpse.gif
+      94: Resources/Armor_Imported/AlloyArmor/BigOb/Alloy_Inventory_Corpse_Blue.gif
+      106: Resources/Armor_Imported/FlyingSuit/BigOb/Sky_Inventory_Corpse.gif
+      107: Resources/Armor_Imported/FlyingSuit/BigOb/Sky_Inventory_Corpse_Blue.gif
+      120: Resources/Armor_Imported/PowerArmor/BigOb/Power_Inventory_Corpse_White.gif
+      121: Resources/Armor_Imported/PowerArmor/BigOb/Power_Inventory_Corpse_Grey.gif
+      122: Resources/Armor_Imported/PowerArmor/BigOb/Power_Inventory_Corpse_Black.gif
+      123: Resources/Armor_Imported/PsiArmor/BigOb/Psi_Inventory_Corpse_Blue.gif
+#---FLOOR OBJECTS------------------------------------------
+  - type: FLOOROB.PCK
+    files:
+      92: Resources/Armor_Imported/AlloyArmor/FloorOb/Alloy_Corpse.gif
+      94: Resources/Armor_Imported/AlloyArmor/FloorOb/Alloy_Corpse_Blue.gif
+      106: Resources/Armor_Imported/FlyingSuit/FloorOb/Sky_Corpse.gif
+      107: Resources/Armor_Imported/FlyingSuit/FloorOb/Sky_Corpse_Blue.gif
+      120: Resources/Armor_Imported/PowerArmor/FloorOb/Power_Corpse_White.gif
+      121: Resources/Armor_Imported/PowerArmor/FloorOb/Power_Corpse_Grey.gif
+      122: Resources/Armor_Imported/PowerArmor/FloorOb/Power_Corpse_Black.gif
+      123: Resources/Armor_Imported/PsiArmor/FloorOb/Psi_Corpse_Blue.gif
+#---PAPER DOLL IMAGES------------------------------------------
+  - type: XOP_10F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f0.gif
+  - type: XOP_10F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f1.gif
+  - type: XOP_10F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f2.gif
+  - type: XOP_10F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f3.gif
+  - type: XOP_10M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m0.gif
+  - type: XOP_10M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m1.gif
+  - type: XOP_10M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m2.gif
+  - type: XOP_10M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m3.gif
+  - type: XOP_12F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f0.gif
+  - type: XOP_12F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f1.gif
+  - type: XOP_12F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f2.gif
+  - type: XOP_12F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f3.gif
+  - type: XOP_12M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m0.gif
+  - type: XOP_12M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m1.gif
+  - type: XOP_12M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m2.gif
+  - type: XOP_12M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m3.gif
+  - type: XOP_27F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f0.gif
+  - type: XOP_27F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f1.gif
+  - type: XOP_27F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f2.gif
+  - type: XOP_27F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f3.gif
+  - type: XOP_27M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m0.gif
+  - type: XOP_27M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m1.gif
+  - type: XOP_27M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m2.gif
+  - type: XOP_27M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m3.gif
+  - type: XOP_28F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f0.gif
+  - type: XOP_28F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f1.gif
+  - type: XOP_28F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f2.gif
+  - type: XOP_28F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f3.gif
+  - type: XOP_28M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m0.gif
+  - type: XOP_28M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m1.gif
+  - type: XOP_28M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m2.gif
+  - type: XOP_28M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m3.gif
+  - type: XOP_41F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f0.gif
+  - type: XOP_41F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f1.gif
+  - type: XOP_41F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f2.gif
+  - type: XOP_41F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f3.gif
+  - type: XOP_41M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m0.gif
+  - type: XOP_41M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m1.gif
+  - type: XOP_41M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m2.gif
+  - type: XOP_41M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m3.gif
+  - type: XOP_42F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f0.gif
+  - type: XOP_42F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f1.gif
+  - type: XOP_42F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f2.gif
+  - type: XOP_42F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f3.gif
+  - type: XOP_42M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m0.gif
+  - type: XOP_42M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m1.gif
+  - type: XOP_42M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m2.gif
+  - type: XOP_42M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m3.gif
+  - type: XOP_43F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f0.gif
+  - type: XOP_43F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f1.gif
+  - type: XOP_43F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f2.gif
+  - type: XOP_43F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f3.gif
+  - type: XOP_43M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m0.gif
+  - type: XOP_43M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m1.gif
+  - type: XOP_43M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m2.gif
+  - type: XOP_43M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m3.gif
+  - type: XOP_45F0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f0.gif
+  - type: XOP_45F1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f1.gif
+  - type: XOP_45F2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f2.gif
+  - type: XOP_45F3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f3.gif
+  - type: XOP_45M0.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m0.gif
+  - type: XOP_45M1.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m1.gif
+  - type: XOP_45M2.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m2.gif
+  - type: XOP_45M3.SPK
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m3.gif
+  - type: XOPS_XCOM_10.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/XCOM10.gif
+  - type: XOPS_XCOM_12.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/AlloyArmor/XCOM12.gif
+  - type: XOPS_XCOM_27.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/XCOM27.gif
+  - type: XOPS_XCOM_28.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/FlyingSuit/XCOM28.gif
+  - type: XOPS_XCOM_41.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/PowerArmor/XCOM41.gif
+  - type: XOPS_XCOM_42.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/PowerArmor/XCOM42.gif
+  - type: XOPS_XCOM_43.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/PowerArmor/XCOM43.gif
+  - type: XOPS_XCOM_45.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1480
+    files:
+      0: Resources/Armor_Imported/PsiArmor/XCOM45.gif
+
+
+
+ufopaedia:
+  - id: STR_PERSONAL_ARMOR_UC
+    listOrder: 10600 # power suit is 10700, flying suit is 10800
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PERSONAL_ARMOR
+    text: STR_PERSONAL_ARMOR_UFOPEDIA
+  - id: STR_ALLOY_ARMOR_UC
+    listOrder: 10605
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+#    requires:
+#      - STR_PERSONAL_ARMOR
+    text: STR_UFOPEDIA_ALLOY_ARMOR
+  - id: STR_XOPS_POWER_ARMOR_UC
+    listOrder: 10615
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+#    requires:
+#      - STR_PERSONAL_ARMOR
+    text: STR_UFOPEDIA_POWER_ARMOR
+  - id: STR_SKY_STRIKE_ARMOR_UC
+    listOrder: 10620
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+#    requires:
+#      - STR_PERSONAL_ARMOR
+    text: STR_UFOPEDIA_SKY_STRIKE_ARMOR
+  - id: STR_PSI_ARMOR_BLUE_UC
+    listOrder: 10625
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+#    requires:
+#      - STR_PERSONAL_ARMOR
+    text: STR_UFOPEDIA_PSI_ARMOR
+  - id: STR_POWER_SUIT_UC
+    listOrder: 10630
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PERSONAL_ARMOR
+    text: STR_POWER_SUIT_UFOPEDIA
+  - id: STR_FLYING_SUIT_UC
+    listOrder: 10635
+    type_id: 5
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PERSONAL_ARMOR
+    text: STR_FLYING_SUIT_UFOPEDIA
+    
 extraStrings:
   - type: en-US
     strings:
       STR_LIGHT_SUIT_UC: Light Jumpsuit
       STR_PADDED_SUIT_UC: Padded Jumpsuit
-      STR_NONE_UC: Jumpsuit
+      STR_PERSONAL_ARMOR_UC: Kevlar Armor
+      STR_PERSONAL_ARMOR_UFOPEDIA: "This is a standard issue X-COM battle armor. Manufactured for the purpose of xeno operations, they have been assembled from specialized kevlar plates. Our government would never send us in the field without this."
+      STR_POWER_SUIT_UC: Hazmat Suit
+      STR_POWER_SUIT_UFOPEDIA: "This heavy suit allows the wearer to walk through hazardous environments unscathed."
+      STR_FLYING_SUIT_UC: W.A.R. Suit
+      STR_FLYING_SUIT_UFOPEDIA: "This powered heavy battle armor grants massive damage resistance and survivability, as well as a wrist-mounted Heavy Weapon hardpoint."
+      STR_ALLOY_ARMOR: Predator Armor
+      STR_ALLOY_ARMOR_UC: Predator Armor
+      STR_UFOPEDIA_ALLOY_ARMOR: "Our Predator Armor was designed to offer substantially better protection against the alien plasma weaponry through the use of their alloys. Tests indicate a substantial survivability increase relative to conventional kevlar armor."
+      STR_XOPS_POWER_ARMOR: Warden Armor
+      STR_XOPS_POWER_ARMOR_UC: Warden Armor
+      STR_XOPS_POWER_ARMOR_WHITE_UC: Warden Armor (White)
+      STR_XOPS_POWER_ARMOR_BLACK_UC: Warden Armor (Black)
+      STR_UFOPEDIA_POWER_ARMOR: "Our new mastery of the alien's Elerium technology has lead us to the ultimate in battle armor: the Warden Armor. Elerium powered armor provides unprecedented survivability and versatility in the battle against increasingly powerful alien enemies."
+      STR_SKY_STRIKE_ARMOR: Archangel Armor
+      STR_SKY_STRIKE_ARMOR_UC: Archangel Armor
+      STR_SKY_STRIKE_ARMOR_BLUE: Archangel Armor (Blue)
+      STR_SKY_STRIKE_ARMOR_BLUE_UC: Archangel Armor (Blue)
+      STR_UFOPEDIA_SKY_STRIKE_ARMOR: "The flight components recovered from the Floater Engineer, when combined with our standard-issue armor systems, result in an armored suit with high damage resistance and improved mobility. The built-in propulsion system allows temporary flight, enabling the wearer to rapidly change locations."
+      STR_PSI_ARMOR: Psi Armor
+      STR_PSI_ARMOR_BLUE_UC: Psi Armor
+      STR_UFOPEDIA_PSI_ARMOR: "Our most powerful armored suit, this equipment serves to amplify the wearer's psionic abilities through a system modeled after the alien's own cybernetic implants."
+      

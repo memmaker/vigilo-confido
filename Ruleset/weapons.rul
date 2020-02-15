@@ -24,25 +24,10 @@ extraSprites:
       211: Resources/Weapons_Imported/AlloySniper/Bigob_EL_CLIP.gif
       212: Resources/Weapons_Imported/GrenadeLauncher/BIGOB_GRENADE_LAUNCHER.png
       213: Resources/Weapons_Imported/LaserCannon/TFCannon.gif
-      214: Resources/Weapons_Imported/LaserCannon/TFCannonClip.gif
-      215: Resources/Weapons_Imported/LaserCannon/TFCannonClip2.gif
-      216: Resources/Weapons_Imported/LaserCannon/TFCannonClip3.gif
       217: Resources/Weapons_Imported/LaserPistol/TFPistol.gif
-      218: Resources/Weapons_Imported/LaserPistol/TFPistolClip.gif
-      219: Resources/Weapons_Imported/LaserPistol/TFPistolClip2.gif
-      220: Resources/Weapons_Imported/LaserPistol/TFPistolClip3.gif
       221: Resources/Weapons_Imported/LaserRifle/TFRifle.gif
-      222: Resources/Weapons_Imported/LaserRifle/TFRifleClip.gif
-      223: Resources/Weapons_Imported/LaserRifle/TFRifleClip2.gif
-      224: Resources/Weapons_Imported/LaserRifle/TFRifleClip3.gif
       225: Resources/Weapons_Imported/LaserShotgun/TFShotgun.gif
-      226: Resources/Weapons_Imported/LaserShotgun/TFShotgunClip.gif
-      227: Resources/Weapons_Imported/LaserShotgun/TFShotgunClip2.gif
-      228: Resources/Weapons_Imported/LaserShotgun/TFShotgunClip3.gif
       229: Resources/Weapons_Imported/LaserSniper/TFSniper.gif
-      230: Resources/Weapons_Imported/LaserSniper/TFSniperClip.gif
-      231: Resources/Weapons_Imported/LaserSniper/TFSniperClip2.gif
-      232: Resources/Weapons_Imported/LaserSniper/TFSniperClip3.gif
       233: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannon.png
       234: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip.png
       235: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip2.png
@@ -130,94 +115,839 @@ extraSprites:
 
 
 items:
-  - type: STR_ALLOY_SWORD
+  - delete: STR_HEAVY_CANNON
+  - delete: STR_AUTO_CANNON
+  - delete: STR_HC_AP_AMMO
+  - delete: STR_HC_HE_AMMO
+  - delete: STR_HC_I_AMMO
+  - delete: STR_AC_AP_AMMO
+  - delete: STR_AC_HE_AMMO
+  - delete: STR_AC_I_AMMO
+  - type: STR_PISTOL
+    tuSnap: 35
+    tuAimed: 45
+    tuAuto: 0
+    accuracySnap: 90
+    accuracyAimed: 100 
+    accuracyAuto: 85
+    
+    snapRange: 10
+    aimRange: 14
+    autoRange: 8
+    dropoff: 4   # 4 points of accuracy decrease per tile
+  - type: STR_PISTOL_CLIP
+    power: 30
+    clipSize: 12
+  - type: STR_RIFLE
+    tuSnap: 40
+    tuAimed: 50
+    tuAuto: 85
+    accuracySnap: 80
+    accuracyAimed: 90 
+    accuracyAuto: 0
+    
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4   # 4 points of accuracy decrease per tile
+    confSnap:
+      shots: 3
+    confAimed:
+      shots: 3
+  - type: STR_RIFLE_CLIP
+    power: 14
+    clipSize: 20
+    damageAlter:
+      ArmorEffectiveness: 0.3
+  - type: STR_SWORD
+    listOrder: 1850
     size: 0.2
     costBuy: 10 # TODO: change
     costSell: 15000
-    weight: 3
+    weight: 4
     bigSprite: 200
     floorSprite: 200
     handSprite: 256
     power: 50
     strengthApplied: true
     damageType: 7
-    accuracyMelee: 115
-    tuMelee: 10
+    accuracyMelee: 100
+    tuMelee: 35
     clipSize: -1
     battleType: 3
     invWidth: 1
     invHeight: 3
-    flatRate: true
+    flatRate: false
     armor: 30
     skillApplied: true
     attraction: 8
-    listOrder: 1800
   - type: STR_LASER_SWORD
+    listOrder: 3450
     size: 0.2
     costBuy: 10 # TODO: change
     costSell: 19000
-    weight: 3
+    weight: 4
     bigSprite: 201
     floorSprite: 201
     handSprite: 264
-    power: 65
+    power: 90
     strengthApplied: true
     damageType: 4
-    accuracyMelee: 115
-    tuMelee: 10
+    accuracyMelee: 100
+    tuMelee: 35
     clipSize: -1
     battleType: 3
     invWidth: 1
     invHeight: 3
-    flatRate: true
+    flatRate: false
     armor: 30
     skillApplied: true
     attraction: 8
-    listOrder: 1801
   - type: STR_PLASMA_SWORD
+    listOrder: 4950
     size: 0.2
     costBuy: 10 # TODO: change
     costSell: 19000
-    weight: 3
+    weight: 4
     bigSprite: 202
     floorSprite: 202
     handSprite: 272
-    power: 80
+    power: 130
     strengthApplied: true
     damageType: 5
     accuracyMelee: 115
-    tuMelee: 10
+    tuMelee: 35
     clipSize: -1
     battleType: 3
     invWidth: 1
     invHeight: 3
-    flatRate: true
+    flatRate: false
     armor: 30
     skillApplied: true
     attraction: 8
-    listOrder: 1802
+  - type: STR_SHOTGUN
+    listOrder: 2250
+    size: 0.2
+    costBuy: 2200
+    costSell: 1800
+    weight: 6
+    bigSprite: 205
+    floorSprite: 205
+    handSprite: 288
+    bulletSprite: 3
+    fireSound: 67
+    compatibleAmmo:
+      - STR_SHOTGUN_AMMO
+    accuracyAuto: 80
+    accuracySnap: 90
+    accuracyAimed: 130
+    tuSnap: 55
+    tuAimed: 0
+    tuAuto: 0
+    confAuto:
+      shots: 2
+    snapRange: 4 # after 4 tiles
+    aimRange: 4
+    autoRange: 4
+    dropoff: 4   # 4 points of accuracy decrease per tile
+    powerRangeThreshold: 20 # full power until tile 20
+    powerRangeReduction: 10 # minus 10 power per tile after that
+
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+    armor: 40
+  - type: STR_SHOTGUN_AMMO
+    listOrder: 2251
+    size: 0.1
+    costBuy: 50
+    costSell: 40
+    weight: 3
+    bigSprite: 207
+    floorSprite: 206
+    hitSound: 22
+    hitAnimation: 26
+    power: 11
+    damageType: 1
+    clipSize: 6
+    battleType: 2
+    armor: 20
+    shotgunPellets: 5
+    bulletSpeed: 2
+  - type: STR_SNIPER_RIFLE
+    listOrder: 2300
+    size: 0.3
+    costBuy: 12000
+    costSell: 5500
+    weight: 9
+    bigSprite: 208
+    floorSprite: 207
+    handSprite: 296
+    bulletSprite: 14
+    fireSound: 69
+    compatibleAmmo:
+      - STR_SNIPER_RIFLE_CLIP
+    accuracyAuto: 105
+    accuracySnap: 120
+    accuracyAimed: 130
+    tuSnap: 85
+    tuAimed: 0
+    tuAuto: 0
+    confAuto:
+      shots: 2
+    battleType: 1
+    twoHanded: true
+    invWidth: 2
+    invHeight: 3
+    armor: 20
+  - type: STR_SNIPER_RIFLE_CLIP
+    listOrder: 2301
+    size: 0.1
+    costBuy: 250
+    costSell: 160
+    weight: 4
+    bigSprite: 209
+    floorSprite: 208
+    hitSound: 70
+    hitAnimation: 26
+    power: 45
+    damageType: 1
+    clipSize: 5
+    battleType: 2
+    armor: 20
+  - type: STR_CANNON
+    listOrder: 2400
+    size: 0.8
+    costBuy: 3000 # TODO: change
+    costSell: 2250
+    weight: 22
+    bigSprite: 203
+    floorSprite: 203
+    handSprite: 280
+    bulletSprite: 2
+    fireSound: 66
+    compatibleAmmo:
+      - STR_CANNON_CLIP
+    accuracyAuto: 55
+    accuracySnap: 55
+    accuracyAimed: 110
+    tuAuto: 0
+    tuSnap: 75
+    tuAimed: 0
+    confSnap:
+      shots: 5
+    battleType: 1
+    twoHanded: true
+    invWidth: 2
+    invHeight: 3
+  - type: STR_CANNON_CLIP
+    listOrder: 2401
+    size: 0.3
+    costBuy: 200 # TODO: change
+    costSell: 150
+    weight: 6
+    bigSprite: 204
+    floorSprite: 204
+    hitSound: 22
+    hitAnimation: 26
+    power: 10
+    damageType: 1
+    clipSize: 50
+    damageAlter:
+      ArmorEffectiveness: 0.2
+      ToArmorPre: 0.1
+    battleType: 2
+    invWidth: 2
+    invHeight: 2
+  - type: STR_GRENADE_LAUNCHER
+    listOrder: 2500
+    size: 0.2
+    costBuy: 8800
+    costSell: 6600
+    weight: 8
+    bigSprite: 212
+    floorSprite: 211
+    handSprite: 304
+    bulletSprite: 0
+    fireSound: 213
+    compatibleAmmo:
+      - STR_GRENADE
+    accuracySnap: 50
+    accuracyAimed: 70
+    tuSnap: 65
+    tuAimed: 70
+    arcingShot: true
+    battleType: 1
+    twoHanded: true
+    invWidth: 2
+    invHeight: 3
+  - type: STR_XCOM_LASER_PISTOL
+    listOrder: 3500
+    size: 0.1
+    costSell: 20000
+    costBuy: 10 # TODO: change
+    weight: 7
+    bigSprite: 217
+    floorSprite: 213
+    handSprite: 320
+    bulletSprite: 5
+    fireSound: 11
+    hitSound: 19
+    hitAnimation: 36
+    power: 65
+    damageType: 4
+    
+    tuSnap: 35
+    tuAimed: 45
+    tuAuto: 0
+    accuracySnap: 90
+    accuracyAimed: 100 
+    accuracyAuto: 85
+    
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4   # 4 points of accuracy decrease per tile
+
+    clipSize: -1
+    battleType: 1
+    invWidth: 1
+    invHeight: 2
+  - type: STR_XCOM_LASER_RIFLE
+    listOrder: 3600
+    size: 0.2
+    costSell: 36900
+    costBuy: 10 # TODO: change
+    weight: 8
+    bigSprite: 221
+    floorSprite: 214
+    handSprite: 328
+    bulletSprite: 6
+    fireSound: 11
+    hitSound: 19
+    hitAnimation: 36
+    tuSnap: 40
+    tuAimed: 50
+    tuAuto: 0
+    accuracySnap: 80
+    accuracyAimed: 90 
+    accuracyAuto: 75
+    
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4   # 4 points of accuracy decrease per tile
+    power: 28
+    confSnap:
+      shots: 3
+    confAimed:
+      shots: 3
+    damageAlter:
+      ArmorEffectiveness: 0.3
+    damageType: 4
+    clipSize: -1
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+  - type: STR_LASER_SHOTGUN
+    listOrder: 3630
+    size: 0.2
+    costSell: 36900
+    costBuy: 10 # TODO: change
+    weight: 8
+    bigSprite: 225
+    floorSprite: 215
+    handSprite: 336
+    bulletSprite: 6
+    fireSound: 11
+    hitSound: 19
+    hitAnimation: 36
+    accuracyAuto: 80
+    accuracySnap: 90
+    accuracyAimed: 130
+    tuSnap: 55
+    tuAimed: 0
+    tuAuto: 0
+    confAuto:
+      shots: 2
+    snapRange: 5 # after 4 tiles
+    aimRange: 5
+    autoRange: 5
+    dropoff: 3   # 4 points of accuracy decrease per tile
+    powerRangeThreshold: 20 # full power until tile 20
+    powerRangeReduction: 10 # minus 10 power per tile after that
+
+    power: 19
+
+    damageType: 4
+    clipSize: -1
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+    shotgunPellets: 5
+    bulletSpeed: 2
+  - type: STR_LASER_SNIPER
+    listOrder: 3690
+    size: 0.2
+    costSell: 36900
+    costBuy: 10 # TODO: change
+    weight: 8
+    bigSprite: 229
+    floorSprite: 216
+    handSprite: 344
+    bulletSprite: 6
+    fireSound: 11
+    hitSound: 19
+    hitAnimation: 36
+    power: 85
+    damageType: 4
+    accuracyAuto: 105
+    accuracySnap: 120
+    accuracyAimed: 130
+    tuSnap: 85
+    tuAimed: 0
+    tuAuto: 0
+    confAuto:
+      shots: 2
+    clipSize: -1
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+  - type: STR_XCOM_HEAVY_LASER
+    listOrder: 3700
+    size: 0.3
+    costSell: 61000
+    costBuy: 10 # TODO: change
+    weight: 18
+    bigSprite: 213
+    floorSprite: 212
+    handSprite: 312
+    bulletSprite: 7
+    fireSound: 11
+    hitSound: 19
+    hitAnimation: 36
+    power: 18
+    damageType: 4
+    accuracySnap: 55
+    accuracyAimed: 84
+    tuSnap: 75
+    tuAimed: 0
+    tuAuto: 0
+    confSnap:
+      shots: 5
+    clipSize: -1
+    damageAlter:
+      ArmorEffectiveness: 0.2
+      ToArmorPre: 0.1
+    battleType: 1
+    twoHanded: true
+    invWidth: 2
+    invHeight: 3
+  - type: STR_XCOM_PLASMA_PISTOL
+    listOrder: 5000
+    size: 0.1
+    costSell: 84000
+    costBuy: 10 # TODO: change
+    weight: 8
+    bigSprite: 237
+    floorSprite: 221
+    handSprite: 360
+    bulletSprite: 8
+    fireSound: 18
+    compatibleAmmo:
+      - STR_XCOM_PLASMA_PISTOL_CLIP
+    tuSnap: 35
+    tuAimed: 45
+    tuAuto: 0
+    accuracySnap: 90
+    accuracyAimed: 100 
+    accuracyAuto: 85
+    
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4   # 4 points of accuracy decrease per tile
+
+    battleType: 1
+    invWidth: 1
+    invHeight: 2
+    recoveryPoints: 3
+    armor: 45
+  - type: STR_XCOM_PLASMA_PISTOL_CLIP
+    listOrder: 5001
+    size: 0.1
+    costSell: 4440
+    costBuy: 10 # TODO: change
+    weight: 3
+    bigSprite: 238
+    floorSprite: 222
+    hitSound: 19
+    hitAnimation: 46
+    power: 100
+    damageType: 5
+    clipSize: 12
+    battleType: 2
+    recoveryPoints: 1
+  - type: STR_XCOM_PLASMA_RIFLE
+    listOrder: 5200
+    size: 0.2
+    costSell: 126500
+    costBuy: 10 # TODO: change
+    weight: 5
+    bigSprite: 241
+    floorSprite: 224
+    handSprite: 368
+    bulletSprite: 8
+    fireSound: 18
+    compatibleAmmo:
+      - STR_XCOM_PLASMA_RIFLE_CLIP
+    accuracyAuto: 55
+    accuracySnap: 86
+    accuracyAimed: 100
+    tuAuto: 0
+    tuSnap: 55
+    tuAimed: 0
+    confSnap:
+      shots: 3
+    confAimed:
+      shots: 3
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+    recoveryPoints: 4
+    armor: 50
+  - type: STR_XCOM_PLASMA_RIFLE_CLIP
+    listOrder: 5201
+    size: 0.1
+    costSell: 6290
+    costBuy: 10 # TODO: change
+    weight: 3
+    bigSprite: 242
+    floorSprite: 225
+    hitSound: 19
+    hitAnimation: 46
+    power: 40
+    damageType: 5
+    clipSize: 20
+    battleType: 2
+    recoveryPoints: 1
+    damageAlter:
+      ArmorEffectiveness: 0.3
+  - type: STR_PLASMA_SHOTGUN
+    listOrder: 5300
+    size: 0.2
+    costBuy: 2200
+    costSell: 1800
+    weight: 6
+    bigSprite: 245
+    floorSprite: 229
+    handSprite: 376
+    bulletSprite: 8
+    fireSound: 18
+    compatibleAmmo:
+      - STR_PLASMA_SHOTGUN_AMMO    
+    accuracyAuto: 80
+    accuracySnap: 90
+    accuracyAimed: 130
+    tuSnap: 55
+    tuAimed: 0
+    tuAuto: 0
+    confAuto:
+      shots: 2
+    snapRange: 6 # after 4 tiles
+    aimRange: 6
+    autoRange: 6
+    dropoff: 4   # 4 points of accuracy decrease per tile
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+    armor: 40  
+  - type: STR_PLASMA_SHOTGUN_AMMO
+    listOrder: 5301
+    size: 0.1
+    costBuy: 50
+    costSell: 40
+    weight: 3
+    bigSprite: 246
+    floorSprite: 230
+    hitSound: 19
+    hitAnimation: 46
+    power: 27
+    damageType: 5
+    clipSize: 6
+    battleType: 2
+    armor: 20
+    shotgunPellets: 5
+    bulletSpeed: 2
+  - type: STR_PLASMA_SNIPER_RIFLE
+    listOrder: 5400
+    size: 0.3
+    costBuy: 12000
+    costSell: 5500
+    weight: 9
+    bigSprite: 249
+    floorSprite: 233
+    handSprite: 384
+    bulletSprite: 8
+    fireSound: 18
+    compatibleAmmo:
+      - STR_PLASMA_SNIPER_RIFLE_CLIP
+    accuracyAuto: 105
+    accuracySnap: 120
+    accuracyAimed: 130
+    tuSnap: 85
+    tuAimed: 0
+    tuAuto: 0
+    confAuto:
+      shots: 2
+    battleType: 1
+    twoHanded: true
+    invWidth: 1
+    invHeight: 3
+    armor: 20
+  - type: STR_PLASMA_SNIPER_RIFLE_CLIP
+    listOrder: 5401
+    size: 0.1
+    costBuy: 250
+    costSell: 160
+    weight: 4
+    bigSprite: 250
+    floorSprite: 234
+    hitSound: 19
+    hitAnimation: 46
+    power: 125
+    damageType: 5
+    clipSize: 5
+    battleType: 2
+    armor: 20
+  - type: STR_PLASMA_CANNON
+    listOrder: 5500
+    size: 0.2
+    costSell: 171600
+    costBuy: 10 # TODO: change
+    weight: 8
+    bigSprite: 233
+    floorSprite: 217
+    handSprite: 352
+    bulletSprite: 8
+    fireSound: 18
+    compatibleAmmo:
+      - STR_PLASMA_CANNON_CLIP
+    accuracyAuto: 50
+    accuracySnap: 55
+    accuracyAimed: 110
+    tuAuto: 0
+    tuSnap: 75
+    tuAimed: 0
+    confSnap:
+      shots: 5
+    battleType: 1
+    twoHanded: true
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    armor: 50
+  - type: STR_PLASMA_CANNON_CLIP
+    listOrder: 5501
+    size: 0.3
+    costBuy: 10 # TODO: change
+    costSell: 9590
+    weight: 3
+    bigSprite: 234
+    floorSprite: 218
+    hitSound: 19
+    hitAnimation: 46
+    power: 25
+    damageType: 5
+    clipSize: 35
+    damageAlter:
+      ArmorEffectiveness: 0.2
+      ToArmorPre: 0.2
+    battleType: 2
+    recoveryPoints: 1
+    invWidth: 2
+    invHeight: 1
+    
+#manufacture:
+#  - delete: STR_XCOM_HEAVY_LASER
+
+#research:
+#  - delete: STR_XCOM_HEAVY_LASER
 
 ufopaedia:
-  - id: STR_ALLOY_SWORD
+  - delete: STR_HEAVY_CANNON
+  - delete: STR_AUTO_CANNON
+  - id: STR_UFOPAEDIA_WEAPON_MECHANICS
+    listOrder: 1000
+    type_id: 8
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT
+  - id: STR_SWORD
+    listOrder: 1950
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
-    text: STR_UFOPAEDIA_ALLOY_SWORD
+    text: STR_UFOPAEDIA_SWORD
   - id: STR_LASER_SWORD
+    listOrder: 3550
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_LASER_SWORD
   - id: STR_PLASMA_SWORD
+    listOrder: 4750
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_PLASMA_SWORD
-
+  - id: STR_SHOTGUN
+    listOrder: 2330
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_SHOTGUN
+  - id: STR_SHOTGUN_AMMO
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_SNIPER_RIFLE
+    listOrder: 2360
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_SNIPER_RIFLE
+  - id: STR_SNIPER_RIFLE_CLIP
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_CANNON
+    listOrder: 2400
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_CANNON
+  - id: STR_CANNON_CLIP
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_GRENADE_LAUNCHER
+    listOrder: 3150
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_GRENADE_LAUNCHER
+  - id: STR_XCOM_LASER_PISTOL
+    listOrder: 3600
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_XCOM_LASER_PISTOL
+  - id: STR_XCOM_LASER_RIFLE
+    listOrder: 3700
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_XCOM_LASER_RIFLE
+  - id: STR_LASER_SHOTGUN
+    listOrder: 3730
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_LASER_SHOTGUN
+  - id: STR_LASER_SNIPER
+    listOrder: 3760
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_LASER_SNIPER
+  - id: STR_XCOM_HEAVY_LASER
+    listOrder: 3800
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_HEAVY_LASER
+  - id: STR_XCOM_PLASMA_PISTOL
+    listOrder: 4800
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_XCOM_PLASMA_PISTOL
+  - id: STR_XCOM_PLASMA_PISTOL_CLIP
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_XCOM_PLASMA_RIFLE
+    listOrder: 5000
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_XCOM_PLASMA_RIFLE
+  - id: STR_XCOM_PLASMA_RIFLE_CLIP
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_PLASMA_SHOTGUN
+    listOrder: 5030
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_PLASMA_SHOTGUN
+  - id: STR_PLASMA_SHOTGUN_AMMO
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_PLASMA_SNIPER_RIFLE
+    listOrder: 5060
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE
+  - id: STR_PLASMA_SNIPER_RIFLE_CLIP
+    type_id: 4
+    section: STR_NOT_AVAILABLE
+  - id: STR_PLASMA_CANNON
+    listOrder: 5200
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_PLASMA_CANNON
+  - id: STR_PLASMA_CANNON_CLIP
+    type_id: 4
+    section: STR_NOT_AVAILABLE
 
 extraStrings:
   - type: en-US
     strings:
-      STR_ALLOY_SWORD: Alloy Sword
-      STR_UFOPAEDIA_ALLOY_SWORD: "A simple but effective weapon deployed by mankind for centuries. This combat sword is forged from modern metal alloys and allows for devastating melee attacks."
+      STR_SWORD: Sword
+      STR_UFOPAEDIA_SWORD: "A simple but effective weapon deployed by mankind for centuries. This combat sword is forged from modern metal alloys and allows for devastating melee attacks."
       STR_LASER_SWORD: Arc Blade
       STR_UFOPAEDIA_LASER_SWORD: "When pure kinetic energy is no longer sufficient in the field, the Arc Blade may prove necessary. It boosts the standard Sword's combat effectiveness with the addition of an electric field, capable of stunning enemies not killed outright."
       STR_PLASMA_SWORD: Fusion Blade
       STR_UFOPAEDIA_PLASMA_SWORD: "The Fusion Blade encases a plasma heated metallic core in a microthin magnetic field, enabling devastating melee that are capable of setting enemies aflame."
+      STR_RIFLE_UFOPEDIA: "The standard issue X9 rifle is a very durable field weapon and has seen extensive use over the years.{NEWLINE}{NEWLINE}BURST> 3"
+      STR_CANNON: Cannon
+      STR_CANNON_CLIP: Cannon Clip
+      STR_UFOPAEDIA_CANNON: "The Cannon is an improvised light support weapon, specialized for high volume fire.{NEWLINE}{NEWLINE}BURST> 5"
+      STR_SHOTGUN: Shotgun
+      STR_SHOTGUN_AMMO: Shotgun Ammo
+      STR_UFOPAEDIA_SHOTGUN: "We've managed to salvage a variety of standard infantry small arms; this is a specialized weapon for close range engagements."
+      STR_SNIPER_RIFLE: Sniper Rifle
+      STR_SNIPER_RIFLE_CLIP: Sniper Rifle Clip
+      STR_UFOPAEDIA_SNIPER_RIFLE: "We've managed to salvage a variety of standard infantry small arms; this is a specialized weapon for medium to long range engagement."
+      STR_GRENADE_LAUNCHER: Grenade Launcher
+      STR_UFOPAEDIA_GRENADE_LAUNCHER: "The standard issue grenade launcher can operate with hand-held grenades."
+      STR_HEAVY_LASER: Alien Heavy Laser
+      STR_XCOM_HEAVY_LASER: X3 Heavy Laser
+      STR_UFOPAEDIA_HEAVY_LASER: "The Heavy Laser requires a supplementary power supply that makes it somewhat unwieldy in combat, but it is capable of dealing high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 35{NEWLINE}{NEWLINE}BURST> 5"
+      STR_LASER_PISTOL: Alien Laser Pistol
+      STR_XCOM_LASER_PISTOL: X22 Laser Pistol
+      STR_UFOPAEDIA_XCOM_LASER_PISTOL: "The Laser Pistol relies on our latest advancements to provide a more powerful sidearm that does not require reloading in the field.{NEWLINE}{NEWLINE}CHARGES> 12"
+      STR_LASER_RIFLE: Alien Laser Rifle
+      STR_XCOM_LASER_RIFLE: X24 Laser Rifle
+      STR_UFOPAEDIA_XCOM_LASER_RIFLE: "The Laser Assault Rifle relies on our latest in optics technology to offer a substantial increase in output over the conventional X9 rifle.{NEWLINE}{NEWLINE}CHARGES> 20{NEWLINE}{NEWLINE}BURST> 3"
+      STR_LASER_SHOTGUN: Scatter Laser
+      STR_UFOPAEDIA_LASER_SHOTGUN: "The Scatter Laser is capable of inflicting considerable damage; however, accuracy suffers greatly as the range to target increases.{NEWLINE}{NEWLINE}CHARGES> 6"
+      STR_LASER_SNIPER: Laser Sniper Rifle
+      STR_UFOPAEDIA_LASER_SNIPER: "The Laser Sniper Rifle provides a greater chance of inflicting critical damage to enemy targets. However, due to the unwieldy nature of this rifle, our soldiers will suffer a penalty when attempting to strike targets at close range.{NEWLINE}{NEWLINE}CHARGES> 5"
+      STR_PLASMA_CANNON: Beam Cannon
+      STR_PLASMA_CANNON_CLIP: Beam Cannon Clip
+      STR_UFOPAEDIA_PLASMA_CANNON: "Devising a more powerful, high-volume beam weapon for our Grenadiers required substantial effort, but the firepower it brings is unquestioned.{NEWLINE}{NEWLINE}BURST> 5"
+      STR_PLASMA_PISTOL: Alien Plasma Pistol
+      STR_XCOM_PLASMA_PISTOL: Beam Pistol
+      STR_XCOM_PLASMA_PISTOL_CLIP: Beam Pistol Clip
+      STR_UFOPAEDIA_XCOM_PLASMA_PISTOL: "The ultimate sidearm, this pistol integrates the aliens' beam weapons technology to powerful effect."
+      STR_PLASMA_RIFLE: Alien Plasma Rifle
+      STR_XCOM_PLASMA_RIFLE: X40 Plasma Rifle
+      STR_XCOM_PLASMA_RIFLE_CLIP: X40 Plasma Rifle Clip
+      STR_UFOPAEDIA_XCOM_PLASMA_RIFLE: "Now that we've finally deciphered the aliens' devastating weapon technology and can develop beam weapons of our own, we can build rifles that will be the match of any enemy our soldiers encounter in the field.{NEWLINE}{NEWLINE}BURST> 3"
+      STR_PLASMA_SHOTGUN: Storm Gun
+      STR_PLASMA_SHOTGUN_AMMO: Storm Gun Ammo
+      STR_UFOPAEDIA_PLASMA_SHOTGUN: "The Storm Gun fires a concentrated set of beam pulses, piercing and melting the target across a substantial surface area."
+      STR_PLASMA_SNIPER_RIFLE: Plasma Lance
+      STR_PLASMA_SNIPER_RIFLE_CLIP: Plasma Lance Clip
+      STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE: "The aliens' focused beam technology has obvious applications for improving sniper rifles. The Plasma Lance is an unmatched sniper rifle."
+      STR_UFOPAEDIA_WEAPON_MECHANICS: "X-COM Weaponry 101"
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: "The arsenal of X-COM employs the latest and finest in military equipment and whatever our scientists come up with. Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although our laser based line of weapons does not require ammunition, they still require recharging. After activation of the RECHARGE mechanism, the weapon glows blue and will be recharged on the beginning of your next turn.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The default fire mode of this weapon is BURST. Meaning each shot actually fires multiple bullets. Each bullet can do the amount of damage specified under the DAMAGE section."

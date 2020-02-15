@@ -1,0 +1,163 @@
+# recharge laser rifle - TODO: add ufopedia article to explain this mechanic
+extended:
+  tags:
+    RuleItem:
+      LASER: int
+      PLASMA: int
+  scripts:
+    recolorItemSprite:
+      - offset: 98
+        code: |
+          var int color;
+          var int temp;
+          var int isLaser;
+          var int isPlasma;
+          var ptr RuleItem item_rule;
+          var int flash_color;
+          set temp 0;
+
+          item.getRuleItem item_rule;
+          item_rule.getTag isLaser Tag.LASER;
+          item_rule.getTag isPlasma Tag.PLASMA;
+
+          if gt isLaser 0;
+            set flash_color COLOR_X1_RED;
+            set temp 1;
+          else gt isPlasma 0;
+            set flash_color COLOR_X1_GREEN0;
+            set temp 1;
+          end;
+          if gt temp 0;
+            get_color color new_pixel;
+            if eq color flash_color;
+              item.getFuseTimer temp;
+              if gt temp 0;
+                set temp anim_frame;
+                wavegen_tri temp 16 16 15;
+                mul temp -1;
+                add temp 8;
+                set color COLOR_X1_BLUE1;
+                set_color new_pixel color;
+                add_shade new_pixel temp;
+              else;
+                set temp anim_frame;
+                wavegen_tri temp 16 16 15;
+                mul temp -1;
+                add temp 8;
+                add_shade new_pixel temp;
+              end;
+            end;
+          end;
+          return new_pixel;
+items:
+  - type: STR_LASER_PISTOL
+    tags:
+      LASER: 1
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 12
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 10;
+          debug_log "Recharged Laser Pistol" item;
+        end;
+        return;
+  - type: STR_LASER_RIFLE
+    tags:
+      LASER: 1
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 20
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 16;
+          debug_log "Recharged Scatter Laser" item;
+        end;
+        return;
+  - type: STR_LASER_SHOTGUN
+    tags:
+      LASER: 1
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 6
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 6;
+          debug_log "Recharged Laser Rifle" item;
+        end;
+        return;
+  - type: STR_LASER_SNIPER
+    tags:
+      LASER: 1
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 5
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 5;
+          debug_log "Recharged Laser Rifle" item;
+        end;
+        return;
+  - type: STR_HEAVY_LASER
+    tags:
+      LASER: 1
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 35
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 20;
+          debug_log "Recharged Laser Rifle" item;
+        end;
+        return;
+  - type: STR_PLASMA_PISTOL
+    tags:
+      PLASMA: 1
+  - type: STR_PLASMA_RIFLE
+    tags:
+      PLASMA: 1
+  - type: STR_PLASMA_SHOTGUN
+    tags:
+      PLASMA: 1
+  - type: STR_PLASMA_SNIPER_RIFLE
+    tags:
+      PLASMA: 1
+  - type: STR_PLASMA_CANNON
+    tags:
+      PLASMA: 1
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_LASER_RECHARGE: "Recharge"
+      STR_LASER_RECHARGE_MESSAGE: "Laser is being recharged."
