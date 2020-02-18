@@ -1,3 +1,4 @@
+customTrainingFactor: 10
 maxDarknessToSeeUnits: 15
 constants:
   damageRange: 20
@@ -29,20 +30,38 @@ extended:
             end;
           end;
           return current_visibility visibility_mode;
+    accuracyMultiplierBonusStats:
+      - offset: -1 # reaction accuracy adjuster
+        code: |
+          var int adjustment;
+          var int turn_side;
+          var int old_bonus;
+
+          battle_game.getTurnSide turn_side;
+
+          set adjustment 50; # 50% accuracy on reaction shots
+
+          if and eq turn_side 0 neq adjustment 100 eq soldier_rule null; # reaction shots of aliens
+            set old_bonus bonus;
+            set bonus adjustment;
+            debug_log "Reaction accuracy adjustment from" old_bonus "to" bonus;
+          end;
+
+          return bonus;
     createUnit:
-      - offset: -1 # accuracy nerfer
+      - offset: -1 # global accuracy adjuster
         code: |
           var ptr RuleSoldier soldier_rule;
           var int id;
           var int firing;
           var int adjustment;
           
-          set adjustment 90; # 90% accuracy
+          set adjustment 100; # 100% accuracy
 
           unit.getId id;
           unit.getRuleSoldier soldier_rule;  
 
-          if eq soldier_rule null;  # we have an alien unit
+          if and neq adjustment 100 eq soldier_rule null;  # we have an alien unit
             debug_log "Adjusting accuracy of unit" id;
             unit.Stats.getFiring firing;
             debug_log " - from" firing;
@@ -52,19 +71,19 @@ extended:
           end;
           return;
     hitUnit:
-      - offset: -1 # power nerfer
+      - offset: -1 # power adjuster
         code: |
           var ptr RuleSoldier soldier_rule;
           var int id;
           var int firing;
           var int adjustment;
           
-          set adjustment 70; # 70% power
+          set adjustment 100; # 100% power
 
           unit.getId id;
           unit.getRuleSoldier soldier_rule;  
 
-          if neq soldier_rule null;  # we have an xcom unit
+          if and neq adjustment 100 neq soldier_rule null;  # we have an xcom unit
             debug_log "Adjusting power of hit against xcom unit" id;
             debug_log " - from" power;
             muldiv power adjustment 100;

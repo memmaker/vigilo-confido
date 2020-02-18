@@ -1,10 +1,11 @@
 alienItemLevels:
   - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  - [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
-  - [0, 0, 0, 0, 0, 0, 0, 1, 1, 2]
-  - [0, 0, 0, 0, 0, 0, 0, 1, 1, 2]
-  - [0, 0, 0, 0, 0, 0, 1, 1, 1, 2]
-  - [0, 0, 0, 0, 0, 1, 1, 1, 2, 2]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+  - [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+  - [0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
   - [0, 0, 0, 1, 1, 1, 1, 2, 2, 2]
   - [0, 0, 1, 1, 1, 1, 2, 2, 2, 2]
   - [0, 0, 1, 1, 1, 2, 2, 2, 2, 2]
@@ -13,6 +14,74 @@ alienItemLevels:
   - [1, 1, 1, 2, 2, 2, 2, 2, 2, 2]
   - [1, 1, 2, 2, 2, 2, 2, 2, 2, 2]
   - [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+
+missionScripts:
+  - delete: recurringTerror
+  - type: recurringLaserTerror
+    missionWeights:
+      0:
+        STR_LASER_TERROR: 100
+    useTable: false
+    startDelay: 150
+    researchTriggers:
+      STR_LASER_WEAPONS: false
+  - type: recurringPlasmaTerror
+    missionWeights:
+      0:
+        STR_ALIEN_TERROR: 100
+    useTable: false
+    startDelay: 150
+    researchTriggers:
+      STR_LASER_WEAPONS: true
+
+alienMissions:
+  - type: STR_LASER_TERROR
+    points: 10
+    objective: 3
+    spawnZone: 3 #Mission zone for terror missions
+    raceWeights:
+      0:
+        STR_SECTOID: 100
+      2:
+        STR_SECTOID: 30
+        STR_FLOATER: 70
+      4:
+        STR_SECTOID: 60
+        STR_FLOATER: 40
+      5:
+        STR_SECTOID: 20
+        STR_SNAKEMAN: 60
+        STR_FLOATER: 20
+      6:
+        STR_SECTOID: 10
+        STR_SNAKEMAN: 20
+        STR_ETHEREAL: 40
+        STR_MUTON: 20
+        STR_FLOATER: 10
+      9:
+        STR_SECTOID: 20
+        STR_SNAKEMAN: 30
+        STR_ETHEREAL: 20
+        STR_MUTON: 20
+        STR_FLOATER: 10
+    waves:
+      - ufo: STR_MEDIUM_SCOUT
+        count: 1
+        trajectory: P1
+        timer: 15000
+      - ufo: STR_LARGE_SCOUT
+        count: 1
+        trajectory: P1
+        timer: 9600
+      - ufo: STR_LASER_TERROR_SHIP
+        count: 1
+        trajectory: P0
+        timer: 12000
+      - ufo: STR_LASER_TERROR_SHIP
+        count: 1
+        trajectory: P7
+        timer: 9000
+        objective: true
 
 alienDeployments:
   - type: STR_SMALL_SCOUT
@@ -130,6 +199,115 @@ alienDeployments:
             - STR_STUN_BOMB
             - STR_STUN_BOMB
             - STR_STUN_BOMB
+    width: 50
+    length: 50
+    height: 4
+  - type: STR_LASER_TERROR_SHIP
+    data:
+      - alienRank: 5
+        lowQty: 4
+        highQty: 6
+        dQty: 1
+        percentageOutsideUfo: 70
+        itemSets:
+          -
+            - STR_LASER_PISTOL
+          -
+            - STR_LASER_RIFLE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_PLASMA_PISTOL
+            - STR_ALIEN_GRENADE
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+      - alienRank: 4
+        lowQty: 1
+        highQty: 2
+        dQty: 0
+        percentageOutsideUfo: 20
+        itemSets:
+          -
+            - STR_LASER_PISTOL
+          -
+            - STR_LASER_RIFLE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_PLASMA_PISTOL
+            - STR_ALIEN_GRENADE
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+      - alienRank: 3
+        lowQty: 1
+        highQty: 1
+        dQty: 1
+        percentageOutsideUfo: 20
+        itemSets:
+          -
+            - STR_LASER_PISTOL
+          -
+            - STR_LASER_RIFLE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_SMALL_LAUNCHER
+            - STR_STUN_BOMB
+            - STR_STUN_BOMB
+            - STR_STUN_BOMB
+      - alienRank: 2
+        lowQty: 1
+        highQty: 2
+        dQty: 0
+        percentageOutsideUfo: 20
+        itemSets:
+          -
+            - STR_LASER_PISTOL
+          -
+            - STR_LASER_RIFLE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_PLASMA_PISTOL
+            - STR_ALIEN_GRENADE
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+      - alienRank: 1
+        lowQty: 1
+        highQty: 1
+        dQty: 0
+        percentageOutsideUfo: 0
+        itemSets:
+          -
+            - STR_LASER_PISTOL
+          -
+            - STR_LASER_RIFLE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_PLASMA_PISTOL
+            - STR_ALIEN_GRENADE
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+      - alienRank: 6
+        lowQty: 1
+        highQty: 3
+        dQty: 2
+        percentageOutsideUfo: 50
+        itemSets:
+          -
+            []
+          -
+            []
+          -
+            []
+      - alienRank: 7
+        lowQty: 1
+        highQty: 3
+        dQty: 2
+        percentageOutsideUfo: 50
+        itemSets:
+          -
+            []
+          -
+            []
+          -
+            []
     width: 50
     length: 50
     height: 4
@@ -455,3 +633,66 @@ armors:
       - 1.2
       - 1.6
       - 0.0
+
+items:
+  - type: STR_ALIEN_ALLOYS
+    size: 0.1
+    costSell: 6500
+    specialType: 10
+    recoveryPoints: 1
+    recoveryDividers:
+      STR_UFO: 50
+      STR_OTHER: 150
+  - type: STR_ELERIUM_115
+    size: 0.1
+    costSell: 5000
+    weight: 3
+    bigSprite: 56
+    floorSprite: 37
+    invWidth: 1
+    invHeight: 1
+    recoveryDividers:
+      STR_UFO: 50
+    recoveryPoints: 5
+  - type: STR_LASER_PISTOL
+    power: 25  # vanilla: 46
+    tuAimed: 55
+    tuSnap: 30 # vanilla: 20
+    tuAuto: 35 # vanilla: 25
+    snapRange: 10
+    aimRange: 14
+    autoRange: 8
+    dropoff: 4
+  - type: STR_LASER_RIFLE
+    power: 35  # vanilla: 60
+    tuAimed: 50
+    tuSnap: 35 # vanilla: 25
+    tuAuto: 45 # vanilla: 34
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4
+  - type: STR_PLASMA_PISTOL
+    power: 55  # vanilla: 52
+    tuAimed: 60
+    tuSnap: 35 # vanilla: 30
+    tuAuto: 45 # vanilla: 30
+    snapRange: 10
+    aimRange: 14
+    autoRange: 8
+    dropoff: 4
+  - type: STR_PLASMA_RIFLE
+    power: 80  # vanilla: 80
+    tuSnap: 35 # vanilla: 30
+    tuAuto: 55 # vanilla: 36
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4
+  - type: STR_HEAVY_PLASMA
+    power: 125 # vanilla: 115
+    tuSnap: 45 # vanilla: 30
+    tuAuto: 55 # vanilla: 35
+    snapRange: 14
+    aimRange: 14
+    autoRange: 14

@@ -1,0 +1,117 @@
+extended:
+  tags:
+    BattleUnit:
+      TIME_TO_SURPRISE: int
+
+units:
+  - type: MALE_SURPRISE_A
+    race: STR_CIVILIAN
+    stats:
+      tu: 35
+      stamina: 65
+      health: 30
+      bravery: 80
+      reactions: 30
+      firing: 30
+      throwing: 50
+      strength: 20
+      psiStrength: 5
+      psiSkill: 0
+      melee: 50
+    armor: SURPRISE_M_ARMOR
+    standHeight: 21
+    kneelHeight: 14
+    value: 30
+    intelligence: 4
+    energyRecovery: 20
+    deathSound: [41, 42, 43]
+    spawnUnit: STR_FLOATER_COMMANDER
+
+  - type: FEMALE_SURPRISE_A
+    race: STR_CIVILIAN
+    stats:
+      tu: 35
+      stamina: 65
+      health: 30
+      bravery: 80
+      reactions: 30
+      firing: 30
+      throwing: 50
+      strength: 20
+      psiStrength: 5
+      psiSkill: 0
+      melee: 50
+    armor: SURPRISE_F_ARMOR
+    standHeight: 21
+    kneelHeight: 14
+    value: 30
+    intelligence: 4
+    energyRecovery: 20
+    deathSound: [44, 45, 46]
+    spawnUnit: STR_SNAKEMAN_SOLDIER
+
+armors:
+  - &SURPRISE_M_ARMOR
+    type: SURPRISE_M_ARMOR
+    spriteSheet: CIVM.PCK
+    corpseBattle:
+      - CIVM_CORPSE
+    frontArmor: 0
+    sideArmor: 0
+    rearArmor: 0
+    underArmor: 0
+    drawingRoutine: 4
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.2
+      - 1.6
+      - 1.0
+    loftempsSet: [ 3 ]
+    scripts:     
+      createUnit: |
+        var ptre RuleArmor armor_rule;
+        var int turn_to_wakeup;
+
+        battle_game.randomRange turn_to_wakeup 1 3;
+        unit.setTag Tag.TIME_TO_SURPRISE turn_to_wakeup;
+
+        debug_log "Civilian surprise spawned, wakup time: " turn_to_wakeup;
+        return;
+      newTurnUnit: |
+        var ptre RuleArmor armor_rule;
+        var int countdown;
+        var int turnsSinceSpotted;
+
+        if neq side 0; # die on a x-com turn
+          return;
+        end;
+
+        unit.getTag countdown Tag.TIME_TO_SURPRISE;
+        
+        if eq countdown 0;
+          # wake up
+          unit.setHealth 0;      # kill the civilian
+          debug_log "SURPRISE!";
+        else;
+          sub countdown 1;
+          unit.setTag Tag.TIME_TO_SURPRISE countdown;
+        end;
+        return;
+  
+  - type: SURPRISE_F_ARMOR
+    refNode: *SURPRISE_M_ARMOR
+    spriteSheet: CIVF.PCK
+    corpseBattle:
+      - CIVF_CORPSE
+
+alienRaces:
+  - id: STR_MMX_SURPRISES
+    members:
+      - MALE_SURPRISE_A
+      - FEMALE_SURPRISE_A

@@ -5,6 +5,8 @@ In-Game:
 You can find information about the classes and their skills in the Ufopedia
 under the "MILITARY MOLDING" category.
 
+The changes on weapons and armors can be found under the "WEAPONS AND EQUIPMENT" section.
+
 Concept:
 
 Soldiers of each class can be hired directly by X-COM.
@@ -15,12 +17,31 @@ The active ones are activated with the special icon and the passive ones are alw
 There are three training phases. The initial molding process is the first one.
 Second Phase (or Advanced Training) and Third Phase (or Elite Training) add additional skills respectively.
 
-So the requirements for initial molding are: Minimum stat requirement reached for the class.
+Requirements for initial molding are: Minimum stat requirement reached for the class.
 
-Advanced level training requires: At least rank sergeant and the second "Combat Experience" decoration.
+RANGER
+ tu: 50
+ stamina: 50
+ melee: 30
 
-Elite level training requires: At least rank captain and the fourth "Combat Experience" decoration.
+GRENADIER
+ stamina: 40
+ health: 40
+ strength: 30
+ throwing: 30
 
+SNIPER
+ reactions: 40
+ firing: 60
+
+PSI OPERATIVE
+ psiStrength: 65
+
+Advanced level training requires: The second "Combat Experience" decoration.
+
+Elite level training requires: The fourth "Combat Experience" decoration.
+
+=== Skills ===
 === Tiers ===
 Weapons and armors all follow the three Tier concept.
 
@@ -33,12 +54,16 @@ T1 - Kevlar Armor   & Conventional Weapons
 T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
-
-=== Additional Vanilla Balancing ===
-
+=== Additional Changes ===
+ - Added status, day & night and hit indicators
  - Laser Weapons not reasearchable from the start
- - Blaster Launcher not that readily available
  - Laser weapons need recharging
+ - Blaster Launcher not that readily available (Not yet implemented)
+ - Limited Explosives (Not yet implemented)
+ - No HWPs (But the Gremlin drone instead)
+ - Bring home alien weapons and research them for progress (T1->T2->T3 Weapons)
+ - Ground deployment added with a small research tree for squad size
+ - "Killing Aliens destroys their Weapons" option is fixed
 
 Required: Presumably OXCE 6.4
 
@@ -57,6 +82,11 @@ Sniper Rifle Sprites by ???
 Plasma Sword Sprites by ???
 Shotgun Sprites by Dioxine, efrenespartano
 Minigun Light Sprites by Wicked Wirtz
+Training Rooms by Warboy1982
+Hitbox Fix by Reaver of Darkness
+Day & Night Indicators by Dioxine
+Status Indicator Sprites by Captain Corkscrew, Ivan Dogovich, et al.
+Commendations Mod by Shoes, Ivan Dogovich, hellrazor, jgatkinsn, Meridian
 
 Special Thanks to:
 Meridian for his fork, his merging of my PRs and his constant support
@@ -64,3 +94,9 @@ Yankes for his script engine which made most of this possible and of course his 
 
 All the great modders of the OXC/OXCE community who have a great spirit and
 create new gameplay experiences for us all to enjoy. You rock!
+
+
+
+backlog:
+weapon fragments:
+https://openxcom.org/forum/index.php/topic,6868.0.html

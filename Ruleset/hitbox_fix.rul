@@ -1,0 +1,115 @@
+units:
+  - type: STR_TANK_CANNON
+    standHeight: 20
+  - type: STR_TANK_ROCKET_LAUNCHER
+    standHeight: 20
+  - type: STR_TANK_LASER_CANNON
+    standHeight: 20
+  - type: STR_HOVERTANK_PLASMA
+    standHeight: 14
+  - type: STR_HOVERTANK_LAUNCHER
+    standHeight: 14
+  - type: STR_SECTOID_SOLDIER
+#    standHeight: 20
+  - type: STR_SECTOID_ENGINEER
+#    standHeight: 20
+  - type: STR_SECTOID_MEDIC
+#    standHeight: 20
+  - type: STR_SECTOID_NAVIGATOR
+#    standHeight: 20
+  - type: STR_SECTOID_LEADER
+#    standHeight: 20
+  - type: STR_SECTOID_COMMANDER
+#    standHeight: 20
+  - type: STR_CYBERDISC_TERRORIST
+    standHeight: 7
+    floatHeight: 8
+  - type: STR_FLOATER_SOLDIER
+    standHeight: 21
+  - type: STR_FLOATER_ENGINEER
+    standHeight: 21
+  - type: STR_FLOATER_MEDIC
+    standHeight: 21
+  - type: STR_FLOATER_NAVIGATOR
+    standHeight: 21
+  - type: STR_FLOATER_LEADER
+    standHeight: 21
+  - type: STR_FLOATER_COMMANDER
+    standHeight: 21
+  - type: STR_REAPER_TERRORIST
+    standHeight: 20
+  - type: STR_SNAKEMAN_SOLDIER
+    standHeight: 22
+  - type: STR_SNAKEMAN_ENGINEER
+    standHeight: 22
+  - type: STR_SNAKEMAN_NAVIGATOR
+    standHeight: 22
+  - type: STR_SNAKEMAN_LEADER
+    standHeight: 22
+  - type: STR_SNAKEMAN_COMMANDER
+    standHeight: 22
+  - type: STR_CHRYSSALID_TERRORIST
+    standHeight: 22
+  - type: STR_MUTON_SOLDIER
+    standHeight: 23
+  - type: STR_MUTON_NAVIGATOR
+    standHeight: 23
+  - type: STR_MUTON_ENGINEER
+    standHeight: 23
+  - type: STR_CELATID_TERRORIST
+    standHeight: 14
+  - type: STR_ETHEREAL_SOLDIER
+    standHeight: 23
+  - type: STR_ETHEREAL_LEADER
+    standHeight: 23
+  - type: STR_ETHEREAL_COMMANDER
+    standHeight: 23
+  - type: STR_ZOMBIE
+    standHeight: 20
+armors:
+  - type: STR_NONE_UC
+    loftempsSet: [ 4 ]
+  - type: STR_PERSONAL_ARMOR_UC
+    loftempsSet: [ 4 ]
+  - type: STR_POWER_SUIT_UC
+    loftempsSet: [ 4 ]
+  - type: STR_FLYING_SUIT_UC
+    loftempsSet: [ 4 ]
+  - type: CIVM_ARMOR
+    loftempsSet: [ 4 ]
+  - type: CIVF_ARMOR
+    loftempsSet: [ 4 ]
+  - type: SECTOID_ARMOR0
+    loftempsSet: [ 3 ]
+  - type: FLOATER_ARMOR0
+    loftempsSet: [ 4 ]
+  - type: FLOATER_ARMOR1
+    loftempsSet: [ 4 ]
+  - type: FLOATER_ARMOR2
+    loftempsSet: [ 4 ]
+  - type: SNAKEMAN_ARMOR0
+    loftempsSet: [ 5 ]
+  - type: SNAKEMAN_ARMOR1
+    loftempsSet: [ 5 ]
+  - type: SNAKEMAN_ARMOR2
+    loftempsSet: [ 5 ]
+  - type: CHRYSSALID_ARMOR
+    loftempsSet: [ 4 ]
+  - type: ZOMBIE_ARMOR
+    loftempsSet: [ 4 ]
+  - type: MUTON_ARMOR0
+    loftempsSet: [ 4 ]
+  - type: MUTON_ARMOR1
+    loftempsSet: [ 4 ]
+  - type: MUTON_ARMOR2
+    loftempsSet: [ 4 ]
+  - type: SILACOID_ARMOR
+    loftempsSet: [ 5 ]
+  - type: CELATID_ARMOR
+    loftempsSet: [ 4 ]
+  - type: ETHEREAL_ARMOR0
+    loftempsSet: [ 4 ]
+  - type: ETHEREAL_ARMOR1
+    loftempsSet: [ 4 ]
+  - type: ETHEREAL_ARMOR2
+    loftempsSet: [ 4 ]

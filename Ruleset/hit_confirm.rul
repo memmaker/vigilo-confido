@@ -1,0 +1,43 @@
+# default
+# unit.getRecolor new_pixel; add_burn_shade new_pixel burn shade; return new_pixel;
+
+extended:
+  tags:
+    BattleUnit:
+      LAST_HIT_FRAME: int
+      LAST_DAMAGE_FRAME: int
+  scripts:
+    hitUnit:
+      - offset: 99
+        code: |
+          var int temp;
+          battle_game.getAnimFrame temp;
+          unit.setTag Tag.LAST_HIT_FRAME temp;
+          return power part side;
+    damageUnit:
+      - offset: 99
+        code: |
+          var int temp;
+          if gt to_health 0;
+            battle_game.getAnimFrame temp;
+            battle_game.flashMessage "STR_DAMAGE_DEALT" to_health to_armor;
+            unit.setTag Tag.LAST_DAMAGE_FRAME temp;
+          end;
+          return;
+    recolorUnitSprite:
+      - offset: 99
+        code: |
+          var int temp;          
+          unit.getTag temp Tag.LAST_DAMAGE_FRAME;
+          if neq temp 0;
+            sub temp anim_frame;
+            if gt temp -3; #only 3 frames after hit have changed color
+              set_color new_pixel 2; #red color
+            end;
+          end;          
+          return new_pixel;
+
+extraStrings:
+  - type: en-US
+    strings: 
+      STR_DAMAGE_DEALT: "HP: {0} / Armor: {1}"

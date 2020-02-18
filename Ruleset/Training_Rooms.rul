@@ -1,0 +1,47 @@
+facilities:
+  - type: STR_TRAINING_ROOM
+    spriteShape: 1
+    spriteFacility: 56
+    buildCost: 600000
+    buildTime: 20
+    monthlyCost: 10000
+    trainingRooms: 16
+    mapName: XBASE_22
+terrains:
+  - name: XBASE
+    addOnly: true
+    mapDataSets:
+      - BLANKS
+      - XBASE1
+      - XBASE2
+      - XBASE3
+    mapBlocks:
+      - name: XBASE_22
+        width: 10
+        length: 10
+extraSprites:
+  - type: BASEBITS.PCK
+    files:
+      56: Resources/TrainingRoom/basebits_56_0.gif
+    width: 32
+    height: 40
+ufopaedia:
+  - id: STR_TRAINING_ROOM
+    type_id: 6
+    section: STR_BASE_FACILITIES
+    text: STR_TRAINING_ROOM_UFOPEDIA
+extraStrings:
+  - type: en-US
+    strings:
+      STR_TRAINING_ROOM: "Training Room"
+      STR_PHYSICAL_TRAINING: "Physical Training"
+      STR_TRAINING: "Training"
+      STR_REMAINING_TRAINING_FACILITY_CAPACITY: "REMAINING TRAINING CAPACITY> {ALT}{0}"
+      STR_TRAINING_ROOM_UFOPEDIA: "The training facility can improve the physical abilities of soldiers at the base and give them the necessary training to make best use of their skills.  Each facility can train up to 15 soldiers. Training is allocated at the end of each month, and skills improve every day. The training regiment cannot improve a soldier's reaction skills, and the more experienced a soldier is, the less likely they are to benefit from training."
+  - type: en-GB
+    strings:
+      STR_TRAINING_ROOM: "Training Room"
+      STR_PHYSICAL_TRAINING: "Physical Training"
+      STR_TRAINING: "Training"
+      STR_REMAINING_TRAINING_FACILITY_CAPACITY: "REMAINING TRAINING CAPACITY> {ALT}{0}"
+      STR_TRAINING_ROOM_UFOPEDIA: "The training facility can improve the physical abilities of soldiers at the base and give them the necessary training to make best use of their skills.  Each facility can train up to 15 soldiers. Training is allocated at the end of each month, and skills improve every day. The training regiment cannot improve a soldier's reaction skills, and the more experienced a soldier is, the less likely they are to benefit from training."

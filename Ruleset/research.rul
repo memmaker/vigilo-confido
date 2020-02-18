@@ -1,0 +1,137 @@
+research:
+## ARMORS ##
+  - delete: STR_PERSONAL_ARMOR # Kevlar
+  - name: STR_MOTION_SCANNER
+    cost: 70
+    points: 20
+  - name: STR_MEDI_KIT
+    cost: 90
+    points: 20
+  - name: STR_ALLOY_ARMOR # Predator Armor
+    cost: 180
+    points: 20
+    dependencies:
+      - STR_ALIEN_ALLOYS
+  - name: STR_POWER_SUIT # now HAZMAT suit
+    cost: 210
+    points: 20
+    dependencies:
+      - STR_ALLOY_ARMOR
+      - STR_UFO_POWER_SOURCE
+      - STR_MEDI_KIT
+  - name: STR_FLYING_SUIT # now W.A.R. Suit
+    cost: 210
+    points: 20
+    dependencies:
+      - STR_ALLOY_ARMOR
+      - STR_UFO_NAVIGATION
+      - STR_MOTION_SCANNER
+  - name: STR_XOPS_POWER_ARMOR # Warden Armor
+    cost: 550
+    points: 20
+    dependencies:
+      - STR_ALLOY_ARMOR
+      - STR_POWER_SUIT
+      - STR_FLYING_SUIT
+      - STR_ELERIUM_115
+  - name: STR_PSI_ARMOR # Psi Armor
+    cost: 550
+    points: 20
+    dependencies:
+      - STR_ALLOY_ARMOR
+      - STR_PSI_LAB
+## WEAPONS ##
+  - delete: STR_LASER_PISTOL
+  - delete: STR_LASER_RIFLE
+  - delete: STR_HEAVY_LASER
+  - delete: STR_PLASMA_PISTOL
+  - delete: STR_PLASMA_RIFLE
+  - delete: STR_HEAVY_PLASMA
+  - name: STR_LASER_PISTOL
+    cost: 150
+    points: 10
+    needItem: true
+    destroyItem: true
+  - name: STR_LASER_RIFLE
+    cost: 180
+    points: 10
+    needItem: true
+    destroyItem: true
+  - name: STR_LASER_WEAPONS
+    cost: 0 # because of error message..
+    points: 20
+    requires:
+      - STR_ALIEN_ALLOYS
+      - STR_LASER_PISTOL
+      - STR_LASER_RIFLE
+  - name: STR_LASER_CANNON
+    cost: 420
+    points: 15
+    dependencies:
+      - STR_LASER_WEAPONS
+  - name: STR_HEAVY_PLASMA
+    cost: 800
+    points: 30
+    needItem: true
+    destroyItem: true
+  - name: STR_HEAVY_PLASMA_CLIP
+    cost: 400
+    points: 7
+    needItem: true
+    destroyItem: true
+  - name: STR_PLASMA_RIFLE
+    cost: 700
+    points: 25
+    needItem: true
+    destroyItem: true
+  - name: STR_PLASMA_RIFLE_CLIP
+    cost: 400
+    points: 6
+    needItem: true
+    destroyItem: true
+  - name: STR_PLASMA_PISTOL
+    cost: 600
+    points: 20
+    needItem: true
+    destroyItem: true
+  - name: STR_PLASMA_PISTOL_CLIP
+    cost: 400
+    points: 5
+    needItem: true
+    destroyItem: true
+  - name: STR_PLASMA_WEAPONS
+    cost: 0
+    points: 40
+    requires: [STR_ELERIUM_115, STR_PLASMA_PISTOL, STR_PLASMA_RIFLE, STR_HEAVY_PLASMA]
+## VANILLA TIER CHANGES ##
+  - name: STR_ELERIUM_115
+    cost: 750
+    points: 60
+    needItem: true
+    destroyItem: true
+    dependencies:
+      - STR_LASER_WEAPONS
+      - STR_PSI_LAB
+  - name: STR_UFO_POWER_SOURCE
+    cost: 450
+    points: 30
+    needItem: true
+    destroyItem: true
+  - name: STR_UFO_NAVIGATION
+    cost: 450
+    points: 30
+    needItem: true
+    destroyItem: true
+  - name: STR_ALIEN_ALLOYS
+    cost: 400
+    points: 30
+    needItem: true
+    destroyItem: true
+    dependencies:
+      - STR_UFO_POWER_SOURCE
+      - STR_UFO_NAVIGATION
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_PLASMA_WEAPONS: Plasma Weapons

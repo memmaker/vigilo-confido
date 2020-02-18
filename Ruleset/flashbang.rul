@@ -1,0 +1,106 @@
+
+items:
+  - type: STR_FLASHBANG_GRENADE
+    tags:
+      INFLICT_DISORIENT: 80 # chance to inflict disorientation
+    size: 0.1
+    costBuy: 150
+    costSell: 120
+    weight: 3
+    bigSprite: 20
+    floorSprite: 20
+    power: 20
+    damageType: 9
+    battleType: 4
+    damageAlter:
+      FixRadius: 4
+
+extended:
+  tags:
+    RuleItem:
+      INFLICT_DISORIENT: int
+    BattleUnit:
+      DISORIENTED: int
+      ORIGINAL_FIRING_ACCURACY: int
+      ORIGINAL_THROWING_ACCURACY: int
+  scripts:
+    newTurnUnit:
+      - offset: 97
+        code: |
+          var int disoriented;
+          var int tu_half;
+          var int fir_half;
+          var int thr_half;
+          var int org_fir;
+          var int org_thr;
+
+          unit.getTag disoriented Tag.DISORIENTED;
+          unit.getTag org_fir Tag.ORIGINAL_FIRING_ACCURACY;
+          unit.getTag org_thr Tag.ORIGINAL_THROWING_ACCURACY;
+
+          if gt disoriented 0;
+            sub disoriented 1;
+            unit.setTag Tag.DISORIENTED disoriented;
+            unit.getTimeUnits tu_half;
+            unit.Stats.getFiring fir_half;
+            unit.Stats.getThrowing thr_half;
+            
+            div tu_half 2;
+            div fir_half 2;
+            div thr_half 2;
+
+            unit.setTimeUnits tu_half;
+            unit.Stats.setFiring fir_half;
+            unit.Stats.setThrowing thr_half;
+
+            debug_log unit "is still disoriented.";
+          else or gt org_fir 0 gt org_thr 0;
+            unit.Stats.setFiring org_fir;
+            unit.Stats.setThrowing org_thr;
+
+            unit.setTag Tag.ORIGINAL_FIRING_ACCURACY 0;
+            unit.setTag Tag.ORIGINAL_THROWING_ACCURACY 0;
+            
+            debug_log unit "is no longer disoriented.";
+          end;
+          return;
+    hitUnit:
+      - offset: 97
+        code: |
+          var int disorient;
+          var ptr RuleItem item_rule;
+          var int tu_half;
+          var int fir_half;
+          var int thr_half;
+
+          damaging_item.getRuleItem item_rule;
+          item_rule.getTag disorient Tag.INFLICT_DISORIENT;
+          
+          if gt disorient 0;
+            set power 0;
+            battle_game.randomChance disorient;
+            if gt disorient 0;
+              unit.setTag Tag.DISORIENTED 3;
+              unit.getTimeUnits tu_half;
+              unit.Stats.getFiring fir_half;
+              unit.Stats.getThrowing thr_half;
+
+              unit.setTag Tag.ORIGINAL_FIRING_ACCURACY fir_half;
+              unit.setTag Tag.ORIGINAL_THROWING_ACCURACY thr_half;
+              
+              div tu_half 2;
+              div fir_half 2;
+              div thr_half 2;
+
+              unit.setTimeUnits tu_half;
+              unit.Stats.setFiring fir_half;
+              unit.Stats.setThrowing thr_half;
+              debug_log unit "is disoriented now!";
+            end;
+          end;
+          return power part side;
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_FLASHBANG_GRENADE: Flashbang
