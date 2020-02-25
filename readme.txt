@@ -1,7 +1,32 @@
-Classes & Skills for OXCE
--------------------------
+X-Com with Classes
+------------------
 
-In-Game:
+A demake of the remakes.
+
+=== Goals and influences ===
+
+This started out as some experiments with Yankes scripts and soon got out of hand.
+I wanted to have skills, like in the remakes and wanted to see which ones I could do.
+Turns out I can do most of them.
+
+So this then turned into a more complex mod with a class and skill system at its core and
+with mechanical influences from the remakes (EU2012/XCOM2 and Phoenix Point).
+
+My goal is to extend the vanilla X-Com experience with some
+mechanics, items, units & lore references from the newer X-Com titles.
+
+While my focus is on the class & skill system, I also completely rebalanced the
+weapons and armors and some other gameplay elements.
+
+I also want to try to add only graphics which keep the X-Com style and which harmonize
+with the existing graphics. Each tier of items should be visually distinguishable.
+
+Many thanks to XOps and his Xeno Operations for many of the graphical enhancements.
+When looking through his modification of the game, I realized we shared many common goals
+and it felt like his work was made with the same vision as my mod.
+
+=== In-Game ===
+
 You can find information about the classes and their skills in the Ufopedia
 under the "MILITARY MOLDING" category.
 
@@ -14,28 +39,9 @@ Soldiers can choose to undergo the military molding process, gaining access to t
 Classed soldiers receive additional active and passive skills for each level of training.
 The active ones are activated with the special icon and the passive ones are always active.
 
-There are three training phases. The initial molding process is the first one.
-Second Phase (or Advanced Training) and Third Phase (or Elite Training) add additional skills respectively.
-
-Requirements for initial molding are: Minimum stat requirement reached for the class.
-
-RANGER
- tu: 50
- stamina: 50
- melee: 30
-
-GRENADIER
- stamina: 40
- health: 40
- strength: 30
- throwing: 30
-
-SNIPER
- reactions: 40
- firing: 60
-
-PSI OPERATIVE
- psiStrength: 65
+There are three training phases. The initial molding process is awarded to soldiers when they are
+hired by X-Com. The Second Phase (or Advanced Training) and Third Phase (or Elite Training)
+add additional skills respectively.
 
 Advanced level training requires: The second "Combat Experience" decoration.
 
@@ -60,11 +66,13 @@ T3 - Warden Armor   & Plasma Weapons
  - Laser weapons need recharging
  - Blaster Launcher not that readily available (Not yet implemented)
  - Limited Explosives (Not yet implemented)
- - No HWPs (But the Gremlin drone instead)
+ - No Tanks (But the Gremlin drone instead)
+ - Ground deployment
  - Bring home alien weapons and research them for progress (T1->T2->T3 Weapons)
  - Ground deployment added with a small research tree for squad size
  - "Killing Aliens destroys their Weapons" option is fixed
-
+ - Additional status effects & Visualisations
+ 
 Required: Presumably OXCE 6.4
 
 == CREDITS ==
@@ -75,7 +83,7 @@ Since I am only human, I might have made some mistakes. So if you find something
 credited falsely, has missing credits or have problems with the inclusion of your creation
 in this mod, then please contact me. (memmaker on the OpenXcom discord.)
 
-Laser & Plasma Weapon Sprites from Xeno Operations by J.P. Beaubien aka XOPs, recolored versions by The Martian and me
+Units, Armors, Laser & Plasma Weapon Sprites from Xeno Operations XOps, recolored versions by The Martian and me
 Alloy Sword Sprites by Civilian
 Grenade Launcher Sprites by Sporb
 Sniper Rifle Sprites by ???
@@ -87,6 +95,8 @@ Hitbox Fix by Reaver of Darkness
 Day & Night Indicators by Dioxine
 Status Indicator Sprites by Captain Corkscrew, Ivan Dogovich, et al.
 Commendations Mod by Shoes, Ivan Dogovich, hellrazor, jgatkinsn, Meridian
+Psi Amp Sprites by efrenespartano & Badfella
+New Grenade Sprites from XPiratez Mod by Dioxine (couldn't find the creator in credits)
 
 Special Thanks to:
 Meridian for his fork, his merging of my PRs and his constant support
@@ -95,8 +105,24 @@ Yankes for his script engine which made most of this possible and of course his 
 All the great modders of the OXC/OXCE community who have a great spirit and
 create new gameplay experiences for us all to enjoy. You rock!
 
+== License Information ==
 
+Commendations Mod uses Attribution-NonCommercial-ShareAlike 4.0 International which I have included as "license.md"
 
-backlog:
+== Known Issues / Backlog ==
+ - item categories
+ - how to stun aliens?
+ - gremlin affected by reaction accuracy adjustment
+ - Sound effects (Gremlin, Minigun)
+ - explain mechanics in Ufopedia (accuracy learning curve, skyranger replacement)
+ - terror missions seem to be missing?
+ - test firewalker enemy
+ - change sprite of combat experience commendation
+ - armor balancing
+ - complete skill tests
+ - Battle Focus costs for flying
+ - Units to add: Thin man, Flying Drone, Stun Lancer, Mechtoid, Berserker, Outsider, Muton Elite, Faceless, Turret
+
+ 
 weapon fragments:
 https://openxcom.org/forum/index.php/topic,6868.0.html

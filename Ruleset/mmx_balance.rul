@@ -8,6 +8,10 @@ constants:
 extended:
   tags:
     BattleUnit:
+      LAST_HIT_FRAME: int
+      LAST_DAMAGE_FRAME: int
+      LAST_DAMAGE_TYPE: int
+      ORIGINAL_ACCURACY: int
       CRIT_CHANCE_BASE: int       # never reset during a mission
       CRIT_CHANCE_THIS_TURN: int  # gets reset every turn
       CRIT_CHANCE_NEXT_HIT: int   # gets reset after a hit
@@ -30,24 +34,42 @@ extended:
             end;
           end;
           return current_visibility visibility_mode;
-    accuracyMultiplierBonusStats:
+    newTurnUnit:
       - offset: -1 # reaction accuracy adjuster
         code: |
+          var ptr RuleSoldier soldier_rule;
           var int adjustment;
           var int turn_side;
           var int old_bonus;
-
-          battle_game.getTurnSide turn_side;
+          var int org_acc;
+          var int new_acc;
 
           set adjustment 50; # 50% accuracy on reaction shots
 
-          if and eq turn_side 0 neq adjustment 100 eq soldier_rule null; # reaction shots of aliens
-            set old_bonus bonus;
-            set bonus adjustment;
-            debug_log "Reaction accuracy adjustment from" old_bonus "to" bonus;
-          end;
+          battle_game.getTurnSide turn_side;
+          unit.getRuleSoldier soldier_rule;
+          unit.getTag org_acc Tag.ORIGINAL_ACCURACY;
 
-          return bonus;
+
+          if eq soldier_rule null; # aliens only
+            if and eq turn_side 0 neq adjustment 100; # reaction shots
+              unit.Stats.getFiring org_acc;
+              unit.setTag Tag.ORIGINAL_ACCURACY org_acc;
+              set new_acc org_acc;
+              muldiv new_acc adjustment 100;
+              unit.Stats.setFiring new_acc;
+              debug_log "Reaction accuracy adjustment from" org_acc "to" new_acc "for" unit;
+            else and eq turn_side 1 gt org_acc 0;
+              unit.Stats.setFiring org_acc;
+              unit.setTag Tag.ORIGINAL_ACCURACY 0;
+              debug_log "Accuracy restored to" org_acc "for" unit;
+            end;
+          end;
+          return;
+      - offset: 98 # critical hits
+        code: |
+          unit.setTag Tag.CRIT_CHANCE_THIS_TURN 0; # reset crit chance this turn
+          return;
     createUnit:
       - offset: -1 # global accuracy adjuster
         code: |
@@ -90,13 +112,7 @@ extended:
             debug_log " - to" power;
           end;
           return power part side;
-    newTurnUnit:
       - offset: 98 # critical hits
-        code: |
-          unit.setTag Tag.CRIT_CHANCE_THIS_TURN 0; # reset crit chance this turn
-          return;
-    hitUnit:
-      - offset: 98 # critical hits (balancing for lower damageRange)
         code: |
           var ptr RuleItem item_rule;
           var int crit_chance;
@@ -105,8 +121,27 @@ extended:
           var int crit_factor;  # 100 = 100% additional damage of original power
           var int crit_damage;
           var int original_power;
+          
+          set crit_factor 40; # 40% additional damage as baseline for everybody on crit
+          
+          weapon_item.getRuleItem item_rule; # weapon
+          
+          item_rule.getTag unit_chance Tag.CRIT_CHANCE;
+          add crit_chance unit_chance;
 
-          weapon_item.getRuleItem item_rule;
+          item_rule.getTag unit_factor Tag.CRIT_DAMAGE;
+          add crit_factor unit_factor;
+
+          if neq damaging_item weapon_item;
+            # weapon has ammo
+            damaging_item.getRuleItem item_rule; # ammo
+
+            item_rule.getTag unit_chance Tag.CRIT_CHANCE;
+            add crit_chance unit_chance;
+
+            item_rule.getTag unit_factor Tag.CRIT_DAMAGE;
+            add crit_factor unit_factor;
+          end;
 
           attacker.getTag unit_chance Tag.CRIT_CHANCE_BASE;
           add crit_chance unit_chance;
@@ -118,32 +153,66 @@ extended:
           add crit_chance unit_chance;
           attacker.setTag Tag.CRIT_CHANCE_NEXT_HIT 0;
 
-          item_rule.getTag unit_chance Tag.CRIT_CHANCE;
-          add crit_chance unit_chance;
-
           attacker.getTag unit_factor Tag.CRIT_DAMAGE_NEXT_HIT;
           add crit_factor unit_factor;
           attacker.setTag Tag.CRIT_DAMAGE_NEXT_HIT 0;
-
-          item_rule.getTag unit_factor Tag.CRIT_DAMAGE;
-          add crit_factor unit_factor;
 
           if eq crit_chance 0;
             set crit_chance 5;  # base chance of 5% for everybody
           end;
 
-          if eq crit_factor 0;
-            set crit_factor 40; # 40% additional damage as baseline for everybody on crit
-          end;
-          
           debug_log "Crit check:" crit_chance crit_factor;
 
           battle_game.randomChance crit_chance; # will set crit_chance to 1 on success
           if gt crit_chance 0;
             set original_power power;
-            set crit_damage orig_power;
+            set crit_damage power;
             muldiv crit_damage crit_factor 100;
             add power crit_damage;
             debug_log "CRITICAL HIT (old/new):" original_power power;
+            unit.setTag Tag.LAST_DAMAGE_TYPE 1; # crititcal hit
+          else;
+            unit.setTag Tag.LAST_DAMAGE_TYPE 0;
           end;
           return power part side;
+    damageUnit:
+      - offset: 99
+        code: |
+          var int temp;
+          var int type;
+          if gt to_health 0;
+            unit.getTag type Tag.LAST_DAMAGE_TYPE;
+            battle_game.getAnimFrame temp;
+            if eq type 1;
+              battle_game.flashMessage "STR_CRIT_DAMAGE_DEALT" to_health to_armor;
+            else;
+              battle_game.flashMessage "STR_DAMAGE_DEALT" to_health to_armor;
+            end;
+            unit.setTag Tag.LAST_DAMAGE_FRAME temp;
+          end;
+          return;
+    recolorUnitSprite:
+      - offset: 99
+        code: |
+          var int temp;
+          var int type;
+          var int color;    
+          unit.getTag temp Tag.LAST_DAMAGE_FRAME;
+          unit.getTag type Tag.LAST_DAMAGE_TYPE;
+          if neq temp 0;
+            sub temp anim_frame;
+            if gt temp -5; #only 5 frames after hit have changed color
+              set color COLOR_X1_RED;
+              if eq type 1;
+                set color COLOR_X1_YELLOW;
+              end;
+              set_color new_pixel color;
+            end;
+          end;          
+          return new_pixel;
+
+extraStrings:
+  - type: en-US
+    strings: 
+      STR_DAMAGE_DEALT: "Hit: {0} - Shred: {1}"
+      STR_CRIT_DAMAGE_DEALT: "CRIT: {0} / Shred: {1}"

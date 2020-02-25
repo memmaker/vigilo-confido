@@ -1,0 +1,75 @@
+armors:
+  - type: FLOATER_ARMOR0
+    spriteInv: Inventory_FLOATER
+
+units:
+  - type: STR_FLOATER_SOLDIER
+    race: STR_FLOATER
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 50
+      stamina: 90
+      health: 35
+      bravery: 80
+      reactions: 50
+      firing: 50
+      throwing: 58
+      strength: 40
+      psiStrength: 35
+      psiSkill: 0
+      melee: 70
+    armor: FLOATER_ARMOR0
+    standHeight: 21
+    kneelHeight: 16
+    floatHeight: 2
+    value: 12
+    deathSound: 101
+    moveSound: 15
+    intelligence: 4
+    aggression: 2
+
+
+extraSprites:
+# floor
+  - type: FLOOROB.PCK
+    files:
+      48: Resources/Units/CyberFloater/Floater_Corpse.gif
+
+# bigobs
+  - type: BIGOBS.PCK
+    files:
+      52: Resources/Units/CyberFloater/FloaterInventoryCorpse.gif
+
+# inventory
+  - type: Inventory_FLOATER
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: Resources/Units/CyberFloater/floater.gif
+# battlescape
+  - type: FLOATER.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 520
+    files:
+      0: Resources/Units/CyberFloater/CyberFloater.gif
+# ufopedia
+  - type: UP018.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/Units/CyberFloater/FloaterUfopedia.gif
+  - type: UP019.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/Units/CyberFloater/FloaterBody.gif
+
+extraSounds:
+  - type: BATTLE.CAT
+    files:
+      101: Resources/Units/CyberFloater/Floater1.ogg

@@ -3,8 +3,8 @@ startingBase:
     STR_AVALANCHE_LAUNCHER: 1
     STR_AVALANCHE_MISSILES: 10
     STR_CANNON: 2
-    STR_CANNON_ROUNDS_X50: 1
-    STR_GRENADE: 5
+    STR_CANNON_ROUNDS_X50: 5
+    STR_GRENADE: 6
     STR_PISTOL: 2
     STR_PISTOL_CLIP: 8
     STR_RIFLE: 2
@@ -15,7 +15,7 @@ startingBase:
     STR_SNIPER_RIFLE: 2
     STR_SNIPER_RIFLE_CLIP: 8
     STR_HEAVY_CANNON: 2
-    STR_HEAVY_CANNON_CLIP: 4
+    STR_HEAVY_CANNON_CLIP: 8
 
 extraSounds:
   - type: BATTLE.CAT
@@ -67,6 +67,7 @@ extraSprites:
       250: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifleClip.png
       251: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifleClip2.png
       252: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifleClip3.png
+      253: Resources/UI/bigOb_Zap.png
 
   - type: FLOOROB.PCK
     files:
@@ -132,17 +133,12 @@ extraSprites:
       376: Resources/Weapons_Imported/PlasmaShotgun/PlasmaBlaster_HandOb.png
       384: Resources/Weapons_Imported/PlasmaSniper/PlasmaSniperRifle_HandOb.png
 
-
-# accuracy
-# Shotgun Polynomial:
-# 7.5874125874125919 +  2.3346930846930847 * x - 0.031818181818181815 * x^2 + 0.00014957264957264957 * x^3
-
-# Sniper Rifle Polynomial:
-# 0.46791443871015670 - 0.34969662735502127 * x + 0.18885535222037172 * x^2 - 0.0098668886285149925 * x^3 + 0.00020856114886579993 * x^4 - 0.0000019075226248566877 * x^5 +0.0000000063316993478169092 * x^6
-
-# Heavy Polynomial:
-# -0.51048951048949620 - 0.49969696969698230 * x + 0.12111888111888235 * x^2 - 0.0030247668997669354 * x^3 + 0.000030536130536130957 * x^4 - 0.00000010897435897436070 * x^5
-
+extended:
+  tags:
+    RuleItem:
+      CRIT_CHANCE: int                # base crit chance of item
+      CRIT_DAMAGE: int                # crit factor (percent of additional orig damage to health)
+      GUN_TYPE: int                   # 1 = Pistol, 2 = Rifle, 3 = Sniper Rifle, 4 = Shotgun, 5 = Heavy
 items:
   - delete: STR_HEAVY_CANNON
   - delete: STR_AUTO_CANNON
@@ -152,6 +148,7 @@ items:
   - delete: STR_AC_AP_AMMO
   - delete: STR_AC_HE_AMMO
   - delete: STR_AC_I_AMMO
+  - delete: STR_HIGH_EXPLOSIVE
   - type: STR_GRENADE
     costBuy: 900
     costSell: 840
@@ -184,6 +181,8 @@ items:
     power: 30
     clipSize: 12
   - type: STR_RIFLE
+    tags:
+      GUN_TYPE: 2
     tuSnap: 40
     tuAimed: 50
     tuAuto: 0
@@ -270,6 +269,8 @@ items:
     skillApplied: true
     attraction: 8
   - type: STR_SHOTGUN
+    tags:
+      CRIT_CHANCE: 20
     listOrder: 2250
     size: 0.2
     costBuy: 2200
@@ -324,6 +325,9 @@ items:
     shotgunPellets: 5
     bulletSpeed: 2
   - type: STR_SNIPER_RIFLE
+    tags:
+      CRIT_CHANCE: 15
+      GUN_TYPE: 3
     listOrder: 2300
     size: 0.3
     costBuy: 12000
@@ -340,7 +344,7 @@ items:
     accuracySnap: 100
     accuracyAimed: 110
     accuracyMultiplier: # Sniper Accuracy Learning Curve
-      firing: [0.16269864896027597, 0.014605872713457558, -0.000061257971474688427]
+      firing: [-0.043007774148798861, 0.020709201188889356, -0.000085994288933790525]
     tuSnap: 80
     tuAimed: 0
     tuAuto: 0
@@ -381,7 +385,7 @@ items:
     bigSprite: 203
     floorSprite: 203
     handSprite: 280
-    bulletSprite: 4
+    bulletSprite: 2
     fireSound: 300
     compatibleAmmo:
       - STR_HEAVY_CANNON_CLIP
@@ -399,6 +403,8 @@ items:
     tuAimed: 0
     confSnap:
       shots: 5
+    autoShots: 10
+    sprayWaypoints: 2
     battleType: 1
     twoHanded: true
     blockBothHands: true
@@ -419,14 +425,15 @@ items:
     clipSize: 50
     damageAlter:
       ArmorEffectiveness: 0.2
-      ToArmorPre: 0.1
+      ToArmorPre: 0.6
+      ToArmor: 0
     battleType: 2
     invWidth: 2
     invHeight: 2
   - type: STR_GRENADE_LAUNCHER
     listOrder: 2500
     size: 0.2
-    costBuy: 12000
+    costBuy: 0
     costSell: 8600
     weight: 8
     bigSprite: 212
@@ -448,6 +455,8 @@ items:
   - type: STR_XCOM_LASER_PISTOL
     requires:
       - STR_LASER_WEAPONS
+    tags:
+      CRIT_CHANCE: 10
     listOrder: 3500
     size: 0.1
     costSell: 11000
@@ -479,6 +488,9 @@ items:
   - type: STR_XCOM_LASER_RIFLE
     requires:
       - STR_LASER_WEAPONS
+    tags:
+      CRIT_CHANCE: 10
+      GUN_TYPE: 2
     listOrder: 3600
     size: 0.2
     costSell: 16900
@@ -515,6 +527,8 @@ items:
     invWidth: 1
     invHeight: 3
   - type: STR_LASER_SHOTGUN
+    tags:
+      CRIT_CHANCE: 20
     requires:
       - STR_LASER_WEAPONS
     listOrder: 3630
@@ -560,6 +574,9 @@ items:
   - type: STR_LASER_SNIPER
     requires:
       - STR_LASER_WEAPONS
+    tags:
+      CRIT_CHANCE: 15
+      GUN_TYPE: 3
     listOrder: 3690
     size: 0.2
     costSell: 36900
@@ -583,8 +600,8 @@ items:
     accuracySnap: 100
     accuracyAimed: 110
     accuracyMultiplier: # Sniper Accuracy Learning Curve
-      firing: [0.16269864896027597, 0.014605872713457558, -0.000061257971474688427]
-    tuSnap: 85
+      firing: [-0.043007774148798861, 0.020709201188889356, -0.000085994288933790525]
+    tuSnap: 80
     tuAimed: 0
     tuAuto: 0
     confAuto:
@@ -625,10 +642,13 @@ items:
     tuAuto: 0
     confSnap:
       shots: 5
+    autoShots: 10
+    sprayWaypoints: 2
     clipSize: -1
     damageAlter:
       ArmorEffectiveness: 0.2
-      ToArmorPre: 0.1
+      ToArmorPre: 0.6
+      ToArmor: 0
     battleType: 1
     twoHanded: true
     blockBothHands: true
@@ -682,6 +702,8 @@ items:
     battleType: 2
     recoveryPoints: 1
   - type: STR_XCOM_PLASMA_RIFLE
+    tags:
+      GUN_TYPE: 2
     requires:
       - STR_PLASMA_WEAPONS
     listOrder: 5200
@@ -773,6 +795,8 @@ items:
   - type: STR_PLASMA_SHOTGUN_AMMO
     requires:
       - STR_PLASMA_WEAPONS
+    tags:
+      CRIT_CHANCE: 20
     listOrder: 5301
     size: 0.1
     costBuy: 0
@@ -794,6 +818,9 @@ items:
   - type: STR_PLASMA_SNIPER_RIFLE
     requires:
       - STR_PLASMA_WEAPONS
+    tags:
+      CRIT_CHANCE: 15
+      GUN_TYPE: 3
     listOrder: 5400
     size: 0.3
     costBuy: 0
@@ -815,8 +842,8 @@ items:
     accuracySnap: 100
     accuracyAimed: 110
     accuracyMultiplier: # Sniper Accuracy Learning Curve
-      firing: [0.16269864896027597, 0.014605872713457558, -0.000061257971474688427]
-    tuSnap: 85
+      firing: [-0.043007774148798861, 0.020709201188889356, -0.000085994288933790525]
+    tuSnap: 80
     tuAimed: 0
     tuAuto: 0
     confAuto:
@@ -872,6 +899,8 @@ items:
     tuAimed: 0
     confSnap:
       shots: 5
+    autoShots: 10
+    sprayWaypoints: 2
     battleType: 1
     twoHanded: true
     blockBothHands: true
@@ -896,7 +925,8 @@ items:
     clipSize: 35
     damageAlter:
       ArmorEffectiveness: 0.2
-      ToArmorPre: 0.2
+      ToArmorPre: 0.6
+      ToArmor: 0
     battleType: 2
     recoveryPoints: 1
     invWidth: 2

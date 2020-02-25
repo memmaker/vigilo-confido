@@ -58,9 +58,9 @@ research:
     needItem: true
     destroyItem: true
   - name: STR_LASER_WEAPONS
-    cost: 0 # because of error message..
+    cost: 250
     points: 20
-    requires:
+    dependencies:
       - STR_ALIEN_ALLOYS
       - STR_LASER_PISTOL
       - STR_LASER_RIFLE
@@ -102,7 +102,7 @@ research:
   - name: STR_PLASMA_WEAPONS
     cost: 0
     points: 40
-    requires: [STR_ELERIUM_115, STR_PLASMA_PISTOL, STR_PLASMA_RIFLE, STR_HEAVY_PLASMA]
+    dependencies: [STR_ELERIUM_115, STR_PLASMA_PISTOL, STR_PLASMA_RIFLE, STR_HEAVY_PLASMA]
 ## VANILLA TIER CHANGES ##
   - name: STR_ELERIUM_115
     cost: 750

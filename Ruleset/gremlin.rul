@@ -1,25 +1,26 @@
 armors:
-  - type: GREMLIN_ARMOR
+  - type: STR_GREMLIN_ARMOR
     spriteSheet: GREMLIN3.PCK
     deathFrames: 5
     allowInv: false
     corpseBattle:
       - STR_GREMLIN_CORPSE
-    frontArmor: 4
-    sideArmor: 3
-    rearArmor: 3
-    underArmor: 3
+    frontArmor: 34
+    sideArmor: 33
+    rearArmor: 33
+    underArmor: 33
     drawingRoutine: 4
+    movementType: 1
     size: 1
     damageModifier: &DRONE_DAMAGE_MODIFIER
       - 1.0
       - 1.0
       - 0.4
       - 0.8
-      - 1.0
-      - 1.0
+      - 0.8
+      - 0.8
       - 0.0
-      - 1.0
+      - 0.2
       - 1.4
       - 0.0
     loftempsSet: [ 3 ]
@@ -28,18 +29,19 @@ units:
   - type: STR_GREMLIN
     race: STR_DRONE_SCOUT
     stats:
-      tu: 70
+      tu: 100
       stamina: 110
-      health: 10
+      health: 100
       bravery: 110
-      reactions: 60
-      firing: 100
-      throwing: 0
+      reactions: 30
+      firing: 90
+      throwing: 90
       strength: 50
       psiStrength: 120
       psiSkill: 0
-      melee: 0
-    armor: GREMLIN_ARMOR
+      melee: 50
+      mana: 12
+    armor: STR_GREMLIN_ARMOR
     standHeight: 11
     kneelHeight: 16
     floatHeight: 12
@@ -47,27 +49,61 @@ units:
     deathSound: 23
     moveSound: 14
 
+manufacture:
+  - delete: STR_HOVERTANK_LAUNCHER
+  - delete: STR_HOVERTANK_PLASMA
+  - delete: STR_HWP_FUSION_BOMB
+  - delete: STR_TANK_LASER_CANNON
+
 items:
+  - delete: STR_HOVERTANK_LAUNCHER
+  - delete: STR_HOVERTANK_PLASMA
+  - delete: STR_HWP_FUSION_BOMB
+  - delete: STR_TANK_CANNON
+  - delete: STR_HWP_CANNON_SHELLS
+  - delete: STR_TANK_ROCKET_LAUNCHER
+  - delete: STR_HWP_ROCKETS
+  - delete: STR_TANK_LASER_CANNON
+
   - type: STR_GREMLIN
     size: 6
     costSell: 3800
-    costBuy: 10000
+    costBuy: 250000
     transferTime: 96
     weight: 1
-#    bigSprite: 502
+    bigSprite: 253
     floorSprite: 0
     handSprite: 0
-    bulletSprite: 4
     fireSound: 12
-    accuracySnap: 50
-    accuracyAimed: 85
-    tuSnap: 33
-    tuAimed: 75
-    battleType: 1
+    tuSnap: 0
+    tuAimed: 0
+    tuMelee: 100
+    meleeHitSound: 109
+    meleeAnimation: 58
+    power: 10
+    damageType: 14
+    damageAlter:
+      RandomType: 1
+      FixRadius: 0
+      IgnoreDirection: true
+      ArmorEffectiveness: 0.2
+    accuracyMelee: 100
+    meleeMultiplier:
+      melee: 0.7
+      reactions: 0.3
+    confMelee:
+      name: STR_GREMLIN_ZAP
+    costMelee:
+      time: 30
+      mana: 4
+    flatMelee:
+      time: false
+      mana: true
+    battleType: 3
     fixedWeapon: true
     invWidth: 2
     invHeight: 3
-    turretType: 0
+    turretType: -1
     clipSize: -1
     listOrder: 1390
 
@@ -96,6 +132,13 @@ extraSprites:
     height: 200
     files:
       0: Resources/UFOPedia/xcom2_gremlin.png
+  - type: HIT.PCK
+    height: 40
+    width: 128
+    subX: 32
+    subY: 40
+    files:
+      58: Resources/Animation/spark_hit.png
 
 ufopaedia:
   - id: STR_GREMLIN
@@ -107,5 +150,6 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
-      STR_GREMLIN: GREMLIN Mk. 1
+      STR_GREMLIN: GREMLIN Drone
+      STR_GREMLIN_ZAP: Zap
       STR_UFOPEDIA_GREMLIN: "The GREMLIN Drone is deployed by the specialist class and augments our troops in the field.  It allows for scouting and the deployment of medical supplies, as well as tactical support."

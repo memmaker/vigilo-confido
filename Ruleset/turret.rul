@@ -1,0 +1,133 @@
+# stolen from x-piratez
+extended:
+  tags:
+    RuleArmor:
+      MECHANICAL: int
+
+items:
+  - type: STR_SPAWN_XTURRET_CANNON
+    spawnUnit: STR_XTURRET_CANNON
+    spawnUnitFaction: 1
+    battleType: 4
+    floorSprite: 800
+    invWidth: 0
+    invHeight: 0
+    armor: 250
+    recover: false
+    hiddenOnMinimap: true
+  - type: AUX_XTURRET_CANNON_WEAPON
+    weight: 500
+    bigSprite: 43
+    bulletSprite: 4
+    fireSound: 2
+    hitAnimation: 8
+    clipSize: -1
+    power: 100
+    damageType: 3
+    damageAlter:
+      IgnoreOverKill: false
+      IgnoreSelfDestruct: false
+      ArmorEffectiveness: 0.75
+      ToStun: 1.0
+    blastRadius: 4
+    accuracySnap: 75
+    tuSnap: 50
+    battleType: 1
+    fixedWeapon: true
+    bulletSpeed: 80
+    invWidth: 2
+    invHeight: 3
+    snapRange: 25
+    dropoff: 1
+    recover: false
+
+units:
+  - type: STR_XTURRET_CANNON
+    race: STR_WAR_MACHINES
+    rank: STR_LIVE_TERRORIST
+    stats: &SECTION_XTURRET_STATS
+      tu: 9
+      stamina: 1
+      health: 200
+      bravery: 110
+      reactions: 15
+      firing: 60
+      throwing: 0
+      strength: 100
+      psiStrength: 0
+      psiSkill: 0
+      melee: 0
+      mana: 0
+    armor: XTURRET_CANNON_ARMOR
+    standHeight: 18
+    kneelHeight: 18
+    value: 10
+    intelligence: 0
+    aggression: 0
+    spotter: 1
+    energyRecovery: 20
+    deathSound: 23
+    livingWeapon: true
+    capturable: false
+
+armors:
+  - type: XTURRET_CANNON_ARMOR
+    tags:
+      MECHANICAL: 1
+    spriteSheet: XTURRET.PCK
+    spriteInv: XTurretInventoryImage
+    allowInv: false
+    corpseBattle: &SECTION_XTURRET_CORPSES
+      - TANK_CORPSE_1
+      - TANK_CORPSE_2
+      - TANK_CORPSE_3
+      - TANK_CORPSE_4
+    corpseGeo: STR_XTURRET_CANNON_CORPSE
+    weight: -500
+    visibilityAtDark: 16
+    heatVision: 50
+    frontArmor: 70
+    sideArmor: 70
+    rearArmor: 70
+    underArmor: 35
+    drawingRoutine: 5
+    size: 2
+    overKill: 2.0
+    psiDefence:
+      flatHundred: 2.0
+    damageModifier: &SECTION_XTURRET_RESISTANCES
+      - 0.0
+      - 0.75
+      - 0.25
+      - 0.35
+      - 0.75
+      - 0.75
+      - 0.0
+      - 0.6
+      - 0.5
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.75
+      - 0.75
+      - 1.5
+      - 0.0
+      - 0.6
+      - 0.0
+      - 0.0
+    builtInWeapons:
+      - AUX_XTURRET_CANNON_WEAPON
+    loftempsSet: [ 92, 89, 90, 91 ]
+
+extraSprites:
+  - type: XTURRET.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 840
+    files:
+      0: Resources/Units/Turret/XTurret_01.png
+  - type: XTurretInventoryImage
+    singleImage: true
+    files:
+      0: Resources/Units/Turret/XTurret_01_Inv.png

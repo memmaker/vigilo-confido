@@ -1,0 +1,599 @@
+
+items:
+  - type: STR_FLASHBANG_GRENADE
+    tags:
+      INFLICT_EFFECT: 1 # disorient
+      INFLICT_CHANCE: 80
+      EFFECT_POWER: 2
+    size: 0.1
+    costBuy: 150
+    costSell: 120
+    weight: 3
+    bigSprite: 20
+    floorSprite: 20
+    power: 40
+    hidePower: true
+    damageType: 6
+    battleType: 4
+    damageAlter:
+      SmokeThreshold: 1000
+      ResistType: 6
+      RandomType: 3
+      IgnorePainImmunity: true
+      ArmorEffectiveness: 0
+      ToStun: 0.1
+      ToMorale: 0.1
+      ToHealth: 0
+      ToArmor: 0
+      ToTile: 0
+      ToItem: 0
+      ToWound: 0
+      FixRadius: 4
+  - type: STR_ACID_GRENADE
+    tags:
+      INFLICT_EFFECT: 2 # acid
+      INFLICT_CHANCE: 80
+      EFFECT_POWER: 5
+    size: 0.1
+    costBuy: 150
+    costSell: 120
+    weight: 3
+    bigSprite: 800
+    floorSprite: 800
+    handSprite: 800
+    power: 40
+    hidePower: true
+    damageType: 8
+    battleType: 4
+    damageAlter:
+      SmokeThreshold: 1000
+      ResistType: 8
+      RandomType: 3
+      IgnorePainImmunity: true
+      ArmorEffectiveness: 0
+      ToStun: 0.1
+      ToMorale: 0.1
+      ToHealth: 0
+      ToArmor: 0
+      ToTile: 0
+      ToItem: 0
+      ToWound: 0
+      FixRadius: 4
+  - type: STR_FREEZE_GRENADE
+    tags:
+      INFLICT_EFFECT: 3 # freeze
+      INFLICT_CHANCE: 80
+      EFFECT_POWER: 2
+    size: 0.1
+    costBuy: 150
+    costSell: 120
+    weight: 3
+    bigSprite: 801
+    floorSprite: 801
+    handSprite: 808
+    power: 40
+    hidePower: true
+    damageType: 13
+    battleType: 4
+    damageAlter:
+      SmokeThreshold: 1000
+      ResistType: 13
+      RandomType: 3
+      IgnorePainImmunity: true
+      ArmorEffectiveness: 0
+      ToStun: 0.1
+      ToMorale: 0.1
+      ToHealth: 0
+      ToArmor: 0
+      ToTile: 0
+      ToItem: 0
+      ToWound: 0
+      FixRadius: 4
+  - type: STR_GAS_GRENADE
+    tags:
+      INFLICT_EFFECT: 4 # poison
+      INFLICT_CHANCE: 80
+      EFFECT_POWER: 20
+    size: 0.1
+    costBuy: 150
+    costSell: 120
+    weight: 3
+    bigSprite: 802
+    floorSprite: 802
+    handSprite: 816
+    power: 40
+    hidePower: true
+    damageType: 12
+    battleType: 4
+    damageAlter:
+      SmokeThreshold: 1000
+      ResistType: 12
+      RandomType: 3
+      IgnorePainImmunity: true
+      ArmorEffectiveness: 0
+      ToStun: 0.1
+      ToMorale: 0.1
+      ToHealth: 0
+      ToArmor: 0
+      ToTile: 0
+      ToItem: 0
+      ToWound: 0
+      FixRadius: 4
+  - type: STR_EMP_GRENADE # only affects mechanical units, lowers hacking defense, may cause shutdown
+    tags:
+      INFLICT_EFFECT: 5 # shutdown
+      INFLICT_CHANCE: 80
+      EFFECT_POWER: 2
+    size: 0.1
+    costBuy: 150
+    costSell: 120
+    weight: 3
+    bigSprite: 20
+    floorSprite: 20
+    power: 40
+    hidePower: true
+    damageType: 14
+    battleType: 4
+    damageAlter:
+      SmokeThreshold: 1000
+      ResistType: 14
+      RandomType: 3
+      IgnorePainImmunity: true
+      ArmorEffectiveness: 0
+      ToStun: 0.1
+      ToMorale: 0.1
+      ToHealth: 0
+      ToArmor: 0
+      ToTile: 0
+      ToItem: 0
+      ToWound: 0
+      FixRadius: 4
+
+extended:
+  tags:
+    RuleItem:
+      INFLICT_EFFECT: int
+      INFLICT_CHANCE: int
+      EFFECT_POWER: int
+    BattleUnit:
+      EFFECT_TYPE: int
+      EFFECT_STATE: int
+#      STUNNED: int # ??? make it so, that stun damage also reduces TU
+#      BURNING: int # ??? make it so, that burning disables weapon usage
+      ORIGINAL_FIRING_ACCURACY: int
+      ORIGINAL_THROWING_ACCURACY: int
+      VIS_EFFECT: int
+      VIS_COLOR: int
+      VIS_DELAY: int
+      VIS_REPLACE_COLOR: int
+      VIS_REGION: int  # 0 = Affect all, 1 = Only Armor, 2 = Only Face, 3 = Only item
+  scripts:
+    newTurnUnit:
+      - offset: 97    # handling new turns for status effects
+        code: |
+          var int effect_type;
+          var int effect_state;
+          var int tu_half;
+          var int fir_half;
+          var int thr_half;
+          var int org_fir;
+          var int org_thr;
+          var int faction;
+          var int temp;
+
+          unit.getFaction faction;
+
+          if eq faction side;
+            unit.getTag effect_type Tag.EFFECT_TYPE;
+            unit.getTag effect_state Tag.EFFECT_STATE;
+            
+            if eq effect_type 1;   # disoriented
+              sub effect_state 1;
+              unit.setTag Tag.EFFECT_STATE effect_state;
+
+              if eq effect_state 0;
+                unit.getTag org_fir Tag.ORIGINAL_FIRING_ACCURACY;
+                unit.getTag org_thr Tag.ORIGINAL_THROWING_ACCURACY;
+
+                unit.Stats.setFiring org_fir;
+                unit.Stats.setThrowing org_thr;
+
+                unit.setTag Tag.ORIGINAL_FIRING_ACCURACY 0;
+                unit.setTag Tag.ORIGINAL_THROWING_ACCURACY 0;
+                
+                debug_log unit "is no longer disoriented.";
+                unit.setTag Tag.VIS_EFFECT 0;
+              else;
+                unit.getTimeUnits tu_half;
+                div tu_half 2;
+                unit.setTimeUnits tu_half;
+                debug_log unit "is still disoriented.";
+              end;
+            else eq effect_type 2;  # acid burn
+              sub effect_state 1;
+              unit.setTag Tag.EFFECT_STATE effect_state;
+              if eq effect_state 0;
+                unit.setTag Tag.VIS_EFFECT 0;
+              end;
+            else eq effect_type 3;  # frozen
+              sub effect_state 1;
+              unit.setTag Tag.EFFECT_STATE effect_state;
+              if eq effect_state 0;
+                unit.setTag Tag.VIS_EFFECT 0;
+              else;
+                debug_log unit "is still frozen.";
+                unit.setTimeUnits 0;
+              end;
+            else eq effect_type 4;  # poisoned
+              sub effect_state 5;
+              unit.setTag Tag.EFFECT_STATE effect_state;
+              if le effect_state 0;
+                unit.setTag Tag.VIS_EFFECT 0;
+              else;
+                debug_log unit "is still poisoned.";
+                unit.getHealth temp;
+                sub temp effect_state;
+                unit.setHealth temp;
+              end;
+            else eq effect_type 5;  # shutdown
+              sub effect_state 1;
+              unit.setTag Tag.EFFECT_STATE effect_state;
+              if eq effect_state 0;
+                unit.setTag Tag.VIS_EFFECT 0;
+              else;
+                debug_log unit "is still shutdown.";
+                unit.setTimeUnits 0;
+              end;
+            end;
+          end;
+          return;
+    damageUnit:
+      - offset: 97
+        code: |
+          var int effect_type;
+          unit.getTag effect_type Tag.EFFECT_TYPE;
+          if eq effect_type 2;  # unit has acid burn
+            set to_armor to_health;
+          end;
+          return;
+    hitUnit:
+      - offset: 97     # Inflicting status effects
+        code: |
+          var int effect_type;
+          var ptr RuleItem item_rule;
+          var int tu_half;
+          var int fir_half;
+          var int thr_half;
+          var int chance;
+          var int temp;
+          var int effect_power;
+
+          damaging_item.getRuleItem item_rule;
+          item_rule.getTag effect_type Tag.INFLICT_EFFECT;
+          item_rule.getTag chance Tag.INFLICT_CHANCE;
+          item_rule.getTag effect_power Tag.EFFECT_POWER;
+          
+          if and gt effect_type 0 gt chance 0;
+            set power 0;
+            battle_game.randomChance chance;
+            if gt chance 0;
+              debug_log "Unit hit by status effect:" unit;
+              unit.setTag Tag.EFFECT_TYPE effect_type;
+              unit.setTag Tag.EFFECT_STATE effect_power;
+              if eq effect_type 1;
+                unit.getTimeUnits tu_half;
+                unit.Stats.getFiring fir_half;
+                unit.Stats.getThrowing thr_half;
+
+                unit.setTag Tag.ORIGINAL_FIRING_ACCURACY fir_half;
+                unit.setTag Tag.ORIGINAL_THROWING_ACCURACY thr_half;
+                
+                div tu_half 2;
+                div fir_half 2;
+                div thr_half 2;
+
+                unit.setTimeUnits tu_half;
+                unit.Stats.setFiring fir_half;
+                unit.Stats.setThrowing thr_half;
+                debug_log unit "is disoriented now!";
+                unit.setTag Tag.VIS_EFFECT 4;  # interval flashing
+                unit.setTag Tag.VIS_COLOR COLOR_X1_NULL;
+                unit.setTag Tag.VIS_DELAY 45; # in frames
+              else eq effect_type 2;
+                debug_log unit "has acid burn now!";
+                unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
+                unit.setTag Tag.VIS_COLOR COLOR_X1_GREEN1;
+                battle_game.randomRange temp 1 100;
+                unit.setTag Tag.VIS_DELAY temp; # prng offset
+                unit.setTag Tag.VIS_REGION 1;
+              else eq effect_type 3;
+                debug_log unit "has frozen now!";
+                unit.setTimeUnits 0;
+                unit.setEnergy 0;
+                unit.setTag Tag.VIS_EFFECT 1;  # simple complete recolor
+                unit.setTag Tag.VIS_COLOR COLOR_X1_BLUE1;
+              else eq effect_type 4;
+                set power effect_power;
+                debug_log unit "has poisoned now!";
+                unit.setTag Tag.VIS_EFFECT 4;  # interval flashing
+                unit.setTag Tag.VIS_COLOR COLOR_X1_PURPLE1;
+                unit.setTag Tag.VIS_DELAY 30; # in frames
+              else eq effect_type 5;
+                debug_log unit "has shutdown now!";
+                unit.setTimeUnits 0;
+                unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
+                unit.setTag Tag.VIS_COLOR COLOR_X1_BLUE2;
+                battle_game.randomRange temp 1 100;
+                unit.setTag Tag.VIS_DELAY temp; # prng offset
+                unit.setTag Tag.VIS_REGION 1;
+              end;
+            end;
+          end;
+          return power part side;
+    recolorUnitSprite:
+      - offset: 97   # for general visualisation
+        code: |
+          var int effect_type;
+          var int pixel_shade;
+          var int pixel_color;
+          
+          var int hair_color;
+          var int face_color;
+          var int look;
+
+          var int region;
+          var int replace_color;
+          var int color;
+          var int delay;
+          var int temp;
+          var int temp2;
+          var int id;
+          var ptr RuleSoldier soldier_rule;
+
+          unit.getRecolor new_pixel;
+          add_burn_shade new_pixel burn shade;
+
+          unit.getTag effect_type Tag.VIS_EFFECT;
+          unit.getTag region Tag.VIS_REGION;
+
+          if or eq effect_type 0 eq region 3;
+            return new_pixel; # quick exit
+          end;
+
+          unit.getTag color Tag.VIS_COLOR;
+          unit.getTag replace_color Tag.VIS_REPLACE_COLOR;
+          unit.getTag delay Tag.VIS_DELAY;
+          unit.getTag region Tag.VIS_REGION;
+
+          get_color pixel_color new_pixel;
+          get_shade pixel_shade new_pixel;
+
+          unit.getRuleSoldier soldier_rule;
+
+          if neq soldier_rule null; # only applies to soldiers
+            unit.getLook look;
+
+            if eq look 0;   # blonde
+              set face_color COLOR_X1_BROWN0;
+              set hair_color COLOR_X1_BROWN1;
+            else eq look 1; # brown hair
+              set face_color COLOR_X1_BROWN0;
+              set hair_color COLOR_X1_BROWN2;
+            else eq look 2; # oriental
+              set face_color COLOR_X1_BROWN2;
+              set hair_color COLOR_X1_SPECIAL;
+            else eq look 3; # african
+              set face_color COLOR_X1_BROWN2;
+              set hair_color COLOR_X1_BROWN2;
+            end;
+
+            if eq region 1;   # only armor
+              if or eq pixel_color hair_color eq pixel_color face_color;
+                return new_pixel;
+              end;
+            else eq region 2; # only face
+              if neq pixel_color face_color;
+                return new_pixel;
+              end;
+            end;
+          else;
+            if eq region 1;   # only armor
+              if eq blit_part blit_torso;
+                return new_pixel;
+              end;
+            else eq region 2; # only face
+              if neq blit_part blit_torso;
+                return new_pixel;
+              end;
+            end;
+          end;
+
+          if eq delay 0;
+            set delay 15;
+          end;
+          
+          unit.getId id;
+          
+          if and eq effect_type 1;
+            set_color new_pixel color;
+          else eq effect_type 2;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
+            mul temp -1; # => temp = -15 - 0
+            add temp 8;  # => temp = -7 - +8
+            add_shade new_pixel temp;
+          else and eq effect_type 3 eq pixel_color replace_color;
+            set_color new_pixel color;
+          else and eq effect_type 4;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
+            mul temp -1; # => temp = -15 - 0
+            add temp 4;  # => temp = -7 - +8
+            if lt temp 0;
+              set_color new_pixel color;
+              add_shade new_pixel temp;
+            end;
+          else eq effect_type 5;
+            set temp anim_frame;
+            mod temp delay;
+            if lt temp 10; #only 3 frames after the interval specified point in time
+              set_color new_pixel color; #flash color
+            end;
+          else eq effect_type 6;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15;
+            add temp delay;
+            set temp2 anim_frame;
+            add temp2 new_pixel;
+            add temp2 id;
+
+            shl temp2 13;
+            bit_xor temp temp2;
+            set temp2 temp;
+
+            shr temp2 7;
+            bit_xor temp temp2;
+            set temp2 temp;
+
+            shl temp2 17;
+            bit_xor temp temp2;
+
+            mod temp 100;
+
+            if lt temp 10;
+              set_color new_pixel color; #flash color
+            end;
+          end;
+          return new_pixel;
+    recolorItemSprite:
+      - offset: 97   # for item visualisation
+        code: |
+          var ptr BattleUnit owner;
+          var int effect_type;
+          var int pixel_shade;
+          var int pixel_color;
+          
+          var int hair_color;
+          var int face_color;
+          var int look;
+
+          var int region;
+          var int replace_color;
+          var int color;
+          var int delay;
+          var int temp;
+          var int temp2;
+          var int id;
+          var ptr RuleSoldier soldier_rule;
+
+          item.getOwner owner;
+
+          add_shade new_pixel pixel_shade;
+          
+          owner.getTag effect_type Tag.VIS_EFFECT;
+
+          if eq effect_type 0;
+            return new_pixel; # quick exit
+          end;
+
+          owner.getTag color Tag.VIS_COLOR;
+          owner.getTag replace_color Tag.VIS_REPLACE_COLOR;
+          owner.getTag delay Tag.VIS_DELAY;
+          owner.getTag region Tag.VIS_REGION;
+
+          get_color pixel_color new_pixel;
+          get_shade pixel_shade new_pixel;
+
+          owner.getRuleSoldier soldier_rule;
+          
+          if neq region 3;   # only item
+            return new_pixel;
+          end;
+
+          if eq delay 0;
+            set delay 15;
+          end;
+          
+          owner.getId id;
+          
+          if and eq effect_type 1;
+            set_color new_pixel color;
+          else eq effect_type 2;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
+            mul temp -1; # => temp = -15 - 0
+            add temp 8;  # => temp = -7 - +8
+            add_shade new_pixel temp;
+          else and eq effect_type 3 eq pixel_color replace_color;
+            set_color new_pixel color;
+          else and eq effect_type 4;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
+            mul temp -1; # => temp = -15 - 0
+            add temp 4;  # => temp = -7 - +8
+            if lt temp 0;
+              set_color new_pixel color;
+              add_shade new_pixel temp;
+            end;
+          else eq effect_type 5;
+            set temp anim_frame;
+            mod temp delay;
+            if lt temp 10; #only 3 frames after the interval specified point in time
+              set_color new_pixel color; #flash color
+            end;
+          else eq effect_type 6;
+            set temp anim_frame;
+            wavegen_tri temp delay 16 15;
+            add temp delay;
+            set temp2 anim_frame;
+            add temp2 new_pixel;
+            add temp2 id;
+
+            shl temp2 13;
+            bit_xor temp temp2;
+            set temp2 temp;
+
+            shr temp2 7;
+            bit_xor temp temp2;
+            set temp2 temp;
+
+            shl temp2 17;
+            bit_xor temp temp2;
+
+            mod temp 100;
+
+            if lt temp 10;
+              set_color new_pixel color; #flash color
+            end;
+          end;
+          return new_pixel; 
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_FLASHBANG_GRENADE: Flashbang
+      STR_ACID_GRENADE: Acid Grenade
+      STR_FREEZE_GRENADE: Frost Grenade
+      STR_GAS_GRENADE: Gas Grenade
+      STR_EMP_GRENADE: EMP Grenade
+
+extraSprites:
+  - type: BIGOBS.PCK
+    files:
+      800: Resources/Weapons_Imported/GrenadeAcid/Gas_Grenade.png
+      801: Resources/Weapons_Imported/GrenadeFreeze/Knockout_Grenade.gif
+      802: Resources/Weapons_Imported/GrenadePoison/Acid_Grenade.png
+  - type: FLOOROB.PCK
+    files:
+      800: Resources/Weapons_Imported/GrenadeAcid/FloorGasGrenade.png
+      801: Resources/Weapons_Imported/GrenadeFreeze/FloorKnockoutGrenade.png
+      802: Resources/Weapons_Imported/GrenadePoison/FloorAcidGrenade.png
+  - type: HANDOB.PCK
+    height: 40
+    width: 256
+    subX: 32
+    subY: 40
+    files:
+      800: Resources/Weapons_Imported/GrenadeAcid/HandObGasGrenade.png
+      808: Resources/Weapons_Imported/GrenadeFreeze/HandObKnockoutGrenade.png
+      816: Resources/Weapons_Imported/GrenadePoison/HandObAcidGrenade.png

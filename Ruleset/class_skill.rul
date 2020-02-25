@@ -9,6 +9,21 @@
 
 # Final Class Skill list (A=Active,P=Passive) - T = Tested, V = Visualisation needed
 
+# Save game edit for leveling
+#RuleSoldier
+#        previousTransformations:
+#          STR_SNIPER_ADVANCED_TRAINING: 1
+#          STR_SNIPER_ELITE_TRAINING: 1
+#        transformationBonuses:
+#          STR_SNIPER_ADVANCED_BONUS: 1
+#          STR_SNIPER_ELITE_BONUS: 1
+#BattleUnit
+#      tags:
+#        DEATH_FROM_ABOVE_STATE: 1
+#        AIM_STATE: 1
+#        CENTER_MASS_STATE: 20
+#        ALPHA_MIKE_FOXTROT_STATE: 20
+#        SERIAL_STATE: 1
 # = Ranger
 # Initial
 #  TA Run & Gun
@@ -27,7 +42,7 @@
 # Initial
 #  TA Heavy Rocket
 #  TA Rapid Deployment
-#  P Shredder
+#  TP Shredder
 # Advanced 
 #  A War Cry
 #  TA Rage Burst
@@ -39,17 +54,17 @@
 
 # = Sniper
 # Initial
-#  A Headshot
-#  A Disabling Shot
-#  P Death from above
+#  TA Headshot
+#  TA Disabling Shot
+#  TP Death from above
 # Advanced
 #  TA Quick Aim
 #  TA Double Tap
-#  P Aim
-#  P Center mass
+#  TP Aim
+#  TP Center mass
 # Elite
-#  A Serial
-#  P Alpha Mike Foxtrot
+#  TA Serial
+#  TP Alpha Mike Foxtrot
 
 # = Specialist
 # Initial
@@ -369,7 +384,7 @@ items:
     damageAlter:
       RandomType: 3
     size: 0.1
-    costBuy: 2000
+    costBuy: 0
     costSell: 194700
     weight: 10
     bigSprite: 33
@@ -391,24 +406,7 @@ items:
       mana: 5
     psiTargetMatrix: 7
     flatRate: true
-  - type: STR_PSI_AMP            # USED BY PSI-OP AS NORMAL ITEM (Panic, MC, Inspire)
-    requires:
-      - STR_PSI_AMP
-    size: 0.1
-    costSell: 194700
-    weight: 10
-    bigSprite: 33
-    floorSprite: 32
-    handSprite: 88
-    hitSound: 36
-    battleType: 9
-    twoHanded: false
-    invWidth: 1
-    invHeight: 3
-    tuUse: 25
-    tuMindControl: 25
-    tuPanic: 25
-    flatRate: true
+
 
 soldierTransformation:
   - name: STR_RANGER_ADVANCED_TRAINING
@@ -1380,9 +1378,6 @@ extended:
             # TODO: add effect
             set spend_tu 1;
           end;
-          #debug_log " - for Sniper (Headshot)";
-          #actor.setTag Tag.CRIT_CHANCE_NEXT_HIT 30; # increase hit chance by 30% for next hit
-          #actor.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
           return;
     reactionUnitAction: 
       - offset: 23   # for lightning reflexes
@@ -1631,20 +1626,24 @@ extended:
       - offset: 23   # for disabling shot
         code: |
           var ptr RuleSoldier soldier_rule;
-          var int unit_class;
           var int skill_id;
+          var int temp;
           # check attacker class
           # check skill id
 
           attacker.getRuleSoldier soldier_rule;
           if and neq skill null neq soldier_rule null;
             skill.getTag skill_id Tag.SKILL_ID;
-            soldier_rule.getTag unit_class Tag.CLASS;
             if eq skill_id 32;  # Disabling Shot
               debug_log "Unit hit with disabling shot:" unit;
               battle_game.flashMessage "DISABLED!";
-              div power 4;
+              div power 20;
               unit.setTag Tag.WEAPON_DISABLED 1;
+              unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
+              unit.setTag Tag.VIS_COLOR COLOR_X1_BLUE2;
+              battle_game.randomRange temp 1 100;
+              unit.setTag Tag.VIS_DELAY temp; # prng offset
+              unit.setTag Tag.VIS_REGION 3;
             end;
           end;
           return power part side;
@@ -1887,7 +1886,7 @@ extended:
           var int gun_type;
           var ptr RuleItem item_rule;
 
-          damaging_item.getRuleItem item_rule;
+          weapon_item.getRuleItem item_rule;
 
           attacker.getTag center_mass Tag.CENTER_MASS_STATE;
           
@@ -1909,7 +1908,7 @@ extended:
           var int gun_type;
           var ptr RuleItem item_rule;
 
-          damaging_item.getRuleItem item_rule;
+          weapon_item.getRuleItem item_rule;
 
           item_rule.getTag gun_type Tag.GUN_TYPE;
           attacker.getTag amf_state Tag.ALPHA_MIKE_FOXTROT_STATE;
@@ -1973,6 +1972,26 @@ extended:
             debug_log "Aid protocol: Hit to" unit "reduced from" old_power "to" power;
           end;
           return power part side;
+      - offset: 40   # for headshot
+        code: |
+          var ptr RuleSoldier soldier_rule;
+          var int skill_id;
+          var int temp;
+
+          attacker.getRuleSoldier soldier_rule;
+          if and neq skill null neq soldier_rule null;
+            skill.getTag skill_id Tag.SKILL_ID;
+            if eq skill_id 30;
+              attacker.getTag temp Tag.CRIT_CHANCE_NEXT_HIT;
+              add temp 30;
+              attacker.setTag Tag.CRIT_CHANCE_NEXT_HIT temp; # increase hit chance by 30% for next hit
+              
+              attacker.getTag temp Tag.CRIT_DAMAGE_NEXT_HIT;
+              add temp 20;
+              attacker.setTag Tag.CRIT_DAMAGE_NEXT_HIT 20; # increase hit damage by 20% for next hit
+            end;
+          end;            
+          return power part side;
       - offset: 70   # for Skill Amp Hits (Aid Protocol, Combat Protocol, Interference)
         code: |
           var int battle_type;
@@ -2029,6 +2048,8 @@ extended:
             debug_log "Dis.Wep. found:" battle_type temp;
             if gt temp 0;
               item.setAmmoQuantity 0;
+              item.setFuseEnabled 1;
+              item.setFuseTimer 0;
             end;
           end;
           return;
@@ -2178,13 +2199,13 @@ extended:
           if eq has_death_from_above 1;
             if ge to_health unit_health;  # unit would be killed
               if gt attacker_height_level victim_height_level;
-                damaging_item.getActionCost.getTimeUnits action_time_units attacker battle_action;
+                weapon_item.getActionCost.getTimeUnits action_time_units attacker battle_action;
                 attacker.getTimeUnits current_time_units;
                 add current_time_units action_time_units;
 
                 attacker.setTimeUnits current_time_units;
                 attacker.setTag Tag.DEATH_FROM_ABOVE_STATE 2;
-                debug_log "Death from above activated! Action TU refunded.";
+                battle_game.flashMessage "Death from above!";
               end;
             end;
           end;
@@ -2327,20 +2348,14 @@ extended:
           attacker.getTag state Tag.SERIAL_STATE;
 
           unit.getHealth unit_health;
-          damaging_item.getRuleItem item_rule;
+          weapon_item.getRuleItem item_rule;
           item_rule.getTag gun_type Tag.GUN_TYPE;
 
-          if eq state 2;
-            if eq gun_type 3; # sniper rifle
-              if ge to_health unit_health;                 # would be a kill
-                # TRIGGER conditions met
-                if eq state 2; # we are active, so refund the action cost
-                  debug_log "SERIAL triggered! Refunding TU.";
-                  battle_game.flashMessage "SERIAL!";
-                  attacker.getTimeUnitsMax max_time_units;
-                  attacker.setTimeUnits max_time_units;    # set the new TU value
-                end;
-              end;
+          if and eq state 2 eq gun_type 3; # serial & sniper rifle
+            if ge to_health unit_health;               # would be a kill
+              battle_game.flashMessage "SERIAL!";
+              attacker.getTimeUnitsMax max_time_units;
+              attacker.setTimeUnits max_time_units;    # set the new TU value
             end;
           end;
           return;    
@@ -2429,60 +2444,7 @@ extended:
             debug_log unit " - to" recovery_time;
           end;
           return;
-    recolorUnitSprite:  
-      - offset: 23   # for general visualisation
-        code: |
-          var int effect_type;
-          var int pixel_shade;
-          var int pixel_color;
-
-          var int replace_color;
-          var int color;
-          var int delay;
-          var int temp;
-          
-          #unit.getRecolor new_pixel;
-          #add_burn_shade new_pixel burn shade;
-
-          get_color pixel_color new_pixel;
-          get_shade pixel_shade new_pixel;
-
-          unit.getTag effect_type Tag.VIS_EFFECT;
-          unit.getTag color Tag.VIS_COLOR;
-          unit.getTag replace_color Tag.VIS_REPLACE_COLOR;
-          unit.getTag delay Tag.VIS_DELAY;
-
-          if eq delay 0;
-            set delay 15;
-          end;
-
-          if and eq effect_type 1 lt pixel_shade 7;
-            set_color new_pixel color;
-          else eq effect_type 2;
-            set temp anim_frame;
-            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
-            mul temp -1; # => temp = -15 - 0
-            add temp 8;  # => temp = -7 - +8
-            add_shade new_pixel temp;
-          else and eq effect_type 3 eq pixel_color replace_color;
-            set_color new_pixel color;
-          else and eq effect_type 4 neq pixel_color COLOR_X1_FACE;
-            set temp anim_frame;
-            wavegen_tri temp delay 16 15; # period, size, cap => temp = 0-15
-            mul temp -1; # => temp = -15 - 0
-            add temp 4;  # => temp = -7 - +8
-            if lt temp 0;
-              set_color new_pixel color;
-              add_shade new_pixel temp;
-            end;
-          else eq effect_type 5;
-            set temp anim_frame;
-            mod temp delay;
-            if lt temp 10; #only 3 frames after the interval specified point in time
-              set_color new_pixel color; #flash color
-            end;
-          end;
-          return new_pixel; 
+    recolorUnitSprite:
       - offset: 24   # for phantom
         code: |
           var int camo_state;
@@ -2505,6 +2467,56 @@ extended:
             end;
           end;
 
+          return new_pixel;
+    recolorItemSprite:
+      - offset: 24   # for disabled weapons
+        code: |
+          var int battle_type;
+          var int fuse_state;
+          var ptr RuleItem item_rule;
+          var ptr BattleUnit owner;
+          var int temp;
+          var int temp2;
+          var int id;
+
+          item.getOwner owner;
+          owner.getTag temp Tag.WEAPON_DISABLED;
+          owner.getId id;
+
+          item.getRuleItem item_rule;
+          item.getFuseTimer fuse_state;
+          item_rule.getBattleType battle_type;
+
+          add fuse_state temp;
+
+          if and eq battle_type 2 ge fuse_state 0;
+            set temp anim_frame;
+            wavegen_tri temp 30 16 15;
+            set temp2 anim_frame;
+            add temp2 new_pixel;
+            add temp2 id;
+
+            shl temp2 13;
+            bit_xor temp temp2;
+            set temp2 temp;
+
+            shr temp2 7;
+            bit_xor temp temp2;
+            set temp2 temp;
+
+            shl temp2 17;
+            bit_xor temp temp2;
+
+            mod temp 100;
+
+            if lt temp 3;
+              set_color new_pixel COLOR_X1_BLUE0; #flash color
+            else lt temp 7;
+              set_color new_pixel COLOR_X1_BLUE1; #flash color
+            else lt temp 10;
+              set_color new_pixel COLOR_X1_BLUE2; #flash color
+            end;
+          end;
           return new_pixel;
     visibilityUnit:
       - offset: 23   # for phantom
@@ -2922,6 +2934,16 @@ extraStrings:
       STR_SNAP_SHOT: Fire
       STR_SHOT_TYPE_SNAP: "Default"
       STR_TIME_UNITS_RESERVED_FOR_SNAP_SHOT: "Time Units reserved for firing"
+      STR_DAMAGE_ARMOR_PIERCING: "PROJECTILE"
+      STR_DAMAGE_INCENDIARY: "INCENDIARY"
+      STR_DAMAGE_HIGH_EXPLOSIVE: "HIGH EXPLOSIVE"
+      STR_DAMAGE_LASER_BEAM: "LASER"
+      STR_DAMAGE_PLASMA_BEAM: "PLASMA"
+      STR_DAMAGE_10: "PSIONIC"                
+      STR_DAMAGE_11: "ARMOR PIERCING"
+      STR_DAMAGE_14: "ELECTRIC"
+
+
 statStrings:
   - string: "Psi" #above average psi skill
     psiSkill: [40, ~]

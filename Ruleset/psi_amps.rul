@@ -1,0 +1,126 @@
+items:
+  - type: STR_PSI_AMP
+#    requires:
+#      - STR_PSI_AMP
+    costBuy: 200
+    size: 0.1
+    costSell: 194700
+    weight: 10
+    bigSprite: 400
+    floorSprite: 400
+    handSprite: 700
+    hitSound: 36
+    battleType: 9
+    twoHanded: true
+    invWidth: 2
+    invHeight: 2
+    tuUse: 25
+    flatRate: true
+    listOrder: 4400
+  - type: STR_ADVANCED_PSI_AMP
+#    requires:
+#      - STR_PSI_AMP
+    costBuy: 200
+    size: 0.1
+    costSell: 194700
+    weight: 10
+    bigSprite: 401
+    floorSprite: 401
+    handSprite: 708
+    hitSound: 36
+    battleType: 9
+    twoHanded: true
+    invWidth: 2
+    invHeight: 2
+    tuUse: 25
+    flatRate: true
+    listOrder: 4405
+  - type: STR_ALIEN_PSI_AMP
+#    requires:
+#      - STR_PSI_AMP
+    costBuy: 200
+    size: 0.1
+    costSell: 194700
+    weight: 10
+    bigSprite: 402
+    floorSprite: 402
+    handSprite: 716
+    hitSound: 36
+    battleType: 9
+    twoHanded: true
+    invWidth: 2
+    invHeight: 2
+    tuUse: 25
+    flatRate: true
+    listOrder: 4410
+
+manufacture:
+  - name: STR_PSI_AMP
+    category: STR_EQUIPMENT
+    requires:
+      - STR_PSI_AMP
+    space: 6
+    time: 500
+    cost: 160000
+    requiredItems:
+      STR_ELERIUM_115: 1
+
+research:
+  - name: STR_PSI_AMP
+    cost: 500
+    points: 20
+    dependencies:
+      - STR_PSI_LAB
+
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_ADVANCED_PSI_AMP: Advanced Psi Amp
+      STR_ALIEN_PSI_AMP: Alien Psi Amp
+
+ufopaedia:
+  - id: STR_PSI_AMP
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PSI_AMP
+    text: STR_PSI_AMP_UFOPEDIA
+    listOrder: 4500
+  - id: STR_ADVANCED_PSI_AMP
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PSI_AMP
+    text: STR_PSI_AMP_UFOPEDIA
+    listOrder: 4505
+  - id: STR_ALIEN_PSI_AMP
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PSI_AMP
+    text: STR_PSI_AMP_UFOPEDIA
+    listOrder: 4510
+
+extraSprites:
+  - type: BIGOBS.PCK
+    files:
+      400: Resources/PsiAmps/PsiAmp_bigOb.png
+      401: Resources/PsiAmps/AdvancedPsiAmp_bigOb.png
+      402: Resources/PsiAmps/AlienPsiAmp_bigOb.png
+
+  - type: FLOOROB.PCK
+    files:
+      400: Resources/PsiAmps/PsiAmp_floorOb.png
+      401: Resources/PsiAmps/AdvancedPsiAmp_floorOb.png
+      402: Resources/PsiAmps/AlienPsiAmp_floorOb.png
+
+  - type: HANDOB.PCK
+    height: 40
+    width: 256
+    subX: 32
+    subY: 40
+    files:
+      700: Resources/PsiAmps/PsiAmp_handOb.png
+      708: Resources/PsiAmps/AdvancedPsiAmp_handOb.png
+      716: Resources/PsiAmps/AlienPsiAmp_handOb.png
