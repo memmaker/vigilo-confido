@@ -110,8 +110,8 @@ armors:
     corpseBattle:
       - CIVF_CORPSE
 
-alienRaces:
-  - id: STR_MMX_SURPRISES
-    members:
-      - MALE_SURPRISE_A
-      - FEMALE_SURPRISE_A
+#alienRaces:
+#  - id: STR_MMX_SURPRISES
+#    members:
+#      - MALE_SURPRISE_A
+#      - FEMALE_SURPRISE_A

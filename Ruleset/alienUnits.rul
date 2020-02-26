@@ -1,7 +1,128 @@
+extended:
+  tags:
+    RuleArmor:
+      MECHANICAL: int
+
 armors:
   - type: FLOATER_ARMOR0
     spriteInv: Inventory_FLOATER
-
+  - type: THIN_MAN_ARMOR
+    spriteSheet: THIN_MAN.PCK
+    spriteInv: INV_HUMAN_AGENT
+    corpseBattle:
+      - STR_THIN_MAN_CORPSE
+    frontArmor: 12
+    sideArmor: 8
+    rearArmor: 5
+    underArmor: 2
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 2.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.2
+      - 1.6
+      - 1.0
+    loftempsSet: [ 3 ]
+  - type: MUTON_BERSERKER_ARMOR
+    spriteSheet: MUTONBERSERKER.PCK
+    corpseBattle:
+      - STR_MUTON_BERSERKER_CORPSE
+    frontArmor: 20
+    sideArmor: 20
+    rearArmor: 20
+    underArmor: 22
+    drawingRoutine: 10
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.7
+      - 1.0
+      - 1.0
+      - 0.0
+    loftempsSet: [ 3 ]
+  - type: MUTON_ELITE_ARMOR
+    spriteSheet: MUTONELITE.PCK
+    spriteInv: Inventory_MUTON_ELITE
+    corpseBattle:
+      - STR_MUTON_ELITE_CORPSE
+    frontArmor: 40
+    sideArmor: 40
+    rearArmor: 40
+    underArmor: 22
+    drawingRoutine: 10
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.0
+    loftempsSet: [ 3 ]
+  - type: STR_ANDROMEDON_SUIT_UC
+    spriteSheet: XCOM_2_GREEN.PCK
+    spriteInv: MAN_2_GREEN
+    corpseBattle:
+      - STR_ANDROMEDON_CORPSE
+    frontArmor: 100
+    sideArmor: 80
+    rearArmor: 70
+    underArmor: 60
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.8
+      - 1.0
+      - 1.0
+      - 0.0
+    loftempsSet: [ 3 ]
+    forcedTorso: 1
+    drawingRoutine: 0
+  - type: STR_ANDROMEDON_SHELL_SUIT_UC
+    tags:
+      MECHANICAL: 1
+    spriteSheet: XCOM_2_GREEN.PCK
+    spriteInv: MAN_2_GREEN
+    corpseBattle:
+      - STR_ANDROMEDON_CORPSE
+    frontArmor: 100
+    sideArmor: 80
+    rearArmor: 70
+    underArmor: 60
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 0.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 0.8  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 0.0  # 10 Psionic
+      - 1.0  # 11 Armor Piercing
+      - 1.0  # 12 Poison
+      - 1.0  # 13 Freeze
+      - 1.0  # 14 Electric
+    loftempsSet: [ 3 ]
+    forcedTorso: 1
+    drawingRoutine: 0
 units:
   - type: STR_FLOATER_SOLDIER
     race: STR_FLOATER
@@ -27,18 +148,297 @@ units:
     moveSound: 15
     intelligence: 4
     aggression: 2
+  - type: STR_THIN_MAN
+    race: STR_THIN_MAN
+    rank: STR_ALIEN_AGENT
+    stats:
+      tu: 80
+      stamina: 110
+      health: 55
+      bravery: 100
+      reactions: 80
+      firing: 90
+      throwing: 70
+      strength: 34
+      psiStrength: 50
+      psiSkill: 0
+      melee: 80
+    armor: THIN_MAN_ARMOR
+    standHeight: 22
+    kneelHeight: 14
+    value: 10
+    deathSound: 102
+    intelligence: 4
+    aggression: 1
+    builtInWeaponSets:
+      - 
+        - STR_PLASMA_RIFLE
+        - STR_PLASMA_RIFLE_CLIP
+        - STR_PLASMA_RIFLE_CLIP
+        - STR_ALIEN_GRENADE
+      - 
+        - STR_SMALL_LAUNCHER
+        - STR_STUN_BOMB
+        - STR_STUN_BOMB
+      - 
+        - STR_HEAVY_PLASMA
+        - STR_HEAVY_PLASMA_CLIP
+        - STR_HEAVY_PLASMA_CLIP
+        - STR_ALIEN_GRENADE
+  - type: STR_MUTON_BERSERKER
+    race: STR_MUTON_BERSERKER
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 80
+      stamina: 120
+      health: 155
+      bravery: 255
+      reactions: 80
+      firing: 5
+      throwing: 5
+      strength: 85
+      psiStrength: 255
+      psiSkill: 0
+      melee: 85
+    armor: MUTON_BERSERKER_ARMOR
+    standHeight: 21
+    kneelHeight: 16
+    value: 25
+    deathSound: 6
+    intelligence: 1
+    aggression: 2
+    energyRecovery: 40
+    meleeWeapon: STR_BERSERKER_PUNCH
+    isLeeroyJenkins: true
+  - type: STR_MUTON_ELITE
+    race: STR_MUTON_ELITE
+    rank: STR_LIVE_COMMANDER
+    stats:
+      tu: 80
+      stamina: 150
+      health: 180
+      bravery: 95
+      reactions: 85
+      firing: 75
+      throwing: 75
+      strength: 85
+      psiStrength: 80
+      psiSkill: 0
+      melee: 95
+    armor: MUTON_ELITE_ARMOR
+    standHeight: 21
+    kneelHeight: 16
+    value: 19
+    deathSound: 6
+    intelligence: 6
+    aggression: 2
+    energyRecovery: 50
+  - type: STR_ANDROMEDON_TERRORIST
+    race: STR_ANDROMEDON
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 50
+      stamina: 110
+      health: 114
+      bravery: 110
+      reactions: 40
+      firing: 0
+      throwing: 0
+      strength: 84
+      psiStrength: 80
+      psiSkill: 0
+      melee: 80
+    armor: STR_ANDROMEDON_SUIT_UC
+    specab: 2
+    standHeight: 18
+    kneelHeight: 18
+    value: 50
+    intelligence: 10
+    energyRecovery: 40
+    spawnUnit: STR_ANDROMEDON_SHELL
+    livingWeapon: false
+    moraleLossWhenKilled: 200
+    pickUpWeaponsMoreActively: 1
+    aggression: 8
+    capturable: false
+  - type: STR_ANDROMEDON_SHELL
+    race: STR_ANDROMEDON
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 30
+      stamina: 60
+      health: 44
+      bravery: 55
+      reactions: 20
+      firing: 0
+      throwing: 0
+      strength: 44
+      psiStrength: 80
+      psiSkill: 0
+      melee: 60
+    armor: STR_ANDROMEDON_SHELL_SUIT_UC
+    standHeight: 18
+    kneelHeight: 18
+    value: 25
+    intelligence: 5
+    energyRecovery: 40
+    livingWeapon: false
+    meleeWeapon: STR_ANDROMEDON_PUNCH
+    moraleLossWhenKilled: 100
+    isLeeroyJenkins: true
+    aggression: 4
 
+
+items:
+  - type: STR_THIN_MAN
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 40000
+    listOrder: 15051
+  - type: STR_THIN_MAN_CORPSE
+    costSell: 20000
+    size: 0.4
+    weight: 25
+    bigSprite: 410
+    floorSprite: 410
+    invWidth: 2
+    invHeight: 3
+    battleType: 11
+    recover: true
+    recoveryPoints: 1
+    armor: 35
+    listOrder: 8506
+  - type: STR_MUTON_BERSERKER
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 65000
+  - type: STR_MUTON_BERSERKER_CORPSE
+    size: 0.4
+    costSell: 20000
+    weight: 20
+    bigSprite: 809
+    floorSprite: 809
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    battleType: 11
+    armor: 26
+  - type: STR_MUTON_ELITE
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 65000
+  - type: STR_MUTON_ELITE_CORPSE
+    size: 0.4
+    costSell: 20000
+    weight: 20
+    bigSprite: 810
+    floorSprite: 810
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    battleType: 11
+    armor: 26
+  - type: STR_BERSERKER_PUNCH
+    categories: [STR_BUILT_INS]
+    weight: 0
+    meleeHitSound: 109
+    meleeAnimation: 0
+    power: 10
+    damageType: 6
+    damageBonus:
+      strength: 0.2
+      melee: 0.2
+      reactions: 0.1
+    damageAlter:
+      RandomType: 1
+      FixRadius: 0
+      IgnoreDirection: false
+      ArmorEffectiveness: 1.5
+      ToHealth: 0.15
+    accuracyMelee: 100
+    meleeMultiplier:
+      melee: 0.5
+      reactions: 0.5
+    confMelee:
+      name: STR_PUNCH
+    costMelee:
+      time: 8
+      energy: 2
+    flatRate: true
+    battleType: 3
+    clipSize: -1
+    experienceTrainingMode: 13
+    invWidth: 2
+    invHeight: 2
+    fixedWeapon: true
+    recover: false
+    specialUseEmptyHand: true
+  - type: STR_ANDROMEDON_CORPSE
+    name: STR_CORPSE
+    weight: 26
+    bigSprite: 380
+    floorSprite: 380
+    invWidth: 2
+    invHeight: 3
+    armor: 40
+    recover: false
+  - type: STR_ANDROMEDON_PUNCH
+    categories: [STR_BUILT_INS]
+    weight: 0
+    meleeHitSound: 109
+    meleeAnimation: 0
+    power: 10
+    damageType: 6
+    damageBonus:
+      strength: 0.2
+      melee: 0.2
+      reactions: 0.1
+    damageAlter:
+      RandomType: 1
+      FixRadius: 0
+      IgnoreDirection: false
+      ArmorEffectiveness: 1.5
+      ToHealth: 0.15
+    accuracyMelee: 100
+    meleeMultiplier:
+      melee: 0.5
+      reactions: 0.5
+    confMelee:
+      name: STR_PUNCH
+    costMelee:
+      time: 8
+      energy: 2
+    flatRate: true
+    battleType: 3
+    clipSize: -1
+    experienceTrainingMode: 13
+    invWidth: 2
+    invHeight: 2
+    fixedWeapon: true
+    recover: false
+    specialUseEmptyHand: true
 
 extraSprites:
 # floor
   - type: FLOOROB.PCK
     files:
       48: Resources/Units/CyberFloater/Floater_Corpse.gif
+      380: Resources/Armor_Imported/GreenPowerArmor/floor_corpse.gif
+      410: Resources/Units/ThinMan/FLOOROB_THIN_MAN_CORPSE.png
+      411: Resources/Units/Berzerker/Muton_Berzerker_Corpse.gif
+      412: Resources/Units/EliteMuton/Armored_Muton_Commander_Corpse.gif
 
 # bigobs
   - type: BIGOBS.PCK
     files:
       52: Resources/Units/CyberFloater/FloaterInventoryCorpse.gif
+      380: Resources/Armor_Imported/GreenPowerArmor/inv_corpse.gif
+      410: Resources/Units/ThinMan/BIGOB_HUMAN_AGENT_CORPSE.png
+      411: Resources/Units/Berzerker/MutonBerzerkerInventoryCorpse.gif
+      412: Resources/Units/EliteMuton/ArmoredMutonCommanderInventoryCorpse.gif
 
 # inventory
   - type: Inventory_FLOATER
@@ -47,6 +447,16 @@ extraSprites:
     singleImage: true
     files:
       0: Resources/Units/CyberFloater/floater.gif
+  - type: Inventory_MUTON_ELITE
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: Resources/Units/EliteMuton/armoredmutoncommander_Inventory.gif
+  - type: MAN_2_GREEN
+    singleImage: true
+    files:
+      0: Resources/Armor_Imported/GreenPowerArmor/man_2.gif
 # battlescape
   - type: FLOATER.PCK
     subX: 32
@@ -55,6 +465,34 @@ extraSprites:
     height: 520
     files:
       0: Resources/Units/CyberFloater/CyberFloater.gif
+  - type: THIN_MAN.PCK
+    width: 512
+    height: 720
+    subX: 32
+    subY: 40
+    files:
+      0: Resources/Units/ThinMan/THIN_MAN.png
+  - type: MUTONBERSERKER.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1360
+    files:
+      0: Resources/Units/Berzerker/MutonBerzerker.gif
+  - type: MUTONELITE.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1360
+    files:
+      0: Resources/Units/EliteMuton/ArmoredMutonCommander.gif
+  - type: XCOM_2_GREEN.PCK
+    subX: 32
+    subY: 40
+    width: 512
+    height: 720
+    files:
+      0: Resources/Armor_Imported/GreenPowerArmor/sheet.png
 # ufopedia
   - type: UP018.SPK
     singleImage: true
@@ -73,3 +511,4 @@ extraSounds:
   - type: BATTLE.CAT
     files:
       101: Resources/Units/CyberFloater/Floater1.ogg
+      102: Resources/Units/ThinMan/THIN_MAN_DEATH.wav

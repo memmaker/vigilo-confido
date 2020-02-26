@@ -1,29 +1,13 @@
 # Class & Skill System inspired by XCOM2012/XCOM2/Phoenix Point, written by memmaker
 
-# Final Classes
+# Classes
 # Ranger        - str: Movement/Melee,      wkn: Armor, Attack Range
 # Grenadier     - str: Armor/Heavy Weapons, wkn: Movement, Accuracy
 # Sniper        - str: Damage/Range,        wkn: Health, Melee
 # Specialist    - str: Medikits/Support,    wkn: Offense
 # Psi Op        - str: Psi,                 wkn: Health, Conventional Weapons
 
-# Final Class Skill list (A=Active,P=Passive) - T = Tested, V = Visualisation needed
-
-# Save game edit for leveling
-#RuleSoldier
-#        previousTransformations:
-#          STR_SNIPER_ADVANCED_TRAINING: 1
-#          STR_SNIPER_ELITE_TRAINING: 1
-#        transformationBonuses:
-#          STR_SNIPER_ADVANCED_BONUS: 1
-#          STR_SNIPER_ELITE_BONUS: 1
-#BattleUnit
-#      tags:
-#        DEATH_FROM_ABOVE_STATE: 1
-#        AIM_STATE: 1
-#        CENTER_MASS_STATE: 20
-#        ALPHA_MIKE_FOXTROT_STATE: 20
-#        SERIAL_STATE: 1
+# Class Skill list (A=Active,P=Passive) - T = Tested, V = Visualisation needed
 # = Ranger
 # Initial
 #  TA Run & Gun
@@ -406,7 +390,6 @@ items:
       mana: 5
     psiTargetMatrix: 7
     flatRate: true
-
 
 soldierTransformation:
   - name: STR_RANGER_ADVANCED_TRAINING
@@ -818,7 +801,7 @@ soldiers:
     minStats:
       tu: 50
       stamina: 60
-      health: 25
+      health: 35
       bravery: 50
       reactions: 50
       firing: 40
@@ -831,7 +814,7 @@ soldiers:
     maxStats:
       tu: 65
       stamina: 60
-      health: 40
+      health: 45
       bravery: 70
       reactions: 70
       firing: 70
@@ -844,7 +827,7 @@ soldiers:
     statCaps:
       tu: 95
       stamina: 95
-      health: 50
+      health: 90
       bravery: 100
       reactions: 100
       firing: 100
@@ -905,7 +888,7 @@ soldiers:
     minStats:
       tu: 45
       stamina: 60
-      health: 45
+      health: 40
       bravery: 50
       reactions: 0
       firing: 40
@@ -918,7 +901,7 @@ soldiers:
     maxStats:
       tu: 55
       stamina: 70
-      health: 55
+      health: 45
       bravery: 70
       reactions: 10
       firing: 70
@@ -931,7 +914,7 @@ soldiers:
     statCaps:
       tu: 70
       stamina: 100
-      health: 80
+      health: 95
       bravery: 100
       reactions: 50
       firing: 100
@@ -991,7 +974,7 @@ soldiers:
     minStats:
       tu: 50
       stamina: 50
-      health: 20
+      health: 30
       bravery: 30
       reactions: 50
       firing: 60
@@ -1004,7 +987,7 @@ soldiers:
     maxStats:
       tu: 60
       stamina: 70
-      health: 35
+      health: 45
       bravery: 50
       reactions: 70
       firing: 70
@@ -1017,7 +1000,7 @@ soldiers:
     statCaps:
       tu: 80
       stamina: 100
-      health: 45
+      health: 80
       bravery: 100
       reactions: 100
       firing: 150
@@ -1069,7 +1052,7 @@ soldiers:
     minStats:
       tu: 50
       stamina: 45
-      health: 25
+      health: 30
       bravery: 50
       reactions: 40
       firing: 40
@@ -1082,7 +1065,7 @@ soldiers:
     maxStats:
       tu: 60
       stamina: 80
-      health: 40
+      health: 45
       bravery: 80
       reactions: 70
       firing: 70
@@ -1095,7 +1078,7 @@ soldiers:
     statCaps:
       tu: 85
       stamina: 100
-      health: 50
+      health: 90
       bravery: 120
       reactions: 120
       firing: 100
@@ -1141,7 +1124,7 @@ soldiers:
     minStats:
       tu: 45
       stamina: 40
-      health: 20
+      health: 30
       bravery: 30
       reactions: 20
       firing: 20
@@ -1154,7 +1137,7 @@ soldiers:
     maxStats:
       tu: 65
       stamina: 70
-      health: 35
+      health: 45
       bravery: 50
       reactions: 50
       firing: 40
@@ -1167,7 +1150,7 @@ soldiers:
     statCaps:
       tu: 80
       stamina: 100
-      health: 45
+      health: 90
       bravery: 100
       reactions: 100
       firing: 150
@@ -3335,3 +3318,19 @@ extraSounds:
 # psiStrength: 0-100
 # psiSkill: 0 (170)
 # melee: 20-40 (120)
+
+# Save game edit for leveling
+#RuleSoldier
+#        previousTransformations:
+#          STR_SNIPER_ADVANCED_TRAINING: 1
+#          STR_SNIPER_ELITE_TRAINING: 1
+#        transformationBonuses:
+#          STR_SNIPER_ADVANCED_BONUS: 1
+#          STR_SNIPER_ELITE_BONUS: 1
+#BattleUnit
+#      tags:
+#        DEATH_FROM_ABOVE_STATE: 1
+#        AIM_STATE: 1
+#        CENTER_MASS_STATE: 20
+#        ALPHA_MIKE_FOXTROT_STATE: 20
+#        SERIAL_STATE: 1

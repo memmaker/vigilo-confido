@@ -50,7 +50,6 @@ extended:
           unit.getRuleSoldier soldier_rule;
           unit.getTag org_acc Tag.ORIGINAL_ACCURACY;
 
-
           if eq soldier_rule null; # aliens only
             if and eq turn_side 0 neq adjustment 100; # reaction shots
               unit.Stats.getFiring org_acc;

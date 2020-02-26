@@ -8,64 +8,65 @@ units:
   - type: STR_HOVERTANK_PLASMA
     standHeight: 14
   - type: STR_HOVERTANK_LAUNCHER
-    standHeight: 14
-  - type: STR_SECTOID_SOLDIER
-#    standHeight: 20
-  - type: STR_SECTOID_ENGINEER
-#    standHeight: 20
-  - type: STR_SECTOID_MEDIC
-#    standHeight: 20
-  - type: STR_SECTOID_NAVIGATOR
-#    standHeight: 20
-  - type: STR_SECTOID_LEADER
-#    standHeight: 20
-  - type: STR_SECTOID_COMMANDER
-#    standHeight: 20
+    # standHeight: 14
+  # - type: STR_SECTOID_SOLDIER
+    # standHeight: 20
+  # - type: STR_SECTOID_ENGINEER
+    # standHeight: 20
+  # - type: STR_SECTOID_MEDIC
+    # standHeight: 20
+  # - type: STR_SECTOID_NAVIGATOR
+    # standHeight: 20
+  # - type: STR_SECTOID_LEADER
+    # standHeight: 20
+  # - type: STR_SECTOID_COMMANDER
+    # standHeight: 20
   - type: STR_CYBERDISC_TERRORIST
     standHeight: 7
-    floatHeight: 8
-  - type: STR_FLOATER_SOLDIER
-    standHeight: 21
-  - type: STR_FLOATER_ENGINEER
-    standHeight: 21
-  - type: STR_FLOATER_MEDIC
-    standHeight: 21
-  - type: STR_FLOATER_NAVIGATOR
-    standHeight: 21
-  - type: STR_FLOATER_LEADER
-    standHeight: 21
-  - type: STR_FLOATER_COMMANDER
-    standHeight: 21
+    # floatHeight: 8
+  # - type: STR_FLOATER_SOLDIER
+    # standHeight: 21
+  # - type: STR_FLOATER_ENGINEER
+    # standHeight: 21
+  # - type: STR_FLOATER_MEDIC
+    # standHeight: 21
+  # - type: STR_FLOATER_NAVIGATOR
+    # standHeight: 21
+  # - type: STR_FLOATER_LEADER
+    # standHeight: 21
+  # - type: STR_FLOATER_COMMANDER
+    # standHeight: 21
   - type: STR_REAPER_TERRORIST
-    standHeight: 20
-  - type: STR_SNAKEMAN_SOLDIER
-    standHeight: 22
-  - type: STR_SNAKEMAN_ENGINEER
-    standHeight: 22
-  - type: STR_SNAKEMAN_NAVIGATOR
-    standHeight: 22
-  - type: STR_SNAKEMAN_LEADER
-    standHeight: 22
-  - type: STR_SNAKEMAN_COMMANDER
-    standHeight: 22
+    # standHeight: 20
+  # - type: STR_SNAKEMAN_SOLDIER
+    # standHeight: 22
+  # - type: STR_SNAKEMAN_ENGINEER
+    # standHeight: 22
+  # - type: STR_SNAKEMAN_NAVIGATOR
+    # standHeight: 22
+  # - type: STR_SNAKEMAN_LEADER
+    # standHeight: 22
+  # - type: STR_SNAKEMAN_COMMANDER
+    # standHeight: 22
   - type: STR_CHRYSSALID_TERRORIST
-    standHeight: 22
-  - type: STR_MUTON_SOLDIER
-    standHeight: 23
-  - type: STR_MUTON_NAVIGATOR
-    standHeight: 23
-  - type: STR_MUTON_ENGINEER
-    standHeight: 23
+    # standHeight: 22
+  # - type: STR_MUTON_SOLDIER
+    # standHeight: 23
+  # - type: STR_MUTON_NAVIGATOR
+    # standHeight: 23
+  # - type: STR_MUTON_ENGINEER
+    # standHeight: 23
   - type: STR_CELATID_TERRORIST
-    standHeight: 14
-  - type: STR_ETHEREAL_SOLDIER
-    standHeight: 23
-  - type: STR_ETHEREAL_LEADER
-    standHeight: 23
-  - type: STR_ETHEREAL_COMMANDER
-    standHeight: 23
+    # standHeight: 14
+  # - type: STR_ETHEREAL_SOLDIER
+    # standHeight: 23
+  # - type: STR_ETHEREAL_LEADER
+    # standHeight: 23
+  # - type: STR_ETHEREAL_COMMANDER
+    # standHeight: 23
   - type: STR_ZOMBIE
     standHeight: 20
+
 armors:
   - type: STR_NONE_UC
     loftempsSet: [ 4 ]

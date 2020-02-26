@@ -1,6 +1,9 @@
 # TODO: add ufopedia entries for armors
 # TODO: add training room
-
+extended:
+  tags:
+    RuleArmor:
+      ANIMATED: int
 items:
   - type: STR_PERSONAL_ARMOR
     costBuy: 0
@@ -287,6 +290,8 @@ armors:
     corpseBattle:
       - STR_CORPSE_XOPS_POWER_ARMOR_WHITE
     storeItem: STR_XOPS_POWER_ARMOR
+    tags:
+      ANIMATED: 1
     stats:
       tu: 7
       stamina: 10
@@ -319,6 +324,8 @@ armors:
     corpseBattle:
       - STR_CORPSE_XOPS_POWER_ARMOR_GREY
     storeItem: STR_XOPS_POWER_ARMOR
+    tags:
+      ANIMATED: 1
     stats:
       tu: 7
       stamina: 10
@@ -351,6 +358,8 @@ armors:
     corpseBattle:
       - STR_CORPSE_XOPS_POWER_ARMOR_BLACK
     storeItem: STR_XOPS_POWER_ARMOR
+    tags:
+      ANIMATED: 1
     stats:
       tu: 7
       stamina: 10

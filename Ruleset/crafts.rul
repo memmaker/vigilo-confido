@@ -262,6 +262,7 @@ extraStrings:
       STR_ADVANCED_DEPLOYMENT3: Advanced Deployment 3
       STR_FULL_DEPLOYMENT: Full Deployment
       STR_SKYRANGER: SKYRANGER
+      STR_SKYRANGER_SIX: SKYRANGER
       STR_SKYRANGER_EIGHT: SKYRANGER
       STR_SKYRANGER_TEN: SKYRANGER
       STR_SKYRANGER_TWELVE: SKYRANGER
@@ -289,7 +290,7 @@ ufopaedia:
     text: STR_SKYRANGER_UFOPEDIA
   - id: STR_SKYRANGER_TEN
     type_id: 1
-    section: STR_XCOM_CRAFT_ARMAMENT
+    section: STR_NOT_AVAILABLE
     image_id: UP004.SPK
     rect_stats:
       x: 160
@@ -304,7 +305,7 @@ ufopaedia:
     text: STR_SKYRANGER_UFOPEDIA
   - id: STR_SKYRANGER_TWELVE
     type_id: 1
-    section: STR_XCOM_CRAFT_ARMAMENT
+    section: STR_NOT_AVAILABLE
     image_id: UP004.SPK
     rect_stats:
       x: 160
@@ -319,7 +320,7 @@ ufopaedia:
     text: STR_SKYRANGER_UFOPEDIA
   - id: STR_SKYRANGER_FOURTEEN
     type_id: 1
-    section: STR_XCOM_CRAFT_ARMAMENT
+    section: STR_NOT_AVAILABLE
     image_id: UP004.SPK
     rect_stats:
       x: 160

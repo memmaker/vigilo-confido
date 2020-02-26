@@ -1,0 +1,17 @@
+items:
+  - type: STR_MELD
+    size: 0.1
+    costSell: 5000
+    weight: 3
+    bigSprite: 56
+    floorSprite: 37
+    invWidth: 1
+    invHeight: 1
+    recoveryPoints: 5
+    fuseType: -1
+    isExplodingInHands: true
+    
+extraStrings:
+  - type: en-US
+    strings:
+      STR_MELD: Meld

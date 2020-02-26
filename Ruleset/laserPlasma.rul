@@ -4,7 +4,33 @@ extended:
     RuleItem:
       LASER: int
       PLASMA: int
+    RuleArmor:
+      ANIMATED: int
   scripts:
+    recolorUnitSprite:
+      - offset: 98
+        code: |
+          var ptr RuleArmor armor_rule;
+          var int animated;
+          var int color;
+          var int id;
+          var int temp;
+          unit.getId id;
+          add id 15;
+          mul id 2;
+          unit.getRuleArmor armor_rule;
+          armor_rule.getTag animated Tag.ANIMATED;
+          if gt animated 0;
+            get_color color new_pixel;
+            if eq color COLOR_X1_RED;
+              set temp anim_frame;
+              wavegen_tri temp id 16 15;
+              mul temp -1;
+              add temp 8;
+              add_shade new_pixel temp;
+            end;
+          end;
+          return new_pixel;
     recolorItemSprite:
       - offset: 98
         code: |
