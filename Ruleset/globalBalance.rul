@@ -5,6 +5,10 @@ constants:
   explosiveDamageRange: 10
   fireDamageRange: [5, 10]
 
+bughuntMinTurn: 16
+bughuntMaxEnemies: 2
+bughuntRank: -1
+
 extended:
   tags:
     BattleUnit:

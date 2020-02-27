@@ -1,0 +1,21 @@
+manufacture:
+  - name: STR_MIND_PROBE
+    category: STR_EQUIPMENT
+    requires:
+      - STR_MIND_PROBE
+    space: 4
+    time: 1200
+    cost: 262000
+    requiredItems:
+      STR_ALIEN_ALLOYS: 2
+      STR_UFO_NAVIGATION: 1
+  - name: STR_ALIEN_GRENADE
+    category: STR_WEAPON
+    requires:
+      - STR_ALIEN_GRENADE
+    space: 2
+    time: 200
+    cost: 6700
+    requiredItems:
+      STR_ALIEN_ALLOYS: 1
+      STR_ELERIUM_115: 1

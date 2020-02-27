@@ -40,6 +40,14 @@ research:
     dependencies:
       - STR_ALLOY_ARMOR
       - STR_PSI_LAB
+  - name: STR_SKY_STRIKE_ARMOR # New Flying Suit
+    cost: 550
+    points: 20
+    dependencies:
+      - STR_ALLOY_ARMOR
+      - STR_POWER_SUIT
+      - STR_FLYING_SUIT
+      - STR_FLOATER_ENGINEER
 ## WEAPONS ##
   - delete: STR_LASER_PISTOL
   - delete: STR_LASER_RIFLE

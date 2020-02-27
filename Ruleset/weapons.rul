@@ -153,9 +153,18 @@ items:
     costBuy: 900
     costSell: 840
     power: 30
+    damageAlter:
+      ToArmor: 0
+      ToArmorPre: 0.33
     damageType: 3
     battleType: 4
     blastRadius: 3
+  - type: STR_ALIEN_GRENADE
+    power: 50
+    blastRadius: 4
+    damageAlter:
+      ToArmor: 0
+      ToArmorPre: 0.4
   - type: STR_SMALL_ROCKET
     costBuy: 0
   - type: STR_LARGE_ROCKET
@@ -165,8 +174,10 @@ items:
   - type: STR_ROCKET_LAUNCHER
     costBuy: 0
   - type: STR_STUN_ROD
-    costBuy: 0
+    costBuy: 100
   - type: STR_PISTOL
+    tags:
+      GUN_TYPE: 1
     tuSnap: 35
     tuAimed: 45
     tuAuto: 0
@@ -180,6 +191,8 @@ items:
   - type: STR_PISTOL_CLIP
     power: 30
     clipSize: 12
+    damageAlter:
+      ToArmor: 0
   - type: STR_RIFLE
     tags:
       GUN_TYPE: 2
@@ -198,9 +211,10 @@ items:
     confAimed:
       shots: 3
   - type: STR_RIFLE_CLIP
-    power: 14
+    power: 13
     clipSize: 20
     damageAlter:
+      ToArmor: 0
       ArmorEffectiveness: 0.3
   - type: STR_SWORD
     listOrder: 1850
@@ -211,7 +225,7 @@ items:
     bigSprite: 200
     floorSprite: 200
     handSprite: 256
-    power: 50
+    power: 40
     strengthApplied: true
     damageType: 7
     accuracyMelee: 100
@@ -233,7 +247,7 @@ items:
     bigSprite: 201
     floorSprite: 201
     handSprite: 264
-    power: 90
+    power: 50
     strengthApplied: true
     damageType: 4
     accuracyMelee: 100
@@ -255,7 +269,7 @@ items:
     bigSprite: 202
     floorSprite: 202
     handSprite: 272
-    power: 130
+    power: 60
     strengthApplied: true
     damageType: 5
     accuracyMelee: 115
@@ -271,6 +285,7 @@ items:
   - type: STR_SHOTGUN
     tags:
       CRIT_CHANCE: 20
+      GUN_TYPE: 4
     listOrder: 2250
     size: 0.2
     costBuy: 2200
@@ -315,9 +330,10 @@ items:
     floorSprite: 206
     hitSound: 22
     hitAnimation: 26
-    power: 11
+    power: 10
     damageType: 1
     damageAlter:
+      ToArmor: 0
       ArmorEffectiveness: 0.2
     clipSize: 6
     battleType: 2
@@ -371,12 +387,16 @@ items:
     floorSprite: 208
     hitSound: 304
     hitAnimation: 26
-    power: 45
+    power: 50
     damageType: 1
+    damageAlter:
+      ToArmor: 0
     clipSize: 5
     battleType: 2
     armor: 20
   - type: STR_HEAVY_CANNON
+    tags:
+      GUN_TYPE: 5
     listOrder: 2400
     size: 0.8
     costBuy: 15000
@@ -422,10 +442,10 @@ items:
     hitAnimation: 26
     power: 10
     damageType: 1
-    clipSize: 50
+    clipSize: 30
     damageAlter:
       ArmorEffectiveness: 0.2
-      ToArmorPre: 0.6
+      ToArmorPre: 0.2
       ToArmor: 0
     battleType: 2
     invWidth: 2
@@ -457,6 +477,7 @@ items:
       - STR_LASER_WEAPONS
     tags:
       CRIT_CHANCE: 10
+      GUN_TYPE: 1
     listOrder: 3500
     size: 0.1
     costSell: 11000
@@ -469,8 +490,10 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
-    power: 65
+    power: 40
     damageType: 4
+    damageAlter:
+      ToArmor: 0
     tuSnap: 35
     tuAimed: 45
     tuAuto: 0
@@ -513,12 +536,13 @@ items:
     aimRange: 16
     autoRange: 10
     dropoff: 4   # 4 points of accuracy decrease per tile
-    power: 28
+    power: 20
     confSnap:
       shots: 3
     confAimed:
       shots: 3
     damageAlter:
+      ToArmor: 0
       ArmorEffectiveness: 0.3
     damageType: 4
     clipSize: -1
@@ -529,6 +553,7 @@ items:
   - type: STR_LASER_SHOTGUN
     tags:
       CRIT_CHANCE: 20
+      GUN_TYPE: 4
     requires:
       - STR_LASER_WEAPONS
     listOrder: 3630
@@ -559,9 +584,10 @@ items:
     dropoff: 3   # 4 points of accuracy decrease per tile
     powerRangeThreshold: 20 # full power until tile 20
     powerRangeReduction: 10 # minus 10 power per tile after that
-    power: 19
+    power: 14
     damageType: 4
     damageAlter:
+      ToArmor: 0
       ArmorEffectiveness: 0.2
     clipSize: -1
     battleType: 1
@@ -571,7 +597,7 @@ items:
     invHeight: 3
     shotgunPellets: 5
     bulletSpeed: 2
-  - type: STR_LASER_SNIPER
+  - type: STR_LASER_SNIPER_RIFLE
     requires:
       - STR_LASER_WEAPONS
     tags:
@@ -589,8 +615,10 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
-    power: 85
+    power: 70
     damageType: 4
+    damageAlter:
+      ToArmor: 0
     minRange: 6
     snapRange: 20
     aimRange: 22
@@ -616,6 +644,8 @@ items:
     listOrder: 3700
     requires:
       - STR_LASER_WEAPONS
+    tags:
+      GUN_TYPE: 5
     size: 0.3
     costSell: 41000
     costBuy: 0
@@ -627,7 +657,7 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
-    power: 18
+    power: 14
     damageType: 4
     accuracyAuto: 75
     accuracySnap: 75
@@ -647,7 +677,7 @@ items:
     clipSize: -1
     damageAlter:
       ArmorEffectiveness: 0.2
-      ToArmorPre: 0.6
+      ToArmorPre: 0.3
       ToArmor: 0
     battleType: 1
     twoHanded: true
@@ -657,6 +687,8 @@ items:
   - type: STR_XCOM_PLASMA_PISTOL
     requires:
       - STR_PLASMA_WEAPONS
+    tags:
+      GUN_TYPE: 1
     listOrder: 5000
     size: 0.1
     costSell: 64000
@@ -696,8 +728,10 @@ items:
     floorSprite: 222
     hitSound: 19
     hitAnimation: 46
-    power: 100
+    power: 50
     damageType: 5
+    damageAlter:
+      ToArmor: 0
     clipSize: 12
     battleType: 2
     recoveryPoints: 1
@@ -750,16 +784,19 @@ items:
     floorSprite: 225
     hitSound: 19
     hitAnimation: 46
-    power: 40
+    power: 27
     damageType: 5
     clipSize: 20
     battleType: 2
     recoveryPoints: 1
     damageAlter:
+      ToArmor: 0
       ArmorEffectiveness: 0.3
   - type: STR_PLASMA_SHOTGUN
     requires:
       - STR_PLASMA_WEAPONS
+    tags:
+      GUN_TYPE: 4
     listOrder: 5300
     size: 0.2
     costBuy: 0
@@ -806,9 +843,10 @@ items:
     floorSprite: 230
     hitSound: 19
     hitAnimation: 46
-    power: 27
+    power: 18
     damageType: 5
     damageAlter:
+      ToArmor: 0
       ArmorEffectiveness: 0.2
     clipSize: 6
     battleType: 2
@@ -866,14 +904,18 @@ items:
     floorSprite: 234
     hitSound: 19
     hitAnimation: 46
-    power: 125
+    power: 90
     damageType: 5
+    damageAlter:
+      ToArmor: 0
     clipSize: 5
     battleType: 2
     armor: 20
   - type: STR_XCOM_HEAVY_PLASMA
     requires:
       - STR_PLASMA_WEAPONS
+    tags:
+      GUN_TYPE: 5
     listOrder: 5500
     size: 0.2
     costSell: 171600
@@ -920,13 +962,13 @@ items:
     floorSprite: 218
     hitSound: 19
     hitAnimation: 46
-    power: 25
+    power: 18
     damageType: 5
-    clipSize: 35
+    clipSize: 30
     damageAlter:
       ArmorEffectiveness: 0.2
-      ToArmorPre: 0.6
-      ToArmor: 0
+      ToArmorPre: 0.33
+      ToArmor: 0.1
     battleType: 2
     recoveryPoints: 1
     invWidth: 2
@@ -970,7 +1012,7 @@ manufacture:
     requiredItems:
       STR_LASER_RIFLE: 1
       STR_ALIEN_ALLOYS: 5
-  - name: STR_LASER_SNIPER
+  - name: STR_LASER_SNIPER_RIFLE
     category: STR_WEAPON
     requires:
       - STR_LASER_WEAPONS
@@ -1173,7 +1215,7 @@ ufopaedia:
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_LASER_SHOTGUN
-  - id: STR_LASER_SNIPER
+  - id: STR_LASER_SNIPER_RIFLE
     requires:
       - STR_LASER_WEAPONS
     listOrder: 3760
@@ -1270,7 +1312,7 @@ extraStrings:
       STR_UFOPAEDIA_XCOM_LASER_RIFLE: "The Laser Assault Rifle relies on our latest in optics technology to offer a substantial increase in output over the conventional X9 rifle.{NEWLINE}{NEWLINE}CHARGES> 20{NEWLINE}{NEWLINE}BURST> 3"
       STR_LASER_SHOTGUN: Scatter Laser
       STR_UFOPAEDIA_LASER_SHOTGUN: "The Scatter Laser is capable of inflicting considerable damage; however, accuracy suffers greatly as the range to target increases.{NEWLINE}{NEWLINE}CHARGES> 6"
-      STR_LASER_SNIPER: Laser Sniper Rifle
+      STR_LASER_SNIPER_RIFLE: Laser Sniper Rifle
       STR_UFOPAEDIA_LASER_SNIPER: "The Laser Sniper Rifle provides a greater chance of inflicting critical damage to enemy targets. However, due to the unwieldy nature of this rifle, our soldiers will suffer a penalty when attempting to strike targets at close range.{NEWLINE}{NEWLINE}CHARGES> 5"
       STR_XCOM_HEAVY_PLASMA: Beam Cannon
       STR_XCOM_HEAVY_PLASMA_CLIP: Beam Cannon Clip

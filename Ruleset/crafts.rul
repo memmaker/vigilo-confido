@@ -273,9 +273,24 @@ extraStrings:
 
 
 ufopaedia:
+  - id: STR_SKYRANGER_SIX
+    type_id: 1
+    section: STR_NOT_AVAILABLE
+    image_id: UP004.SPK
+    rect_stats:
+      x: 160
+      y: 5
+      width: 160
+      height: 60
+    rect_text:
+      x: 5
+      y: 40
+      width: 140
+      height: 100
+    text: STR_SKYRANGER_UFOPEDIA
   - id: STR_SKYRANGER_EIGHT
     type_id: 1
-    section: STR_XCOM_CRAFT_ARMAMENT
+    section: STR_NOT_AVAILABLE
     image_id: UP004.SPK
     rect_stats:
       x: 160

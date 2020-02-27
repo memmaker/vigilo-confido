@@ -18,6 +18,36 @@ alienItemLevels:
   - [1, 1, 2, 2, 2, 2, 2, 2, 2, 2]
   - [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 
+missionScripts:
+  - delete: gameStart
+  - delete: recurringTerror
+  - delete: recon
+  - delete: invasion
+  - type: gameStart
+    missionWeights:
+      0:
+        STR_ALIEN_RESEARCH: 100
+    firstMonth: 0
+    lastMonth: 5
+    targetBaseOdds: 100
+    raceWeights:
+      0:
+        STR_SECTOID: 100
+    startDelay: 120
+
+  - type: recurringTerror
+    missionWeights:
+      0:
+        STR_ALIEN_TERROR: 100
+    useTable: false
+    startDelay: 150
+
+  - type: recon
+    firstMonth: 1
+
+  - type: invasion
+    firstMonth: 6
+
 alienMissions:
   - type: STR_ALIEN_RESEARCH
     points: 0
@@ -423,9 +453,9 @@ alienDeployments:
   - type: STR_MEDIUM_SCOUT
     data:
       - alienRank: 5
-        lowQty: 2
-        highQty: 4
-        dQty: 2
+        lowQty: 1
+        highQty: 2
+        dQty: 1
         percentageOutsideUfo: 60
         itemSets:
           -
@@ -470,8 +500,8 @@ alienDeployments:
     data:
       - alienRank: 5
         lowQty: 1
-        highQty: 3
-        dQty: 5
+        highQty: 2
+        dQty: 3
         percentageOutsideUfo: 65
         itemSets:
           -
@@ -541,9 +571,9 @@ alienDeployments:
     maxShade: 6
     data:
       - alienRank: 5
-        lowQty: 5
-        highQty: 9
-        dQty: 4
+        lowQty: 3
+        highQty: 5
+        dQty: 2
         percentageOutsideUfo: 70
         itemSets:
           -
@@ -637,9 +667,9 @@ alienDeployments:
     maxShade: 6
     data:
       - alienRank: 5
-        lowQty: 3
-        highQty: 5
-        dQty: 4
+        lowQty: 1
+        highQty: 3
+        dQty: 2
         percentageOutsideUfo: 70
         itemSets:
           -
@@ -734,8 +764,8 @@ alienDeployments:
     maxShade: 6
     data:
       - alienRank: 5
-        lowQty: 4
-        highQty: 6
+        lowQty: 2
+        highQty: 4
         dQty: 1
         percentageOutsideUfo: 70
         itemSets:
@@ -851,9 +881,9 @@ alienDeployments:
     maxShade: 6
     data:
       - alienRank: 5
-        lowQty: 4
-        highQty: 8
-        dQty: 4
+        lowQty: 2
+        highQty: 4
+        dQty: 3
         percentageOutsideUfo: 50
         itemSets:
           -
@@ -1004,9 +1034,9 @@ alienDeployments:
     maxShade: 6
     data:
       - alienRank: 5
-        lowQty: 5
-        highQty: 7
-        dQty: 6
+        lowQty: 3
+        highQty: 5
+        dQty: 2
         percentageOutsideUfo: 50
         itemSets:
           -
@@ -1095,8 +1125,8 @@ alienDeployments:
     maxShade: 6
     data:
       - alienRank: 5
-        lowQty: 4
-        highQty: 6
+        lowQty: 1
+        highQty: 2
         dQty: 1
         percentageOutsideUfo: 70
         itemSets:
@@ -1183,8 +1213,8 @@ alienDeployments:
             - STR_HEAVY_PLASMA_CLIP
       - alienRank: 6
         lowQty: 1
-        highQty: 3
-        dQty: 2
+        highQty: 2
+        dQty: 1
         percentageOutsideUfo: 50
         itemSets:
           -
@@ -1195,8 +1225,8 @@ alienDeployments:
             []
       - alienRank: 7
         lowQty: 1
-        highQty: 3
-        dQty: 2
+        highQty: 2
+        dQty: 1
         percentageOutsideUfo: 50
         itemSets:
           -
@@ -1246,9 +1276,9 @@ alienDeployments:
           -
             []
       - alienRank: 5
-        lowQty: 5
-        highQty: 7
-        dQty: 4
+        lowQty: 2
+        highQty: 4
+        dQty: 2
         percentageOutsideUfo: 0
         itemSets:
           -
@@ -1323,8 +1353,8 @@ alienDeployments:
             - STR_BLASTER_BOMB
             - STR_BLASTER_BOMB
       - alienRank: 1
-        lowQty: 2
-        highQty: 4
+        lowQty: 1
+        highQty: 2
         dQty: 0
         percentageOutsideUfo: 0
         itemSets:
@@ -1800,325 +1830,347 @@ alienDeployments:
 
 armors:
   - type: SECTOID_ARMOR0
-    frontArmor: 13
-    sideArmor: 12
-    rearArmor: 11
-    underArmor: 11
+    frontArmor: 4
+    sideArmor: 3
+    rearArmor: 2
+    underArmor: 3
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: FLOATER_ARMOR0
-    frontArmor: 24
-    sideArmor: 18
-    rearArmor: 12
-    underArmor: 16
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 0.0
-  - type: FLOATER_ARMOR1
-    frontArmor: 26
-    sideArmor: 24
-    rearArmor: 22
-    underArmor: 20
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 0.0
-  - type: FLOATER_ARMOR2
-    frontArmor: 30
-    sideArmor: 24
-    rearArmor: 18
-    underArmor: 24
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 0.0
-  - type: CYBERDISC_ARMOR
-    frontArmor: 64
-    sideArmor: 64
-    rearArmor: 64
-    underArmor: 64
-    damageModifier:
-      - 1.0
-      - 0.8
-      - 1.0
-      - 0.6
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: REAPER_ARMOR
-    frontArmor: 32
-    sideArmor: 32
-    rearArmor: 32
-    underArmor: 8
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: SECTOPOD_ARMOR
-    frontArmor: 145
-    sideArmor: 130
-    rearArmor: 100
-    underArmor: 90
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.5
-      - 0.9
-      - 1.0
-      - 1.0
-      - 1.3
-      - 0.0
-  - type: SNAKEMAN_ARMOR0
-    frontArmor: 50
-    sideArmor: 46
-    rearArmor: 44
-    underArmor: 20
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: SNAKEMAN_ARMOR1
-    frontArmor: 55
-    sideArmor: 50
-    rearArmor: 45
-    underArmor: 22
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: SNAKEMAN_ARMOR2
-    frontArmor: 60
-    sideArmor: 56
-    rearArmor: 52
-    underArmor: 24
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: MUTON_ARMOR0
-    frontArmor: 80
-    sideArmor: 60
-    rearArmor: 60
-    underArmor: 30
-    damageModifier:
-      - 1.0
-      - 0.6
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: MUTON_ARMOR1
-    frontArmor: 84
-    sideArmor: 64
-    rearArmor: 64
-    underArmor: 32
-    damageModifier:
-      - 1.0
-      - 0.6
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: MUTON_ARMOR2
-    frontArmor: 88
-    sideArmor: 68
-    rearArmor: 68
-    underArmor: 32
-    damageModifier:
-      - 1.0
-      - 0.6
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: ETHEREAL_ARMOR0
-    frontArmor: 90
-    sideArmor: 90
-    rearArmor: 90
-    underArmor: 90
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: ETHEREAL_ARMOR1
-    frontArmor: 95
-    sideArmor: 95
-    rearArmor: 95
-    underArmor: 95
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: ETHEREAL_ARMOR2
-    frontArmor: 100
-    sideArmor: 100
-    rearArmor: 100
-    underArmor: 100
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.7
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: CHRYSSALID_ARMOR
-    frontArmor: 64
-    sideArmor: 64
-    rearArmor: 64
-    underArmor: 64
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.9
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: ZOMBIE_ARMOR
     frontArmor: 8
+    sideArmor: 6
+    rearArmor: 4
+    underArmor: 6
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: FLOATER_ARMOR1
+    frontArmor: 10
     sideArmor: 8
-    rearArmor: 8
+    rearArmor: 6
     underArmor: 8
     damageModifier:
-      - 1.0
-      - 0.6
-      - 1.0
-      - 0.8
-      - 0.7
-      - 0.7
-      - 0.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: SILACOID_ARMOR
-    frontArmor: 50
-    sideArmor: 50
-    rearArmor: 50
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: FLOATER_ARMOR2
+    frontArmor: 12
+    sideArmor: 10
+    rearArmor: 8
     underArmor: 10
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.0
-      - 1.3
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.0
-  - type: CELATID_ARMOR
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: CYBERDISC_ARMOR
+    frontArmor: 30
+    sideArmor: 30
+    rearArmor: 30
+    underArmor: 28
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: REAPER_ARMOR
+    frontArmor: 10
+    sideArmor: 6
+    rearArmor: 4
+    underArmor: 8
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SECTOPOD_ARMOR
+    frontArmor: 40
+    sideArmor: 38
+    rearArmor: 34
+    underArmor: 40
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SNAKEMAN_ARMOR0
+    frontArmor: 10
+    sideArmor: 8
+    rearArmor: 6
+    underArmor: 10
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SNAKEMAN_ARMOR1
+    frontArmor: 18
+    sideArmor: 16
+    rearArmor: 14
+    underArmor: 16
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SNAKEMAN_ARMOR2
+    frontArmor: 20
+    sideArmor: 18
+    rearArmor: 16
+    underArmor: 18
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: MUTON_ARMOR0
+    frontArmor: 8
+    sideArmor: 6
+    rearArmor: 6
+    underArmor: 3
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: MUTON_ARMOR1
+    frontArmor: 10
+    sideArmor: 8
+    rearArmor: 8
+    underArmor: 6
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: MUTON_ARMOR2
+    frontArmor: 12
+    sideArmor: 10
+    rearArmor: 10
+    underArmor: 8
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ETHEREAL_ARMOR0
+    frontArmor: 20
+    sideArmor: 20
+    rearArmor: 20
+    underArmor: 20
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ETHEREAL_ARMOR1
+    frontArmor: 25
+    sideArmor: 25
+    rearArmor: 25
+    underArmor: 25
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ETHEREAL_ARMOR2
     frontArmor: 30
     sideArmor: 30
     rearArmor: 30
     underArmor: 30
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: CHRYSSALID_ARMOR
+    frontArmor: 10
+    sideArmor: 10
+    rearArmor: 10
+    underArmor: 10
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ZOMBIE_ARMOR
+    frontArmor: 4
+    sideArmor: 4
+    rearArmor: 4
+    underArmor: 4
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
 
 items:
   - type: STR_ALIEN_ALLOYS
@@ -2142,9 +2194,12 @@ items:
     recoveryPoints: 5
   - type: STR_LASER_PISTOL
     power: 20  # vanilla: 46
-    tuAimed: 55
-    tuSnap: 30 # vanilla: 20
-    tuAuto: 35 # vanilla: 25
+    tuAimed: 60
+    tuSnap: 35 # vanilla: 20
+    tuAuto: 45 # vanilla: 25
+    accuracyAuto: 28
+    accuracySnap: 30 # vanilla: 40
+    accuracyAimed: 68
     snapRange: 10
     aimRange: 14
     autoRange: 8
@@ -2160,6 +2215,9 @@ items:
     tuAimed: 50
     tuSnap: 35 # vanilla: 25
     tuAuto: 45 # vanilla: 34
+    accuracyAuto: 46
+    accuracySnap: 55 # vanilla: 65
+    accuracyAimed: 100
     snapRange: 12
     aimRange: 16
     autoRange: 10
@@ -2212,3 +2270,130 @@ items:
     fuseType: 0              # 0 turn timer
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
+  - type: CYBERDISC_WEAPON
+    power: 75
+    accuracySnap: 75
+    accuracyAimed: 110
+    tuSnap: 30
+    tuAimed: 60
+  - type: REAPER_WEAPON
+    strengthApplied: true
+    accuracyMelee: 100
+    tuMelee: 15
+  - type: CHRYSSALID_WEAPON
+    strengthApplied: true
+    accuracyMelee: 100
+    tuMelee: 15
+    zombieUnit: STR_ZOMBIE
+  - type: SECTOPOD_WEAPON
+    power: 100
+    accuracyAuto: 50
+    accuracySnap: 75
+    accuracyAimed: 110
+    tuAuto: 35
+    tuSnap: 30
+    tuAimed: 60
+  - type: ZOMBIE_WEAPON
+    strengthApplied: true
+    accuracyMelee: 100
+    tuMelee: 15
+
+units:
+  - type: STR_SNAKEMAN_SOLDIER
+    stats:
+      health: 65
+  - type: STR_SNAKEMAN_ENGINEER
+    stats:
+      health: 65
+  - type: STR_SNAKEMAN_NAVIGATOR
+    stats:
+      health: 65
+  - type: STR_SNAKEMAN_LEADER
+    stats:
+      health: 68
+  - type: STR_SNAKEMAN_COMMANDER
+    stats:
+      health: 70
+  - type: STR_FLOATER_SOLDIER
+    stats:
+      health: 50
+  - type: STR_FLOATER_ENGINEER
+    stats:
+      health: 60
+  - type: STR_FLOATER_NAVIGATOR
+    stats:
+      health: 70
+  - type: STR_FLOATER_MEDIC
+    stats:
+      health: 80
+  - type: STR_FLOATER_LEADER
+    stats:
+      health: 80
+  - type: STR_FLOATER_COMMANDER
+    stats:
+      health: 80
+  - type: STR_CYBERDISC_TERRORIST
+    stats:
+      tu: 62
+      stamina: 90
+      health: 160
+      bravery: 110
+      reactions: 64
+      firing: 60
+      throwing: 0
+      strength: 90
+      psiStrength: 100
+      psiSkill: 0
+      melee: 0
+  - type: STR_REAPER_TERRORIST
+    stats:
+      tu: 62
+      stamina: 90
+      health: 150
+      bravery: 90
+      reactions: 64
+      firing: 0
+      throwing: 0
+      strength: 40
+      psiStrength: 35
+      psiSkill: 0
+      melee: 80
+  - type: STR_CHRYSSALID_TERRORIST
+    stats:
+      tu: 110
+      stamina: 140
+      health: 110
+      bravery: 100
+      reactions: 70
+      firing: 0
+      throwing: 0
+      strength: 70
+      psiStrength: 50
+      psiSkill: 0
+      melee: 80
+  - type: STR_SECTOPOD_TERRORIST
+    stats:
+      tu: 62
+      stamina: 90
+      health: 280
+      bravery: 110
+      reactions: 64
+      firing: 60
+      throwing: 0
+      strength: 90
+      psiStrength: 100
+      psiSkill: 0
+      melee: 80
+  - type: STR_ZOMBIE
+    stats:
+      tu: 40
+      stamina: 110
+      health: 90
+      bravery: 110
+      reactions: 40
+      firing: 0
+      throwing: 0
+      strength: 65
+      psiStrength: 80
+      psiSkill: 0
+      melee: 80

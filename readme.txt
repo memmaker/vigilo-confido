@@ -61,10 +61,10 @@ Weapons and armors all follow the three Tier concept.
 T1 is available from the start.
 
 T2 depends on alien alloys.
- - You should aim at researching "Laser Weapons" and "Predator Armor" until April to June.
+ - You should aim at researching "Laser Weapons" and "Predator Armor" until April.
 
 T3 depends on Elerium-115.
- - You should aim at researching "Plasma Weapons" and "Warden Armor" until August to October.
+ - You should aim at researching "Plasma Weapons" and "Warden Armor" until August.
 
 Armor & Weapon Tiers
 T1 - Kevlar Armor   & Conventional Weapons
@@ -86,7 +86,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Additional status effects & Visualisations
  - Weapons can be disabled in combat
  - New alien units added (Cyber Floater, Thin Man, Berserker, Muton Elite)
- 
+ - t1 minigun floorob too high
 Required: Presumably OXCE 6.4
 
 === CREDITS ===
@@ -139,3 +139,5 @@ Commendations Mod uses Attribution-NonCommercial-ShareAlike 4.0 International wh
  - multiple skyranger ufopedia entries
  - hardened ability: critical hit chance against this unit reduced by 60%
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
+ - resistances to damage types
+ - missing gremlin corpse?

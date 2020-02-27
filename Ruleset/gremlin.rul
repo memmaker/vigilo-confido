@@ -141,6 +141,14 @@ extraSprites:
       58: Resources/Animation/spark_hit.png
 
 ufopaedia:
+  - delete: STR_HOVERTANK_LAUNCHER
+  - delete: STR_HOVERTANK_PLASMA
+  - delete: STR_HWP_FUSION_BOMB
+  - delete: STR_TANK_CANNON
+  - delete: STR_HWP_CANNON_SHELLS
+  - delete: STR_TANK_ROCKET_LAUNCHER
+  - delete: STR_HWP_ROCKETS
+  - delete: STR_TANK_LASER_CANNON
   - id: STR_GREMLIN
     type_id: 3
     section: STR_HEAVY_WEAPONS_PLATFORMS

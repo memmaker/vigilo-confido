@@ -2678,6 +2678,7 @@ extended:
           return;
 
 ufopaedia:
+  - delete: STR_HIGH_EXPLOSIVE
   - id: STR_MILITARY_MOLDING
     type_id: 7 # text & image
     image_id: UFOPAEDIA_IMG_MOLDING_CPAL
@@ -2923,9 +2924,8 @@ extraStrings:
       STR_DAMAGE_LASER_BEAM: "LASER"
       STR_DAMAGE_PLASMA_BEAM: "PLASMA"
       STR_DAMAGE_10: "PSIONIC"                
-      STR_DAMAGE_11: "ARMOR PIERCING"
-      STR_DAMAGE_14: "ELECTRIC"
-
+      STR_DAMAGE_11: "POISON"
+      STR_DAMAGE_12: "ELECTRIC"
 
 statStrings:
   - string: "Psi" #above average psi skill

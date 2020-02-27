@@ -102,22 +102,46 @@ items:
     recover: false
 
 armors:
-  - type: STR_PERSONAL_ARMOR_UC  # Kevlar
-    frontArmor: 15
-    sideArmor: 13
-    rearArmor: 10
-    underArmor: 8
+  - type: STR_NONE_UC
+    frontArmor: 0
+    sideArmor: 0
+    rearArmor: 0
+    underArmor: 0
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.9
-      - 1.0
-      - 1.1
-      - 1.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.3  # 2  Incendiary
+      - 1.3  # 3  High-Explosive
+      - 1.3  # 4  Laser 
+      - 1.3  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.3  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: STR_PERSONAL_ARMOR_UC  # Kevlar
+    frontArmor: 0
+    sideArmor: 0
+    rearArmor: 0
+    underArmor: 0
+    stats:
+      health: 10
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_ALLOY_ARMOR_UC   # Predator
     spriteSheet: XOPS_XCOM_10.PCK
     spriteInv: XOP_10
@@ -125,21 +149,26 @@ armors:
       - STR_CORPSE_ALLOY_ARMOR
     storeItem: STR_ALLOY_ARMOR
     loftempsSet: [ 4 ]
-    frontArmor: 50
-    sideArmor: 45
-    rearArmor: 40
-    underArmor: 40
+    frontArmor: 5
+    sideArmor: 4
+    rearArmor: 3
+    underArmor: 4
+    stats:
+      health: 40
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.8
-      - 0.9
-      - 1.0
-      - 1.0
-      - 0.9
-      - 1.0
-      - 1.1
-      - 0.5
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_ALLOY_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_12.PCK
     spriteInv: XOP_12
@@ -147,59 +176,73 @@ armors:
       - STR_CORPSE_ALLOY_ARMOR_BLUE
     storeItem: STR_ALLOY_ARMOR
     loftempsSet: [ 4 ]
-    frontArmor: 50
-    sideArmor: 45
-    rearArmor: 40
-    underArmor: 40
+    frontArmor: 5
+    sideArmor: 4
+    rearArmor: 3
+    underArmor: 4
+    stats:
+      health: 40
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.8
-      - 0.9
-      - 1.0
-      - 1.0
-      - 0.9
-      - 1.0
-      - 1.1
-      - 0.5
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_POWER_SUIT_UC  # HAZMAT
-    frontArmor: 35
-    sideArmor: 35
-    rearArmor: 20
-    underArmor: 50
+    frontArmor: 5
+    sideArmor: 4
+    rearArmor: 3
+    underArmor: 5
     stats:
+      health: 30
       tu: -5
       stamina: -5
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.2
-      - 0.2
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 0.2
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 0.1  # 2  Incendiary
+      - 0.6  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 0.3  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 0.3  # 11 Poison
+      - 0.3  # 12 Electric
   - type: STR_FLYING_SUIT_UC  # WAR SUIT
-    frontArmor: 55
-    sideArmor: 50
-    rearArmor: 50
-    underArmor: 40
+    frontArmor: 20
+    sideArmor: 18
+    rearArmor: 16
+    underArmor: 16
+    movementType: 0
     stats:
+      health: 60
       tu: -5
       stamina: -5
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.9
-      - 0.9
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.2
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_SKY_STRIKE_ARMOR_UC
     spriteSheet: XOPS_XCOM_27.PCK
     spriteInv: XOP_27
@@ -207,24 +250,28 @@ armors:
       - STR_CORPSE_SKY_STRIKE_ARMOR
     storeItem: STR_SKY_STRIKE_ARMOR
     stats:
-      tu: 15
+      tu: 10
+      health: 50
     loftempsSet: [ 4 ]
-    frontArmor: 38
-    sideArmor: 26
-    rearArmor: 28
-    underArmor: 35
+    frontArmor: 5
+    sideArmor: 4
+    rearArmor: 2
+    underArmor: 4
     movementType: 1
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.9
-      - 1.0
-      - 1.1
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_SKY_STRIKE_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_28.PCK
     spriteInv: XOP_28
@@ -232,24 +279,28 @@ armors:
       - STR_CORPSE_SKY_STRIKE_ARMOR_BLUE
     storeItem: STR_SKY_STRIKE_ARMOR
     stats:
-      tu: 15
+      tu: 10
+      health: 50
     loftempsSet: [ 4 ]
-    frontArmor: 38
-    sideArmor: 26
-    rearArmor: 28
-    underArmor: 35
+    frontArmor: 5
+    sideArmor: 4
+    rearArmor: 2
+    underArmor: 4
     movementType: 1
     damageModifier:
-      - 1.0
-      - 1.0
-      - 0.8
-      - 1.0
-      - 1.0
-      - 1.0
-      - 0.9
-      - 1.0
-      - 1.1
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_PSI_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_45.PCK
     spriteInv: XOP_45
@@ -261,29 +312,29 @@ armors:
       - STR_CORPSE_PSI_ARMOR_BLUE
     storeItem: STR_PSI_ARMOR
     stats:
-      tu: 10
-      reactions: 20
-      firing: 10
-      throwing: 5
+      health: 40
       psiStrength: 25
       psiSkill: 25
     loftempsSet: [ 4 ]
-    frontArmor: 70
-    sideArmor: 60
-    rearArmor: 50
-    underArmor: 50
+    frontArmor: 5
+    sideArmor: 4
+    rearArmor: 4
+    underArmor: 4
     movementType: 0
     damageModifier:
-      - 1.0
-      - 1.5
-      - 0.5
-      - 1.4
-      - 0.6
-      - 0.6
-      - 0.7
-      - 2.0
-      - 1.4
-      - 1.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.2  # 6  Stun
+      - 1.5  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 0.5  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_XOPS_POWER_ARMOR_WHITE_UC
     spriteSheet: XOPS_XCOM_41.PCK
     spriteInv: XOP_41
@@ -293,31 +344,30 @@ armors:
     tags:
       ANIMATED: 1
     stats:
-      tu: 7
-      stamina: 10
-      bravery: 10
-      reactions: 5
-      firing: 5
-      strength: 10
-      psiStrength: 25
+      health: 60
+      strength: 5
+      psiStrength: 10
       psiSkill: -25
     loftempsSet: [ 4 ]
-    frontArmor: 100
-    sideArmor: 90
-    rearArmor: 90
-    underArmor: 80
+    frontArmor: 10
+    sideArmor: 9
+    rearArmor: 9
+    underArmor: 8
     movementType: 1
     damageModifier:
-      - 1.0
-      - 0.3
-      - 0.0
-      - 0.8
-      - 0.8
-      - 1.0
-      - 0.5
-      - 0.8
-      - 1.5
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 0.8  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_XOPS_POWER_ARMOR_UC
     spriteSheet: XOPS_XCOM_42.PCK
     spriteInv: XOP_42
@@ -327,31 +377,30 @@ armors:
     tags:
       ANIMATED: 1
     stats:
-      tu: 7
-      stamina: 10
-      bravery: 10
-      reactions: 5
-      firing: 5
-      strength: 10
-      psiStrength: 25
+      health: 60
+      strength: 5
+      psiStrength: 10
       psiSkill: -25
     loftempsSet: [ 4 ]
-    frontArmor: 100
-    sideArmor: 90
-    rearArmor: 90
-    underArmor: 80
+    frontArmor: 10
+    sideArmor: 9
+    rearArmor: 9
+    underArmor: 8
     movementType: 1
     damageModifier:
-      - 1.0
-      - 0.3
-      - 0.0
-      - 0.8
-      - 0.8
-      - 1.0
-      - 0.5
-      - 0.8
-      - 1.5
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 0.8  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: STR_XOPS_POWER_ARMOR_BLACK_UC
     spriteSheet: XOPS_XCOM_43.PCK
     spriteInv: XOP_43
@@ -361,31 +410,30 @@ armors:
     tags:
       ANIMATED: 1
     stats:
-      tu: 7
-      stamina: 10
-      bravery: 10
-      reactions: 5
-      firing: 5
-      strength: 10
-      psiStrength: 25
+      health: 60
+      strength: 5
+      psiStrength: 10
       psiSkill: -25
     loftempsSet: [ 4 ]
-    frontArmor: 100
-    sideArmor: 90
-    rearArmor: 90
-    underArmor: 80
+    frontArmor: 10
+    sideArmor: 9
+    rearArmor: 9
+    underArmor: 8
     movementType: 1
     damageModifier:
-      - 1.0
-      - 0.3
-      - 0.0
-      - 0.8
-      - 0.8
-      - 1.0
-      - 0.5
-      - 0.8
-      - 1.5
-      - 0.0
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 0.8  # 7  Melee
+      - 1.0  # 8  Acid
+      - 1.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
 
 extraSprites:
 #---BIG OBJECTS------------------------------------------
@@ -725,18 +773,18 @@ extraSprites:
       0: Resources/Armor_Imported/PsiArmor/XCOM45.gif
 
 itemCategories:
-  - type: STR_PERSONAL_ARMOR
+  - type: STR_ARMOR_CATEGORY
 
 manufacture:
   - name: STR_PERSONAL_ARMOR     # Kevlar - T1
-    category: STR_PERSONAL_ARMOR
+    category: STR_ARMOR_CATEGORY
     requires: []
     requiredItems: {}
     space: 6
     time: 96
     cost: 12000
   - name: STR_ALLOY_ARMOR     # Predator - T2
-    category: STR_PERSONAL_ARMOR
+    category: STR_ARMOR_CATEGORY
     requires:
       - STR_ALLOY_ARMOR
     space: 16
@@ -745,7 +793,7 @@ manufacture:
     requiredItems:
       STR_ALIEN_ALLOYS: 5
   - name: STR_POWER_SUIT  # HAZMAT
-    category: STR_PERSONAL_ARMOR
+    category: STR_ARMOR_CATEGORY
     requires:
       - STR_POWER_SUIT
     space: 16
@@ -754,7 +802,7 @@ manufacture:
     requiredItems:
       STR_ALIEN_ALLOYS: 10
   - name: STR_FLYING_SUIT  # WAR SUIT
-    category: STR_PERSONAL_ARMOR
+    category: STR_ARMOR_CATEGORY
     requires:
       - STR_FLYING_SUIT
     space: 16
@@ -763,7 +811,7 @@ manufacture:
     requiredItems:
       STR_ALIEN_ALLOYS: 10
   - name: STR_XOPS_POWER_ARMOR  # Warden - T3
-    category: STR_PERSONAL_ARMOR
+    category: STR_ARMOR_CATEGORY
     requires:
       - STR_XOPS_POWER_ARMOR
     space: 16
@@ -771,9 +819,9 @@ manufacture:
     cost: 78000
     requiredItems:
       STR_ALIEN_ALLOYS: 10
-      STR_ELERIUM_115: 20
+      STR_ELERIUM_115: 10
   - name: STR_PSI_ARMOR  # Psi
-    category: STR_PERSONAL_ARMOR
+    category: STR_ARMOR_CATEGORY
     requires:
       - STR_PSI_ARMOR
     space: 16
@@ -781,8 +829,18 @@ manufacture:
     cost: 98000
     requiredItems:
       STR_ALIEN_ALLOYS: 8
-      STR_ELERIUM_115: 20
-
+      STR_ELERIUM_115: 10
+  - name: STR_SKY_STRIKE_ARMOR # New Flying Suit
+    category: STR_ARMOR_CATEGORY
+    requires:
+      - STR_PSI_ARMOR
+    space: 16
+    time: 1600
+    cost: 98000
+    requiredItems:
+      STR_ALIEN_ALLOYS: 8
+      STR_ELERIUM_115: 10
+      STR_FLOATER_CORPSE: 2
 
 ufopaedia:
   - delete: STR_STUN_ROD
@@ -839,6 +897,7 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
+      STR_ARMOR_CATEGORY: Body Armor
       STR_LIGHT_SUIT_UC: Light Jumpsuit
       STR_PADDED_SUIT_UC: Padded Jumpsuit
       STR_PERSONAL_ARMOR: Kevlar Armor
