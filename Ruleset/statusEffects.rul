@@ -156,8 +156,12 @@ extended:
       INFLICT_CHANCE: int
       EFFECT_POWER: int
     BattleUnit:
-      EFFECT_TYPE: int
-      EFFECT_STATE: int
+      DISORIENTED: int
+      ACID_BURN: int
+      POISONED: int
+      FROZEN: int
+      SHUTDOWN: int
+      CHRYSSALID_POISONED: int
 #      STUNNED: int # ??? make it so, that stun damage also reduces TU
 #      BURNING: int # ??? make it so, that burning disables weapon usage
       ORIGINAL_FIRING_ACCURACY: int
@@ -171,8 +175,13 @@ extended:
     newTurnUnit:
       - offset: 97    # handling new turns for status effects
         code: |
-          var int effect_type;
-          var int effect_state;
+          var int disoriented;
+          var int acid_burn;
+          var int poisoned;
+          var int frozen;
+          var int shutdown;
+          var int chryssalid_poisoned;
+          
           var int tu_half;
           var int fir_half;
           var int thr_half;
@@ -184,14 +193,19 @@ extended:
           unit.getFaction faction;
 
           if eq faction side;
-            unit.getTag effect_type Tag.EFFECT_TYPE;
-            unit.getTag effect_state Tag.EFFECT_STATE;
-            
-            if eq effect_type 1;   # disoriented
-              sub effect_state 1;
-              unit.setTag Tag.EFFECT_STATE effect_state;
 
-              if eq effect_state 0;
+            unit.getTag disoriented Tag.DISORIENTED;
+            unit.getTag acid_burn Tag.ACID_BURN;
+            unit.getTag poisoned Tag.POISONED;
+            unit.getTag frozen Tag.FROZEN;
+            unit.getTag shutdown Tag.SHUTDOWN;
+            unit.getTag chryssalid_poisoned Tag.CHRYSSALID_POISONED;
+
+            if gt disoriented 0;   # disoriented
+              sub disoriented 1;
+              unit.setTag Tag.DISORIENTED disoriented;
+
+              if eq disoriented 0;
                 unit.getTag org_fir Tag.ORIGINAL_FIRING_ACCURACY;
                 unit.getTag org_thr Tag.ORIGINAL_THROWING_ACCURACY;
 
@@ -209,50 +223,65 @@ extended:
                 unit.setTimeUnits tu_half;
                 debug_log unit "is still disoriented.";
               end;
-            else eq effect_type 2;  # acid burn
-              sub effect_state 1;
-              unit.setTag Tag.EFFECT_STATE effect_state;
-              if eq effect_state 0;
+            end;
+            if gt acid_burn 0;  # acid burn
+              sub acid_burn 1;
+              unit.setTag Tag.ACID_BURN acid_burn;
+              if eq acid_burn 0;
                 unit.setTag Tag.VIS_EFFECT 0;
               end;
-            else eq effect_type 3;  # frozen
-              sub effect_state 1;
-              unit.setTag Tag.EFFECT_STATE effect_state;
-              if eq effect_state 0;
+            end;
+            if gt frozen 0;  # frozen
+              sub frozen 1;
+              unit.setTag Tag.FROZEN frozen;
+              if eq frozen 0;
                 unit.setTag Tag.VIS_EFFECT 0;
               else;
                 debug_log unit "is still frozen.";
                 unit.setTimeUnits 0;
               end;
-            else eq effect_type 4;  # poisoned
-              sub effect_state 5;
-              unit.setTag Tag.EFFECT_STATE effect_state;
-              if le effect_state 0;
+            end;
+            if gt poisoned 0;  # poisoned
+              sub poisoned 5;
+              if le poisoned 0;
                 unit.setTag Tag.VIS_EFFECT 0;
+                unit.setTag Tag.POISONED 0;
               else;
+                unit.setTag Tag.POISONED poisoned;
                 debug_log unit "is still poisoned.";
                 unit.getHealth temp;
-                sub temp effect_state;
+                sub temp poisoned;
                 unit.setHealth temp;
               end;
-            else eq effect_type 5;  # shutdown
-              sub effect_state 1;
-              unit.setTag Tag.EFFECT_STATE effect_state;
-              if eq effect_state 0;
+            end;
+            if gt shutdown 0;  # shutdown
+              sub shutdown 1;
+              unit.setTag Tag.SHUTDOWN shutdown;
+              if eq shutdown 0;
                 unit.setTag Tag.VIS_EFFECT 0;
               else;
                 debug_log unit "is still shutdown.";
                 unit.setTimeUnits 0;
               end;
             end;
+            if gt chryssalid_poisoned 0;  # chryssalid poisoned, only cure is medi-kit
+              debug_log unit "is still poisoned.";
+              unit.getHealth temp;
+              sub temp chryssalid_poisoned;
+              if le temp 0;
+                unit.setSpawnUnit "STR_ZOMBIE";
+                debug_log "Death by chryssalid poison:" unit;
+              end;
+              unit.setHealth temp;
+            end;
           end;
           return;
     damageUnit:
       - offset: 97
         code: |
-          var int effect_type;
-          unit.getTag effect_type Tag.EFFECT_TYPE;
-          if eq effect_type 2;  # unit has acid burn
+          var int acid_burn;
+          unit.getTag acid_burn Tag.ACID_BURN;
+          if gt acid_burn 0;  # unit has acid burn
             set to_armor to_health;
           end;
           return;
@@ -267,6 +296,9 @@ extended:
           var int chance;
           var int temp;
           var int effect_power;
+          var int item_power;
+
+          set item_power power;
 
           damaging_item.getRuleItem item_rule;
           item_rule.getTag effect_type Tag.INFLICT_EFFECT;
@@ -278,8 +310,7 @@ extended:
             battle_game.randomChance chance;
             if gt chance 0;
               debug_log "Unit hit by status effect:" unit;
-              unit.setTag Tag.EFFECT_TYPE effect_type;
-              unit.setTag Tag.EFFECT_STATE effect_power;
+
               if eq effect_type 1;
                 unit.getTimeUnits tu_half;
                 unit.Stats.getFiring fir_half;
@@ -295,11 +326,15 @@ extended:
                 unit.setTimeUnits tu_half;
                 unit.Stats.setFiring fir_half;
                 unit.Stats.setThrowing thr_half;
+
+                unit.setTag Tag.DISORIENTED effect_power;
+
                 debug_log unit "is disoriented now!";
                 unit.setTag Tag.VIS_EFFECT 4;  # interval flashing
                 unit.setTag Tag.VIS_COLOR COLOR_X1_NULL;
                 unit.setTag Tag.VIS_DELAY 45; # in frames
               else eq effect_type 2;
+                unit.setTag Tag.ACID_BURN effect_power;
                 debug_log unit "has acid burn now!";
                 unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
                 unit.setTag Tag.VIS_COLOR COLOR_X1_GREEN1;
@@ -307,18 +342,21 @@ extended:
                 unit.setTag Tag.VIS_DELAY temp; # prng offset
                 unit.setTag Tag.VIS_REGION 1;
               else eq effect_type 3;
+               unit.setTag Tag.FROZEN effect_power;
                 debug_log unit "has frozen now!";
                 unit.setTimeUnits 0;
                 unit.setEnergy 0;
                 unit.setTag Tag.VIS_EFFECT 1;  # simple complete recolor
                 unit.setTag Tag.VIS_COLOR COLOR_X1_BLUE1;
               else eq effect_type 4;
+                unit.setTag Tag.POISONED effect_power;
                 set power effect_power;
                 debug_log unit "has poisoned now!";
                 unit.setTag Tag.VIS_EFFECT 4;  # interval flashing
                 unit.setTag Tag.VIS_COLOR COLOR_X1_PURPLE1;
                 unit.setTag Tag.VIS_DELAY 30; # in frames
               else eq effect_type 5;
+                unit.setTag Tag.SHUTDOWN effect_power;
                 debug_log unit "has shutdown now!";
                 unit.setTimeUnits 0;
                 unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
@@ -326,7 +364,15 @@ extended:
                 battle_game.randomRange temp 1 100;
                 unit.setTag Tag.VIS_DELAY temp; # prng offset
                 unit.setTag Tag.VIS_REGION 1;
+              else eq effect_type 6;
+                set power item_power; # set power back to attack power
+                unit.setTag Tag.CHRYSSALID_POISONED effect_power;
+                debug_log "Unit hit by chryssalid melee:" unit;
+                unit.setTag Tag.VIS_EFFECT 4;  # interval flashing
+                unit.setTag Tag.VIS_COLOR COLOR_X1_PURPLE0;
+                unit.setTag Tag.VIS_DELAY 30; # in frames
               end;
+
             end;
           end;
           return power part side;

@@ -1,0 +1,41 @@
+# TODO: heal chryssalid poison
+items:
+  - type: CHRYSSALID_WEAPON
+    tags:
+      INFLICT_EFFECT: 6 # chryssalid poison
+      INFLICT_CHANCE: 100
+      EFFECT_POWER: 15
+      ZOMBIFICATION: 1
+    power: 10
+    zombieUnit: STR_ZOMBIE
+    specialChance: 0
+
+extended:
+  tags:
+    RuleItem:
+      ZOMBIFICATION: int
+      INFLICT_EFFECT: int
+      INFLICT_CHANCE: int
+      EFFECT_POWER: int
+    BattleUnit:
+      CHRYSSALID_POISONED: int
+  scripts:
+    damageUnit:
+      - offset: 96
+        code: |
+          var ptr RuleItem item_rule;
+          var int zombification;
+          var int health;
+          var int poisoned;
+
+          damaging_item.getRuleItem item_rule;
+          item_rule.getTag zombification Tag.ZOMBIFICATION;
+          unit.getHealth health;
+
+          if eq zombification 1;  
+            if ge to_health health;
+              # unit will die from this hit with chryssalid weapon
+              set to_transform 100;
+            end;
+          end;
+          return;

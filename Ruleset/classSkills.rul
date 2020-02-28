@@ -579,7 +579,7 @@ skills:
   - type: STR_CONCEAL
     tags:
       SKILL_ID: 12
-    requiredBonus: [STR_RANGER_ADVANCED_BONUS]
+    requiredBonuses: [STR_RANGER_ADVANCED_BONUS]
     costUse:
       time: 5
       mana: 12
@@ -589,7 +589,7 @@ skills:
   - type: STR_RAPID_FIRE
     tags:
       SKILL_ID: 13
-    requiredBonus: [STR_RANGER_ADVANCED_BONUS]
+    requiredBonuses: [STR_RANGER_ADVANCED_BONUS]
     costUse:
       time: 50
       mana: 5
@@ -601,7 +601,7 @@ skills:
   - type: STR_REAPER
     tags:
       SKILL_ID: 14
-    requiredBonus: [STR_RANGER_ELITE_BONUS]
+    requiredBonuses: [STR_RANGER_ELITE_BONUS]
     costUse:
       time: 0
       mana: 12
@@ -634,7 +634,7 @@ skills:
   - type: STR_WAR_CRY
     tags:
       SKILL_ID: 22
-    requiredBonus: [STR_GRENADIER_ADVANCED_BONUS]
+    requiredBonuses: [STR_GRENADIER_ADVANCED_BONUS]
     costUse:
       time: 10
       mana: 8
@@ -644,7 +644,7 @@ skills:
   - type: STR_RAGE_BURST
     tags:
       SKILL_ID: 23
-    requiredBonus: [STR_GRENADIER_ADVANCED_BONUS]
+    requiredBonuses: [STR_GRENADIER_ADVANCED_BONUS]
     costUse:
       time: 50
       mana: 12
@@ -658,7 +658,7 @@ skills:
   - type: STR_RUPTURE
     tags:
       SKILL_ID: 24
-    requiredBonus: [STR_GRENADIER_ELITE_BONUS]
+    requiredBonuses: [STR_GRENADIER_ELITE_BONUS]
     costUse:
       time: 0
       mana: 12
@@ -690,7 +690,7 @@ skills:
   - type: STR_DISABLING_SHOT  # default, no damage, disable weapon of target
     tags:
       SKILL_ID: 32
-    requiredBonus: [STR_SNIPER_ADVANCED_BONUS]
+    requiredBonuses: [STR_SNIPER_ADVANCED_BONUS]
     costUse:
       time: 85
       mana: 4
@@ -702,7 +702,7 @@ skills:
   - type: STR_DOUBLE_TAP     # X default, fire two shots
     tags:
       SKILL_ID: 33
-    requiredBonus: [STR_SNIPER_ADVANCED_BONUS]
+    requiredBonuses: [STR_SNIPER_ADVANCED_BONUS]
     costUse:
       time: 85
       mana: 8
@@ -714,7 +714,7 @@ skills:
   - type: STR_SERIAL
     tags:
       SKILL_ID: 34
-    requiredBonus: [STR_SNIPER_ELITE_BONUS]
+    requiredBonuses: [STR_SNIPER_ELITE_BONUS]
     costUse:
       time: 0
       mana: 12
@@ -747,7 +747,7 @@ skills:
   - type: STR_COMBAT_PROTOCOL
     tags:
       SKILL_ID: 42
-    requiredBonus: [STR_SPECIALIST_ADVANCED_BONUS]
+    requiredBonuses: [STR_SPECIALIST_ADVANCED_BONUS]
     costUse:
       time: 50
       mana: 6
@@ -760,7 +760,7 @@ skills:
   - type: STR_INTERFERENCE
     tags:
       SKILL_ID: 43
-    requiredBonus: [STR_SPECIALIST_ADVANCED_BONUS]
+    requiredBonuses: [STR_SPECIALIST_ADVANCED_BONUS]
     costUse:
       time: 65
       mana: 8
@@ -773,7 +773,7 @@ skills:
   - type: STR_RESTORATION
     tags:
       SKILL_ID: 44
-    requiredBonus: [STR_SPECIALIST_ELITE_BONUS]
+    requiredBonuses: [STR_SPECIALIST_ELITE_BONUS]
     costUse:
       time: 55
       mana: 12

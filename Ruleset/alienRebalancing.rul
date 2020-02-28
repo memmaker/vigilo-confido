@@ -2279,11 +2279,13 @@ items:
   - type: REAPER_WEAPON
     strengthApplied: true
     accuracyMelee: 100
-    tuMelee: 15
+    tuMelee: 50
+    flatRate: false
   - type: CHRYSSALID_WEAPON
     strengthApplied: true
     accuracyMelee: 100
-    tuMelee: 15
+    tuMelee: 50
+    flatRate: false
     zombieUnit: STR_ZOMBIE
   - type: SECTOPOD_WEAPON
     power: 100
@@ -2296,7 +2298,8 @@ items:
   - type: ZOMBIE_WEAPON
     strengthApplied: true
     accuracyMelee: 100
-    tuMelee: 15
+    tuMelee: 45
+    flatRate: false
 
 units:
   - type: STR_SNAKEMAN_SOLDIER
@@ -2367,10 +2370,11 @@ units:
       reactions: 70
       firing: 0
       throwing: 0
-      strength: 70
+      strength: 50
       psiStrength: 50
       psiSkill: 0
       melee: 80
+    isLeeroyJenkins: true
   - type: STR_SECTOPOD_TERRORIST
     stats:
       tu: 62
