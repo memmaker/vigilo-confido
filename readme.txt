@@ -86,8 +86,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Additional status effects & Visualisations
  - Weapons can be disabled in combat
  - New alien units added (Cyber Floater, Thin Man, Berserker, Muton Elite)
- - t1 minigun floorob too high
-Required: Presumably OXCE 6.4
+
+Required: Presumably OXCE 6.3.5
 
 === CREDITS ===
 
@@ -98,6 +98,7 @@ credited falsely, has missing credits or have problems with the inclusion of you
 in this mod, then please contact me. (memmaker on the OpenXcom discord.)
 
 Units, Armors, Laser & Plasma Weapon Sprites from Xeno Operations XOps, recolored versions by The Martian and me
+Maps Provided by the Community Map Pack - See CMP.CONTRIBUTORS.txt
 Alloy Sword Sprites by Civilian
 Grenade Launcher Sprites by Sporb
 Sniper Rifle Sprites by ???
@@ -132,7 +133,6 @@ Commendations Mod uses Attribution-NonCommercial-ShareAlike 4.0 International wh
  - terror missions seem to be missing?
  - test andromedon enemy
  - change sprite of combat experience commendation
- - armor balancing
  - complete skill tests
  - Battle Focus costs for flying
  - Units to add: Thin man, Flying Drone, Stun Lancer(?), Mechtoid(?), Berserker, Outsider(?), Muton Elite, Faceless(?), Turret, Exalt?
@@ -141,3 +141,4 @@ Commendations Mod uses Attribution-NonCommercial-ShareAlike 4.0 International wh
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - resistances to damage types
  - missing gremlin corpse?
+ - balancing of stuff (item costs, armors, etc.)

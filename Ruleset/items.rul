@@ -1,0 +1,263 @@
+
+itemCategories:
+  - type: STR_EXPERIMENTAL_PROJECTS
+  - type: STR_ARMOR_MODIFICATIONS
+  - type: STR_DISASSEMBLY
+  - type: STR_TECHNOLOGY_EXTRACTION
+  - type: STR_EXPLOSIVES
+  - type: STR_WEAPONS_AND_AMMO
+  - type: STR_ARMOR_CATEGORY
+  - type: STR_SOLDIER_GEAR
+extended:
+  tags:
+    BattleUnit:
+      MIMIC_COUNTER: int
+    RuleArmor:
+      IS_MIMIC: int
+    RuleItem:
+      SKULLJACK: int
+  scripts:
+    hitUnit:
+      - offset: 52
+        code: |
+          var int skulljack;
+          var ptr RuleItem item_rule;
+          var int chance;
+          var int health;
+          var int max_health;
+          var int temp;
+          set chance 70;
+          weapon_item.getRuleItem item_rule;
+          item_rule.getTag skulljack Tag.SKULLJACK;
+          if gt skulljack 0;
+            debug_log "Someone was hit with a skulljack";
+            battle_game.randomChance chance;
+            if gt chance 0;
+              unit.getHealth health;
+              unit.getHealthMax max_health;
+              set temp 200;
+              sub temp max_health; # 52 - 170
+              div temp 10;         # 5 - 17
+              set power health;
+              add power temp;
+              debug_log "Instant stun!";
+            end;
+          end;
+          return power part side;
+items:
+  - type: STR_MEDI_KIT
+    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
+    requires:
+      - STR_MEDI_KIT
+    requiresBuy:
+      - STR_MEDI_KIT
+    costSell: 46500
+    costBuy: 50000
+  - type: STR_MOTION_SCANNER
+    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
+    requires:
+      - STR_MOTION_SCANNER
+    requiresBuy:
+      - STR_MOTION_SCANNER
+    costSell: 46500
+    costBuy: 50000
+  - type: STR_MIND_PROBE
+    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
+    requires:
+      - STR_MIND_PROBE
+    requiresBuy:
+      - STR_MIND_PROBE
+    costSell: 304000
+    costBuy: 320000
+  - type: STR_SKULLJACK
+    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
+    tags:
+      SKULLJACK: 1
+    power: 20
+    hidePower: true
+    damageType: 6
+    damageAlter:
+      ArmorEffectiveness: 0
+    size: 0.1
+    costBuy: 0
+    costSell: 194700
+    weight: 6
+    bigSprite: 33
+    floorSprite: 32
+    handSprite: 88
+    hitSound: 36
+    battleType: 3
+    accuracyMelee: 100
+    skillApplied: false
+    tuMelee: 40
+    clipSize: -1
+    twoHanded: false
+    invWidth: 1
+    invHeight: 3
+    flatRate: false
+    armor: 15
+    confMelee:
+      name: STR_SKULLJACK
+
+  - type: STR_MIMIC_BEACON
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
+    size: 0.1
+    costBuy: 0 # cannot buy
+    costSell: 12000
+    weight: 3
+    bigSprite: 55
+    floorSprite: 72
+    power: 0
+    damageType: 0
+    damageAlter:
+      FixRadius: 0
+    battleType: 4
+    accuracyThrow: 100
+    costPrime:
+      time: 45
+    costUnprime:
+      time: 5
+    costThrow:
+      time: 5
+    primeActionName: STR_MIMIC_PRIME_ACTION
+    primeActionMessage: STR_MIMIC_PRIME_MESSAGE
+    unprimeActionName: STR_MIMIC_UNPRIME_ACTION
+    unprimeActionMessage: STR_MIMIC_UNPRIME_MESSAGE
+    recover: true
+    spawnUnit: STR_SOLDIER_MIMIC # Default empty meaning don't spawn a unit, when a valid unit (defined in the units: ruleset) is defined here it will be spawned by this item.
+    spawnUnitFaction: 2 # Default -1 meaning the spawned unit will be the same faction as the unit using/firing the item, this defines which faction gets the new unit:
+                         #   -1: Same faction as item user
+                         #    0: Player faction
+                         #    1: Enemy faction
+                         #    2: Civilian faction
+
+units:
+  - type: STR_SOLDIER_MIMIC
+    race: STR_SOLDIER_MIMIC
+    stats:
+      tu: 0
+      stamina: 0
+      health: 45
+      bravery: 110
+      reactions: 0
+      firing: 0
+      throwing: 0
+      strength: 0
+      psiStrength: 100
+      psiSkill: 0
+      melee: 0
+    armor: MIMIC_ARMOR
+    standHeight: 16
+    kneelHeight: 16
+    value: 0
+    deathSound: 23
+    moveSound: 14
+    energyRecovery: 50
+    aggression: 0
+    capturable: false
+    moraleLossWhenKilled: 0
+    
+armors:
+  - type: MIMIC_ARMOR
+    tags:
+      IS_MIMIC: 1
+    units: [STR_SOLDIER_MIMIC]
+    corpseBattle:
+      - STR_CORPSE
+    allowsMoving: false
+    createsMeleeThreat: false
+    spriteSheet: XCOM_0.PCK
+    spriteInv: MAN_0
+    spriteFaceGroup: 6
+    spriteFaceColor: [96, 96, 96, 96, 160, 160, 163, 163] #M0 F0 M1 F1 M2 F2 M3 F3
+    spriteHairGroup: 9
+    spriteHairColor: [144, 144, 164, 164, 245, 245, 166, 166] #M0 F0 M1 F1 M2 F2 M3 F3
+    storeItem: STR_NONE
+    frontArmor: 12
+    sideArmor: 12
+    rearArmor: 12
+    underArmor: 12
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+    loftempsSet: [ 3 ]
+    scripts:
+      createUnit: |
+        var ptr RuleArmor armor_rule;
+        var int is_mimic;
+        debug_log "Mimic Beacon Code running";
+        unit.getRuleArmor armor_rule;  
+        armor_rule.getTag is_mimic Tag.IS_MIMIC;
+
+        if gt is_mimic 0;  # we have a mimic
+          debug_log "Mimic Beacon Spawned";
+          unit.setTag Tag.MIMIC_COUNTER 2;
+        end;
+        return;
+      recolorUnitSprite: |
+        var int color;
+        var int temp;
+        get_color color new_pixel;
+        
+        set temp anim_frame;
+        wavegen_tri temp 16 16 15;
+        mul temp -1;
+        add temp 8;
+        add_shade new_pixel temp;
+
+        return new_pixel;
+      newTurnUnit: |
+        var ptr RuleArmor armor_rule;
+        var int counter;
+        var int is_mimic;
+
+        debug_log "Mimic Beacon Code On New Turn";
+        if eq side 1; # on the alien turns
+          unit.getRuleArmor armor_rule;  
+          armor_rule.getTag is_mimic Tag.IS_MIMIC;
+
+          if gt is_mimic 0;  # we have a mimic
+            unit.getTag counter Tag.MIMIC_COUNTER;
+
+            sub counter 1;
+            debug_log "Mimic Counter: " counter;
+
+            if gt counter 0;
+              unit.setTag Tag.MIMIC_COUNTER counter;
+            end;
+            if eq counter 0; # mimic beacon timer is over
+              unit.setHealth 0;      # kill the mimic
+              debug_log "Mimic removed";
+            end;
+          end;
+        end;
+        return;
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_SKULLJACK: Skulljack
+      STR_MIMIC_BEACON: Mimic Beacon
+      STR_MIMIC_ARMOR: Mimic Armor
+      STR_SOLDIER_MIMIC: Deployed Mimic Beacon
+      STR_MIMIC_PRIME_ACTION: Activate Beacon
+      STR_MIMIC_PRIME_MESSAGE: Mimic Beacon activated
+      STR_MIMIC_UNPRIME_ACTION: Deactivate Beacon
+      STR_MIMIC_UNPRIME_MESSAGE: Mimic Beacon deactivated
+      STR_EQUIPMENT: Misc. Equipment
+      STR_EXPERIMENTAL_PROJECTS: Experimental Projects
+      STR_ARMOR_MODIFICATIONS: Armor Modifications
+      STR_DISASSEMBLY: Disassembly
+      STR_TECHNOLOGY_EXTRACTION: Corpse Repurposing
+      STR_EXPLOSIVES: Explosives
+      STR_WEAPONS_AND_AMMO: Weapons & Ammo
+      STR_ARMOR_CATEGORY: Body Armor
+      STR_SOLDIER_GEAR: Personal Equipment

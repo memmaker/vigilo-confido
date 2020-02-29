@@ -150,6 +150,7 @@ items:
   - delete: STR_AC_I_AMMO
   - delete: STR_HIGH_EXPLOSIVE
   - type: STR_GRENADE
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     costBuy: 900
     costSell: 840
     power: 30
@@ -160,6 +161,12 @@ items:
     battleType: 4
     blastRadius: 3
   - type: STR_ALIEN_GRENADE
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
+    costBuy: 2500
+    requires: 
+      - STR_ALIEN_GRENADE
+    requiresBuy: 
+      - STR_ALIEN_GRENADE
     power: 50
     blastRadius: 4
     damageAlter:
@@ -174,12 +181,13 @@ items:
   - type: STR_ROCKET_LAUNCHER
     costBuy: 0
   - type: STR_STUN_ROD
-    costBuy: 100
+    costBuy: 0
   - type: STR_PISTOL
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 1
-    tuSnap: 35
-    tuAimed: 45
+    tuSnap: 40
+    tuAimed: 51
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100 
@@ -189,15 +197,19 @@ items:
     autoRange: 8
     dropoff: 4   # 4 points of accuracy decrease per tile
   - type: STR_PISTOL_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     power: 30
     clipSize: 12
     damageAlter:
       ToArmor: 0
   - type: STR_RIFLE
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 2
-    tuSnap: 40
-    tuAimed: 50
+    twoHanded: true
+    oneHandedPenalty: 95
+    tuSnap: 51
+    tuAimed: 60
     tuAuto: 0
     accuracySnap: 70
     accuracyAimed: 90 
@@ -211,12 +223,14 @@ items:
     confAimed:
       shots: 3
   - type: STR_RIFLE_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     power: 13
     clipSize: 20
     damageAlter:
       ToArmor: 0
       ArmorEffectiveness: 0.3
   - type: STR_SWORD
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 1850
     size: 0.2
     costBuy: 1000
@@ -239,9 +253,14 @@ items:
     skillApplied: true
     attraction: 8
   - type: STR_LASER_SWORD
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 3450
+    requires:
+      - STR_LASER_WEAPONS
+    requiresBuy:
+      - STR_LASER_WEAPONS
     size: 0.2
-    costBuy: 0
+    costBuy: 10000
     costSell: 8000
     weight: 4
     bigSprite: 201
@@ -261,9 +280,14 @@ items:
     skillApplied: true
     attraction: 8
   - type: STR_PLASMA_SWORD
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 4950
+    requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
+      - STR_PLASMA_WEAPONS
     size: 0.2
-    costBuy: 0
+    costBuy: 15000
     costSell: 12000
     weight: 4
     bigSprite: 202
@@ -283,6 +307,7 @@ items:
     skillApplied: true
     attraction: 8
   - type: STR_SHOTGUN
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       CRIT_CHANCE: 20
       GUN_TYPE: 4
@@ -321,6 +346,7 @@ items:
     invHeight: 3
     armor: 40
   - type: STR_SHOTGUN_AMMO
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 2251
     size: 0.1
     costBuy: 50
@@ -341,6 +367,7 @@ items:
     shotgunPellets: 5
     bulletSpeed: 2
   - type: STR_SNIPER_RIFLE
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
@@ -362,7 +389,7 @@ items:
     accuracyMultiplier: # Sniper Accuracy Learning Curve
       firing: [-0.043007774148798861, 0.020709201188889356, -0.000085994288933790525]
     tuSnap: 80
-    tuAimed: 0
+    tuAimed: 90
     tuAuto: 0
     confAuto:
       shots: 2
@@ -378,6 +405,7 @@ items:
     invHeight: 3
     armor: 20
   - type: STR_SNIPER_RIFLE_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 2301
     size: 0.1
     costBuy: 250
@@ -395,6 +423,7 @@ items:
     battleType: 2
     armor: 20
   - type: STR_HEAVY_CANNON
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 5
     listOrder: 2400
@@ -431,6 +460,7 @@ items:
     invWidth: 2
     invHeight: 3
   - type: STR_HEAVY_CANNON_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 2401
     size: 0.3
     costBuy: 200
@@ -450,30 +480,11 @@ items:
     battleType: 2
     invWidth: 2
     invHeight: 2
-  - type: STR_GRENADE_LAUNCHER
-    listOrder: 2500
-    size: 0.2
-    costBuy: 0
-    costSell: 8600
-    weight: 8
-    bigSprite: 212
-    floorSprite: 211
-    handSprite: 304
-    bulletSprite: 0
-    fireSound: 213
-    compatibleAmmo:
-      - STR_GRENADE
-    accuracySnap: 50
-    accuracyAimed: 70
-    tuSnap: 65
-    tuAimed: 70
-    arcingShot: true
-    battleType: 1
-    twoHanded: true
-    invWidth: 2
-    invHeight: 3
   - type: STR_XCOM_LASER_PISTOL
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_LASER_WEAPONS
+    requiresBuy:
       - STR_LASER_WEAPONS
     tags:
       CRIT_CHANCE: 10
@@ -481,7 +492,7 @@ items:
     listOrder: 3500
     size: 0.1
     costSell: 11000
-    costBuy: 0
+    costBuy: 13000
     weight: 7
     bigSprite: 217
     floorSprite: 213
@@ -494,8 +505,8 @@ items:
     damageType: 4
     damageAlter:
       ToArmor: 0
-    tuSnap: 35
-    tuAimed: 45
+    tuSnap: 40
+    tuAimed: 51
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100 
@@ -509,7 +520,10 @@ items:
     invWidth: 1
     invHeight: 2
   - type: STR_XCOM_LASER_RIFLE
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_LASER_WEAPONS
+    requiresBuy:
       - STR_LASER_WEAPONS
     tags:
       CRIT_CHANCE: 10
@@ -517,7 +531,7 @@ items:
     listOrder: 3600
     size: 0.2
     costSell: 16900
-    costBuy: 0
+    costBuy: 18000
     weight: 8
     bigSprite: 221
     floorSprite: 214
@@ -526,8 +540,8 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
-    tuSnap: 40
-    tuAimed: 50
+    tuSnap: 51
+    tuAimed: 60
     tuAuto: 0
     accuracySnap: 70
     accuracyAimed: 90 
@@ -548,18 +562,22 @@ items:
     clipSize: -1
     battleType: 1
     twoHanded: true
+    oneHandedPenalty: 95
     invWidth: 1
     invHeight: 3
   - type: STR_LASER_SHOTGUN
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       CRIT_CHANCE: 20
       GUN_TYPE: 4
     requires:
       - STR_LASER_WEAPONS
+    requiresBuy:
+      - STR_LASER_WEAPONS
     listOrder: 3630
     size: 0.2
     costSell: 26900
-    costBuy: 0
+    costBuy: 30000
     weight: 8
     bigSprite: 225
     floorSprite: 215
@@ -598,7 +616,10 @@ items:
     shotgunPellets: 5
     bulletSpeed: 2
   - type: STR_LASER_SNIPER_RIFLE
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_LASER_WEAPONS
+    requiresBuy:
       - STR_LASER_WEAPONS
     tags:
       CRIT_CHANCE: 15
@@ -606,7 +627,7 @@ items:
     listOrder: 3690
     size: 0.2
     costSell: 36900
-    costBuy: 0
+    costBuy: 39000
     weight: 8
     bigSprite: 229
     floorSprite: 216
@@ -630,7 +651,7 @@ items:
     accuracyMultiplier: # Sniper Accuracy Learning Curve
       firing: [-0.043007774148798861, 0.020709201188889356, -0.000085994288933790525]
     tuSnap: 80
-    tuAimed: 0
+    tuAimed: 90
     tuAuto: 0
     confAuto:
       shots: 2
@@ -641,14 +662,17 @@ items:
     invWidth: 1
     invHeight: 3
   - type: STR_XCOM_HEAVY_LASER
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 3700
     requires:
+      - STR_LASER_WEAPONS
+    requiresBuy:
       - STR_LASER_WEAPONS
     tags:
       GUN_TYPE: 5
     size: 0.3
     costSell: 41000
-    costBuy: 0
+    costBuy: 45000
     weight: 18
     bigSprite: 213
     floorSprite: 212
@@ -685,14 +709,17 @@ items:
     invWidth: 2
     invHeight: 3
   - type: STR_XCOM_PLASMA_PISTOL
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 1
     listOrder: 5000
     size: 0.1
     costSell: 64000
-    costBuy: 0
+    costBuy: 70000
     weight: 8
     bigSprite: 237
     floorSprite: 221
@@ -701,8 +728,8 @@ items:
     fireSound: 18
     compatibleAmmo:
       - STR_XCOM_PLASMA_PISTOL_CLIP
-    tuSnap: 35
-    tuAimed: 45
+    tuSnap: 40
+    tuAimed: 51
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100 
@@ -717,12 +744,15 @@ items:
     recoveryPoints: 3
     armor: 45
   - type: STR_XCOM_PLASMA_PISTOL_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     listOrder: 5001
     size: 0.1
     costSell: 4440
-    costBuy: 0
+    costBuy: 6000
     weight: 3
     bigSprite: 238
     floorSprite: 222
@@ -736,14 +766,17 @@ items:
     battleType: 2
     recoveryPoints: 1
   - type: STR_XCOM_PLASMA_RIFLE
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 2
     requires:
       - STR_PLASMA_WEAPONS
+    requiresBuy:
+      - STR_PLASMA_WEAPONS
     listOrder: 5200
     size: 0.2
     costSell: 86500
-    costBuy: 0
+    costBuy: 95000
     weight: 5
     bigSprite: 241
     floorSprite: 224
@@ -756,8 +789,8 @@ items:
     accuracySnap: 86
     accuracyAimed: 100
     tuAuto: 0
-    tuSnap: 55
-    tuAimed: 0
+    tuSnap: 51
+    tuAimed: 60
     snapRange: 12
     aimRange: 16
     autoRange: 10
@@ -768,17 +801,21 @@ items:
       shots: 3
     battleType: 1
     twoHanded: true
+    oneHandedPenalty: 95
     invWidth: 1
     invHeight: 3
     recoveryPoints: 4
     armor: 50
   - type: STR_XCOM_PLASMA_RIFLE_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     listOrder: 5201
     size: 0.1
     costSell: 6290
-    costBuy: 0
+    costBuy: 9000
     weight: 3
     bigSprite: 242
     floorSprite: 225
@@ -793,13 +830,16 @@ items:
       ToArmor: 0
       ArmorEffectiveness: 0.3
   - type: STR_PLASMA_SHOTGUN
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 4
     listOrder: 5300
     size: 0.2
-    costBuy: 0
+    costBuy: 150000
     costSell: 12500
     weight: 6
     bigSprite: 245
@@ -830,13 +870,16 @@ items:
     invHeight: 3
     armor: 40  
   - type: STR_PLASMA_SHOTGUN_AMMO
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     tags:
       CRIT_CHANCE: 20
     listOrder: 5301
     size: 0.1
-    costBuy: 0
+    costBuy: 9000
     costSell: 7500
     weight: 3
     bigSprite: 246
@@ -854,14 +897,17 @@ items:
     shotgunPellets: 5
     bulletSpeed: 2
   - type: STR_PLASMA_SNIPER_RIFLE
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
     listOrder: 5400
     size: 0.3
-    costBuy: 0
+    costBuy: 175000
     costSell: 15500
     weight: 9
     bigSprite: 249
@@ -882,7 +928,7 @@ items:
     accuracyMultiplier: # Sniper Accuracy Learning Curve
       firing: [-0.043007774148798861, 0.020709201188889356, -0.000085994288933790525]
     tuSnap: 80
-    tuAimed: 0
+    tuAimed: 90
     tuAuto: 0
     confAuto:
       shots: 2
@@ -893,11 +939,14 @@ items:
     invHeight: 3
     armor: 20
   - type: STR_PLASMA_SNIPER_RIFLE_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     listOrder: 5401
     size: 0.1
-    costBuy: 0
+    costBuy: 9500
     costSell: 8160
     weight: 4
     bigSprite: 250
@@ -912,14 +961,17 @@ items:
     battleType: 2
     armor: 20
   - type: STR_XCOM_HEAVY_PLASMA
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 5
     listOrder: 5500
     size: 0.2
     costSell: 171600
-    costBuy: 0
+    costBuy: 185000
     weight: 8
     bigSprite: 233
     floorSprite: 217
@@ -951,11 +1003,14 @@ items:
     recoveryPoints: 5
     armor: 50
   - type: STR_XCOM_HEAVY_PLASMA_CLIP
+    categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
+      - STR_PLASMA_WEAPONS
+    requiresBuy:
       - STR_PLASMA_WEAPONS
     listOrder: 5501
     size: 0.3
-    costBuy: 0
+    costBuy: 10000
     costSell: 9590
     weight: 3
     bigSprite: 234
@@ -982,160 +1037,6 @@ manufacture:
   - delete: STR_PLASMA_RIFLE
   - delete: STR_HEAVY_PLASMA
 
-  - name: STR_XCOM_LASER_PISTOL
-    category: STR_WEAPON
-    requires:
-      - STR_LASER_WEAPONS
-    space: 2
-    time: 300
-    cost: 8000
-    requiredItems:
-      STR_LASER_PISTOL: 1
-      STR_ALIEN_ALLOYS: 2
-  - name: STR_XCOM_LASER_RIFLE
-    category: STR_WEAPON
-    requires:
-      - STR_LASER_WEAPONS
-    space: 2
-    time: 400
-    cost: 12000
-    requiredItems:
-      STR_LASER_RIFLE: 1
-      STR_ALIEN_ALLOYS: 4
-  - name: STR_LASER_SHOTGUN
-    category: STR_WEAPON
-    requires:
-      - STR_LASER_WEAPONS
-    space: 2
-    time: 450
-    cost: 13000
-    requiredItems:
-      STR_LASER_RIFLE: 1
-      STR_ALIEN_ALLOYS: 5
-  - name: STR_LASER_SNIPER_RIFLE
-    category: STR_WEAPON
-    requires:
-      - STR_LASER_WEAPONS
-    space: 2
-    time: 450
-    cost: 13000
-    requiredItems:
-      STR_LASER_RIFLE: 1
-      STR_ALIEN_ALLOYS: 5
-  - name: STR_XCOM_HEAVY_LASER
-    category: STR_WEAPON
-    requires:
-      - STR_LASER_WEAPONS
-    space: 3
-    time: 500
-    cost: 16000
-    requiredItems:
-      STR_LASER_RIFLE: 2
-      STR_ALIEN_ALLOYS: 10
-
-  - name: STR_XCOM_PLASMA_PISTOL
-    category: STR_WEAPON
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 600
-    cost: 56000
-    requiredItems:
-      STR_PLASMA_PISTOL: 1
-      STR_ALIEN_ALLOYS: 2
-  - name: STR_XCOM_PLASMA_PISTOL_CLIP
-    category: STR_AMMUNITION
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 60
-    cost: 2000
-    requiredItems:
-      STR_PLASMA_PISTOL_CLIP: 1
-      STR_ELERIUM_115: 1
-
-  - name: STR_XCOM_PLASMA_RIFLE
-    category: STR_WEAPON
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 700
-    cost: 76000
-    requiredItems:
-      STR_PLASMA_RIFLE: 1
-      STR_ALIEN_ALLOYS: 4
-  - name: STR_XCOM_PLASMA_RIFLE_CLIP
-    category: STR_AMMUNITION
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 80
-    cost: 3000
-    requiredItems:
-      STR_PLASMA_RIFLE_CLIP: 1
-      STR_ELERIUM_115: 1
-
-  - name: STR_PLASMA_SHOTGUN
-    category: STR_WEAPON
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 800
-    cost: 86000
-    requiredItems:
-      STR_HEAVY_PLASMA: 1
-      STR_ALIEN_ALLOYS: 4
-  - name: STR_PLASMA_SHOTGUN_AMMO
-    category: STR_AMMUNITION
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 80
-    cost: 3000
-    requiredItems:
-      STR_HEAVY_PLASMA_CLIP: 1
-      STR_ELERIUM_115: 1
-  - name: STR_PLASMA_SNIPER_RIFLE
-    category: STR_WEAPON
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 800
-    cost: 86000
-    requiredItems:
-      STR_HEAVY_PLASMA: 1
-      STR_ALIEN_ALLOYS: 4
-  - name: STR_PLASMA_SNIPER_RIFLE_CLIP
-    category: STR_AMMUNITION
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 80
-    cost: 3000
-    requiredItems:
-      STR_HEAVY_PLASMA_CLIP: 1
-      STR_ELERIUM_115: 1
-  - name: STR_XCOM_HEAVY_PLASMA
-    category: STR_WEAPON
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 700
-    cost: 76000
-    requiredItems:
-      STR_HEAVY_PLASMA: 1
-      STR_ALIEN_ALLOYS: 10
-  - name: STR_XCOM_HEAVY_PLASMA_CLIP
-    category: STR_AMMUNITION
-    requires:
-      - STR_PLASMA_WEAPONS
-    space: 3
-    time: 80
-    cost: 3000
-    requiredItems:
-      STR_HEAVY_PLASMA_CLIP: 1
-      STR_ELERIUM_115: 1
-
 ufopaedia:
   - delete: STR_HEAVY_CANNON
   - delete: STR_AUTO_CANNON
@@ -1146,6 +1047,13 @@ ufopaedia:
     type_id: 8
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT
+  - id: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS
+    listOrder: 1001
+    type_id: 8
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT
+    requires:
+      - STR_LASER_WEAPONS
   - id: STR_SWORD
     listOrder: 1950
     type_id: 4
@@ -1189,11 +1097,6 @@ ufopaedia:
   - id: STR_HEAVY_CANNON_CLIP
     type_id: 4
     section: STR_NOT_AVAILABLE
-  - id: STR_GRENADE_LAUNCHER
-    listOrder: 3150
-    type_id: 4
-    section: STR_WEAPONS_AND_EQUIPMENT
-    text: STR_UFOPAEDIA_GRENADE_LAUNCHER
   - id: STR_XCOM_LASER_PISTOL
     requires:
       - STR_LASER_WEAPONS
@@ -1283,6 +1186,7 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
+      STR_ALIEN_GRENADE: Alien Grenade
       STR_SWORD: Sword
       STR_UFOPAEDIA_SWORD: "A simple but effective weapon deployed by mankind for centuries. This combat sword is forged from modern metal alloys and allows for devastating melee attacks."
       STR_LASER_SWORD: Arc Blade
@@ -1332,4 +1236,6 @@ extraStrings:
       STR_PLASMA_SNIPER_RIFLE_CLIP: Plasma Lance Clip
       STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE: "The aliens' focused beam technology has obvious applications for improving sniper rifles. The Plasma Lance is an unmatched sniper rifle."
       STR_UFOPAEDIA_WEAPON_MECHANICS: "X-Com Weaponry 101"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: "The arsenal of X-Com employs the latest and finest in military equipment and whatever our scientists come up with. Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although our laser based line of weapons does not require ammunition, they still require recharging. After activation of the RECHARGE mechanism, the weapon glows blue and will be recharged on the beginning of your next turn.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The default fire mode of this weapon is BURST. Meaning each shot actually fires multiple bullets. Each bullet can do the amount of damage specified under the DAMAGE section."
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: "The arsenal of X-Com employs the latest and finest in military equipment and whatever our scientists come up with. Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The default fire mode of this weapon is BURST. Meaning each shot actually fires multiple bullets. Each bullet can do the amount of damage specified under the DAMAGE section."
+      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS: "Laser Weapons"
+      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: "These laser based line of weapons is superior in damage compared to their alien counterparts. However these are early prototypes and the energy cells are volatile.{NEWLINE}{NEWLINE}IMPORTANT>{NEWLINE}Our scientist have advised us to never empty a laser energy cell completely. If the energy cell of a prototype laser weapon is emptied, the weapon itself will implode in the hands of our soldiers.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although our laser based line of weapons does not require ammunition, they still require recharging. After activation of the RECHARGE mechanism, the weapon glows blue and will be recharged on the beginning of your next turn."

@@ -155,7 +155,7 @@ items:
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
-    clipSize: 20
+    clipSize: 19
     scripts:
       newTurnItem: |
         var int temp;
@@ -163,7 +163,7 @@ items:
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 20;
+          item.setAmmoQuantity 19;
           debug_log "Recharged Scatter Laser Rifle" item;
         end;
         return;
@@ -209,7 +209,7 @@ items:
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
-    clipSize: 20
+    clipSize: 21
     scripts:
       newTurnItem: |
         var int temp;
@@ -217,7 +217,7 @@ items:
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 20;
+          item.setAmmoQuantity 21;
           debug_log "Recharged Heavy Laser" item;
         end;
         return;

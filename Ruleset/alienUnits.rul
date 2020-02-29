@@ -148,7 +148,7 @@ units:
       health: 40
       bravery: 100
       reactions: 80
-      firing: 65
+      firing: 60
       throwing: 70
       strength: 34
       psiStrength: 50
@@ -218,7 +218,7 @@ units:
       health: 150
       bravery: 110
       reactions: 40
-      firing: 0
+      firing: 65
       throwing: 0
       strength: 84
       psiStrength: 80
@@ -280,7 +280,6 @@ units:
     moraleLossWhenKilled: 100
     isLeeroyJenkins: true
     aggression: 4
-
 
 items:
   - type: STR_THIN_MAN

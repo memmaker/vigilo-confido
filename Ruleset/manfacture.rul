@@ -1,21 +1,411 @@
+extraStrings:
+  - type: en-US
+    strings:
+      STR_HAZMAT_MOD: Hazmat Armor Modification
+      STR_STASIS_MOD: Stasis Armor Modification
+      STR_PLATED_MOD: Plated Armor Modification
+      STR_HELLWEAVE_MOD: Hellweave Armor Modification
+      STR_HELLWEAVE_EXTRACTION: Extraction (Hellweave)
+      STR_MIMIC_BEACON_EXTRACTION: Extraction (Mimic Beacon)
+      STR_EXPERIMENTAL_GRENADE: Experimental Grenade
+      STR_EXPERIMENTAL_ARMOR_MOD: Experimental Armor
+      STR_KEVLAR_ARMOR_HELLWEAVE: Kevlar Armor (Hellweave)
+      STR_PREDATOR_ARMOR_HELLWEAVE: Predator Armor (Hellweave)
+      STR_WARDEN_ARMOR_HELLWEAVE: Warden Armor (Hellweave)
+      STR_KEVLAR_ARMOR_REINFORCEMENT: Kevlar Armor (Plated)
+      STR_PREDATOR_ARMOR_REINFORCEMENT: Predator Armor (Plated)
+      STR_WARDEN_ARMOR_REINFORCEMENT: Warden Armor (Plated)
+      STR_KEVLAR_ARMOR_STASIS: Kevlar Armor (Stasis)
+      STR_PREDATOR_ARMOR_STASIS: Predator Armor (Stasis)
+      STR_WARDEN_ARMOR_STASIS: Warden Armor (Stasis)
+      STR_KEVLAR_ARMOR_HAZMAT: Kevlar Armor (Hazmat)
+      STR_PREDATOR_ARMOR_HAZMAT: Predator Armor (Hazmat)
+      STR_WARDEN_ARMOR_HAZMAT: Warden Armor (Hazmat)
+
+      STR_KEVLAR_ARMOR_HELLWEAVE_DISASSEMBLE: Extract Hellweave (Kevlar Armor)
+      STR_PREDATOR_ARMOR_HELLWEAVE_DISASSEMBLE: Extract Hellweave (Predator Armor)
+      STR_WARDEN_ARMOR_HELLWEAVE_DISASSEMBLE: Extract Hellweave (Warden Armor)
+      STR_KEVLAR_ARMOR_REINFORCEMENT_DISASSEMBLE: Extract Plating (Kevlar Armor)
+      STR_PREDATOR_ARMOR_REINFORCEMENT_DISASSEMBLE: Extract Plating (Predator Armor)
+      STR_WARDEN_ARMOR_REINFORCEMENT_DISASSEMBLE: Extract Plating (Warden Armor)
+      STR_KEVLAR_ARMOR_STASIS_DISASSEMBLE: Extract Stasis (Kevlar Armor)
+      STR_PREDATOR_ARMOR_STASIS_DISASSEMBLE: Extract Stasis (Predator Armor)
+      STR_WARDEN_ARMOR_STASIS_DISASSEMBLE: Extract Stasis (Warden Armor)
+      STR_KEVLAR_ARMOR_HAZMAT_DISASSEMBLE: Extract Hazmat (Kevlar Armor)
+      STR_PREDATOR_ARMOR_HAZMAT_DISASSEMBLE: Extract Hazmat (Predator Armor)
+      STR_WARDEN_ARMOR_HAZMAT_DISASSEMBLE: Extract Hazmat (Warden Armor)
+
+
+items:
+  - type: STR_HAZMAT_MOD
+    costBuy: 0
+    costSell: 9000
+  - type: STR_STASIS_MOD
+    costBuy: 0
+    costSell: 9000
+  - type: STR_PLATED_MOD
+    costBuy: 0
+    costSell: 9000
+  - type: STR_HELLWEAVE_MOD
+    costBuy: 0
+    costSell: 9000
+
 manufacture:
-  - name: STR_MIND_PROBE
+  - delete: STR_ALIEN_GRENADE
+  - delete: STR_MEDI_KIT
+  - delete: STR_MOTION_SCANNER
+  - delete: STR_MIND_PROBE
+  - name: STR_SKULLJACK
+    listOrder: 50
     category: STR_EQUIPMENT
+    space: 8
+    time: 150
+    cost: 20000
     requires:
-      - STR_MIND_PROBE
-    space: 4
-    time: 1200
-    cost: 262000
+      - STR_SKULLJACK
+  - name: STR_HELLWEAVE_EXTRACTION
+    category: STR_TECHNOLOGY_EXTRACTION
+    space: 5
+    time: 120
+    cost: 15000
     requiredItems:
-      STR_ALIEN_ALLOYS: 2
-      STR_UFO_NAVIGATION: 1
-  - name: STR_ALIEN_GRENADE
-    category: STR_WEAPON
+      STR_CHRYSSALID_CORPSE: 2
+    producedItems:
+      STR_HELLWEAVE_MOD: 1
+  - name: STR_MIMIC_BEACON_EXTRACTION
+    category: STR_TECHNOLOGY_EXTRACTION
+    space: 5
+    time: 120
+    cost: 15000
+    requiredItems:
+      STR_CHRYSSALID_CORPSE: 2
+    producedItems:
+      STR_MIMIC_BEACON: 1
+  - name: STR_EXPERIMENTAL_GRENADE
+    listOrder: 1
+    category: STR_EXPERIMENTAL_PROJECTS
+    space: 10
+    time: 160
+    cost: 15000
+    producedItems: {} # override default product
+    randomProducedItems:
+      -
+        - 20
+        - STR_FLASHBANG_GRENADE: 1
+      -
+        - 20
+        - STR_ACID_GRENADE: 1
+      -
+        - 20
+        - STR_FREEZE_GRENADE: 1
+      -
+        - 20
+        - STR_GAS_GRENADE: 1
+      -
+        - 20
+        - STR_EMP_GRENADE: 1
+  - name: STR_EXPERIMENTAL_ARMOR_MOD
+    listOrder: 2
+    category: STR_EXPERIMENTAL_PROJECTS
+    space: 10
+    time: 160
+    cost: 15000
+    producedItems: {} # override default product
+    randomProducedItems:
+      -
+        - 30
+        - STR_HAZMAT_MOD: 1
+      -
+        - 30
+        - STR_STASIS_MOD: 1
+      -
+        - 30
+        - STR_PLATED_MOD: 1
+
+# Armor Mods
+  - name: STR_KEVLAR_ARMOR_HELLWEAVE
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
     requires:
-      - STR_ALIEN_GRENADE
-    space: 2
-    time: 200
-    cost: 6700
+      - STR_CHRYSSALID_AUTOPSY
     requiredItems:
-      STR_ALIEN_ALLOYS: 1
-      STR_ELERIUM_115: 1
+      STR_HELLWEAVE_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+    producedItems:
+      STR_PERSONAL_ARMOR_HW: 1
+  - name: STR_PREDATOR_ARMOR_HELLWEAVE
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_HELLWEAVE_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+    producedItems:
+      STR_PREDATOR_ARMOR_HW: 1
+  - name: STR_WARDEN_ARMOR_HELLWEAVE
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_HELLWEAVE_MOD: 1
+      STR_WARDEN_ARMOR: 1
+    producedItems:
+      STR_WARDEN_ARMOR_HW: 1
+
+  - name: STR_KEVLAR_ARMOR_REINFORCEMENT
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requiredItems:
+      STR_PLATED_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+    producedItems:
+      STR_PERSONAL_ARMOR_RF: 1
+  - name: STR_PREDATOR_ARMOR_REINFORCEMENT
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_PLATED_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+    producedItems:
+      STR_PREDATOR_ARMOR_RF: 1
+  - name: STR_WARDEN_ARMOR_REINFORCEMENT
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_PLATED_MOD: 1
+      STR_WARDEN_ARMOR: 1
+    producedItems:
+      STR_WARDEN_ARMOR_RF: 1
+
+  - name: STR_KEVLAR_ARMOR_STASIS
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requiredItems:
+      STR_STASIS_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+    producedItems:
+      STR_PERSONAL_ARMOR_ST: 1
+  - name: STR_PREDATOR_ARMOR_STASIS
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_STASIS_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+    producedItems:
+      STR_PREDATOR_ARMOR_ST: 1
+  - name: STR_WARDEN_ARMOR_STASIS
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_STASIS_MOD: 1
+      STR_WARDEN_ARMOR: 1
+    producedItems:
+      STR_WARDEN_ARMOR_ST: 1
+
+  - name: STR_KEVLAR_ARMOR_HAZMAT
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requiredItems:
+      STR_HAZMAT_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+    producedItems:
+      STR_PERSONAL_ARMOR_HZ: 1
+  - name: STR_PREDATOR_ARMOR_HAZMAT
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_HAZMAT_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+    producedItems:
+      STR_PREDATOR_ARMOR_HZ: 1
+  - name: STR_WARDEN_ARMOR_HAZMAT
+    category: STR_ARMOR_MODIFICATIONS
+    space: 10
+    time: 220
+    cost: 12700
+    requires:
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_HAZMAT_MOD: 1
+      STR_WARDEN_ARMOR: 1
+    producedItems:
+      STR_WARDEN_ARMOR_HZ: 1
+
+# Mod Dissamblies
+  - name: STR_KEVLAR_ARMOR_HELLWEAVE_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
+    requiredItems:
+      STR_PERSONAL_ARMOR_HW: 1
+    producedItems:
+      STR_HELLWEAVE_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+  - name: STR_PREDATOR_ARMOR_HELLWEAVE_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_PREDATOR_ARMOR_HW: 1
+    producedItems:
+      STR_HELLWEAVE_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+  - name: STR_WARDEN_ARMOR_HELLWEAVE_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_WARDEN_ARMOR_HW: 1
+    producedItems:
+      STR_HELLWEAVE_MOD: 1
+      STR_WARDEN_ARMOR: 1
+  - name: STR_KEVLAR_ARMOR_REINFORCEMENT_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requiredItems:
+      STR_PERSONAL_ARMOR_RF: 1
+    producedItems:
+      STR_PLATED_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+  - name: STR_PREDATOR_ARMOR_REINFORCEMENT_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_PREDATOR_ARMOR_RF: 1
+    producedItems:
+      STR_PLATED_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+  - name: STR_WARDEN_ARMOR_REINFORCEMENT_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_WARDEN_ARMOR_RF: 1
+    producedItems:
+      STR_PLATED_MOD: 1
+      STR_WARDEN_ARMOR: 1
+  - name: STR_KEVLAR_ARMOR_STASIS_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requiredItems:
+      STR_PERSONAL_ARMOR_ST: 1
+    producedItems:
+      STR_STASIS_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+  - name: STR_PREDATOR_ARMOR_STASIS_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_PREDATOR_ARMOR_ST: 1
+    producedItems:
+      STR_STASIS_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+  - name: STR_WARDEN_ARMOR_STASIS_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_WARDEN_ARMOR_ST: 1
+    producedItems:
+      STR_STASIS_MOD: 1
+      STR_WARDEN_ARMOR: 1
+
+  - name: STR_KEVLAR_ARMOR_HAZMAT_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requiredItems:
+      STR_PERSONAL_ARMOR_HZ: 1
+    producedItems:
+      STR_HAZMAT_MOD: 1
+      STR_PERSONAL_ARMOR: 1
+  - name: STR_PREDATOR_ARMOR_HAZMAT_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiredItems:
+      STR_PREDATOR_ARMOR_HZ: 1
+    producedItems:
+      STR_HAZMAT_MOD: 1
+      STR_PREDATOR_ARMOR: 1
+  - name: STR_WARDEN_ARMOR_HAZMAT_DISASSEMBLE
+    category: STR_DISASSEMBLY
+    space: 10
+    time: 48
+    cost: 1200
+    requires:
+      - STR_WARDEN_ARMOR
+    requiredItems:
+      STR_WARDEN_ARMOR_HZ: 1
+    producedItems:
+      STR_HAZMAT_MOD: 1
+      STR_WARDEN_ARMOR: 1

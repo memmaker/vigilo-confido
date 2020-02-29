@@ -4,16 +4,32 @@ extended:
   tags:
     RuleArmor:
       ANIMATED: int
+      HELLWEAVE: int
+      HEALTH_RECOVERY: int
+
+manufacture:
+  - delete: STR_PERSONAL_ARMOR
+  - delete: STR_POWER_SUIT
+  - delete: STR_FLYING_SUIT
+
 items:
-  - type: STR_PERSONAL_ARMOR
-    costBuy: 0
+  - &STR_PERSONAL_ARMOR
+    type: STR_PERSONAL_ARMOR
+    categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]
+    costBuy: 11000
     costSell: 12500
-  - type: STR_ALLOY_ARMOR
+  - &STR_PREDATOR_ARMOR
+    type: STR_PREDATOR_ARMOR
+    categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]
+    requires:
+      - STR_PREDATOR_ARMOR
+    requiresBuy:
+      - STR_PREDATOR_ARMOR
     size: 0.7
-    costBuy: 0
+    costBuy: 50000
     costSell: 60000
     listOrder: 10611
-  - type: STR_CORPSE_ALLOY_ARMOR
+  - type: STR_CORPSE_PREDATOR_ARMOR
     name: STR_CORPSE
     weight: 24
     bigSprite: 92
@@ -22,7 +38,7 @@ items:
     invHeight: 3
     armor: 30
     recover: false
-  - type: STR_CORPSE_ALLOY_ARMOR_BLUE
+  - type: STR_CORPSE_PREDATOR_ARMOR_BLUE
     name: STR_CORPSE
     weight: 24
     bigSprite: 94
@@ -32,8 +48,13 @@ items:
     armor: 30
     recover: false
   - type: STR_SKY_STRIKE_ARMOR
+    categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]
+    requires:
+      - STR_SKY_STRIKE_ARMOR
+    requiresBuy:
+      - STR_SKY_STRIKE_ARMOR
     size: 0.6
-    costBuy: 0
+    costBuy: 55000
     costSell: 57000
     listOrder: 10617
   - type: STR_CORPSE_SKY_STRIKE_ARMOR
@@ -55,8 +76,13 @@ items:
     armor: 30
     recover: false
   - type: STR_PSI_ARMOR
+    categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]
+    requires:
+      - STR_PSI_ARMOR
+    requiresBuy:
+      - STR_PSI_ARMOR
     size: 0.5
-    costBuy: 0
+    costBuy: 80000
     costSell: 90000
     listOrder: 10802
   - type: STR_CORPSE_PSI_ARMOR_BLUE
@@ -68,12 +94,18 @@ items:
     invHeight: 3
     armor: 30
     recover: false
-  - type: STR_XOPS_POWER_ARMOR
+  - &STR_WARDEN_ARMOR
+    type: STR_WARDEN_ARMOR
+    categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]
+    requires:
+      - STR_WARDEN_ARMOR
+    requiresBuy:
+      - STR_WARDEN_ARMOR
     size: 1
-    costBuy: 0
+    costBuy: 150000
     costSell: 180000
     listOrder: 10810
-  - type: STR_CORPSE_XOPS_POWER_ARMOR_WHITE
+  - type: STR_CORPSE_WARDEN_ARMOR_WHITE
     name: STR_CORPSE
     weight: 26
     bigSprite: 120
@@ -82,7 +114,7 @@ items:
     invHeight: 3
     armor: 30
     recover: false
-  - type: STR_CORPSE_XOPS_POWER_ARMOR_GREY
+  - type: STR_CORPSE_WARDEN_ARMOR_GREY
     name: STR_CORPSE
     weight: 26
     bigSprite: 121
@@ -91,7 +123,7 @@ items:
     invHeight: 3
     armor: 30
     recover: false
-  - type: STR_CORPSE_XOPS_POWER_ARMOR_BLACK
+  - type: STR_CORPSE_WARDEN_ARMOR_BLACK
     name: STR_CORPSE
     weight: 26
     bigSprite: 122
@@ -100,6 +132,42 @@ items:
     invHeight: 3
     armor: 30
     recover: false
+  - type: STR_PERSONAL_ARMOR_HW
+    refNode: *STR_PERSONAL_ARMOR 
+    costBuy: 0
+  - type: STR_PERSONAL_ARMOR_RF
+    refNode: *STR_PERSONAL_ARMOR 
+    costBuy: 0
+  - type: STR_PERSONAL_ARMOR_ST
+    refNode: *STR_PERSONAL_ARMOR 
+    costBuy: 0
+  - type: STR_PERSONAL_ARMOR_HZ
+    refNode: *STR_PERSONAL_ARMOR 
+    costBuy: 0
+  - type: STR_PREDATOR_ARMOR_HW
+    refNode: *STR_PREDATOR_ARMOR 
+    costBuy: 0
+  - type: STR_PREDATOR_ARMOR_RF
+    refNode: *STR_PREDATOR_ARMOR 
+    costBuy: 0
+  - type: STR_PREDATOR_ARMOR_ST
+    refNode: *STR_PREDATOR_ARMOR 
+    costBuy: 0
+  - type: STR_PREDATOR_ARMOR_HZ
+    refNode: *STR_PREDATOR_ARMOR 
+    costBuy: 0
+  - type: STR_WARDEN_ARMOR_HW
+    refNode: *STR_WARDEN_ARMOR 
+    costBuy: 0
+  - type: STR_WARDEN_ARMOR_RF
+    refNode: *STR_WARDEN_ARMOR 
+    costBuy: 0
+  - type: STR_WARDEN_ARMOR_ST
+    refNode: *STR_WARDEN_ARMOR 
+    costBuy: 0
+  - type: STR_WARDEN_ARMOR_HZ
+    refNode: *STR_WARDEN_ARMOR 
+    costBuy: 0
 
 armors:
   - type: STR_NONE_UC
@@ -121,7 +189,8 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  - type: STR_PERSONAL_ARMOR_UC  # Kevlar
+  - &STR_PERSONAL_ARMOR_UC
+    type: STR_PERSONAL_ARMOR_UC  # Kevlar
     frontArmor: 0
     sideArmor: 0
     rearArmor: 0
@@ -142,19 +211,20 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  - type: STR_ALLOY_ARMOR_UC   # Predator
+  - &STR_PREDATOR_ARMOR_UC
+    type: STR_PREDATOR_ARMOR_UC   # Predator
     spriteSheet: XOPS_XCOM_10.PCK
     spriteInv: XOP_10
     corpseBattle:
-      - STR_CORPSE_ALLOY_ARMOR
-    storeItem: STR_ALLOY_ARMOR
+      - STR_CORPSE_PREDATOR_ARMOR
+    storeItem: STR_PREDATOR_ARMOR
     loftempsSet: [ 4 ]
     frontArmor: 5
     sideArmor: 4
     rearArmor: 3
     underArmor: 4
     stats:
-      health: 40
+      health: 45
     damageModifier:
       - 1.0  # 0  None
       - 1.0  # 1  Projectile
@@ -169,66 +239,19 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  - type: STR_ALLOY_ARMOR_BLUE_UC
+  - type: STR_PREDATOR_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_12.PCK
     spriteInv: XOP_12
     corpseBattle:
-      - STR_CORPSE_ALLOY_ARMOR_BLUE
-    storeItem: STR_ALLOY_ARMOR
+      - STR_CORPSE_PREDATOR_ARMOR_BLUE
+    storeItem: STR_PREDATOR_ARMOR
     loftempsSet: [ 4 ]
     frontArmor: 5
     sideArmor: 4
     rearArmor: 3
     underArmor: 4
     stats:
-      health: 40
-    damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
-  - type: STR_POWER_SUIT_UC  # HAZMAT
-    frontArmor: 5
-    sideArmor: 4
-    rearArmor: 3
-    underArmor: 5
-    stats:
-      health: 30
-      tu: -5
-      stamina: -5
-    damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 0.1  # 2  Incendiary
-      - 0.6  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 0.3  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 0.3  # 11 Poison
-      - 0.3  # 12 Electric
-  - type: STR_FLYING_SUIT_UC  # WAR SUIT
-    frontArmor: 20
-    sideArmor: 18
-    rearArmor: 16
-    underArmor: 16
-    movementType: 0
-    stats:
-      health: 60
-      tu: -5
-      stamina: -5
+      health: 45
     damageModifier:
       - 1.0  # 0  None
       - 1.0  # 1  Projectile
@@ -335,16 +358,16 @@ armors:
       - 0.5  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  - type: STR_XOPS_POWER_ARMOR_WHITE_UC
+  - type: STR_WARDEN_ARMOR_WHITE_UC
     spriteSheet: XOPS_XCOM_41.PCK
     spriteInv: XOP_41
     corpseBattle:
-      - STR_CORPSE_XOPS_POWER_ARMOR_WHITE
-    storeItem: STR_XOPS_POWER_ARMOR
+      - STR_CORPSE_WARDEN_ARMOR_WHITE
+    storeItem: STR_WARDEN_ARMOR
     tags:
       ANIMATED: 1
     stats:
-      health: 60
+      health: 100
       strength: 5
       psiStrength: 10
       psiSkill: -25
@@ -368,16 +391,17 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  - type: STR_XOPS_POWER_ARMOR_UC
+  - &STR_WARDEN_ARMOR_UC
+    type: STR_WARDEN_ARMOR_UC
     spriteSheet: XOPS_XCOM_42.PCK
     spriteInv: XOP_42
     corpseBattle:
-      - STR_CORPSE_XOPS_POWER_ARMOR_GREY
-    storeItem: STR_XOPS_POWER_ARMOR
+      - STR_CORPSE_WARDEN_ARMOR_GREY
+    storeItem: STR_WARDEN_ARMOR
     tags:
       ANIMATED: 1
     stats:
-      health: 60
+      health: 100
       strength: 5
       psiStrength: 10
       psiSkill: -25
@@ -401,16 +425,16 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  - type: STR_XOPS_POWER_ARMOR_BLACK_UC
+  - type: STR_WARDEN_ARMOR_BLACK_UC
     spriteSheet: XOPS_XCOM_43.PCK
     spriteInv: XOP_43
     corpseBattle:
-      - STR_CORPSE_XOPS_POWER_ARMOR_BLACK
-    storeItem: STR_XOPS_POWER_ARMOR
+      - STR_CORPSE_WARDEN_ARMOR_BLACK
+    storeItem: STR_WARDEN_ARMOR
     tags:
       ANIMATED: 1
     stats:
-      health: 60
+      health: 100
       strength: 5
       psiStrength: 10
       psiSkill: -25
@@ -434,6 +458,124 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
+  
+# Armor Mods
+  - type: STR_PERSONAL_ARMOR_UC_HW
+    refNode: *STR_PERSONAL_ARMOR_UC
+    stats:
+      health: 30
+    tags:
+      HELLWEAVE: 1
+  - type: STR_PERSONAL_ARMOR_UC_RF
+    refNode: *STR_PERSONAL_ARMOR_UC
+    frontArmor: 10
+    sideArmor: 8
+    rearArmor: 8
+    underArmor: 8
+    stats:
+      health: 30
+  - type: STR_PERSONAL_ARMOR_UC_ST
+    refNode: *STR_PERSONAL_ARMOR_UC
+    tags:
+      HEALTH_RECOVERY: 80
+    stats:
+      health: 30
+  - type: STR_PERSONAL_ARMOR_UC_HZ
+    refNode: *STR_PERSONAL_ARMOR_UC
+    stats:
+      health: 30
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 0.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 0.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 0.0  # 11 Poison
+      - 0.0  # 12 Electric
+
+  - type: STR_PREDATOR_ARMOR_UC_HW
+    refNode: *STR_PREDATOR_ARMOR_UC
+    stats:
+      health: 65
+    tags:
+      HELLWEAVE: 1
+  - type: STR_PREDATOR_ARMOR_UC_RF
+    refNode: *STR_PREDATOR_ARMOR_UC
+    frontArmor: 15
+    sideArmor: 14
+    rearArmor: 14
+    underArmor: 15
+    stats:
+      health: 65
+  - type: STR_PREDATOR_ARMOR_UC_ST
+    refNode: *STR_PREDATOR_ARMOR_UC
+    tags:
+      HEALTH_RECOVERY: 80
+    stats:
+      health: 65
+  - type: STR_PREDATOR_ARMOR_UC_HZ
+    refNode: *STR_PREDATOR_ARMOR_UC
+    stats:
+      health: 65
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 0.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 0.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 0.0  # 11 Poison
+      - 0.0  # 12 Electric
+
+  - type: STR_WARDEN_ARMOR_UC_HW
+    refNode: *STR_WARDEN_ARMOR_UC
+    stats:
+      health: 120
+    tags:
+      HELLWEAVE: 1
+  - type: STR_WARDEN_ARMOR_UC_RF
+    refNode: *STR_WARDEN_ARMOR_UC
+    frontArmor: 30
+    sideArmor: 28
+    rearArmor: 26
+    underArmor: 28
+    stats:
+      health: 120
+  - type: STR_WARDEN_ARMOR_UC_ST
+    refNode: *STR_WARDEN_ARMOR_UC
+    tags:
+      HEALTH_RECOVERY: 80
+    stats:
+      health: 120
+  - type: STR_WARDEN_ARMOR_UC_HZ
+    refNode: *STR_WARDEN_ARMOR_UC
+    stats:
+      health: 120
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 0.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 0.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 0.0  # 11 Poison
+      - 0.0  # 12 Electric
 
 extraSprites:
 #---BIG OBJECTS------------------------------------------
@@ -772,75 +914,7 @@ extraSprites:
     files:
       0: Resources/Armor_Imported/PsiArmor/XCOM45.gif
 
-itemCategories:
-  - type: STR_ARMOR_CATEGORY
 
-manufacture:
-  - name: STR_PERSONAL_ARMOR     # Kevlar - T1
-    category: STR_ARMOR_CATEGORY
-    requires: []
-    requiredItems: {}
-    space: 6
-    time: 96
-    cost: 12000
-  - name: STR_ALLOY_ARMOR     # Predator - T2
-    category: STR_ARMOR_CATEGORY
-    requires:
-      - STR_ALLOY_ARMOR
-    space: 16
-    time: 500
-    cost: 48000
-    requiredItems:
-      STR_ALIEN_ALLOYS: 5
-  - name: STR_POWER_SUIT  # HAZMAT
-    category: STR_ARMOR_CATEGORY
-    requires:
-      - STR_POWER_SUIT
-    space: 16
-    time: 1000
-    cost: 88000
-    requiredItems:
-      STR_ALIEN_ALLOYS: 10
-  - name: STR_FLYING_SUIT  # WAR SUIT
-    category: STR_ARMOR_CATEGORY
-    requires:
-      - STR_FLYING_SUIT
-    space: 16
-    time: 1000
-    cost: 88000
-    requiredItems:
-      STR_ALIEN_ALLOYS: 10
-  - name: STR_XOPS_POWER_ARMOR  # Warden - T3
-    category: STR_ARMOR_CATEGORY
-    requires:
-      - STR_XOPS_POWER_ARMOR
-    space: 16
-    time: 1400
-    cost: 78000
-    requiredItems:
-      STR_ALIEN_ALLOYS: 10
-      STR_ELERIUM_115: 10
-  - name: STR_PSI_ARMOR  # Psi
-    category: STR_ARMOR_CATEGORY
-    requires:
-      - STR_PSI_ARMOR
-    space: 16
-    time: 1600
-    cost: 98000
-    requiredItems:
-      STR_ALIEN_ALLOYS: 8
-      STR_ELERIUM_115: 10
-  - name: STR_SKY_STRIKE_ARMOR # New Flying Suit
-    category: STR_ARMOR_CATEGORY
-    requires:
-      - STR_PSI_ARMOR
-    space: 16
-    time: 1600
-    cost: 98000
-    requiredItems:
-      STR_ALIEN_ALLOYS: 8
-      STR_ELERIUM_115: 10
-      STR_FLOATER_CORPSE: 2
 
 ufopaedia:
   - delete: STR_STUN_ROD
@@ -851,19 +925,19 @@ ufopaedia:
     type_id: 5
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_PERSONAL_ARMOR_UFOPEDIA
-  - id: STR_ALLOY_ARMOR_UC
+  - id: STR_PREDATOR_ARMOR_UC
     listOrder: 10605
     type_id: 5
     section: STR_WEAPONS_AND_EQUIPMENT
     requires:
-      - STR_ALLOY_ARMOR
-    text: STR_UFOPEDIA_ALLOY_ARMOR
-  - id: STR_XOPS_POWER_ARMOR_UC
+      - STR_PREDATOR_ARMOR
+    text: STR_UFOPEDIA_PREDATOR_ARMOR
+  - id: STR_WARDEN_ARMOR_UC
     listOrder: 10615
     type_id: 5
     section: STR_WEAPONS_AND_EQUIPMENT
     requires:
-      - STR_XOPS_POWER_ARMOR
+      - STR_WARDEN_ARMOR
     text: STR_UFOPEDIA_POWER_ARMOR
   - id: STR_SKY_STRIKE_ARMOR_UC
     listOrder: 10620
@@ -897,11 +971,18 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
-      STR_ARMOR_CATEGORY: Body Armor
       STR_LIGHT_SUIT_UC: Light Jumpsuit
       STR_PADDED_SUIT_UC: Padded Jumpsuit
       STR_PERSONAL_ARMOR: Kevlar Armor
       STR_PERSONAL_ARMOR_UC: Kevlar Armor
+      STR_PERSONAL_ARMOR_HW: Kevlar Armor (Hellweave)
+      STR_PERSONAL_ARMOR_UC_HW: Kevlar Armor (Hellweave)
+      STR_PERSONAL_ARMOR_RF: Kevlar Armor (Plated)
+      STR_PERSONAL_ARMOR_UC_RF: Kevlar Armor (Plated)
+      STR_PERSONAL_ARMOR_ST: Kevlar Armor (Stasis)
+      STR_PERSONAL_ARMOR_UC_ST: Kevlar Armor (Stasis)
+      STR_PERSONAL_ARMOR_HZ: Kevlar Armor (Hazmat)
+      STR_PERSONAL_ARMOR_UC_HZ: Kevlar Armor (Hazmat)
       STR_PERSONAL_ARMOR_UFOPEDIA: "This is a standard issue X-Com battle armor. Manufactured for the purpose of xeno operations, they have been assembled from specialized kevlar plates. Our government would never send us in the field without this."
       STR_POWER_SUIT: Hazmat Suit
       STR_POWER_SUIT_UC: Hazmat Suit
@@ -909,14 +990,30 @@ extraStrings:
       STR_FLYING_SUIT: W.A.R. Suit
       STR_FLYING_SUIT_UC: W.A.R. Suit
       STR_FLYING_SUIT_UFOPEDIA: "This powered heavy battle armor grants massive damage resistance and survivability, as well as a wrist-mounted Heavy Weapon hardpoint."
-      STR_ALLOY_ARMOR: Predator Armor
-      STR_ALLOY_ARMOR_UC: Predator Armor
-      STR_ALLOY_ARMOR_BLUE_UC: Predator Armor (Blue)
-      STR_UFOPEDIA_ALLOY_ARMOR: "Our Predator Armor was designed to offer substantially better protection against the alien plasma weaponry through the use of their alloys. Tests indicate a substantial survivability increase relative to conventional kevlar armor."
-      STR_XOPS_POWER_ARMOR: Warden Armor
-      STR_XOPS_POWER_ARMOR_UC: Warden Armor
-      STR_XOPS_POWER_ARMOR_WHITE_UC: Warden Armor (White)
-      STR_XOPS_POWER_ARMOR_BLACK_UC: Warden Armor (Black)
+      STR_PREDATOR_ARMOR: Predator Armor
+      STR_PREDATOR_ARMOR_UC: Predator Armor
+      STR_PREDATOR_ARMOR_BLUE_UC: Predator Armor (Blue)
+      STR_PREDATOR_ARMOR_HW: Predator Armor (Hellweave)
+      STR_PREDATOR_ARMOR_UC_HW: Predator Armor (Hellweave)
+      STR_PREDATOR_ARMOR_RF: Predator Armor (Plated)
+      STR_PREDATOR_ARMOR_UC_RF: Predator Armor (Plated)
+      STR_PREDATOR_ARMOR_ST: Predator Armor (Stasis)
+      STR_PREDATOR_ARMOR_UC_ST: Predator Armor (Stasis)
+      STR_PREDATOR_ARMOR_HZ: Predator Armor (Hazmat)
+      STR_PREDATOR_ARMOR_UC_HZ: Predator Armor (Hazmat)
+      STR_UFOPEDIA_PREDATOR_ARMOR: "Our Predator Armor was designed to offer substantially better protection against the alien plasma weaponry through the use of their alloys. Tests indicate a substantial survivability increase relative to conventional kevlar armor."
+      STR_WARDEN_ARMOR: Warden Armor
+      STR_WARDEN_ARMOR_UC: Warden Armor
+      STR_WARDEN_ARMOR_WHITE_UC: Warden Armor (White)
+      STR_WARDEN_ARMOR_BLACK_UC: Warden Armor (Black)
+      STR_WARDEN_ARMOR_HW: Warden Armor (Hellweave)
+      STR_WARDEN_ARMOR_UC_HW: Warden Armor (Hellweave)
+      STR_WARDEN_ARMOR_RF: Warden Armor (Plated)
+      STR_WARDEN_ARMOR_UC_RF: Warden Armor (Plated)
+      STR_WARDEN_ARMOR_ST: Warden Armor (Stasis)
+      STR_WARDEN_ARMOR_UC_ST: Warden Armor (Stasis)
+      STR_WARDEN_ARMOR_HZ: Warden Armor (Hazmat)
+      STR_WARDEN_ARMOR_UC_HZ: Warden Armor (Hazmat)
       STR_UFOPEDIA_POWER_ARMOR: "Our new mastery of the alien's Elerium technology has lead us to the ultimate in battle armor: the Warden Armor. Elerium powered armor provides unprecedented survivability and versatility in the battle against increasingly powerful alien enemies."
       STR_SKY_STRIKE_ARMOR: Archangel Armor
       STR_SKY_STRIKE_ARMOR_UC: Archangel Armor

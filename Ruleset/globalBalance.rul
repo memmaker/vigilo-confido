@@ -1,3 +1,4 @@
+useCustomCategories: true
 customTrainingFactor: 10
 maxDarknessToSeeUnits: 15
 constants:
@@ -8,9 +9,12 @@ constants:
 bughuntMinTurn: 16
 bughuntMaxEnemies: 2
 bughuntRank: -1
+surrenderMode: 1
 
 extended:
   tags:
+    BattleGame:
+      COMBAT_INFORMATION_LEVEL: int
     BattleUnit:
       LAST_HIT_FRAME: int
       LAST_DAMAGE_FRAME: int
@@ -183,14 +187,58 @@ extended:
         code: |
           var int temp;
           var int type;
+          var int showHealthLeft;
+          var int healthLeft;
+          var int informationLevel; # 0 = None, 1 = Only Damage, 2 = Damage + HP Left
+
+          battle_game.getTag informationLevel Tag.COMBAT_INFORMATION_LEVEL;
+
+          if eq informationLevel 0;
+            return;
+          else eq informationLevel 1;
+            set showHealthLeft 0;
+          else eq informationLevel 2;
+            set showHealthLeft 1;
+          end;
+
           if gt to_health 0;
+            unit.getHealth healthLeft;
+            sub healthLeft to_health;
             unit.getTag type Tag.LAST_DAMAGE_TYPE;
             battle_game.getAnimFrame temp;
-            if eq type 1;
-              battle_game.flashMessage "STR_CRIT_DAMAGE_DEALT" to_health to_armor;
+            if gt showHealthLeft 0;
+              if gt to_armor 0;
+                if eq type 1;
+                  battle_game.flashMessage "STR_CRIT_DAMAGE_DEALT_SHRED_HP_LEFT" to_health healthLeft to_armor;
+                else;
+                  battle_game.flashMessage "STR_DAMAGE_DEALT_SHRED_HP_LEFT" to_health healthLeft to_armor;
+                end;
+              else;
+                if eq type 1;
+                  battle_game.flashMessage "STR_CRIT_DAMAGE_DEALT_HP_LEFT" to_health healthLeft;
+                else;
+                  battle_game.flashMessage "STR_DAMAGE_DEALT_HP_LEFT" to_health healthLeft;
+                end;
+              end;
             else;
-              battle_game.flashMessage "STR_DAMAGE_DEALT" to_health to_armor;
+              if gt to_armor 0;
+                if eq type 1;
+                  battle_game.flashMessage "STR_CRIT_DAMAGE_DEALT_SHRED" to_health to_armor;
+                else;
+                  battle_game.flashMessage "STR_DAMAGE_DEALT_SHRED" to_health to_armor;
+                end;
+              else;
+                if eq type 1;
+                  battle_game.flashMessage "STR_CRIT_DAMAGE_DEALT" to_health;
+                else;
+                  battle_game.flashMessage "STR_DAMAGE_DEALT" to_health;
+                end;
+              end;
             end;
+            unit.setTag Tag.LAST_DAMAGE_FRAME temp;
+          else gt to_stun 0;
+            unit.setTag Tag.LAST_DAMAGE_TYPE 2;
+            battle_game.getAnimFrame temp;
             unit.setTag Tag.LAST_DAMAGE_FRAME temp;
           end;
           return;
@@ -208,6 +256,8 @@ extended:
               set color COLOR_X1_RED;
               if eq type 1;
                 set color COLOR_X1_YELLOW;
+              else eq type 2;
+                set color COLOR_X1_SPECIAL;
               end;
               set_color new_pixel color;
             end;
@@ -217,5 +267,11 @@ extended:
 extraStrings:
   - type: en-US
     strings: 
-      STR_DAMAGE_DEALT: "Hit: {0} - Shred: {1}"
-      STR_CRIT_DAMAGE_DEALT: "CRIT: {0} / Shred: {1}"
+      STR_DAMAGE_DEALT_SHRED: "Hit: {0} - Shred: {1}"
+      STR_CRIT_DAMAGE_DEALT_SHRED: "CRIT: {0} - Shred: {1}"
+      STR_DAMAGE_DEALT: "Hit: {0}"
+      STR_CRIT_DAMAGE_DEALT: "CRIT: {0}"
+      STR_DAMAGE_DEALT_SHRED_HP_LEFT: "Hit: {0}>{1} - Shred: {2}"
+      STR_CRIT_DAMAGE_DEALT_SHRED_HP_LEFT: "CRIT: {0}>{1} - Shred: {2}"
+      STR_DAMAGE_DEALT_HP_LEFT: "Hit: {0}>{1}"
+      STR_CRIT_DAMAGE_DEALT_HP_LEFT: "CRIT: {0}>{1}"

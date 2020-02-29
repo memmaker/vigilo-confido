@@ -1,52 +1,140 @@
 research:
-## ARMORS ##
   - delete: STR_PERSONAL_ARMOR # Kevlar
+  - delete: STR_POWER_SUIT
+  - delete: STR_FLYING_SUIT
   - name: STR_MOTION_SCANNER
     cost: 70
     points: 20
   - name: STR_MEDI_KIT
     cost: 90
     points: 20
-  - name: STR_ALLOY_ARMOR # Predator Armor
+  - name: STR_SKULLJACK
+    cost: 120
+    points: 50
+    dependencies: 
+      - STR_SECTOID_AUTOPSY
+      - STR_THIN_MAN_AUTOPSY
+      - STR_SNAKEMAN_AUTOPSY
+      - STR_ETHEREAL_AUTOPSY
+      - STR_MUTON_AUTOPSY
+      - STR_FLOATER_AUTOPSY
+      - STR_CHRYSSALID_AUTOPSY
+      - STR_REAPER_AUTOPSY
+      - STR_SECTOPOD_AUTOPSY
+      - STR_CYBERDISC_AUTOPSY
+      - STR_BERSERKER_AUTOPSY
+      - STR_MUTON_ELITE_AUTOPSY
+      - STR_ANDROMEDON_AUTOPSY
+## Autopsies for Vanilla Units
+  - name: STR_SECTOID_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_SNAKEMAN_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_ETHEREAL_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_MUTON_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_FLOATER_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_CHRYSSALID_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_REAPER_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_SECTOPOD_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_CYBERDISC_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+## Autopsies for new units
+  - name: STR_THIN_MAN_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_BERSERKER_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_MUTON_ELITE_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_ANDROMEDON_AUTOPSY
+    points: 50
+    needItem: true
+    unlocks:
+      - STR_SKULLJACK
+  - name: STR_THIN_MAN_CORPSE
+    cost: 180
+    points: 50
+    lookup: STR_THIN_MAN_AUTOPSY
+    needItem: true
+  - name: STR_BERSERKER_CORPSE
+    cost: 180
+    points: 50
+    lookup: STR_BERSERKER_AUTOPSY
+    needItem: true
+  - name: STR_MUTON_ELITE_CORPSE
+    cost: 180
+    points: 50
+    lookup: STR_MUTON_ELITE_AUTOPSY
+    needItem: true
+  - name: STR_ANDROMEDON_CORPSE
+    cost: 180
+    points: 50
+    lookup: STR_ANDROMEDON_AUTOPSY
+    needItem: true
+## ARMORS ##
+  - name: STR_PREDATOR_ARMOR # Predator Armor
     cost: 180
     points: 20
     dependencies:
       - STR_ALIEN_ALLOYS
-  - name: STR_POWER_SUIT # now HAZMAT suit
-    cost: 210
-    points: 20
-    dependencies:
-      - STR_ALLOY_ARMOR
-      - STR_UFO_POWER_SOURCE
-      - STR_MEDI_KIT
-  - name: STR_FLYING_SUIT # now W.A.R. Suit
-    cost: 210
-    points: 20
-    dependencies:
-      - STR_ALLOY_ARMOR
-      - STR_UFO_NAVIGATION
-      - STR_MOTION_SCANNER
-  - name: STR_XOPS_POWER_ARMOR # Warden Armor
+  - name: STR_WARDEN_ARMOR # Warden Armor
     cost: 550
     points: 20
     dependencies:
-      - STR_ALLOY_ARMOR
-      - STR_POWER_SUIT
-      - STR_FLYING_SUIT
+      - STR_SKY_STRIKE_ARMOR
       - STR_ELERIUM_115
   - name: STR_PSI_ARMOR # Psi Armor
     cost: 550
     points: 20
     dependencies:
-      - STR_ALLOY_ARMOR
+      - STR_WARDEN_ARMOR
       - STR_PSI_LAB
   - name: STR_SKY_STRIKE_ARMOR # New Flying Suit
     cost: 550
     points: 20
     dependencies:
-      - STR_ALLOY_ARMOR
-      - STR_POWER_SUIT
-      - STR_FLYING_SUIT
+      - STR_PREDATOR_ARMOR
       - STR_FLOATER_ENGINEER
 ## WEAPONS ##
   - delete: STR_LASER_PISTOL

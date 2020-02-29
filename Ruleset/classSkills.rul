@@ -311,6 +311,7 @@ soldierBonuses:
     tags:
       STEADFAST: 50           #X (1-XXX) bonus to bravery and psiDefence
       FIELD_SURGEON: 30       #X (1-XXX) percent reduction in recovery time if healed by field surgeon
+      ADVANCED_COMBAT_INFORMATION: 1
     stats:
       bravery: 50
   - name: STR_SPECIALIST_ELITE_BONUS
@@ -1038,6 +1039,7 @@ soldiers:
     tags:
       CLASS: 4
       GUARDIAN: 1             #X (1/0) a 50% chance that TU on reaction fire get refunded
+      BASIC_COMBAT_INFORMATION: 1
     specialWeapon: STR_SKILL_AMP
     skillIconSprite: 5
     skills:
@@ -1193,8 +1195,10 @@ extended:
       BLADEMASTER: int
       SHREDDER: int
       GUARDIAN: int
-      DEATH_FROM_ABOVE: int
+      DEATH_FROM_ABOVE: int  
+      BASIC_COMBAT_INFORMATION: int
     BattleGame:
+      COMBAT_INFORMATION_LEVEL: int
       BATTLE_CRY_STATE: int # 0 = not activated, 1 = active this turn, 2 = disabled
       BATTLE_CRY_X: int     # x position where battle cry was activated
       BATTLE_CRY_Y: int     # y position where battle cry was activated
@@ -1272,6 +1276,7 @@ extended:
       RESTORATION: int
       FIELD_SURGEON: int
       EVER_VIGILANT: int
+      ADVANCED_COMBAT_INFORMATION: int
     RuleItem:
       SKILL_POWER_ITEM: int
       CLASS_SKILL_ACTIVATION: int
@@ -2566,6 +2571,9 @@ extended:
           var int has_serial;
           var int has_guardian;
           var ptr RuleSoldier soldier_rule;
+          var int has_basic_combat_information;
+          var int has_advanced_combat_information;
+          var int current_info_level;
 
           unit.getId id;
           unit.getRuleSoldier soldier_rule;
@@ -2673,6 +2681,17 @@ extended:
           if gt has_guardian 0;
             debug_log "Unit" id "- Guardian Skill found";
             unit.setTag Tag.GUARDIAN_STATE has_guardian;
+          end;
+
+          # special handling for combat information
+          soldier_rule.getTag has_basic_combat_information Tag.BASIC_COMBAT_INFORMATION;
+          soldier_bonus.getTag has_advanced_combat_information Tag.ADVANCED_COMBAT_INFORMATION;
+          save_game.getTag current_info_level Tag.COMBAT_INFORMATION_LEVEL;
+
+          if and gt has_advanced_combat_information 0 lt current_info_level 2;
+            save_game.setTag Tag.COMBAT_INFORMATION_LEVEL 2;
+          else and gt has_basic_combat_information 0 lt current_info_level 1;
+            save_game.setTag Tag.COMBAT_INFORMATION_LEVEL 1;
           end;
 
           return;

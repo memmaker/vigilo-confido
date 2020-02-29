@@ -2194,7 +2194,7 @@ items:
     recoveryPoints: 5
   - type: STR_LASER_PISTOL
     power: 20  # vanilla: 46
-    tuAimed: 60
+    tuAimed: 45
     tuSnap: 35 # vanilla: 20
     tuAuto: 45 # vanilla: 25
     accuracyAuto: 28
@@ -2204,6 +2204,8 @@ items:
     aimRange: 14
     autoRange: 8
     dropoff: 4
+    damageAlter:
+      ToArmor: 0
     # for disabled weapons
     tuPrime: 0
     tuUnprime: 0             # only activated by scripts
@@ -2212,9 +2214,9 @@ items:
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_LASER_RIFLE
     power: 30  # vanilla: 60
-    tuAimed: 50
-    tuSnap: 35 # vanilla: 25
-    tuAuto: 45 # vanilla: 34
+    tuAimed: 60
+    tuSnap: 51 # vanilla: 25
+    tuAuto: 0 # vanilla: 34
     accuracyAuto: 46
     accuracySnap: 55 # vanilla: 65
     accuracyAimed: 100
@@ -2222,6 +2224,8 @@ items:
     aimRange: 16
     autoRange: 10
     dropoff: 4
+    damageAlter:
+      ToArmor: 0
     # for disabled weapons
     tuPrime: 0
     tuUnprime: 0             # only activated by scripts
@@ -2230,13 +2234,15 @@ items:
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_PLASMA_PISTOL
     power: 50  # vanilla: 52
-    tuAimed: 60
-    tuSnap: 35 # vanilla: 30
-    tuAuto: 45 # vanilla: 30
+    tuAuto: 0 # vanilla: 30
+    tuSnap: 40  # vanilla: 30
+    tuAimed: 51
     snapRange: 10
     aimRange: 14
     autoRange: 8
     dropoff: 4
+    damageAlter:
+      ToArmor: 0
     # for disabled weapons
     tuPrime: 0
     tuUnprime: 0             # only activated by scripts
@@ -2245,12 +2251,15 @@ items:
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_PLASMA_RIFLE
     power: 65  # vanilla: 80
-    tuSnap: 35 # vanilla: 30
-    tuAuto: 55 # vanilla: 36
+    tuSnap: 51 # vanilla: 30
+    tuAuto: 0 # vanilla: 36
+    tuAimed: 60
     snapRange: 12
     aimRange: 16
     autoRange: 10
     dropoff: 4
+    damageAlter:
+      ToArmor: 0
     # for disabled weapons
     tuPrime: 0
     tuUnprime: 0             # only activated by scripts
@@ -2259,11 +2268,14 @@ items:
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_HEAVY_PLASMA
     power: 100 # vanilla: 115
-    tuSnap: 45 # vanilla: 30
-    tuAuto: 55 # vanilla: 35
+    tuSnap: 51 # vanilla: 30
+    tuAuto: 0 # vanilla: 35
+    tuAimed: 0
     snapRange: 14
     aimRange: 14
     autoRange: 14
+    damageAlter:
+      ToArmor: 0
     # for disabled weapons
     tuPrime: 0
     tuUnprime: 0             # only activated by scripts
@@ -2276,17 +2288,23 @@ items:
     accuracyAimed: 110
     tuSnap: 30
     tuAimed: 60
+    damageAlter:
+      ToArmor: 0
   - type: REAPER_WEAPON
     strengthApplied: true
     accuracyMelee: 100
     tuMelee: 50
     flatRate: false
+    damageAlter:
+      ToArmor: 0
   - type: CHRYSSALID_WEAPON
     strengthApplied: true
     accuracyMelee: 100
     tuMelee: 50
     flatRate: false
     zombieUnit: STR_ZOMBIE
+    damageAlter:
+      ToArmor: 0
   - type: SECTOPOD_WEAPON
     power: 100
     accuracyAuto: 50
@@ -2295,11 +2313,15 @@ items:
     tuAuto: 35
     tuSnap: 30
     tuAimed: 60
+    damageAlter:
+      ToArmor: 0
   - type: ZOMBIE_WEAPON
     strengthApplied: true
     accuracyMelee: 100
     tuMelee: 45
     flatRate: false
+    damageAlter:
+      ToArmor: 0
 
 units:
   - type: STR_SNAKEMAN_SOLDIER

@@ -1,13 +1,14 @@
 
 items:
   - type: STR_FLASHBANG_GRENADE
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     tags:
       INFLICT_EFFECT: 1 # disorient
       INFLICT_CHANCE: 80
       EFFECT_POWER: 2
     size: 0.1
-    costBuy: 150
-    costSell: 120
+    costBuy: 0
+    costSell: 12000
     weight: 3
     bigSprite: 20
     floorSprite: 20
@@ -15,6 +16,7 @@ items:
     hidePower: true
     damageType: 6
     battleType: 4
+    accuracyThrow: 100
     damageAlter:
       SmokeThreshold: 1000
       ResistType: 6
@@ -30,13 +32,14 @@ items:
       ToWound: 0
       FixRadius: 4
   - type: STR_ACID_GRENADE
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     tags:
       INFLICT_EFFECT: 2 # acid
       INFLICT_CHANCE: 80
       EFFECT_POWER: 5
     size: 0.1
-    costBuy: 150
-    costSell: 120
+    costBuy: 0
+    costSell: 12000
     weight: 3
     bigSprite: 800
     floorSprite: 800
@@ -45,6 +48,7 @@ items:
     hidePower: true
     damageType: 8
     battleType: 4
+    accuracyThrow: 100
     damageAlter:
       SmokeThreshold: 1000
       ResistType: 8
@@ -60,13 +64,14 @@ items:
       ToWound: 0
       FixRadius: 4
   - type: STR_FREEZE_GRENADE
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     tags:
       INFLICT_EFFECT: 3 # freeze
       INFLICT_CHANCE: 80
-      EFFECT_POWER: 2
+      EFFECT_POWER: 1
     size: 0.1
-    costBuy: 150
-    costSell: 120
+    costBuy: 0
+    costSell: 12000
     weight: 3
     bigSprite: 801
     floorSprite: 801
@@ -75,6 +80,7 @@ items:
     hidePower: true
     damageType: 13
     battleType: 4
+    accuracyThrow: 100
     damageAlter:
       SmokeThreshold: 1000
       ResistType: 13
@@ -90,13 +96,14 @@ items:
       ToWound: 0
       FixRadius: 4
   - type: STR_GAS_GRENADE
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     tags:
       INFLICT_EFFECT: 4 # poison
       INFLICT_CHANCE: 80
       EFFECT_POWER: 20
     size: 0.1
-    costBuy: 150
-    costSell: 120
+    costBuy: 0
+    costSell: 12000
     weight: 3
     bigSprite: 802
     floorSprite: 802
@@ -105,6 +112,7 @@ items:
     hidePower: true
     damageType: 12
     battleType: 4
+    accuracyThrow: 100
     damageAlter:
       SmokeThreshold: 1000
       ResistType: 12
@@ -120,13 +128,14 @@ items:
       ToWound: 0
       FixRadius: 4
   - type: STR_EMP_GRENADE # only affects mechanical units, lowers hacking defense, may cause shutdown
+    categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     tags:
       INFLICT_EFFECT: 5 # shutdown
       INFLICT_CHANCE: 80
       EFFECT_POWER: 2
     size: 0.1
-    costBuy: 150
-    costSell: 120
+    costBuy: 0
+    costSell: 12000
     weight: 3
     bigSprite: 20
     floorSprite: 20
@@ -134,6 +143,7 @@ items:
     hidePower: true
     damageType: 14
     battleType: 4
+    accuracyThrow: 100
     damageAlter:
       SmokeThreshold: 1000
       ResistType: 14
