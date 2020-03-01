@@ -9,15 +9,16 @@ musics:
 cutscenes:
   - delete: winGame
   - delete: loseGame
-#  - type: intro
-#    useUfoAudioSequence: false
-#    videos:
-#      - Resources/ANIMS/USINT_7.FLC
-#    audioTracks:
-#      - USINT_7
+  - delete: intro
+  - type: intro
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/USINT-video.fli
+    audioTracks:
+      - USINT_7
   - type: winGame
     videos:
-      - Resources/ANIMS/GWIN_7.FLC
+      - Resources/ANIMS/GWIN-video.fli
     audioTracks:
       - GWIN_7
     slideshow:
@@ -51,7 +52,7 @@ cutscenes:
           captionColor: 249
   - type: loseGame
     videos:
-      - Resources/ANIMS/LGMWLD_7.FLC
+      - Resources/ANIMS/LGMWLD-video.fli
     audioTracks:
       - LGMWLD_7
     slideshow:
@@ -70,22 +71,22 @@ cutscenes:
           captionColor: 249
   - type: winMiss
     videos:
-      - Resources/ANIMS/WMISS_7.FLC
+      - Resources/ANIMS/WMISS-video.fli
     audioTracks:
       - WMISS_7
   - type: loseMiss
     videos:
-      - Resources/ANIMS/MLOSE_7.FLC
+      - Resources/ANIMS/MLOSE-video.fli
     audioTracks:
       - MLOSE_7
   - type: abortMiss
     videos:
-      - Resources/ANIMS/MABRT_7.FLC
+      - Resources/ANIMS/MABRT-video.fli
     audioTracks:
       - MABRT_7
   - type: cydonia
     videos:
-      - Resources/ANIMS/2CYDON_7.FLC
+      - Resources/ANIMS/2CYDON-video.fli
     audioTracks:
       - 2CYDON_7
 
