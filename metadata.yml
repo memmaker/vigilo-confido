@@ -1,7 +1,7 @@
 name: X-COM with Classes
-version: 0.7
+version: 0.7.1
 author: memmaker
 description: "An vanilla X-COM expansion with a class & skill system at its core."
 master: xcom1
 id: "mmx-classes-skills"
-requiredExtendedVersion: "6.2"
+requiredExtendedVersion: "6.3"

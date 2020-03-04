@@ -235,14 +235,6 @@
 # Body part targeting
 # Vampiric
 
-# TESTING SETUP
-startingBase:
-  randomSoldiers:
-    STR_RANGER: 2
-    STR_GRENADIER: 2
-    STR_SPECIALIST: 2
-    STR_SNIPER: 2
-
 fixedUserOptions:
   weaponSelfDestruction: true
   strafe: true
