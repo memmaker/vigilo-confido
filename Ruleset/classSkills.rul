@@ -3321,6 +3321,23 @@ extraSounds:
 
 # Reference Information
 # dmg calc.
+# Power must be greater zero before reduction by resistances.
+
+#const auto random_damage = type->getRandomDamage(power_of_weapon);  // apply damageRange (0-200% in vanilla ufo)
+#TileEngine.hitUnit(targetUnit, random_damage)
+#{
+#  targetUnit.damage(random_damage)
+#}
+#BattleUnit.damage(random_damage)
+#{
+#  if (random_damage < 0) return; // DO NOTHING
+#  random_damage = reduceByResistance(random_damage, type->ResistType); // apply armor damage modifiers (resistances)
+#  CALL SCRIPT: HitUnit(random_damage as power)
+#  adjusted_damage -= getArmor(side) * type->ArmorEffectiveness; // apply armor on respective side, taking armor effectiveness into account
+#  CALL SCRIPT: DamageUnit(random_damage as original_damage, adjusted_damage as damage)
+#  => Apply Damage directly from output of DamageUnit script
+#}
+
 # power of hitUnit / original_damage of damageUnit = (power of weapon +/- randomRange%) * damageModifier(Armor,Type)
 # damage of damageUnit = (power output of hitUnit) - Armor(Side) * ArmorEffectiveness
 # output of damageUnit is applied immediately

@@ -3,6 +3,34 @@ X-Com with Classes
 
 A demake of the remakes.
 
+=== Changes ===
+
+ - 5 new soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
+ - 500+ callsigns for each soldier class
+ - ~50 new scripted abilities
+ - 200+ new voice files (Unit responsonse sounds)
+ - 4+ new units (Cyber Floater, Thin Man, Berserker, Muton Elite)
+ - 3 new weapon types in T1, T2 & T3 versions (Swords, Shotguns, Sniper Rifles)
+ - Complete new graphics for all T2 & T3 weapons and armors
+ - Complete rebalancing of all weapons, armors, units and deployments
+ - Added status, day & night and hit indicators
+ - Laser weapons not reasearchable from the start
+ - Laser weapons need recharging and can implode in the field
+ - Blaster Launcher not that readily available (Not yet implemented)
+ - Limited Explosives (Not yet implemented)
+ - No Tanks (But the Gremlin drone instead)
+ - Bring home alien weapons and research them for progress
+ - Ground deployment added with a small research tree for squad size
+ - "Killing Aliens destroys their Weapons" option is fixed
+ - Additional status effects & Visualisations
+ - Weapons can be disabled in combat
+ - A buttload of new maps (thanks to C.M.P)
+ - Added Training rooms
+ - Integrated the Commendations mod
+
+Required: OXCE 6.4
+Test Build available here: https://lxnt.wtf/oxem/builds/Extended/Extended-6.3.5-018c5b09d-2020-03-03-win64.7z
+
 === Quickstart ===
 
 You can find information about the classes and their skills in the Ufopedia
@@ -71,24 +99,6 @@ T1 - Kevlar Armor   & Conventional Weapons
 T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
-=== Additional Changes ===
-
- - Complete rebalancing of all weapons, armors, units and deployments
- - Added status, day & night and hit indicators
- - Laser weapons not reasearchable from the start
- - Laser weapons need recharging
- - Blaster Launcher not that readily available (Not yet implemented)
- - Limited Explosives (Not yet implemented)
- - No Tanks (But the Gremlin drone instead)
- - Bring home alien weapons and research them for progress
- - Ground deployment added with a small research tree for squad size
- - "Killing Aliens destroys their Weapons" option is fixed
- - Additional status effects & Visualisations
- - Weapons can be disabled in combat
- - New alien units added (Cyber Floater, Thin Man, Berserker, Muton Elite)
-
-Required: Presumably OXCE 6.3.5
-
 === CREDITS ===
 
 DISCLAIMER:
@@ -107,7 +117,7 @@ Shotgun Sprites by Dioxine, efrenespartano
 Minigun Light Sprites by Wicked Wirtz
 Training Rooms by Warboy1982
 Hitbox Fix by Reaver of Darkness
-Day & Night Indicators by Dioxine
+Day & Night Indicators by Civilian
 Status Indicator Sprites by Captain Corkscrew, Ivan Dogovich, et al.
 Commendations Mod by Shoes, Ivan Dogovich, hellrazor, jgatkinsn, Meridian
 Psi Amp Sprites by efrenespartano & Badfella
@@ -123,22 +133,22 @@ create new gameplay experiences for us all to enjoy. You rock!
 === License Information ===
 
 Commendations Mod uses Attribution-NonCommercial-ShareAlike 4.0 International which I have included as "license.md"
+Community Map Pack uses Creative Commons Attribution Licence (CC BY NC) see link : https://creativecommons.org/licenses/by/4.0/
 
 === Known Issues / Backlog ===
  - item categories
- - how to stun aliens?
  - gremlin affected by reaction accuracy adjustment
  - Sound effects (Gremlin, Minigun)
  - explain mechanics in Ufopedia (accuracy learning curve, skyranger replacement, night missions)
- - terror missions seem to be missing?
  - test andromedon enemy
  - change sprite of combat experience commendation
  - complete skill tests
  - Battle Focus costs for flying
  - Units to add: Thin man, Flying Drone, Stun Lancer(?), Mechtoid(?), Berserker, Outsider(?), Muton Elite, Faceless(?), Turret, Exalt?
- - multiple skyranger ufopedia entries
  - hardened ability: critical hit chance against this unit reduced by 60%
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - resistances to damage types
  - missing gremlin corpse?
  - balancing of stuff (item costs, armors, etc.)
+ - deployment reasearch not available
+ - Psi Class and everything Psi is not yet finished
