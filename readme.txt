@@ -99,42 +99,6 @@ T1 - Kevlar Armor   & Conventional Weapons
 T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
-=== CREDITS ===
-
-DISCLAIMER:
-I tried my best to track down the creators of all the assets I borrowed from other mods.
-Since I am only human, I might have made some mistakes. So if you find something that is
-credited falsely, has missing credits or have problems with the inclusion of your creation
-in this mod, then please contact me. (memmaker on the OpenXcom discord.)
-
-Units, Armors, Laser & Plasma Weapon Sprites from Xeno Operations XOps, recolored versions by The Martian and me
-Maps Provided by the Community Map Pack - See CMP.CONTRIBUTORS.txt
-Alloy Sword Sprites by Civilian
-Grenade Launcher Sprites by Sporb
-Sniper Rifle Sprites by ???
-Plasma Sword Sprites by ???
-Shotgun Sprites by Dioxine, efrenespartano
-Minigun Light Sprites by Wicked Wirtz
-Training Rooms by Warboy1982
-Hitbox Fix by Reaver of Darkness
-Day & Night Indicators by Civilian
-Status Indicator Sprites by Captain Corkscrew, Ivan Dogovich, et al.
-Commendations Mod by Shoes, Ivan Dogovich, hellrazor, jgatkinsn, Meridian
-Psi Amp Sprites by efrenespartano & Badfella
-New Grenade Sprites from XPiratez Mod by Dioxine (couldn't find the creator in credits)
-
-Special Thanks to:
-Meridian for his fork, his merging of my PRs and his constant support
-Yankes for his script engine which made most of this possible and of course his support
-
-All the great modders of the OXC/OXCE community who have a great spirit and
-create new gameplay experiences for us all to enjoy. You rock!
-
-=== License Information ===
-
-Commendations Mod uses Attribution-NonCommercial-ShareAlike 4.0 International which I have included as "license.md"
-Community Map Pack uses Creative Commons Attribution Licence (CC BY NC) see link : https://creativecommons.org/licenses/by/4.0/
-
 === Known Issues / Backlog ===
  - item categories
  - gremlin affected by reaction accuracy adjustment
