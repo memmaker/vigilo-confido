@@ -1,19 +1,18 @@
-#eventScripts:
-#  - type: STR_INTRO_EVENT_SCRIPT
-#    oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
-#    firstMonth: 0
-#    lastMonth: 0
-#    executionOdds: 100
-#    minDifficulty: 0
-#    maxDifficulty: 4
+eventScripts:
+  - type: STR_INTRO_EVENT_SCRIPT
+    oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
+    firstMonth: 0
+    lastMonth: 0
+    executionOdds: 100
+    minDifficulty: 0
+    maxDifficulty: 4
 
-#events:
-#  - name: STR_INTRODUCTION_EVENT
-#    description: STR_INTRODUCTION_TEXT
-#    researchList: [STR_BASIC_DEPLOYMENT]
-#    timer: 3000
-#    timerRandom: 1000
-#    interruptResearch: STR_ADVANCED_DEPLOYMENT1
+events:
+  - name: STR_INTRODUCTION_EVENT
+    description: STR_INTRODUCTION_TEXT
+    researchList: [STR_BASIC_DEPLOYMENT]
+    timer: 3000
+    timerRandom: 1000
     
 research:
   - name: STR_BASIC_DEPLOYMENT
@@ -55,6 +54,8 @@ research:
 crafts:
   - &STR_SKYRANGER
     type: STR_SKYRANGER
+    requires:
+      - STR_BASIC_DEPLOYMENT
     sprite: 0
     fuelMax: 1500
     damageMax: 150
@@ -84,8 +85,6 @@ crafts:
 
      - [5, 7, 0, 3]
      - [5, 1, 0, 7]
-
-     - [8, 6, 0, 1]
 
   - type: STR_SKYRANGER_SIX
     refNode: *STR_SKYRANGER
@@ -257,11 +256,21 @@ extraStrings:
       STR_SKYRANGER_TWELVE: SKYRANGER
       STR_SKYRANGER_FOURTEEN: SKYRANGER
       STR_INTRODUCTION_EVENT: Welcome, Commander
-      STR_INTRODUCTION_TEXT: "The council has granted us access to SKYRANGER procurement, complete with the basic deployment technology. We are currently able to deploy a squad of six soldiers. Research the advanced deployment technologies in order to increase your squad size.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}We can now research ADVANCED DEPLOYMENT 1"
-    
-
+      STR_INTRODUCTION_TEXT: "The council has granted us access to SKYRANGER procurement, complete with the basic deployment technology. We are currently able to deploy a squad of four soldiers. Research the advanced deployment technologies in order to increase your squad size."
+      STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA: "The council has granted us access to an upgraded Skyranger with enough space for six operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't forget to sell the old Skyranger and buy a new, shiny, upgraded one."
+      STR_FULL_DEPLOYMENT_UFOPAEDIA: "The council has granted us access to the final Skyranger upgrade with enough space for eight operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't forget to sell the old Skyranger and buy a new, shiny, upgraded one."
 
 ufopaedia:
+  - id: STR_ADVANCED_DEPLOYMENT1
+    type_id: 8
+    text: STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA
+    requires: [STR_ADVANCED_DEPLOYMENT1]
+    section: STR_XCOM_CRAFT_ARMAMENT
+  - id: STR_FULL_DEPLOYMENT
+    type_id: 8
+    text: STR_STR_FULL_DEPLOYMENT_UFOPAEDIA
+    requires: [STR_FULL_DEPLOYMENT]
+    section: STR_XCOM_CRAFT_ARMAMENT
   - id: STR_SKYRANGER_SIX
     type_id: 1
     section: STR_NOT_AVAILABLE

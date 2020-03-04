@@ -51,14 +51,17 @@ extended:
           var int old_bonus;
           var int org_acc;
           var int new_acc;
+          var int unit_faction;
 
-          set adjustment 50; # 50% accuracy on reaction shots
+          set adjustment 100; # 50% accuracy on reaction shots
+
+          unit.getFaction unit_faction;
 
           battle_game.getTurnSide turn_side;
           unit.getRuleSoldier soldier_rule;
           unit.getTag org_acc Tag.ORIGINAL_ACCURACY;
 
-          if eq soldier_rule null; # aliens only
+          if eq unit_faction 1; # aliens only
             if and eq turn_side 0 neq adjustment 100; # reaction shots
               unit.Stats.getFiring org_acc;
               unit.setTag Tag.ORIGINAL_ACCURACY org_acc;

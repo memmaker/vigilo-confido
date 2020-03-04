@@ -54,11 +54,11 @@
 # Initial
 #  TA Paramedic
 #  TA Aid Protocol
-#  P Guardian
+#  TP Guardian
 # Advanced
 #  TA Combat Protocol
 #  TA Interference
-#  P Steadfast
+#  TP Steadfast
 #  P Field Surgeon
 # Elite
 #  A Restoration
@@ -310,7 +310,6 @@ soldierBonuses:
     tags:
       SAVIOR: 10              #X (1-XXX) flat amount of health restored when using heal
       EVER_VIGILANT: 1        #X (1/0) restores all TU on beginning of enemy turn 
-
 items:
   - type: STR_MEDI_KIT
     medikitTargetMatrix: 15
@@ -1919,7 +1918,7 @@ extended:
 
           if and gt guardian 0 eq turn_side 1; # guardian only activates on enemy turn
             battle_game.randomChance activation_chance;
-            if gt activation_chance 1;
+            if gt activation_chance 0;
               damaging_item.getActionCost.getTimeUnits action_time_units attacker battle_action;
               attacker.getTimeUnits current_time_units;
               add current_time_units action_time_units;
@@ -3348,6 +3347,7 @@ extraSounds:
 # melee: 20-40 (120)
 
 # Save game edit for leveling
+# SNIPER
 #RuleSoldier
 #        previousTransformations:
 #          STR_SNIPER_ADVANCED_TRAINING: 1
@@ -3362,3 +3362,19 @@ extraSounds:
 #        CENTER_MASS_STATE: 20
 #        ALPHA_MIKE_FOXTROT_STATE: 20
 #        SERIAL_STATE: 1
+
+#SPECIALIST
+#RuleSoldier
+#        previousTransformations:
+#          STR_SPECIALIST_ADVANCED_TRAINING: 1
+#          STR_SPECIALIST_ELITE_TRAINING: 1
+#        transformationBonuses:
+#          STR_SPECIALIST_ADVANCED_BONUS: 1
+#          STR_SPECIALIST_ELITE_BONUS: 1
+#BattleUnit
+#      tags:
+#        GUARDIAN_STATE: 1             #X (1/0) a 50% chance that TU on reaction fire get refunded
+#        SAVIOR_STATE: 10              #X (1-XXX) flat amount of health restored when using heal
+#        EVER_VIGILANT_STATE: 1        #X (1/0) restores all TU on beginning of enemy turn 
+#        STEADFAST_STATE: 50           #X (1-XXX) bonus to bravery and psiDefence
+#        FIELD_SURGEON_STATE: 30       #X (1-XXX) percent reduction in recovery time if healed by field surgeon

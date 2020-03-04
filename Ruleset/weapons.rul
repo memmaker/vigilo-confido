@@ -1028,8 +1028,23 @@ ufopaedia:
     type_id: 8
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT
-  - id: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS
+  - id: STR_UFOPAEDIA_WEAPON_MECHANICS_TWO
     listOrder: 1001
+    type_id: 8
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_WEAPON_MECHANICS_TWO_TEXT
+  - id: STR_UFOPAEDIA_WEAPON_MECHANICS_THREE
+    listOrder: 1002
+    type_id: 8
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_WEAPON_MECHANICS_THREE_TEXT
+  - id: STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR
+    listOrder: 1003
+    type_id: 8
+    section: STR_WEAPONS_AND_EQUIPMENT
+    text: STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT
+  - id: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS
+    listOrder: 1010
     type_id: 8
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT
@@ -1218,5 +1233,11 @@ extraStrings:
       STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE: "The aliens' focused beam technology has obvious applications for improving sniper rifles. The Plasma Lance is an unmatched sniper rifle."
       STR_UFOPAEDIA_WEAPON_MECHANICS: "X-Com Weaponry 101"
       STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: "The arsenal of X-Com employs the latest and finest in military equipment and whatever our scientists come up with. Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The default fire mode of this weapon is BURST. Meaning each shot actually fires multiple bullets. Each bullet can do the amount of damage specified under the DAMAGE section."
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO: "X-Com Weaponry 201"
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO_TEXT: "Not all weapons are created equal. Each type firearm has unique attributes which might makes it more suitable for certain situations than others.{NEWLINE}{NEWLINE}SWORDS>{NEWLINE}Preferred by Rangers. Melee weapons can still be very effective in modern warfare. An enemy without hands can't pull a trigger. High Risk, high reward.{NEWLINE}{NEWLINE}PISTOLS>{NEWLINE}A sidearm is especially useful to snipers, in order to prepared in close encounters. Also when your laser rifle implodes in your hands."
+      STR_UFOPAEDIA_WEAPON_MECHANICS_THREE: "X-Com Weaponry 301"
+      STR_UFOPAEDIA_WEAPON_MECHANICS_THREE_TEXT: "Although every soldier can wield all the weapon types, our operatives receive additional training for specific weapons during their molding.{NEWLINE}{NEWLINE}SHOTGUNS>{NEWLINE}Preferred by Ranger. These guns match the up close and personal attitude of our assault troopers. Also a good choice for soldiers who can't hit a barn door otherwise.{NEWLINE}{NEWLINE}SNIPER RIFLES>{NEWLINE}The obvious choice for trained sharpshooters. Needs a high skill in weapon handling in order to be accurate."
+      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR: "X-Com Weaponry 401"
+      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT: "HEAVY CANNONS>{NEWLINE}Preferred by Grenadiers. These heavy guns can deal devastating damage to targets and their armor alike. Heavy and heavy-hitting.{NEWLINE}{NEWLINE}ASSAULT RIFLES>{NEWLINE}All our soldiers are trained with these and everyone should be able to handle them equally well. Sack the ones who don't."
       STR_UFOPAEDIA_LASER_WEAPON_MECHANICS: "Laser Weapons"
       STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: "These laser based line of weapons is superior in damage compared to their alien counterparts. However these are early prototypes and the energy cells are volatile.{NEWLINE}{NEWLINE}IMPORTANT>{NEWLINE}Our scientist have advised us to never empty a laser energy cell completely. If the energy cell of a prototype laser weapon is emptied, the weapon itself will implode in the hands of our soldiers.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although our laser based line of weapons does not require ammunition, they still require recharging. After activation of the RECHARGE mechanism, the weapon glows blue and will be recharged on the beginning of your next turn."

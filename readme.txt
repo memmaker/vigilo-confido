@@ -100,19 +100,39 @@ T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
 === Known Issues / Backlog ===
+ - resistances to damage types
  - item categories
- - gremlin affected by reaction accuracy adjustment
  - Sound effects (Gremlin, Minigun)
- - explain mechanics in Ufopedia (accuracy learning curve, skyranger replacement, night missions)
  - test andromedon enemy
  - change sprite of combat experience commendation
  - complete skill tests
  - Battle Focus costs for flying
- - Units to add: Thin man, Flying Drone, Stun Lancer(?), Mechtoid(?), Berserker, Outsider(?), Muton Elite, Faceless(?), Turret, Exalt?
+ - Units to add: Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
  - hardened ability: critical hit chance against this unit reduced by 60%
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
- - resistances to damage types
  - missing gremlin corpse?
  - balancing of stuff (item costs, armors, etc.)
- - deployment reasearch not available
  - Psi Class and everything Psi is not yet finished
+
+[04-03-2020_21-55-20]	[ERROR]	Failed to load mission STR_ALIEN_RESEARCH deployment STR_LASER_TERROR_SHIP
+[04-03-2020_21-55-20]	[ERROR]	Failed to load research STR_ALLOY_ARMOR
+[04-03-2020_21-55-20]	[ERROR]	Failed to load research STR_XOPS_POWER_ARMOR
+[04-03-2020_21-55-20]	[ERROR]	Failed to load research STR_POWER_SUIT
+[04-03-2020_21-55-20]	[ERROR]	Failed to load research STR_FLYING_SUIT
+[04-03-2020_21-55-20]	[ERROR]	Failed to load item STR_ALLOY_ARMOR
+[04-03-2020_21-55-20]	[ERROR]	Failed to load item STR_GRENADE_LAUNCHER
+[04-03-2020_21-55-20]	[ERROR]	Failed to load item STR_LASER_SNIPER
+[04-03-2020_21-55-20]	[ERROR]	Failed to load item STR_XOPS_POWER_ARMOR
+[04-03-2020_18-42-27]	[WARN]	STR_MONSTERS_HUNT_PACK_TEMPERATE not found in en-US
+[04-03-2020_18-42-27]	[WARN]	STR_LASER_TERROR_SHIP not found in en-US
+[04-03-2020_18-42-27]	[WARN]	STR_FACILITY_CAPTURE_PORT not found in en-US
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserCannon/TFCannonHand.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserPistol/TFPistolHand.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserRifle/TFRifleHand.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserShotgun/TFShotgunHand.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserSniper/TFSniperHand.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserCannon/TFCannon.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserPistol/TFPistol.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserRifle/TFRifle.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserShotgun/TFShotgun.gif (from SDL) has incorrect transparent color index 255 (instead of 0).
+[04-03-2020_18-42-19]	[WARN]	Image Resources/Weapons_Imported/LaserSniper/TFSniper.gif (from SDL) has incorrect transparent color index 255 (instead of 0).

@@ -2429,3 +2429,11 @@ units:
       psiStrength: 80
       psiSkill: 0
       melee: 80
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_MARS_CYDONIA_LANDING: "Mars: Cydonia Landing"
+      STR_MARS_CYDONIA_LANDING_BRIEFING: "Your Avenger craft has landed in the region of Cydonia on the surface of Mars. Our information indicates that one of the pyramid constructions contains a green access lift to an underground complex. Once you have assembled all your soldiers in the lift area click on the 'abort mission' icon to continue to the next stage.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Scans indicate darkness on the surface. Be prepared."
+      STR_ALIEN_BASE_ASSAULT: "ALIEN BASE ASSAULT"
+      STR_ALIEN_BASE_ASSAULT_BRIEFING: "X-Com operatives have gained entrance to an alien base. The control center must be destroyed to render the base inoperative. The mission will terminate when all enemies are eliminated, or when your squad has returned to the green exit area (click on the 'abort mission' icon to escape).{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Scans indicate darkness on the surface. Be prepared."
