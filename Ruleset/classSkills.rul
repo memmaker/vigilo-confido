@@ -20,7 +20,7 @@
 #  TP Shadowstrike
 # Elite
 #  A Reaper
-#  VTP Untouchable
+#  TP Untouchable
 
 # = Grenadier
 # Initial
@@ -28,13 +28,13 @@
 #  TA Rapid Deployment
 #  TP Shredder
 # Advanced 
-#  A War Cry
+#  TA War Cry
 #  TA Rage Burst
 #  TP Blast Padding
-#  P Mayhem
+#  TP Mayhem
 # Elite
-#  A Rupture
-#  P Sting Grenades
+#  TA Rupture
+#  TP Sting Grenades
 
 # = Sniper
 # Initial
@@ -146,7 +146,7 @@
 # P Will to Survive    - Reduces all normal damage taken by 2 if not flanked.
 # A War Cry            - All enemies within 10 tiles have their Action Points Reduced to 50% for the next turn.
 # P Shredder           - Your cannon attacks shred armor. Higher rank weapons shred more points of armor. The shredding effect applies before damage.
-# P Mayhem             - Confers additional damage to all area of effect weapons & Auto Shooting Guns
+# P Mayhem             - Confers additional damage to all explosive damage done & Heavy Weapon type guns.
 # P Platform Stability - Shots taken before any costly actions have +10 Aim and +10% critical chance. Also grants +10 aim for purposes of reducing scatter if the soldier has not moved this turn
 # P Extra Conditioning - Confers bonus health + strength based on which type of armor is equipped. Heavier armor increases the bonus.
 # A Rapid Deployment m - Activate this ability before throwing or launching a support grenade, and the throw will not cost an action.
@@ -283,7 +283,7 @@ soldierBonuses:
   - name: STR_GRENADIER_ADVANCED_BONUS
     tags:
       BLAST_PADDING: 60       #X (0-100) amount of damage reduction in percent for HE and Incendiary
-      MAYHEM: 10              #X (1-xxx) additional power, in percent, of auto shot, he and incendiary attacks
+      MAYHEM: 20              #X (1-xxx) additional power, in percent, of auto shot, he and incendiary attacks
   - name: STR_GRENADIER_ELITE_BONUS
     tags:
       STING_GRENADES: 50      #X (1-xxx) chance to stun enemies when using flashbang, in percent
@@ -1338,7 +1338,8 @@ extended:
               battle_game.flashMessage "STR_NO_USES_LEFT";
             end;
           else eq skill_id 22;    # War Cry
-            battle_game.setTag Tag.BATTLE_CRY_ACTIVATED 1;
+            battle_game.getTurn temp;
+            battle_game.setTag Tag.BATTLE_CRY_ACTIVATED temp;
             actor.getPosition.getX temp;
             battle_game.setTag Tag.BATTLE_CRY_X temp;
             actor.getPosition.getY temp;
@@ -1472,46 +1473,63 @@ extended:
           var int source_y;
           var int unit_x;
           var int unit_y;
+          var int turns_since_activation;
+          var int unit_faction;
 
-          set activation_dist_sq 7;
+          battle_game.getTurn turns_since_activation;
+
+          set activation_dist_sq 10;
           battle_game.getTag battle_cry Tag.BATTLE_CRY_ACTIVATED;
+          sub turns_since_activation battle_cry;
 
-          if and eq side 0 eq battle_cry 1; # on x-com turn
-            set two_dee_distance_sq 0;
-            mul activation_dist_sq activation_dist_sq;
+          unit.getFaction unit_faction;
+          debug_log "Checking battle cry buff for" unit;
+          debug_log "  - during (side), of faction" side unit_faction;
+          debug_log "  - BattleCry state, turns since act." battle_cry turns_since_activation;
+          
+          if and eq side 1 eq unit_faction 1; # aliens only
+            if and gt battle_cry 0 le turns_since_activation 1; # battle cry was activated
+              set two_dee_distance_sq 0;
+              mul activation_dist_sq activation_dist_sq;
 
-            battle_game.getTag source_x Tag.BATTLE_CRY_X;
-            battle_game.getTag source_y Tag.BATTLE_CRY_Y;
+              battle_game.getTag source_x Tag.BATTLE_CRY_X;
+              battle_game.getTag source_y Tag.BATTLE_CRY_Y;
 
-            unit.getPosition.getX unit_x;
-            unit.getPosition.getY unit_y;
-            
-            sub source_x unit_x;
-            sub source_y unit_y;
+              unit.getPosition.getX unit_x;
+              unit.getPosition.getY unit_y;
+              
+              sub source_x unit_x;
+              sub source_y unit_y;
 
-            mul source_x source_x;
-            mul source_y source_y;
+              mul source_x source_x;
+              mul source_y source_y;
 
-            add two_dee_distance_sq source_x;
-            add two_dee_distance_sq source_y;
-            
-            debug_log "Battle cry distance (sq)" activation_dist_sq;
-            debug_log "Unit dist from source (sq)" two_dee_distance_sq;
+              add two_dee_distance_sq source_x;
+              add two_dee_distance_sq source_y;
+              
+              debug_log "Battle cry distance (sq)" activation_dist_sq;
+              debug_log "Unit dist from source (sq)" two_dee_distance_sq;
 
-            if gt two_dee_distance_sq activation_dist_sq;
-              debug_log "Too far away. No effect.";
-            else;
-              debug_log "Unit is under effect of battle cry:" unit;
-              unit.getEnergyMax temp;
-              unit.setEnergy temp;
+              if gt two_dee_distance_sq activation_dist_sq;
+                debug_log "Too far away. No effect.";
+              else;
+                debug_log "Unit is under effect of battle cry:" unit;
+                unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
+                unit.setTag Tag.VIS_COLOR COLOR_X1_YELLOW;
+                battle_game.randomRange temp 1 100;
+                unit.setTag Tag.VIS_DELAY temp; # prng offset
+                unit.setTag Tag.VIS_REGION 1;
 
-              unit.getTimeUnits temp;
-              add temp 16;
-              unit.setTimeUnits temp;
+                unit.getTimeUnits temp;
+                div temp 2;
+                unit.setTimeUnits temp;
 
-              unit.getMorale temp;
-              add temp 20;
-              unit.setMorale temp;
+                unit.getMorale temp;
+                sub temp 5;
+                unit.setMorale temp;
+              end;
+            else and gt battle_cry 0 eq turns_since_activation 2; # last turn is used for deactivation
+              unit.setTag Tag.VIS_EFFECT 0;
             end;
           end;
 
@@ -1523,9 +1541,13 @@ extended:
             unit.getTag stunned Tag.STUNNED;
             if gt stunned 0;
               sub stunned 1;
-              unit.setTag Tag.STUNNED stunned;            
-              unit.setTimeUnits 0;
-              debug_log unit "is still stunned.";
+              if eq stunned 0;
+                unit.setTag Tag.VIS_EFFECT 0;
+              else;
+                unit.setTag Tag.STUNNED stunned;            
+                unit.setTimeUnits 0;
+                debug_log unit "is still stunned.";
+              end;
             end;
           end;
           return;
@@ -1854,13 +1876,17 @@ extended:
       - offset: 33   # for mayhem
         code: |
           var int mayhem;
+          var int gun_type;
+          var ptr RuleItem item_rule;
+          weapon_item.getRuleItem item_rule;
+          item_rule.getTag gun_type Tag.GUN_TYPE;
 
           attacker.getTag mayhem Tag.MAYHEM_STATE;
           
           if gt mayhem 0;
-            if or eq damaging_type 2 eq damaging_type 3 eq battle_action battle_action_autoshoot;
+            if or eq damaging_type 2 eq damaging_type 3 eq gun_type 5;
               debug_log "Mayhem triggered (power):" power;
-              # EXPLOSIVE / FIRE / AUTOSHOT
+              # EXPLOSIVE / FIRE / HEAVY GUN
               add mayhem 100;
               muldiv power mayhem 100;
               debug_log " - power increased to:" power;
@@ -1877,15 +1903,18 @@ extended:
           attacker.getTag sting_grenades Tag.STING_GRENADES_STATE;
 
           damaging_item.getRuleItem item_rule;
-          item_rule.getTag disorient Tag.INFLICT_DISORIENT;
+          item_rule.getTag disorient Tag.INFLICT_EFFECT;
 
-          if and gt sting_grenades 0 gt disorient 0;
+          if and gt sting_grenades 0 eq disorient 1;
             set stun sting_grenades; # = 50% stun chance
             battle_game.randomChance stun;
             if gt stun 0;
-              unit.setTag Tag.STUNNED 1;
+              unit.setTag Tag.STUNNED 2;
               unit.setTimeUnits 0;
               debug_log unit "is stunned now!";
+              unit.setTag Tag.VIS_EFFECT 4;  # interval flashing
+              unit.setTag Tag.VIS_COLOR COLOR_X1_SPECIAL;
+              unit.setTag Tag.VIS_DELAY 40; # in frames
             end;
           end;
           return power part side;
@@ -2086,8 +2115,11 @@ extended:
       - offset: 25   # for war cry (hack)
         code: |
           var int battle_cry_activated;
+          var int turns_since_activation;
+          battle_game.getTurn turns_since_activation;
           battle_game.getTag battle_cry_activated Tag.BATTLE_CRY_ACTIVATED;
-          if eq battle_cry_activated 1; # battle cry was activated
+          sub turns_since_activation battle_cry_activated;
+          if and gt battle_cry_activated 0 eq turns_since_activation 2; # battle cry was activated
             battle_game.setTag Tag.BATTLE_CRY_ACTIVATED 0; # disable now
           end;
           return;
@@ -2306,17 +2338,14 @@ extended:
 
           unit.getHealth unit_health;
 
-          if gt state 0;
-            if and eq battle_action battle_action_hit eq damaging_type 7; # action = hit && damage type = melee
-              if ge to_health unit_health;                 # would be a kill
-                # TRIGGER conditions met
-                if eq state 2; # we are active, so refund the action cost
-                  debug_log "REAPER triggered! Refunding TU.";
-                  battle_game.flashMessage "REAPER!";
-                  attacker.getTimeUnitsMax max_time_units;
-
-                  attacker.setTimeUnits max_time_units;    # set the new TU value
-                end;
+          if and eq state 2 eq battle_action battle_action_hit;
+            if ge to_health unit_health;                 # would be a kill
+              # TRIGGER conditions met
+              if eq state 2; # we are active, so refund the action cost
+                debug_log "REAPER triggered! Refunding TU.";
+                battle_game.flashMessage "REAPER!";
+                attacker.getTimeUnitsMax max_time_units;
+                attacker.setTimeUnits max_time_units;    # set the new TU value
               end;
             end;
           end;
@@ -2340,7 +2369,7 @@ extended:
           return;
       - offset: 30   # for rupture
         code: |
-          var int weapon_state;
+          var int rupture_damage;
           var int unit_state;
           var int attacker_state;
           var ptr RuleItem item_rule;
@@ -2350,16 +2379,14 @@ extended:
 
           unit.getTag unit_state Tag.RUPTURE_STATE;
           attacker.getTag attacker_state Tag.RUPTURE_STATE;
-          item_rule.getTag weapon_state Tag.RUPTURE_DAMAGE;
+          item_rule.getTag rupture_damage Tag.RUPTURE_DAMAGE;
 
-          if or eq battle_action battle_action_aimshoot eq battle_action battle_action_autoshoot;            
-            if and gt weapon_state 0 eq attacker_state 1;
-              # tag unit and increase damage by rupture_state
-              unit.setTag Tag.RUPTURE_STATE 2;
-              attacker.setTag Tag.RUPTURE_STATE 0;
-              set increase_damage 1;
-              debug_log "RUPTURED:" unit;
-            end;
+          if eq attacker_state 1;
+            # tag unit and increase damage by rupture_state
+            unit.setTag Tag.RUPTURE_STATE 2;
+            attacker.setTag Tag.RUPTURE_STATE 0;
+            set increase_damage 1;
+            debug_log "RUPTURED:" unit;
           end;
           
           if eq unit_state 2;
@@ -2367,10 +2394,15 @@ extended:
             set increase_damage 1;
           end;
           
+          if eq rupture_damage 0;
+            set rupture_damage 2; # fallback minimum
+          end;
+
           if eq increase_damage 1;
             debug_log " - Damage to health was:" to_health;
-            add weapon_state 100;
-            muldiv to_health weapon_state 100; # factor in the weapon rupture state (150 = 150% damage)
+            if gt to_health 0; # must do damage
+              add to_health rupture_damage;
+            end;
             debug_log " - changed to:" to_health;
           end;
         
@@ -3445,3 +3477,19 @@ extraSounds:
 #        EVER_VIGILANT_STATE: 1        #X (1/0) restores all TU on beginning of enemy turn 
 #        STEADFAST_STATE: 50           #X (1-XXX) bonus to bravery and psiDefence
 #        FIELD_SURGEON_STATE: 30       #X (1-XXX) percent reduction in recovery time if healed by field surgeon
+
+#GRENADIER
+#RuleSoldier
+#        previousTransformations:
+#          STR_GRENADIER_ADVANCED_TRAINING: 1
+#          STR_GRENADIER_ELITE_TRAINING: 1
+#        transformationBonuses:
+#          STR_GRENADIER_ADVANCED_BONUS: 1
+#          STR_GRENADIER_ELITE_BONUS: 1
+#BattleUnit
+#      tags:
+#        STING_GRENADES_STATE: 50      #X (1-xxx) chance to stun enemies when using flashbang, in percent
+#        RUPTURE_STATE: 1              #X (1/0) on/off enables use rupture skill with compatible weapons, (aimed / auto only)
+#        BLAST_PADDING_STATE: 60       #X (0-100) amount of damage reduction in percent for HE and Incendiary
+#        MAYHEM_STATE: 10 
+#        SHREDDER_STATE: 1  

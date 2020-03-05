@@ -27,6 +27,7 @@ A demake of the remakes.
  - A buttload of new maps (thanks to C.M.P)
  - Added Training rooms
  - Integrated the Commendations mod
+ - Added armor modifications
 
 Required: OXCE 6.4
 Test Build available here: https://lxnt.wtf/oxem/builds/Extended/Extended-6.3.5-018c5b09d-2020-03-03-win64.7z
@@ -113,3 +114,4 @@ T3 - Warden Armor   & Plasma Weapons
  - missing gremlin corpse?
  - balancing of stuff (item costs, armors, etc.)
  - Psi Class and everything Psi is not yet finished
+ - Weapon specific crit chances and crit damage

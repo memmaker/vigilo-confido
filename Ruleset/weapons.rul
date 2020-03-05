@@ -118,8 +118,9 @@ extended:
   tags:
     RuleItem:
       CRIT_CHANCE: int                # base crit chance of item
-      CRIT_DAMAGE: int                # crit factor (percent of additional orig damage to health)
+      CRIT_DAMAGE: int                # crit damage (percent of additional orig damage to health)
       GUN_TYPE: int                   # 1 = Pistol, 2 = Rifle, 3 = Sniper Rifle, 4 = Shotgun, 5 = Heavy
+      RUPTURE_DAMAGE: int             # additional dmg. per hit to ruptured targets
 items:
   - delete: STR_HEAVY_CANNON
   - delete: STR_AUTO_CANNON
@@ -167,6 +168,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 1
+      RUPTURE_DAMAGE: 10
     tuSnap: 40
     tuAimed: 51
     tuAuto: 0
@@ -187,6 +189,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 2
+      RUPTURE_DAMAGE: 5
     twoHanded: true
     oneHandedPenalty: 95
     tuSnap: 51
@@ -212,6 +215,8 @@ items:
       ArmorEffectiveness: 0.3
   - type: STR_SWORD
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
+    tags:
+      RUPTURE_DAMAGE: 20
     listOrder: 1850
     size: 0.2
     costBuy: 1000
@@ -235,6 +240,8 @@ items:
     attraction: 8
   - type: STR_LASER_SWORD
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
+    tags:
+      RUPTURE_DAMAGE: 20
     listOrder: 3450
     requires:
       - STR_LASER_WEAPONS
@@ -262,6 +269,8 @@ items:
     attraction: 8
   - type: STR_PLASMA_SWORD
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
+    tags:
+      RUPTURE_DAMAGE: 20
     listOrder: 4950
     requires:
       - STR_PLASMA_WEAPONS
@@ -292,6 +301,7 @@ items:
     tags:
       CRIT_CHANCE: 20
       GUN_TYPE: 4
+      RUPTURE_DAMAGE: 20
     listOrder: 2250
     size: 0.2
     costBuy: 2200
@@ -352,6 +362,7 @@ items:
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
+      RUPTURE_DAMAGE: 15
     listOrder: 2300
     size: 0.3
     costBuy: 12000
@@ -407,6 +418,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 5
+      RUPTURE_DAMAGE: 5
     listOrder: 2400
     size: 0.8
     costBuy: 15000
@@ -470,6 +482,7 @@ items:
     tags:
       CRIT_CHANCE: 10
       GUN_TYPE: 1
+      RUPTURE_DAMAGE: 10
     listOrder: 3500
     size: 0.1
     costSell: 11000
@@ -509,6 +522,7 @@ items:
     tags:
       CRIT_CHANCE: 10
       GUN_TYPE: 2
+      RUPTURE_DAMAGE: 5
     listOrder: 3600
     size: 0.2
     costSell: 16900
@@ -551,6 +565,7 @@ items:
     tags:
       CRIT_CHANCE: 20
       GUN_TYPE: 4
+      RUPTURE_DAMAGE: 20
     requires:
       - STR_LASER_WEAPONS
     requiresBuy:
@@ -605,6 +620,7 @@ items:
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
+      RUPTURE_DAMAGE: 15
     listOrder: 3690
     size: 0.2
     costSell: 36900
@@ -651,6 +667,7 @@ items:
       - STR_LASER_WEAPONS
     tags:
       GUN_TYPE: 5
+      RUPTURE_DAMAGE: 5
     size: 0.3
     costSell: 41000
     costBuy: 45000
@@ -697,6 +714,7 @@ items:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 1
+      RUPTURE_DAMAGE: 10
     listOrder: 5000
     size: 0.1
     costSell: 64000
@@ -750,6 +768,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 2
+      RUPTURE_DAMAGE: 5
     requires:
       - STR_PLASMA_WEAPONS
     requiresBuy:
@@ -818,6 +837,7 @@ items:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 4
+      RUPTURE_DAMAGE: 20
     listOrder: 5300
     size: 0.2
     costBuy: 150000
@@ -886,6 +906,7 @@ items:
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
+      RUPTURE_DAMAGE: 15
     listOrder: 5400
     size: 0.3
     costBuy: 175000
@@ -949,6 +970,7 @@ items:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 5
+      RUPTURE_DAMAGE: 5
     listOrder: 5500
     size: 0.2
     costSell: 171600
