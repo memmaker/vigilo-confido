@@ -19,7 +19,7 @@ Hitbox Fix by Reaver of Darkness
 Day & Night Indicators by Civilian
 Status Indicator Sprites by Captain Corkscrew, Ivan Dogovich, et al.
 Commendations Mod by Shoes, Ivan Dogovich, hellrazor, jgatkinsn, Meridian
-Psi Amp Sprites by efrenespartano & Badfella
+Psi Amp Sprites by efrenespartano & Badfella (Shoutout to I.D.T.)
 New Grenade Sprites from XPiratez Mod by Dioxine (couldn't find the creator in credits)
 
 Special Thanks to:
@@ -27,7 +27,19 @@ Meridian for his fork, his merging of my PRs and his constant support
 Yankes for his script engine which made most of this possible and of course his support
 Microprose and Julian Gollop
 
-All the great modders of the OXC/OXCE community who have a great spirit and
+Extra Special Thanks to the creators of these mods and their collaborators.
+I frequently consulted their RuleSets in order to learn for myself.
+Thanks for all the time you guys spent writing RuleSets and Scripts so others could
+use them as examples to come up with their own mod:
+
+X-Com Files    - A great vision and even better execution.
+Area 51        - I really enjoyed this take on the game and the maps are really good.
+Warhammer 40k  - This is a good example for what dedication can do. Way to go, guys.
+X-Piratez      - The scale of this is just unbelievable.
+XenoOperations - Just love the sprite work here.
+
+And of course, all the other great modders, who I might have forgotten.
+Thank you, all you nice people in the OXC/OXCE community who have a great spirit and
 create new gameplay experiences for us all to enjoy. You rock!
 
 === License Information ===

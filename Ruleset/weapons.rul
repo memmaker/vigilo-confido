@@ -23,11 +23,11 @@ extraSprites:
       210: Resources/Weapons_Imported/AlloySniper/Bigob_AC_CLIP.gif
       211: Resources/Weapons_Imported/AlloySniper/Bigob_EL_CLIP.gif
       212: Resources/Weapons_Imported/GrenadeLauncher/BIGOB_GRENADE_LAUNCHER.png
-      213: Resources/Weapons_Imported/LaserCannon/TFCannon.gif
-      217: Resources/Weapons_Imported/LaserPistol/TFPistol.gif
-      221: Resources/Weapons_Imported/LaserRifle/TFRifle.gif
-      225: Resources/Weapons_Imported/LaserShotgun/TFShotgun.gif
-      229: Resources/Weapons_Imported/LaserSniper/TFSniper.gif
+      213: Resources/Weapons_Imported/LaserCannon/TFCannon.png
+      217: Resources/Weapons_Imported/LaserPistol/TFPistol.png
+      221: Resources/Weapons_Imported/LaserRifle/TFRifle.png
+      225: Resources/Weapons_Imported/LaserShotgun/TFShotgun.png
+      229: Resources/Weapons_Imported/LaserSniper/TFSniper.png
       233: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannon.png
       234: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip.png
       235: Resources/Weapons_Imported/PlasmaCannon/HeavyPlasmaCannonClip2.png
@@ -103,11 +103,11 @@ extraSprites:
       288: Resources/Weapons_Imported/AlloyShotgun/handob_Shotgun.png
       296: Resources/Weapons_Imported/AlloySniper/handob_AlloySniper.gif
       304: Resources/Weapons_Imported/GrenadeLauncher/HANDOB_GRENADE_LAUNCHER.png
-      312: Resources/Weapons_Imported/LaserCannon/TFCannonHand.gif
-      320: Resources/Weapons_Imported/LaserPistol/TFPistolHand.gif
-      328: Resources/Weapons_Imported/LaserRifle/TFRifleHand.gif
-      336: Resources/Weapons_Imported/LaserShotgun/TFShotgunHand.gif
-      344: Resources/Weapons_Imported/LaserSniper/TFSniperHand.gif
+      312: Resources/Weapons_Imported/LaserCannon/TFCannonHand.png
+      320: Resources/Weapons_Imported/LaserPistol/TFPistolHand.png
+      328: Resources/Weapons_Imported/LaserRifle/TFRifleHand.png
+      336: Resources/Weapons_Imported/LaserShotgun/TFShotgunHand.png
+      344: Resources/Weapons_Imported/LaserSniper/TFSniperHand.png
       352: Resources/Weapons_Imported/PlasmaCannon/PlasmaSupressor.png
       360: Resources/Weapons_Imported/PlasmaPistol/PlasmaPistol_HandOb.png
       368: Resources/Weapons_Imported/PlasmaRifle/PlasmaRifle_HandOb.png

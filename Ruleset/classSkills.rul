@@ -59,11 +59,11 @@
 #  TA Combat Protocol
 #  TA Interference
 #  TP Steadfast
-#  P Field Surgeon
+#  TP Field Surgeon
 # Elite
-#  A Restoration
-#  P Savior
-#  P Ever Vigilant
+#  TA Electric Reinforcement
+#  TP Savior
+#  TP Ever Vigilant
 
 # = Psi Operative
 # Initial
@@ -310,6 +310,7 @@ soldierBonuses:
     tags:
       SAVIOR: 10              #X (1-XXX) flat amount of health restored when using heal
       EVER_VIGILANT: 1        #X (1/0) restores all TU on beginning of enemy turn 
+
 items:
   - type: STR_MEDI_KIT
     medikitTargetMatrix: 15
@@ -762,7 +763,7 @@ skills:
     targetMode: 11 # use
     checkHandsOnly: false
     compatibleWeapons: [STR_SKILL_AMP]
-  - type: STR_RESTORATION
+  - type: STR_ELECTRIC_REINFORCEMENT
     tags:
       SKILL_ID: 44
     requiredBonuses: [STR_SPECIALIST_ELITE_BONUS]
@@ -1038,7 +1039,7 @@ soldiers:
       - STR_AID_PROTOCOL
       - STR_COMBAT_PROTOCOL
       - STR_INTERFERENCE
-      - STR_RESTORATION
+      - STR_ELECTRIC_REINFORCEMENT
     costBuy: 50000
     costSalary: 50000
     value: 30
@@ -1190,9 +1191,10 @@ extended:
       BASIC_COMBAT_INFORMATION: int
     BattleGame:
       COMBAT_INFORMATION_LEVEL: int
-      BATTLE_CRY_STATE: int # 0 = not activated, 1 = active this turn, 2 = disabled
+      BATTLE_CRY_ACTIVATED: int # 0 = not activated, 1 = active this turn, 2 = disabled
       BATTLE_CRY_X: int     # x position where battle cry was activated
       BATTLE_CRY_Y: int     # y position where battle cry was activated
+      ELECTRIC_REINFORCEMENT_ACTIVATED: int
     BattleUnit:
       LIGHTNING_REFLEXES_STATE: int
       UNTOUCHABLE_COUNTER: int
@@ -1228,13 +1230,13 @@ extended:
       STING_GRENADES_STATE: int
       CENTER_MASS_STATE: int
       FIELD_SURGEON_STATE: int
-      BATTLE_CRY_ACTIVATED: int
       HEALED_BY_FIELD_SURGEON: int
       STUNNED: int
       AIM_X: int
       AIM_Y: int
       AIM_Z: int
       WEAPON_DISABLED: int
+      REINFORCED: int
       TEST_COUNTER: int
       VIS_EFFECT: int
       VIS_COLOR: int
@@ -1242,6 +1244,7 @@ extended:
       VIS_REPLACE_COLOR: int
       LAST_FLASH_FRAME: int
       AID_PROTOCOL_STATE: int
+      ELECTRIC_REINFORCEMENT_STATE: int
     RuleSoldierBonus:
       LIGHTNING_REFLEXES: int
       UNTOUCHABLE: int
@@ -1264,7 +1267,7 @@ extended:
       STEADFAST: int
       REVIVE: int
       SAVIOR: int
-      RESTORATION: int
+      ELECTRIC_REINFORCEMENT: int
       FIELD_SURGEON: int
       EVER_VIGILANT: int
       ADVANCED_COMBAT_INFORMATION: int
@@ -1331,10 +1334,11 @@ extended:
               battle_game.flashMessage "REAPER Activated";
               actor.setTag Tag.REAPER_STATE 2;
               set spend_tu 1;
+            else;
+              battle_game.flashMessage "STR_NO_USES_LEFT";
             end;
           else eq skill_id 22;    # War Cry
-            actor.setTag Tag.BATTLE_CRY_ACTIVATED 1;
-            battle_game.setTag Tag.BATTLE_CRY_STATE 1;
+            battle_game.setTag Tag.BATTLE_CRY_ACTIVATED 1;
             actor.getPosition.getX temp;
             battle_game.setTag Tag.BATTLE_CRY_X temp;
             actor.getPosition.getY temp;
@@ -1351,11 +1355,21 @@ extended:
               battle_game.flashMessage "SERIAL Activated";
               actor.setTag Tag.SERIAL_STATE 2;
               set spend_tu 1;
+            else;
+              battle_game.flashMessage "STR_NO_USES_LEFT";
             end;
-          else eq skill_id 44;    # Restoration
-            battle_game.flashMessage "RESTORATION Activated";
-            # TODO: add effect
-            set spend_tu 1;
+          else eq skill_id 44;    # Electric Reinforcement
+            actor.getTag temp Tag.ELECTRIC_REINFORCEMENT_STATE;
+            if eq temp 1; # not yet activated in this mission, activate now
+              battle_game.getTurn temp;
+              battle_game.flashMessage "ELECTRIC REINFORCEMENT Activated";
+              debug_log "Electric Reinforcement on turn" temp;
+              battle_game.setTag Tag.ELECTRIC_REINFORCEMENT_ACTIVATED temp;
+              actor.setTag Tag.ELECTRIC_REINFORCEMENT_STATE 2;
+              set spend_tu 1;
+            else;
+              battle_game.flashMessage "STR_NO_USES_LEFT";
+            end;
           end;
           return;
     reactionUnitAction: 
@@ -1460,21 +1474,9 @@ extended:
           var int unit_y;
 
           set activation_dist_sq 7;
+          battle_game.getTag battle_cry Tag.BATTLE_CRY_ACTIVATED;
 
-          if eq side 0; # on x-com turn
-            unit.getTag temp Tag.BATTLE_CRY_ACTIVATED;
-            if gt temp 0;
-              # this unit has activated battle cry
-              sub temp 1;
-              battle_game.setTag Tag.BATTLE_CRY_STATE temp;
-              unit.setTag Tag.BATTLE_CRY_ACTIVATED temp;
-              debug_log "Reduced battle cry counter..";
-            end;
-          end;
-
-          battle_game.getTag battle_cry Tag.BATTLE_CRY_STATE;
-
-          if eq battle_cry 1;
+          if and eq side 0 eq battle_cry 1; # on x-com turn
             set two_dee_distance_sq 0;
             mul activation_dist_sq activation_dist_sq;
 
@@ -1499,7 +1501,7 @@ extended:
             if gt two_dee_distance_sq activation_dist_sq;
               debug_log "Too far away. No effect.";
             else;
-              debug_log "Unit is under effect of battle cry!";
+              debug_log "Unit is under effect of battle cry:" unit;
               unit.getEnergyMax temp;
               unit.setEnergy temp;
 
@@ -1599,6 +1601,34 @@ extended:
             debug_log "Aid Protocol was active last turn for:" unit;
             debug_log "Aid Protocol deactivated for this unit.";
             unit.setTag Tag.VIS_EFFECT 0;
+          end;
+          return;
+      - offset: 35   # for electric reinforcement
+        code: |
+          var int electric_reinforcement_activated;
+          var int health;
+          var int min_health;
+          var int turns_since_activation;
+          var int temp;
+          var int faction;
+
+          battle_game.getTurn turns_since_activation;
+          battle_game.getTag electric_reinforcement_activated Tag.ELECTRIC_REINFORCEMENT_ACTIVATED;
+          sub turns_since_activation electric_reinforcement_activated;
+          unit.getFaction faction;
+          if eq faction 0; # x-com only
+            if and gt electric_reinforcement_activated 0 le turns_since_activation 1; # reinforcement was activated
+              debug_log "Electric reinforcement effect for:" unit;
+              unit.setTag Tag.REINFORCED 20;
+              unit.setTag Tag.VIS_EFFECT 6;  # pseudo-random pixels on armor
+              unit.setTag Tag.VIS_COLOR COLOR_X1_BLUE1;
+              battle_game.randomRange temp 1 100;
+              unit.setTag Tag.VIS_DELAY temp; # prng offset
+              unit.setTag Tag.VIS_REGION 1;
+            else and gt electric_reinforcement_activated 0 eq turns_since_activation 2; # last turn is used for deactivation
+              unit.setTag Tag.REINFORCED 0;
+              unit.setTag Tag.VIS_EFFECT 0;
+            end;
           end;
           return;
     hitUnit:
@@ -1971,6 +2001,16 @@ extended:
             end;
           end;            
           return power part side;
+      - offset: 41   # for electric reinforcement
+        code: |
+          var int reinforced;
+          unit.getTag reinforced Tag.REINFORCED;
+          if gt reinforced 0;
+            debug_log "Hit against reinforced unit (power, reinforcement)" unit power reinforced;
+            sub power reinforced;
+            limit_lower power 0;
+          end;
+          return power part side;
       - offset: 70   # for Skill Amp Hits (Aid Protocol, Combat Protocol, Interference)
         code: |
           var int battle_type;
@@ -2030,6 +2070,25 @@ extended:
               item.setFuseEnabled 1;
               item.setFuseTimer 0;
             end;
+          end;
+          return;
+      - offset: 24   # for electric reinforcement (hack)
+        code: |
+          var int electric_reinforcement_activated;
+          var int turns_since_activation;
+          battle_game.getTurn turns_since_activation;
+          battle_game.getTag electric_reinforcement_activated Tag.ELECTRIC_REINFORCEMENT_ACTIVATED;
+          sub turns_since_activation electric_reinforcement_activated;
+          if and gt electric_reinforcement_activated 0 eq turns_since_activation 2;
+            battle_game.setTag Tag.ELECTRIC_REINFORCEMENT_ACTIVATED 0; # disable now
+          end;
+          return;
+      - offset: 25   # for war cry (hack)
+        code: |
+          var int battle_cry_activated;
+          battle_game.getTag battle_cry_activated Tag.BATTLE_CRY_ACTIVATED;
+          if eq battle_cry_activated 1; # battle cry was activated
+            battle_game.setTag Tag.BATTLE_CRY_ACTIVATED 0; # disable now
           end;
           return;
     tryPsiAttackUnit:
@@ -2561,6 +2620,7 @@ extended:
           var int has_amf;
           var int has_serial;
           var int has_guardian;
+          var int has_electric_reinforcement;
           var ptr RuleSoldier soldier_rule;
           var int has_basic_combat_information;
           var int has_advanced_combat_information;
@@ -2587,6 +2647,7 @@ extended:
           soldier_bonus.getTag has_threat_assessment Tag.THREAT_ASSESSMENT;
           soldier_bonus.getTag has_backstab Tag.BACKSTAB;
           soldier_bonus.getTag has_serial Tag.SERIAL;
+          soldier_bonus.getTag has_electric_reinforcement Tag.ELECTRIC_REINFORCEMENT;
           
           if gt has_reaper 0;
             debug_log "Unit" id "- Reaper Skill found";
@@ -2672,6 +2733,11 @@ extended:
           if gt has_guardian 0;
             debug_log "Unit" id "- Guardian Skill found";
             unit.setTag Tag.GUARDIAN_STATE has_guardian;
+          end;
+
+          if gt has_electric_reinforcement 0;
+            debug_log "Unit" id "- Electric Reinforcement Skill found";
+            unit.setTag Tag.ELECTRIC_REINFORCEMENT_STATE 1;
           end;
 
           # special handling for combat information
@@ -2887,7 +2953,7 @@ extraStrings:
       STR_UFOPAEDIA_RANGER: "The Ranger serves as our primary reconnaissance unit, capable of moving independently in concealment while engaging enemies at close range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Blademaster{NEWLINE}A>Slash - Run & Gun{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Phantom - Shadowstrike{NEWLINE}A>Conceal - Rapid Fire{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Untouchable{NEWLINE}A>Reaper"
       STR_UFOPAEDIA_GRENADIER: "A class specialising in high fire power and area damage. The Grenadier is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Shredder{NEWLINE}A>Hvy. Rocket - Rpd. Deployment{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Blast Padding - Mayhem{NEWLINE}A>War Cry - Rage Burst{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Sting Grenades{NEWLINE}A>Rupture"
       STR_UFOPAEDIA_SNIPER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Death from above{NEWLINE}A>Headshot - Disabling Shot{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Aim - Center Mass{NEWLINE}A>Quick Aim - Double Tap{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Alpha Mike Foxtrot{NEWLINE}A>Serial"
-      STR_UFOPAEDIA_SPECIALIST: "Soldiers trained in the Specialist class serve as both field medics and logistical support to their squad. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Guardian{NEWLINE}A>Paramedic - Aid Protocol{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Steadfast - Field Surgeon{NEWLINE}A>Combat Protocol - Interference{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Savior - Ever Vigilant{NEWLINE}A>Restoration"
+      STR_UFOPAEDIA_SPECIALIST: "Soldiers trained in the Specialist class serve as both field medics and logistical support to their squad. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Guardian{NEWLINE}A>Paramedic - Aid Protocol{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Steadfast - Field Surgeon{NEWLINE}A>Combat Protocol - Interference{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Savior - Ever Vigilant{NEWLINE}A>Electric Reinforcement"
       STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for X-Com, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}I>Panic - Mind Control - Mind Merge{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}A>Soul Steal - Inspire - Stasis{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}A>Mind Crush - Psychic Ward"
       STR_MILITARY_MOLDING_CATEGORY: "MILITARY MOLDING"
       STR_MILITARY_MOLDING: "Military Molding"
@@ -2900,7 +2966,7 @@ extraStrings:
       STR_UFOPAEDIA_RANGER_SKILLS_ACTIVE: "RUN & GUN>{NEWLINE}Take an extra action after dashing.{NEWLINE}{NEWLINE}SLASH>{NEWLINE}A free melee attack with your sword{NEWLINE}{NEWLINE}CONCEAL>{NEWLINE}Immediately enter concealment once per mission.{NEWLINE}{NEWLINE}RAPID FIRE>{NEWLINE}Fire twice in a row at an enemy. Each shot suffers an Aim penalty.{NEWLINE}{NEWLINE}REAPER>{NEWLINE}A devastating chain melee attack where every kill scored will grant an extra action."
       STR_UFOPAEDIA_GRENADIER_SKILLS_ACTIVE: "HEAVY ROCKET>{NEWLINE}Fire a rocket using an equipped launcher.{NEWLINE}{NEWLINE}RAPID DEPLOYMENT>{NEWLINE}Throw a grenade from your inventory and prime it in one action.{NEWLINE}{NEWLINE}WAR CRY>{NEWLINE}All enemies within 10 tiles have their Action Points Reduced to 50% for the next turn.{NEWLINE}{NEWLINE}RAGE BURST>{NEWLINE}A heavy burst attack with your main weapon. Uses lots of ammo.{NEWLINE}{NEWLINE}RUPTURE>{NEWLINE}A Rupture shot deals critical damage and ensures that the target takes additional damage from all attacks in the future."
       STR_UFOPAEDIA_SNIPER_SKILLS_ACTIVE: "HEADSHOT>{NEWLINE}Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}DISABLING SHOT>{NEWLINE}Allows sniper rifles to fire a shot that causes the target's main weapon to malfunction.{NEWLINE}{NEWLINE}QUICK AIM>{NEWLINE}The TU cost of the next shot whit a proficient weapon is reduced, and the accuracy is increased.{NEWLINE}{NEWLINE}DOUBLE TAP>{NEWLINE}Fire twice at your target. Accuracy is reduced.{NEWLINE}{NEWLINE}SERIAL>{NEWLINE}A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
-      STR_UFOPAEDIA_SPECIALIST_SKILLS_ACTIVE: "PARAMEDIC>{NEWLINE}This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}AID PROTOCOL>{NEWLINE}Grant the target a bonus to Defense until the start of the next player turn.{NEWLINE}{NEWLINE}COMBAT PROTOCOL>{NEWLINE}Jolt an enemy, dealing guaranteed damage.{NEWLINE}{NEWLINE}INTERFERENCE>{NEWLINE}Reduce the TU of the targeted unit to zero.{NEWLINE}{NEWLINE}RESTORATION>{NEWLINE}Heal the fatal wounds of all squad members."
+      STR_UFOPAEDIA_SPECIALIST_SKILLS_ACTIVE: "PARAMEDIC>{NEWLINE}This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}AID PROTOCOL>{NEWLINE}Grant the target a bonus to Defense until the start of the next player turn.{NEWLINE}{NEWLINE}COMBAT PROTOCOL>{NEWLINE}Jolt an enemy, dealing guaranteed damage.{NEWLINE}{NEWLINE}INTERFERENCE>{NEWLINE}Reduce the TU of the targeted unit to zero.{NEWLINE}{NEWLINE}ELECTRIC REINFORCEMENT>{NEWLINE}Grant additional armor to all allied units for one turn."
       STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE: "SOUL STEAL>{NEWLINE}Transfers half of the damage done back to the Psi Operative as health.{NEWLINE}{NEWLINE}INSPIRE>{NEWLINE}Channel your psionic energy into the TUs of another unit.{NEWLINE}{NEWLINE}STASIS>{NEWLINE}Completely stuns the target for 1 turn, but renders them immune to any damage or attack.{NEWLINE}{NEWLINE}MIND CRUSH>{NEWLINE}Deal a random amount of damage to all enemy entities within 10 tiles.{NEWLINE}{NEWLINE}PSYCHIC WARD>{NEWLINE}Allies within 10 tiles are immune to Panic and Psychic damage attacks.{NEWLINE}{NEWLINE}"
       STR_UFOPAEDIA_SKILL_AMP: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
       STR_UFOPAEDIA_COMBAT_EXPERIENCE: "In order for X-Com soldiers to be eligible for the next military training level, they have to accumulate combat experience.{NEWLINE}{NEWLINE}Combat experience is awarded to soldiers for killing enemies and surviving field missions."
@@ -2924,6 +2990,7 @@ extraStrings:
       STR_COMBAT_PROTOCOL: Combat Protocol
       STR_INTERFERENCE: Interference
       STR_RESTORATION: Restoration
+      STR_ELECTRIC_REINFORCEMENT: Electric Reinforcement
       STR_WAR_CRY: War Cry
       STR_SNAP_SHOT: Fire
       STR_SHOT_TYPE_SNAP: "Default"
