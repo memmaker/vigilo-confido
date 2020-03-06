@@ -55,6 +55,8 @@ manufacture:
   - delete: STR_MEDI_KIT
   - delete: STR_MOTION_SCANNER
   - delete: STR_MIND_PROBE
+  - delete: STR_BLASTER_LAUNCHER
+  - delete: STR_BLASTER_BOMB
   - name: STR_SKULLJACK
     listOrder: 50
     category: STR_EQUIPMENT

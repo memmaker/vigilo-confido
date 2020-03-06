@@ -66,18 +66,15 @@
 #  TP Ever Vigilant
 
 # = Psi Operative
-# Initial
-#  AI Panic
-#  AI Mind Control
-#  AI Mind Merge
-# Advanced
-#  A Soul Steal
-#  A Inspire
-#  A Stasis
-# Elite
-#  A Mind Crush
-#  A Psychic Ward
-
+# Initial - Basic Psi Amp (Not Skill Menu)
+#  TA Panic
+#  A Mind Merge
+# Advanced - Skills (Need Basic Psi Amp in inv.)
+#  TA Soul Steal
+#  TA Inspire
+# Elite - Skills (Need alien Psi Amp in inv)
+#  TA Stasis
+#  TA Mind Control
 
 # Possible Skill Types:
 # 1. Passive Skills
@@ -310,6 +307,8 @@ soldierBonuses:
     tags:
       SAVIOR: 10              #X (1-XXX) flat amount of health restored when using heal
       EVER_VIGILANT: 1        #X (1/0) restores all TU on beginning of enemy turn 
+  - name: STR_PSI_OPERATIVE_ADVANCED_BONUS
+  - name: STR_PSI_OPERATIVE_ELITE_BONUS
 
 items:
   - type: STR_MEDI_KIT
@@ -358,8 +357,10 @@ items:
       CLASS_SKILL_ACTIVATION: 1
       SKILL_POWER_ITEM: 1
     power: 100
+    hidePower: true
     damageAlter:
       RandomType: 3
+      ArmorEffectiveness: 0
     size: 0.1
     costBuy: 0
     costSell: 194700
@@ -378,11 +379,9 @@ items:
     costUse:
       time: 1
       mana: 12
-    costPanic:
-      time: 10
-      mana: 5
+    tuPanic: 0
+    tuMindControl: 0
     psiTargetMatrix: 7
-    flatRate: true
 
 soldierTransformation:
   - name: STR_RANGER_ADVANCED_TRAINING
@@ -773,6 +772,62 @@ skills:
     flatUse:
       mana: true
       time: false
+  - type: STR_SOUL_STEAL
+    tags:
+      SKILL_ID: 50
+    requiredBonuses: [STR_PSI_OPERATIVE_ADVANCED_BONUS]
+    costUse:
+      time: 45
+      mana: 3
+    flatUse:
+      mana: true
+      time: false
+    targetMode: 11 # use
+    compatibleWeapons: [STR_PSI_AMP, STR_ALIEN_PSI_AMP]
+    isPsiRequired: true
+    checkHandsOnly: false
+  - type: STR_INSPIRE
+    tags:
+      SKILL_ID: 51
+    requiredBonuses: [STR_PSI_OPERATIVE_ADVANCED_BONUS]
+    costUse:
+      time: 45
+      mana: 12
+    flatUse:
+      mana: true
+      time: false
+    targetMode: 11 # use
+    compatibleWeapons: [STR_PSI_AMP, STR_ALIEN_PSI_AMP]
+    isPsiRequired: true
+    checkHandsOnly: false
+  - type: STR_STASIS
+    tags:
+      SKILL_ID: 52
+    requiredBonuses: [STR_PSI_OPERATIVE_ELITE_BONUS]
+    costUse:
+      time: 45
+      mana: 8
+    flatUse:
+      mana: true
+      time: false
+    targetMode: 11 # use
+    compatibleWeapons: [STR_ALIEN_PSI_AMP]
+    isPsiRequired: true
+    checkHandsOnly: false
+  - type: STR_MIND_CONTROL
+    tags:
+      SKILL_ID: 53
+    requiredBonuses: [STR_PSI_OPERATIVE_ELITE_BONUS]
+    costUse:
+      time: 45
+      mana: 12
+    flatUse:
+      mana: true
+      time: false
+    targetMode: 13 # mindcontrol
+    compatibleWeapons: [STR_ALIEN_PSI_AMP]
+    isPsiRequired: true
+    checkHandsOnly: false
 
 soldiers:
   - delete: STR_SOLDIER
@@ -1108,6 +1163,11 @@ soldiers:
   - type: STR_PSI_OPERATIVE
     showTypeInInventory: true
     skillIconSprite: 6
+    skills:
+      - STR_SOUL_STEAL
+      - STR_INSPIRE
+      - STR_STASIS
+      - STR_MIND_CONTROL
     requiresBuyBaseFunc:
       - STR_PSI_LAB
     tags:
@@ -1349,6 +1409,7 @@ extended:
           else eq skill_id 24;    # Rupture
             battle_game.flashMessage "RUPTURE Activated";
             actor.setTag Tag.RUPTURE_STATE 1;
+            actor.setTag Tag.CRIT_CHANCE_THIS_TURN 100;
             set spend_tu 1;
           else eq skill_id 34;    # Serial
             actor.getTag temp Tag.SERIAL_STATE;
@@ -1450,17 +1511,22 @@ extended:
           var int unit_id;
 
           unit.getTag stasis_state Tag.STASIS_STATE;
-
-          if and eq stasis_state 1 eq side 1; # end on alien turn
-            unit.getId unit_id;
-            debug_log "Stasis was active last turn for:" unit_id;
-            debug_log "Stasis deactivated for this unit.";
-            unit.setTag Tag.STASIS_STATE 0;
-          else and eq stasis_state 2 eq side 0; # end on xcom turn
-            unit.getId unit_id;
-            debug_log "Stasis was active last turn for:" unit_id;
-            debug_log "Stasis deactivated for this unit.";
-            unit.setTag Tag.STASIS_STATE 0;
+          if gt stasis_state 0;
+            if and eq stasis_state 2 eq side 1; # end on alien turn
+              unit.getId unit_id;
+              debug_log "Stasis was active last turn for:" unit_id;
+              debug_log "Stasis deactivated for this unit.";
+              unit.setTag Tag.STASIS_STATE 0;
+              unit.setTag Tag.VIS_EFFECT 0;
+            else and eq stasis_state 1 eq side 0; # end on xcom turn
+              unit.getId unit_id;
+              debug_log "Stasis was active last turn for:" unit_id;
+              debug_log "Stasis deactivated for this unit.";
+              unit.setTag Tag.STASIS_STATE 0;
+              unit.setTag Tag.VIS_EFFECT 0;
+            else; # still in stasis
+              unit.setTimeUnits 0;
+            end;
           end;
           return;
       - offset: 28   # for war cry
@@ -1483,12 +1549,12 @@ extended:
           sub turns_since_activation battle_cry;
 
           unit.getFaction unit_faction;
-          debug_log "Checking battle cry buff for" unit;
-          debug_log "  - during (side), of faction" side unit_faction;
-          debug_log "  - BattleCry state, turns since act." battle_cry turns_since_activation;
-          
           if and eq side 1 eq unit_faction 1; # aliens only
             if and gt battle_cry 0 le turns_since_activation 1; # battle cry was activated
+              debug_log "Checking battle cry buff for" unit;
+              debug_log "  - during (side), of faction" side unit_faction;
+              debug_log "  - BattleCry state, turns since act." battle_cry turns_since_activation;
+          
               set two_dee_distance_sq 0;
               mul activation_dist_sq activation_dist_sq;
 
@@ -2040,6 +2106,76 @@ extended:
             limit_lower power 0;
           end;
           return power part side;
+      - offset: 42   # for Mind Merge, Soul Steal & Inspire
+        code: |
+          var ptr RuleItem item_rule;
+          var int psi_amp_type;
+          var int temp;
+          var int skill_id;
+          var int soul_steal_power;
+
+          set soul_steal_power 15;
+          weapon_item.getRuleItem item_rule;
+          item_rule.getTag psi_amp_type Tag.PSI_AMP_TYPE;
+
+          if and eq psi_amp_type 1 eq battle_action battle_action_use; # scripted psi amp
+            set power 0;
+            if eq skill null;
+              # mind merge
+              # crit chance +25%
+              # bonus morale
+              # additional health
+              unit.getTag temp Tag.CRIT_CHANCE_THIS_TURN;
+              add temp 25;
+              unit.setTag Tag.CRIT_CHANCE_THIS_TURN temp;
+              unit.getMorale temp;
+              add temp 30;
+              unit.setMorale temp;
+              unit.getHealth temp;
+              add temp 20;
+              unit.setHealth temp;
+            else;
+              skill.getTag skill_id Tag.SKILL_ID;
+              if eq skill_id 50; # soul steal
+                unit.getHealth temp;
+                sub temp soul_steal_power;
+                unit.setHealth temp;
+                battle_game.flashMessage "STR_SOUL_STEAL_HIT_MESSAGE" soul_steal_power temp;
+                attacker.getHealth temp;
+                add temp soul_steal_power;
+                attacker.setHealth temp;
+              else eq skill_id 51; # inspire
+                unit.getTimeUnitsMax temp;
+                unit.setTimeUnits temp;
+                battle_game.flashMessage "INSPIRED!";
+              end;
+            end;
+          end;
+          return power part side;
+      - offset: 42   # for Stasis
+        code: |
+          var ptr RuleItem item_rule;
+          var int psi_amp_type;
+          var int temp;
+          var int skill_id;
+
+          weapon_item.getRuleItem item_rule;
+          item_rule.getTag psi_amp_type Tag.PSI_AMP_TYPE;
+          debug_log "HitUnit of Stasis:" skill psi_amp_type battle_action;
+          if and neq skill null eq psi_amp_type 2 eq battle_action battle_action_use; # scripted psi amp
+            set power 0;
+            skill.getTag skill_id Tag.SKILL_ID;
+            if eq skill_id 52;
+              unit.getFaction temp;
+              add temp 1;
+              unit.setTag Tag.STASIS_STATE temp;
+              unit.setTimeUnits 0;
+              battle_game.flashMessage "STASIS!";
+              unit.setTag Tag.VIS_EFFECT 1;  # simple complete recolor
+              unit.setTag Tag.VIS_COLOR COLOR_X1_PURPLE1;
+            end;
+          end;
+          return power part side;
       - offset: 70   # for Skill Amp Hits (Aid Protocol, Combat Protocol, Interference)
         code: |
           var int battle_type;
@@ -2048,7 +2184,7 @@ extended:
           var int energy_max;
           var int skill_id;
 
-          damaging_item.getRuleItem item_rule;
+          weapon_item.getRuleItem item_rule;
 
           item_rule.getBattleType battle_type;
           item_rule.getTag is_skill_amp Tag.CLASS_SKILL_ACTIVATION;
@@ -2129,16 +2265,25 @@ extended:
           var int battle_type;
           var ptr RuleItem item_rule;
           var int is_skill_amp;
+          var int psi_amp_type;
+          var int victim_faction;
+          var int attacker_faction;
           
           item.getRuleItem item_rule;
 
           item_rule.getBattleType battle_type;
           item_rule.getTag is_skill_amp Tag.CLASS_SKILL_ACTIVATION;
-
-          if and eq battle_type 9 gt is_skill_amp 0; # scripted psi amp
+          item_rule.getTag psi_amp_type Tag.PSI_AMP_TYPE;
+          if eq battle_type 9;
+            if gt is_skill_amp 0; # scripted psi amp
               debug_log "PsiAttack with scripted item. Automatic success!";
               set psi_attack_success 1;
+            else and gt psi_amp_type 0 eq victim_faction attacker_faction;
+              debug_log "PsiAttack with X-Com PsiAmp on allies. Automatic Success.";
+              set psi_attack_success 1;
+            end;
           end;
+
           return psi_attack_success;
     accuracyMultiplierBonusStats:
       - offset: 23   # for shadowstrike
@@ -3025,6 +3170,7 @@ extraStrings:
       STR_ELECTRIC_REINFORCEMENT: Electric Reinforcement
       STR_WAR_CRY: War Cry
       STR_SNAP_SHOT: Fire
+      STR_SOUL_STEAL_HIT_MESSAGE: "Soul Steal: {0}>{1}"
       STR_SHOT_TYPE_SNAP: "Default"
       STR_TIME_UNITS_RESERVED_FOR_SNAP_SHOT: "Time Units reserved for firing"
       STR_DAMAGE_ARMOR_PIERCING: "PROJECTILE"
@@ -3493,3 +3639,12 @@ extraSounds:
 #        BLAST_PADDING_STATE: 60       #X (0-100) amount of damage reduction in percent for HE and Incendiary
 #        MAYHEM_STATE: 10 
 #        SHREDDER_STATE: 1  
+
+#PSI Operative
+#RuleSoldier
+#        previousTransformations:
+#          STR_PSI_OPERATIVE_ADVANCED_TRAINING: 1
+#          STR_PSI_OPERATIVE_ELITE_TRAINING: 1
+#        transformationBonuses:
+#          STR_PSI_OPERATIVE_ADVANCED_BONUS: 1
+#          STR_PSI_OPERATIVE_ELITE_BONUS: 1

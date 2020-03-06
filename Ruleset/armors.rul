@@ -604,259 +604,259 @@ extraSprites:
   - type: XOP_10F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f0.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f0.png
   - type: XOP_10F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f1.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f1.png
   - type: XOP_10F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f2.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f2.png
   - type: XOP_10F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f3.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10f3.png
   - type: XOP_10M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m0.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m0.png
   - type: XOP_10M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m1.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m1.png
   - type: XOP_10M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m2.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m2.png
   - type: XOP_10M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m3.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_10m3.png
   - type: XOP_12F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f0.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f0.png
   - type: XOP_12F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f1.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f1.png
   - type: XOP_12F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f2.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f2.png
   - type: XOP_12F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f3.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12f3.png
   - type: XOP_12M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m0.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m0.png
   - type: XOP_12M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m1.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m1.png
   - type: XOP_12M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m2.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m2.png
   - type: XOP_12M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m3.gif
+      0: Resources/Armor_Imported/AlloyArmor/Inventory/man_12m3.png
   - type: XOP_27F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f0.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f0.png
   - type: XOP_27F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f1.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f1.png
   - type: XOP_27F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f2.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f2.png
   - type: XOP_27F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f3.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27f3.png
   - type: XOP_27M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m0.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m0.png
   - type: XOP_27M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m1.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m1.png
   - type: XOP_27M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m2.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m2.png
   - type: XOP_27M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m3.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_27m3.png
   - type: XOP_28F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f0.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f0.png
   - type: XOP_28F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f1.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f1.png
   - type: XOP_28F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f2.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f2.png
   - type: XOP_28F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f3.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28f3.png
   - type: XOP_28M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m0.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m0.png
   - type: XOP_28M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m1.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m1.png
   - type: XOP_28M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m2.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m2.png
   - type: XOP_28M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m3.gif
+      0: Resources/Armor_Imported/FlyingSuit/Inventory/man_28m3.png
   - type: XOP_41F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f0.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f0.png
   - type: XOP_41F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f1.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f1.png
   - type: XOP_41F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f2.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f2.png
   - type: XOP_41F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f3.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41f3.png
   - type: XOP_41M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m0.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m0.png
   - type: XOP_41M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m1.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m1.png
   - type: XOP_41M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m2.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m2.png
   - type: XOP_41M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m3.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_41m3.png
   - type: XOP_42F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f0.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f0.png
   - type: XOP_42F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f1.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f1.png
   - type: XOP_42F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f2.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f2.png
   - type: XOP_42F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f3.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42f3.png
   - type: XOP_42M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m0.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m0.png
   - type: XOP_42M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m1.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m1.png
   - type: XOP_42M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m2.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m2.png
   - type: XOP_42M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m3.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_42m3.png
   - type: XOP_43F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f0.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f0.png
   - type: XOP_43F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f1.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f1.png
   - type: XOP_43F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f2.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f2.png
   - type: XOP_43F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f3.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43f3.png
   - type: XOP_43M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m0.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m0.png
   - type: XOP_43M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m1.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m1.png
   - type: XOP_43M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m2.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m2.png
   - type: XOP_43M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m3.gif
+      0: Resources/Armor_Imported/PowerArmor/Inventory/man_43m3.png
   - type: XOP_45F0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f0.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f0.png
   - type: XOP_45F1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f1.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f1.png
   - type: XOP_45F2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f2.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f2.png
   - type: XOP_45F3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f3.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45f3.png
   - type: XOP_45M0.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m0.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m0.png
   - type: XOP_45M1.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m1.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m1.png
   - type: XOP_45M2.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m2.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m2.png
   - type: XOP_45M3.SPK
     singleImage: true
     files:
-      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m3.gif
+      0: Resources/Armor_Imported/PsiArmor/Inventory/man_45m3.png
   - type: XOPS_XCOM_10.PCK
     subX: 32
     subY: 40
