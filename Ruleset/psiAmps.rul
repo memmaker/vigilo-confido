@@ -5,11 +5,11 @@ extended:
 
 items:
   - type: STR_PSI_AMP
-#    requires:
-#      - STR_PSI_AMP
+    requires:
+      - STR_PSI_LAB
     tags:
       PSI_AMP_TYPE: 1
-    costBuy: 200
+    costBuy: 350000
     size: 0.1
     costSell: 194700
     weight: 10
@@ -49,11 +49,11 @@ items:
       psiSkill: 0.5
     psiTargetMatrix: 7 # everyone
   - type: STR_ALIEN_PSI_AMP
-#    requires:
-#      - STR_PSI_AMP
+    requires:
+      - STR_ALIEN_PSI_AMP
     tags:
       PSI_AMP_TYPE: 2
-    costBuy: 200
+    costBuy: 0
     size: 0.1
     costSell: 194700
     weight: 10
@@ -90,44 +90,37 @@ items:
     psiTargetMatrix: 7 # everyone
 
 manufacture:
-  - name: STR_PSI_AMP
+  - name: STR_ALIEN_PSI_AMP
     category: STR_EQUIPMENT
     requires:
-      - STR_PSI_AMP
+      - STR_ALIEN_PSI_AMP
     space: 6
     time: 500
     cost: 160000
     requiredItems:
       STR_ALIEN_ALLOYS: 1
-      STR_SECTOID_CORPSE: 1
-
-research:
-  - name: STR_PSI_AMP
-    cost: 500
-    points: 20
-    dependencies:
-      - STR_PSI_LAB
-
+      STR_ETHEREAL_CORPSE: 1
 
 extraStrings:
   - type: en-US
     strings:
       STR_ALIEN_PSI_AMP: Alien Psi Amp
-
+      STR_PSI_AMP_UFOPEDIA: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
+      STR_ALIEN_PSI_AMP_UFOPEDIA: "This version of the Psionic Amplifier incorporates artifacts from the powerful 'Ethereal' alien we encountered. It will put our experienced Psi Operatives on the same level as the aliens' most powerful Psionic forces."
 ufopaedia:
   - id: STR_PSI_AMP
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     requires:
-      - STR_PSI_AMP
+      - STR_PSI_LAB
     text: STR_PSI_AMP_UFOPEDIA
     listOrder: 4500
   - id: STR_ALIEN_PSI_AMP
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     requires:
-      - STR_PSI_AMP
-    text: STR_PSI_AMP_UFOPEDIA
+      - STR_ALIEN_PSI_AMP
+    text: STR_ALIEN_PSI_AMP_UFOPEDIA
     listOrder: 4510
 
 extraSprites:

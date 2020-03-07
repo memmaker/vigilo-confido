@@ -121,6 +121,7 @@ extended:
       CRIT_DAMAGE: int                # crit damage (percent of additional orig damage to health)
       GUN_TYPE: int                   # 1 = Pistol, 2 = Rifle, 3 = Sniper Rifle, 4 = Shotgun, 5 = Heavy
       RUPTURE_DAMAGE: int             # additional dmg. per hit to ruptured targets
+
 items:
   - delete: STR_HEAVY_CANNON
   - delete: STR_AUTO_CANNON
@@ -133,7 +134,7 @@ items:
   - delete: STR_HIGH_EXPLOSIVE
   - type: STR_GRENADE
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
-    costBuy: 900
+    costBuy: 0
     costSell: 840
     power: 30
     damageAlter:
@@ -144,7 +145,7 @@ items:
     blastRadius: 3
   - type: STR_ALIEN_GRENADE
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
-    costBuy: 2500
+    costBuy: 0
     requires: 
       - STR_ALIEN_GRENADE
     requiresBuy: 
@@ -271,7 +272,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       RUPTURE_DAMAGE: 20
-    listOrder: 4950
+    listOrder: 3703
     requires:
       - STR_PLASMA_WEAPONS
     requiresBuy:
@@ -486,7 +487,7 @@ items:
     listOrder: 3500
     size: 0.1
     costSell: 11000
-    costBuy: 13000
+    costBuy: 0 #13000
     weight: 7
     bigSprite: 217
     floorSprite: 213
@@ -526,7 +527,7 @@ items:
     listOrder: 3600
     size: 0.2
     costSell: 16900
-    costBuy: 18000
+    costBuy: 0 #18000
     weight: 8
     bigSprite: 221
     floorSprite: 214
@@ -567,13 +568,13 @@ items:
       GUN_TYPE: 4
       RUPTURE_DAMAGE: 20
     requires:
-      - STR_LASER_WEAPONS
+      - STR_LASER_SHOTGUN
     requiresBuy:
-      - STR_LASER_WEAPONS
+      - STR_LASER_SHOTGUN
     listOrder: 3630
     size: 0.2
     costSell: 26900
-    costBuy: 30000
+    costBuy: 0 #30000
     weight: 8
     bigSprite: 225
     floorSprite: 215
@@ -614,9 +615,9 @@ items:
   - type: STR_LASER_SNIPER_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_LASER_WEAPONS
+      - STR_LASER_SNIPER_RIFLE
     requiresBuy:
-      - STR_LASER_WEAPONS
+      - STR_LASER_SNIPER_RIFLE
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
@@ -624,7 +625,7 @@ items:
     listOrder: 3690
     size: 0.2
     costSell: 36900
-    costBuy: 39000
+    costBuy: 0 #39000
     weight: 8
     bigSprite: 229
     floorSprite: 216
@@ -662,15 +663,15 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 3700
     requires:
-      - STR_LASER_WEAPONS
+      - STR_XCOM_HEAVY_LASER
     requiresBuy:
-      - STR_LASER_WEAPONS
+      - STR_XCOM_HEAVY_LASER
     tags:
       GUN_TYPE: 5
       RUPTURE_DAMAGE: 5
     size: 0.3
     costSell: 41000
-    costBuy: 45000
+    costBuy: 0 #45000
     weight: 18
     bigSprite: 213
     floorSprite: 212
@@ -715,10 +716,10 @@ items:
     tags:
       GUN_TYPE: 1
       RUPTURE_DAMAGE: 10
-    listOrder: 5000
+    listOrder: 3705
     size: 0.1
     costSell: 64000
-    costBuy: 70000
+    costBuy: 0 #70000
     weight: 8
     bigSprite: 237
     floorSprite: 221
@@ -748,10 +749,10 @@ items:
       - STR_PLASMA_WEAPONS
     requiresBuy:
       - STR_PLASMA_WEAPONS
-    listOrder: 5001
+    listOrder: 3710
     size: 0.1
     costSell: 4440
-    costBuy: 6000
+    costBuy: 0 #6000
     weight: 3
     bigSprite: 238
     floorSprite: 222
@@ -773,10 +774,10 @@ items:
       - STR_PLASMA_WEAPONS
     requiresBuy:
       - STR_PLASMA_WEAPONS
-    listOrder: 5200
+    listOrder: 3715
     size: 0.2
     costSell: 86500
-    costBuy: 95000
+    costBuy: 0 #95000
     weight: 5
     bigSprite: 241
     floorSprite: 224
@@ -812,10 +813,10 @@ items:
       - STR_PLASMA_WEAPONS
     requiresBuy:
       - STR_PLASMA_WEAPONS
-    listOrder: 5201
+    listOrder: 3720
     size: 0.1
     costSell: 6290
-    costBuy: 9000
+    costBuy: 0 #9000
     weight: 3
     bigSprite: 242
     floorSprite: 225
@@ -832,15 +833,15 @@ items:
   - type: STR_PLASMA_SHOTGUN
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SHOTGUN
     requiresBuy:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SHOTGUN
     tags:
       GUN_TYPE: 4
       RUPTURE_DAMAGE: 20
-    listOrder: 5300
+    listOrder: 3725
     size: 0.2
-    costBuy: 150000
+    costBuy: 0 #150000
     costSell: 12500
     weight: 6
     bigSprite: 245
@@ -873,14 +874,14 @@ items:
   - type: STR_PLASMA_SHOTGUN_AMMO
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SHOTGUN
     requiresBuy:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SHOTGUN
     tags:
       CRIT_CHANCE: 20
-    listOrder: 5301
+    listOrder: 3730
     size: 0.1
-    costBuy: 9000
+    costBuy: 0 #9000
     costSell: 7500
     weight: 3
     bigSprite: 246
@@ -900,16 +901,16 @@ items:
   - type: STR_PLASMA_SNIPER_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SNIPER_RIFLE
     requiresBuy:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SNIPER_RIFLE
     tags:
       CRIT_CHANCE: 15
       GUN_TYPE: 3
       RUPTURE_DAMAGE: 15
-    listOrder: 5400
+    listOrder: 3735
     size: 0.3
-    costBuy: 175000
+    costBuy: 0 #175000
     costSell: 15500
     weight: 9
     bigSprite: 249
@@ -943,12 +944,12 @@ items:
   - type: STR_PLASMA_SNIPER_RIFLE_CLIP
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SNIPER_RIFLE
     requiresBuy:
-      - STR_PLASMA_WEAPONS
-    listOrder: 5401
+      - STR_PLASMA_SNIPER_RIFLE
+    listOrder: 3740
     size: 0.1
-    costBuy: 9500
+    costBuy: 0 #9500
     costSell: 8160
     weight: 4
     bigSprite: 250
@@ -965,16 +966,16 @@ items:
   - type: STR_XCOM_HEAVY_PLASMA
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_XCOM_HEAVY_PLASMA
     requiresBuy:
-      - STR_PLASMA_WEAPONS
+      - STR_XCOM_HEAVY_PLASMA
     tags:
       GUN_TYPE: 5
       RUPTURE_DAMAGE: 5
-    listOrder: 5500
+    listOrder: 3745
     size: 0.2
     costSell: 171600
-    costBuy: 185000
+    costBuy: 0 #185000
     weight: 8
     bigSprite: 233
     floorSprite: 217
@@ -1008,12 +1009,12 @@ items:
   - type: STR_XCOM_HEAVY_PLASMA_CLIP
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_XCOM_HEAVY_PLASMA
     requiresBuy:
-      - STR_PLASMA_WEAPONS
-    listOrder: 5501
+      - STR_XCOM_HEAVY_PLASMA
+    listOrder: 3750
     size: 0.3
-    costBuy: 10000
+    costBuy: 0 #10000
     costSell: 9590
     weight: 3
     bigSprite: 234
@@ -1039,6 +1040,159 @@ manufacture:
   - delete: STR_PLASMA_PISTOL
   - delete: STR_PLASMA_RIFLE
   - delete: STR_HEAVY_PLASMA
+  - name: STR_XCOM_LASER_PISTOL
+    category: STR_WEAPON
+    requires:
+      - STR_LASER_WEAPONS
+    space: 2
+    time: 300
+    cost: 8000
+    requiredItems:
+      STR_LASER_PISTOL: 1
+      STR_ALIEN_ALLOYS: 2
+  - name: STR_XCOM_LASER_RIFLE
+    category: STR_WEAPON
+    requires:
+      - STR_LASER_WEAPONS
+    space: 2
+    time: 400
+    cost: 12000
+    requiredItems:
+      STR_LASER_RIFLE: 1
+      STR_ALIEN_ALLOYS: 4
+  - name: STR_LASER_SHOTGUN
+    category: STR_WEAPON
+    requires:
+      - STR_LASER_WEAPONS
+    space: 2
+    time: 450
+    cost: 13000
+    requiredItems:
+      STR_LASER_RIFLE: 1
+      STR_ALIEN_ALLOYS: 5
+  - name: STR_LASER_SNIPER_RIFLE
+    category: STR_WEAPON
+    requires:
+      - STR_LASER_WEAPONS
+    space: 2
+    time: 450
+    cost: 13000
+    requiredItems:
+      STR_LASER_RIFLE: 1
+      STR_ALIEN_ALLOYS: 5
+  - name: STR_XCOM_HEAVY_LASER
+    category: STR_WEAPON
+    requires:
+      - STR_LASER_WEAPONS
+    space: 3
+    time: 500
+    cost: 16000
+    requiredItems:
+      STR_LASER_RIFLE: 2
+      STR_ALIEN_ALLOYS: 10
+
+  - name: STR_XCOM_PLASMA_PISTOL
+    category: STR_WEAPON
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 600
+    cost: 56000
+    requiredItems:
+      STR_PLASMA_PISTOL: 1
+      STR_ALIEN_ALLOYS: 2
+  - name: STR_XCOM_PLASMA_PISTOL_CLIP
+    category: STR_AMMUNITION
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 60
+    cost: 2000
+    requiredItems:
+      STR_PLASMA_PISTOL_CLIP: 1
+      STR_ELERIUM_115: 1
+
+  - name: STR_XCOM_PLASMA_RIFLE
+    category: STR_WEAPON
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 700
+    cost: 76000
+    requiredItems:
+      STR_PLASMA_RIFLE: 1
+      STR_ALIEN_ALLOYS: 4
+  - name: STR_XCOM_PLASMA_RIFLE_CLIP
+    category: STR_AMMUNITION
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 80
+    cost: 3000
+    requiredItems:
+      STR_PLASMA_RIFLE_CLIP: 1
+      STR_ELERIUM_115: 1
+
+  - name: STR_PLASMA_SHOTGUN
+    category: STR_WEAPON
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 800
+    cost: 86000
+    requiredItems:
+      STR_HEAVY_PLASMA: 1
+      STR_ALIEN_ALLOYS: 4
+  - name: STR_PLASMA_SHOTGUN_AMMO
+    category: STR_AMMUNITION
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 80
+    cost: 3000
+    requiredItems:
+      STR_HEAVY_PLASMA_CLIP: 1
+      STR_ELERIUM_115: 1
+  - name: STR_PLASMA_SNIPER_RIFLE
+    category: STR_WEAPON
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 800
+    cost: 86000
+    requiredItems:
+      STR_HEAVY_PLASMA: 1
+      STR_ALIEN_ALLOYS: 4
+  - name: STR_PLASMA_SNIPER_RIFLE_CLIP
+    category: STR_AMMUNITION
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 80
+    cost: 3000
+    requiredItems:
+      STR_HEAVY_PLASMA_CLIP: 1
+      STR_ELERIUM_115: 1
+  - name: STR_XCOM_HEAVY_PLASMA
+    category: STR_WEAPON
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 700
+    cost: 76000
+    requiredItems:
+      STR_HEAVY_PLASMA: 1
+      STR_ALIEN_ALLOYS: 10
+  - name: STR_XCOM_HEAVY_PLASMA_CLIP
+    category: STR_AMMUNITION
+    requires:
+      - STR_PLASMA_WEAPONS
+    space: 3
+    time: 80
+    cost: 3000
+    requiredItems:
+      STR_HEAVY_PLASMA_CLIP: 1
+      STR_ELERIUM_115: 1
 
 ufopaedia:
   - delete: STR_HEAVY_CANNON
@@ -1066,7 +1220,7 @@ ufopaedia:
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT
   - id: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS
-    listOrder: 1010
+    listOrder: 3540
     type_id: 8
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT
@@ -1153,7 +1307,7 @@ ufopaedia:
   - id: STR_XCOM_PLASMA_PISTOL
     requires:
       - STR_PLASMA_WEAPONS
-    listOrder: 4800
+    listOrder: 3805
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_XCOM_PLASMA_PISTOL
@@ -1163,7 +1317,7 @@ ufopaedia:
   - id: STR_XCOM_PLASMA_RIFLE
     requires:
       - STR_PLASMA_WEAPONS
-    listOrder: 5000
+    listOrder: 3810
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_XCOM_PLASMA_RIFLE
@@ -1173,7 +1327,7 @@ ufopaedia:
   - id: STR_PLASMA_SHOTGUN
     requires:
       - STR_PLASMA_WEAPONS
-    listOrder: 5030
+    listOrder: 3815
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_PLASMA_SHOTGUN
@@ -1183,7 +1337,7 @@ ufopaedia:
   - id: STR_PLASMA_SNIPER_RIFLE
     requires:
       - STR_PLASMA_WEAPONS
-    listOrder: 5060
+    listOrder: 3820
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE
@@ -1193,13 +1347,19 @@ ufopaedia:
   - id: STR_XCOM_HEAVY_PLASMA
     requires:
       - STR_PLASMA_WEAPONS
-    listOrder: 5200
+    listOrder: 3825
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
     text: STR_UFOPAEDIA_PLASMA_CANNON
   - id: STR_XCOM_HEAVY_PLASMA_CLIP
     type_id: 4
     section: STR_NOT_AVAILABLE
+  - id: STR_LASER_PISTOL
+    section: STR_ALIEN_ARTIFACTS
+  - id: STR_LASER_RIFLE
+    section: STR_ALIEN_ARTIFACTS
+  - id: STR_HEAVY_LASER
+    section: STR_ALIEN_ARTIFACTS
 
 extraStrings:
   - type: en-US
@@ -1224,14 +1384,14 @@ extraStrings:
       STR_GRENADE_LAUNCHER: Grenade Launcher
       STR_UFOPAEDIA_GRENADE_LAUNCHER: "The standard issue grenade launcher can operate with hand-held grenades."
       STR_HEAVY_LASER: Alien Heavy Laser
-      STR_XCOM_HEAVY_LASER: X3 Heavy Laser
-      STR_UFOPAEDIA_HEAVY_LASER: "The Heavy Laser requires a supplementary power supply that makes it somewhat unwieldy in combat, but it is capable of dealing high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 35{NEWLINE}{NEWLINE}BURST> 5"
+      STR_XCOM_HEAVY_LASER: Heavy Laser
+      STR_UFOPAEDIA_HEAVY_LASER: "The X3 Heavy Laser requires a supplementary power supply that makes it somewhat unwieldy in combat, but it is capable of dealing high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 35{NEWLINE}{NEWLINE}BURST> 5"
       STR_LASER_PISTOL: Alien Laser Pistol
-      STR_XCOM_LASER_PISTOL: X22 Laser Pistol
-      STR_UFOPAEDIA_XCOM_LASER_PISTOL: "The Laser Pistol relies on our latest advancements to provide a more powerful sidearm that does not require reloading in the field.{NEWLINE}{NEWLINE}CHARGES> 12"
+      STR_XCOM_LASER_PISTOL: Laser Pistol
+      STR_UFOPAEDIA_XCOM_LASER_PISTOL: "The X22 Laser Pistol relies on our latest advancements to provide a more powerful sidearm that does not require reloading in the field.{NEWLINE}{NEWLINE}CHARGES> 12"
       STR_LASER_RIFLE: Alien Laser Rifle
-      STR_XCOM_LASER_RIFLE: X24 Laser Rifle
-      STR_UFOPAEDIA_XCOM_LASER_RIFLE: "The Laser Assault Rifle relies on our latest in optics technology to offer a substantial increase in output over the conventional X9 rifle.{NEWLINE}{NEWLINE}CHARGES> 20{NEWLINE}{NEWLINE}BURST> 3"
+      STR_XCOM_LASER_RIFLE: Laser Rifle
+      STR_UFOPAEDIA_XCOM_LASER_RIFLE: "The X24 Laser Assault Rifle relies on our latest in optics technology to offer a substantial increase in output over the conventional X9 rifle.{NEWLINE}{NEWLINE}CHARGES> 20{NEWLINE}{NEWLINE}BURST> 3"
       STR_LASER_SHOTGUN: Scatter Laser
       STR_UFOPAEDIA_LASER_SHOTGUN: "The Scatter Laser is capable of inflicting considerable damage; however, accuracy suffers greatly as the range to target increases.{NEWLINE}{NEWLINE}CHARGES> 6"
       STR_LASER_SNIPER_RIFLE: Laser Sniper Rifle
@@ -1240,12 +1400,14 @@ extraStrings:
       STR_XCOM_HEAVY_PLASMA_CLIP: Beam Cannon Clip
       STR_UFOPAEDIA_PLASMA_CANNON: "Devising a more powerful, high-volume beam weapon for our Grenadiers required substantial effort, but the firepower it brings is unquestioned.{NEWLINE}{NEWLINE}BURST> 5"
       STR_PLASMA_PISTOL: Alien Plasma Pistol
+      STR_PLASMA_PISTOL_CLIP: Alien Plasma Pistol Clip
       STR_XCOM_PLASMA_PISTOL: Beam Pistol
       STR_XCOM_PLASMA_PISTOL_CLIP: Beam Pistol Clip
       STR_UFOPAEDIA_XCOM_PLASMA_PISTOL: "The ultimate sidearm, this pistol integrates the aliens' beam weapons technology to powerful effect."
       STR_PLASMA_RIFLE: Alien Plasma Rifle
-      STR_XCOM_PLASMA_RIFLE: X40 Plasma Rifle
-      STR_XCOM_PLASMA_RIFLE_CLIP: X40 Plasma Rifle Clip
+      STR_PLASMA_RIFLE_CLIP: Alien Plasma Rifle Clip
+      STR_XCOM_PLASMA_RIFLE: Plasma Rifle
+      STR_XCOM_PLASMA_RIFLE_CLIP: Plasma Rifle Clip
       STR_UFOPAEDIA_XCOM_PLASMA_RIFLE: "Now that we've finally deciphered the aliens' devastating weapon technology and can develop beam weapons of our own, we can build rifles that will be the match of any enemy our soldiers encounter in the field.{NEWLINE}{NEWLINE}BURST> 3"
       STR_PLASMA_SHOTGUN: Storm Gun
       STR_PLASMA_SHOTGUN_AMMO: Storm Gun Ammo
@@ -1256,10 +1418,10 @@ extraStrings:
       STR_UFOPAEDIA_WEAPON_MECHANICS: "X-Com Weaponry 101"
       STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: "The arsenal of X-Com employs the latest and finest in military equipment and whatever our scientists come up with. Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The default fire mode of this weapon is BURST. Meaning each shot actually fires multiple bullets. Each bullet can do the amount of damage specified under the DAMAGE section."
       STR_UFOPAEDIA_WEAPON_MECHANICS_TWO: "X-Com Weaponry 201"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO_TEXT: "Not all weapons are created equal. Each type firearm has unique attributes which might makes it more suitable for certain situations than others.{NEWLINE}{NEWLINE}SWORDS>{NEWLINE}Preferred by Rangers. Melee weapons can still be very effective in modern warfare. An enemy without hands can't pull a trigger. High Risk, high reward.{NEWLINE}{NEWLINE}PISTOLS>{NEWLINE}A sidearm is especially useful to snipers, in order to prepared in close encounters. Also when your laser rifle implodes in your hands."
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO_TEXT: "Not all weapons are created equal. Each type of firearm has unique attributes which might make it more suitable for certain situations than others.{NEWLINE}{NEWLINE}SWORDS>{NEWLINE}Preferred by Rangers. Melee weapons can still be very effective in modern warfare. An enemy without hands can't pull a trigger. High Risk, high reward.{NEWLINE}{NEWLINE}PISTOLS>{NEWLINE}A sidearm is especially useful to snipers, in order to be prepared in close encounters. Also, when your laser rifle implodes in your hands."
       STR_UFOPAEDIA_WEAPON_MECHANICS_THREE: "X-Com Weaponry 301"
       STR_UFOPAEDIA_WEAPON_MECHANICS_THREE_TEXT: "Although every soldier can wield all the weapon types, our operatives receive additional training for specific weapons during their molding.{NEWLINE}{NEWLINE}SHOTGUNS>{NEWLINE}Preferred by Ranger. These guns match the up close and personal attitude of our assault troopers. Also a good choice for soldiers who can't hit a barn door otherwise.{NEWLINE}{NEWLINE}SNIPER RIFLES>{NEWLINE}The obvious choice for trained sharpshooters. Needs a high skill in weapon handling in order to be accurate."
       STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR: "X-Com Weaponry 401"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT: "HEAVY CANNONS>{NEWLINE}Preferred by Grenadiers. These heavy guns can deal devastating damage to targets and their armor alike. Heavy and heavy-hitting.{NEWLINE}{NEWLINE}ASSAULT RIFLES>{NEWLINE}All our soldiers are trained with these and everyone should be able to handle them equally well. Sack the ones who don't."
+      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT: "With the 'Rage Burst' ability a Grenadier equipped with our line of heavy automatic weaponry is able to cover a whole area with suppressive fire. Hold CTRL+SHIFT while clicking 'Rage Burst' to 'spray & pray'. You can then place two waypoints and the soldier will cover the space in between.{NEWLINE}{NEWLINE}HEAVY CANNONS>{NEWLINE}Preferred by Grenadiers. These heavy guns can deal devastating damage to targets and their armor alike. Heavy and heavy-hitting.{NEWLINE}{NEWLINE}ASSAULT RIFLES>{NEWLINE}All our soldiers are trained with these and everyone should be able to handle them equally well. Sack the ones who don't."
       STR_UFOPAEDIA_LASER_WEAPON_MECHANICS: "Laser Weapons"
       STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: "These laser based line of weapons is superior in damage compared to their alien counterparts. However these are early prototypes and the energy cells are volatile.{NEWLINE}{NEWLINE}IMPORTANT>{NEWLINE}Our scientist have advised us to never empty a laser energy cell completely. If the energy cell of a prototype laser weapon is emptied, the weapon itself will implode in the hands of our soldiers.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although our laser based line of weapons does not require ammunition, they still require recharging. After activation of the RECHARGE mechanism, the weapon glows blue and will be recharged on the beginning of your next turn."

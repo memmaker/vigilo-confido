@@ -245,7 +245,7 @@ extraStrings:
   - type: en-US
     strings:
       STR_BASIC_DEPLOYMENT: Basic Deployment
-      STR_ADVANCED_DEPLOYMENT1: Advanced Deployment 1
+      STR_ADVANCED_DEPLOYMENT1: Advanced Deployment
       STR_ADVANCED_DEPLOYMENT2: Advanced Deployment 2
       STR_ADVANCED_DEPLOYMENT3: Advanced Deployment 3
       STR_FULL_DEPLOYMENT: Full Deployment

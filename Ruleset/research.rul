@@ -2,12 +2,18 @@ research:
   - delete: STR_PERSONAL_ARMOR # Kevlar
   - delete: STR_POWER_SUIT
   - delete: STR_FLYING_SUIT
+  - delete: STR_PSI_AMP
   - name: STR_MOTION_SCANNER
     cost: 70
     points: 20
   - name: STR_MEDI_KIT
     cost: 90
     points: 20
+  - name: STR_NANO_MEDI_KIT
+    cost: 190
+    points: 25
+    dependencies:
+      - STR_SNAKEMAN_AUTOPSY
   - name: STR_SKULLJACK
     cost: 120
     points: 50
@@ -25,6 +31,45 @@ research:
       - STR_BERSERKER_AUTOPSY
       - STR_MUTON_ELITE_AUTOPSY
       - STR_ANDROMEDON_AUTOPSY
+
+  - name: STR_ALIEN_PSI_AMP
+    cost: 700
+    points: 20
+    dependencies:
+      - STR_PSI_LAB
+      - STR_ETHEREAL_COMMANDER
+      - STR_ETHEREAL_LEADER
+      - STR_ETHEREAL_ENGINEER
+  - name: STR_ETHEREAL_COMMANDER
+    unlocks:
+      - STR_ALIEN_PSI_AMP
+      - STR_LEADER_PLUS
+      - STR_COMMANDER_PLUS
+      - STR_ALIEN_ORIGINS
+    dependencies:
+      - STR_PSI_LAB
+  - name: STR_ETHEREAL_LEADER
+    unlocks:
+      - STR_LEADER_PLUS
+      - STR_ALIEN_ORIGINS
+      - STR_ALIEN_PSI_AMP
+    dependencies:
+      - STR_PSI_LAB
+  - name: STR_ETHEREAL_ENGINEER
+    unlocks:
+      - STR_ALIEN_PSI_AMP
+    dependencies:
+      - STR_PSI_LAB
+  - name: STR_ETHEREAL_MEDIC
+    unlocks:
+      - STR_PSI_LAB
+  - name: STR_ETHEREAL_NAVIGATOR
+    unlocks:
+      - STR_PSI_LAB
+  - name: STR_ETHEREAL_SOLDIER
+    unlocks:
+      - STR_ALIEN_ORIGINS
+      - STR_PSI_LAB
 ## Autopsies for Vanilla Units
   - name: STR_SECTOID_AUTOPSY
     points: 50
@@ -112,6 +157,7 @@ research:
     points: 50
     lookup: STR_ANDROMEDON_AUTOPSY
     needItem: true
+
 ## ARMORS ##
   - name: STR_PREDATOR_ARMOR # Predator Armor
     cost: 180
@@ -143,29 +189,44 @@ research:
   - delete: STR_PLASMA_PISTOL
   - delete: STR_PLASMA_RIFLE
   - delete: STR_HEAVY_PLASMA
-  - name: STR_LASER_PISTOL
+  - name: STR_LASER_PISTOL # Alien Laser Pistol
     cost: 150
     points: 10
     needItem: true
     destroyItem: true
-  - name: STR_LASER_RIFLE
+  - name: STR_LASER_RIFLE  # Alien Laser Rifle
     cost: 180
     points: 10
     needItem: true
     destroyItem: true
-  - name: STR_LASER_WEAPONS
+  - name: STR_LASER_WEAPONS # X-COM Laser Weapons
     cost: 250
     points: 20
     dependencies:
       - STR_ALIEN_ALLOYS
       - STR_LASER_PISTOL
       - STR_LASER_RIFLE
+  - name: STR_LASER_SHOTGUN # X-Com Laser Shotgun
+    cost: 280
+    points: 15
+    dependencies:
+      - STR_LASER_WEAPONS
+  - name: STR_LASER_SNIPER_RIFLE # X-Com Laser Sniper
+    cost: 280
+    points: 15
+    dependencies:
+      - STR_LASER_WEAPONS
+  - name: STR_XCOM_HEAVY_LASER # X-Com Heavy Laser
+    cost: 330
+    points: 15
+    dependencies:
+      - STR_LASER_WEAPONS
   - name: STR_LASER_CANNON
     cost: 420
     points: 15
     dependencies:
       - STR_LASER_WEAPONS
-  - name: STR_HEAVY_PLASMA
+  - name: STR_HEAVY_PLASMA # Alien Heavy Plasma
     cost: 800
     points: 30
     needItem: true
@@ -175,7 +236,7 @@ research:
     points: 7
     needItem: true
     destroyItem: true
-  - name: STR_PLASMA_RIFLE
+  - name: STR_PLASMA_RIFLE # Alien Plasma Rifle
     cost: 700
     points: 25
     needItem: true
@@ -185,7 +246,7 @@ research:
     points: 6
     needItem: true
     destroyItem: true
-  - name: STR_PLASMA_PISTOL
+  - name: STR_PLASMA_PISTOL # Alien Plasma Pistol
     cost: 600
     points: 20
     needItem: true
@@ -195,10 +256,25 @@ research:
     points: 5
     needItem: true
     destroyItem: true
-  - name: STR_PLASMA_WEAPONS
+  - name: STR_PLASMA_WEAPONS # X-Com Plasma Weapons
     cost: 0
     points: 40
     dependencies: [STR_ELERIUM_115, STR_PLASMA_PISTOL, STR_PLASMA_RIFLE, STR_HEAVY_PLASMA]
+  - name: STR_PLASMA_SHOTGUN # X-Com Plasma Shotgun
+    cost: 680
+    points: 35
+    dependencies:
+      - STR_PLASMA_WEAPONS
+  - name: STR_PLASMA_SNIPER_RIFLE # X-Com Plasma Sniper
+    cost: 680
+    points: 35
+    dependencies:
+      - STR_PLASMA_WEAPONS
+  - name: STR_XCOM_HEAVY_PLASMA # X-Com Heavy Plasma
+    cost: 730
+    points: 35
+    dependencies:
+      - STR_PLASMA_WEAPONS
 ## VANILLA TIER CHANGES ##
   - name: STR_ELERIUM_115
     cost: 750

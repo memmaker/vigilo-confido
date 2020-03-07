@@ -16,8 +16,7 @@ A demake of the remakes.
  - Added status, day & night and hit indicators
  - Laser weapons not reasearchable from the start
  - Laser weapons need recharging and can implode in the field
- - Blaster Launcher not that readily available (Not yet implemented)
- - Limited Explosives (Not yet implemented)
+ - Limited Explosives
  - No Tanks (But the Gremlin drone instead)
  - Bring home alien weapons and research them for progress
  - Ground deployment added with a small research tree for squad size
@@ -102,16 +101,22 @@ T3 - Warden Armor   & Plasma Weapons
 
 === Known Issues / Backlog ===
  - resistances to damage types
- - item categories
+ - item categories, list orders
  - Sound effects (Gremlin, Minigun)
  - test new enemies
  - change sprite of combat experience commendation
- - complete skill tests
  - Battle Focus costs for flying
  - Units to add: Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
- - hardened ability: critical hit chance against this unit reduced by 60%
+ - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - missing gremlin corpse?
  - balancing of stuff (item costs, armors, etc.)
  - Psi Class and everything Psi is not yet finished
  - Weapon specific crit chances and crit damage
+ - Gene Lab & MECs?
+ - New Mission Objectives?
+ - Ufopedia entries (Grenades & Status Effects, Armors, Autopsies)
+ - Economics
+ - EU2012 Style Medi-Kits
+ - Passive Inventory Bonus Items (Scope, etc.)
+ - Melee, Dodge, etc.

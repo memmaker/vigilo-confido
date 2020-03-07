@@ -105,8 +105,10 @@ items:
     costBuy: 0 # cannot buy
     costSell: 12000
     weight: 3
-    bigSprite: 55
-    floorSprite: 72
+    bigSprite: 527
+    floorSprite: 527
+    invHeight: 2
+    invWidth: 2
     power: 0
     damageType: 0
     damageAlter:

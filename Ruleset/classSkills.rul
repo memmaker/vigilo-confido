@@ -19,7 +19,7 @@
 #  TP Phantom
 #  TP Shadowstrike
 # Elite
-#  A Reaper
+#  TA Reaper
 #  TP Untouchable
 
 # = Grenadier
@@ -68,7 +68,7 @@
 # = Psi Operative
 # Initial - Basic Psi Amp (Not Skill Menu)
 #  TA Panic
-#  A Mind Merge
+#  TA Mind Merge
 # Advanced - Skills (Need Basic Psi Amp in inv.)
 #  TA Soul Steal
 #  TA Inspire
@@ -189,8 +189,6 @@
 # Soul Steal         - Damage enemy and heal the user
 # Mind Crush         - Deal random damage to all enemy entities within 10 tiles
 # Psychic Ward       - Allies within 10 tiles are immune to Panic and Psychic damage attacks
-
-
 
 # === Other
 # X Sustain          - Instead of being killed, go into stasis with 1 hp once per mission
@@ -2134,6 +2132,7 @@ extended:
               unit.getHealth temp;
               add temp 20;
               unit.setHealth temp;
+              battle_game.flashMessage "MIND MERGE!";
             else;
               skill.getTag skill_id Tag.SKILL_ID;
               if eq skill_id 50; # soul steal
@@ -3016,7 +3015,7 @@ ufopaedia:
     text: STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE
   - id: STR_SKILL_AMP
     type_id: 4 # equipment
-    section: STR_WEAPONS_AND_EQUIPMENT
+    section: STR_NOT_AVAILABLE
     text: STR_UFOPAEDIA_SKILL_AMP
 
 extraStrings:
@@ -3131,7 +3130,7 @@ extraStrings:
       STR_UFOPAEDIA_GRENADIER: "A class specialising in high fire power and area damage. The Grenadier is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Shredder{NEWLINE}A>Hvy. Rocket - Rpd. Deployment{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Blast Padding - Mayhem{NEWLINE}A>War Cry - Rage Burst{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Sting Grenades{NEWLINE}A>Rupture"
       STR_UFOPAEDIA_SNIPER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Death from above{NEWLINE}A>Headshot - Disabling Shot{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Aim - Center Mass{NEWLINE}A>Quick Aim - Double Tap{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Alpha Mike Foxtrot{NEWLINE}A>Serial"
       STR_UFOPAEDIA_SPECIALIST: "Soldiers trained in the Specialist class serve as both field medics and logistical support to their squad. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Guardian{NEWLINE}A>Paramedic - Aid Protocol{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Steadfast - Field Surgeon{NEWLINE}A>Combat Protocol - Interference{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Savior - Ever Vigilant{NEWLINE}A>Electric Reinforcement"
-      STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for X-Com, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}I>Panic - Mind Control - Mind Merge{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}A>Soul Steal - Inspire - Stasis{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}A>Mind Crush - Psychic Ward"
+      STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for X-Com, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}I>Panic - Mind Merge{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}A>Soul Steal - Inspire{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}A>Stasis - Mind Control"
       STR_MILITARY_MOLDING_CATEGORY: "MILITARY MOLDING"
       STR_MILITARY_MOLDING: "Military Molding"
       STR_UFOPAEDIA_MILITARY_MOLDING: "X-Com researchers have perfected military molding processes. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers. Each stage of training will unlock additional combat abilities."
@@ -3139,12 +3138,12 @@ extraStrings:
       STR_UFOPAEDIA_GRENADIER_SKILLS: "SHREDDER>{NEWLINE}Your cannon attacks shred armor. Higher rank weapons shred more points of armor.{NEWLINE}{NEWLINE}BLAST PADDING>{NEWLINE}Your gear includes layers of extra padding and blast plates, granting bonus points of Armor and 66% less damage from explosive attacks.{NEWLINE}{NEWLINE}MAYHEM>{NEWLINE}Confers additional damage to all area of effect weapons & auto shooting guns.{NEWLINE}{NEWLINE}STING GRENADES>{NEWLINE}Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect."
       STR_UFOPAEDIA_SNIPER_SKILLS: "DEATH FROM ABOVE>{NEWLINE}Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}AIM>{NEWLINE}Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS>{NEWLINE}You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT>{NEWLINE}You do additional points of base damage and additional points of crit damage with your primary weapon."
       STR_UFOPAEDIA_SPECIALIST_SKILLS: "GUARDIAN>{NEWLINE}With every successful Overwatch shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}STEADFAST>{NEWLINE}(Almost) Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the panic ability.{NEWLINE}{NEWLINE}FIELD SURGEON>{NEWLINE}Reduces Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR>{NEWLINE}Medikits restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT>{NEWLINE}At the start of the enemy turn your time units are refilled for free reaction fire."
-      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS: "PANIC>{NEWLINE}Saps a unit's morale, and puts it in a prime position to panic or go berserk.{NEWLINE}{NEWLINE}MIND CONTROL>{NEWLINE}Take direct control over your target's actions.{NEWLINE}{NEWLINE}MIND MERGE>{NEWLINE}Grants bonus will, crit and ablative hit points to an ally until the beginning of the player's next turn."
+      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS: "The operative has to be equipped with a Psi Amplifier to successfully use these abilites in the field.{NEWLINE}{NEWLINE}PANIC>{NEWLINE}Saps a unit's morale, and puts it in a prime position to panic or go berserk.{NEWLINE}{NEWLINE}MIND MERGE>{NEWLINE}Grants bonus will, crit and ablative hit points to an ally until the beginning of the player's next turn.{NEWLINE}{NEWLINE}SOUL STEAL>{NEWLINE}Transfers half of the damage done back to the Psi Operative as health.{NEWLINE}{NEWLINE}INSPIRE>{NEWLINE}Channel your psionic energy into the TUs of another unit."
       STR_UFOPAEDIA_RANGER_SKILLS_ACTIVE: "RUN & GUN>{NEWLINE}Take an extra action after dashing.{NEWLINE}{NEWLINE}SLASH>{NEWLINE}A free melee attack with your sword{NEWLINE}{NEWLINE}CONCEAL>{NEWLINE}Immediately enter concealment once per mission.{NEWLINE}{NEWLINE}RAPID FIRE>{NEWLINE}Fire twice in a row at an enemy. Each shot suffers an Aim penalty.{NEWLINE}{NEWLINE}REAPER>{NEWLINE}A devastating chain melee attack where every kill scored will grant an extra action."
       STR_UFOPAEDIA_GRENADIER_SKILLS_ACTIVE: "HEAVY ROCKET>{NEWLINE}Fire a rocket using an equipped launcher.{NEWLINE}{NEWLINE}RAPID DEPLOYMENT>{NEWLINE}Throw a grenade from your inventory and prime it in one action.{NEWLINE}{NEWLINE}WAR CRY>{NEWLINE}All enemies within 10 tiles have their Action Points Reduced to 50% for the next turn.{NEWLINE}{NEWLINE}RAGE BURST>{NEWLINE}A heavy burst attack with your main weapon. Uses lots of ammo.{NEWLINE}{NEWLINE}RUPTURE>{NEWLINE}A Rupture shot deals critical damage and ensures that the target takes additional damage from all attacks in the future."
       STR_UFOPAEDIA_SNIPER_SKILLS_ACTIVE: "HEADSHOT>{NEWLINE}Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}DISABLING SHOT>{NEWLINE}Allows sniper rifles to fire a shot that causes the target's main weapon to malfunction.{NEWLINE}{NEWLINE}QUICK AIM>{NEWLINE}The TU cost of the next shot whit a proficient weapon is reduced, and the accuracy is increased.{NEWLINE}{NEWLINE}DOUBLE TAP>{NEWLINE}Fire twice at your target. Accuracy is reduced.{NEWLINE}{NEWLINE}SERIAL>{NEWLINE}A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
       STR_UFOPAEDIA_SPECIALIST_SKILLS_ACTIVE: "PARAMEDIC>{NEWLINE}This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}AID PROTOCOL>{NEWLINE}Grant the target a bonus to Defense until the start of the next player turn.{NEWLINE}{NEWLINE}COMBAT PROTOCOL>{NEWLINE}Jolt an enemy, dealing guaranteed damage.{NEWLINE}{NEWLINE}INTERFERENCE>{NEWLINE}Reduce the TU of the targeted unit to zero.{NEWLINE}{NEWLINE}ELECTRIC REINFORCEMENT>{NEWLINE}Grant additional armor to all allied units for one turn."
-      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE: "SOUL STEAL>{NEWLINE}Transfers half of the damage done back to the Psi Operative as health.{NEWLINE}{NEWLINE}INSPIRE>{NEWLINE}Channel your psionic energy into the TUs of another unit.{NEWLINE}{NEWLINE}STASIS>{NEWLINE}Completely stuns the target for 1 turn, but renders them immune to any damage or attack.{NEWLINE}{NEWLINE}MIND CRUSH>{NEWLINE}Deal a random amount of damage to all enemy entities within 10 tiles.{NEWLINE}{NEWLINE}PSYCHIC WARD>{NEWLINE}Allies within 10 tiles are immune to Panic and Psychic damage attacks.{NEWLINE}{NEWLINE}"
+      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE: "These abilities can only be channeled with the help of an alien Psi Amplifier.{NEWLINE}{NEWLINE}STASIS>{NEWLINE}Completely stuns the target for 1 turn, but renders them immune to any damage or attack.{NEWLINE}{NEWLINE}MIND CONTROL>{NEWLINE}Take direct control over your target's actions."
       STR_UFOPAEDIA_SKILL_AMP: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
       STR_UFOPAEDIA_COMBAT_EXPERIENCE: "In order for X-Com soldiers to be eligible for the next military training level, they have to accumulate combat experience.{NEWLINE}{NEWLINE}Combat experience is awarded to soldiers for killing enemies and surviving field missions."
       STR_SKILL_NEEDS_ITEM: "Skill needs item!"
@@ -3169,6 +3168,10 @@ extraStrings:
       STR_RESTORATION: Restoration
       STR_ELECTRIC_REINFORCEMENT: Electric Reinforcement
       STR_WAR_CRY: War Cry
+      STR_INSPIRE: Inspire
+      STR_MIND_MERGE: Mind Merge
+      STR_STASIS: Stasis
+      STR_SOUL_STEAL: Soul Steal
       STR_SNAP_SHOT: Fire
       STR_SOUL_STEAL_HIT_MESSAGE: "Soul Steal: {0}>{1}"
       STR_SHOT_TYPE_SNAP: "Default"

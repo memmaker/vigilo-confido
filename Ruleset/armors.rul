@@ -5,6 +5,7 @@ extended:
     RuleArmor:
       ANIMATED: int
       HELLWEAVE: int
+      ABLATIVE_ARMOR_BONUS: int
       HEALTH_RECOVERY: int
 
 manufacture:
@@ -132,42 +133,6 @@ items:
     invHeight: 3
     armor: 30
     recover: false
-  - type: STR_PERSONAL_ARMOR_HW
-    refNode: *STR_PERSONAL_ARMOR 
-    costBuy: 0
-  - type: STR_PERSONAL_ARMOR_RF
-    refNode: *STR_PERSONAL_ARMOR 
-    costBuy: 0
-  - type: STR_PERSONAL_ARMOR_ST
-    refNode: *STR_PERSONAL_ARMOR 
-    costBuy: 0
-  - type: STR_PERSONAL_ARMOR_HZ
-    refNode: *STR_PERSONAL_ARMOR 
-    costBuy: 0
-  - type: STR_PREDATOR_ARMOR_HW
-    refNode: *STR_PREDATOR_ARMOR 
-    costBuy: 0
-  - type: STR_PREDATOR_ARMOR_RF
-    refNode: *STR_PREDATOR_ARMOR 
-    costBuy: 0
-  - type: STR_PREDATOR_ARMOR_ST
-    refNode: *STR_PREDATOR_ARMOR 
-    costBuy: 0
-  - type: STR_PREDATOR_ARMOR_HZ
-    refNode: *STR_PREDATOR_ARMOR 
-    costBuy: 0
-  - type: STR_WARDEN_ARMOR_HW
-    refNode: *STR_WARDEN_ARMOR 
-    costBuy: 0
-  - type: STR_WARDEN_ARMOR_RF
-    refNode: *STR_WARDEN_ARMOR 
-    costBuy: 0
-  - type: STR_WARDEN_ARMOR_ST
-    refNode: *STR_WARDEN_ARMOR 
-    costBuy: 0
-  - type: STR_WARDEN_ARMOR_HZ
-    refNode: *STR_WARDEN_ARMOR 
-    costBuy: 0
 
 armors:
   - type: STR_NONE_UC
@@ -191,12 +156,12 @@ armors:
       - 1.0  # 12 Electric
   - &STR_PERSONAL_ARMOR_UC
     type: STR_PERSONAL_ARMOR_UC  # Kevlar
+    tags:
+      ABLATIVE_ARMOR_BONUS: 10
     frontArmor: 0
     sideArmor: 0
     rearArmor: 0
     underArmor: 0
-    stats:
-      health: 10
     damageModifier:
       - 1.0  # 0  None
       - 1.0  # 1  Projectile
@@ -223,8 +188,8 @@ armors:
     sideArmor: 4
     rearArmor: 3
     underArmor: 4
-    stats:
-      health: 45
+    tags:
+      ABLATIVE_ARMOR_BONUS: 45
     damageModifier:
       - 1.0  # 0  None
       - 1.0  # 1  Projectile
@@ -250,8 +215,8 @@ armors:
     sideArmor: 4
     rearArmor: 3
     underArmor: 4
-    stats:
-      health: 45
+    tags:
+      ABLATIVE_ARMOR_BONUS: 45
     damageModifier:
       - 1.0  # 0  None
       - 1.0  # 1  Projectile
@@ -272,9 +237,10 @@ armors:
     corpseBattle:
       - STR_CORPSE_SKY_STRIKE_ARMOR
     storeItem: STR_SKY_STRIKE_ARMOR
+    tags:
+      ABLATIVE_ARMOR_BONUS: 50
     stats:
       tu: 10
-      health: 50
     loftempsSet: [ 4 ]
     frontArmor: 5
     sideArmor: 4
@@ -301,9 +267,10 @@ armors:
     corpseBattle:
       - STR_CORPSE_SKY_STRIKE_ARMOR_BLUE
     storeItem: STR_SKY_STRIKE_ARMOR
+    tags:
+      ABLATIVE_ARMOR_BONUS: 50
     stats:
       tu: 10
-      health: 50
     loftempsSet: [ 4 ]
     frontArmor: 5
     sideArmor: 4
@@ -334,8 +301,9 @@ armors:
     corpseBattle:
       - STR_CORPSE_PSI_ARMOR_BLUE
     storeItem: STR_PSI_ARMOR
+    tags:
+      ABLATIVE_ARMOR_BONUS: 40
     stats:
-      health: 40
       psiStrength: 25
       psiSkill: 25
     loftempsSet: [ 4 ]
@@ -366,8 +334,8 @@ armors:
     storeItem: STR_WARDEN_ARMOR
     tags:
       ANIMATED: 1
+      ABLATIVE_ARMOR_BONUS: 100
     stats:
-      health: 100
       strength: 5
       psiStrength: 10
       psiSkill: -25
@@ -400,8 +368,8 @@ armors:
     storeItem: STR_WARDEN_ARMOR
     tags:
       ANIMATED: 1
+      ABLATIVE_ARMOR_BONUS: 100
     stats:
-      health: 100
       strength: 5
       psiStrength: 10
       psiSkill: -25
@@ -433,8 +401,8 @@ armors:
     storeItem: STR_WARDEN_ARMOR
     tags:
       ANIMATED: 1
+      ABLATIVE_ARMOR_BONUS: 100
     stats:
-      health: 100
       strength: 5
       psiStrength: 10
       psiSkill: -25
@@ -458,124 +426,6 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-  
-# Armor Mods
-  - type: STR_PERSONAL_ARMOR_UC_HW
-    refNode: *STR_PERSONAL_ARMOR_UC
-    stats:
-      health: 30
-    tags:
-      HELLWEAVE: 1
-  - type: STR_PERSONAL_ARMOR_UC_RF
-    refNode: *STR_PERSONAL_ARMOR_UC
-    frontArmor: 10
-    sideArmor: 8
-    rearArmor: 8
-    underArmor: 8
-    stats:
-      health: 30
-  - type: STR_PERSONAL_ARMOR_UC_ST
-    refNode: *STR_PERSONAL_ARMOR_UC
-    tags:
-      HEALTH_RECOVERY: 80
-    stats:
-      health: 30
-  - type: STR_PERSONAL_ARMOR_UC_HZ
-    refNode: *STR_PERSONAL_ARMOR_UC
-    stats:
-      health: 30
-    damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 0.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 0.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 0.0  # 11 Poison
-      - 0.0  # 12 Electric
-
-  - type: STR_PREDATOR_ARMOR_UC_HW
-    refNode: *STR_PREDATOR_ARMOR_UC
-    stats:
-      health: 65
-    tags:
-      HELLWEAVE: 1
-  - type: STR_PREDATOR_ARMOR_UC_RF
-    refNode: *STR_PREDATOR_ARMOR_UC
-    frontArmor: 15
-    sideArmor: 14
-    rearArmor: 14
-    underArmor: 15
-    stats:
-      health: 65
-  - type: STR_PREDATOR_ARMOR_UC_ST
-    refNode: *STR_PREDATOR_ARMOR_UC
-    tags:
-      HEALTH_RECOVERY: 80
-    stats:
-      health: 65
-  - type: STR_PREDATOR_ARMOR_UC_HZ
-    refNode: *STR_PREDATOR_ARMOR_UC
-    stats:
-      health: 65
-    damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 0.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 0.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 0.0  # 11 Poison
-      - 0.0  # 12 Electric
-
-  - type: STR_WARDEN_ARMOR_UC_HW
-    refNode: *STR_WARDEN_ARMOR_UC
-    stats:
-      health: 120
-    tags:
-      HELLWEAVE: 1
-  - type: STR_WARDEN_ARMOR_UC_RF
-    refNode: *STR_WARDEN_ARMOR_UC
-    frontArmor: 30
-    sideArmor: 28
-    rearArmor: 26
-    underArmor: 28
-    stats:
-      health: 120
-  - type: STR_WARDEN_ARMOR_UC_ST
-    refNode: *STR_WARDEN_ARMOR_UC
-    tags:
-      HEALTH_RECOVERY: 80
-    stats:
-      health: 120
-  - type: STR_WARDEN_ARMOR_UC_HZ
-    refNode: *STR_WARDEN_ARMOR_UC
-    stats:
-      health: 120
-    damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 0.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 0.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 0.0  # 11 Poison
-      - 0.0  # 12 Electric
 
 extraSprites:
 #---BIG OBJECTS------------------------------------------
@@ -975,14 +825,6 @@ extraStrings:
       STR_PADDED_SUIT_UC: Padded Jumpsuit
       STR_PERSONAL_ARMOR: Kevlar Armor
       STR_PERSONAL_ARMOR_UC: Kevlar Armor
-      STR_PERSONAL_ARMOR_HW: Kevlar Armor (Hellweave)
-      STR_PERSONAL_ARMOR_UC_HW: Kevlar Armor (Hellweave)
-      STR_PERSONAL_ARMOR_RF: Kevlar Armor (Plated)
-      STR_PERSONAL_ARMOR_UC_RF: Kevlar Armor (Plated)
-      STR_PERSONAL_ARMOR_ST: Kevlar Armor (Stasis)
-      STR_PERSONAL_ARMOR_UC_ST: Kevlar Armor (Stasis)
-      STR_PERSONAL_ARMOR_HZ: Kevlar Armor (Hazmat)
-      STR_PERSONAL_ARMOR_UC_HZ: Kevlar Armor (Hazmat)
       STR_PERSONAL_ARMOR_UFOPEDIA: "This is a standard issue X-Com battle armor. Manufactured for the purpose of xeno operations, they have been assembled from specialized kevlar plates. Our government would never send us in the field without this."
       STR_POWER_SUIT: Hazmat Suit
       STR_POWER_SUIT_UC: Hazmat Suit
@@ -993,27 +835,11 @@ extraStrings:
       STR_PREDATOR_ARMOR: Predator Armor
       STR_PREDATOR_ARMOR_UC: Predator Armor
       STR_PREDATOR_ARMOR_BLUE_UC: Predator Armor (Blue)
-      STR_PREDATOR_ARMOR_HW: Predator Armor (Hellweave)
-      STR_PREDATOR_ARMOR_UC_HW: Predator Armor (Hellweave)
-      STR_PREDATOR_ARMOR_RF: Predator Armor (Plated)
-      STR_PREDATOR_ARMOR_UC_RF: Predator Armor (Plated)
-      STR_PREDATOR_ARMOR_ST: Predator Armor (Stasis)
-      STR_PREDATOR_ARMOR_UC_ST: Predator Armor (Stasis)
-      STR_PREDATOR_ARMOR_HZ: Predator Armor (Hazmat)
-      STR_PREDATOR_ARMOR_UC_HZ: Predator Armor (Hazmat)
       STR_UFOPEDIA_PREDATOR_ARMOR: "Our Predator Armor was designed to offer substantially better protection against the alien plasma weaponry through the use of their alloys. Tests indicate a substantial survivability increase relative to conventional kevlar armor."
       STR_WARDEN_ARMOR: Warden Armor
       STR_WARDEN_ARMOR_UC: Warden Armor
       STR_WARDEN_ARMOR_WHITE_UC: Warden Armor (White)
       STR_WARDEN_ARMOR_BLACK_UC: Warden Armor (Black)
-      STR_WARDEN_ARMOR_HW: Warden Armor (Hellweave)
-      STR_WARDEN_ARMOR_UC_HW: Warden Armor (Hellweave)
-      STR_WARDEN_ARMOR_RF: Warden Armor (Plated)
-      STR_WARDEN_ARMOR_UC_RF: Warden Armor (Plated)
-      STR_WARDEN_ARMOR_ST: Warden Armor (Stasis)
-      STR_WARDEN_ARMOR_UC_ST: Warden Armor (Stasis)
-      STR_WARDEN_ARMOR_HZ: Warden Armor (Hazmat)
-      STR_WARDEN_ARMOR_UC_HZ: Warden Armor (Hazmat)
       STR_UFOPEDIA_POWER_ARMOR: "Our new mastery of the alien's Elerium technology has lead us to the ultimate in battle armor: the Warden Armor. Elerium powered armor provides unprecedented survivability and versatility in the battle against increasingly powerful alien enemies."
       STR_SKY_STRIKE_ARMOR: Archangel Armor
       STR_SKY_STRIKE_ARMOR_UC: Archangel Armor
