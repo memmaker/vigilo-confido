@@ -4,9 +4,7 @@ extended:
   tags:
     RuleArmor:
       ANIMATED: int
-      HELLWEAVE: int
       ABLATIVE_ARMOR_BONUS: int
-      HEALTH_RECOVERY: int
 
 manufacture:
   - delete: STR_PERSONAL_ARMOR

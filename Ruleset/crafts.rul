@@ -67,7 +67,7 @@ crafts:
     refuelRate: 50
     transferTime: 72
     score: 200
-    soldiers: 5
+    soldiers: 4
     vehicles: 1
     maxItems: 40
     battlescapeTerrainData:
@@ -86,13 +86,16 @@ crafts:
      - [5, 7, 0, 3]
      - [5, 1, 0, 7]
 
+     - [8, 6, 0, 1]
+     - [8, 2, 0, 2]
+
   - type: STR_SKYRANGER_SIX
     refNode: *STR_SKYRANGER
     requires:
       - STR_ADVANCED_DEPLOYMENT1
-    soldiers: 6
+    soldiers: 5
     vehicles: 1
-    maxItems: 60
+    maxItems: 50
     battlescapeTerrainData:
       name: DEPLOYED6
       mapDataSets:
@@ -117,9 +120,9 @@ crafts:
     refNode: *STR_SKYRANGER
     requires:
       - STR_FULL_DEPLOYMENT
-    soldiers: 8
+    soldiers: 6
     vehicles: 2
-    maxItems: 80
+    maxItems: 60
     battlescapeTerrainData:
       name: DEPLOYED8
       mapDataSets:

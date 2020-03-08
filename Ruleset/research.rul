@@ -9,11 +9,38 @@ research:
   - name: STR_MEDI_KIT
     cost: 90
     points: 20
+  - name: STR_NANOSCALE_VEST
+    cost: 90
+    points: 20
+  - name: STR_ELECTRO_FLARE
+    cost: 70
+    points: 20
+  - name: STR_SCOPE
+    cost: 70
+    points: 20
+  - name: STR_SMOKE_GRENADE
+    cost: 70
+    points: 20
+  - name: STR_PROXIMITY_GRENADE
+    cost: 70
+    points: 20
+    dependencies:
+      - STR_SMOKE_GRENADE
+  - name: STR_INCENDIARY_GRENADE
+    cost: 70
+    points: 20
+    dependencies:
+      - STR_PROXIMITY_GRENADE
   - name: STR_NANO_MEDI_KIT
     cost: 190
     points: 25
     dependencies:
       - STR_SNAKEMAN_AUTOPSY
+  - name: STR_PERSONAL_MIND_SHIELD
+    cost: 190
+    points: 25
+    dependencies:
+      - STR_ETHEREAL_AUTOPSY
   - name: STR_SKULLJACK
     cost: 120
     points: 50

@@ -1,7 +1,7 @@
-name: X-COM with Classes
-version: 0.7.1
+name: Vigilo Confido
+version: 0.8.0
 author: memmaker
 description: "An vanilla X-COM expansion with a class & skill system at its core."
 master: xcom1
-id: "mmx-classes-skills"
+id: "vigilo-confido"
 requiredExtendedVersion: "6.3"

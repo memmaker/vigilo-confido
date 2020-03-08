@@ -6,11 +6,6 @@ extraStrings:
       STR_EXPERIMENTAL_GRENADE: Experimental Grenade
       STR_EXPERIMENTAL_ARMOR: Experimental Armor
 
-items:
-  - type: STR_COMBAT_STIMS
-    costBuy: 0
-    costSell: 65000
-
 manufacture:
   - delete: STR_ALIEN_GRENADE
   - delete: STR_MEDI_KIT
@@ -18,6 +13,29 @@ manufacture:
   - delete: STR_MIND_PROBE
   - delete: STR_BLASTER_LAUNCHER
   - delete: STR_BLASTER_BOMB
+  - name: STR_NANO_MEDI_KIT
+    requires:
+      - STR_NANO_MEDI_KIT
+    space: 6
+    time: 500
+    cost: 160000
+  - name: STR_NANOSCALE_VEST
+    category: STR_PASSIVE_BONUS_ITEMS
+    requires:
+      - STR_NANOSCALE_VEST
+    space: 6
+    time: 500
+    cost: 160000
+  - name: STR_ALIEN_PSI_AMP
+    category: STR_EQUIPMENT
+    requires:
+      - STR_ALIEN_PSI_AMP
+    space: 6
+    time: 500
+    cost: 160000
+    requiredItems:
+      STR_ALIEN_ALLOYS: 1
+      STR_ETHEREAL_CORPSE: 1
   - name: STR_SKULLJACK
     listOrder: 50
     category: STR_EQUIPMENT
@@ -102,7 +120,7 @@ manufacture:
     requiredItems:
       STR_MUTON_BERSERKER_CORPSE: 1
     producedItems:
-      STR_COMBAT_STIMS: 1
+      STR_HELLWEAVE: 1
   - name: STR_ETHEREAL_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
     space: 5
@@ -114,22 +132,13 @@ manufacture:
       STR_ETHEREAL_CORPSE: 1
     producedItems:
       STR_PERSONAL_MIND_SHIELD: 1
-  - name: STR_HELLWEAVE_EXTRACTION
+  - name: STR_CHRYSSALID_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
     space: 5
     time: 120
     cost: 15000
     requires:
       - STR_CHRYSSALID_AUTOPSY
-    requiredItems:
-      STR_CHRYSSALID_CORPSE: 2
-    producedItems:
-      STR_HELLWEAVE: 1
-  - name: STR_MIMIC_BEACON_EXTRACTION
-    category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
-    time: 120
-    cost: 15000
     requiredItems:
       STR_CHRYSSALID_CORPSE: 2
     producedItems:
@@ -156,29 +165,7 @@ manufacture:
       STR_SECTOPOD_CORPSE: 1
     producedItems:
       STR_BLUESCREEN_ROUNDS: 1
-  - name: STR_EXPERIMENTAL_GRENADE
-    listOrder: 1
-    category: STR_EXPERIMENTAL_PROJECTS
-    space: 10
-    time: 160
-    cost: 15000
-    producedItems: {} # override default product
-    randomProducedItems:
-      -
-        - 20
-        - STR_FLASHBANG_GRENADE: 1
-      -
-        - 20
-        - STR_ACID_GRENADE: 1
-      -
-        - 20
-        - STR_FREEZE_GRENADE: 1
-      -
-        - 20
-        - STR_GAS_GRENADE: 1
-      -
-        - 20
-        - STR_EMP_GRENADE: 1
+
   - name: STR_EXPERIMENTAL_ARMOR
     listOrder: 2
     category: STR_EXPERIMENTAL_PROJECTS
@@ -186,6 +173,16 @@ manufacture:
     time: 160
     cost: 15000
     producedItems: {} # override default product
+    randomProducedItems:
+      -
+        - 30
+        - STR_STASIS_VEST: 1
+      -
+        - 30
+        - STR_HAZMAT_VEST: 1
+      -
+        - 30
+        - STR_PLATED_VEST: 1
   - name: STR_SKY_STRIKE_ARMOR
     category: STR_PERSONAL_ARMOR
     space: 20

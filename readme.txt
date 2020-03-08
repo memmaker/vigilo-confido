@@ -120,3 +120,17 @@ T3 - Warden Armor   & Plasma Weapons
  - EU2012 Style Medi-Kits
  - Passive Inventory Bonus Items (Scope, etc.)
  - Melee, Dodge, etc.
+ - Complete research bonuses for corpses
+ - Make sure medi-kits work with ablative armor
+
+Vigilo Confido - "I am vigilant, and I believe."
+"Bellator in Machina" - "Warrior in the machine"
+"Mutare ad custodiam" - We Change to Protect.
+Survive. Adapt. Win.
+
+hook wishlist
+missionBeginUnit -> Init unit before first turn
+missionEndGame   -> End Conditions
+dropItemUnit & pickUpItemUnit?
+endMovementUnit?
+weaponFiredUnit

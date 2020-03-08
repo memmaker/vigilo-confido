@@ -3021,6 +3021,7 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
+      STR_OPENXCOM: "X-Com: Vigilo Confido"
       STR_SOLDIER_EXPERIENCE: Combat Experience
       STR_SOLDIER_EXPERIENCE_DESCRIPTION: Awarded for missions and kills in the service of X-Com.
       STR_SKILL_AMP: Skill Amplifier

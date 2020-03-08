@@ -1,0 +1,15 @@
+ufopaedia:
+  - id: STR_PSI_AMP
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PSI_LAB
+    text: STR_PSI_AMP_UFOPEDIA
+    listOrder: 4500
+  - id: STR_ALIEN_PSI_AMP
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_ALIEN_PSI_AMP
+    text: STR_ALIEN_PSI_AMP_UFOPEDIA
+    listOrder: 4510

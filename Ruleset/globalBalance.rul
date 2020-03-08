@@ -11,6 +11,13 @@ bughuntMaxEnemies: 2
 bughuntRank: -1
 surrenderMode: 1
 
+ai:
+  useDelayBlaster: 3
+  useDelayFirearm: 2
+  useDelayGrenade: 2
+  useDelayMelee: 1
+  useDelayPsionic: 2
+
 extended:
   tags:
     BattleGame:
