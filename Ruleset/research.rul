@@ -12,20 +12,9 @@ research:
   - name: STR_NANOSCALE_VEST
     cost: 90
     points: 20
-  - name: STR_ELECTRO_FLARE
-    cost: 70
-    points: 20
-  - name: STR_SCOPE
-    cost: 70
-    points: 20
-  - name: STR_SMOKE_GRENADE
-    cost: 70
-    points: 20
   - name: STR_PROXIMITY_GRENADE
     cost: 70
     points: 20
-    dependencies:
-      - STR_SMOKE_GRENADE
   - name: STR_INCENDIARY_GRENADE
     cost: 70
     points: 20
@@ -58,7 +47,6 @@ research:
       - STR_BERSERKER_AUTOPSY
       - STR_MUTON_ELITE_AUTOPSY
       - STR_ANDROMEDON_AUTOPSY
-
   - name: STR_ALIEN_PSI_AMP
     cost: 700
     points: 20
@@ -67,6 +55,10 @@ research:
       - STR_ETHEREAL_COMMANDER
       - STR_ETHEREAL_LEADER
       - STR_ETHEREAL_ENGINEER
+  - name: STR_FIRESTORM
+    cutscene: firestorm
+  - name: STR_HYPERWAVE_DECODER
+    cutscene: hyperwave.decoder
   - name: STR_ETHEREAL_COMMANDER
     unlocks:
       - STR_ALIEN_PSI_AMP
@@ -103,6 +95,44 @@ research:
     needItem: true
     unlocks:
       - STR_SKULLJACK
+  - name: STR_SECTOID
+    cutscene: sectoid.live
+  - name: STR_SECTOID_CORPSE
+    cutscene: sectoid.dead
+  - name: STR_THIN_MAN
+    cutscene: thin.man.live
+  - name: STR_THIN_MAN_CORPSE
+    cutscene: thin.man.dead
+  - name: STR_FLOATER
+    cutscene: floater.live
+  - name: STR_FLOATER_CORPSE
+    cutscene: floater.dead
+  - name: STR_SNAKEMAN_CORPSE
+    cutscene: snakeman.dead
+  - name: STR_ANDROMEDON_CORPSE
+    cutscene: andromedon.dead
+  - name: STR_MUTON
+    cutscene: muton.live
+  - name: STR_MUTON_CORPSE
+    cutscene: muton.dead
+  - name: STR_BERSERKER
+    cutscene: berserker.live
+  - name: STR_BERSERKER_CORPSE
+    cutscene: berserker.dead
+  - name: STR_CHRYSSALID_CORPSE
+    cutscene: chryssalid.dead
+  - name: STR_CYBERDISC_CORPSE
+    cutscene: cyberdisc.dead
+  - name: STR_MUTON_ELITE
+    cutscene: muton.elite.live
+  - name: STR_MUTON_ELITE_CORPSE
+    cutscene: muton.elite.dead
+  - name: STR_ETHEREAL
+    cutscene: ethereal.live
+  - name: STR_ETHEREAL_CORPSE
+    cutscene: ethereal.dead
+  - name: STR_SECTOPOD_CORPSE
+    cutscene: sectopod.dead
   - name: STR_SNAKEMAN_AUTOPSY
     points: 50
     needItem: true
@@ -203,7 +233,7 @@ research:
     dependencies:
       - STR_WARDEN_ARMOR
       - STR_PSI_LAB
-  - name: STR_SKY_STRIKE_ARMOR # New Flying Suit
+  - name: STR_SKY_STRIKE_ARMOR # New ^lying Suit
     cost: 550
     points: 20
     dependencies:
@@ -329,7 +359,10 @@ research:
     dependencies:
       - STR_UFO_POWER_SOURCE
       - STR_UFO_NAVIGATION
-
+  - name: STR_ALIEN_WEAPON_USAGE
+    cost: 999
+    points: 10
+    needItem: true
 extraStrings:
   - type: en-US
     strings:

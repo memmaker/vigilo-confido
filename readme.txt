@@ -1,13 +1,13 @@
-X-Com with Classes
-------------------
+Vigilo Confido
+--------------
 
-A demake of the remakes.
+Survive. Adapt. Win.
 
 === Changes ===
 
  - 5 new soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
  - 500+ callsigns for each soldier class
- - ~50 new scripted abilities
+ - ~50 new scripted abilities with unique skills for each class
  - 200+ new voice files (Unit responsonse sounds)
  - 4+ new units (Cyber Floater, Thin Man, Berserker, Muton Elite)
  - 3 new weapon types in T1, T2 & T3 versions (Swords, Shotguns, Sniper Rifles)
@@ -106,27 +106,38 @@ T3 - Warden Armor   & Plasma Weapons
  - test new enemies
  - change sprite of combat experience commendation
  - Battle Focus costs for flying
- - Units to add: Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
+ - Units to add: Waspite?, Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
  - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - missing gremlin corpse?
  - balancing of stuff (item costs, armors, etc.)
  - Psi Class and everything Psi is not yet finished
  - Weapon specific crit chances and crit damage
- - Gene Lab & MECs?
- - New Mission Objectives?
  - Ufopedia entries (Grenades & Status Effects, Armors, Autopsies)
  - Economics
- - EU2012 Style Medi-Kits
+ - EU2012 Style Medi-Kits (And usages)
  - Passive Inventory Bonus Items (Scope, etc.)
  - Melee, Dodge, etc.
  - Complete research bonuses for corpses
  - Make sure medi-kits work with ablative armor
+ - flagByKills for experience indicator
+ - Why are some maps still dark?
+ - You could make a critically wounded soldier into a cyborg, instead of waiting for a month to recuperate.
+ - Reduce dealing of fatal wounds and apply increasing chances of bleeding out instead of instant death
+ - Test shredder and shred damage and the toArmor toArmorPre stuff
+ - Sword hit animation
+ - Make the Firestorm useful
 
-Vigilo Confido - "I am vigilant, and I believe."
+=== Out of Scope for 1.0 ===
+ - Base Facilities
+ - Crafts & Craft Weapons
+ - New Mission Objectives
+ - Gene Lab & MECs
+ - Cutscenes
+ - Storyline & Mission Structure
+
 "Bellator in Machina" - "Warrior in the machine"
-"Mutare ad custodiam" - We Change to Protect.
-Survive. Adapt. Win.
+"Mutare ad custodiam" - "We Change to Protect"
 
 hook wishlist
 missionBeginUnit -> Init unit before first turn

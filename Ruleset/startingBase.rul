@@ -1,3 +1,10 @@
+initialFunding: 16
+
+costHireScientist: 1000000
+costScientist: 10
+costHireEngineer: 1000000
+costEngineer: 10
+
 startingBase:
   facilities:
     - type: STR_ACCESS_LIFT
@@ -38,11 +45,18 @@ startingBase:
       fuel: 1500
       damage: 0
       items:
-        STR_GRENADE: 2
-        STR_PISTOL: 4
-        STR_PISTOL_CLIP: 8
-        STR_RIFLE: 4
-        STR_RIFLE_CLIP: 8
+        STR_GRENADE: 4
+        STR_SWORD: 2
+        STR_PISTOL: 2
+        STR_PISTOL_CLIP: 4
+        STR_RIFLE: 2
+        STR_RIFLE_CLIP: 4
+        STR_SHOTGUN: 2
+        STR_SHOTGUN_AMMO: 4
+        STR_SNIPER_RIFLE: 2
+        STR_SNIPER_RIFLE_CLIP: 4
+        STR_HEAVY_CANNON: 2
+        STR_HEAVY_CANNON_CLIP: 4
       status: STR_READY
     - type: STR_INTERCEPTOR
       id: 1
@@ -68,17 +82,10 @@ startingBase:
     STR_AVALANCHE_MISSILES: 10
     STR_CANNON: 2
     STR_CANNON_ROUNDS_X50: 5
-    STR_GRENADE: 6
-    STR_PISTOL: 2
-    STR_PISTOL_CLIP: 8
-    STR_RIFLE: 2
-    STR_RIFLE_CLIP: 8
-    STR_SWORD: 2
-    STR_SHOTGUN: 2
-    STR_SHOTGUN_AMMO: 8
-    STR_SNIPER_RIFLE: 2
-    STR_SNIPER_RIFLE_CLIP: 8
-    STR_HEAVY_CANNON: 2
-    STR_HEAVY_CANNON_CLIP: 8
+    STR_PISTOL_CLIP: 4
+    STR_RIFLE_CLIP: 4
+    STR_SHOTGUN_AMMO: 4
+    STR_SNIPER_RIFLE_CLIP: 4
+    STR_HEAVY_CANNON_CLIP: 4
   scientists: 10
   engineers: 10

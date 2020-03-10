@@ -3,58 +3,58 @@ facilities:
     spriteShape: 2
     spriteFacility: 17
     lift: true
-    buildCost: 300000
+    buildCost: 1000
     buildTime: 1
-    monthlyCost: 4000
+    monthlyCost: 500
     mapName: XBASE_00
   - type: STR_LIVING_QUARTERS
     spriteShape: 1
     spriteFacility: 18
-    buildCost: 400000
+    buildCost: 2000
     buildTime: 16
-    monthlyCost: 10000
+    monthlyCost: 850
     personnel: 50
     mapName: XBASE_01
   - type: STR_LABORATORY
     spriteShape: 1
     spriteFacility: 19
-    buildCost: 750000
+    buildCost: 4000
     buildTime: 26
-    monthlyCost: 30000
+    monthlyCost: 950
     labs: 10
     maxAllowedPerBase: 2
     mapName: XBASE_02
   - type: STR_WORKSHOP
     spriteShape: 1
     spriteFacility: 20
-    buildCost: 800000
+    buildCost: 4000
     buildTime: 32
-    monthlyCost: 35000
+    monthlyCost: 900
     workshops: 10
     maxAllowedPerBase: 2
     mapName: XBASE_03
   - type: STR_SMALL_RADAR_SYSTEM
     spriteShape: 2
     spriteFacility: 21
-    buildCost: 500000
+    buildCost: 5000
     buildTime: 12
-    monthlyCost: 10000
+    monthlyCost: 800
     radarRange: 1695
     radarChance: 10
     mapName: XBASE_04
   - type: STR_LARGE_RADAR_SYSTEM
     spriteShape: 1
     spriteFacility: 22
-    buildCost: 800000
+    buildCost: 8000
     buildTime: 25
-    monthlyCost: 15000
+    monthlyCost: 2500
     radarRange: 2577
     radarChance: 20
     mapName: XBASE_05
   - type: STR_MISSILE_DEFENSES
     spriteShape: 2
     spriteFacility: 23
-    buildCost: 200000
+    buildCost: 20000
     buildTime: 16
     monthlyCost: 5000
     defense: 500
@@ -65,17 +65,17 @@ facilities:
   - type: STR_GENERAL_STORES
     spriteShape: 1
     spriteFacility: 24
-    buildCost: 150000
+    buildCost: 2000
     buildTime: 10
-    monthlyCost: 5000
+    monthlyCost: 600
     storage: 50
     mapName: XBASE_07
   - type: STR_ALIEN_CONTAINMENT
     spriteShape: 1
     spriteFacility: 25
-    buildCost: 400000
+    buildCost: 9000
     buildTime: 18
-    monthlyCost: 15000
+    monthlyCost: 5000
     aliens: 10
     mapName: XBASE_08
   - type: STR_LASER_DEFENSES
@@ -164,8 +164,8 @@ facilities:
     spriteShape: 9
     spriteFacility: 9
     size: 2
-    buildCost: 200000
+    buildCost: 8000
     buildTime: 25
-    monthlyCost: 25000
+    monthlyCost: 1300
     crafts: 1
     mapName: XBASE_16

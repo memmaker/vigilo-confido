@@ -52,6 +52,9 @@ research:
 
 
 crafts:
+  - type: STR_INTERCEPTOR
+    costBuy: 3000
+    costRent: 1300
   - &STR_SKYRANGER
     type: STR_SKYRANGER
     requires:
@@ -61,8 +64,8 @@ crafts:
     damageMax: 150
     speedMax: 760
     accel: 2
-    costBuy: 500000
-    costRent: 500000
+    costBuy: 2000
+    costRent: 1100
     forceShowInMonthlyCosts: false
     refuelRate: 50
     transferTime: 72

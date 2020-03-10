@@ -4,7 +4,25 @@ maxDarknessToSeeUnits: 15
 constants:
   damageRange: 20
   explosiveDamageRange: 10
-  fireDamageRange: [5, 10]
+  fireDamageRange: [10, 20]
+
+difficultyCoefficient: [0, 1, 2, 3, 4]
+defeatFunds: -1000
+defeatScore: -900
+aimAndArmorMultipliers: [1.0, 1.0, 1.0, 1.0, 1.0]
+
+statGrowthMultipliers:
+  tu: 4
+  stamina: 4
+  health: 0
+  bravery: 0
+  reactions: 6
+  firing: 6
+  throwing: 0
+  strength: 2
+  psiStrength: 4
+  psiSkill: 4
+  melee: 4
 
 bughuntMinTurn: 16
 bughuntMaxEnemies: 2
@@ -16,7 +34,7 @@ ai:
   useDelayFirearm: 2
   useDelayGrenade: 2
   useDelayMelee: 1
-  useDelayPsionic: 2
+  useDelayPsionic: 4
 
 extended:
   tags:

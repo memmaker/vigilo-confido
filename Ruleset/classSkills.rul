@@ -236,6 +236,15 @@ fixedUserOptions:
   battleUFOExtenderAccuracy: true
   battleInstantGrenade: true
   alienBleeding: true
+  allowBuildingQueue: true
+  retainCorpses: true
+  anytimePsiTraining: true
+
+  canTransferCraftsWhileAirborne: true
+#  customInitialBase: true
+
+statisticalBulletConservation: true
+tuRecoveryWakeUpNewTurn: 55
 
 enableUnitResponseSounds: true
 unitResponseSoundsFrequency: [50, 50, 50, 20]
@@ -841,8 +850,8 @@ soldiers:
       - STR_CONCEAL
       - STR_RAPID_FIRE
       - STR_REAPER
-    costBuy: 50000
-    costSalary: 50000
+    costBuy: 400
+    costSalary: 200
     value: 30
     minStats:
       tu: 50
@@ -928,8 +937,8 @@ soldiers:
       - STR_WAR_CRY
       - STR_RAGE_BURST
       - STR_RUPTURE
-    costBuy: 50000
-    costSalary: 50000
+    costBuy: 400
+    costSalary: 200
     value: 30
     minStats:
       tu: 45
@@ -1014,8 +1023,8 @@ soldiers:
       - STR_DISABLING_SHOT  # default, no damage, disable weapon of target
       - STR_DOUBLE_TAP     # X default, fire two shots
       - STR_SERIAL
-    costBuy: 50000
-    costSalary: 50000
+    costBuy: 400
+    costSalary: 200
     value: 30
     minStats:
       tu: 50
@@ -1093,8 +1102,8 @@ soldiers:
       - STR_COMBAT_PROTOCOL
       - STR_INTERFERENCE
       - STR_ELECTRIC_REINFORCEMENT
-    costBuy: 50000
-    costSalary: 50000
+    costBuy: 400
+    costSalary: 200
     value: 30
     minStats:
       tu: 50
@@ -1170,8 +1179,8 @@ soldiers:
       - STR_PSI_LAB
     tags:
       CLASS: 5
-    costBuy: 50000
-    costSalary: 50000
+    costBuy: 400
+    costSalary: 200
     value: 30
     minStats:
       tu: 45
@@ -1715,6 +1724,22 @@ extended:
               unit.setTag Tag.REINFORCED 0;
               unit.setTag Tag.VIS_EFFECT 0;
             end;
+          end;
+          return;
+      - offset: 36   # for Combat Information
+        code: |
+          var int has_basic_combat_information;
+          var ptr RuleSoldier soldier_rule;
+          var int has_advanced_combat_information;
+          var int current_info_level;
+
+          unit.getRuleSoldier soldier_rule;
+
+          soldier_rule.getTag has_basic_combat_information Tag.BASIC_COMBAT_INFORMATION;
+          battle_game.getTag current_info_level Tag.COMBAT_INFORMATION_LEVEL;
+
+          if and gt has_basic_combat_information 0 lt current_info_level 1;
+            battle_game.setTag Tag.COMBAT_INFORMATION_LEVEL 1;
           end;
           return;
     hitUnit:
@@ -2798,7 +2823,6 @@ extended:
           var int has_guardian;
           var int has_electric_reinforcement;
           var ptr RuleSoldier soldier_rule;
-          var int has_basic_combat_information;
           var int has_advanced_combat_information;
           var int current_info_level;
 
@@ -2916,17 +2940,11 @@ extended:
             unit.setTag Tag.ELECTRIC_REINFORCEMENT_STATE 1;
           end;
 
-          # special handling for combat information
-          soldier_rule.getTag has_basic_combat_information Tag.BASIC_COMBAT_INFORMATION;
-          soldier_bonus.getTag has_advanced_combat_information Tag.ADVANCED_COMBAT_INFORMATION;
           save_game.getTag current_info_level Tag.COMBAT_INFORMATION_LEVEL;
-
+          soldier_bonus.getTag has_advanced_combat_information Tag.ADVANCED_COMBAT_INFORMATION;
           if and gt has_advanced_combat_information 0 lt current_info_level 2;
             save_game.setTag Tag.COMBAT_INFORMATION_LEVEL 2;
-          else and gt has_basic_combat_information 0 lt current_info_level 1;
-            save_game.setTag Tag.COMBAT_INFORMATION_LEVEL 1;
           end;
-
           return;
 
 ufopaedia:

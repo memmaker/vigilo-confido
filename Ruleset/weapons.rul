@@ -134,8 +134,8 @@ items:
   - delete: STR_HIGH_EXPLOSIVE
   - type: STR_GRENADE
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
-    costBuy: 0
-    costSell: 840
+    costBuy: 1000
+    costSell: 0
     power: 30
     damageAlter:
       ToArmor: 0
@@ -170,6 +170,8 @@ items:
     tags:
       GUN_TYPE: 1
       RUPTURE_DAMAGE: 10
+    costBuy: 200
+    costSell: 0
     tuSnap: 40
     tuAimed: 51
     tuAuto: 0
@@ -183,6 +185,8 @@ items:
   - type: STR_PISTOL_CLIP
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     power: 30
+    costBuy: 20
+    costSell: 0
     clipSize: 12
     damageAlter:
       ToArmor: 0
@@ -191,9 +195,11 @@ items:
     tags:
       GUN_TYPE: 2
       RUPTURE_DAMAGE: 5
+    costBuy: 250
+    costSell: 0
     twoHanded: true
     oneHandedPenalty: 95
-    tuSnap: 51
+    tuSnap: 50
     tuAimed: 60
     tuAuto: 0
     accuracySnap: 70
@@ -211,6 +217,8 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     power: 13
     clipSize: 20
+    costBuy: 25
+    costSell: 0
     damageAlter:
       ToArmor: 0
       ArmorEffectiveness: 0.3
@@ -220,12 +228,13 @@ items:
       RUPTURE_DAMAGE: 20
     listOrder: 1850
     size: 0.2
-    costBuy: 1000
-    costSell: 800
+    costBuy: 200
+    costSell: 0
     weight: 4
     bigSprite: 200
     floorSprite: 200
     handSprite: 256
+    meleeAnimation: 103
     power: 40
     strengthApplied: true
     damageType: 7
@@ -249,12 +258,13 @@ items:
     requiresBuy:
       - STR_LASER_WEAPONS
     size: 0.2
-    costBuy: 10000
-    costSell: 8000
+    costBuy: 1000
+    costSell: 800
     weight: 4
     bigSprite: 201
     floorSprite: 201
     handSprite: 264
+    meleeAnimation: 104
     power: 50
     strengthApplied: true
     damageType: 4
@@ -278,12 +288,13 @@ items:
     requiresBuy:
       - STR_PLASMA_WEAPONS
     size: 0.2
-    costBuy: 15000
-    costSell: 12000
+    costBuy: 4000
+    costSell: 3000
     weight: 4
     bigSprite: 202
     floorSprite: 202
     handSprite: 272
+    meleeAnimation: 105
     power: 60
     strengthApplied: true
     damageType: 5
@@ -305,8 +316,8 @@ items:
       RUPTURE_DAMAGE: 20
     listOrder: 2250
     size: 0.2
-    costBuy: 2200
-    costSell: 1800
+    costBuy: 560
+    costSell: 0
     weight: 6
     bigSprite: 205
     floorSprite: 205
@@ -342,7 +353,7 @@ items:
     listOrder: 2251
     size: 0.1
     costBuy: 50
-    costSell: 40
+    costSell: 0
     weight: 3
     bigSprite: 207
     floorSprite: 206
@@ -366,8 +377,8 @@ items:
       RUPTURE_DAMAGE: 15
     listOrder: 2300
     size: 0.3
-    costBuy: 12000
-    costSell: 5500
+    costBuy: 820
+    costSell: 0
     weight: 9
     bigSprite: 208
     floorSprite: 207
@@ -401,8 +412,8 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 2301
     size: 0.1
-    costBuy: 250
-    costSell: 160
+    costBuy: 80
+    costSell: 0
     weight: 4
     bigSprite: 209
     floorSprite: 208
@@ -422,8 +433,8 @@ items:
       RUPTURE_DAMAGE: 5
     listOrder: 2400
     size: 0.8
-    costBuy: 15000
-    costSell: 9500
+    costBuy: 1200
+    costSell: 0
     weight: 23
     bigSprite: 203
     floorSprite: 203
@@ -457,8 +468,8 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 2401
     size: 0.3
-    costBuy: 200
-    costSell: 150
+    costBuy: 100
+    costSell: 0
     weight: 6
     bigSprite: 204
     floorSprite: 204
@@ -536,7 +547,7 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
-    tuSnap: 51
+    tuSnap: 50
     tuAimed: 60
     tuAuto: 0
     accuracySnap: 70
@@ -790,7 +801,7 @@ items:
     accuracySnap: 86
     accuracyAimed: 100
     tuAuto: 0
-    tuSnap: 51
+    tuSnap: 50
     tuAimed: 60
     snapRange: 12
     aimRange: 16

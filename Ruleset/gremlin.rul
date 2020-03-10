@@ -67,8 +67,8 @@ items:
 
   - type: STR_GREMLIN
     size: 6
-    costSell: 3800
-    costBuy: 250000
+    costSell: 8800
+    costBuy: 10000
     transferTime: 96
     weight: 1
     bigSprite: 253

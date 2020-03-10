@@ -289,7 +289,7 @@ items:
     costSell: 40000
     listOrder: 15051
   - type: STR_THIN_MAN_CORPSE
-    costSell: 20000
+    costSell: 70
     size: 0.4
     weight: 25
     bigSprite: 410
@@ -308,7 +308,7 @@ items:
     costSell: 65000
   - type: STR_MUTON_BERSERKER_CORPSE
     size: 0.4
-    costSell: 20000
+    costSell: 350
     weight: 20
     bigSprite: 809
     floorSprite: 809
@@ -324,7 +324,7 @@ items:
     costSell: 65000
   - type: STR_MUTON_ELITE_CORPSE
     size: 0.4
-    costSell: 20000
+    costSell: 600
     weight: 20
     bigSprite: 810
     floorSprite: 810
@@ -356,6 +356,7 @@ items:
     specialUseEmptyHand: true
   - type: STR_ANDROMEDON_CORPSE
     weight: 26
+    costSell: 250
     bigSprite: 380
     floorSprite: 380
     invWidth: 2
@@ -490,3 +491,7 @@ extraStrings:
       STR_ANDROMEDON_TERRORIST: Andromedon
       STR_ANDROMEDON_SHELL: Andromedon Shell
       STR_ANDROMEDON_CORPSE: Andromedon Corpse
+      STR_THIN_MAN_AUTOPSY: Thin Man autopsy
+      STR_BERSERKER_AUTOPSY: Berserker autopsy
+      STR_MUTON_ELITE_AUTOPSY: Muton Elite autopsy
+      STR_ANDROMEDON_AUTOPSY: Andromedon autopsy

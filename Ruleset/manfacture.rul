@@ -13,24 +13,28 @@ manufacture:
   - delete: STR_MIND_PROBE
   - delete: STR_BLASTER_LAUNCHER
   - delete: STR_BLASTER_BOMB
+  - name: STR_SCOPE
+    space: 0
+    time: 120
+    cost: 200
   - name: STR_NANO_MEDI_KIT
     requires:
       - STR_NANO_MEDI_KIT
-    space: 6
+    space: 0
     time: 500
-    cost: 160000
+    cost: 16000
   - name: STR_NANOSCALE_VEST
     category: STR_PASSIVE_BONUS_ITEMS
     requires:
       - STR_NANOSCALE_VEST
-    space: 6
+    space: 0
     time: 500
-    cost: 160000
+    cost: 2200
   - name: STR_ALIEN_PSI_AMP
     category: STR_EQUIPMENT
     requires:
       - STR_ALIEN_PSI_AMP
-    space: 6
+    space: 0
     time: 500
     cost: 160000
     requiredItems:
@@ -39,7 +43,7 @@ manufacture:
   - name: STR_SKULLJACK
     listOrder: 50
     category: STR_EQUIPMENT
-    space: 8
+    space: 0
     time: 150
     cost: 20000
     requires:
@@ -50,14 +54,14 @@ manufacture:
     category: STR_EQUIPMENT
     requires:
       - STR_PSI_LAB
-    space: 6
+    space: 0
     time: 500
     cost: 160000
     requiredItems:
       STR_ELERIUM_115: 1
   - name: STR_THIN_MAN_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -68,7 +72,7 @@ manufacture:
       STR_GAS_GRENADE: 1
   - name: STR_REAPER_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -79,7 +83,7 @@ manufacture:
       STR_FLASHBANG_GRENADE: 1
   - name: STR_ANDROMEDON_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -90,7 +94,7 @@ manufacture:
       STR_ACID_GRENADE: 1
   - name: STR_CYBERDISC_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -101,7 +105,7 @@ manufacture:
       STR_EMP_GRENADE: 1
   - name: STR_MUTON_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -112,7 +116,7 @@ manufacture:
       STR_PROXIMITY_GRENADE: 1
   - name: STR_BERSERKER_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -123,7 +127,7 @@ manufacture:
       STR_HELLWEAVE: 1
   - name: STR_ETHEREAL_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -134,7 +138,7 @@ manufacture:
       STR_PERSONAL_MIND_SHIELD: 1
   - name: STR_CHRYSSALID_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -145,7 +149,7 @@ manufacture:
       STR_MIMIC_BEACON: 1
   - name: STR_MUTON_ELITE_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -156,7 +160,7 @@ manufacture:
       STR_FREEZE_GRENADE: 1
   - name: STR_SECTOPOD_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
-    space: 5
+    space: 0
     time: 120
     cost: 15000
     requires:
@@ -169,10 +173,12 @@ manufacture:
   - name: STR_EXPERIMENTAL_ARMOR
     listOrder: 2
     category: STR_EXPERIMENTAL_PROJECTS
-    space: 10
+    space: 0
     time: 160
-    cost: 15000
+    cost: 8000
     producedItems: {} # override default product
+    requiredItems:
+      STR_ALIEN_ALLOYS: 2
     randomProducedItems:
       -
         - 30
@@ -185,9 +191,9 @@ manufacture:
         - STR_PLATED_VEST: 1
   - name: STR_SKY_STRIKE_ARMOR
     category: STR_PERSONAL_ARMOR
-    space: 20
+    space: 0
     time: 360
-    cost: 230000
+    cost: 23000
     requires:
       - STR_SKY_STRIKE_ARMOR
     producedItems:

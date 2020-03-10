@@ -1,0 +1,181 @@
+musics:
+  - type: INTRO
+  - type: GMTACTIC
+  - type: GMTACTIC2
+  - type: GMTACTIC3
+  - type: GMTACTIC4
+  - type: GMTACTIC5
+  - type: GMTACTIC6
+  - type: GMTACTIC7
+  - type: sectoid.live
+  - type: sectoid.dead
+  - type: thin.man.live
+  - type: thin.man.dead
+  - type: snakeman.dead
+  - type: floater.live
+  - type: floater.dead
+  - type: muton.live
+  - type: muton.dead
+  - type: berserker.live
+  - type: berserker.dead
+  - type: chryssalid.dead
+  - type: cyberdisc.dead
+  - type: andromedon.dead
+  - type: muton.elite.live
+  - type: muton.elite.dead
+  - type: ethereal.live
+  - type: ethereal.dead
+  - type: psi.sectoid.dead
+  - type: sectopod.dead
+  - type: hyperwave.decoder
+  - type: firestorm
+  - type: base.defense
+  - type: base.defense.fail
+  - type: base.defense.success
+
+cutscenes:
+  - delete: intro
+  - type: intro
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/INTRO.fli
+    audioTracks:
+      - INTRO
+  - type: sectoid.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/sectoid.live.fli
+    audioTracks:
+      - sectoid.live
+  - type: sectoid.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/sectoid.dead.fli
+    audioTracks:
+      - sectoid.dead
+  - type: thin.man.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/thin.man.live.fli
+    audioTracks:
+      - thin.man.live
+  - type: thin.man.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/thin.man.dead.fli
+    audioTracks:
+      - thin.man.dead
+  - type: floater.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/floater.live.fli
+    audioTracks:
+      - floater.live
+  - type: floater.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/floater.dead.fli
+    audioTracks:
+      - floater.dead
+  - type: muton.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/muton.live.fli
+    audioTracks:
+      - muton.live
+  - type: muton.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/muton.dead.fli
+    audioTracks:
+      - muton.dead
+  - type: berserker.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/berserker.live.fli
+    audioTracks:
+      - berserker.live
+  - type: berserker.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/berserker.dead.fli
+    audioTracks:
+      - berserker.dead
+  - type: chryssalid.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/chryssalid.dead.fli
+    audioTracks:
+      - chryssalid.dead
+  - type: cyberdisc.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/cyberdisc.dead.fli
+    audioTracks:
+      - cyberdisc.dead
+  - type: muton.elite.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/muton.elite.live.fli
+    audioTracks:
+      - muton.elite.live
+  - type: muton.elite.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/muton.elite.dead.fli
+    audioTracks:
+      - muton.elite.dead
+  - type: psi.sectoid.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/psi.sectoid.dead.fli
+    audioTracks:
+      - psi.sectoid.dead
+  - type: snakeman.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/snakeman.dead.fli
+    audioTracks:
+      - snakeman.dead
+  - type: andromedon.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/andromedon.dead.fli
+    audioTracks:
+      - andromedon.dead
+  - type: sectopod.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/sectopod.dead.fli
+    audioTracks:
+      - sectopod.dead
+  - type: firestorm
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/firestorm.fli
+    audioTracks:
+      - firestorm
+  - type: hyperwave.decoder
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/hyperwave.decoder.fli
+    audioTracks:
+      - hyperwave.decoder
+  - type: base.defense
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/base.defense.fli
+    audioTracks:
+      - base.defense
+  - type: base.defense.success
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/base.defense.success.fli
+    audioTracks:
+      - base.defense.success
+  - type: base.defense.fail
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/base.defense.fail.fli
+    audioTracks:
+      - base.defense.fail

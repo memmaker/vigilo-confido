@@ -15,8 +15,8 @@ items:
   - &STR_PERSONAL_ARMOR
     type: STR_PERSONAL_ARMOR
     categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]
-    costBuy: 11000
-    costSell: 12500
+    costBuy: 250
+    costSell: 200
   - &STR_PREDATOR_ARMOR
     type: STR_PREDATOR_ARMOR
     categories: [STR_SOLDIER_GEAR, STR_ARMOR_CATEGORY]

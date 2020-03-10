@@ -2,9 +2,9 @@ facilities:
   - type: STR_TRAINING_ROOM
     spriteShape: 1
     spriteFacility: 56
-    buildCost: 600000
+    buildCost: 2200
     buildTime: 20
-    monthlyCost: 10000
+    monthlyCost: 1000
     trainingRooms: 16
     mapName: XBASE_22
 terrains:

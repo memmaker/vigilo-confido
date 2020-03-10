@@ -502,11 +502,7 @@ items:
   - type: STR_SCOPE
     tags:
       ACCURACY_BONUS: 10
-    requires:
-      - STR_SCOPE
-    requiresBuy:
-      - STR_SCOPE
-    costBuy: 2000
+    costBuy: 0
     costSell: 1000
     size: 0.1
     weight: 3
@@ -568,15 +564,11 @@ items:
     invHeight: 3
     supportedInventorySections: [STR_BACK_PACK]
   - type: STR_NANOSCALE_VEST
-    requires:
-      - STR_NANOSCALE_VEST
-    requiresBuy:
-      - STR_NANOSCALE_VEST
     tags:
       ABLATIVE_ITEM_BONUS: 10
     size: 0.1
-    costBuy: 110000
-    costSell: 94000
+    costBuy: 0
+    costSell: 1400
     weight: 5
     bigSprite: 522
     floorSprite: 522
@@ -802,20 +794,48 @@ items:
                          #    1: Enemy faction
                          #    2: Civilian faction
   - type: STR_SMOKE_GRENADE
-    requires:
-      - STR_SMOKE_GRENADE
-    requiresBuy:
-      - STR_SMOKE_GRENADE
+    costBuy: 800
+    costSell: 650
+    damageAlter:
+      FixRadius: 3
   - type: STR_PROXIMITY_GRENADE
+    costBuy: 850
+    costSell: 750
+    damageAlter:
+      FixRadius: 3
     requires:
       - STR_PROXIMITY_GRENADE
     requiresBuy:
       - STR_PROXIMITY_GRENADE
   - type: STR_ELECTRO_FLARE
-    requires:
-      - STR_ELECTRO_FLARE
-    requiresBuy:
-      - STR_ELECTRO_FLARE
+    costBuy: 300
+    costSell: 230
+  - type: STR_STINGRAY_LAUNCHER
+    costBuy: 600
+    costSell: 0
+  - type: STR_STINGRAY_MISSILES
+    costBuy: 50
+    costSell: 0
+  - type: STR_AVALANCHE_LAUNCHER
+    costBuy: 800
+    costSell: 0
+  - type: STR_AVALANCHE_MISSILES
+    costBuy: 100
+    costSell: 0
+  - type: STR_CANNON
+    costBuy: 550
+    costSell: 0
+  - type: STR_CANNON_ROUNDS_X50
+    costBuy: 30
+    costSell: 0
+  - type: STR_FUSION_BALL_LAUNCHER
+    costSell: 0
+  - type: STR_FUSION_BALL
+    costSell: 0
+  - type: STR_LASER_CANNON
+    costSell: 0
+  - type: STR_PLASMA_BEAM
+    costSell: 0
 
 extraSprites:
   - type: BIGOBS.PCK
@@ -989,6 +1009,7 @@ extraStrings:
       STR_EQUIPMENT: Misc. Equipment
       STR_EXPERIMENTAL_PROJECTS: Experimental Projects
       STR_ARMOR_MODIFICATIONS: Armor Modifications
+      STR_PASSIVE_BONUS_ITEMS: Utility
       STR_DISASSEMBLY: Disassembly
       STR_TECHNOLOGY_EXTRACTION: Corpse Repurposing
       STR_EXPLOSIVES: Explosives

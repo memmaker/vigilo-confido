@@ -1,3 +1,4 @@
+
 ufopaedia:
   - id: STR_PSI_AMP
     type_id: 4
@@ -13,3 +14,243 @@ ufopaedia:
       - STR_ALIEN_PSI_AMP
     text: STR_ALIEN_PSI_AMP_UFOPEDIA
     listOrder: 4510
+  - id: STR_NANOSCALE_VEST
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_NANOSCALE_VEST_CPAL
+    text: STR_NANOSCALE_VEST_UFOPEDIA
+    text_width: 158
+  - id: STR_HAZMAT_VEST
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_HAZMAT_VEST_CPAL
+    text: STR_HAZMAT_VEST_UFOPEDIA
+    text_width: 158
+  - id: STR_STASIS_VEST
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_STASIS_VEST_CPAL
+    text: STR_STASIS_VEST_UFOPEDIA
+    text_width: 158
+  - id: STR_PLATED_VEST
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_PLATED_VEST_CPAL
+    text: STR_PLATED_VEST_UFOPEDIA
+    text_width: 158
+  - id: STR_HELLWEAVE
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_HELLWEAVE_CPAL
+    text: STR_HELLWEAVE_UFOPEDIA
+    text_width: 158
+  - id: STR_MIMIC_BEACON
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_MIMIC_BEACON_CPAL
+    text: STR_MIMIC_BEACON_UFOPEDIA
+    text_width: 130
+  - id: STR_BLUESCREEN_ROUNDS
+    type_id: 7
+    section: STR_WEAPONS_AND_EQUIPMENT
+    image_id: UFOPAEDIA_IMG_BLUESCREEN_ROUNDS_CPAL
+    text: STR_BLUESCREEN_ROUNDS_UFOPEDIA
+    text_width: 158
+  - id: STR_SECTOID
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_SECTOID
+    image_id: UFOPAEDIA_IMG_SECTOID_CPAL
+    text: STR_SECTOID_UFOPEDIA
+    text_width: 160
+  - id: STR_THIN_MAN
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_THIN_MAN
+    image_id: UFOPAEDIA_IMG_THIN_MAN_CPAL
+    text: STR_THIN_MAN_UFOPEDIA
+    text_width: 122
+  - id: STR_FLOATER
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_FLOATER
+    image_id: UFOPAEDIA_IMG_FLOATER_CPAL
+    text: STR_FLOATER_UFOPEDIA
+    text_width: 122
+  - id: STR_MUTON
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_MUTON
+    image_id: UFOPAEDIA_IMG_MUTON_CPAL
+    text: STR_MUTON_UFOPEDIA
+    text_width: 120
+  - id: STR_CHRYSSALID
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_CHRYSSALID
+    image_id: UFOPAEDIA_IMG_CHRYSSALID_CPAL
+    text: STR_CHRYSSALID_UFOPEDIA
+    text_width: 105
+  - id: STR_CYBERDISC
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_CYBERDISC
+    image_id: UFOPAEDIA_IMG_CYBERDISC_CPAL
+    text: STR_CYBERDISC_UFOPEDIA
+    text_width: 310
+  - id: STR_SNAKEMAN
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_SNAKEMAN
+    image_id: UFOPAEDIA_IMG_SNAKEMAN_CPAL
+    text: STR_SNAKEMAN_UFOPEDIA
+    text_width: 145
+  - id: STR_ANDROMEDON
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_ANDROMEDON
+    image_id: UFOPAEDIA_IMG_ANDROMEDON_CPAL
+    text: STR_ANDROMEDON_UFOPEDIA
+    text_width: 135
+  - id: STR_MUTON_BERSERKER
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_MUTON_BERSERKER
+    image_id: UFOPAEDIA_IMG_BERSERKER_CPAL
+    text: STR_BERSERKER_UFOPEDIA
+    text_width: 135
+  - id: STR_ETHEREAL
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_ETHEREAL
+    image_id: UFOPAEDIA_IMG_ETHEREAL_CPAL
+    text: STR_ETHEREAL_UFOPEDIA
+    text_width: 160
+extraStrings:
+  - type: en-US
+    strings:
+      STR_NANOSCALE_VEST_UFOPEDIA: "A light armor underlay derived from a prototype armor. This vest can be worn with all X-Com armor to increase soldier health."
+      STR_THIN_MAN_UFOPEDIA: "Although at first glance they resemble the human form, and are trained to communicate in a range of terrestrial languages, this specimen is far from human. Aside from its primary role as a reconnaissance and infiltration specialist, the Thin Man also proved to be quite familiar with the alien's navigation systems and celestial cartography."
+      STR_ANDROMEDON_UFOPEDIA: "Encased in an environment-sealed Battlesuit, the Andromedon is a tough enemy that is immune to fire, poison and acid damage. The Battlesuit allows it to sustain great amounts of damage and deliver devastating, albeit inaccurate, melee attacks. Otherwise it wields a heavy plasma cannon, and can launch its deadly suit coolant at grouped targets. Furthermore, when the pilot is killed, the Battlesuit itself reactivates and begins autonomously charging into melee, laying a trail of deadly coolant in its wake."
+      STR_BERSERKER_UFOPEDIA: "This captive was even more violent and aggressive than we expected, exceeding the previous limit established by the Floater and Muton species. Despite heavy sedation, it was virtually impossible to control the subject, leaving us with little recourse other than to increase the vigor of our tactics. After probing several regions of the captive's brain, we managed to find the appropriate stimulus to calm the beast, after which we put the captive through a number of controlled physical tests."
+      STR_MUTON_UFOPEDIA: "This humanoid creature is physically powerful and intelligent. They have a particular appetite for consuming raw flesh of any kind, which they need for sustenance like earth based carnivores. The cybernetic implants are used to enhance their combat performance. They are clearly the foot soldiers for a higher intelligence."
+      STR_CHRYSSALID_UFOPEDIA: "The crab-like claws of this creature are a powerful weapon in close combat. The high metabolism and strength of this creature give it speed and dexterity. Instead of killing its victim it impregnates it with an egg and injects a venom which turns it into a walking zombie. A new Chryssalid will burst from the victim shortly after impregnation."
+      STR_HAZMAT_VEST_UFOPEDIA: "By reinforcing the Nanoscale Vest with specialized materials, soldiers gain an addition health boost and are completely resistant to any environmental hazards like fire, acid or poison."
+      STR_PLATED_VEST_UFOPEDIA: "Shen has outfitted the traditional Nanoscale Vest with armor plating, providing an increased health boost and and additional armor protection from enemy attacks."
+      STR_STASIS_VEST_UFOPEDIA: "This upgraded Nanoscale Vest grants additional health to a soldier, and its built-in Medikit IV will automatically restore health to wounded soldiers."
+      STR_HELLWEAVE_UFOPEDIA: "Hellweave not only grants a bonus to soldier health, but will return damage to any melee attackers."
+      STR_MIMIC_BEACON_UFOPEDIA: "The mimic beacon generates a holographic decoy to draw enemy attacks for one turn. It is deployed like a grenade, thrown to the site where the decoy will appear."
+      STR_BLUESCREEN_ROUNDS_UFOPEDIA: "Named for an inexplicable computing phenomenon common before the war, Bluescreen Rounds wreak havoc on targeted electronic systems."
+extraSprites:
+  - type: UFOPAEDIA_IMG_MUTON_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_muton_new.png
+  - type: UFOPAEDIA_IMG_SECTOID_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_sectoid_new.png
+  - type: UFOPAEDIA_IMG_THIN_MAN_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_thinman_new.png
+  - type: UFOPAEDIA_IMG_FLOATER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_floater_new.png
+  - type: UFOPAEDIA_IMG_CHRYSSALID_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_chryssalid_new.png
+  - type: UFOPAEDIA_IMG_CYBERDISC_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_cyberdisc_new.png
+  - type: UFOPAEDIA_IMG_SNAKEMAN_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_snakeman_new.png
+  - type: UFOPAEDIA_IMG_ANDROMEDON_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_andromedon_new.png
+  - type: UFOPAEDIA_IMG_BERSERKER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_berserker_new.png
+  - type: UFOPAEDIA_IMG_ETHEREAL_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_ethereal_new.png
+  - type: UFOPAEDIA_IMG_NANOSCALE_VEST_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/nanoscale.png
+  - type: UFOPAEDIA_IMG_HELLWEAVE_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/hellweave.png
+  - type: UFOPAEDIA_IMG_HAZMAT_VEST_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/hazmat_vest.png
+  - type: UFOPAEDIA_IMG_STASIS_VEST_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/stasis_vest.png
+  - type: UFOPAEDIA_IMG_PLATED_VEST_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/plated_vest.png
+  - type: UFOPAEDIA_IMG_MIMIC_BEACON_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/mimic_beacon.png
+  - type: UFOPAEDIA_IMG_BLUESCREEN_ROUNDS_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/bluescreen_rounds.png

@@ -41,6 +41,7 @@ missionScripts:
         STR_ALIEN_TERROR: 100
     useTable: false
     startDelay: 150
+    firstMonth: 1
 
   - type: recon
     firstMonth: 1
@@ -1588,10 +1589,13 @@ alienDeployments:
     terrains:
       - XBASE
     shade: 5
+    winCutscene: base.defense.success
+    loseCutscene: base.defense.fail
     briefing:
       palette: 0
       background: BACK01.SCR
       music: GMENBASE
+      cutscene: base.defense
   - type: STR_MARS_CYDONIA_LANDING
     data:
       - alienRank: 5
@@ -2181,7 +2185,7 @@ armors:
 items:
   - type: STR_ALIEN_ALLOYS
     size: 0.1
-    costSell: 6500
+    costSell: 90
     specialType: 10
     recoveryPoints: 1
     recoveryDividers:
@@ -2189,7 +2193,7 @@ items:
       STR_OTHER: 150
   - type: STR_ELERIUM_115
     size: 0.1
-    costSell: 5000
+    costSell: 140
     weight: 3
     bigSprite: 56
     floorSprite: 37
@@ -2198,7 +2202,14 @@ items:
     recoveryDividers:
       STR_UFO: 50
     recoveryPoints: 5
+  - type: STR_SECTOID_CORPSE
+    costSell: 70
+  - type: STR_UFO_POWER_SOURCE
+    costSell: 2200
+  - type: STR_UFO_NAVIGATION
+    costSell: 1350
   - type: STR_LASER_PISTOL
+    requires: [STR_ALIEN_WEAPON_USAGE]
     power: 20  # vanilla: 46
     tuAimed: 45
     tuSnap: 35 # vanilla: 20
@@ -2219,6 +2230,7 @@ items:
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_LASER_RIFLE
+    requires: [STR_ALIEN_WEAPON_USAGE]
     power: 30  # vanilla: 60
     tuAimed: 60
     tuSnap: 51 # vanilla: 25
@@ -2238,7 +2250,10 @@ items:
     fuseType: 0              # 0 turn timer
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
+  - type: STR_HEAVY_LASER
+    requires: [STR_ALIEN_WEAPON_USAGE]
   - type: STR_PLASMA_PISTOL
+    requires: [STR_ALIEN_WEAPON_USAGE]
     power: 50  # vanilla: 52
     tuAuto: 0 # vanilla: 30
     tuSnap: 40  # vanilla: 30
@@ -2256,6 +2271,7 @@ items:
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_PLASMA_RIFLE
+    requires: [STR_ALIEN_WEAPON_USAGE]
     power: 65  # vanilla: 80
     tuSnap: 51 # vanilla: 30
     tuAuto: 0 # vanilla: 36
@@ -2273,6 +2289,7 @@ items:
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
   - type: STR_HEAVY_PLASMA
+    requires: [STR_ALIEN_WEAPON_USAGE]
     power: 100 # vanilla: 115
     tuSnap: 51 # vanilla: 30
     tuAuto: 0 # vanilla: 35
@@ -2305,10 +2322,11 @@ items:
       ToArmor: 0
   - type: CHRYSSALID_WEAPON
     strengthApplied: true
-    accuracyMelee: 100
+    accuracyMelee: 90
     tuMelee: 50
     flatRate: false
     zombieUnit: STR_ZOMBIE
+    meleeAnimation: 100
     damageAlter:
       ToArmor: 0
   - type: SECTOPOD_WEAPON
@@ -2393,7 +2411,7 @@ units:
     stats:
       tu: 110
       stamina: 140
-      health: 110
+      health: 80
       bravery: 100
       reactions: 70
       firing: 0
@@ -2418,9 +2436,9 @@ units:
       melee: 80
   - type: STR_ZOMBIE
     stats:
-      tu: 40
+      tu: 32
       stamina: 110
-      health: 90
+      health: 10
       bravery: 110
       reactions: 40
       firing: 0

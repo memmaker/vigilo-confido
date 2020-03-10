@@ -1,0 +1,51 @@
+countries:
+  - type: STR_USA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_RUSSIA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_UK
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_FRANCE
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_GERMANY
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_ITALY
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_SPAIN
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_CHINA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_JAPAN
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_INDIA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_BRAZIL
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_AUSTRALIA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_NIGERIA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_SOUTH_AFRICA
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_EGYPT
+    fundingBase: 1
+    fundingCap: 4
+  - type: STR_CANADA
+    fundingBase: 1
+    fundingCap: 4
+    
+    

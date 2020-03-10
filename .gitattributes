@@ -1,0 +1,2 @@
+*.FLI filter=lfs diff=lfs merge=lfs -text
+*.OGG filter=lfs diff=lfs merge=lfs -text
