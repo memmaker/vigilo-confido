@@ -1,0 +1,6 @@
+.git/
+.git*
+.DS_Store
+TechTree*.*
+data.sheet.ods
+release.exclude
