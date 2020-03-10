@@ -3,13 +3,16 @@ Vigilo Confido
 
 Survive. Adapt. Win.
 
+A vanilla expansion for OXCE featuring content from EU2012 and others.
+
 === Changes ===
 
  - 5 new soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
  - 500+ callsigns for each soldier class
+ - 20+ cutscenes from the remakes
  - ~50 new scripted abilities with unique skills for each class
  - 200+ new voice files (Unit responsonse sounds)
- - 4+ new units (Cyber Floater, Thin Man, Berserker, Muton Elite)
+ - 5 new units (Cyber Floater, Thin Man, Berserker, Muton Elite, Andromedon)
  - 3 new weapon types in T1, T2 & T3 versions (Swords, Shotguns, Sniper Rifles)
  - Complete new graphics for all T2 & T3 weapons and armors
  - Complete rebalancing of all weapons, armors, units and deployments

@@ -1589,13 +1589,10 @@ alienDeployments:
     terrains:
       - XBASE
     shade: 5
-    winCutscene: base.defense.success
-    loseCutscene: base.defense.fail
     briefing:
       palette: 0
       background: BACK01.SCR
       music: GMENBASE
-      cutscene: base.defense
   - type: STR_MARS_CYDONIA_LANDING
     data:
       - alienRank: 5
@@ -1667,8 +1664,6 @@ alienDeployments:
     race: STR_CYDONIA_LANDING_CREW
     nextStage: STR_MARS_THE_FINAL_ASSAULT
     finalDestination: true
-    loseCutscene: loseGame
-    abortCutscene: loseGame
     briefing:
       textOffset: -16
       palette: 6
@@ -1824,9 +1819,6 @@ alienDeployments:
       - UBASE
     shade: 5
     race: STR_MIXED
-    winCutscene: winGame
-    loseCutscene: loseGame
-    abortCutscene: loseGame
     briefing:
       textOffset: -16
       palette: 6
