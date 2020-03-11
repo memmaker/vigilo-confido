@@ -32,6 +32,9 @@ musics:
   - type: base.defense
   - type: base.defense.fail
   - type: base.defense.success
+  - type: outsider.shard
+  - type: outsider.briefing
+  - type: skeleton.key.acquired
   - type: USINT_7
   - type: GWIN_7
   - type: LGMWLD_7
@@ -118,6 +121,39 @@ cutscenes:
       - Resources/ANIMS/MABRT_7.FLC
     audioTracks:
       - MABRT_7
+  - type: outsider.shard
+    videos:
+      - Resources/ANIMS/outsider.shard.fli
+    audioTracks:
+      - outsider.shard
+  - type: outsider.briefing
+    videos:
+      - Resources/ANIMS/outsider.briefing.fli
+    audioTracks:
+      - outsider.briefing
+  - type: alien.base.assault.success
+    videos:
+      - Resources/ANIMS/alien.base.assault.success.fli
+    audioTracks:
+      - alien.base.assault.success
+  - type: base.defense
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/base.defense.fli
+    audioTracks:
+      - base.defense
+  - type: base.defense.success
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/base.defense.success.fli
+    audioTracks:
+      - base.defense.success
+  - type: base.defense.fail
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/base.defense.fail.fli
+    audioTracks:
+      - base.defense.fail
   - type: cydonia
     videos:
       - Resources/ANIMS/2CYDON_7.FLC
@@ -207,6 +243,18 @@ cutscenes:
       - Resources/ANIMS/muton.elite.dead.fli
     audioTracks:
       - muton.elite.dead
+  - type: ethereal.live
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/ethereal.live.fli
+    audioTracks:
+      - ethereal.live
+  - type: ethereal.dead
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/ethereal.dead.fli
+    audioTracks:
+      - ethereal.dead
   - type: psi.sectoid.dead
     useUfoAudioSequence: false
     videos:
@@ -243,32 +291,25 @@ cutscenes:
       - Resources/ANIMS/hyperwave.decoder.fli
     audioTracks:
       - hyperwave.decoder
-  - type: base.defense
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/base.defense.fli
-    audioTracks:
-      - base.defense
-  - type: base.defense.success
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/base.defense.success.fli
-    audioTracks:
-      - base.defense.success
-  - type: base.defense.fail
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/base.defense.fail.fli
-    audioTracks:
-      - base.defense.fail
 
 research:
-  - name: STR_FIRESTORM
+  - name: STR_NEW_FIGHTER_CRAFT
     cutscene: firestorm
-  - name: STR_HYPERWAVE_DECODER
+  - name: STR_HYPER_WAVE_DECODER
     cutscene: hyperwave.decoder
+  - name: STR_PSI_SECTOID_CORPSE
+    cutscene: psi.sectoid.dead
   - name: STR_SECTOID
+    cost: 1
+    points: 10
     cutscene: sectoid.live
+    dependencies:
+      - STR_SECTOID_SOLDIER
+      - STR_SECTOID_MEDIC
+      - STR_SECTOID_NAVIGATOR
+      - STR_SECTOID_ENGINEER
+      - STR_SECTOID_LEADER
+      - STR_SECTOID_COMMANDER
   - name: STR_SECTOID_CORPSE
     cutscene: sectoid.dead
   - name: STR_THIN_MAN
@@ -276,7 +317,16 @@ research:
   - name: STR_THIN_MAN_CORPSE
     cutscene: thin.man.dead
   - name: STR_FLOATER
+    cost: 1
+    points: 10
     cutscene: floater.live
+    dependencies:
+      - STR_FLOATER_SOLDIER
+      - STR_FLOATER_MEDIC
+      - STR_FLOATER_NAVIGATOR
+      - STR_FLOATER_ENGINEER
+      - STR_FLOATER_LEADER
+      - STR_FLOATER_COMMANDER
   - name: STR_FLOATER_CORPSE
     cutscene: floater.dead
   - name: STR_SNAKEMAN_CORPSE
@@ -284,7 +334,16 @@ research:
   - name: STR_ANDROMEDON_CORPSE
     cutscene: andromedon.dead
   - name: STR_MUTON
+    cost: 1
+    points: 10
     cutscene: muton.live
+    dependencies:
+      - STR_MUTON_SOLDIER
+      - STR_MUTON_MEDIC
+      - STR_MUTON_NAVIGATOR
+      - STR_MUTON_ENGINEER
+      - STR_MUTON_LEADER
+      - STR_MUTON_COMMANDER
   - name: STR_MUTON_CORPSE
     cutscene: muton.dead
   - name: STR_BERSERKER
@@ -300,7 +359,16 @@ research:
   - name: STR_MUTON_ELITE_CORPSE
     cutscene: muton.elite.dead
   - name: STR_ETHEREAL
+    cost: 1
+    points: 10
     cutscene: ethereal.live
+    dependencies:
+      - STR_ETHEREAL_SOLDIER
+      - STR_ETHEREAL_MEDIC
+      - STR_ETHEREAL_NAVIGATOR
+      - STR_ETHEREAL_ENGINEER
+      - STR_ETHEREAL_LEADER
+      - STR_ETHEREAL_COMMANDER
   - name: STR_ETHEREAL_CORPSE
     cutscene: ethereal.dead
   - name: STR_SECTOPOD_CORPSE
@@ -353,7 +421,7 @@ alienDeployments:
     loseCutscene: loseMiss
     abortCutscene: abortMiss
   - type: STR_ALIEN_BASE_ASSAULT
-    winCutscene: winMiss
+    winCutscene: alien.base.assault.success
     loseCutscene: loseMiss
     abortCutscene: abortMiss
   - type: STR_BASE_DEFENSE

@@ -56,6 +56,7 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_BLUESCREEN_ROUNDS_CPAL
     text: STR_BLUESCREEN_ROUNDS_UFOPEDIA
     text_width: 158
+## Alien Autpsies / Interrogations
   - id: STR_SECTOID
     type_id: 7
     section: STR_ALIEN_LIFE_FORMS
@@ -72,6 +73,22 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_THIN_MAN_CPAL
     text: STR_THIN_MAN_UFOPEDIA
     text_width: 122
+  - id: STR_OUTSIDER
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_OUTSIDER
+    image_id: UFOPAEDIA_IMG_OUTSIDER_CPAL
+    text: STR_OUTSIDER_UFOPEDIA
+    text_width: 158
+  - id: STR_OUTSIDER_AUTOPSY
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_OUTSIDER_CORPSE
+    image_id: UFOPAEDIA_IMG_OUTSIDER_CORPSE
+    text: STR_OUTSIDER_AUTOPSY_UFOPEDIA
+    text_width: 158
   - id: STR_FLOATER
     type_id: 7
     section: STR_ALIEN_LIFE_FORMS
@@ -128,6 +145,14 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_BERSERKER_CPAL
     text: STR_BERSERKER_UFOPEDIA
     text_width: 135
+  - id: STR_MUTON_BERSERKER_AUTOPSY
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_MUTON_BERSERKER_CORPSE
+    image_id: UFOPAEDIA_IMG_MUTON_BERSERKER_CORPSE
+    text: STR_MUTON_BERSERKER_AUTOPSY_UFOPEDIA
+    text_width: 158
   - id: STR_ETHEREAL
     type_id: 7
     section: STR_ALIEN_LIFE_FORMS
@@ -136,6 +161,31 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_ETHEREAL_CPAL
     text: STR_ETHEREAL_UFOPEDIA
     text_width: 160
+  - id: STR_MUTON_ELITE
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_MUTON_ELITE
+    image_id: UFOPAEDIA_IMG_MUTON_ELITE_CPAL
+    text: STR_MUTON_ELITE_UFOPEDIA
+    text_width: 160
+  - id: STR_MUTON_ELITE
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_MUTON_ELITE
+    image_id: UFOPAEDIA_IMG_MUTON_ELITE_CPAL
+    text: STR_MUTON_ELITE_UFOPEDIA
+    text_width: 160
+  - id: STR_MUTON_ELITE_AUTOPSY
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_MUTON_ELITE_CORPSE
+    image_id: UFOPAEDIA_IMG_MUTON_ELITE_CORPSE
+    text: STR_MUTON_ELITE_AUTOPSY_UFOPEDIA
+    text_width: 158
+
 extraStrings:
   - type: en-US
     strings:
@@ -170,6 +220,18 @@ extraSprites:
     height: 200
     files:
       0: Resources/UFOPedia/ufopedia_thinman_new.png
+  - type: UFOPAEDIA_IMG_OUTSIDER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/Overlord.gif
+  - type: UFOPAEDIA_IMG_OUTSIDER_CORPSE
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/OverlordBody.gif
   - type: UFOPAEDIA_IMG_FLOATER_CPAL
     singleImage: true
     width: 320
@@ -206,6 +268,18 @@ extraSprites:
     height: 200
     files:
       0: Resources/UFOPedia/ufopedia_berserker_new.png
+  - type: UFOPAEDIA_IMG_MUTON_ELITE_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/MutonElite.gif
+  - type: UFOPAEDIA_IMG_MUTON_ELITE_CORPSE
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/MutonEliteBody.gif
   - type: UFOPAEDIA_IMG_ETHEREAL_CPAL
     singleImage: true
     width: 320

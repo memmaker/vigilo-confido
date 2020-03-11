@@ -133,7 +133,57 @@ armors:
     loftempsSet: [ 3 ]
     forcedTorso: 1
     drawingRoutine: 0
+  - type: OUTSIDER_ARMOR
+    spriteSheet: OUTSIDER.PCK
+    spriteInv: inventory_OUTSIDER
+    corpseBattle:
+      - STR_OUTSIDER_CORPSE
+    frontArmor: 80
+    sideArmor: 60
+    rearArmor: 50
+    underArmor: 30
+    drawingRoutine: 0
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+    loftempsSet: [ 2 ]
+  - type: SECTOID_ARMOR_PSI
+    spriteSheet: SECTOID.PCK
+    corpseBattle:
+      - STR_PSI_SECTOID_CORPSE
+    frontArmor: 4
+    sideArmor: 3
+    rearArmor: 2
+    underArmor: 2
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.2
+      - 1.6
+      - 0.0
+    loftempsSet: [ 2 ]
+
 units:
+  - type: STR_SECTOID_LEADER
+    armor: SECTOID_ARMOR_PSI
+  - type: STR_SECTOID_COMMANDER
+    armor: SECTOID_ARMOR_PSI
   - type: STR_FLOATER_SOLDIER
     standHeight: 21
     kneelHeight: 16
@@ -280,8 +330,51 @@ units:
     moraleLossWhenKilled: 100
     isLeeroyJenkins: true
     aggression: 4
+  - type: STR_OUTSIDER
+    race: STR_OUTSIDER
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 60
+      stamina: 150
+      health: 100
+      bravery: 110
+      reactions: 60
+      firing: 65
+      throwing: 50
+      strength: 70
+      psiStrength: 200
+      psiSkill: 0
+      melee: 80
+    armor: OUTSIDER_ARMOR
+    standHeight: 21
+    kneelHeight: 16
+    value: 25
+    deathSound: 103
+    intelligence: 6
+    aggression: 1
+    energyRecovery: 50
+
 
 items:
+  - type: STR_OUTSIDER
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 60000
+    recoveryTransformations:
+      STR_OUTSIDER_SHARD: [1]
+  - type: STR_OUTSIDER_CORPSE
+    size: 0.4
+    costSell: 20000
+    weight: 20
+    bigSprite: 413
+    floorSprite: 413
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    recover: false
+    battleType: 11
+    armor: 26
   - type: STR_THIN_MAN
     size: 0.0
     recover: true
@@ -395,6 +488,7 @@ extraSprites:
       410: Resources/Units/ThinMan/FLOOROB_THIN_MAN_CORPSE.png
       411: Resources/Units/Berzerker/Muton_Berzerker_Corpse.gif
       412: Resources/Units/EliteMuton/Armored_Muton_Commander_Corpse.gif
+      413: Resources/Units/Overlord/Overlord_Corpse.gif
 
 # bigobs
   - type: BIGOBS.PCK
@@ -404,8 +498,13 @@ extraSprites:
       410: Resources/Units/ThinMan/BIGOB_HUMAN_AGENT_CORPSE.png
       411: Resources/Units/Berzerker/MutonBerzerkerInventoryCorpse.gif
       412: Resources/Units/EliteMuton/ArmoredMutonCommanderInventoryCorpse.gif
+      413: Resources/Units/Overlord/OverlordInventoryCorpse.gif
 
 # inventory
+  - type: inventory_OUTSIDER
+    singleImage: true
+    files:
+      0: Resources/Units/Overlord/overlord_inventory.gif
   - type: Inventory_FLOATER
     width: 320
     height: 200
@@ -423,6 +522,13 @@ extraSprites:
     files:
       0: Resources/Armor_Imported/GreenPowerArmor/man_2.gif
 # battlescape
+  - type: OUTSIDER.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 1360
+    files:
+      0: Resources/Units/Overlord/Overlord.gif
   - type: FLOATER.PCK
     subX: 32
     subY: 40
@@ -477,6 +583,7 @@ extraSounds:
     files:
       101: Resources/Units/CyberFloater/Floater1.ogg
       102: Resources/Units/ThinMan/THIN_MAN_DEATH.wav
+      103: Resources/Units/Overlord/overlordscream.ogg
 
 extraStrings:
   - type: en-US
@@ -495,3 +602,6 @@ extraStrings:
       STR_BERSERKER_AUTOPSY: Berserker autopsy
       STR_MUTON_ELITE_AUTOPSY: Muton Elite autopsy
       STR_ANDROMEDON_AUTOPSY: Andromedon autopsy
+      STR_OUTSIDER: Outsider
+      STR_OUTSIDER_CORPSE: Outsider Corpse
+      STR_OUTSIDER_AUTOPSY: Outsider autopsy

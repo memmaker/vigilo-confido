@@ -239,7 +239,7 @@ fixedUserOptions:
   allowBuildingQueue: true
   retainCorpses: true
   anytimePsiTraining: true
-
+  oxcePlayBriefingMusicDuringEquipment: true
   canTransferCraftsWhileAirborne: true
 #  customInitialBase: true
 

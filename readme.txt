@@ -12,7 +12,7 @@ A vanilla expansion for OXCE featuring content from EU2012 and others.
  - 20+ cutscenes from the remakes
  - ~50 new scripted abilities with unique skills for each class
  - 200+ new voice files (Unit responsonse sounds)
- - 5 new units (Cyber Floater, Thin Man, Berserker, Muton Elite, Andromedon)
+ - 6 new units (Cyber Floater, Thin Man, Berserker, Muton Elite, Andromedon, Outsider)
  - 3 new weapon types in T1, T2 & T3 versions (Swords, Shotguns, Sniper Rifles)
  - Complete new graphics for all T2 & T3 weapons and armors
  - Complete rebalancing of all weapons, armors, units and deployments
@@ -29,7 +29,7 @@ A vanilla expansion for OXCE featuring content from EU2012 and others.
  - A buttload of new maps (thanks to C.M.P)
  - Added Training rooms
  - Integrated the Commendations mod
- - Added armor modifications
+ - Added passive bonus items
 
 Required: OXCE 6.4
 Test Build available here: https://lxnt.wtf/oxem/builds/Extended/Extended-6.3.5-018c5b09d-2020-03-03-win64.7z
@@ -130,6 +130,9 @@ T3 - Warden Armor   & Plasma Weapons
  - Test shredder and shred damage and the toArmor toArmorPre stuff
  - Sword hit animation
  - Make the Firestorm useful
+ - EU2012 Story: https://www.ufopaedia.org/index.php/Storyline_(EU2012)
+ - A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
+ - Purge Celatids & Silacoids
 
 === Out of Scope for 1.0 ===
  - Base Facilities

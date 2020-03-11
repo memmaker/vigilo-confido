@@ -73,6 +73,8 @@ facilities:
   - type: STR_ALIEN_CONTAINMENT
     spriteShape: 1
     spriteFacility: 25
+    requires:
+      - STR_XENO_BIOLOGY
     buildCost: 9000
     buildTime: 18
     monthlyCost: 5000

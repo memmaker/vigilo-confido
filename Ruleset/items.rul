@@ -760,6 +760,12 @@ items:
     armor: 15
     confMelee:
       name: STR_SKULLJACK
+  - type: STR_OUTSIDER_SHARD
+    costBuy: 0
+    costSell: 0
+  - type: STR_SKELETON_KEY
+    costBuy: 0
+    costSell: 0
   - type: STR_MIMIC_BEACON
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     size: 0.1

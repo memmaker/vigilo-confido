@@ -48,6 +48,19 @@ missionScripts:
 
   - type: invasion
     firstMonth: 6
+  - type: skeletonKeyAlienBase
+    firstMonth: 1
+    missionWeights:
+      0:
+        STR_ALIEN_BASE: 100
+    useTable: false
+    maxRuns: 1
+    varName: skeab_eu2012
+    targetBaseOdds: 100
+    researchTriggers:
+      STR_OUTSIDER_SHARD: true
+    itemTriggers:
+      STR_SKELETON_KEY: true
 
 alienMissions:
   - type: STR_ALIEN_RESEARCH
