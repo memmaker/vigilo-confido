@@ -81,14 +81,6 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_OUTSIDER_CPAL
     text: STR_OUTSIDER_UFOPEDIA
     text_width: 158
-  - id: STR_OUTSIDER_AUTOPSY
-    type_id: 7
-    section: STR_ALIEN_LIFE_FORMS
-    requires:
-      - STR_OUTSIDER_CORPSE
-    image_id: UFOPAEDIA_IMG_OUTSIDER_CORPSE
-    text: STR_OUTSIDER_AUTOPSY_UFOPEDIA
-    text_width: 158
   - id: STR_FLOATER
     type_id: 7
     section: STR_ALIEN_LIFE_FORMS
@@ -145,14 +137,6 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_BERSERKER_CPAL
     text: STR_BERSERKER_UFOPEDIA
     text_width: 135
-  - id: STR_MUTON_BERSERKER_AUTOPSY
-    type_id: 7
-    section: STR_ALIEN_LIFE_FORMS
-    requires:
-      - STR_MUTON_BERSERKER_CORPSE
-    image_id: UFOPAEDIA_IMG_MUTON_BERSERKER_CORPSE
-    text: STR_MUTON_BERSERKER_AUTOPSY_UFOPEDIA
-    text_width: 158
   - id: STR_ETHEREAL
     type_id: 7
     section: STR_ALIEN_LIFE_FORMS
@@ -168,15 +152,11 @@ ufopaedia:
       - STR_MUTON_ELITE
     image_id: UFOPAEDIA_IMG_MUTON_ELITE_CPAL
     text: STR_MUTON_ELITE_UFOPEDIA
-    text_width: 160
-  - id: STR_MUTON_ELITE
-    type_id: 7
-    section: STR_ALIEN_LIFE_FORMS
-    requires:
-      - STR_MUTON_ELITE
-    image_id: UFOPAEDIA_IMG_MUTON_ELITE_CPAL
-    text: STR_MUTON_ELITE_UFOPEDIA
-    text_width: 160
+    rect_text:
+      x: 5
+      y: 150
+      width: 310
+      height: 50
   - id: STR_MUTON_ELITE_AUTOPSY
     type_id: 7
     section: STR_ALIEN_LIFE_FORMS
@@ -185,6 +165,14 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_MUTON_ELITE_CORPSE
     text: STR_MUTON_ELITE_AUTOPSY_UFOPEDIA
     text_width: 158
+  - id: STR_SECTOPOD
+    type_id: 7
+    section: STR_ALIEN_LIFE_FORMS
+    requires:
+      - STR_SECTOPOD
+    image_id: UFOPAEDIA_IMG_SECTOPOD_CPAL
+    text: STR_SECTOPOD_UFOPEDIA
+    text_width: 160
 
 extraStrings:
   - type: en-US
@@ -201,6 +189,10 @@ extraStrings:
       STR_HELLWEAVE_UFOPEDIA: "Hellweave not only grants a bonus to soldier health, but will return damage to any melee attackers."
       STR_MIMIC_BEACON_UFOPEDIA: "The mimic beacon generates a holographic decoy to draw enemy attacks for one turn. It is deployed like a grenade, thrown to the site where the decoy will appear."
       STR_BLUESCREEN_ROUNDS_UFOPEDIA: "Named for an inexplicable computing phenomenon common before the war, Bluescreen Rounds wreak havoc on targeted electronic systems."
+      STR_MUTON_ELITE_UFOPEDIA: "Although similar in general appearance to the Muton species our troops have battled in the field, this particular captive is different. We've seen evidence of an inherent intellectual capacity not found in the other variants, and we believe this 'Elite' Muton serves a more defined role within the invasion force."
+      STR_MUTON_ELITE_AUTOPSY_UFOPEDIA: "Although they seem to have the distinct honor of serving as guards within the alien hierarchy, our autopsy of this specimen reveals little in the way of distinguishing anatomical traits versus the typical Muton. Aside from various improvements to their armor, the primary difference appears to be a slightly enhanced intelligence which makes them more effective combatants."
+      STR_OUTSIDER_UFOPEDIA: "Outsiders are a type of alien construct that take the form of a synthetic humanoid, yet contain no organic matter. They seem to be a being of almost pure energy. Outsiders materialize out of glowing orange crystals and are typically encountered inside crashed or landed alien UFOs."
+
 extraSprites:
   - type: UFOPAEDIA_IMG_MUTON_CPAL
     singleImage: true
@@ -220,18 +212,6 @@ extraSprites:
     height: 200
     files:
       0: Resources/UFOPedia/ufopedia_thinman_new.png
-  - type: UFOPAEDIA_IMG_OUTSIDER_CPAL
-    singleImage: true
-    width: 320
-    height: 200
-    files:
-      0: Resources/UFOPedia/Overlord.gif
-  - type: UFOPAEDIA_IMG_OUTSIDER_CORPSE
-    singleImage: true
-    width: 320
-    height: 200
-    files:
-      0: Resources/UFOPedia/OverlordBody.gif
   - type: UFOPAEDIA_IMG_FLOATER_CPAL
     singleImage: true
     width: 320
@@ -273,7 +253,7 @@ extraSprites:
     width: 320
     height: 200
     files:
-      0: Resources/UFOPedia/MutonElite.gif
+      0: Resources/UFOPedia/ufopedia_muton_elite_new.png
   - type: UFOPAEDIA_IMG_MUTON_ELITE_CORPSE
     singleImage: true
     width: 320
@@ -286,6 +266,18 @@ extraSprites:
     height: 200
     files:
       0: Resources/UFOPedia/ufopedia_ethereal_new.png
+  - type: UFOPAEDIA_IMG_OUTSIDER_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_outsider_new.png
+  - type: UFOPAEDIA_IMG_SECTOPOD_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia_sectopod_new.png
   - type: UFOPAEDIA_IMG_NANOSCALE_VEST_CPAL
     singleImage: true
     width: 320

@@ -1,0 +1,143 @@
+items:
+  - type: STR_XCOM_ARCHIVES_FOLDER1
+    bigSprite: 580
+    floorSprite: 580
+    costSell: 10
+  - type: STR_XCOM_ARCHIVES_FOLDER2
+    bigSprite: 580
+    floorSprite: 580
+    costSell: 10
+  - type: STR_XCOM_ARCHIVES_FOLDER3
+    bigSprite: 580
+    floorSprite: 580
+    costSell: 10
+  - type: STR_XCOM_ARCHIVES_FOLDER4
+    bigSprite: 580
+    floorSprite: 580
+    costSell: 10
+
+research:
+  - name: STR_XCOM_ARCHIVES
+    cost: 5
+    points: 20
+    dependencies:
+      - STR_XCOM_ARCHIVES_FOLDER1
+      - STR_XCOM_ARCHIVES_FOLDER2
+      - STR_XCOM_ARCHIVES_FOLDER3
+      - STR_XCOM_ARCHIVES_FOLDER4
+  - name: STR_XCOM_ARCHIVES_FOLDER1
+    needItem: true
+    cost: 10
+    points: 5
+    unlocks:
+      - STR_XCOM_ARCHIVES
+  - name: STR_XCOM_ARCHIVES_FOLDER2
+    needItem: true
+    cost: 10
+    points: 5
+    unlocks:
+      - STR_XCOM_ARCHIVES
+  - name: STR_XCOM_ARCHIVES_FOLDER3
+    needItem: true
+    cost: 10
+    points: 5
+    unlocks:
+      - STR_XCOM_ARCHIVES
+  - name: STR_XCOM_ARCHIVES_FOLDER4
+    needItem: true
+    cost: 10
+    points: 5
+    unlocks:
+      - STR_XCOM_ARCHIVES
+
+ufopaedia:
+  - id: STR_XCOM_ARCHIVES
+    type_id: 7
+    section: STR_XCOM_ARCHIVES_CATEGORY
+    requires:
+      - STR_XCOM_ARCHIVES
+    image_id: UFOPAEDIA_IMG_ARCHIVES_CPAL
+    text: STR_XCOM_ARCHIVES_UFOPEDIA
+    text_width: 80
+  - id: STR_XCOM_ARCHIVES_FOLDER1
+    type_id: 7
+    section: STR_XCOM_ARCHIVES_CATEGORY
+    requires:
+      - STR_XCOM_ARCHIVES_FOLDER1
+    image_id: UFOPAEDIA_IMG_ARCHIVES_FOLDER1_CPAL
+  - id: STR_XCOM_ARCHIVES_FOLDER2
+    type_id: 7
+    section: STR_XCOM_ARCHIVES_CATEGORY
+    requires:
+      - STR_XCOM_ARCHIVES_FOLDER2
+    image_id: UFOPAEDIA_IMG_ARCHIVES_FOLDER2_CPAL
+  - id: STR_XCOM_ARCHIVES_FOLDER3
+    type_id: 7
+    section: STR_XCOM_ARCHIVES_CATEGORY
+    requires:
+      - STR_XCOM_ARCHIVES_FOLDER3
+    image_id: UFOPAEDIA_IMG_ARCHIVES_FOLDER3_CPAL
+  - id: STR_XCOM_ARCHIVES_FOLDER4
+    type_id: 7
+    section: STR_XCOM_ARCHIVES_CATEGORY
+    requires:
+      - STR_XCOM_ARCHIVES_FOLDER4
+    image_id: UFOPAEDIA_IMG_ARCHIVES_FOLDER4_CPAL
+    text: STR_VAHLEN_RESTRAINT_UFOPEDIA
+    rect_text:
+      x: 4
+      y: 80
+      width: 110
+      height: 200
+        
+
+extraSprites:
+  - type: BIGOBS.PCK
+    files:
+      580: Resources/Items/ArchiveFolder/ArchiveFolder.BigOb.png
+  - type: FLOOROB.PCK
+    files:
+      580: Resources/Items/ArchiveFolder/ArchiveFolder.FloorOb.png
+  - type: UFOPAEDIA_IMG_ARCHIVES_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ufopedia.archive.folder.png
+  - type: UFOPAEDIA_IMG_ARCHIVES_FOLDER1_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/archive1.png
+  - type: UFOPAEDIA_IMG_ARCHIVES_FOLDER2_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/archive2.png
+  - type: UFOPAEDIA_IMG_ARCHIVES_FOLDER3_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/archive3.png
+  - type: UFOPAEDIA_IMG_ARCHIVES_FOLDER4_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/archive4.png
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_XCOM_ARCHIVES: X-Com Archives
+      STR_XCOM_ARCHIVES_CATEGORY: ARCHIVES
+      STR_XCOM_ARCHIVES_FOLDER1: File I
+      STR_XCOM_ARCHIVES_FOLDER2: File II
+      STR_XCOM_ARCHIVES_FOLDER3: File III
+      STR_XCOM_ARCHIVES_FOLDER4: File IV
+      STR_VAHLEN_RESTRAINT_UFOPEDIA: "Commander, you may want to instruct your men to exercise restraint when using explosives."
+      STR_XCOM_ARCHIVES_UFOPEDIA: "The archives are pieces of X-Com history we have deemed lost and forgotten. However you may be able to salvage some of these documents."
+

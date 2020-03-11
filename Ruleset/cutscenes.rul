@@ -1,3 +1,26 @@
+eventScripts:
+  - type: STR_INTRO_EVENT_SCRIPT
+    oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
+    firstMonth: 0
+    lastMonth: 0
+    executionOdds: 100
+    minDifficulty: 0
+    maxDifficulty: 4
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_INTRODUCTION_EVENT: Hello, Commander
+      STR_INTRODUCTION_TEXT: "Welcome to the X-Com project. The situation is quickly spiraling out of control. Your first task is the acquisition of samples of alien genetic material. Dr. Vahlen and the research team will analyse the samples once you acquired them.{NEWLINE}{NEWLINE}Good luck, Commander."
+
+
+events:
+  - name: STR_INTRODUCTION_EVENT
+    description: STR_INTRODUCTION_TEXT
+    timer: 60
+    timerRandom: 0
+    music: Hello_Commander
+
 musics:
   - type: INTRO
   - type: GMTACTIC
@@ -7,6 +30,12 @@ musics:
   - type: GMTACTIC5
   - type: GMTACTIC6
   - type: GMTACTIC7
+  - type: GMTACTIC8
+  - type: GMGEO1
+  - type: GMGEO2
+  - type: GMGEO3
+  - type: GMSTORY
+  - type: GMSTORY_basic
   - type: sectoid.live
   - type: sectoid.dead
   - type: thin.man.live
@@ -28,6 +57,7 @@ musics:
   - type: psi.sectoid.dead
   - type: sectopod.dead
   - type: hyperwave.decoder
+  - type: hyperwave.acquired
   - type: firestorm
   - type: base.defense
   - type: base.defense.fail
@@ -35,6 +65,8 @@ musics:
   - type: outsider.shard
   - type: outsider.briefing
   - type: skeleton.key.acquired
+  - type: laser.weapons
+  - type: plasma.unlock
   - type: USINT_7
   - type: GWIN_7
   - type: LGMWLD_7
@@ -42,7 +74,7 @@ musics:
   - type: MLOSE_7
   - type: MABRT_7
   - type: 2CYDON_7
-
+  - type: Hello_Commander
 cutscenes:
   - delete: intro
   - delete: winGame
@@ -121,6 +153,16 @@ cutscenes:
       - Resources/ANIMS/MABRT_7.FLC
     audioTracks:
       - MABRT_7
+  - type: laser.weapons
+    videos:
+      - Resources/ANIMS/laser.weapons.fli
+    audioTracks:
+      - laser.weapons
+  - type: plasma.unlock
+    videos:
+      - Resources/ANIMS/plasma.unlock.fli
+    audioTracks:
+      - plasma.unlock
   - type: outsider.shard
     videos:
       - Resources/ANIMS/outsider.shard.fli
@@ -291,12 +333,26 @@ cutscenes:
       - Resources/ANIMS/hyperwave.decoder.fli
     audioTracks:
       - hyperwave.decoder
+  - type: hyperwave.acquired
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/hyperwave.acquired.fli
+    audioTracks:
+      - hyperwave.acquired
 
 research:
   - name: STR_NEW_FIGHTER_CRAFT
     cutscene: firestorm
   - name: STR_HYPER_WAVE_DECODER
     cutscene: hyperwave.decoder
+  - name: STR_XENO_BIOLOGY
+    cutscene: outsider.briefing
+  - name: STR_OUTSIDER_SHARD
+    cutscene: outsider.shard
+  - name: STR_LASER_WEAPONS
+    cutscene: laser.weapons
+  - name: STR_PLASMA_WEAPONS
+    cutscene: plasma.unlock
   - name: STR_PSI_SECTOID_CORPSE
     cutscene: psi.sectoid.dead
   - name: STR_SECTOID

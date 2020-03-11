@@ -1074,7 +1074,7 @@ manufacture:
   - name: STR_LASER_SHOTGUN
     category: STR_WEAPON
     requires:
-      - STR_LASER_WEAPONS
+      - STR_LASER_SHOTGUN
     space: 2
     time: 450
     cost: 13000
@@ -1084,7 +1084,7 @@ manufacture:
   - name: STR_LASER_SNIPER_RIFLE
     category: STR_WEAPON
     requires:
-      - STR_LASER_WEAPONS
+      - STR_LASER_SNIPER_RIFLE
     space: 2
     time: 450
     cost: 13000
@@ -1094,7 +1094,7 @@ manufacture:
   - name: STR_XCOM_HEAVY_LASER
     category: STR_WEAPON
     requires:
-      - STR_LASER_WEAPONS
+      - STR_XCOM_HEAVY_LASER
     space: 3
     time: 500
     cost: 16000
@@ -1147,7 +1147,7 @@ manufacture:
   - name: STR_PLASMA_SHOTGUN
     category: STR_WEAPON
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SHOTGUN
     space: 3
     time: 800
     cost: 86000
@@ -1157,7 +1157,7 @@ manufacture:
   - name: STR_PLASMA_SHOTGUN_AMMO
     category: STR_AMMUNITION
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SHOTGUN
     space: 3
     time: 80
     cost: 3000
@@ -1167,7 +1167,7 @@ manufacture:
   - name: STR_PLASMA_SNIPER_RIFLE
     category: STR_WEAPON
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SNIPER_RIFLE
     space: 3
     time: 800
     cost: 86000
@@ -1177,7 +1177,7 @@ manufacture:
   - name: STR_PLASMA_SNIPER_RIFLE_CLIP
     category: STR_AMMUNITION
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_PLASMA_SNIPER_RIFLE
     space: 3
     time: 80
     cost: 3000
@@ -1187,7 +1187,7 @@ manufacture:
   - name: STR_XCOM_HEAVY_PLASMA
     category: STR_WEAPON
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_XCOM_HEAVY_PLASMA
     space: 3
     time: 700
     cost: 76000
@@ -1197,7 +1197,7 @@ manufacture:
   - name: STR_XCOM_HEAVY_PLASMA_CLIP
     category: STR_AMMUNITION
     requires:
-      - STR_PLASMA_WEAPONS
+      - STR_XCOM_HEAVY_PLASMA
     space: 3
     time: 80
     cost: 3000
