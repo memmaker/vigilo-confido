@@ -86,8 +86,8 @@ alienRaces:
       - [STR_MUTON_ELITE]
       - [STR_MUTON_ELITE]
       - [STR_MUTON_ELITE]
-      - [STR_MUTON_ELITE]
-      - [STR_SECTOPOD_TERRORIST]
+      - [STR_MUTON_ELITE, STR_DRONE]
+      - [STR_SECTOPOD_TERRORIST, STR_DRONE]
       - [STR_SECTOPOD_TERRORIST]
   - id: STR_TIER_THREE_MIXED # t3 mixed
     membersRandom:
@@ -129,6 +129,16 @@ alienRaces:
       - [STR_CHRYSSALID_TERRORIST]
       - [STR_CHRYSSALID_TERRORIST]
       - [STR_CHRYSSALID_TERRORIST]
+  - id: STR_DRONE
+    membersRandom:
+      - [STR_DRONE]
+      - [STR_DRONE]
+      - [STR_DRONE]
+      - [STR_DRONE]
+      - [STR_SECTOID_SOLDIER]
+      - [STR_DRONE]
+      - [STR_SECTOID_SOLDIER]
+      - [STR_DRONE]
 extraStrings:
   - type: en-US
     strings:

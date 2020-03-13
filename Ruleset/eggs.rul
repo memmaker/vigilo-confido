@@ -3,18 +3,22 @@ items:
     bigSprite: 580
     floorSprite: 580
     costSell: 10
+    recover: true
   - type: STR_XCOM_ARCHIVES_FOLDER2
     bigSprite: 580
     floorSprite: 580
     costSell: 10
+    recover: true
   - type: STR_XCOM_ARCHIVES_FOLDER3
     bigSprite: 580
     floorSprite: 580
     costSell: 10
+    recover: true
   - type: STR_XCOM_ARCHIVES_FOLDER4
     bigSprite: 580
     floorSprite: 580
     costSell: 10
+    recover: true
 
 research:
   - name: STR_XCOM_ARCHIVES

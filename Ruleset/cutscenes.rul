@@ -67,6 +67,8 @@ musics:
   - type: skeleton.key.acquired
   - type: laser.weapons
   - type: plasma.unlock
+  - type: carapace.armor
+  - type: titan.armor
   - type: USINT_7
   - type: GWIN_7
   - type: LGMWLD_7
@@ -75,6 +77,7 @@ musics:
   - type: MABRT_7
   - type: 2CYDON_7
   - type: Hello_Commander
+
 cutscenes:
   - delete: intro
   - delete: winGame
@@ -158,11 +161,21 @@ cutscenes:
       - Resources/ANIMS/laser.weapons.fli
     audioTracks:
       - laser.weapons
-  - type: plasma.unlock
+  - type: plasma.weapons
     videos:
-      - Resources/ANIMS/plasma.unlock.fli
+      - Resources/ANIMS/plasma.weapons.fli
     audioTracks:
-      - plasma.unlock
+      - plasma.weapons
+  - type: carapace.armor
+    videos:
+      - Resources/ANIMS/carapace.armor.fli
+    audioTracks:
+      - carapace.armor
+  - type: titan.armor
+    videos:
+      - Resources/ANIMS/titan.armor.fli
+    audioTracks:
+      - titan.armor
   - type: outsider.shard
     videos:
       - Resources/ANIMS/outsider.shard.fli
@@ -204,121 +217,121 @@ cutscenes:
   - type: sectoid.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/sectoid.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_Sectoid_LOC.FLI
     audioTracks:
       - sectoid.live
   - type: sectoid.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/sectoid.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Sectoid_LOC.FLI
     audioTracks:
       - sectoid.dead
   - type: thin.man.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/thin.man.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_ThinMan_LOC.FLI
     audioTracks:
       - thin.man.live
   - type: thin.man.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/thin.man.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_ThinMan_LOC.FLI
     audioTracks:
       - thin.man.dead
   - type: floater.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/floater.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_Floater_LOC.FLI
     audioTracks:
       - floater.live
   - type: floater.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/floater.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Floater_LOC.FLI
     audioTracks:
       - floater.dead
   - type: muton.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/muton.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_Muton_LOC.FLI
     audioTracks:
       - muton.live
   - type: muton.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/muton.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Muton_LOC.FLI
     audioTracks:
       - muton.dead
   - type: berserker.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/berserker.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_MutonBerserker_LOC.FLI
     audioTracks:
       - berserker.live
   - type: berserker.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/berserker.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_MutonBerserker_LOC.FLI
     audioTracks:
       - berserker.dead
   - type: chryssalid.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/chryssalid.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Chryssalid_LOC.FLI
     audioTracks:
       - chryssalid.dead
   - type: cyberdisc.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/cyberdisc.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Cyberdisc_LOC.FLI
     audioTracks:
       - cyberdisc.dead
   - type: muton.elite.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/muton.elite.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_MutonElite_LOC.FLI
     audioTracks:
       - muton.elite.live
   - type: muton.elite.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/muton.elite.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_MutonElite_LOC.FLI
     audioTracks:
       - muton.elite.dead
   - type: ethereal.live
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/ethereal.live.fli
+      - Resources/ANIMS/1080_CIN_TP_Containment_Ethereal_LOC.FLI
     audioTracks:
       - ethereal.live
   - type: ethereal.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/ethereal.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Ethereal_LOC.FLI
     audioTracks:
       - ethereal.dead
   - type: psi.sectoid.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/psi.sectoid.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_SectoidComm_LOC.FLI
     audioTracks:
       - psi.sectoid.dead
   - type: snakeman.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/snakeman.dead.fli
+      - Resources/ANIMS/snakeman.dead.FLI
     audioTracks:
       - snakeman.dead
   - type: andromedon.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/andromedon.dead.fli
+      - Resources/ANIMS/andromedon.dead.FLI
     audioTracks:
       - andromedon.dead
   - type: sectopod.dead
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/sectopod.dead.fli
+      - Resources/ANIMS/1080_CIN_TP_Autopsy_Sectopod_LOC.FLI
     audioTracks:
       - sectopod.dead
   - type: firestorm
@@ -341,6 +354,10 @@ cutscenes:
       - hyperwave.acquired
 
 research:
+  - name: STR_PREDATOR_ARMOR
+    cutscene: carapace.armor
+  - name: STR_WARDEN_ARMOR
+    cutscene: titan.armor
   - name: STR_NEW_FIGHTER_CRAFT
     cutscene: firestorm
   - name: STR_HYPER_WAVE_DECODER
@@ -352,7 +369,7 @@ research:
   - name: STR_LASER_WEAPONS
     cutscene: laser.weapons
   - name: STR_PLASMA_WEAPONS
-    cutscene: plasma.unlock
+    cutscene: plasma.weapons
   - name: STR_PSI_SECTOID_CORPSE
     cutscene: psi.sectoid.dead
   - name: STR_SECTOID

@@ -331,7 +331,7 @@ items:
     handSprite: 72
     bulletSprite: 0
     fireSound: 52
-    clipSize: 2  # max number of uses per mission
+    clipSize: 1  # max number of uses per mission
     accuracyAimed: 115
     accuracySnap: 115
     costAimed:
@@ -356,7 +356,7 @@ items:
     invHeight: 3
     hitSound: 0
     hitAnimation: 0
-    power: 75
+    power: 60
     hidePower: true
     damageType: 3
   - type: STR_SKILL_AMP          # USED BY SPECIALIST AS SPECIAL WEAPON
