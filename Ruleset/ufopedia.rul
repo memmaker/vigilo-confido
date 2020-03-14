@@ -19,36 +19,48 @@ ufopaedia:
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_NANOSCALE_VEST_CPAL
     text: STR_NANOSCALE_VEST_UFOPEDIA
+    requires:
+      - STR_NANOSCALE_VEST
     text_width: 158
   - id: STR_HAZMAT_VEST
     type_id: 7
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_HAZMAT_VEST_CPAL
     text: STR_HAZMAT_VEST_UFOPEDIA
+    requires:
+      - STR_EXPERIMENTAL_ARMOR
     text_width: 158
   - id: STR_STASIS_VEST
     type_id: 7
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_STASIS_VEST_CPAL
     text: STR_STASIS_VEST_UFOPEDIA
+    requires:
+      - STR_EXPERIMENTAL_ARMOR
     text_width: 158
   - id: STR_PLATED_VEST
     type_id: 7
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_PLATED_VEST_CPAL
     text: STR_PLATED_VEST_UFOPEDIA
+    requires:
+      - STR_EXPERIMENTAL_ARMOR
     text_width: 158
   - id: STR_HELLWEAVE
     type_id: 7
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_HELLWEAVE_CPAL
     text: STR_HELLWEAVE_UFOPEDIA
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
     text_width: 158
   - id: STR_MIMIC_BEACON
     type_id: 7
     section: STR_WEAPONS_AND_EQUIPMENT
     image_id: UFOPAEDIA_IMG_MIMIC_BEACON_CPAL
     text: STR_MIMIC_BEACON_UFOPEDIA
+    requires:
+      - STR_CHRYSSALID_AUTOPSY
     text_width: 130
   - id: STR_BLUESCREEN_ROUNDS
     type_id: 7
@@ -56,6 +68,8 @@ ufopaedia:
     image_id: UFOPAEDIA_IMG_BLUESCREEN_ROUNDS_CPAL
     text: STR_BLUESCREEN_ROUNDS_UFOPEDIA
     text_width: 158
+    requires:
+      - STR_SECTOPOD_AUTOPSY
 ## Alien Autpsies / Interrogations
   - id: STR_SECTOID
     type_id: 7
@@ -192,6 +206,7 @@ extraStrings:
       STR_MUTON_ELITE_UFOPEDIA: "Although similar in general appearance to the Muton species our troops have battled in the field, this particular captive is different. We've seen evidence of an inherent intellectual capacity not found in the other variants, and we believe this 'Elite' Muton serves a more defined role within the invasion force."
       STR_MUTON_ELITE_AUTOPSY_UFOPEDIA: "Although they seem to have the distinct honor of serving as guards within the alien hierarchy, our autopsy of this specimen reveals little in the way of distinguishing anatomical traits versus the typical Muton. Aside from various improvements to their armor, the primary difference appears to be a slightly enhanced intelligence which makes them more effective combatants."
       STR_OUTSIDER_UFOPEDIA: "Outsiders are a type of alien construct that take the form of a synthetic humanoid, yet contain no organic matter. They seem to be a being of almost pure energy. Outsiders materialize out of glowing orange crystals and are typically encountered inside crashed or landed alien UFOs."
+      STR_MEDI_KIT_UFOPEDIA: "Our field-deployable Medikit can temporarily treat a soldier's wounds through the use of nanosutures and high-potency stimulants. In order to use the medi-kit you must face towards the soldier requiring treatment. If the soldier is stunned you must stand over the body. Click on the medi-kit icon and select 'use medi-kit' from the menu.{NEWLINE}{NEWLINE}RESTORES> 40 Health"
 
 extraSprites:
   - type: UFOPAEDIA_IMG_MUTON_CPAL

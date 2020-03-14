@@ -287,7 +287,7 @@ extended:
           end;
           return;
     damageUnit:
-      - offset: 97
+      - offset: 96
         code: |
           var int acid_burn;
           unit.getTag acid_burn Tag.ACID_BURN;

@@ -21,7 +21,7 @@ units:
     # standHeight: 20
   # - type: STR_SECTOID_COMMANDER
     # standHeight: 20
-  - type: STR_CYBERDISC_TERRORIST
+  - type: STR_CYBERDISC
     standHeight: 7
     # floatHeight: 8
   # - type: STR_FLOATER_SOLDIER
@@ -36,7 +36,7 @@ units:
     # standHeight: 21
   # - type: STR_FLOATER_COMMANDER
     # standHeight: 21
-  - type: STR_REAPER_TERRORIST
+  - type: STR_REAPER
     # standHeight: 20
   # - type: STR_SNAKEMAN_SOLDIER
     # standHeight: 22
@@ -48,7 +48,7 @@ units:
     # standHeight: 22
   # - type: STR_SNAKEMAN_COMMANDER
     # standHeight: 22
-  - type: STR_CHRYSSALID_TERRORIST
+  - type: STR_CHRYSSALID
     # standHeight: 22
   # - type: STR_MUTON_SOLDIER
     # standHeight: 23
@@ -56,7 +56,7 @@ units:
     # standHeight: 23
   # - type: STR_MUTON_ENGINEER
     # standHeight: 23
-  - type: STR_CELATID_TERRORIST
+  - type: STR_CELATID
     # standHeight: 14
   # - type: STR_ETHEREAL_SOLDIER
     # standHeight: 23

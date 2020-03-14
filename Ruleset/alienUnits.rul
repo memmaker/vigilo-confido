@@ -5,14 +5,218 @@ extended:
 
 
 armors:
-  - type: MUTON_ARMOR0
-    spriteInv: Inventory_MUTON
-  - type: MUTON_ARMOR1
-    spriteInv: Inventory_MUTON
-  - type: MUTON_ARMOR2
-    spriteInv: Inventory_MUTON
+  - type: SECTOID_ARMOR0
+    frontArmor: 4
+    sideArmor: 3
+    rearArmor: 2
+    underArmor: 3
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SECTOID_ARMOR1
+    spriteSheet: SECTOID.PCK
+    corpseBattle:
+      - STR_PSI_SECTOID_CORPSE
+    frontArmor: 4
+    sideArmor: 3
+    rearArmor: 2
+    underArmor: 2
+    damageModifier:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.2
+      - 1.6
+      - 0.0
+    loftempsSet: [ 2 ]
   - type: FLOATER_ARMOR0
     spriteInv: Inventory_FLOATER
+    frontArmor: 8
+    sideArmor: 6
+    rearArmor: 4
+    underArmor: 6
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: CYBERDISC_ARMOR
+    frontArmor: 30
+    sideArmor: 30
+    rearArmor: 30
+    underArmor: 28
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SECTOPOD_ARMOR
+    frontArmor: 40
+    sideArmor: 38
+    rearArmor: 34
+    underArmor: 40
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: SNAKEMAN_ARMOR0
+    frontArmor: 10
+    sideArmor: 8
+    rearArmor: 6
+    underArmor: 10
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: MUTON_ARMOR0
+    spriteInv: Inventory_MUTON
+    frontArmor: 8
+    sideArmor: 6
+    rearArmor: 6
+    underArmor: 3
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ETHEREAL_ARMOR0
+    frontArmor: 20
+    sideArmor: 20
+    rearArmor: 20
+    underArmor: 20
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ETHEREAL_ARMOR1
+    frontArmor: 30
+    sideArmor: 30
+    rearArmor: 30
+    underArmor: 30
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: CHRYSSALID_ARMOR
+    frontArmor: 10
+    sideArmor: 10
+    rearArmor: 10
+    underArmor: 10
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
+  - type: ZOMBIE_ARMOR
+    frontArmor: 4
+    sideArmor: 4
+    rearArmor: 4
+    underArmor: 4
+    damageModifier:
+      - 1.0  # 0  None
+      - 1.0  # 1  Projectile
+      - 1.0  # 2  Incendiary
+      - 1.0  # 3  High-Explosive
+      - 1.0  # 4  Laser 
+      - 1.0  # 5  Plasma
+      - 1.0  # 6  Stun
+      - 1.0  # 7  Melee
+      - 1.0  # 8  Acid
+      - 0.0  # 9  Smoke
+      - 1.0  # 10 Psionic
+      - 1.0  # 11 Poison
+      - 1.0  # 12 Electric
   - type: THIN_MAN_ARMOR
     spriteSheet: THIN_MAN.PCK
     spriteInv: INV_HUMAN_AGENT
@@ -145,10 +349,10 @@ armors:
     spriteInv: inventory_OUTSIDER
     corpseBattle:
       - STR_OUTSIDER_CORPSE
-    frontArmor: 80
-    sideArmor: 60
-    rearArmor: 50
-    underArmor: 30
+    frontArmor: 8
+    sideArmor: 6
+    rearArmor: 5
+    underArmor: 3
     drawingRoutine: 0
     damageModifier:
       - 1.0  # 0  None
@@ -164,26 +368,6 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 2 ]
-  - type: SECTOID_ARMOR_PSI
-    spriteSheet: SECTOID.PCK
-    corpseBattle:
-      - STR_PSI_SECTOID_CORPSE
-    frontArmor: 4
-    sideArmor: 3
-    rearArmor: 2
-    underArmor: 2
-    damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.2
-      - 1.6
-      - 0.0
     loftempsSet: [ 2 ]
   - type: STR_DRONE_ARMOR
     spriteInv: inventory_DRONE
@@ -215,15 +399,84 @@ armors:
     loftempsSet: [ 3 ]
 
 units:
-  - type: STR_SECTOID_LEADER
-    armor: SECTOID_ARMOR_PSI
+  - delete: STR_SECTOID_SOLDIER
+  - delete: STR_SECTOID_MEDIC
+  - delete: STR_SECTOID_ENGINEER
+  - delete: STR_SECTOID_NAVIGATOR
+  - delete: STR_SECTOID_LEADER
+  - delete: STR_FLOATER_SOLDIER
+  - delete: STR_FLOATER_MEDIC
+  - delete: STR_FLOATER_ENGINEER
+  - delete: STR_FLOATER_NAVIGATOR
+  - delete: STR_FLOATER_LEADER
+  - delete: STR_FLOATER_COMMANDER
+  - delete: STR_SNAKEMAN_SOLDIER
+  - delete: STR_SNAKEMAN_MEDIC
+  - delete: STR_SNAKEMAN_ENGINEER
+  - delete: STR_SNAKEMAN_NAVIGATOR
+  - delete: STR_SNAKEMAN_LEADER
+  - delete: STR_SNAKEMAN_COMMANDER
+  - delete: STR_ETHEREAL_SOLDIER
+  - delete: STR_ETHEREAL_MEDIC
+  - delete: STR_ETHEREAL_ENGINEER
+  - delete: STR_ETHEREAL_NAVIGATOR
+  - delete: STR_ETHEREAL_COMMANDER
+  - delete: STR_MUTON_SOLDIER
+  - delete: STR_MUTON_MEDIC
+  - delete: STR_MUTON_ENGINEER
+  - delete: STR_MUTON_NAVIGATOR
+  - delete: STR_MUTON_LEADER
+  - delete: STR_MUTON_COMMANDER
+  - delete: STR_CHRYSSALID_TERRORIST
+  - delete: STR_CYBERDISC_TERRORIST
+  - delete: STR_SECTOPOD_TERRORIST
+  - delete: STR_CELATID_TERRORIST
+  - delete: STR_SILACOID_TERRORIST
+  - delete: STR_REAPER_TERRORIST
+  - type: STR_SECTOID
+    race: STR_SECTOID
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 54
+      stamina: 90
+      health: 30
+      bravery: 80
+      reactions: 63
+      firing: 52
+      throwing: 58
+      strength: 30
+      psiStrength: 40
+      psiSkill: 0
+      melee: 76
+    armor: SECTOID_ARMOR0
+    standHeight: 16
+    kneelHeight: 12
+    value: 10
+    deathSound: 10
+    intelligence: 3
+    aggression: 2
   - type: STR_SECTOID_COMMANDER
-    armor: SECTOID_ARMOR_PSI
-  - type: STR_FLOATER_SOLDIER
-    standHeight: 21
-    kneelHeight: 16
-    floatHeight: 2
-    deathSound: 101
+    race: STR_SECTOID
+    rank: STR_LIVE_COMMANDER
+    stats:
+      tu: 54
+      stamina: 90
+      health: 30
+      bravery: 80
+      reactions: 63
+      firing: 52
+      throwing: 58
+      strength: 30
+      psiStrength: 50
+      psiSkill: 60
+      melee: 76
+    armor: SECTOID_ARMOR1
+    standHeight: 16
+    kneelHeight: 12
+    value: 25
+    deathSound: 10
+    intelligence: 8
+    aggression: 0
   - type: STR_THIN_MAN
     race: STR_THIN_MAN
     rank: STR_ALIEN_AGENT
@@ -246,6 +499,128 @@ units:
     deathSound: 102
     intelligence: 4
     aggression: 1
+  - type: STR_FLOATER
+    race: STR_FLOATER
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 50
+      stamina: 90
+      health: 60
+      bravery: 80
+      reactions: 50
+      firing: 50
+      throwing: 58
+      strength: 40
+      psiStrength: 35
+      psiSkill: 0
+      melee: 70
+    armor: FLOATER_ARMOR0
+    value: 12
+    moveSound: 15
+    intelligence: 4
+    aggression: 2
+    standHeight: 21
+    kneelHeight: 16
+    floatHeight: 2
+    deathSound: 101
+  - type: STR_CHRYSSALID
+    race: STR_CHRYSSALID
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 110
+      stamina: 140
+      health: 80
+      bravery: 100
+      reactions: 70
+      firing: 0
+      throwing: 0
+      strength: 50
+      psiStrength: 50
+      psiSkill: 0
+      melee: 80
+    armor: CHRYSSALID_ARMOR
+    standHeight: 21
+    kneelHeight: 16
+    value: 25
+    deathSound: 9
+    intelligence: 4
+    aggression: 1
+    energyRecovery: 40
+    livingWeapon: true
+  - type: STR_SNAKEMAN
+    race: STR_SNAKEMAN
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 40
+      stamina: 80
+      health: 65
+      bravery: 80
+      reactions: 45
+      firing: 58
+      throwing: 65
+      strength: 47
+      psiStrength: 40
+      psiSkill: 0
+      melee: 76
+    armor: SNAKEMAN_ARMOR0
+    standHeight: 18
+    kneelHeight: 18
+    value: 15
+    deathSound: 8
+    moveSound: 0
+    intelligence: 2
+    aggression: 2
+  - type: STR_CYBERDISC
+    race: STR_CYBERDISC
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 62
+      stamina: 90
+      health: 160
+      bravery: 110
+      reactions: 64
+      firing: 60
+      throwing: 0
+      strength: 90
+      psiStrength: 100
+      psiSkill: 0
+      melee: 0
+    armor: CYBERDISC_ARMOR
+    standHeight: 15
+    kneelHeight: 15
+    floatHeight: 2
+    value: 20
+    deathSound: 23
+    moveSound: 40
+    intelligence: 5
+    aggression: 1
+    energyRecovery: 50
+    specab: 1
+    livingWeapon: true
+    capturable: false
+  - type: STR_MUTON
+    race: STR_MUTON
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 56
+      stamina: 90
+      health: 125
+      bravery: 80
+      reactions: 60
+      firing: 54
+      throwing: 62
+      strength: 70
+      psiStrength: 25
+      psiSkill: 0
+      melee: 76
+    armor: MUTON_ARMOR0
+    standHeight: 21
+    kneelHeight: 16
+    value: 15
+    deathSound: 6
+    intelligence: 2
+    aggression: 2
+    energyRecovery: 40
   - type: STR_MUTON_BERSERKER
     race: STR_MUTON_BERSERKER
     rank: STR_LIVE_TERRORIST
@@ -294,7 +669,7 @@ units:
     intelligence: 6
     aggression: 2
     energyRecovery: 50
-  - type: STR_ANDROMEDON_TERRORIST
+  - type: STR_ANDROMEDON
     race: STR_ANDROMEDON
     rank: STR_LIVE_TERRORIST
     stats:
@@ -365,21 +740,67 @@ units:
     moraleLossWhenKilled: 100
     isLeeroyJenkins: true
     aggression: 4
+  - type: STR_ETHEREAL
+    race: STR_ETHEREAL
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 68
+      stamina: 96
+      health: 55
+      bravery: 80
+      reactions: 75
+      firing: 74
+      throwing: 80
+      strength: 48
+      psiStrength: 50
+      psiSkill: 40
+      melee: 85
+    armor: ETHEREAL_ARMOR0
+    standHeight: 20
+    kneelHeight: 15
+    value: 20
+    deathSound: 9
+    intelligence: 6
+    aggression: 1
+    energyRecovery: 40
+  - type: STR_ETHEREAL_LEADER
+    race: STR_ETHEREAL
+    rank: STR_LIVE_LEADER
+    stats:
+      tu: 68
+      stamina: 96
+      health: 55
+      bravery: 80
+      reactions: 75
+      firing: 74
+      throwing: 80
+      strength: 48
+      psiStrength: 60
+      psiSkill: 45
+      melee: 85
+    armor: ETHEREAL_ARMOR1
+    standHeight: 20
+    kneelHeight: 15
+    value: 30
+    deathSound: 9
+    intelligence: 7
+    aggression: 1
+    energyRecovery: 40
   - type: STR_OUTSIDER
     race: STR_OUTSIDER
     rank: STR_LIVE_SOLDIER
     stats:
-      tu: 60
+      tu: 48
       stamina: 150
-      health: 100
-      bravery: 110
+      health: 35
+      bravery: 70
       reactions: 60
       firing: 65
       throwing: 50
       strength: 70
       psiStrength: 200
       psiSkill: 0
-      melee: 80
+      melee: 60
     armor: OUTSIDER_ARMOR
     standHeight: 21
     kneelHeight: 16
@@ -391,9 +812,9 @@ units:
   - type: STR_DRONE
     race: STR_DRONE_SCOUT
     stats:
-      tu: 100
+      tu: 48
       stamina: 110
-      health: 10
+      health: 35
       bravery: 110
       reactions: 30
       firing: 90
@@ -411,6 +832,56 @@ units:
     deathSound: 23
     moveSound: 14
     livingWeapon: true
+  - type: STR_SECTOPOD
+    race: STR_SECTOPOD
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 62
+      stamina: 90
+      health: 280
+      bravery: 110
+      reactions: 64
+      firing: 60
+      throwing: 0
+      strength: 90
+      psiStrength: 100
+      psiSkill: 0
+      melee: 80
+    armor: SECTOPOD_ARMOR
+    standHeight: 23
+    kneelHeight: 16
+    value: 30
+    deathSound: 23
+    intelligence: 4
+    aggression: 1
+    energyRecovery: 50
+    livingWeapon: true
+    capturable: false
+  - type: STR_ZOMBIE
+    race: STR_ZOMBIE
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 32
+      stamina: 110
+      health: 10
+      bravery: 110
+      reactions: 40
+      firing: 0
+      throwing: 0
+      strength: 65
+      psiStrength: 80
+      psiSkill: 0
+      melee: 80
+    armor: ZOMBIE_ARMOR
+    standHeight: 18
+    kneelHeight: 18
+    value: 18
+    intelligence: 3
+    aggression: 2
+    energyRecovery: 20
+    spawnUnit: STR_CHRYSSALID_TERRORIST
+    livingWeapon: true
+    # Zombies are silent on death, no deathSound
 
 items:
   - type: STR_OUTSIDER

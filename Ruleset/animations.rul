@@ -6,8 +6,8 @@ extraSprites:
     subY: 40
     files:
       100: Resources/Animation/crysattack.gif
-      101: Resources/Animation/EleriumShockMelee.gif
-      102: Resources/Animation/enemy_debuff_hit.png
-      103: Resources/Animation/melee1.gif
-      104: Resources/Animation/lasermelee.gif
-      105: Resources/Animation/plasmamelee.png
+      104: Resources/Animation/EleriumShockMelee.gif
+      108: Resources/Animation/enemy_debuff_hit.png
+      112: Resources/Animation/melee1.gif
+      116: Resources/Animation/lasermelee.gif
+      120: Resources/Animation/plasmamelee.png

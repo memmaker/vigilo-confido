@@ -2665,8 +2665,7 @@ extended:
               target.setTag Tag.HEALED_BY_FIELD_SURGEON 1;
             end;
           end;
-
-          return;    
+          return;
     returnFromMissionUnit:
       - offset: 23   # for field surgeon
         code: |
@@ -3022,15 +3021,21 @@ ufopaedia:
     section: STR_MILITARY_MOLDING_CATEGORY
     image_id: UFOPAEDIA_IMG_PSIOP_CPAL
     text: STR_UFOPAEDIA_PSI_OP
+    requires:
+      - STR_PSI_LAB
     text_width: 158
   - id: STR_PSI_OPERATIVE_SKILLS
     type_id: 8 # text
     section: STR_MILITARY_MOLDING_CATEGORY
     text: STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS
+    requires:
+      - STR_PSI_LAB
   - id: STR_PSI_OPERATIVE_SKILLS_ACTIVE
     type_id: 8 # text
     section: STR_MILITARY_MOLDING_CATEGORY
     text: STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE
+    requires:
+      - STR_PSI_LAB
   - id: STR_SKILL_AMP
     type_id: 4 # equipment
     section: STR_NOT_AVAILABLE

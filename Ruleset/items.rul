@@ -37,6 +37,8 @@ extended:
       HELLWEAVE_BONUS_STATE: int
       HEALTH_FROM_ARMOR: int  # ablative armor (+hp) from armor
       HEALTH_FROM_ITEM: int   # ablative armor (+hp) from passive item (vests, etc.)
+      HEALTH_FROM_ARMOR_MAX: int
+      HEALTH_FROM_ITEM_MAX: int
       ARMOR_FROM_ITEM: int
       BLUESCREEN_BONUS_STATE: int
       HAZMAT_BONUS_STATE: int
@@ -96,6 +98,7 @@ extended:
 
           if and eq health_from_armor 0 gt ablative_armor 0;
             unit.setTag Tag.HEALTH_FROM_ARMOR ablative_armor;
+            unit.setTag Tag.HEALTH_FROM_ARMOR_MAX ablative_armor;
             debug_log "Health_from_armor initialized to rule value:" ablative_armor unit;
           end;
 
@@ -135,6 +138,10 @@ extended:
           item_rule.getTag psi_defense_bonus Tag.PSI_DEFENSE_BONUS;
           item_rule.getTag hellweave_bonus Tag.HELLWEAVE_BONUS;
           item_rule.getTag hazmat_bonus Tag.HAZMAT_BONUS;
+
+          if eq owner null;
+            return;
+          end;
           
           owner.getTag original_accuracy Tag.ORIGINAL_ACCURACY;
           owner.getTag psi_defense_bonus_state Tag.PSI_DEFENSE_BONUS_STATE;
@@ -144,29 +151,29 @@ extended:
           if and eq original_accuracy 0 gt accuracy_bonus 0;
             owner.Stats.getFiring temp;
             owner.setTag Tag.ORIGINAL_ACCURACY temp;
-            debug_log "Inventory Item Accuracy Bonus:" temp accuracy_bonus owner;
+            #debug_log "Inventory Item Accuracy Bonus:" temp accuracy_bonus owner;
             add temp accuracy_bonus;
             owner.Stats.setFiring temp;
           end;
 
           if and eq psi_defense_bonus_state 0 gt psi_defense_bonus 0;
             owner.setTag Tag.PSI_DEFENSE_BONUS_STATE psi_defense_bonus;
-            debug_log "Inventory Item Psi Defense Bonus:" psi_defense_bonus owner;
+            #debug_log "Inventory Item Psi Defense Bonus:" psi_defense_bonus owner;
           end;
 
           if and eq hellweave_bonus_state 0 gt hellweave_bonus 0;
             owner.setTag Tag.HELLWEAVE_BONUS_STATE hellweave_bonus;
-            debug_log "Inventory Item Hellweave Bonus:" hellweave_bonus owner;
+            #debug_log "Inventory Item Hellweave Bonus:" hellweave_bonus owner;
           end;
 
           if and eq hazmat_bonus_state 0 gt hazmat_bonus 0;
             owner.setTag Tag.HAZMAT_BONUS_STATE hazmat_bonus;
-            debug_log "Inventory Item Hazmat Bonus:" hazmat_bonus owner;
+            #debug_log "Inventory Item Hazmat Bonus:" hazmat_bonus owner;
           end;
 
           if and eq bluescreen_bonus_state 0 gt bluescreen_bonus 0;
             owner.setTag Tag.BLUESCREEN_BONUS_STATE bluescreen_bonus;
-            debug_log "Inventory Item Bluescreen Bonus:" bluescreen_bonus owner;
+            #debug_log "Inventory Item Bluescreen Bonus:" bluescreen_bonus owner;
           end;
 
           return;
@@ -216,6 +223,7 @@ extended:
             debug_log "Health_from_item set to item value:" item_bonus_health owner item;
           else and eq health_from_item 0 gt rule_bonus_health 0;
             owner.setTag Tag.HEALTH_FROM_ITEM rule_bonus_health;
+            owner.setTag Tag.HEALTH_FROM_ITEM_MAX rule_bonus_health;
             item.setTag Tag.ABLATIVE_ITEM_BONUS_STATE rule_bonus_health;
             debug_log "Health_from_item initialized to rule value:" rule_bonus_health owner item;
           end;
@@ -380,7 +388,6 @@ extended:
               sub health_from_item to_health;
               set to_health 0;
               div to_stun 2;
-              set to_wound 0;
               battle_game.flashMessage "STR_ARMOR_STOPPED" org_power health_from_item;
             else;
               sub to_health health_from_item;
@@ -395,7 +402,6 @@ extended:
               sub health_from_armor to_health;
               set to_health 0;
               div to_stun 2;
-              set to_wound 0;
               battle_game.flashMessage "STR_ARMOR_STOPPED" org_power health_from_armor;
             else;
               sub to_health health_from_armor;
@@ -404,6 +410,82 @@ extended:
             unit.setTag Tag.HEALTH_FROM_ARMOR health_from_armor;
             debug_log "Health_from_armor changed by hit:" health_from_armor unit;
           end;
+          if le to_health 0;
+            set to_wound 0;
+            set to_health 0;
+          end;
+          return;
+    healUnit:
+      - offset: 51   # for medi-kits
+        code: |
+          var int health_from_item;
+          var int health_from_armor;
+          var int health_from_item_max;
+          var int health_from_armor_max;
+          var int unit_heal_limit;
+          var int item_heal_limit;
+          var int armor_heal_limit;
+          var int partial_heal;
+
+          debug_log "Unit healed:" target medikit_action_type;
+          debug_log "HP/Wound/Energy:" health_recovery wound_recovery energy_recovery;
+          
+          if eq health_recovery 0;
+            return;
+          end;
+
+          target.getTag health_from_item Tag.HEALTH_FROM_ITEM;
+          target.getTag health_from_armor Tag.HEALTH_FROM_ARMOR;
+          target.getTag health_from_item_max Tag.HEALTH_FROM_ITEM_MAX;
+          target.getTag health_from_armor_max Tag.HEALTH_FROM_ARMOR_MAX;
+
+          if and neq health_from_item 0 neq health_from_item health_from_item_max;
+            set item_heal_limit health_from_item_max;
+            if eq health_from_item -1;
+              set health_from_item 0;
+            end;
+            sub item_heal_limit health_from_item;
+            debug_log "Unit item_heal_limit:" item_heal_limit;
+          end;
+
+          if and neq health_from_armor 0 neq health_from_armor health_from_armor_max;
+            if eq health_from_armor -1;
+              set health_from_armor 0;
+            end;
+            set armor_heal_limit health_from_armor_max;
+            sub armor_heal_limit health_from_armor;
+            debug_log "Unit armor_heal_limit:" armor_heal_limit;
+          end;
+
+          if ge item_heal_limit health_recovery;
+            add health_from_item health_recovery;
+            battle_game.flashMessage "STR_HEALED_ITEM" health_recovery health_from_item_max;
+            set health_recovery 0;
+            target.setTag Tag.HEALTH_FROM_ITEM health_from_item;
+          else gt item_heal_limit 0;
+            set partial_heal health_recovery;
+            limit_upper partial_heal item_heal_limit;
+            add health_from_item partial_heal;
+            sub health_recovery partial_heal;
+            battle_game.flashMessage "STR_HEALED_ITEM" partial_heal health_from_item_max;
+            target.setTag Tag.HEALTH_FROM_ITEM health_from_item;
+          end;
+
+          if ge armor_heal_limit health_recovery;
+            add health_from_armor health_recovery;
+            battle_game.flashMessage "STR_HEALED_ARMOR" health_recovery health_from_armor_max;
+            set health_recovery 0;
+            target.setTag Tag.HEALTH_FROM_ARMOR health_from_armor;
+          else gt armor_heal_limit 0;
+            set partial_heal health_recovery;
+            limit_upper partial_heal armor_heal_limit;
+            add health_from_armor partial_heal;
+            sub health_recovery partial_heal;
+            battle_game.flashMessage "STR_HEALED_ARMOR" partial_heal health_from_armor_max;
+            target.setTag Tag.HEALTH_FROM_ARMOR health_from_armor;
+          end;
+
+          debug_log "Unit hp recovery left:" health_recovery;
 
           return;
     psiDefenceBonusStats:
@@ -686,8 +768,8 @@ items:
     energyRecovery: 0
     tuUse: 20
     flatRate: false
-    costSell: 46500
-    costBuy: 50000
+    costSell: 1000
+    costBuy: 1200
   - type: STR_NANO_MEDI_KIT
     size: 0.1
     costSell: 86500
@@ -1004,6 +1086,8 @@ extraStrings:
       STR_HAZMAT_VEST: "Hazmat Vest"
       STR_BLUESCREEN_ROUNDS: "Bluescreen Rounds"
       STR_ARMOR_STOPPED: "Absorbed: {0}>{1}"
+      STR_HEALED_ITEM: "Healed: {0}/{1}"
+      STR_HEALED_ARMOR: "Healed: {0}/{1}"
       STR_SKULLJACK: Skulljack
       STR_MIMIC_BEACON: Mimic Beacon
       STR_MIMIC_ARMOR: Mimic Armor

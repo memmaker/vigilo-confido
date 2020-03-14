@@ -1,4 +1,4 @@
-# NOTE: localized eu2012 .mov files use track #6 for english
+# NOTE: localized eu2012 .mov files use track #1 for background sounds and track #6 for english
 musics:
   - type: INTRO
   - type: GMTACTIC
@@ -14,35 +14,14 @@ musics:
   - type: GMGEO3
   - type: GMSTORY
   - type: GMSTORY_basic
-  - type: 1080_CIN_TP_Containment_Sectoid_LOC
-  - type: 1080_CIN_TP_Autopsy_Sectoid_LOC
-  - type: 1080_CIN_TP_Containment_ThinMan_LOC
-  - type: 1080_CIN_TP_Autopsy_ThinMan_LOC
-  - type: snakeman.dead
-  - type: 1080_CIN_TP_Containment_Floater_LOC
-  - type: 1080_CIN_TP_Autopsy_Floater_LOC
-  - type: 1080_CIN_TP_Containment_Muton_LOC
-  - type: 1080_CIN_TP_Autopsy_Muton_LOC
-  - type: 1080_CIN_TP_Containment_MutonBerserker_LOC
-  - type: 1080_CIN_TP_Autopsy_MutonBerserker_LOC
-  - type: 1080_CIN_TP_Autopsy_Chryssalid_LOC
-  - type: 1080_CIN_TP_Autopsy_Cyberdisc_LOC
-  - type: andromedon.dead
-  - type: 1080_CIN_TP_Containment_MutonElite_LOC
-  - type: 1080_CIN_TP_Autopsy_MutonElite_LOC
-  - type: 1080_CIN_TP_Containment_Ethereal_LOC
-  - type: 1080_CIN_TP_Autopsy_Ethereal_LOC
-  - type: 1080_CIN_TP_Autopsy_SectoidComm_LOC
-  - type: 1080_CIN_TP_Autopsy_Sectopod_LOC
-  - type: hyperwave.decoder
-  - type: hyperwave.acquired
+  - type: IntroEngineering
+  - type: IntroScience
+  - type: 1080_CIN_TP01A_ArcThrower_LOC
+  - type: 1080_CIN_TP01B_PostInterrogation_LOC
   - type: firestorm
   - type: base.defense
   - type: base.defense.fail
   - type: base.defense.success
-  - type: outsider.shard
-  - type: outsider.briefing
-  - type: skeleton.key.acquired
   - type: laser.weapons
   - type: plasma.weapons
   - type: carapace.armor
@@ -55,21 +34,43 @@ musics:
   - type: MABRT_7
   - type: 2CYDON_7
   - type: Hello_Commander
-constants: #done
+  - type: 1080_CIN_TP_Containment_Sectoid_LOC
+  - type: 1080_CIN_TP_Autopsy_Sectoid_LOC
+  - type: 1080_CIN_TP_Containment_ThinMan_LOC
+  - type: 1080_CIN_TP_Autopsy_ThinMan_LOC
+  - type: 1080_CIN_TP_Containment_Floater_LOC
+  - type: 1080_CIN_TP_Autopsy_Floater_LOC
+  - type: 1080_CIN_TP_Containment_Muton_LOC
+  - type: 1080_CIN_TP_Autopsy_Muton_LOC
+  - type: 1080_CIN_TP_Containment_MutonBerserker_LOC
+  - type: 1080_CIN_TP_Autopsy_MutonBerserker_LOC
+  - type: 1080_CIN_TP_Autopsy_Chryssalid_LOC
+  - type: 1080_CIN_TP_Autopsy_Cyberdisc_LOC
+  - type: 1080_CIN_TP_Containment_MutonElite_LOC
+  - type: 1080_CIN_TP_Autopsy_MutonElite_LOC
+  - type: 1080_CIN_TP_Containment_Ethereal_LOC
+  - type: 1080_CIN_TP_Autopsy_Ethereal_LOC
+  - type: 1080_CIN_TP_Autopsy_SectoidComm_LOC
+  - type: 1080_CIN_TP_Autopsy_Sectopod_LOC
+  - type: andromedon.dead
+  - type: snakeman.dead
+  - type: engineering.ambience
+  - type: science.ambience
+constants:
   buttonPress: 77
 
 extraSounds:
   - type: GEO.CAT
     files:
-      75: SOUND/engineering.ambience.ogg
-      76: SOUND/science.ambience.ogg
       77: SOUND/uiclick.ogg
 
 interfaces:
+  - type: globalResearchMenu
+    music: science.ambience
   - type: researchMenu
-    sound: 76
+    music: science.ambience
   - type: manufactureMenu
-    sound: 75
+    music: engineering.ambience
 
 cutscenes:
   - delete: intro
@@ -81,6 +82,26 @@ cutscenes:
       - Resources/ANIMS/INTRO.fli
     audioTracks:
       - INTRO
+  - type: intro.engineering
+    videos:
+      - Resources/ANIMS/IntroEngineering.FLI
+    audioTracks:
+      - IntroEngineering
+  - type: intro.science
+    videos:
+      - Resources/ANIMS/IntroScience.FLI
+    audioTracks:
+      - IntroScience
+  - type: skulljack
+    videos:
+      - Resources/ANIMS/1080_CIN_TP01A_ArcThrower_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP01A_ArcThrower_LOC
+  - type: post.interrogation
+    videos:
+      - Resources/ANIMS/1080_CIN_TP01B_PostInterrogation_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP01B_PostInterrogation_LOC
   - type: winGame
     videos:
       - Resources/ANIMS/GWIN_7.FLC
@@ -356,7 +377,9 @@ research:
   - name: STR_HYPER_WAVE_DECODER
     cutscene: hyperwave.decoder
   - name: STR_XENO_BIOLOGY
-    cutscene: outsider.briefing
+    cutscene: skulljack
+  - name: STR_POST_INTERROGATION
+    cutscene: post.interrogation
   - name: STR_OUTSIDER_SHARD
     cutscene: outsider.shard
   - name: STR_LASER_WEAPONS
@@ -366,33 +389,27 @@ research:
   - name: STR_PSI_SECTOID_CORPSE
     cutscene: psi.sectoid.dead
   - name: STR_SECTOID
-    cost: 1
+    cost: 30
     points: 10
     cutscene: sectoid.live
-    dependencies:
-      - STR_SECTOID_SOLDIER
-      - STR_SECTOID_MEDIC
-      - STR_SECTOID_NAVIGATOR
-      - STR_SECTOID_ENGINEER
-      - STR_SECTOID_LEADER
-      - STR_SECTOID_COMMANDER
+    getOneFree:
+      - STR_POST_INTERROGATION
   - name: STR_SECTOID_CORPSE
     cutscene: sectoid.dead
   - name: STR_THIN_MAN
+    cost: 30
+    points: 10
     cutscene: thin.man.live
+    getOneFree:
+      - STR_POST_INTERROGATION
   - name: STR_THIN_MAN_CORPSE
+    cost: 30
+    points: 10
     cutscene: thin.man.dead
   - name: STR_FLOATER
     cost: 1
     points: 10
     cutscene: floater.live
-    dependencies:
-      - STR_FLOATER_SOLDIER
-      - STR_FLOATER_MEDIC
-      - STR_FLOATER_NAVIGATOR
-      - STR_FLOATER_ENGINEER
-      - STR_FLOATER_LEADER
-      - STR_FLOATER_COMMANDER
   - name: STR_FLOATER_CORPSE
     cutscene: floater.dead
   - name: STR_SNAKEMAN_CORPSE
@@ -403,13 +420,6 @@ research:
     cost: 1
     points: 10
     cutscene: muton.live
-    dependencies:
-      - STR_MUTON_SOLDIER
-      - STR_MUTON_MEDIC
-      - STR_MUTON_NAVIGATOR
-      - STR_MUTON_ENGINEER
-      - STR_MUTON_LEADER
-      - STR_MUTON_COMMANDER
   - name: STR_MUTON_CORPSE
     cutscene: muton.dead
   - name: STR_BERSERKER
@@ -428,13 +438,6 @@ research:
     cost: 1
     points: 10
     cutscene: ethereal.live
-    dependencies:
-      - STR_ETHEREAL_SOLDIER
-      - STR_ETHEREAL_MEDIC
-      - STR_ETHEREAL_NAVIGATOR
-      - STR_ETHEREAL_ENGINEER
-      - STR_ETHEREAL_LEADER
-      - STR_ETHEREAL_COMMANDER
   - name: STR_ETHEREAL_CORPSE
     cutscene: ethereal.dead
   - name: STR_SECTOPOD_CORPSE

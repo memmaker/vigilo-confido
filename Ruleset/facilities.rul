@@ -68,7 +68,7 @@ facilities:
     buildCost: 2000
     buildTime: 10
     monthlyCost: 600
-    storage: 50
+    storage: 500 #debug: TODO change back
     mapName: XBASE_07
   - type: STR_ALIEN_CONTAINMENT
     spriteShape: 1

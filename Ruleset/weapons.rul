@@ -234,7 +234,7 @@ items:
     bigSprite: 200
     floorSprite: 200
     handSprite: 256
-    meleeAnimation: 103
+    meleeAnimation: 112
     power: 40
     strengthApplied: true
     damageType: 7
@@ -264,7 +264,7 @@ items:
     bigSprite: 201
     floorSprite: 201
     handSprite: 264
-    meleeAnimation: 104
+    meleeAnimation: 116
     power: 50
     strengthApplied: true
     damageType: 4
@@ -294,7 +294,7 @@ items:
     bigSprite: 202
     floorSprite: 202
     handSprite: 272
-    meleeAnimation: 105
+    meleeAnimation: 120
     power: 60
     strengthApplied: true
     damageType: 5

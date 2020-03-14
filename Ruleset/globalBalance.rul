@@ -211,6 +211,14 @@ extended:
           end;
           return power part side;
     damageUnit:
+      - offset: 97
+        code: |
+          var int wounds;
+          unit.getFatalwounds wounds part;
+          if gt wounds 0;
+            set to_wound 0; # only ever inflict one fatal wound per body part
+          end;
+          return;
       - offset: 99
         code: |
           var int temp;

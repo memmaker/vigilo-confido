@@ -5,18 +5,18 @@ Survive. Adapt. Win.
 
 A vanilla expansion for OXCE featuring content from EU2012 and others.
 
-=== Changes ===
+=== Features ===
 
- - 5 new soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
+ - 5 soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
+ - ~50 scripted abilities with unique skills for each class
  - 500+ callsigns for each soldier class
  - 20+ cutscenes from the remakes
- - ~50 new scripted abilities with unique skills for each class
- - 200+ new voice files (Unit responsonse sounds)
- - 6 new units (Cyber Floater, Thin Man, Berserker, Muton Elite, Andromedon, Outsider)
+ - 200+ voice files (Unit responsonse sounds)
+ - 8 new alien units (Cyber Floater, Thin Man, Berserker, Armored Muton, Sectopod Drone, Muton Elite, Andromedon, Outsider)
  - 3 new weapon types in T1, T2 & T3 versions (Swords, Shotguns, Sniper Rifles)
  - Complete new graphics for all T2 & T3 weapons and armors
  - Complete rebalancing of all weapons, armors, units and deployments
- - Added status, day & night and hit indicators
+ - Status, day & night and hit indicators
  - Laser weapons not reasearchable from the start
  - Laser weapons need recharging and can implode in the field
  - Limited Explosives
@@ -26,20 +26,26 @@ A vanilla expansion for OXCE featuring content from EU2012 and others.
  - "Killing Aliens destroys their Weapons" option is fixed
  - Additional status effects & Visualisations
  - Weapons can be disabled in combat
- - A buttload of new maps (thanks to C.M.P)
- - Added Training rooms
+ - A buttload of maps (thanks to C.M.P)
+ - Training rooms
  - Integrated the Commendations mod
- - Added passive bonus items
+ - Passive bonus items (S.C.O.P.E., etc.)
 
-Required: OXCE 6.4
-Test Build available here: https://lxnt.wtf/oxem/builds/Extended/Extended-6.3.5-018c5b09d-2020-03-03-win64.7z
+=== Requirements ===
 
-=== Quickstart ===
+OpenXcom Extended (OXCE) 6.4
+
+Download release versions of OXCE here:
+https://openxcom.org/oxce/release/
+
+=== Quickstart (via Ufopedia) ===
 
 You can find information about the classes and their skills in the Ufopedia
 under the "MILITARY MOLDING" category.
 
 The changes on weapons and armors can be found under the "WEAPONS AND EQUIPMENT" section.
+
+The category "MISSION OBJECTIVES" will always contain an entry with your current objectives.
 
 === Goals and influences ===
 
@@ -85,6 +91,8 @@ which is awarded for 10 kills and 16 missions.
 For a list of the currently implemented skills per class please refer to the file
 Rulesets/classSkills.rul line 10, heading "Class Skill list".
 
+There is also in-game description available in the Ufopedia (if you don't want to read some spoilers..).
+
 === Tiers ===
 
 Weapons and armors all follow the three Tier concept.
@@ -103,6 +111,7 @@ T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
 === Known Issues / Backlog ===
+
  - resistances to damage types
  - item categories, list orders
  - Sound effects (Gremlin, Minigun)
@@ -118,29 +127,23 @@ T3 - Warden Armor   & Plasma Weapons
  - Weapon specific crit chances and crit damage
  - Ufopedia entries (Grenades & Status Effects, Armors, Autopsies)
  - Economics
- - EU2012 Style Medi-Kits (And usages)
- - Passive Inventory Bonus Items (Scope, etc.)
  - Melee, Dodge, etc.
  - Complete research bonuses for corpses
- - Make sure medi-kits work with ablative armor
  - flagByKills for experience indicator
- - Why are some maps still dark?
  - You could make a critically wounded soldier into a cyborg, instead of waiting for a month to recuperate.
  - Reduce dealing of fatal wounds and apply increasing chances of bleeding out instead of instant death
  - Test shredder and shred damage and the toArmor toArmorPre stuff
- - Sword hit animation
  - Make the Firestorm useful
  - EU2012 Story: https://www.ufopaedia.org/index.php/Storyline_(EU2012)
  - A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
- - Purge Celatids & Silacoids
+ - Purge Reapers, Naked Mutons, Celatids & Silacoids
+ - Skulljack Ufopedia Page and lookup
 
 === Out of Scope for 1.0 ===
  - Base Facilities
  - Crafts & Craft Weapons
  - New Mission Objectives
  - Gene Lab & MECs
- - Cutscenes
- - Storyline & Mission Structure
 
 "Bellator in Machina" - "Warrior in the machine"
 "Mutare ad custodiam" - "We Change to Protect"
