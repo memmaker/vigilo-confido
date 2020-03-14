@@ -45,22 +45,29 @@ research:
   - delete: STR_CHRYSSALID_TERRORIST
   - delete: STR_CYBERDISC_TERRORIST
   - delete: STR_SECTOPOD_TERRORIST
-  - name: STR_CAMPAIGN_BEGIN
   - name: STR_XENO_BIOLOGY
     dependencies:
       - STR_SECTOID_AUTOPSY
     unlocks:
       - STR_SKULLJACK
   - name: STR_MOTION_SCANNER
+    dependencies: [STR_INTRO_SCIENCE]
     cost: 70
     points: 20
   - name: STR_MEDI_KIT
+    dependencies: [STR_INTRO_SCIENCE]
     cost: 90
     points: 20
   - name: STR_NANOSCALE_VEST
+    dependencies: [STR_INTRO_SCIENCE]
     cost: 90
     points: 20
   - name: STR_PROXIMITY_GRENADE
+    dependencies: [STR_INTRO_SCIENCE]
+    cost: 70
+    points: 20
+  - name: STR_EXPERIMENTAL_ARMOR
+    dependencies: [STR_INTRO_ENGINEERING]
     cost: 70
     points: 20
   - name: STR_INCENDIARY_GRENADE

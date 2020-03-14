@@ -1,26 +1,4 @@
-eventScripts:
-  - type: STR_INTRO_EVENT_SCRIPT
-    oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
-    firstMonth: 0
-    lastMonth: 0
-    executionOdds: 100
-    minDifficulty: 0
-    maxDifficulty: 4
-
-extraStrings:
-  - type: en-US
-    strings:
-      STR_INTRODUCTION_EVENT: Hello, Commander
-      STR_INTRODUCTION_TEXT: "Welcome to the X-Com project. The situation is quickly spiraling out of control. Your first task is the acquisition of samples of alien genetic material. Dr. Vahlen and the research team will analyse the samples once you acquired them.{NEWLINE}{NEWLINE}Good luck, Commander."
-
-
-events:
-  - name: STR_INTRODUCTION_EVENT
-    description: STR_INTRODUCTION_TEXT
-    timer: 60
-    timerRandom: 0
-    music: Hello_Commander
-
+# NOTE: localized eu2012 .mov files use track #6 for english
 musics:
   - type: INTRO
   - type: GMTACTIC
@@ -36,26 +14,26 @@ musics:
   - type: GMGEO3
   - type: GMSTORY
   - type: GMSTORY_basic
-  - type: sectoid.live
-  - type: sectoid.dead
-  - type: thin.man.live
-  - type: thin.man.dead
+  - type: 1080_CIN_TP_Containment_Sectoid_LOC
+  - type: 1080_CIN_TP_Autopsy_Sectoid_LOC
+  - type: 1080_CIN_TP_Containment_ThinMan_LOC
+  - type: 1080_CIN_TP_Autopsy_ThinMan_LOC
   - type: snakeman.dead
-  - type: floater.live
-  - type: floater.dead
-  - type: muton.live
-  - type: muton.dead
-  - type: berserker.live
-  - type: berserker.dead
-  - type: chryssalid.dead
-  - type: cyberdisc.dead
+  - type: 1080_CIN_TP_Containment_Floater_LOC
+  - type: 1080_CIN_TP_Autopsy_Floater_LOC
+  - type: 1080_CIN_TP_Containment_Muton_LOC
+  - type: 1080_CIN_TP_Autopsy_Muton_LOC
+  - type: 1080_CIN_TP_Containment_MutonBerserker_LOC
+  - type: 1080_CIN_TP_Autopsy_MutonBerserker_LOC
+  - type: 1080_CIN_TP_Autopsy_Chryssalid_LOC
+  - type: 1080_CIN_TP_Autopsy_Cyberdisc_LOC
   - type: andromedon.dead
-  - type: muton.elite.live
-  - type: muton.elite.dead
-  - type: ethereal.live
-  - type: ethereal.dead
-  - type: psi.sectoid.dead
-  - type: sectopod.dead
+  - type: 1080_CIN_TP_Containment_MutonElite_LOC
+  - type: 1080_CIN_TP_Autopsy_MutonElite_LOC
+  - type: 1080_CIN_TP_Containment_Ethereal_LOC
+  - type: 1080_CIN_TP_Autopsy_Ethereal_LOC
+  - type: 1080_CIN_TP_Autopsy_SectoidComm_LOC
+  - type: 1080_CIN_TP_Autopsy_Sectopod_LOC
   - type: hyperwave.decoder
   - type: hyperwave.acquired
   - type: firestorm
@@ -66,7 +44,7 @@ musics:
   - type: outsider.briefing
   - type: skeleton.key.acquired
   - type: laser.weapons
-  - type: plasma.unlock
+  - type: plasma.weapons
   - type: carapace.armor
   - type: titan.armor
   - type: USINT_7
@@ -77,6 +55,21 @@ musics:
   - type: MABRT_7
   - type: 2CYDON_7
   - type: Hello_Commander
+constants: #done
+  buttonPress: 77
+
+extraSounds:
+  - type: GEO.CAT
+    files:
+      75: SOUND/engineering.ambience.ogg
+      76: SOUND/science.ambience.ogg
+      77: SOUND/uiclick.ogg
+
+interfaces:
+  - type: researchMenu
+    sound: 76
+  - type: manufactureMenu
+    sound: 75
 
 cutscenes:
   - delete: intro
@@ -219,103 +212,103 @@ cutscenes:
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_Sectoid_LOC.FLI
     audioTracks:
-      - sectoid.live
+      - 1080_CIN_TP_Containment_Sectoid_LOC
   - type: sectoid.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Sectoid_LOC.FLI
     audioTracks:
-      - sectoid.dead
+      - 1080_CIN_TP_Autopsy_Sectoid_LOC
   - type: thin.man.live
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_ThinMan_LOC.FLI
     audioTracks:
-      - thin.man.live
+      - 1080_CIN_TP_Containment_ThinMan_LOC
   - type: thin.man.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_ThinMan_LOC.FLI
     audioTracks:
-      - thin.man.dead
+      - 1080_CIN_TP_Autopsy_ThinMan_LOC
   - type: floater.live
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_Floater_LOC.FLI
     audioTracks:
-      - floater.live
+      - 1080_CIN_TP_Containment_Floater_LOC
   - type: floater.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Floater_LOC.FLI
     audioTracks:
-      - floater.dead
+      - 1080_CIN_TP_Autopsy_Floater_LOC
   - type: muton.live
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_Muton_LOC.FLI
     audioTracks:
-      - muton.live
+      - 1080_CIN_TP_Containment_Muton_LOC
   - type: muton.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Muton_LOC.FLI
     audioTracks:
-      - muton.dead
+      - 1080_CIN_TP_Autopsy_Muton_LOC
   - type: berserker.live
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_MutonBerserker_LOC.FLI
     audioTracks:
-      - berserker.live
+      - 1080_CIN_TP_Containment_MutonBerserker_LOC
   - type: berserker.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_MutonBerserker_LOC.FLI
     audioTracks:
-      - berserker.dead
+      - 1080_CIN_TP_Autopsy_MutonBerserker_LOC
   - type: chryssalid.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Chryssalid_LOC.FLI
     audioTracks:
-      - chryssalid.dead
+      - 1080_CIN_TP_Autopsy_Chryssalid_LOC
   - type: cyberdisc.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Cyberdisc_LOC.FLI
     audioTracks:
-      - cyberdisc.dead
+      - 1080_CIN_TP_Autopsy_Cyberdisc_LOC
   - type: muton.elite.live
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_MutonElite_LOC.FLI
     audioTracks:
-      - muton.elite.live
+      - 1080_CIN_TP_Containment_MutonElite_LOC
   - type: muton.elite.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_MutonElite_LOC.FLI
     audioTracks:
-      - muton.elite.dead
+      - 1080_CIN_TP_Autopsy_MutonElite_LOC
   - type: ethereal.live
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Containment_Ethereal_LOC.FLI
     audioTracks:
-      - ethereal.live
+      - 1080_CIN_TP_Containment_Ethereal_LOC
   - type: ethereal.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Ethereal_LOC.FLI
     audioTracks:
-      - ethereal.dead
+      - 1080_CIN_TP_Autopsy_Ethereal_LOC
   - type: psi.sectoid.dead
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_SectoidComm_LOC.FLI
     audioTracks:
-      - psi.sectoid.dead
+      - 1080_CIN_TP_Autopsy_SectoidComm_LOC
   - type: snakeman.dead
     useUfoAudioSequence: false
     videos:
@@ -333,7 +326,7 @@ cutscenes:
     videos:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Sectopod_LOC.FLI
     audioTracks:
-      - sectopod.dead
+      - 1080_CIN_TP_Autopsy_Sectopod_LOC
   - type: firestorm
     useUfoAudioSequence: false
     videos:

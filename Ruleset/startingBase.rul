@@ -87,5 +87,5 @@ startingBase:
     STR_SHOTGUN_AMMO: 4
     STR_SNIPER_RIFLE_CLIP: 4
     STR_HEAVY_CANNON_CLIP: 4
-  scientists: 10
-  engineers: 10
+  scientists: 0
+  engineers: 2

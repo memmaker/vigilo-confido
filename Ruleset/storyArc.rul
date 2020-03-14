@@ -1,0 +1,64 @@
+#TODO: use arc scripts to always have the current objectives in the UFOpedia
+
+eventScripts:
+  - type: STR_INTRO_EVENT_SCRIPT
+    oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
+    firstMonth: 0
+    lastMonth: 0
+    executionOdds: 100
+    minDifficulty: 0
+    maxDifficulty: 4
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_INTRODUCTION_EVENT: Hello, Commander
+      STR_INTRODUCTION_TEXT: "Welcome to the X-Com project.{NEWLINE}{NEWLINE}Dr. Shen, head of Engineering, and Dr. Vahlen, our chief scientist, will welcome you tonight when the rest of the team arrives.{NEWLINE}{NEWLINE}Your first task is the acquisition of samples of alien genetic material. Our research team will analyse the samples once you acquired them.{NEWLINE}{NEWLINE}Good luck, Commander."
+      STR_INTRODUCTION: Introduction
+      STR_INTRO_ENGINEERING: Welcome to engineering
+      STR_INTRO_SCIENCE: Welcome to the research labs
+
+events:
+  - name: STR_INTRODUCTION_EVENT
+    description: STR_INTRODUCTION_TEXT
+    timer: 60
+    timerRandom: 0
+    music: Hello_Commander
+    researchList: [STR_INTRODUCTION]
+
+#arcScripts:
+#  - type: WelcomeToEngineering
+#    sequentialArcs:                     # the type of research topics to be "discovered", each month 0 or 1, processed sequentially
+#      - STR_INTRO_ENGINEERING
+#    firstMonth: 0                       # months this command runs on, 0 runs on startup of a new game (default 0)
+#    lastMonth: 0                       # don't run after this month. -1 denotes no limit (default -1)
+#    executionOdds: 100                  # % chances of this command executing (default 100)
+#    maxArcs: 1
+
+research:
+  - name: STR_INTRODUCTION
+    cost: 100
+    dependencies:
+      - STR_INTRODUCTION
+  - name: STR_INTRO_ENGINEERING
+    cost: 1
+    cutscene: carapace.armor
+  - name: STR_INTRO_SCIENCE
+    cost: 1
+    cutscene: titan.armor
+
+startingBase:
+  research:
+    - project: STR_INTRO_ENGINEERING
+      assigned: 1
+      spent: 1
+      cost: 1
+    - project: STR_INTRO_SCIENCE
+      assigned: 1
+      spent: 0
+      cost: 1
+  transfers:
+    - hours: 12
+      scientists: 8
+    - hours: 12
+      engineers: 8

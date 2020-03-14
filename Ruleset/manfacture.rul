@@ -18,6 +18,7 @@ manufacture:
     space: 0
     time: 120
     cost: 200
+    requires: [STR_INTRO_ENGINEERING]
   - name: STR_NANO_MEDI_KIT
     requires:
       - STR_NANO_MEDI_KIT
@@ -185,6 +186,7 @@ manufacture:
   - name: STR_EXPERIMENTAL_ARMOR
     listOrder: 2
     category: STR_EXPERIMENTAL_PROJECTS
+    requires: [STR_EXPERIMENTAL_ARMOR]
     space: 0
     time: 160
     cost: 8000
