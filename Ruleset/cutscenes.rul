@@ -1,6 +1,7 @@
 # NOTE: localized eu2012 .mov files use track #1 for background sounds and track #6 for english
 musics:
   - type: INTRO
+  - type: INTRO_alt
   - type: GMTACTIC
   - type: GMTACTIC2
   - type: GMTACTIC3
@@ -18,6 +19,26 @@ musics:
   - type: IntroScience
   - type: 1080_CIN_TP01A_ArcThrower_LOC
   - type: 1080_CIN_TP01B_PostInterrogation_LOC
+  - type: 1080_CIN_TP03_CodeRevealed_LOC
+  - type: 1080_CIN_TP04_AlienPact_LOC
+  - type: 1080_CIN_TP05_AlienBaseDetected_LOC
+  - type: 1080_CIN_TP06_HyperwaveRetrieved_LOC
+  - type: 1080_CIN_TP06A_Victory_LOC
+  - type: 1080_CIN_TP07_HyperwaveUplink_LOC
+  - type: 1080_CIN_TP08_Firestorm_LOC
+  - type: 1080_CIN_TP10_DeviceRetrieved_LOC
+  - type: 1080_CIN_TP11_Part01
+  - type: 1080_CIN_TP11_Part02_LOC
+  - type: 1080_CIN_TP12B_EtherealCutaway_LOC
+  - type: 1080_CIN_TP13_Part01
+  - type: 1080_CIN_TP13_Part02
+  - type: 1080_CIN_TP13_Part03_LOC
+  - type: 1080_CIN_TP13_Part04
+  - type: 1080_CIN_TP13_Part05_LOC
+  - type: 1080_CIN_TP13_Part06
+  - type: 1080_CIN_TP13_Part07
+  - type: 1080_CIN_TP13_Part08_LOC
+
   - type: firestorm
   - type: base.defense
   - type: base.defense.fail
@@ -56,8 +77,13 @@ musics:
   - type: snakeman.dead
   - type: engineering.ambience
   - type: science.ambience
+  - type: avsync
+
 constants:
   buttonPress: 77
+
+gameOver:
+  loseRating: lose.council
 
 extraSounds:
   - type: GEO.CAT
@@ -79,9 +105,10 @@ cutscenes:
   - type: intro
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/INTRO.fli
+      - Resources/ANIMS/INTRO_320_17_5fps.FLI
+#      - Resources/ANIMS/INTRO.fli
     audioTracks:
-      - INTRO
+      - INTRO_alt
   - type: intro.engineering
     videos:
       - Resources/ANIMS/IntroEngineering.FLI
@@ -102,6 +129,103 @@ cutscenes:
       - Resources/ANIMS/1080_CIN_TP01B_PostInterrogation_LOC.FLI
     audioTracks:
       - 1080_CIN_TP01B_PostInterrogation_LOC
+  - type: outsider.shard
+    videos:
+      - Resources/ANIMS/1080_CIN_TP03_CodeRevealed_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP03_CodeRevealed_LOC
+  - type: lose.council
+    videos:
+      - Resources/ANIMS/1080_CIN_TP04_AlienPact_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP04_AlienPact_LOC
+  - type: 1080_CIN_TP05_AlienBaseDetected_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP05_AlienBaseDetected_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP05_AlienBaseDetected_LOC
+  - type: 1080_CIN_TP06_HyperwaveRetrieved_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP06_HyperwaveRetrieved_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP06_HyperwaveRetrieved_LOC
+  - type: 1080_CIN_TP06A_Victory_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP06A_Victory_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP06A_Victory_LOC
+  - type: 1080_CIN_TP07_HyperwaveUplink_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP07_HyperwaveUplink_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP07_HyperwaveUplink_LOC
+  - type: 1080_CIN_TP08_Firestorm_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP08_Firestorm_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP08_Firestorm_LOC
+  - type: 1080_CIN_TP10_DeviceRetrieved_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP10_DeviceRetrieved_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP10_DeviceRetrieved_LOC
+  - type: 1080_CIN_TP11_Part01
+    videos:
+      - Resources/ANIMS/1080_CIN_TP11_Part01.FLI
+    audioTracks:
+      - 1080_CIN_TP11_Part01
+  - type: 1080_CIN_TP11_Part02_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP11_Part02_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP11_Part02_LOC
+  - type: 1080_CIN_TP12B_EtherealCutaway_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP12B_EtherealCutaway_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP12B_EtherealCutaway_LOC
+  - type: 1080_CIN_TP13_Part01
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part01.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part01
+  - type: 1080_CIN_TP13_Part02
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part02.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part02
+  - type: 1080_CIN_TP13_Part03_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part03_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part03_LOC
+  - type: 1080_CIN_TP13_Part04
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part04.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part04
+  - type: 1080_CIN_TP13_Part05_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part05_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part05_LOC
+  - type: 1080_CIN_TP13_Part06
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part06.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part06
+  - type: 1080_CIN_TP13_Part07
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part07.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part07
+  - type: 1080_CIN_TP13_Part08_LOC
+    videos:
+      - Resources/ANIMS/1080_CIN_TP13_Part08_LOC.FLI
+    audioTracks:
+      - 1080_CIN_TP13_Part08_LOC
+
+
   - type: winGame
     videos:
       - Resources/ANIMS/GWIN_7.FLC
@@ -190,16 +314,6 @@ cutscenes:
       - Resources/ANIMS/titan.armor.fli
     audioTracks:
       - titan.armor
-  - type: outsider.shard
-    videos:
-      - Resources/ANIMS/outsider.shard.fli
-    audioTracks:
-      - outsider.shard
-  - type: outsider.briefing
-    videos:
-      - Resources/ANIMS/outsider.briefing.fli
-    audioTracks:
-      - outsider.briefing
   - type: alien.base.assault.success
     videos:
       - Resources/ANIMS/alien.base.assault.success.fli

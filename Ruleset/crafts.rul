@@ -2,7 +2,8 @@ research:
   - name: STR_BASIC_DEPLOYMENT
     cost: 180
     points: 20
-    needItem: true # hecki, hecki, hecki patang
+    dependencies:
+      - STR_BASIC_DEPLOYMENT
   - name: STR_ADVANCED_DEPLOYMENT1
     disables:
       - STR_BASIC_DEPLOYMENT
@@ -39,6 +40,7 @@ crafts:
   - type: STR_INTERCEPTOR
     costBuy: 3000
     costRent: 1300
+    sightRange: 5000
   - &STR_SKYRANGER
     type: STR_SKYRANGER
     requires:
@@ -47,6 +49,7 @@ crafts:
     fuelMax: 1500
     damageMax: 150
     speedMax: 760
+    sightRange: 5000
     accel: 2
     costBuy: 2000
     costRent: 1100

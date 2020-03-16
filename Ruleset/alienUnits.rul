@@ -884,6 +884,43 @@ units:
     # Zombies are silent on death, no deathSound
 
 items:
+  - delete: STR_SECTOID_SOLDIER
+  - delete: STR_SECTOID_MEDIC
+  - delete: STR_SECTOID_ENGINEER
+  - delete: STR_SECTOID_NAVIGATOR
+  - delete: STR_SECTOID_LEADER
+  - delete: STR_FLOATER_SOLDIER
+  - delete: STR_FLOATER_MEDIC
+  - delete: STR_FLOATER_ENGINEER
+  - delete: STR_FLOATER_NAVIGATOR
+  - delete: STR_FLOATER_LEADER
+  - delete: STR_FLOATER_COMMANDER
+  - delete: STR_SNAKEMAN_SOLDIER
+  - delete: STR_SNAKEMAN_MEDIC
+  - delete: STR_SNAKEMAN_ENGINEER
+  - delete: STR_SNAKEMAN_NAVIGATOR
+  - delete: STR_SNAKEMAN_LEADER
+  - delete: STR_SNAKEMAN_COMMANDER
+  - delete: STR_ETHEREAL_SOLDIER
+  - delete: STR_ETHEREAL_MEDIC
+  - delete: STR_ETHEREAL_ENGINEER
+  - delete: STR_ETHEREAL_NAVIGATOR
+  - delete: STR_ETHEREAL_COMMANDER
+  - delete: STR_MUTON_SOLDIER
+  - delete: STR_MUTON_MEDIC
+  - delete: STR_MUTON_ENGINEER
+  - delete: STR_MUTON_NAVIGATOR
+  - delete: STR_MUTON_LEADER
+  - delete: STR_MUTON_COMMANDER
+  - delete: STR_CHRYSSALID_TERRORIST
+  - delete: STR_CYBERDISC_TERRORIST
+  - delete: STR_SECTOPOD_TERRORIST
+  - delete: STR_CELATID_TERRORIST
+  - delete: STR_SILACOID_TERRORIST
+  - delete: STR_REAPER_TERRORIST
+  - delete: STR_REAPER_CORPSE
+  - delete: STR_CELATID_CORPSE
+  - delete: STR_SILACOID_CORPSE
   - type: STR_OUTSIDER
     size: 0.0
     recover: true

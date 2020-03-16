@@ -83,17 +83,6 @@ manufacture:
       STR_THIN_MAN_CORPSE: 1
     producedItems:
       STR_GAS_GRENADE: 1
-  - name: STR_REAPER_EXTRACTION
-    category: STR_TECHNOLOGY_EXTRACTION
-    space: 0
-    time: 120
-    cost: 15000
-    requires:
-      - STR_REAPER_AUTOPSY
-    requiredItems:
-      STR_REAPER_CORPSE: 1
-    producedItems:
-      STR_FLASHBANG_GRENADE: 1
   - name: STR_ANDROMEDON_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0

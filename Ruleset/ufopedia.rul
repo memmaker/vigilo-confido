@@ -1,5 +1,43 @@
 
 ufopaedia:
+  - delete: STR_CELATID
+  - delete: STR_SILACOID
+  - delete: STR_REAPER
+  - delete: STR_CELATID_AUTOPSY
+  - delete: STR_SILACOID_AUTOPSY
+  - delete: STR_REAPER_AUTOPSY
+  - id: STR_OUTSIDER_SHARD
+    type_id: 7
+    section: STR_ALIEN_ARTIFACTS
+    image_id: UFOPAEDIA_IMG_OUTSIDER_SHARD_CPAL
+    text: STR_OUTSIDER_SHARD_UFOPEDIA
+    requires:
+      - STR_OUTSIDER_SHARD
+    text_width: 158
+  - id: STR_SKELETON_KEY
+    type_id: 7
+    section: STR_ALIEN_ARTIFACTS
+    image_id: UFOPAEDIA_IMG_SKELETON_KEY_CPAL
+    text: STR_SKELETON_KEY_UFOPEDIA
+    requires:
+      - STR_SKELETON_KEY
+    text_width: 158
+  - id: STR_HYPERWAVE_BEACON
+    type_id: 7
+    section: STR_ALIEN_ARTIFACTS
+    image_id: UFOPAEDIA_IMG_HYPERWAVE_BEACON_CPAL
+    text: STR_HYPERWAVE_BEACON_UFOPEDIA
+    requires:
+      - STR_HYPERWAVE_BEACON
+    text_width: 158
+  - id: STR_ETHEREAL_DEVICE
+    type_id: 7
+    section: STR_ALIEN_ARTIFACTS
+    image_id: UFOPAEDIA_IMG_ETHEREAL_DEVICE_CPAL
+    text: STR_ETHEREAL_DEVICE_UFOPEDIA
+    requires:
+      - STR_ETHEREAL_DEVICE
+    text_width: 120
   - id: STR_PSI_AMP
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT
@@ -207,6 +245,10 @@ extraStrings:
       STR_MUTON_ELITE_AUTOPSY_UFOPEDIA: "Although they seem to have the distinct honor of serving as guards within the alien hierarchy, our autopsy of this specimen reveals little in the way of distinguishing anatomical traits versus the typical Muton. Aside from various improvements to their armor, the primary difference appears to be a slightly enhanced intelligence which makes them more effective combatants."
       STR_OUTSIDER_UFOPEDIA: "Outsiders are a type of alien construct that take the form of a synthetic humanoid, yet contain no organic matter. They seem to be a being of almost pure energy. Outsiders materialize out of glowing orange crystals and are typically encountered inside crashed or landed alien UFOs."
       STR_MEDI_KIT_UFOPEDIA: "Our field-deployable Medikit can temporarily treat a soldier's wounds through the use of nanosutures and high-potency stimulants. In order to use the medi-kit you must face towards the soldier requiring treatment. If the soldier is stunned you must stand over the body. Click on the medi-kit icon and select 'use medi-kit' from the menu.{NEWLINE}{NEWLINE}RESTORES> 40 Health"
+      STR_OUTSIDER_SHARD_UFOPEDIA: "While we have a number of theories, both the Research and Engineering teams seem to be in agreement... the shard itself is acting as some form of communications relay. Dr. Shen believes with sufficient time, he may be able to develop a device or 'key' that mimics the shard itself, giving us a means to locate the source of the signal."
+      STR_SKELETON_KEY_UFOPEDIA: "This device is the culmination of our research into the shard recovered from the alien Outsider. It should allow our troops to infiltrate the alien base and find out what's inside."
+      STR_HYPERWAVE_BEACON_UFOPEDIA: "As far-fetched as it may seem, several members of the research team have theorized that this device may be capable of transmitting and receiving signals beyond our own dimension. If my suspicions are correct, this beacon may provide us with a means of detecting previously unknown contacts."
+      STR_ETHEREAL_DEVICE_UFOPEDIA: "The 'Psi-Link', as it is now being called, appears to provide a direct link to the psionic 'network' used by the aliens for field communications. If we manage to locate a soldier with an aptitude for psionics, and find a means to develop these abilities further, I believe it will only be a matter of time before we succeed in activating the device and finding the source of this invasion."
 
 extraSprites:
   - type: UFOPAEDIA_IMG_MUTON_CPAL
@@ -335,3 +377,27 @@ extraSprites:
     height: 200
     files:
       0: Resources/UFOPedia/bluescreen_rounds.png
+  - type: UFOPAEDIA_IMG_OUTSIDER_SHARD_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/outsider_shard.png
+  - type: UFOPAEDIA_IMG_SKELETON_KEY_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/skeleton_key.png
+  - type: UFOPAEDIA_IMG_HYPERWAVE_BEACON_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/hyperwave_beacon.png
+  - type: UFOPAEDIA_IMG_ETHEREAL_DEVICE_CPAL
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/UFOPedia/ethereal_device.png

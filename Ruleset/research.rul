@@ -95,20 +95,41 @@ research:
   - delete: STR_ALIEN_ORIGINS
   - delete: STR_LEADER_PLUS
   - delete: STR_COMMANDER_PLUS
+  - delete: STR_THE_MARTIAN_SOLUTION
   - delete: STR_CYDONIA_OR_BUST
-  - name: STR_XENO_BIOLOGY
+  - name: STR_XENO_BIOLOGY # unlocks manuf. of alien containment
     cost: 40
     points: 10
     dependencies:
       - STR_SECTOID_AUTOPSY
     unlocks:
       - STR_SKULLJACK
-  - name: STR_THE_MARTIAN_SOLUTION
-    cost: 500
-    points: 60
-    dependencies:
+  - name: STR_SKULLJACK
+    cost: 120
+    points: 50
+    dependencies: 
       - STR_XENO_BIOLOGY
-
+  - name: STR_OUTSIDER_SHARD # unlocks manuf. of skeleton key
+    cost: 500
+    points: 100
+    needItem: true
+    destroyItem: true
+  - name: STR_HYPER_WAVE_BEACON # unlocks manuf. of hyperwave decoder (relay)
+    cost: 500
+    points: 100
+    needItem: true
+    destroyItem: true
+  - name: STR_ETHEREAL_DEVICE
+    cost: 500
+    points: 100
+    needItem: true
+    destroyItem: true
+  - name: STR_PSI_LAB
+    cost: 420
+    points: 25
+    dependencies:
+      - STR_ETHEREAL
+      - STR_SECTOID_COMMANDER
   - name: STR_MOTION_SCANNER
     dependencies: [STR_INTRO_SCIENCE]
     cost: 70
@@ -144,21 +165,6 @@ research:
     points: 25
     dependencies:
       - STR_ETHEREAL_AUTOPSY
-  - name: STR_SKULLJACK
-    cost: 120
-    points: 50
-    dependencies: 
-      - STR_XENO_BIOLOGY
-  - name: STR_OUTSIDER_SHARD
-    cost: 500
-    points: 100
-    needItem: true
-  - name: STR_PSI_LAB
-    cost: 420
-    points: 25
-    dependencies:
-      - STR_ETHEREAL
-      - STR_SECTOID_COMMANDER
   - name: STR_ALIEN_PSI_AMP
     cost: 700
     points: 20

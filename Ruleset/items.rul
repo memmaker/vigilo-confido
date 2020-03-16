@@ -497,6 +497,59 @@ extended:
           return bonus;
 
 items:
+  - type: STR_SKULLJACK
+    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
+    tags:
+      SKULLJACK: 1
+    power: 20
+    hidePower: true
+    damageType: 6
+    damageAlter:
+      ArmorEffectiveness: 0
+    size: 0.1
+    costBuy: 0
+    costSell: 194700
+    weight: 6
+    bigSprite: 33
+    floorSprite: 32
+    handSprite: 88
+    hitSound: 36
+    battleType: 3
+    accuracyMelee: 100
+    skillApplied: false
+    tuMelee: 40
+    clipSize: -1
+    twoHanded: false
+    invWidth: 1
+    invHeight: 3
+    flatRate: false
+    armor: 15
+    confMelee:
+      name: STR_SKULLJACK
+  - type: STR_OUTSIDER_SHARD
+    costBuy: 0
+    costSell: 1
+    battleType: 0
+    size: 0.1
+    weight: 3
+  - type: STR_SKELETON_KEY
+    costBuy: 0
+    costSell: 1
+    battleType: 0
+    size: 0.1
+    weight: 3
+  - type: STR_HYPERWAVE_BEACON
+    costBuy: 0
+    costSell: 1
+    battleType: 0
+    size: 0.1
+    weight: 3
+  - type: STR_ETHEREAL_DEVICE
+    costBuy: 0
+    costSell: 1
+    battleType: 0
+    size: 0.1
+    weight: 3
   - type: STR_PSI_AMP
     requires:
       - STR_PSI_LAB
@@ -813,41 +866,6 @@ items:
       - STR_MIND_PROBE
     costSell: 304000
     costBuy: 320000
-  - type: STR_SKULLJACK
-    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
-    tags:
-      SKULLJACK: 1
-    power: 20
-    hidePower: true
-    damageType: 6
-    damageAlter:
-      ArmorEffectiveness: 0
-    size: 0.1
-    costBuy: 0
-    costSell: 194700
-    weight: 6
-    bigSprite: 33
-    floorSprite: 32
-    handSprite: 88
-    hitSound: 36
-    battleType: 3
-    accuracyMelee: 100
-    skillApplied: false
-    tuMelee: 40
-    clipSize: -1
-    twoHanded: false
-    invWidth: 1
-    invHeight: 3
-    flatRate: false
-    armor: 15
-    confMelee:
-      name: STR_SKULLJACK
-  - type: STR_OUTSIDER_SHARD
-    costBuy: 0
-    costSell: 0
-  - type: STR_SKELETON_KEY
-    costBuy: 0
-    costSell: 0
   - type: STR_MIMIC_BEACON
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     size: 0.1
@@ -1110,3 +1128,6 @@ extraStrings:
       STR_ALIEN_PSI_AMP: Alien Psi Amp
       STR_ALIEN_PSI_AMP_UFOPEDIA: "This version of the Psionic Amplifier incorporates artifacts from the powerful 'Ethereal' alien we encountered. It will put our experienced Psi Operatives on the same level as the aliens' most powerful Psionic forces."
       STR_INCENDIARY_GRENADE: Incendiary Grenade
+      STR_OUTSIDER_SHARD: Outsider Shard
+      STR_ETHEREAL_DEVICE: Ethereal Device
+      STR_HYPERWAVE_BEACON: Hyper-wave Beacon

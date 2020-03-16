@@ -150,9 +150,20 @@ facilities:
     psiLabs: 5
     maxAllowedPerBase: 2
     mapName: XBASE_14
+  - type: STR_GOLLOP_CHAMBER
+    requires:
+      - STR_ETHEREAL_DEVICE
+    spriteShape: 1
+    spriteFacility: 59
+    buildCost: 750000
+    buildTime: 24
+    monthlyCost: 16000
+    psiLabs: 5
+    maxAllowedPerBase: 2
+    mapName: XBASE_GOLLOP
   - type: STR_HYPER_WAVE_DECODER
     requires:
-      - STR_HYPER_WAVE_DECODER
+      - STR_HYPER_WAVE_BEACON
     hyper: true
     spriteShape: 2
     spriteFacility: 32
@@ -171,3 +182,13 @@ facilities:
     monthlyCost: 1300
     crafts: 1
     mapName: XBASE_16
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_GOLLOP_CHAMBER: Gollop Chamber
+
+extraSprites:
+  - type: BASEBITS.PCK
+    files:
+      59: Resources/Facilities/GollopChamber/GollopChamberBaseBit.png

@@ -17,8 +17,8 @@ extraStrings:
       STR_INTRODUCTION_EVENT: Hello, Commander
       STR_INTRODUCTION_TEXT: "Welcome to the X-Com project.{NEWLINE}{NEWLINE}Dr. Shen, head of Engineering, and Dr. Vahlen, our chief scientist, will welcome you tonight when the rest of the team arrives.{NEWLINE}{NEWLINE}Your first task is the acquisition of samples of alien genetic material. Our research team will analyse the samples once you acquired them.{NEWLINE}{NEWLINE}Good luck, Commander."
       STR_INTRODUCTION: Introduction
-      STR_INTRO_ENGINEERING: Engineering
-      STR_INTRO_SCIENCE: Research
+      STR_INTRO_ENGINEERING: Setup Engineering
+      STR_INTRO_SCIENCE: Setup Research
       STR_OBJECTIVES_ARC0_TEXT: "> SALVAGE AN ALIEN CORPSE{NEWLINE}{NEWLINE}> PERFORM AN AUTOPSY{NEWLINE}{NEWLINE}> RESEARCH 'XENO-BIOLOGY'"
       STR_OBJECTIVES_ARC1_TEXT: "> CONSTRUCT THE 'ALIEN CONTAINMENT' FACILITY{NEWLINE}{NEWLINE}> RESEARCH THE 'SKULLJACK'{NEWLINE}{NEWLINE}> BUILD A 'SKULLLJACK'{NEWLINE}{NEWLINE}> CAPTURE A LIVE ALIEN{NEWLINE}{NEWLINE}> INTERROGATE THE CAPTIVE ALIEN"
       STR_OBJECTIVES_ARC2_TEXT: "> CAPTURE AN 'OUTSIDER' ALIEN{NEWLINE}{NEWLINE}> RESEARCH THE 'OUTSIDER SHARD'{NEWLINE}{NEWLINE}> BUILD THE 'SKELETON KEY'"
@@ -55,6 +55,36 @@ ufopaedia:
     section: STR_MISSION_OBJECTIVES
     requires: [STR_OBJECTIVES_ARC2]
     text: STR_OBJECTIVES_ARC2_TEXT
+  - id: STR_OBJECTIVES_ARC2_HALF
+    title: STR_CURRENT_OBJECTIVES
+    type_id: 8
+    section: STR_MISSION_OBJECTIVES
+    requires: [STR_OBJECTIVES_ARC2_HALF]
+    text: STR_OBJECTIVES_ARC2_HALF_TEXT
+  - id: STR_OBJECTIVES_ARC3
+    title: STR_CURRENT_OBJECTIVES
+    type_id: 8
+    section: STR_MISSION_OBJECTIVES
+    requires: [STR_OBJECTIVES_ARC3]
+    text: STR_OBJECTIVES_ARC3_TEXT
+  - id: STR_OBJECTIVES_ARC4
+    title: STR_CURRENT_OBJECTIVES
+    type_id: 8
+    section: STR_MISSION_OBJECTIVES
+    requires: [STR_OBJECTIVES_ARC4]
+    text: STR_OBJECTIVES_ARC4_TEXT
+  - id: STR_OBJECTIVES_ARC5
+    title: STR_CURRENT_OBJECTIVES
+    type_id: 8
+    section: STR_MISSION_OBJECTIVES
+    requires: [STR_OBJECTIVES_ARC5]
+    text: STR_OBJECTIVES_ARC5_TEXT
+  - id: STR_OBJECTIVES_FINAL
+    title: STR_CURRENT_OBJECTIVES
+    type_id: 8
+    section: STR_MISSION_OBJECTIVES
+    requires: [STR_OBJECTIVES_FINAL]
+    text: STR_OBJECTIVES_FINAL_TEXT
 
 events:
   - name: STR_INTRODUCTION_EVENT
@@ -62,20 +92,22 @@ events:
     timer: 60
     timerRandom: 0
     music: Hello_Commander
-    researchList: [STR_INTRODUCTION, STR_OBJECTIVES_ARC0]
+    researchList: [STR_INTRODUCTION]
 
-#arcScripts:
-#  - type: WelcomeToEngineering
-#    sequentialArcs:                     # the type of research topics to be "discovered", each month 0 or 1, processed sequentially
-#      - STR_INTRO_ENGINEERING
-#    firstMonth: 0                       # months this command runs on, 0 runs on startup of a new game (default 0)
-#    lastMonth: 0                       # don't run after this month. -1 denotes no limit (default -1)
-#    executionOdds: 100                  # % chances of this command executing (default 100)
-#    maxArcs: 1
+arcScripts:
+  - type: setupObjectives
+    sequentialArcs:                     # the type of research topics to be "discovered", each month 0 or 1, processed sequentially
+      - STR_BASIC_DEPLOYMENT
+    firstMonth: 0                       # months this command runs on, 0 runs on startup of a new game (default 0)
+    lastMonth: 0                       # don't run after this month. -1 denotes no limit (default -1)
+    executionOdds: 100                  # % chances of this command executing (default 100)
+    maxArcs: 1
 
 research:
   - name: STR_INTRODUCTION
     cost: 100
+    getOneFree:
+      - STR_OBJECTIVES_ARC0
     dependencies:
       - STR_INTRODUCTION
   - name: STR_INTRO_ENGINEERING
@@ -88,18 +120,31 @@ research:
     dependencies: [STR_OBJECTIVES_ARC0]
   - name: STR_OBJECTIVES_ARC1
     dependencies: [STR_OBJECTIVES_ARC1]
+    disables: [STR_OBJECTIVES_ARC0]
   - name: STR_OBJECTIVES_ARC2
     dependencies: [STR_OBJECTIVES_ARC2]
+    disables: [STR_OBJECTIVES_ARC1]
+  - name: STR_OBJECTIVES_ARC2_HALF
+    dependencies: [STR_OBJECTIVES_ARC2_HALF]
+    disables: [STR_OBJECTIVES_ARC2]
+  - name: STR_OBJECTIVES_ARC3
+    dependencies: [STR_OBJECTIVES_ARC3]
+    disables: [STR_OBJECTIVES_ARC2_HALF]
+  - name: STR_OBJECTIVES_ARC4
+    dependencies: [STR_OBJECTIVES_ARC4]
+    disables: [STR_OBJECTIVES_ARC3]
+  - name: STR_OBJECTIVES_ARC5
+    dependencies: [STR_OBJECTIVES_ARC5]
+    disables: [STR_OBJECTIVES_ARC4]
+  - name: STR_OBJECTIVES_FINAL
+    dependencies: [STR_OBJECTIVES_FINAL]
+    disables: [STR_OBJECTIVES_ARC5]
   - name: STR_XENO_BIOLOGY
-    disables:
-      - STR_OBJECTIVES_ARC0
     getOneFree:
       - STR_OBJECTIVES_ARC1
   - name: STR_POST_INTERROGATION
     dependencies:
       - STR_POST_INTERROGATION
-    disables:
-      - STR_OBJECTIVES_ARC1
     getOneFree:
       - STR_OBJECTIVES_ARC2
 

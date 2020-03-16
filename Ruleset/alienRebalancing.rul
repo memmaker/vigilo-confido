@@ -48,6 +48,7 @@ missionScripts:
 
   - type: invasion
     firstMonth: 6
+
   - type: skeletonKeyAlienBase
     firstMonth: 1
     missionWeights:
@@ -97,7 +98,6 @@ alienMissions:
         STR_TIER_THREE_MIXED: 50
         STR_TIER_TWO_MIXED: 15
         STR_TIER_ONE_MIXED: 15
-
     waves:
       - ufo: STR_SMALL_SCOUT
         count: 1
@@ -284,7 +284,7 @@ alienMissions:
         count: 2
         trajectory: P7
         timer: 60
-  - type: STR_ALIEN_BASE
+  - type: STR_ALIEN_BASE # this spawns alien bases
     points: 50
     objective: 2
     siteType: STR_ALIEN_BASE_ASSAULT
@@ -1439,6 +1439,9 @@ alienDeployments:
     objectiveType: 3
     markerName: STR_ALIEN_BASE
     markerIcon: 7
+    startingCondition: STR_LOCKED_BASE_ASSAULT
+    missionBountyItem: STR_HYPERWAVE_BEACON
+    unlockedResearch: STR_OBJECTIVES_ARC3
     genMission:
       STR_ALIEN_SUPPLY: 100
     genMissionFreq: 6
@@ -1446,6 +1449,7 @@ alienDeployments:
     objectiveComplete: [STR_ALIEN_BASE_CONTROL_DESTROYED, 500]
     objectivePopup: STR_CONTROL_CENTER_DESTROYED
     points: 5
+
   - type: STR_BASE_DEFENSE
     data:
       - alienRank: 5
@@ -1855,6 +1859,11 @@ alienDeployments:
     script: BOSSBATTLE
     objectiveType: 14
     objectivesRequired: 1
+
+startingConditions:
+  - type: STR_LOCKED_BASE_ASSAULT
+    requiredItems: 
+      STR_SKELETON_KEY: 1
 
 items:
   - type: STR_ALIEN_ALLOYS

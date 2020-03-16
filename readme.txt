@@ -138,8 +138,11 @@ T3 - Warden Armor   & Plasma Weapons
  - A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
  - Purge Reapers, Naked Mutons, Celatids & Silacoids
  - Skulljack Ufopedia Page and lookup
+ - For EU Storyline: startingConditions.requiredItems & missionBountyItem 
+ - How to spawn exactly one base with a specific startingCondition and missionBounty and make it easily discoverable by the player?
 
 === Out of Scope for 1.0 ===
+
  - Base Facilities
  - Crafts & Craft Weapons
  - New Mission Objectives
