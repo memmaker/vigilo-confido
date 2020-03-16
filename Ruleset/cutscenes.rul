@@ -27,7 +27,6 @@ musics:
   - type: 1080_CIN_TP07_HyperwaveUplink_LOC
   - type: 1080_CIN_TP08_Firestorm_LOC
   - type: 1080_CIN_TP10_DeviceRetrieved_LOC
-  - type: 1080_CIN_TP11_Part01
   - type: 1080_CIN_TP11_Part02_LOC
   - type: 1080_CIN_TP12B_EtherealCutaway_LOC
   - type: 1080_CIN_TP13_Part01
@@ -139,127 +138,64 @@ cutscenes:
       - Resources/ANIMS/1080_CIN_TP04_AlienPact_LOC.FLI
     audioTracks:
       - 1080_CIN_TP04_AlienPact_LOC
+# Alien Base detected, Shen using the Outsider Shard, what is inside the base?
   - type: 1080_CIN_TP05_AlienBaseDetected_LOC
     videos:
       - Resources/ANIMS/1080_CIN_TP05_AlienBaseDetected_LOC.FLI
     audioTracks:
       - 1080_CIN_TP05_AlienBaseDetected_LOC
+# Hyperwave Beacon retrieved, alien leader?
   - type: 1080_CIN_TP06_HyperwaveRetrieved_LOC
     videos:
       - Resources/ANIMS/1080_CIN_TP06_HyperwaveRetrieved_LOC.FLI
     audioTracks:
       - 1080_CIN_TP06_HyperwaveRetrieved_LOC
+# Mission Won - Neutralized Central Command, Took out their leider
   - type: 1080_CIN_TP06A_Victory_LOC
     videos:
       - Resources/ANIMS/1080_CIN_TP06A_Victory_LOC.FLI
     audioTracks:
       - 1080_CIN_TP06A_Victory_LOC
+# Hyperwave Uplink initiated (constructed)
   - type: 1080_CIN_TP07_HyperwaveUplink_LOC
     videos:
       - Resources/ANIMS/1080_CIN_TP07_HyperwaveUplink_LOC.FLI
     audioTracks:
       - 1080_CIN_TP07_HyperwaveUplink_LOC
+# Firestorm constructed
   - type: 1080_CIN_TP08_Firestorm_LOC
     videos:
       - Resources/ANIMS/1080_CIN_TP08_Firestorm_LOC.FLI
     audioTracks:
       - 1080_CIN_TP08_Firestorm_LOC
+# Ethereal device aka Psi Link retrieved, picking something up
   - type: 1080_CIN_TP10_DeviceRetrieved_LOC
     videos:
       - Resources/ANIMS/1080_CIN_TP10_DeviceRetrieved_LOC.FLI
     audioTracks:
       - 1080_CIN_TP10_DeviceRetrieved_LOC
-  - type: 1080_CIN_TP11_Part01
-    videos:
-      - Resources/ANIMS/1080_CIN_TP11_Part01.FLI
-    audioTracks:
-      - 1080_CIN_TP11_Part01
-  - type: 1080_CIN_TP11_Part02_LOC
-    videos:
-      - Resources/ANIMS/1080_CIN_TP11_Part02_LOC.FLI
-    audioTracks:
-      - 1080_CIN_TP11_Part02_LOC
-  - type: 1080_CIN_TP12B_EtherealCutaway_LOC
-    videos:
-      - Resources/ANIMS/1080_CIN_TP12B_EtherealCutaway_LOC.FLI
-    audioTracks:
-      - 1080_CIN_TP12B_EtherealCutaway_LOC
-  - type: 1080_CIN_TP13_Part01
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part01.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part01
-  - type: 1080_CIN_TP13_Part02
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part02.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part02
-  - type: 1080_CIN_TP13_Part03_LOC
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part03_LOC.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part03_LOC
-  - type: 1080_CIN_TP13_Part04
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part04.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part04
-  - type: 1080_CIN_TP13_Part05_LOC
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part05_LOC.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part05_LOC
-  - type: 1080_CIN_TP13_Part06
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part06.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part06
-  - type: 1080_CIN_TP13_Part07
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part07.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part07
-  - type: 1080_CIN_TP13_Part08_LOC
-    videos:
-      - Resources/ANIMS/1080_CIN_TP13_Part08_LOC.FLI
-    audioTracks:
-      - 1080_CIN_TP13_Part08_LOC
 
+
+
+  - type: hyperwave.decoder
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/hyperwave.decoder.fli
+    audioTracks:
+      - hyperwave.decoder
+  - type: hyperwave.acquired
+    useUfoAudioSequence: false
+    videos:
+      - Resources/ANIMS/hyperwave.acquired.fli
+    audioTracks:
+      - hyperwave.acquired
 
   - type: winGame
     videos:
-      - Resources/ANIMS/GWIN_7.FLC
+      - Resources/ANIMS/good.ending.fli
     audioTracks:
-      - GWIN_7
-    slideshow:
-      transitionSeconds: 30
-      musicId: GMWIN
-      slides:
-        - imagePath: UFOINTRO/PICT1.LBM
-          caption: STR_VICTORY_1
-          captionSize: [195, 56]
-          captionPos: [5, 0]
-          captionColor: 249
-        - imagePath: UFOINTRO/PICT2.LBM
-          caption: STR_VICTORY_2
-          captionSize: [232, 64]
-          captionPos: [88, 136]
-          captionColor: 249
-        - imagePath: UFOINTRO/PICT3.LBM
-          caption: STR_VICTORY_3
-          captionSize: [254, 48]
-          captionPos: [66, 152]
-          captionColor: 249
-        - imagePath: UFOINTRO/PICT6.LBM
-          caption: STR_VICTORY_4
-          captionSize: [300, 200]
-          captionPos: [5, 0]
-          captionColor: 249
-        - imagePath: UFOINTRO/PICT7.LBM
-          caption: STR_VICTORY_5
-          captionSize: [310, 42]
-          captionPos: [5, 158]
-          captionColor: 249
+      - good.ending
+
   - type: loseGame
     videos:
       - Resources/ANIMS/LGMWLD_7.FLC
@@ -322,7 +258,7 @@ cutscenes:
   - type: base.defense
     useUfoAudioSequence: false
     videos:
-      - Resources/ANIMS/base.defense.fli
+      - Resources/ANIMS/base.defense.FLI
     audioTracks:
       - base.defense
   - type: base.defense.success
@@ -468,18 +404,6 @@ cutscenes:
       - Resources/ANIMS/firestorm.fli
     audioTracks:
       - firestorm
-  - type: hyperwave.decoder
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/hyperwave.decoder.fli
-    audioTracks:
-      - hyperwave.decoder
-  - type: hyperwave.acquired
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/hyperwave.acquired.fli
-    audioTracks:
-      - hyperwave.acquired
 
 research:
   - name: STR_PREDATOR_ARMOR
@@ -488,7 +412,7 @@ research:
     cutscene: titan.armor
   - name: STR_NEW_FIGHTER_CRAFT
     cutscene: firestorm
-  - name: STR_HYPER_WAVE_DECODER
+  - name: STR_HYPERWAVE_DECODER
     cutscene: hyperwave.decoder
   - name: STR_XENO_BIOLOGY
     cutscene: skulljack
@@ -558,15 +482,10 @@ research:
     cutscene: sectopod.dead
 
 alienDeployments:
-  - type: STR_MARS_THE_FINAL_ASSAULT
+  - type: STR_THE_FINAL_ASSAULT
     winCutscene: winGame
     loseCutscene: loseGame
     abortCutscene: loseGame
-  - type: STR_MARS_CYDONIA_LANDING
-    loseCutscene: loseGame
-    abortCutscene: loseGame
-    briefing:
-      cutscene: cydonia
   - type: STR_SMALL_SCOUT
     winCutscene: winMiss
     loseCutscene: loseMiss
@@ -611,5 +530,3 @@ alienDeployments:
     abortCutscene: abortMiss
     winCutscene: base.defense.success
     loseCutscene: base.defense.fail
-    briefing:
-      cutscene: base.defense

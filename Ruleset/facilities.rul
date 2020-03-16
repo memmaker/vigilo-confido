@@ -1,4 +1,5 @@
 facilities:
+  - delete: STR_HYPER_WAVE_DECODER
   - type: STR_ACCESS_LIFT
     spriteShape: 2
     spriteFacility: 17
@@ -153,17 +154,27 @@ facilities:
   - type: STR_GOLLOP_CHAMBER
     requires:
       - STR_ETHEREAL_DEVICE
+    provideBaseFunc:
+      - STR_GOLLOP_CHAMBER
+    buildCostItems:
+      STR_ETHEREAL_DEVICE:
+       build: 1
+       refund: 1
     spriteShape: 1
     spriteFacility: 59
     buildCost: 750000
     buildTime: 24
     monthlyCost: 16000
     psiLabs: 5
-    maxAllowedPerBase: 2
+    maxAllowedPerBase: 1
     mapName: XBASE_GOLLOP
-  - type: STR_HYPER_WAVE_DECODER
+  - type: STR_HYPERWAVE_DECODER
     requires:
-      - STR_HYPER_WAVE_BEACON
+      - STR_HYPERWAVE_BEACON
+    buildCostItems:
+      STR_HYPERWAVE_BEACON:
+       build: 1
+       refund: 1
     hyper: true
     spriteShape: 2
     spriteFacility: 32
@@ -172,6 +183,7 @@ facilities:
     monthlyCost: 30000
     radarRange: 2759
     radarChance: 100
+    maxAllowedPerBase: 1
     mapName: XBASE_15
   - type: STR_HANGAR
     spriteShape: 9
@@ -187,6 +199,7 @@ extraStrings:
   - type: en-US
     strings:
       STR_GOLLOP_CHAMBER: Gollop Chamber
+      STR_HYPERWAVE_DECODER: Hyperwave Relay
 
 extraSprites:
   - type: BASEBITS.PCK

@@ -116,6 +116,14 @@ research:
   - name: STR_INTRO_SCIENCE
     cost: 1
     cutscene: intro.science
+  - name: STR_XENO_BIOLOGY
+    getOneFree:
+      - STR_OBJECTIVES_ARC1
+  - name: STR_POST_INTERROGATION
+    dependencies:
+      - STR_POST_INTERROGATION
+    getOneFree:
+      - STR_OBJECTIVES_ARC2
   - name: STR_OBJECTIVES_ARC0
     dependencies: [STR_OBJECTIVES_ARC0]
   - name: STR_OBJECTIVES_ARC1
@@ -139,14 +147,7 @@ research:
   - name: STR_OBJECTIVES_FINAL
     dependencies: [STR_OBJECTIVES_FINAL]
     disables: [STR_OBJECTIVES_ARC5]
-  - name: STR_XENO_BIOLOGY
-    getOneFree:
-      - STR_OBJECTIVES_ARC1
-  - name: STR_POST_INTERROGATION
-    dependencies:
-      - STR_POST_INTERROGATION
-    getOneFree:
-      - STR_OBJECTIVES_ARC2
+
 
 startingBase:
   research:

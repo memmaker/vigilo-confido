@@ -104,7 +104,7 @@ research:
       - STR_SECTOID_AUTOPSY
     unlocks:
       - STR_SKULLJACK
-  - name: STR_SKULLJACK
+  - name: STR_SKULLJACK # unlocks manuf. of skulljack
     cost: 120
     points: 50
     dependencies: 
@@ -114,22 +114,31 @@ research:
     points: 100
     needItem: true
     destroyItem: true
-  - name: STR_HYPER_WAVE_BEACON # unlocks manuf. of hyperwave decoder (relay)
+  - name: STR_HYPERWAVE_BEACON # unlocks manuf. of hyperwave decoder (relay)
     cost: 500
     points: 100
     needItem: true
-    destroyItem: true
-  - name: STR_ETHEREAL_DEVICE
+  - name: STR_ETHEREAL_DEVICE # unlocks construction of gollop chamber
     cost: 500
     points: 100
     needItem: true
-    destroyItem: true
   - name: STR_PSI_LAB
     cost: 420
     points: 25
     dependencies:
       - STR_ETHEREAL
       - STR_SECTOID_COMMANDER
+  - name: STR_ACTIVATE_ETHEREAL_DEVICE # unlocks final mission
+    cost: 520
+    points: 50
+    getOneFree:
+      - STR_OBJECTIVES_FINAL
+    requiresBaseFunc:
+      - STR_GOLLOP_CHAMBER
+    dependencies:
+      - STR_ETHEREAL_DEVICE
+      - STR_PSI_LAB
+    unlockFinalMission: true
   - name: STR_MOTION_SCANNER
     dependencies: [STR_INTRO_SCIENCE]
     cost: 70

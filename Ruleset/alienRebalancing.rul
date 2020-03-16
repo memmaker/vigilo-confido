@@ -23,6 +23,13 @@ missionScripts:
   - delete: recurringTerror
   - delete: recon
   - delete: invasion
+  - delete: researchRetaliation
+  - delete: beginnerRetaliation
+  - delete: experiencedRetaliation
+  - delete: veteranRetaliation
+  - delete: geniusRetaliation
+  - delete: superhumanRetaliation
+
   - type: gameStart
     missionWeights:
       0:
@@ -49,6 +56,19 @@ missionScripts:
   - type: invasion
     firstMonth: 6
 
+  - type: attackOnXcomBase
+    missionWeights:
+      0:
+        STR_ALIEN_RETALIATION: 100
+    researchTriggers:
+      STR_OBJECTIVES_ARC3: true
+    startDelay: 20000
+    targetBaseOdds: 10000
+    maxRuns: 1
+    varName: scbd_eu2012
+    useTable: false
+    label: 1
+
   - type: skeletonKeyAlienBase
     firstMonth: 1
     missionWeights:
@@ -58,10 +78,24 @@ missionScripts:
     maxRuns: 1
     varName: skeab_eu2012
     targetBaseOdds: 100
+    executionOdds: 100
     researchTriggers:
       STR_OUTSIDER_SHARD: true
     itemTriggers:
       STR_SKELETON_KEY: true
+
+  - type: sendTheOverseerUfo
+    firstMonth: 1
+    missionWeights:
+      0:
+        STR_ALIEN_OVERSEER: 100
+    useTable: false
+    maxRuns: 1
+    varName: overseer_eu2012
+    targetBaseOdds: 100
+    executionOdds: 100
+    facilityTriggers:
+      STR_HYPERWAVE_DECODER: true
 
 alienMissions:
   - type: STR_ALIEN_RESEARCH
@@ -287,6 +321,9 @@ alienMissions:
   - type: STR_ALIEN_BASE # this spawns alien bases
     points: 50
     objective: 2
+    operationType: 3
+    operationSpawnZone: 4
+    operationBaseType: STR_ALIEN_BASE_ASSAULT
     siteType: STR_ALIEN_BASE_ASSAULT
     spawnZone: 4 #Mission zone for alien bases
     raceWeights:
@@ -434,10 +471,41 @@ alienMissions:
         trajectory: P9
         timer: 6000
         objective: true
+  - type: STR_ALIEN_OVERSEER
+    operationType: 0
+    targetBaseOdds: 100
+    raceWeights:
+      0:
+        STR_ETHEREAL: 70
+        STR_TIER_TWO_MIXED: 25
+        STR_TIER_ONE_MIXED: 5
+      1:
+        STR_SECTOPOD: 70
+        STR_ETHEREAL: 20
+        STR_TIER_TWO_MIXED: 5
+        STR_TIER_ONE_MIXED: 5
+      2:
+        STR_TIER_THREE_MIXED: 70
+        STR_TIER_TWO_MIXED: 30
+      3:
+        STR_SECTOPOD: 10
+        STR_ETHEREAL: 10
+        STR_TIER_THREE_MIXED: 50
+        STR_TIER_TWO_MIXED: 15
+        STR_TIER_ONE_MIXED: 15
+    points: 0
+    objective: 5
+    waves:
+      - ufo: STR_OVERSEER_UFO
+        count: 1
+        trajectory: P0
+        timer: 6000
+        objective: true
 
-# TODO: explain night supplies for base assault and cydonia
 
 alienDeployments:
+  - delete: STR_MARS_THE_FINAL_ASSAULT
+  - delete: STR_MARS_CYDONIA_LANDING
   - type: STR_SMALL_SCOUT
     data:
       - alienRank: 5
@@ -1278,6 +1346,161 @@ alienDeployments:
     markerName: STR_TERROR_SITE
     duration: [4, 10]
     despawnPenalty: 1000
+  - type: STR_OVERSEER_DEPLOYMENT
+    maxShade: 6
+    data:
+      - alienRank: 5
+        lowQty: 2
+        highQty: 4
+        dQty: 3
+        percentageOutsideUfo: 50
+        itemSets:
+          -
+            - STR_PLASMA_PISTOL
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+          -
+            - STR_PLASMA_RIFLE
+            - STR_PLASMA_RIFLE_CLIP
+            - STR_PLASMA_RIFLE_CLIP
+          -
+            - STR_HEAVY_PLASMA
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_ALIEN_GRENADE
+            - STR_HEAVY_PLASMA_CLIP
+      - alienRank: 4
+        lowQty: 1
+        highQty: 2
+        dQty: 0
+        percentageOutsideUfo: 20
+        itemSets:
+          -
+            - STR_PLASMA_PISTOL
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+          -
+            - STR_PLASMA_RIFLE
+            - STR_PLASMA_RIFLE_CLIP
+            - STR_PLASMA_RIFLE_CLIP
+          -
+            - STR_HEAVY_PLASMA
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_ALIEN_GRENADE
+      - alienRank: 3
+        lowQty: 1
+        highQty: 2
+        dQty: 0
+        percentageOutsideUfo: 20
+        itemSets:
+          -
+            - STR_PLASMA_PISTOL
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+          -
+            - STR_SMALL_LAUNCHER
+            - STR_STUN_BOMB
+            - STR_STUN_BOMB
+            - STR_STUN_BOMB
+          -
+            - STR_HEAVY_PLASMA
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_ALIEN_GRENADE
+      - alienRank: 2
+        lowQty: 1
+        highQty: 2
+        dQty: 0
+        percentageOutsideUfo: 20
+        itemSets:
+          -
+            - STR_PLASMA_PISTOL
+            - STR_PLASMA_PISTOL_CLIP
+            - STR_PLASMA_PISTOL_CLIP
+          -
+            - STR_PLASMA_RIFLE
+            - STR_PLASMA_RIFLE_CLIP
+            - STR_PLASMA_RIFLE_CLIP
+          -
+            - STR_BLASTER_LAUNCHER
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+      - alienRank: 1
+        lowQty: 1
+        highQty: 3
+        dQty: 0
+        percentageOutsideUfo: 0
+        itemSets:
+          -
+            - STR_PLASMA_RIFLE
+            - STR_PLASMA_RIFLE_CLIP
+            - STR_PLASMA_RIFLE_CLIP
+          -
+            - STR_HEAVY_PLASMA
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_ALIEN_GRENADE
+          -
+            - STR_BLASTER_LAUNCHER
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+      - alienRank: 0
+        lowQty: 1
+        highQty: 1
+        dQty: 0
+        percentageOutsideUfo: 0
+        itemSets:
+          -
+            - STR_HEAVY_PLASMA
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_ALIEN_GRENADE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_HEAVY_PLASMA
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_HEAVY_PLASMA_CLIP
+            - STR_ALIEN_GRENADE
+            - STR_ALIEN_GRENADE
+          -
+            - STR_BLASTER_LAUNCHER
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+            - STR_BLASTER_BOMB
+      - alienRank: 6
+        lowQty: 0
+        highQty: 2
+        dQty: 1
+        percentageOutsideUfo: 50
+        itemSets:
+          -
+            []
+          -
+            []
+          -
+            []
+      - alienRank: 7
+        lowQty: 0
+        highQty: 2
+        dQty: 1
+        percentageOutsideUfo: 50
+        itemSets:
+          -
+            []
+          -
+            []
+          -
+            []
+    width: 50
+    length: 50
+    height: 4
+    missionBountyItem: STR_ETHEREAL_DEVICE
+    unlockedResearch: STR_OBJECTIVES_ARC5
   - type: STR_ALIEN_BASE_ASSAULT
     data:
       - alienRank: 6
@@ -1623,83 +1846,9 @@ alienDeployments:
       palette: 0
       background: BACK01.SCR
       music: GMENBASE
-  - type: STR_MARS_CYDONIA_LANDING
-    data:
-      - alienRank: 5
-        lowQty: 4
-        highQty: 6
-        dQty: 0
-        percentageOutsideUfo: 60
-        itemSets:
-          -
-            - STR_PLASMA_PISTOL
-            - STR_PLASMA_PISTOL_CLIP
-          -
-            - STR_PLASMA_RIFLE
-            - STR_PLASMA_RIFLE_CLIP
-          -
-            - STR_HEAVY_PLASMA
-            - STR_HEAVY_PLASMA_CLIP
-            - STR_ALIEN_GRENADE
-      - alienRank: 1
-        lowQty: 3
-        highQty: 5
-        dQty: 0
-        percentageOutsideUfo: 0
-        itemSets:
-          -
-            - STR_PLASMA_PISTOL
-            - STR_PLASMA_PISTOL_CLIP
-          -
-            - STR_PLASMA_RIFLE
-            - STR_PLASMA_RIFLE_CLIP
-          -
-            - STR_HEAVY_PLASMA
-            - STR_HEAVY_PLASMA_CLIP
-            - STR_ALIEN_GRENADE
-      - alienRank: 0
-        lowQty: 3
-        highQty: 5
-        dQty: 0
-        percentageOutsideUfo: 0
-        itemSets:
-          -
-            - STR_PLASMA_PISTOL
-            - STR_PLASMA_PISTOL_CLIP
-          -
-            - STR_PLASMA_RIFLE
-            - STR_PLASMA_RIFLE_CLIP
-          -
-            - STR_HEAVY_PLASMA
-            - STR_HEAVY_PLASMA_CLIP
-            - STR_ALIEN_GRENADE
-      - alienRank: 6
-        lowQty: 2
-        highQty: 4
-        dQty: 0
-        percentageOutsideUfo: 100
-        itemSets:
-          -
-            []
-          -
-            []
-          -
-            []
-    width: 50
-    length: 50
-    height: 4
-    terrains:
-      - MARS
-    shade: 15
-    race: STR_CYDONIA_LANDING_CREW
-    nextStage: STR_MARS_THE_FINAL_ASSAULT
-    finalDestination: true
-    briefing:
-      textOffset: -16
-      palette: 6
-      music: GMNEWMAR
-      showTarget: false
-  - type: STR_MARS_THE_FINAL_ASSAULT
+      cutscene: base.defense
+
+  - type: STR_THE_FINAL_ASSAULT
     data:
       - alienRank: 0
         lowQty: 2
@@ -1859,11 +2008,13 @@ alienDeployments:
     script: BOSSBATTLE
     objectiveType: 14
     objectivesRequired: 1
+    finalDestination: true
 
 startingConditions:
   - type: STR_LOCKED_BASE_ASSAULT
     requiredItems: 
       STR_SKELETON_KEY: 1
+    destroyRequiredItems: true
 
 items:
   - type: STR_ALIEN_ALLOYS
@@ -2029,6 +2180,31 @@ items:
     flatRate: false
     damageAlter:
       ToArmor: 0
+
+ufos:
+  - type: STR_OVERSEER_UFO
+    size: STR_VERY_LARGE
+    sprite: 6
+    damageMax: 4000
+    speedMax: 5000
+    power: 140
+    range: 65
+    score: 700
+    reload: 24
+    breakOffTime: 4000
+    craftCustomDeploy: STR_OVERSEER_DEPLOYMENT
+    battlescapeTerrainData:
+      name: UFO_160
+      mapDataSets:
+        - BLANKS
+        - U_EXT02
+        - U_WALL02
+        - U_PODS
+        - U_BITS
+      mapBlocks:
+        - name: UFO_160
+          width: 30
+          length: 30
 
 extraStrings:
   - type: en-US

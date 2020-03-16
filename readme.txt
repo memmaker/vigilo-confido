@@ -140,6 +140,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Skulljack Ufopedia Page and lookup
  - For EU Storyline: startingConditions.requiredItems & missionBountyItem 
  - How to spawn exactly one base with a specific startingCondition and missionBounty and make it easily discoverable by the player?
+ - Skulljack lookup missing
 
 === Out of Scope for 1.0 ===
 
@@ -157,3 +158,11 @@ missionEndGame   -> End Conditions
 dropItemUnit & pickUpItemUnit?
 endMovementUnit?
 weaponFiredUnit
+
+Cutscene triggers:
+ - On Construction finished
+ - On manufacturing finished
+ - Alien Base detected
+
+Feature Wishlist:
+requiredSoldierType for startingCondition

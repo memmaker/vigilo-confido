@@ -8,6 +8,7 @@ itemCategories:
   - type: STR_ARMOR_CATEGORY
   - type: STR_PASSIVE_BONUS_ITEMS
   - type: STR_SOLDIER_GEAR
+  - type: STR_PLOT_ITEMS
 
 extended:
   tags:
@@ -533,11 +534,17 @@ items:
     size: 0.1
     weight: 3
   - type: STR_SKELETON_KEY
+    categories: [STR_PLOT_ITEMS]
     costBuy: 0
     costSell: 1
     battleType: 0
+    bigSprite: 56
+    floorSprite: 37
+    invWidth: 1
+    invHeight: 1
     size: 0.1
     weight: 3
+    ignoreInCraftEquip: false
   - type: STR_HYPERWAVE_BEACON
     costBuy: 0
     costSell: 1
