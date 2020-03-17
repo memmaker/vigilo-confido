@@ -43,7 +43,7 @@ armors:
       - 1.2
       - 1.6
       - 0.0
-    loftempsSet: [ 2 ]
+    loftempsSet: [2]
   - type: FLOATER_ARMOR0
     spriteInv: Inventory_FLOATER
     frontArmor: 8
@@ -240,7 +240,7 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
   - type: MUTON_BERSERKER_ARMOR
     spriteSheet: MUTONBERSERKER.PCK
     corpseBattle:
@@ -264,7 +264,7 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
   - type: MUTON_ELITE_ARMOR
     spriteSheet: MUTONELITE.PCK
     spriteInv: Inventory_MUTON_ELITE
@@ -289,7 +289,7 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
   - type: STR_ANDROMEDON_SUIT_UC
     spriteSheet: ANDROMEDON.PCK
     spriteInv: Inventory_ANDROMEDON
@@ -313,7 +313,7 @@ armors:
       - 1.0  # 10 Psionic
       - 0.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
     forcedTorso: 1
     drawingRoutine: 0
   - type: STR_ANDROMEDON_SHELL_SUIT_UC
@@ -341,7 +341,7 @@ armors:
       - 0.0  # 10 Psionic
       - 0.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
     forcedTorso: 1
     drawingRoutine: 0
   - type: OUTSIDER_ARMOR
@@ -368,7 +368,7 @@ armors:
       - 1.0  # 10 Psionic
       - 1.0  # 11 Poison
       - 1.0  # 12 Electric
-    loftempsSet: [ 2 ]
+    loftempsSet: [2]
   - type: STR_DRONE_ARMOR
     spriteInv: inventory_DRONE
     spriteSheet: DRONE.PCK
@@ -396,7 +396,7 @@ armors:
       - 1.0
       - 1.0
       - 1.0
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
 
 units:
   - delete: STR_SECTOID_SOLDIER
@@ -698,22 +698,19 @@ units:
     aggression: 8
     capturable: false
     builtInWeaponSets:
-      - 
-        - STR_LASER_RIFLE
-        - STR_ACID_GRENADE
-        - STR_ACID_GRENADE
-      - 
-        - STR_PLASMA_RIFLE
-        - STR_PLASMA_RIFLE_CLIP
-        - STR_PLASMA_RIFLE_CLIP
-        - STR_ACID_GRENADE
-        - STR_ACID_GRENADE
-      - 
-        - STR_HEAVY_PLASMA
-        - STR_HEAVY_PLASMA_CLIP
-        - STR_HEAVY_PLASMA_CLIP
-        - STR_ACID_GRENADE
-        - STR_ACID_GRENADE
+      -   - STR_LASER_RIFLE
+          - STR_ACID_GRENADE
+          - STR_ACID_GRENADE
+      -   - STR_PLASMA_RIFLE
+          - STR_PLASMA_RIFLE_CLIP
+          - STR_PLASMA_RIFLE_CLIP
+          - STR_ACID_GRENADE
+          - STR_ACID_GRENADE
+      -   - STR_HEAVY_PLASMA
+          - STR_HEAVY_PLASMA_CLIP
+          - STR_HEAVY_PLASMA_CLIP
+          - STR_ACID_GRENADE
+          - STR_ACID_GRENADE
   - type: STR_ANDROMEDON_SHELL
     race: STR_ANDROMEDON_SHELL
     rank: STR_LIVE_TERRORIST
@@ -925,7 +922,7 @@ items:
     size: 0.0
     recover: true
     liveAlien: true
-    costSell: 60000
+    costSell: 0
     recoveryTransformations:
       STR_OUTSIDER_SHARD: [1]
   - type: STR_OUTSIDER_CORPSE
@@ -944,7 +941,7 @@ items:
     size: 0.0
     recover: true
     liveAlien: true
-    costSell: 40000
+    costSell: 0
     listOrder: 15051
   - type: STR_THIN_MAN_CORPSE
     costSell: 70
@@ -963,7 +960,7 @@ items:
     size: 0.0
     recover: true
     liveAlien: true
-    costSell: 65000
+    costSell: 0
   - type: STR_MUTON_BERSERKER_CORPSE
     size: 0.4
     costSell: 350
@@ -979,7 +976,7 @@ items:
     size: 0.0
     recover: true
     liveAlien: true
-    costSell: 65000
+    costSell: 0
   - type: STR_MUTON_ELITE_CORPSE
     size: 0.4
     costSell: 600

@@ -322,6 +322,8 @@ items:
   - type: STR_MEDI_KIT
     medikitTargetMatrix: 15
     medikitTargetSelf: true
+    costBuy: 1200
+    costSell: 600
   - type: STR_HEAVY_ROCKET_SKILL # USED BY GRENADIER AS SPECIAL WEAPON
     tags:
       CLASS_SKILL_ACTIVATION: 1
@@ -399,7 +401,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_RANGER
@@ -417,7 +419,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_GRENADIER
@@ -435,7 +437,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_SNIPER
@@ -452,7 +454,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_SPECIALIST
@@ -472,7 +474,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_RANGER
@@ -492,7 +494,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_GRENADIER
@@ -512,7 +514,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_SNIPER
@@ -531,7 +533,7 @@ soldierTransformation:
     keepSoldierArmor: true
     createsClone: false
     needsCorpseRecovered: false
-    allowsDeadSoldiers: false 
+    allowsDeadSoldiers: false
     allowsLiveSoldiers: true
     allowedSoldierTypes:
       - STR_SPECIALIST
@@ -649,8 +651,6 @@ skills:
       mana: 12
     flatUse:
       mana: true
-      time: false
-    flatUse:
       time: false
     targetMode: 7 # auto
     compatibleWeapons: [STR_HEAVY_CANNON, STR_XCOM_HEAVY_LASER, STR_XCOM_HEAVY_PLASMA]
@@ -896,24 +896,34 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    nameInTitles: "{NAME}"
-    nameInTitlesLong: "{NAME} aka {CALLSIGN}"
-    nameInLists: "{NAME}"
-    nameInListsLong: "{NAME}{STATSTRING}"
-    nameInPilotLists: "{NAME}"
-    nameInBattleScape: "{CALLSIGN}{TAGSTRING}"
-    nameInBattleScapeAlternate: "{NAME}{STATSTRING}"
-    nameStatStringSeparator: "/"
-    nameTagStatStringSeparator: ">"
+    nameInTitles: '{NAME}'
+    nameInTitlesLong: '{NAME} aka {CALLSIGN}'
+    nameInLists: '{NAME}'
+    nameInListsLong: '{NAME}{STATSTRING}'
+    nameInPilotLists: '{NAME}'
+    nameInBattleScape: '{CALLSIGN}{TAGSTRING}'
+    nameInBattleScapeAlternate: '{NAME}{STATSTRING}'
+    nameStatStringSeparator: /
+    nameTagStatStringSeparator: '>'
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/RangerNames/
     deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
+      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
+      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
+      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
+      151, 152, 153]
     panicFemale: [154, 155, 156, 157, 158, 159, 160]
     berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
     deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268]
+    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
+      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
+      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
+      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
+      260, 261, 262, 263, 264, 265, 266, 267, 268]
     panicMale: [269, 270, 271, 272, 273, 274, 275]
     berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
@@ -983,24 +993,34 @@ soldiers:
     kneelHeight: 14
     femaleFrequency: 50
     allowPromotion: true
-    nameInTitles: "{NAME}"
-    nameInTitlesLong: "{NAME} aka {CALLSIGN}"
-    nameInLists: "{NAME}"
-    nameInListsLong: "{NAME}{STATSTRING}"
-    nameInPilotLists: "{NAME}"
-    nameInBattleScape: "{CALLSIGN}{TAGSTRING}"
-    nameInBattleScapeAlternate: "{NAME}{STATSTRING}"
-    nameStatStringSeparator: "/"
-    nameTagStatStringSeparator: ">"
+    nameInTitles: '{NAME}'
+    nameInTitlesLong: '{NAME} aka {CALLSIGN}'
+    nameInLists: '{NAME}'
+    nameInListsLong: '{NAME}{STATSTRING}'
+    nameInPilotLists: '{NAME}'
+    nameInBattleScape: '{CALLSIGN}{TAGSTRING}'
+    nameInBattleScapeAlternate: '{NAME}{STATSTRING}'
+    nameStatStringSeparator: /
+    nameTagStatStringSeparator: '>'
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/GrenadierNames/
     deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
+      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
+      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
+      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
+      151, 152, 153]
     panicFemale: [154, 155, 156, 157, 158, 159, 160]
     berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
     deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268]
+    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
+      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
+      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
+      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
+      260, 261, 262, 263, 264, 265, 266, 267, 268]
     panicMale: [269, 270, 271, 272, 273, 274, 275]
     berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
@@ -1073,11 +1093,21 @@ soldiers:
       - delete
       - SoldierNames/SniperNames/
     deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
+      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
+      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
+      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
+      151, 152, 153]
     panicFemale: [154, 155, 156, 157, 158, 159, 160]
     berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
     deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268]
+    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
+      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
+      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
+      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
+      260, 261, 262, 263, 264, 265, 266, 267, 268]
     panicMale: [269, 270, 271, 272, 273, 274, 275]
     berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
@@ -1152,11 +1182,21 @@ soldiers:
       - delete
       - SoldierNames/SpecialistNames/
     deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
+      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
+      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
+      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
+      151, 152, 153]
     panicFemale: [154, 155, 156, 157, 158, 159, 160]
     berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
     deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268]
+    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
+      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
+      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
+      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
+      260, 261, 262, 263, 264, 265, 266, 267, 268]
     panicMale: [269, 270, 271, 272, 273, 274, 275]
     berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
@@ -1229,11 +1269,21 @@ soldiers:
       - delete
       - SoldierNames/PsiOpNames/
     deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]
+    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
+      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
+      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
+      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
+      151, 152, 153]
     panicFemale: [154, 155, 156, 157, 158, 159, 160]
     berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
     deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268]
+    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
+      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
+      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
+      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
+      260, 261, 262, 263, 264, 265, 266, 267, 268]
     panicMale: [269, 270, 271, 272, 273, 274, 275]
     berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
@@ -1254,7 +1304,7 @@ extended:
       BLADEMASTER: int
       SHREDDER: int
       GUARDIAN: int
-      DEATH_FROM_ABOVE: int  
+      DEATH_FROM_ABOVE: int
       BASIC_COMBAT_INFORMATION: int
     BattleGame:
       COMBAT_INFORMATION_LEVEL: int
@@ -1441,7 +1491,7 @@ extended:
             end;
           end;
           return;
-    reactionUnitAction: 
+    reactionUnitAction:
       - offset: 23   # for lightning reflexes
         code: |
           var int reflexes;
@@ -1452,7 +1502,7 @@ extended:
           reaction_unit.getId reaction_id;
 
           action_unit.getTag reflexes Tag.LIGHTNING_REFLEXES_STATE;
-          
+
           if gt reflexes 0;
             debug_log "Reaction chance before LR activation:" reaction_chance;
             set reaction_chance 100;
@@ -1467,7 +1517,7 @@ extended:
           var int phantom;
 
           unit.getTurnsSinceSpotted turns_since_spotted;
-          
+
           if and neq turns_since_spotted 255 gt turns_since_spotted -1;
             unit.getTag phantom Tag.PHANTOM_STATE;
             if gt phantom 0;
@@ -1561,7 +1611,7 @@ extended:
               debug_log "Checking battle cry buff for" unit;
               debug_log "  - during (side), of faction" side unit_faction;
               debug_log "  - BattleCry state, turns since act." battle_cry turns_since_activation;
-          
+
               set two_dee_distance_sq 0;
               mul activation_dist_sq activation_dist_sq;
 
@@ -1665,7 +1715,7 @@ extended:
           var int vigilant;
           var int tu_max;
           unit.getTag vigilant Tag.EVER_VIGILANT_STATE;
-          
+
           if and eq side 1 gt vigilant 0; # ever vigilant only triggers on enemy turns
             debug_log unit " - Ever vigilant activated. All TU refunded for beginng of enemy turn.";
             unit.getTimeUnitsMax tu_max;
@@ -1774,7 +1824,7 @@ extended:
           var ptr RuleItem item_rule;
 
           attacker.getTag blademaster Tag.BLADEMASTER_STATE;
-          
+
           if and neq blademaster 0 eq battle_action battle_action_hit;
             debug_log "Blademaster is doing melee attack";
             damaging_item.getRuleItem item_rule;
@@ -1857,7 +1907,7 @@ extended:
         code: |
           var int backstab;
           var ptr RuleArmor armor_rule;
-          
+
           attacker.getTag backstab Tag.BACKSTAB_STATE;
 
           if gt backstab 0;
@@ -1971,7 +2021,7 @@ extended:
           item_rule.getTag gun_type Tag.GUN_TYPE;
 
           attacker.getTag mayhem Tag.MAYHEM_STATE;
-          
+
           if gt mayhem 0;
             if or eq damaging_type 2 eq damaging_type 3 eq gun_type 5;
               debug_log "Mayhem triggered (power):" power;
@@ -2016,7 +2066,7 @@ extended:
           weapon_item.getRuleItem item_rule;
 
           attacker.getTag center_mass Tag.CENTER_MASS_STATE;
-          
+
           if gt center_mass 0;
             item_rule.getTag gun_type Tag.GUN_TYPE;
             if or eq gun_type 2 eq gun_type 3;
@@ -2292,7 +2342,7 @@ extended:
           var int psi_amp_type;
           var int victim_faction;
           var int attacker_faction;
-          
+
           item.getRuleItem item_rule;
 
           item_rule.getBattleType battle_type;
@@ -2317,9 +2367,9 @@ extended:
           var int turns_since_spotted;
 
           unit.getTag camo_state Tag.PHANTOM_STATE;
-          
+
           unit.getTag shadowstrike_state Tag.SHADOWSTRIKE_STATE;
-          
+
           if and gt shadowstrike_state 0 gt camo_state 0;
             unit.getTurnsSinceSpotted turns_since_spotted;
             if or eq turns_since_spotted 255 le turns_since_spotted -1;
@@ -2380,7 +2430,7 @@ extended:
           var int untouchable;
 
           attacker.getTag untouchable Tag.UNTOUCHABLE_STATE;
-        
+
           unit.getHealth unit_health;
 
           if gt untouchable 0;    # attacker has untouchable skill
@@ -2398,7 +2448,7 @@ extended:
           var int id;
 
           unit.getTag sustain Tag.SUSTAIN_STATE;
-        
+
           unit.getHealth unit_health;
 
           if gt sustain 0;    # attacked unit has sustain skill
@@ -2557,12 +2607,12 @@ extended:
             set increase_damage 1;
             debug_log "RUPTURED:" unit;
           end;
-          
+
           if eq unit_state 2;
             debug_log "RUPTURED unit was hit again:" unit;
             set increase_damage 1;
           end;
-          
+
           if eq rupture_damage 0;
             set rupture_damage 2; # fallback minimum
           end;
@@ -2574,7 +2624,7 @@ extended:
             end;
             debug_log " - changed to:" to_health;
           end;
-        
+
           return;
       - offset: 31   # for serial
         code: |
@@ -2847,7 +2897,7 @@ extended:
           soldier_bonus.getTag has_backstab Tag.BACKSTAB;
           soldier_bonus.getTag has_serial Tag.SERIAL;
           soldier_bonus.getTag has_electric_reinforcement Tag.ELECTRIC_REINFORCEMENT;
-          
+
           if gt has_reaper 0;
             debug_log "Unit" id "- Reaper Skill found";
             unit.setTag Tag.REAPER_STATE 1;
@@ -3044,9 +3094,10 @@ ufopaedia:
 extraStrings:
   - type: en-US
     strings:
-      STR_OPENXCOM: "X-Com: Vigilo Confido"
+      STR_OPENXCOM: 'X-Com: Vigilo Confido'
       STR_SOLDIER_EXPERIENCE: Combat Experience
-      STR_SOLDIER_EXPERIENCE_DESCRIPTION: Awarded for missions and kills in the service of X-Com.
+      STR_SOLDIER_EXPERIENCE_DESCRIPTION: Awarded for missions and kills in the service
+        of X-Com.
       STR_SKILL_AMP: Skill Amplifier
       STR_ELITE_CLASS_SKILL: Activate Elite Skill
       STR_CLASS_SKILL: Activate Class Skill
@@ -3054,21 +3105,21 @@ extraStrings:
       STR_SNIPER_CLASS_SKILL: Headshot
       STR_SPECIALIST_CLASS_SKILL: Paramedic
       STR_NO_USES_LEFT: Exhausted all activations
-      STR_MANA: "BATTLE FOCUS"
-      STR_MANA_POOL: "FOCUS POINTS"
-      STR_MANA_MISSING: "FOCUS MISSING"
-      STR_MANA_RECOVERY: "FOCUS RECOVERY"
-      STR_NOT_ENOUGH_MANA: "Not Enough Focus!"
-      STR_MANA_ABBREVIATION: "FOC"
-      STR_MANA_CURRENT: "CURRENT FOCUS"
-      STR_MANA_NORMALIZED: "NORMALIZED FOCUS"
-      STR_COST_MANA: "focus"
-      manaExperience: "Focus experience"
-      manaRequired: "Focus required?"
-      ToMana: "Focus dmg multiplier"
-      RandomMana: "Focus dmg RNG?"
-      mana: "Focus"
-      manaRecoveryPerDay: "Focus per day"
+      STR_MANA: BATTLE FOCUS
+      STR_MANA_POOL: FOCUS POINTS
+      STR_MANA_MISSING: FOCUS MISSING
+      STR_MANA_RECOVERY: FOCUS RECOVERY
+      STR_NOT_ENOUGH_MANA: Not Enough Focus!
+      STR_MANA_ABBREVIATION: FOC
+      STR_MANA_CURRENT: CURRENT FOCUS
+      STR_MANA_NORMALIZED: NORMALIZED FOCUS
+      STR_COST_MANA: focus
+      manaExperience: Focus experience
+      manaRequired: Focus required?
+      ToMana: Focus dmg multiplier
+      RandomMana: Focus dmg RNG?
+      mana: Focus
+      manaRecoveryPerDay: Focus per day
       STR_RANGER: Ranger
       STR_GRENADIER: Grenadier
       STR_SNIPER: Sniper
@@ -3127,50 +3178,142 @@ extraStrings:
       STR_CAPTAIN_SPECIALIST_RANK: Cpt. Specialist
       STR_COLONEL_SPECIALIST_RANK: Col. Specialist
       STR_COMMANDER_SPECIALIST_RANK: Cdr. Specialist
-      STR_RANGER_INITIAL_BONUS: "Initial Ranger Molding"
-      STR_RANGER_ADVANCED_BONUS: "Advanced Ranger"
-      STR_RANGER_ELITE_BONUS: "Elite Ranger"
-      STR_GRENADIER_INITIAL_BONUS: "Initial Grenadier Molding"
-      STR_GRENADIER_ADVANCED_BONUS: "Advanced Grenadier"
-      STR_GRENADIER_ELITE_BONUS: "Elite Grenadier"
-      STR_SNIPER_INITIAL_BONUS: "Initial Sniper Molding"
-      STR_SNIPER_ADVANCED_BONUS: "Advanced Sniper"
-      STR_SNIPER_ELITE_BONUS: "Elite Sniper"
-      STR_SPECIALIST_INITIAL_BONUS: "Initial Specialist Molding"
-      STR_SPECIALIST_ADVANCED_BONUS: "Advanced Specialist"
-      STR_SPECIALIST_ELITE_BONUS: "Elite Specialist"
-      STR_UNTOUCHABLE_BONUS: "Untouchable"
-      STR_LIGHTNING_REFLEXES_BONUS: "Lightning Reflexes"
-      STR_DEATH_FROM_ABOVE_BONUS: "Death from above"
-      STR_BLAST_PADDING_BONUS: "Blast Padding"
-      STR_PHANTOM_BONUS: "Phantom"
-      STR_SUSTAIN_BONUS: "Sustain"
-      STR_EXECUTIONER_BONUS: "Executioner"
-      STR_THREAT_ASSESSMENT_BONUS: "Threat Assessment"
-      STR_BACKSTAB_BONUS:  "Backstab"
-      STR_BLADEMASTER_BONUS: "Blademaster"
-      STR_FIELD_SPECIALIST_BONUS: "Field Specialist"
-      STR_UFOPAEDIA_RANGER: "The Ranger serves as our primary reconnaissance unit, capable of moving independently in concealment while engaging enemies at close range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Blademaster{NEWLINE}A>Slash - Run & Gun{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Phantom - Shadowstrike{NEWLINE}A>Conceal - Rapid Fire{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Untouchable{NEWLINE}A>Reaper"
-      STR_UFOPAEDIA_GRENADIER: "A class specialising in high fire power and area damage. The Grenadier is at its strongest vs armored or high health enemies, but can also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Shredder{NEWLINE}A>Hvy. Rocket - Rpd. Deployment{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Blast Padding - Mayhem{NEWLINE}A>War Cry - Rage Burst{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Sting Grenades{NEWLINE}A>Rupture"
-      STR_UFOPAEDIA_SNIPER: "A class able to inflict massive long range damage on enemy targets from a position of safety. They are good at inflicting critical hits, and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Death from above{NEWLINE}A>Headshot - Disabling Shot{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Aim - Center Mass{NEWLINE}A>Quick Aim - Double Tap{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Alpha Mike Foxtrot{NEWLINE}A>Serial"
-      STR_UFOPAEDIA_SPECIALIST: "Soldiers trained in the Specialist class serve as both field medics and logistical support to their squad. Equipped with medical supplies, smoke grenades and other items, these troops ensure the safe return of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Guardian{NEWLINE}A>Paramedic - Aid Protocol{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Steadfast - Field Surgeon{NEWLINE}A>Combat Protocol - Interference{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Savior - Ever Vigilant{NEWLINE}A>Electric Reinforcement"
-      STR_UFOPAEDIA_PSI_OP: "A mysterious new branch of study for X-Com, the Psionic Operative utilizes their mental abilities to great effect to boost their allies and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}I>Panic - Mind Merge{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}A>Soul Steal - Inspire{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}A>Stasis - Mind Control"
-      STR_MILITARY_MOLDING_CATEGORY: "MILITARY MOLDING"
-      STR_MILITARY_MOLDING: "Military Molding"
-      STR_UFOPAEDIA_MILITARY_MOLDING: "X-Com researchers have perfected military molding processes. Through hard training, genetical manipulation and cybernetical enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process an advanced and elite training program become available to more experienced soldiers. Each stage of training will unlock additional combat abilities."
-      STR_UFOPAEDIA_RANGER_SKILLS: "BLADEMASTER>{NEWLINE}Deal increased damage on all sword attacks.{NEWLINE}{NEWLINE}PHANTOM>{NEWLINE}Begin a mission in concealment.{NEWLINE}{NEWLINE}SHADOWSTRIKE>{NEWLINE}While concealed, gain bonus aim and bonus critical chance when attacking enemies.{NEWLINE}{NEWLINE}UNTOUCHABLE>{NEWLINE}If you score a kill during your turn, the next two attacks against you during the enemy turn will miss."
-      STR_UFOPAEDIA_GRENADIER_SKILLS: "SHREDDER>{NEWLINE}Your cannon attacks shred armor. Higher rank weapons shred more points of armor.{NEWLINE}{NEWLINE}BLAST PADDING>{NEWLINE}Your gear includes layers of extra padding and blast plates, granting bonus points of Armor and 66% less damage from explosive attacks.{NEWLINE}{NEWLINE}MAYHEM>{NEWLINE}Confers additional damage to all area of effect weapons & auto shooting guns.{NEWLINE}{NEWLINE}STING GRENADES>{NEWLINE}Your flashbang grenades have a 50% chance to stun enemies for one turn in the flashbang's Area of Effect."
-      STR_UFOPAEDIA_SNIPER_SKILLS: "DEATH FROM ABOVE>{NEWLINE}Killing an enemy at a lower elevation with your sniper rifle will grant an additional action once per turn.{NEWLINE}{NEWLINE}AIM>{NEWLINE}Kneeling now confers 30% firing accuracy to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS>{NEWLINE}You do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA MIKE FOXTROT>{NEWLINE}You do additional points of base damage and additional points of crit damage with your primary weapon."
-      STR_UFOPAEDIA_SPECIALIST_SKILLS: "GUARDIAN>{NEWLINE}With every successful Overwatch shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}STEADFAST>{NEWLINE}(Almost) Never panic as a result of getting wounded, allies panicking, allies getting wounded or killed, or the panic ability.{NEWLINE}{NEWLINE}FIELD SURGEON>{NEWLINE}Reduces Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR>{NEWLINE}Medikits restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT>{NEWLINE}At the start of the enemy turn your time units are refilled for free reaction fire."
-      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS: "The operative has to be equipped with a Psi Amplifier to successfully use these abilites in the field.{NEWLINE}{NEWLINE}PANIC>{NEWLINE}Saps a unit's morale, and puts it in a prime position to panic or go berserk.{NEWLINE}{NEWLINE}MIND MERGE>{NEWLINE}Grants bonus will, crit and ablative hit points to an ally until the beginning of the player's next turn.{NEWLINE}{NEWLINE}SOUL STEAL>{NEWLINE}Transfers half of the damage done back to the Psi Operative as health.{NEWLINE}{NEWLINE}INSPIRE>{NEWLINE}Channel your psionic energy into the TUs of another unit."
-      STR_UFOPAEDIA_RANGER_SKILLS_ACTIVE: "RUN & GUN>{NEWLINE}Take an extra action after dashing.{NEWLINE}{NEWLINE}SLASH>{NEWLINE}A free melee attack with your sword{NEWLINE}{NEWLINE}CONCEAL>{NEWLINE}Immediately enter concealment once per mission.{NEWLINE}{NEWLINE}RAPID FIRE>{NEWLINE}Fire twice in a row at an enemy. Each shot suffers an Aim penalty.{NEWLINE}{NEWLINE}REAPER>{NEWLINE}A devastating chain melee attack where every kill scored will grant an extra action."
-      STR_UFOPAEDIA_GRENADIER_SKILLS_ACTIVE: "HEAVY ROCKET>{NEWLINE}Fire a rocket using an equipped launcher.{NEWLINE}{NEWLINE}RAPID DEPLOYMENT>{NEWLINE}Throw a grenade from your inventory and prime it in one action.{NEWLINE}{NEWLINE}WAR CRY>{NEWLINE}All enemies within 10 tiles have their Action Points Reduced to 50% for the next turn.{NEWLINE}{NEWLINE}RAGE BURST>{NEWLINE}A heavy burst attack with your main weapon. Uses lots of ammo.{NEWLINE}{NEWLINE}RUPTURE>{NEWLINE}A Rupture shot deals critical damage and ensures that the target takes additional damage from all attacks in the future."
-      STR_UFOPAEDIA_SNIPER_SKILLS_ACTIVE: "HEADSHOT>{NEWLINE}Fire a shot with +30% critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}DISABLING SHOT>{NEWLINE}Allows sniper rifles to fire a shot that causes the target's main weapon to malfunction.{NEWLINE}{NEWLINE}QUICK AIM>{NEWLINE}The TU cost of the next shot whit a proficient weapon is reduced, and the accuracy is increased.{NEWLINE}{NEWLINE}DOUBLE TAP>{NEWLINE}Fire twice at your target. Accuracy is reduced.{NEWLINE}{NEWLINE}SERIAL>{NEWLINE}A powerful chained shot ability. For every kill made with your sniper rifle, your actions will be refunded."
-      STR_UFOPAEDIA_SPECIALIST_SKILLS_ACTIVE: "PARAMEDIC>{NEWLINE}This unit may use its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}AID PROTOCOL>{NEWLINE}Grant the target a bonus to Defense until the start of the next player turn.{NEWLINE}{NEWLINE}COMBAT PROTOCOL>{NEWLINE}Jolt an enemy, dealing guaranteed damage.{NEWLINE}{NEWLINE}INTERFERENCE>{NEWLINE}Reduce the TU of the targeted unit to zero.{NEWLINE}{NEWLINE}ELECTRIC REINFORCEMENT>{NEWLINE}Grant additional armor to all allied units for one turn."
-      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE: "These abilities can only be channeled with the help of an alien Psi Amplifier.{NEWLINE}{NEWLINE}STASIS>{NEWLINE}Completely stuns the target for 1 turn, but renders them immune to any damage or attack.{NEWLINE}{NEWLINE}MIND CONTROL>{NEWLINE}Take direct control over your target's actions."
-      STR_UFOPAEDIA_SKILL_AMP: "The skill amplifier is an experimental piece of technology. It is directly connected to the brain of the wearer via the central nervous system and grants the soldier using it extraordinary abilities."
-      STR_UFOPAEDIA_COMBAT_EXPERIENCE: "In order for X-Com soldiers to be eligible for the next military training level, they have to accumulate combat experience.{NEWLINE}{NEWLINE}Combat experience is awarded to soldiers for killing enemies and surviving field missions."
-      STR_SKILL_NEEDS_ITEM: "Skill needs item!"
+      STR_RANGER_INITIAL_BONUS: Initial Ranger Molding
+      STR_RANGER_ADVANCED_BONUS: Advanced Ranger
+      STR_RANGER_ELITE_BONUS: Elite Ranger
+      STR_GRENADIER_INITIAL_BONUS: Initial Grenadier Molding
+      STR_GRENADIER_ADVANCED_BONUS: Advanced Grenadier
+      STR_GRENADIER_ELITE_BONUS: Elite Grenadier
+      STR_SNIPER_INITIAL_BONUS: Initial Sniper Molding
+      STR_SNIPER_ADVANCED_BONUS: Advanced Sniper
+      STR_SNIPER_ELITE_BONUS: Elite Sniper
+      STR_SPECIALIST_INITIAL_BONUS: Initial Specialist Molding
+      STR_SPECIALIST_ADVANCED_BONUS: Advanced Specialist
+      STR_SPECIALIST_ELITE_BONUS: Elite Specialist
+      STR_UNTOUCHABLE_BONUS: Untouchable
+      STR_LIGHTNING_REFLEXES_BONUS: Lightning Reflexes
+      STR_DEATH_FROM_ABOVE_BONUS: Death from above
+      STR_BLAST_PADDING_BONUS: Blast Padding
+      STR_PHANTOM_BONUS: Phantom
+      STR_SUSTAIN_BONUS: Sustain
+      STR_EXECUTIONER_BONUS: Executioner
+      STR_THREAT_ASSESSMENT_BONUS: Threat Assessment
+      STR_BACKSTAB_BONUS: Backstab
+      STR_BLADEMASTER_BONUS: Blademaster
+      STR_FIELD_SPECIALIST_BONUS: Field Specialist
+      STR_UFOPAEDIA_RANGER: The Ranger serves as our primary reconnaissance unit,
+        capable of moving independently in concealment while engaging enemies at close
+        range using extensive training in swordsmanship.{NEWLINE}{NEWLINE}INITIAL
+        SKILLS{NEWLINE}P>Blademaster{NEWLINE}A>Slash - Run & Gun{NEWLINE}{NEWLINE}ADVANCED
+        SKILLS{NEWLINE}P>Phantom - Shadowstrike{NEWLINE}A>Conceal - Rapid Fire{NEWLINE}{NEWLINE}ELITE
+        SKILLS{NEWLINE}P>Untouchable{NEWLINE}A>Reaper
+      STR_UFOPAEDIA_GRENADIER: A class specialising in high fire power and area damage.
+        The Grenadier is at its strongest vs armored or high health enemies, but can
+        also be really useful in situations were the enemies cluster together.{NEWLINE}{NEWLINE}INITIAL
+        SKILLS{NEWLINE}P>Shredder{NEWLINE}A>Hvy. Rocket - Rpd. Deployment{NEWLINE}{NEWLINE}ADVANCED
+        SKILLS{NEWLINE}P>Blast Padding - Mayhem{NEWLINE}A>War Cry - Rage Burst{NEWLINE}{NEWLINE}ELITE
+        SKILLS{NEWLINE}P>Sting Grenades{NEWLINE}A>Rupture
+      STR_UFOPAEDIA_SNIPER: A class able to inflict massive long range damage on enemy
+        targets from a position of safety. They are good at inflicting critical hits,
+        and can augment the chances further with their special Headshot ability.{NEWLINE}{NEWLINE}INITIAL
+        SKILLS{NEWLINE}P>Death from above{NEWLINE}A>Headshot - Disabling Shot{NEWLINE}{NEWLINE}ADVANCED
+        SKILLS{NEWLINE}P>Aim - Center Mass{NEWLINE}A>Quick Aim - Double Tap{NEWLINE}{NEWLINE}ELITE
+        SKILLS{NEWLINE}P>Alpha Mike Foxtrot{NEWLINE}A>Serial
+      STR_UFOPAEDIA_SPECIALIST: Soldiers trained in the Specialist class serve as
+        both field medics and logistical support to their squad. Equipped with medical
+        supplies, smoke grenades and other items, these troops ensure the safe return
+        of all units deployed in the field.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}P>Guardian{NEWLINE}A>Paramedic
+        - Aid Protocol{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}P>Steadfast - Field
+        Surgeon{NEWLINE}A>Combat Protocol - Interference{NEWLINE}{NEWLINE}ELITE SKILLS{NEWLINE}P>Savior
+        - Ever Vigilant{NEWLINE}A>Electric Reinforcement
+      STR_UFOPAEDIA_PSI_OP: A mysterious new branch of study for X-Com, the Psionic
+        Operative utilizes their mental abilities to great effect to boost their allies
+        and cripple the will of enemies.{NEWLINE}{NEWLINE}INITIAL SKILLS{NEWLINE}I>Panic
+        - Mind Merge{NEWLINE}{NEWLINE}ADVANCED SKILLS{NEWLINE}A>Soul Steal - Inspire{NEWLINE}{NEWLINE}ELITE
+        SKILLS{NEWLINE}A>Stasis - Mind Control
+      STR_MILITARY_MOLDING_CATEGORY: MILITARY MOLDING
+      STR_MILITARY_MOLDING: Military Molding
+      STR_UFOPAEDIA_MILITARY_MOLDING: X-Com researchers have perfected military molding
+        processes. Through hard training, genetical manipulation and cybernetical
+        enhancements the soldiers are imprinted with a specialized combat protocol.{NEWLINE}{NEWLINE}The
+        process is irreversible.{NEWLINE}{NEWLINE}After the initial molding process
+        an advanced and elite training program become available to more experienced
+        soldiers. Each stage of training will unlock additional combat abilities.
+      STR_UFOPAEDIA_RANGER_SKILLS: BLADEMASTER>{NEWLINE}Deal increased damage on all
+        sword attacks.{NEWLINE}{NEWLINE}PHANTOM>{NEWLINE}Begin a mission in concealment.{NEWLINE}{NEWLINE}SHADOWSTRIKE>{NEWLINE}While
+        concealed, gain bonus aim and bonus critical chance when attacking enemies.{NEWLINE}{NEWLINE}UNTOUCHABLE>{NEWLINE}If
+        you score a kill during your turn, the next two attacks against you during
+        the enemy turn will miss.
+      STR_UFOPAEDIA_GRENADIER_SKILLS: SHREDDER>{NEWLINE}Your cannon attacks shred
+        armor. Higher rank weapons shred more points of armor.{NEWLINE}{NEWLINE}BLAST
+        PADDING>{NEWLINE}Your gear includes layers of extra padding and blast plates,
+        granting bonus points of Armor and 66% less damage from explosive attacks.{NEWLINE}{NEWLINE}MAYHEM>{NEWLINE}Confers
+        additional damage to all area of effect weapons & auto shooting guns.{NEWLINE}{NEWLINE}STING
+        GRENADES>{NEWLINE}Your flashbang grenades have a 50% chance to stun enemies
+        for one turn in the flashbang's Area of Effect.
+      STR_UFOPAEDIA_SNIPER_SKILLS: DEATH FROM ABOVE>{NEWLINE}Killing an enemy at a
+        lower elevation with your sniper rifle will grant an additional action once
+        per turn.{NEWLINE}{NEWLINE}AIM>{NEWLINE}Kneeling now confers 30% firing accuracy
+        to the first shot on the following turn.{NEWLINE}{NEWLINE}CENTER MASS>{NEWLINE}You
+        do additional points of base damage when using guns.{NEWLINE}{NEWLINE}ALPHA
+        MIKE FOXTROT>{NEWLINE}You do additional points of base damage and additional
+        points of crit damage with your primary weapon.
+      STR_UFOPAEDIA_SPECIALIST_SKILLS: GUARDIAN>{NEWLINE}With every successful Overwatch
+        shot, there is a 50% chance that the action cost will be refunded.{NEWLINE}{NEWLINE}STEADFAST>{NEWLINE}(Almost)
+        Never panic as a result of getting wounded, allies panicking, allies getting
+        wounded or killed, or the panic ability.{NEWLINE}{NEWLINE}FIELD SURGEON>{NEWLINE}Reduces
+        Wounded timer on soldiers who sustained HP damage.{NEWLINE}{NEWLINE}SAVIOR>{NEWLINE}Medikits
+        restore health per use.{NEWLINE}{NEWLINE}EVER VIGILANT>{NEWLINE}At the start
+        of the enemy turn your time units are refilled for free reaction fire.
+      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS: The operative has to be equipped with a
+        Psi Amplifier to successfully use these abilites in the field.{NEWLINE}{NEWLINE}PANIC>{NEWLINE}Saps
+        a unit's morale, and puts it in a prime position to panic or go berserk.{NEWLINE}{NEWLINE}MIND
+        MERGE>{NEWLINE}Grants bonus will, crit and ablative hit points to an ally
+        until the beginning of the player's next turn.{NEWLINE}{NEWLINE}SOUL STEAL>{NEWLINE}Transfers
+        half of the damage done back to the Psi Operative as health.{NEWLINE}{NEWLINE}INSPIRE>{NEWLINE}Channel
+        your psionic energy into the TUs of another unit.
+      STR_UFOPAEDIA_RANGER_SKILLS_ACTIVE: RUN & GUN>{NEWLINE}Take an extra action
+        after dashing.{NEWLINE}{NEWLINE}SLASH>{NEWLINE}A free melee attack with your
+        sword{NEWLINE}{NEWLINE}CONCEAL>{NEWLINE}Immediately enter concealment once
+        per mission.{NEWLINE}{NEWLINE}RAPID FIRE>{NEWLINE}Fire twice in a row at an
+        enemy. Each shot suffers an Aim penalty.{NEWLINE}{NEWLINE}REAPER>{NEWLINE}A
+        devastating chain melee attack where every kill scored will grant an extra
+        action.
+      STR_UFOPAEDIA_GRENADIER_SKILLS_ACTIVE: HEAVY ROCKET>{NEWLINE}Fire a rocket using
+        an equipped launcher.{NEWLINE}{NEWLINE}RAPID DEPLOYMENT>{NEWLINE}Throw a grenade
+        from your inventory and prime it in one action.{NEWLINE}{NEWLINE}WAR CRY>{NEWLINE}All
+        enemies within 10 tiles have their Action Points Reduced to 50% for the next
+        turn.{NEWLINE}{NEWLINE}RAGE BURST>{NEWLINE}A heavy burst attack with your
+        main weapon. Uses lots of ammo.{NEWLINE}{NEWLINE}RUPTURE>{NEWLINE}A Rupture
+        shot deals critical damage and ensures that the target takes additional damage
+        from all attacks in the future.
+      STR_UFOPAEDIA_SNIPER_SKILLS_ACTIVE: HEADSHOT>{NEWLINE}Fire a shot with +30%
+        critical chance and extra damage on critical hits.{NEWLINE}{NEWLINE}DISABLING
+        SHOT>{NEWLINE}Allows sniper rifles to fire a shot that causes the target's
+        main weapon to malfunction.{NEWLINE}{NEWLINE}QUICK AIM>{NEWLINE}The TU cost
+        of the next shot whit a proficient weapon is reduced, and the accuracy is
+        increased.{NEWLINE}{NEWLINE}DOUBLE TAP>{NEWLINE}Fire twice at your target.
+        Accuracy is reduced.{NEWLINE}{NEWLINE}SERIAL>{NEWLINE}A powerful chained shot
+        ability. For every kill made with your sniper rifle, your actions will be
+        refunded.
+      STR_UFOPAEDIA_SPECIALIST_SKILLS_ACTIVE: PARAMEDIC>{NEWLINE}This unit may use
+        its medikit with drastically reduced action costs.{NEWLINE}{NEWLINE}AID PROTOCOL>{NEWLINE}Grant
+        the target a bonus to Defense until the start of the next player turn.{NEWLINE}{NEWLINE}COMBAT
+        PROTOCOL>{NEWLINE}Jolt an enemy, dealing guaranteed damage.{NEWLINE}{NEWLINE}INTERFERENCE>{NEWLINE}Reduce
+        the TU of the targeted unit to zero.{NEWLINE}{NEWLINE}ELECTRIC REINFORCEMENT>{NEWLINE}Grant
+        additional armor to all allied units for one turn.
+      STR_UFOPAEDIA_PSI_OPERATIVE_SKILLS_ACTIVE: These abilities can only be channeled
+        with the help of an alien Psi Amplifier.{NEWLINE}{NEWLINE}STASIS>{NEWLINE}Completely
+        stuns the target for 1 turn, but renders them immune to any damage or attack.{NEWLINE}{NEWLINE}MIND
+        CONTROL>{NEWLINE}Take direct control over your target's actions.
+      STR_UFOPAEDIA_SKILL_AMP: The skill amplifier is an experimental piece of technology.
+        It is directly connected to the brain of the wearer via the central nervous
+        system and grants the soldier using it extraordinary abilities.
+      STR_UFOPAEDIA_COMBAT_EXPERIENCE: In order for X-Com soldiers to be eligible
+        for the next military training level, they have to accumulate combat experience.{NEWLINE}{NEWLINE}Combat
+        experience is awarded to soldiers for killing enemies and surviving field
+        missions.
+      STR_SKILL_NEEDS_ITEM: Skill needs item!
       STR_HEAVY_ROCKET: Heavy Rocket
       STR_RAPID_DEPLOYMENT: Rpd. Deployment
       STR_SHREDDER_ROCKET: Shred Rocket
@@ -3197,80 +3340,80 @@ extraStrings:
       STR_STASIS: Stasis
       STR_SOUL_STEAL: Soul Steal
       STR_SNAP_SHOT: Fire
-      STR_SOUL_STEAL_HIT_MESSAGE: "Soul Steal: {0}>{1}"
-      STR_SHOT_TYPE_SNAP: "Default"
-      STR_TIME_UNITS_RESERVED_FOR_SNAP_SHOT: "Time Units reserved for firing"
-      STR_DAMAGE_ARMOR_PIERCING: "PROJECTILE"
-      STR_DAMAGE_INCENDIARY: "INCENDIARY"
-      STR_DAMAGE_HIGH_EXPLOSIVE: "HIGH EXPLOSIVE"
-      STR_DAMAGE_LASER_BEAM: "LASER"
-      STR_DAMAGE_PLASMA_BEAM: "PLASMA"
-      STR_DAMAGE_10: "PSIONIC"                
-      STR_DAMAGE_11: "POISON"
-      STR_DAMAGE_12: "ELECTRIC"
+      STR_SOUL_STEAL_HIT_MESSAGE: 'Soul Steal: {0}>{1}'
+      STR_SHOT_TYPE_SNAP: Default
+      STR_TIME_UNITS_RESERVED_FOR_SNAP_SHOT: Time Units reserved for firing
+      STR_DAMAGE_ARMOR_PIERCING: PROJECTILE
+      STR_DAMAGE_INCENDIARY: INCENDIARY
+      STR_DAMAGE_HIGH_EXPLOSIVE: HIGH EXPLOSIVE
+      STR_DAMAGE_LASER_BEAM: LASER
+      STR_DAMAGE_PLASMA_BEAM: PLASMA
+      STR_DAMAGE_10: PSIONIC
+      STR_DAMAGE_11: POISON
+      STR_DAMAGE_12: ELECTRIC
 
 statStrings:
-  - string: "Psi" #above average psi skill
+  - string: Psi   #above average psi skill
     psiSkill: [40, ~]
-  - string: "Elite"
+  - string: Elite
     health: [30, ~]
     strength: [40, ~]
     reactions: [60, ~]
     firing: [60, ~]
     stamina: [60, ~]
   #--- accuracy/long range class ---
-  - string: "Snipr"
+  - string: Snipr
     firing: [70, ~]
     reactions: [60, ~]
-  - string: "Mksmn"
+  - string: Mksmn
     firing: [70, ~]
   #--- mobility heavy class ---
-  - string: "HvySct" #mobile medium range
+  - string: HvySct   #mobile medium range
     health: [30, ~]
     strength: [40, ~]
     reactions: [50, ~]
     stamina: [60, ~]
     tu: [60, ~]
-  - string: "HvyAsslt" #mobile close range
+  - string: HvyAsslt   #mobile close range
     health: [30, ~]
     strength: [40, ~]
     reactions: [~, 49]
     stamina: [70, ~]
     tu: [60, ~]
-  - string: "HvySupp"
+  - string: HvySupp
     health: [30, ~]
     strength: [40, ~]
     bravery: [70, ~]
     stamina: [60, ~]
     tu: [50, ~]
   #--- mobility class ---
-  - string: "Sct" #mobile medium range
+  - string: Sct   #mobile medium range
     reactions: [50, ~]
     stamina: [60, ~]
     tu: [60, ~]
-  - string: "Asslt" #mobile close range
+  - string: Asslt   #mobile close range
     reactions: [~, 49]
     stamina: [70, ~]
     tu: [60, ~]
-  - string: "Supp"
+  - string: Supp
     bravery: [70, ~]
     stamina: [60, ~]
     tu: [50, ~]
   #--- heavy class ---
-  - string: "Hvy"
+  - string: Hvy
     health: [30, ~]
     strength: [40, ~]
   #--- speciality class ---
-  - string: "Spclst" #good at throwing & melee
+  - string: Spclst   #good at throwing & melee
     stamina: [60, ~]
     tu: [50, ~]
     strength: [40, ~]
     throwing: [70, ~]
     melee: [70, ~]
-  - string: "Grndr" #good at throwing
+  - string: Grndr   #good at throwing
     strength: [40, ~]
     throwing: [70, ~]
-  - string: "Melee" #mobile and good at hand2hand
+  - string: Melee   #mobile and good at hand2hand
     stamina: [60, ~]
     tu: [50, ~]
     strength: [40, ~]

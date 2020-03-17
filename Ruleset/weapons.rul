@@ -146,15 +146,16 @@ items:
   - type: STR_ALIEN_GRENADE
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     costBuy: 0
-    requires: 
+    requires:
       - STR_ALIEN_GRENADE
-    requiresBuy: 
+    requiresBuy:
       - STR_ALIEN_GRENADE
     power: 50
     blastRadius: 4
     damageAlter:
       ToArmor: 0
       ToArmorPre: 0.4
+    costSell: 13000
   - type: STR_SMALL_ROCKET
     costBuy: 0
   - type: STR_LARGE_ROCKET
@@ -165,6 +166,7 @@ items:
     costBuy: 0
   - type: STR_STUN_ROD
     costBuy: 0
+    costSell: 0
   - type: STR_PISTOL
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
@@ -176,7 +178,7 @@ items:
     tuAimed: 51
     tuAuto: 0
     accuracySnap: 90
-    accuracyAimed: 100 
+    accuracyAimed: 100
     accuracyAuto: 0
     snapRange: 10
     aimRange: 14
@@ -203,7 +205,7 @@ items:
     tuAimed: 60
     tuAuto: 0
     accuracySnap: 70
-    accuracyAimed: 90 
+    accuracyAimed: 90
     accuracyAuto: 0
     snapRange: 12
     aimRange: 16
@@ -259,7 +261,7 @@ items:
       - STR_LASER_WEAPONS
     size: 0.2
     costBuy: 1000
-    costSell: 800
+    costSell: 0
     weight: 4
     bigSprite: 201
     floorSprite: 201
@@ -289,7 +291,7 @@ items:
       - STR_PLASMA_WEAPONS
     size: 0.2
     costBuy: 4000
-    costSell: 3000
+    costSell: 0
     weight: 4
     bigSprite: 202
     floorSprite: 202
@@ -497,7 +499,7 @@ items:
       RUPTURE_DAMAGE: 10
     listOrder: 3500
     size: 0.1
-    costSell: 11000
+    costSell: 0
     costBuy: 0 #13000
     weight: 7
     bigSprite: 217
@@ -515,7 +517,7 @@ items:
     tuAimed: 51
     tuAuto: 0
     accuracySnap: 90
-    accuracyAimed: 100 
+    accuracyAimed: 100
     accuracyAuto: 0
     snapRange: 10
     aimRange: 14
@@ -537,7 +539,7 @@ items:
       RUPTURE_DAMAGE: 5
     listOrder: 3600
     size: 0.2
-    costSell: 16900
+    costSell: 0
     costBuy: 0 #18000
     weight: 8
     bigSprite: 221
@@ -551,7 +553,7 @@ items:
     tuAimed: 60
     tuAuto: 0
     accuracySnap: 70
-    accuracyAimed: 90 
+    accuracyAimed: 90
     accuracyAuto: 0
     snapRange: 12
     aimRange: 16
@@ -584,7 +586,7 @@ items:
       - STR_LASER_SHOTGUN
     listOrder: 3630
     size: 0.2
-    costSell: 26900
+    costSell: 0
     costBuy: 0 #30000
     weight: 8
     bigSprite: 225
@@ -635,7 +637,7 @@ items:
       RUPTURE_DAMAGE: 15
     listOrder: 3690
     size: 0.2
-    costSell: 36900
+    costSell: 0
     costBuy: 0 #39000
     weight: 8
     bigSprite: 229
@@ -681,7 +683,7 @@ items:
       GUN_TYPE: 5
       RUPTURE_DAMAGE: 5
     size: 0.3
-    costSell: 41000
+    costSell: 0
     costBuy: 0 #45000
     weight: 18
     bigSprite: 213
@@ -729,7 +731,7 @@ items:
       RUPTURE_DAMAGE: 10
     listOrder: 3705
     size: 0.1
-    costSell: 64000
+    costSell: 0
     costBuy: 0 #70000
     weight: 8
     bigSprite: 237
@@ -743,7 +745,7 @@ items:
     tuAimed: 51
     tuAuto: 0
     accuracySnap: 90
-    accuracyAimed: 100 
+    accuracyAimed: 100
     accuracyAuto: 85
     snapRange: 10
     aimRange: 14
@@ -762,7 +764,7 @@ items:
       - STR_PLASMA_WEAPONS
     listOrder: 3710
     size: 0.1
-    costSell: 4440
+    costSell: 0
     costBuy: 0 #6000
     weight: 3
     bigSprite: 238
@@ -787,7 +789,7 @@ items:
       - STR_PLASMA_WEAPONS
     listOrder: 3715
     size: 0.2
-    costSell: 86500
+    costSell: 0
     costBuy: 0 #95000
     weight: 5
     bigSprite: 241
@@ -826,7 +828,7 @@ items:
       - STR_PLASMA_WEAPONS
     listOrder: 3720
     size: 0.1
-    costSell: 6290
+    costSell: 0
     costBuy: 0 #9000
     weight: 3
     bigSprite: 242
@@ -853,7 +855,7 @@ items:
     listOrder: 3725
     size: 0.2
     costBuy: 0 #150000
-    costSell: 12500
+    costSell: 0
     weight: 6
     bigSprite: 245
     floorSprite: 229
@@ -861,7 +863,7 @@ items:
     bulletSprite: 8
     fireSound: 18
     compatibleAmmo:
-      - STR_PLASMA_SHOTGUN_AMMO    
+      - STR_PLASMA_SHOTGUN_AMMO
     accuracySnap: 90
     accuracyAimed: 110
     accuracyAuto: 80
@@ -881,7 +883,7 @@ items:
     oneHandedPenalty: 95
     invWidth: 1
     invHeight: 3
-    armor: 40  
+    armor: 40
   - type: STR_PLASMA_SHOTGUN_AMMO
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
@@ -893,7 +895,7 @@ items:
     listOrder: 3730
     size: 0.1
     costBuy: 0 #9000
-    costSell: 7500
+    costSell: 0
     weight: 3
     bigSprite: 246
     floorSprite: 230
@@ -922,7 +924,7 @@ items:
     listOrder: 3735
     size: 0.3
     costBuy: 0 #175000
-    costSell: 15500
+    costSell: 0
     weight: 9
     bigSprite: 249
     floorSprite: 233
@@ -961,7 +963,7 @@ items:
     listOrder: 3740
     size: 0.1
     costBuy: 0 #9500
-    costSell: 8160
+    costSell: 0
     weight: 4
     bigSprite: 250
     floorSprite: 234
@@ -985,7 +987,7 @@ items:
       RUPTURE_DAMAGE: 5
     listOrder: 3745
     size: 0.2
-    costSell: 171600
+    costSell: 0
     costBuy: 0 #185000
     weight: 8
     bigSprite: 233
@@ -1026,7 +1028,7 @@ items:
     listOrder: 3750
     size: 0.3
     costBuy: 0 #10000
-    costSell: 9590
+    costSell: 0
     weight: 3
     bigSprite: 234
     floorSprite: 218
@@ -1043,7 +1045,7 @@ items:
     recoveryPoints: 1
     invWidth: 2
     invHeight: 1
-    
+
 manufacture:
   - delete: STR_LASER_PISTOL
   - delete: STR_LASER_RIFLE
@@ -1377,62 +1379,128 @@ extraStrings:
     strings:
       STR_ALIEN_GRENADE: Alien Grenade
       STR_SWORD: Sword
-      STR_UFOPAEDIA_SWORD: "A simple but effective weapon deployed by mankind for centuries. This combat sword is forged from modern metal alloys and allows for devastating melee attacks."
+      STR_UFOPAEDIA_SWORD: A simple but effective weapon deployed by mankind for centuries.
+        This combat sword is forged from modern metal alloys and allows for devastating
+        melee attacks.
       STR_LASER_SWORD: Arc Blade
-      STR_UFOPAEDIA_LASER_SWORD: "When pure kinetic energy is no longer sufficient in the field, the Arc Blade may prove necessary. It boosts the standard Sword's combat effectiveness with the addition of an electric field, capable of stunning enemies not killed outright."
+      STR_UFOPAEDIA_LASER_SWORD: When pure kinetic energy is no longer sufficient
+        in the field, the Arc Blade may prove necessary. It boosts the standard Sword's
+        combat effectiveness with the addition of an electric field, capable of stunning
+        enemies not killed outright.
       STR_PLASMA_SWORD: Fusion Blade
-      STR_UFOPAEDIA_PLASMA_SWORD: "The Fusion Blade encases a plasma heated metallic core in a microthin magnetic field, enabling devastating melee that are capable of setting enemies aflame."
-      STR_RIFLE_UFOPEDIA: "The standard issue X9 rifle is a very durable field weapon and has seen extensive use over the years.{NEWLINE}{NEWLINE}BURST> 3"
+      STR_UFOPAEDIA_PLASMA_SWORD: The Fusion Blade encases a plasma heated metallic
+        core in a microthin magnetic field, enabling devastating melee that are capable
+        of setting enemies aflame.
+      STR_RIFLE_UFOPEDIA: The standard issue X9 rifle is a very durable field weapon
+        and has seen extensive use over the years.{NEWLINE}{NEWLINE}BURST> 3
       STR_HEAVY_CANNON: Heavy Cannon
       STR_HEAVY_CANNON_CLIP: Heavy Cannon Clip
-      STR_UFOPAEDIA_CANNON: "The Cannon is an improvised light support weapon, specialized for high volume fire.{NEWLINE}{NEWLINE}BURST> 5"
+      STR_UFOPAEDIA_CANNON: The Cannon is an improvised light support weapon, specialized
+        for high volume fire.{NEWLINE}{NEWLINE}BURST> 5
       STR_SHOTGUN: Shotgun
       STR_SHOTGUN_AMMO: Shotgun Ammo
-      STR_UFOPAEDIA_SHOTGUN: "We've managed to salvage a variety of standard infantry small arms; this is a specialized weapon for close range engagements."
+      STR_UFOPAEDIA_SHOTGUN: We've managed to salvage a variety of standard infantry
+        small arms; this is a specialized weapon for close range engagements.
       STR_SNIPER_RIFLE: Sniper Rifle
       STR_SNIPER_RIFLE_CLIP: Sniper Rifle Clip
-      STR_UFOPAEDIA_SNIPER_RIFLE: "We've managed to salvage a variety of standard infantry small arms; this is a specialized weapon for medium to long range engagement."
+      STR_UFOPAEDIA_SNIPER_RIFLE: We've managed to salvage a variety of standard infantry
+        small arms; this is a specialized weapon for medium to long range engagement.
       STR_GRENADE_LAUNCHER: Grenade Launcher
-      STR_UFOPAEDIA_GRENADE_LAUNCHER: "The standard issue grenade launcher can operate with hand-held grenades."
+      STR_UFOPAEDIA_GRENADE_LAUNCHER: The standard issue grenade launcher can operate
+        with hand-held grenades.
       STR_HEAVY_LASER: Alien Heavy Laser
       STR_XCOM_HEAVY_LASER: Heavy Laser
-      STR_UFOPAEDIA_HEAVY_LASER: "The X3 Heavy Laser requires a supplementary power supply that makes it somewhat unwieldy in combat, but it is capable of dealing high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 35{NEWLINE}{NEWLINE}BURST> 5"
+      STR_UFOPAEDIA_HEAVY_LASER: The X3 Heavy Laser requires a supplementary power
+        supply that makes it somewhat unwieldy in combat, but it is capable of dealing
+        high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 35{NEWLINE}{NEWLINE}BURST>
+        5
       STR_LASER_PISTOL: Alien Laser Pistol
       STR_XCOM_LASER_PISTOL: Laser Pistol
-      STR_UFOPAEDIA_XCOM_LASER_PISTOL: "The X22 Laser Pistol relies on our latest advancements to provide a more powerful sidearm that does not require reloading in the field.{NEWLINE}{NEWLINE}CHARGES> 12"
+      STR_UFOPAEDIA_XCOM_LASER_PISTOL: The X22 Laser Pistol relies on our latest advancements
+        to provide a more powerful sidearm that does not require reloading in the
+        field.{NEWLINE}{NEWLINE}CHARGES> 12
       STR_LASER_RIFLE: Alien Laser Rifle
       STR_XCOM_LASER_RIFLE: Laser Rifle
-      STR_UFOPAEDIA_XCOM_LASER_RIFLE: "The X24 Laser Assault Rifle relies on our latest in optics technology to offer a substantial increase in output over the conventional X9 rifle.{NEWLINE}{NEWLINE}CHARGES> 20{NEWLINE}{NEWLINE}BURST> 3"
+      STR_UFOPAEDIA_XCOM_LASER_RIFLE: The X24 Laser Assault Rifle relies on our latest
+        in optics technology to offer a substantial increase in output over the conventional
+        X9 rifle.{NEWLINE}{NEWLINE}CHARGES> 20{NEWLINE}{NEWLINE}BURST> 3
       STR_LASER_SHOTGUN: Scatter Laser
-      STR_UFOPAEDIA_LASER_SHOTGUN: "The Scatter Laser is capable of inflicting considerable damage; however, accuracy suffers greatly as the range to target increases.{NEWLINE}{NEWLINE}CHARGES> 6"
+      STR_UFOPAEDIA_LASER_SHOTGUN: The Scatter Laser is capable of inflicting considerable
+        damage; however, accuracy suffers greatly as the range to target increases.{NEWLINE}{NEWLINE}CHARGES>
+        6
       STR_LASER_SNIPER_RIFLE: Laser Sniper Rifle
-      STR_UFOPAEDIA_LASER_SNIPER: "The Laser Sniper Rifle provides a greater chance of inflicting critical damage to enemy targets. However, due to the unwieldy nature of this rifle, our soldiers will suffer a penalty when attempting to strike targets at close range.{NEWLINE}{NEWLINE}CHARGES> 5"
+      STR_UFOPAEDIA_LASER_SNIPER: The Laser Sniper Rifle provides a greater chance
+        of inflicting critical damage to enemy targets. However, due to the unwieldy
+        nature of this rifle, our soldiers will suffer a penalty when attempting to
+        strike targets at close range.{NEWLINE}{NEWLINE}CHARGES> 5
       STR_XCOM_HEAVY_PLASMA: Beam Cannon
       STR_XCOM_HEAVY_PLASMA_CLIP: Beam Cannon Clip
-      STR_UFOPAEDIA_PLASMA_CANNON: "Devising a more powerful, high-volume beam weapon for our Grenadiers required substantial effort, but the firepower it brings is unquestioned.{NEWLINE}{NEWLINE}BURST> 5"
+      STR_UFOPAEDIA_PLASMA_CANNON: Devising a more powerful, high-volume beam weapon
+        for our Grenadiers required substantial effort, but the firepower it brings
+        is unquestioned.{NEWLINE}{NEWLINE}BURST> 5
       STR_PLASMA_PISTOL: Alien Plasma Pistol
       STR_PLASMA_PISTOL_CLIP: Alien Plasma Pistol Clip
       STR_XCOM_PLASMA_PISTOL: Beam Pistol
       STR_XCOM_PLASMA_PISTOL_CLIP: Beam Pistol Clip
-      STR_UFOPAEDIA_XCOM_PLASMA_PISTOL: "The ultimate sidearm, this pistol integrates the aliens' beam weapons technology to powerful effect."
+      STR_UFOPAEDIA_XCOM_PLASMA_PISTOL: The ultimate sidearm, this pistol integrates
+        the aliens' beam weapons technology to powerful effect.
       STR_PLASMA_RIFLE: Alien Plasma Rifle
       STR_PLASMA_RIFLE_CLIP: Alien Plasma Rifle Clip
       STR_XCOM_PLASMA_RIFLE: Plasma Rifle
       STR_XCOM_PLASMA_RIFLE_CLIP: Plasma Rifle Clip
-      STR_UFOPAEDIA_XCOM_PLASMA_RIFLE: "Now that we've finally deciphered the aliens' devastating weapon technology and can develop beam weapons of our own, we can build rifles that will be the match of any enemy our soldiers encounter in the field.{NEWLINE}{NEWLINE}BURST> 3"
+      STR_UFOPAEDIA_XCOM_PLASMA_RIFLE: Now that we've finally deciphered the aliens'
+        devastating weapon technology and can develop beam weapons of our own, we
+        can build rifles that will be the match of any enemy our soldiers encounter
+        in the field.{NEWLINE}{NEWLINE}BURST> 3
       STR_PLASMA_SHOTGUN: Storm Gun
       STR_PLASMA_SHOTGUN_AMMO: Storm Gun Ammo
-      STR_UFOPAEDIA_PLASMA_SHOTGUN: "The Storm Gun fires a concentrated set of beam pulses, piercing and melting the target across a substantial surface area."
+      STR_UFOPAEDIA_PLASMA_SHOTGUN: The Storm Gun fires a concentrated set of beam
+        pulses, piercing and melting the target across a substantial surface area.
       STR_PLASMA_SNIPER_RIFLE: Plasma Lance
       STR_PLASMA_SNIPER_RIFLE_CLIP: Plasma Lance Clip
-      STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE: "The aliens' focused beam technology has obvious applications for improving sniper rifles. The Plasma Lance is an unmatched sniper rifle."
-      STR_UFOPAEDIA_WEAPON_MECHANICS: "X-Com Weaponry 101"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: "The arsenal of X-Com employs the latest and finest in military equipment and whatever our scientists come up with. Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The default fire mode of this weapon is BURST. Meaning each shot actually fires multiple bullets. Each bullet can do the amount of damage specified under the DAMAGE section."
-      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO: "X-Com Weaponry 201"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO_TEXT: "Not all weapons are created equal. Each type of firearm has unique attributes which might make it more suitable for certain situations than others.{NEWLINE}{NEWLINE}SWORDS>{NEWLINE}Preferred by Rangers. Melee weapons can still be very effective in modern warfare. An enemy without hands can't pull a trigger. High Risk, high reward.{NEWLINE}{NEWLINE}PISTOLS>{NEWLINE}A sidearm is especially useful to snipers, in order to be prepared in close encounters. Also, when your laser rifle implodes in your hands."
-      STR_UFOPAEDIA_WEAPON_MECHANICS_THREE: "X-Com Weaponry 301"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_THREE_TEXT: "Although every soldier can wield all the weapon types, our operatives receive additional training for specific weapons during their molding.{NEWLINE}{NEWLINE}SHOTGUNS>{NEWLINE}Preferred by Ranger. These guns match the up close and personal attitude of our assault troopers. Also a good choice for soldiers who can't hit a barn door otherwise.{NEWLINE}{NEWLINE}SNIPER RIFLES>{NEWLINE}The obvious choice for trained sharpshooters. Needs a high skill in weapon handling in order to be accurate."
-      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR: "X-Com Weaponry 401"
-      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT: "With the 'Rage Burst' ability a Grenadier equipped with our line of heavy automatic weaponry is able to cover a whole area with suppressive fire. Hold CTRL+SHIFT while clicking 'Rage Burst' to 'spray & pray'. You can then place two waypoints and the soldier will cover the space in between.{NEWLINE}{NEWLINE}HEAVY CANNONS>{NEWLINE}Preferred by Grenadiers. These heavy guns can deal devastating damage to targets and their armor alike. Heavy and heavy-hitting.{NEWLINE}{NEWLINE}ASSAULT RIFLES>{NEWLINE}All our soldiers are trained with these and everyone should be able to handle them equally well. Sack the ones who don't."
-      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS: "Laser Weapons"
-      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: "These laser based line of weapons is superior in damage compared to their alien counterparts. However these are early prototypes and the energy cells are volatile.{NEWLINE}{NEWLINE}IMPORTANT>{NEWLINE}Our scientist have advised us to never empty a laser energy cell completely. If the energy cell of a prototype laser weapon is emptied, the weapon itself will implode in the hands of our soldiers.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although our laser based line of weapons does not require ammunition, they still require recharging. After activation of the RECHARGE mechanism, the weapon glows blue and will be recharged on the beginning of your next turn."
+      STR_UFOPAEDIA_PLASMA_SNIPER_RIFLE: The aliens' focused beam technology has obvious
+        applications for improving sniper rifles. The Plasma Lance is an unmatched
+        sniper rifle.
+      STR_UFOPAEDIA_WEAPON_MECHANICS: X-Com Weaponry 101
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TEXT: The arsenal of X-Com employs the latest
+        and finest in military equipment and whatever our scientists come up with.
+        Some of these items have abilities that require further explanation.{NEWLINE}{NEWLINE}BURST>{NEWLINE}The
+        default fire mode of this weapon is BURST. Meaning each shot actually fires
+        multiple bullets. Each bullet can do the amount of damage specified under
+        the DAMAGE section.
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO: X-Com Weaponry 201
+      STR_UFOPAEDIA_WEAPON_MECHANICS_TWO_TEXT: Not all weapons are created equal.
+        Each type of firearm has unique attributes which might make it more suitable
+        for certain situations than others.{NEWLINE}{NEWLINE}SWORDS>{NEWLINE}Preferred
+        by Rangers. Melee weapons can still be very effective in modern warfare. An
+        enemy without hands can't pull a trigger. High Risk, high reward.{NEWLINE}{NEWLINE}PISTOLS>{NEWLINE}A
+        sidearm is especially useful to snipers, in order to be prepared in close
+        encounters. Also, when your laser rifle implodes in your hands.
+      STR_UFOPAEDIA_WEAPON_MECHANICS_THREE: X-Com Weaponry 301
+      STR_UFOPAEDIA_WEAPON_MECHANICS_THREE_TEXT: Although every soldier can wield
+        all the weapon types, our operatives receive additional training for specific
+        weapons during their molding.{NEWLINE}{NEWLINE}SHOTGUNS>{NEWLINE}Preferred
+        by Ranger. These guns match the up close and personal attitude of our assault
+        troopers. Also a good choice for soldiers who can't hit a barn door otherwise.{NEWLINE}{NEWLINE}SNIPER
+        RIFLES>{NEWLINE}The obvious choice for trained sharpshooters. Needs a high
+        skill in weapon handling in order to be accurate.
+      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR: X-Com Weaponry 401
+      STR_UFOPAEDIA_WEAPON_MECHANICS_FOUR_TEXT: With the 'Rage Burst' ability a Grenadier
+        equipped with our line of heavy automatic weaponry is able to cover a whole
+        area with suppressive fire. Hold CTRL+SHIFT while clicking 'Rage Burst' to
+        'spray & pray'. You can then place two waypoints and the soldier will cover
+        the space in between.{NEWLINE}{NEWLINE}HEAVY CANNONS>{NEWLINE}Preferred by
+        Grenadiers. These heavy guns can deal devastating damage to targets and their
+        armor alike. Heavy and heavy-hitting.{NEWLINE}{NEWLINE}ASSAULT RIFLES>{NEWLINE}All
+        our soldiers are trained with these and everyone should be able to handle
+        them equally well. Sack the ones who don't.
+      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS: Laser Weapons
+      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: These laser based line of weapons
+        is superior in damage compared to their alien counterparts. However these
+        are early prototypes and the energy cells are volatile.{NEWLINE}{NEWLINE}IMPORTANT>{NEWLINE}Our
+        scientist have advised us to never empty a laser energy cell completely. If
+        the energy cell of a prototype laser weapon is emptied, the weapon itself
+        will implode in the hands of our soldiers.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although
+        our laser based line of weapons does not require ammunition, they still require
+        recharging. After activation of the RECHARGE mechanism, the weapon glows blue
+        and will be recharged on the beginning of your next turn.

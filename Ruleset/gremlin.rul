@@ -12,7 +12,7 @@ armors:
     drawingRoutine: 4
     movementType: 1
     size: 1
-    damageModifier: &DRONE_DAMAGE_MODIFIER
+    damageModifier:
       - 1.0
       - 1.0
       - 0.4
@@ -23,7 +23,7 @@ armors:
       - 0.2
       - 1.4
       - 0.0
-    loftempsSet: [ 3 ]
+    loftempsSet: [3]
 
 units:
   - type: STR_GREMLIN
@@ -160,4 +160,6 @@ extraStrings:
     strings:
       STR_GREMLIN: GREMLIN Drone
       STR_GREMLIN_ZAP: Zap
-      STR_UFOPEDIA_GREMLIN: "The GREMLIN Drone is deployed by the specialist class and augments our troops in the field.  It allows for scouting and the deployment of medical supplies, as well as tactical support."
+      STR_UFOPEDIA_GREMLIN: The GREMLIN Drone is deployed by the specialist class
+        and augments our troops in the field.  It allows for scouting and the deployment
+        of medical supplies, as well as tactical support.

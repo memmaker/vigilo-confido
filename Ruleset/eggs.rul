@@ -93,7 +93,7 @@ ufopaedia:
       y: 80
       width: 110
       height: 200
-        
+
 
 extraSprites:
   - type: BIGOBS.PCK
@@ -142,6 +142,9 @@ extraStrings:
       STR_XCOM_ARCHIVES_FOLDER2: File II
       STR_XCOM_ARCHIVES_FOLDER3: File III
       STR_XCOM_ARCHIVES_FOLDER4: File IV
-      STR_VAHLEN_RESTRAINT_UFOPEDIA: "Commander, you may want to instruct your men to exercise restraint when using explosives."
-      STR_XCOM_ARCHIVES_UFOPEDIA: "The archives are pieces of X-Com history we have deemed lost and forgotten. However you may be able to salvage some of these documents."
+      STR_VAHLEN_RESTRAINT_UFOPEDIA: Commander, you may want to instruct your men
+        to exercise restraint when using explosives.
+      STR_XCOM_ARCHIVES_UFOPEDIA: The archives are pieces of X-Com history we have
+        deemed lost and forgotten. However you may be able to salvage some of these
+        documents.
 

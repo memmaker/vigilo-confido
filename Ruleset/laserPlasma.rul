@@ -149,6 +149,8 @@ items:
           debug_log "Recharged Laser Pistol" item;
         end;
         return;
+    costBuy: 0
+    costSell: 0
   - type: STR_XCOM_LASER_RIFLE
     tags:
       LASER: 1
@@ -167,6 +169,8 @@ items:
           debug_log "Recharged Scatter Laser Rifle" item;
         end;
         return;
+    costBuy: 0
+    costSell: 0
   - type: STR_LASER_SHOTGUN
     tags:
       LASER: 1
@@ -185,6 +189,8 @@ items:
           debug_log "Recharged Scatter Laser" item;
         end;
         return;
+    costBuy: 0
+    costSell: 0
   - type: STR_LASER_SNIPER_RIFLE
     tags:
       LASER: 1
@@ -203,6 +209,8 @@ items:
           debug_log "Recharged Laser Sniper" item;
         end;
         return;
+    costBuy: 0
+    costSell: 0
   - type: STR_XCOM_HEAVY_LASER
     tags:
       LASER: 1
@@ -221,24 +229,36 @@ items:
           debug_log "Recharged Heavy Laser" item;
         end;
         return;
+    costBuy: 0
+    costSell: 0
   - type: STR_XCOM_PLASMA_PISTOL
     tags:
       PLASMA: 1
+    costBuy: 0
+    costSell: 0
   - type: STR_XCOM_PLASMA_RIFLE
     tags:
       PLASMA: 1
+    costBuy: 0
+    costSell: 0
   - type: STR_PLASMA_SHOTGUN
     tags:
       PLASMA: 1
+    costBuy: 0
+    costSell: 0
   - type: STR_PLASMA_SNIPER_RIFLE
     tags:
       PLASMA: 1
+    costBuy: 0
+    costSell: 0
   - type: STR_XCOM_HEAVY_PLASMA
     tags:
       PLASMA: 1
 
+    costBuy: 0
+    costSell: 0
 extraStrings:
   - type: en-US
     strings:
-      STR_LASER_RECHARGE: "Recharge"
-      STR_LASER_RECHARGE_MESSAGE: "Laser is being recharged."
+      STR_LASER_RECHARGE: Recharge
+      STR_LASER_RECHARGE_MESSAGE: Laser is being recharged.

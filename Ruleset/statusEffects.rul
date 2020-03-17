@@ -1,4 +1,3 @@
-
 items:
   - type: STR_FLASHBANG_GRENADE
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
@@ -191,7 +190,7 @@ extended:
           var int frozen;
           var int shutdown;
           var int chryssalid_poisoned;
-          
+
           var int tu_half;
           var int fir_half;
           var int thr_half;
@@ -314,7 +313,7 @@ extended:
           item_rule.getTag effect_type Tag.INFLICT_EFFECT;
           item_rule.getTag chance Tag.INFLICT_CHANCE;
           item_rule.getTag effect_power Tag.EFFECT_POWER;
-          
+
           if and gt effect_type 0 gt chance 0;
             set power 0;
             battle_game.randomChance chance;
@@ -392,7 +391,7 @@ extended:
           var int effect_type;
           var int pixel_shade;
           var int pixel_color;
-          
+
           var int hair_color;
           var int face_color;
           var int look;
@@ -467,9 +466,9 @@ extended:
           if eq delay 0;
             set delay 15;
           end;
-          
+
           unit.getId id;
-          
+
           if and eq effect_type 1;
             set_color new_pixel color;
           else eq effect_type 2;
@@ -528,7 +527,7 @@ extended:
           var int effect_type;
           var int pixel_shade;
           var int pixel_color;
-          
+
           var int hair_color;
           var int face_color;
           var int look;
@@ -545,7 +544,7 @@ extended:
           item.getOwner owner;
 
           add_shade new_pixel pixel_shade;
-          
+
           owner.getTag effect_type Tag.VIS_EFFECT;
 
           if eq effect_type 0;
@@ -561,7 +560,7 @@ extended:
           get_shade pixel_shade new_pixel;
 
           owner.getRuleSoldier soldier_rule;
-          
+
           if neq region 3;   # only item
             return new_pixel;
           end;
@@ -569,9 +568,9 @@ extended:
           if eq delay 0;
             set delay 15;
           end;
-          
+
           owner.getId id;
-          
+
           if and eq effect_type 1;
             set_color new_pixel color;
           else eq effect_type 2;
