@@ -8,9 +8,18 @@ import csv
 
 warnings.simplefilter("ignore", ReusedAnchorWarning)
 
+def findId(item):
+    possible = ["type", "name", "id"]
+    for id in possible:
+        if id in item:
+            return id
+    return "ID_NOT_FOUND"
+
 def dumpColumns(idcol, itemList, columnNames):
     allRows = list()
     for item in itemList:
+        if not idcol in item:
+            idcol = findId(item)
         if idcol in item:
             row = list()
             row.append(item[idcol])
@@ -85,6 +94,6 @@ if len(sys.argv) > 1:
     firstRow = columnNames
     firstRow.insert(0, idcol)
     allRows.insert(0, firstRow)
-    writer = csv.writer(sys.stdout, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    writer = csv.writer(sys.stdout, lineterminator="\n", delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     for row in allRows:
         writer.writerow(row)

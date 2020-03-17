@@ -908,7 +908,8 @@ ufopaedia:
     text_width: 164
     listOrder: 6295
 
-    extraStrings:
+
+extraStrings:
   - type: en-US
     strings:
       STR_MEDAL_ALIENS_KILLED: "Merit Star"

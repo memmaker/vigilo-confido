@@ -8,6 +8,13 @@ import csv
 
 warnings.simplefilter("ignore", ReusedAnchorWarning)
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 def splitColumns(idcol, itemList, columnNames):
     oldList = list()
     newList = list()
@@ -45,24 +52,39 @@ def handleRuleFile(filename, userKey, idcol, options):
     return list()
 
 # USAGE: splitrules "items:costBuy,costSell" merged.rul
+# USAGE: splitrules "research-name:cutscene" merged.rul
+# USAGE: splitrules 1 "items:costBuy,costSell" merged.rul
+# USAGE: splitrules 2 "items:costBuy,costSell" merged.rul
 
-if len(sys.argv) > 1:
-    idcol = "type"
+idcol = "type"
+outputMode = 0
+parseDef = ""
+if len(sys.argv) > 3:
+    outputMode = int(sys.argv[1])
+    path = sys.argv[3]
+    parseDef = sys.argv[2]
+elif len(sys.argv) > 2:
     path = sys.argv[2]
     parseDef = sys.argv[1]
-    parts = parseDef.split(":")
-    key = parts[0]
-    if "-" in key:
-        keyParts = key.split("-")
-        key = keyParts[0]
-        idcol = keyParts[1]
-    columnNames = parts[1].split(",")
-    oldList = list()
-    newList = list()
-    if os.path.isfile(path):
-        oldList, newList = handleRuleFile(path, key, idcol, columnNames)
-    yaml=YAML()
-    yaml.indent(mapping=2, sequence=4, offset=2)
+
+parts = parseDef.split(":")
+key = parts[0]
+if "-" in key:
+    keyParts = key.split("-")
+    key = keyParts[0]
+    idcol = keyParts[1]
+columnNames = parts[1].split(",")
+oldList = list()
+newList = list()
+if os.path.isfile(path):
+    oldList, newList = handleRuleFile(path, key, idcol, columnNames)
+yaml=YAML()
+yaml.indent(mapping=2, sequence=4, offset=2)
+if outputMode == 0:
     yaml.dump({key: oldList}, sys.stdout)
     print("------------------------------------")
+    yaml.dump({key: newList}, sys.stdout)
+elif outputMode == 1:
+    yaml.dump({key: oldList}, sys.stdout)
+elif outputMode == 2:
     yaml.dump({key: newList}, sys.stdout)

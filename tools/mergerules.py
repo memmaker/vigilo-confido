@@ -17,20 +17,25 @@ def mergeNode(oldNode, newNode):
             mergedNode[key] = value # value defined twice, use last definition
     return mergedNode
 
+def findId(item):
+    possible = ["type", "name", "id"]
+    for id in possible:
+        if id in item:
+            return id
+    return "ID_NOT_FOUND"
+
 def mergeNodes(oldItems, newItems):
     entries = dict()
     idcol = "type"
     for item in oldItems:
         if "delete" in item:
             continue
-        if not "type" in item and "name" in item:
-            idcol = "name"
+        idcol = findId(item)
         entries[item[idcol]] = item
     for item in newItems:
         if "delete" in item:
             continue
-        if not "type" in item and "name" in item:
-            idcol = "name"
+        idcol = findId(item)
         itemId = item[idcol]
         if itemId in entries:
             entries[itemId] = mergeNode(entries[itemId], item)
@@ -55,6 +60,7 @@ def handleRuleFile(filename, userKey):
 
 # USAGE: mergerules items file1.rul file2.rul file3.rul (...)
 # USAGE: mergerules items path
+
 key = "items"
 items = list()
 if len(sys.argv) == 3:
