@@ -1,20 +1,6 @@
 # NOTE: localized eu2012 .mov files use track #1 for background sounds and track #6 for english
 musics:
-  - type: INTRO
   - type: INTRO_alt
-  - type: GMTACTIC
-  - type: GMTACTIC2
-  - type: GMTACTIC3
-  - type: GMTACTIC4
-  - type: GMTACTIC5
-  - type: GMTACTIC6
-  - type: GMTACTIC7
-  - type: GMTACTIC8
-  - type: GMGEO1
-  - type: GMGEO2
-  - type: GMGEO3
-  - type: GMSTORY
-  - type: GMSTORY_basic
   - type: IntroEngineering
   - type: IntroScience
   - type: 1080_CIN_TP01A_ArcThrower_LOC
@@ -27,32 +13,14 @@ musics:
   - type: 1080_CIN_TP07_HyperwaveUplink_LOC
   - type: 1080_CIN_TP08_Firestorm_LOC
   - type: 1080_CIN_TP10_DeviceRetrieved_LOC
-  - type: 1080_CIN_TP11_Part02_LOC
-  - type: 1080_CIN_TP12B_EtherealCutaway_LOC
-  - type: 1080_CIN_TP13_Part01
-  - type: 1080_CIN_TP13_Part02
-  - type: 1080_CIN_TP13_Part03_LOC
-  - type: 1080_CIN_TP13_Part04
-  - type: 1080_CIN_TP13_Part05_LOC
-  - type: 1080_CIN_TP13_Part06
-  - type: 1080_CIN_TP13_Part07
-  - type: 1080_CIN_TP13_Part08_LOC
-
-  - type: firestorm
   - type: base.defense
   - type: base.defense.fail
   - type: base.defense.success
+  - type: good.ending
   - type: laser.weapons
   - type: plasma.weapons
   - type: carapace.armor
   - type: titan.armor
-  - type: USINT_7
-  - type: GWIN_7
-  - type: LGMWLD_7
-  - type: WMISS_7
-  - type: MLOSE_7
-  - type: MABRT_7
-  - type: 2CYDON_7
   - type: Hello_Commander
   - type: 1080_CIN_TP_Containment_Sectoid_LOC
   - type: 1080_CIN_TP_Autopsy_Sectoid_LOC
@@ -76,7 +44,19 @@ musics:
   - type: snakeman.dead
   - type: engineering.ambience
   - type: science.ambience
-  - type: avsync
+  - type: GMTACTIC
+  - type: GMTACTIC2
+  - type: GMTACTIC3
+  - type: GMTACTIC4
+  - type: GMTACTIC5
+  - type: GMTACTIC6
+  - type: GMTACTIC7
+  - type: GMTACTIC8
+  - type: GMGEO1
+  - type: GMGEO2
+  - type: GMGEO3
+  - type: GMSTORY
+  - type: GMSTORY_basic
 
 constants:
   buttonPress: 77
@@ -105,7 +85,6 @@ cutscenes:
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/INTRO_320_17_5fps.FLI
-#      - Resources/ANIMS/INTRO.fli
     audioTracks:
       - INTRO_alt
   - type: intro.engineering
@@ -139,44 +118,41 @@ cutscenes:
     audioTracks:
       - 1080_CIN_TP04_AlienPact_LOC
 # Alien Base detected, Shen using the Outsider Shard, what is inside the base?
-  - type: 1080_CIN_TP05_AlienBaseDetected_LOC
+  - type: alien.base.detected
     videos:
       - Resources/ANIMS/1080_CIN_TP05_AlienBaseDetected_LOC.FLI
     audioTracks:
       - 1080_CIN_TP05_AlienBaseDetected_LOC
 # Hyperwave Beacon retrieved, alien leader?
-  - type: 1080_CIN_TP06_HyperwaveRetrieved_LOC
+  - type: hyberwave.beacon.retrieved
     videos:
       - Resources/ANIMS/1080_CIN_TP06_HyperwaveRetrieved_LOC.FLI
     audioTracks:
       - 1080_CIN_TP06_HyperwaveRetrieved_LOC
 # Mission Won - Neutralized Central Command, Took out their leider
-  - type: 1080_CIN_TP06A_Victory_LOC
+  - type: assault.won
     videos:
       - Resources/ANIMS/1080_CIN_TP06A_Victory_LOC.FLI
     audioTracks:
       - 1080_CIN_TP06A_Victory_LOC
 # Hyperwave Uplink initiated (constructed)
-  - type: 1080_CIN_TP07_HyperwaveUplink_LOC
+  - type: hyperwave.uplink.constructed
     videos:
       - Resources/ANIMS/1080_CIN_TP07_HyperwaveUplink_LOC.FLI
     audioTracks:
       - 1080_CIN_TP07_HyperwaveUplink_LOC
 # Firestorm constructed
-  - type: 1080_CIN_TP08_Firestorm_LOC
+  - type: firestorm.constructed
     videos:
       - Resources/ANIMS/1080_CIN_TP08_Firestorm_LOC.FLI
     audioTracks:
       - 1080_CIN_TP08_Firestorm_LOC
 # Ethereal device aka Psi Link retrieved, picking something up
-  - type: 1080_CIN_TP10_DeviceRetrieved_LOC
+  - type: ethereal.device.acquired
     videos:
       - Resources/ANIMS/1080_CIN_TP10_DeviceRetrieved_LOC.FLI
     audioTracks:
       - 1080_CIN_TP10_DeviceRetrieved_LOC
-
-
-
   - type: hyperwave.decoder
     useUfoAudioSequence: false
     videos:
@@ -220,16 +196,7 @@ cutscenes:
       - Resources/ANIMS/WMISS_7.FLC
     audioTracks:
       - WMISS_7
-  - type: loseMiss
-    videos:
-      - Resources/ANIMS/MLOSE_7.FLC
-    audioTracks:
-      - MLOSE_7
-  - type: abortMiss
-    videos:
-      - Resources/ANIMS/MABRT_7.FLC
-    audioTracks:
-      - MABRT_7
+
   - type: laser.weapons
     videos:
       - Resources/ANIMS/laser.weapons.fli
@@ -273,11 +240,6 @@ cutscenes:
       - Resources/ANIMS/base.defense.fail.fli
     audioTracks:
       - base.defense.fail
-  - type: cydonia
-    videos:
-      - Resources/ANIMS/2CYDON_7.FLC
-    audioTracks:
-      - 2CYDON_7
   - type: sectoid.live
     useUfoAudioSequence: false
     videos:
@@ -398,22 +360,20 @@ cutscenes:
       - Resources/ANIMS/1080_CIN_TP_Autopsy_Sectopod_LOC.FLI
     audioTracks:
       - 1080_CIN_TP_Autopsy_Sectopod_LOC
-  - type: firestorm
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/firestorm.fli
-    audioTracks:
-      - firestorm
 
 research:
+  - name: STR_INTRO_ENGINEERING
+    cutscene: intro.engineering
+  - name: STR_INTRO_SCIENCE
+    cutscene: intro.science
   - name: STR_PREDATOR_ARMOR
     cutscene: carapace.armor
   - name: STR_WARDEN_ARMOR
     cutscene: titan.armor
   - name: STR_NEW_FIGHTER_CRAFT
     cutscene: firestorm
-  - name: STR_HYPERWAVE_DECODER
-    cutscene: hyperwave.decoder
+  - name: STR_HYPERWAVE_BEACON
+    cutscene: hyperwave.uplink.constructed
   - name: STR_XENO_BIOLOGY
     cutscene: skulljack
   - name: STR_POST_INTERROGATION
@@ -448,12 +408,20 @@ research:
     cost: 1
     points: 10
     cutscene: floater.live
+    getOneFree:
+      - STR_POST_INTERROGATION
   - name: STR_FLOATER_CORPSE
     cutscene: floater.dead
+    getOneFree:
+      - STR_POST_INTERROGATION
   - name: STR_SNAKEMAN_CORPSE
     cutscene: snakeman.dead
+    getOneFree:
+      - STR_POST_INTERROGATION
   - name: STR_ANDROMEDON_CORPSE
     cutscene: andromedon.dead
+    getOneFree:
+      - STR_POST_INTERROGATION
   - name: STR_MUTON
     cost: 1
     points: 10
@@ -482,6 +450,16 @@ research:
     cutscene: sectopod.dead
 
 alienDeployments:
+  - type: STR_OVERSEER_DEPLOYMENT
+    winCutscene: assault.won
+  - type: STR_ALIEN_BASE_ASSAULT
+    winCutscene: hyberwave.beacon.retrieved
+    loseCutscene: loseMiss
+    abortCutscene: abortMiss
+  - type: STR_BASE_DEFENSE
+    abortCutscene: abortMiss
+    winCutscene: base.defense.success
+    loseCutscene: base.defense.fail
   - type: STR_THE_FINAL_ASSAULT
     winCutscene: winGame
     loseCutscene: loseGame
@@ -522,11 +500,3 @@ alienDeployments:
     winCutscene: winMiss
     loseCutscene: loseMiss
     abortCutscene: abortMiss
-  - type: STR_ALIEN_BASE_ASSAULT
-    winCutscene: alien.base.assault.success
-    loseCutscene: loseMiss
-    abortCutscene: abortMiss
-  - type: STR_BASE_DEFENSE
-    abortCutscene: abortMiss
-    winCutscene: base.defense.success
-    loseCutscene: base.defense.fail

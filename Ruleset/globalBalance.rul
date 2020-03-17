@@ -1,6 +1,7 @@
 useCustomCategories: true
 customTrainingFactor: 10
 maxDarknessToSeeUnits: 15
+
 constants:
   damageRange: 20
   explosiveDamageRange: 10

@@ -115,22 +115,18 @@ T3 - Warden Armor   & Plasma Weapons
  - resistances to damage types
  - item categories, list orders
  - Sound effects (Gremlin, Minigun)
+ - balancing of stuff (item costs, armors, etc.)
+ - Economics
  - test new enemies
+ - Test Psi Class and everything Psi
  - change sprite of combat experience commendation
- - Battle Focus costs for flying
- - Units to add: Waspite?, Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
  - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - missing gremlin corpse?
- - balancing of stuff (item costs, armors, etc.)
- - Psi Class and everything Psi is not yet finished
  - Weapon specific crit chances and crit damage
  - Ufopedia entries (Grenades & Status Effects, Armors, Autopsies)
- - Economics
  - Melee, Dodge, etc.
  - Complete research bonuses for corpses
- - flagByKills for experience indicator
- - You could make a critically wounded soldier into a cyborg, instead of waiting for a month to recuperate.
  - Reduce dealing of fatal wounds and apply increasing chances of bleeding out instead of instant death
  - Test shredder and shred damage and the toArmor toArmorPre stuff
  - Make the Firestorm useful
@@ -138,16 +134,16 @@ T3 - Warden Armor   & Plasma Weapons
  - A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
  - Purge Reapers, Naked Mutons, Celatids & Silacoids
  - Skulljack Ufopedia Page and lookup
- - For EU Storyline: startingConditions.requiredItems & missionBountyItem 
- - How to spawn exactly one base with a specific startingCondition and missionBounty and make it easily discoverable by the player?
- - Skulljack lookup missing
 
 === Out of Scope for 1.0 ===
-
+ - More Units to add: Waspite?, Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
+ - You could make a critically wounded soldier into a cyborg, instead of waiting for a month to recuperate.
  - Base Facilities
  - Crafts & Craft Weapons
  - New Mission Objectives
  - Gene Lab & MECs
+ - flagByKills for experience indicator
+ - Battle Focus costs for flying
 
 "Bellator in Machina" - "Warrior in the machine"
 "Mutare ad custodiam" - "We Change to Protect"
@@ -166,3 +162,4 @@ Cutscene triggers:
 
 Feature Wishlist:
 requiredSoldierType for startingCondition
+itemFlag: canNotSell

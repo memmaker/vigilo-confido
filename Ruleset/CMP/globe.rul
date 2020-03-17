@@ -17,7 +17,7 @@ globe:
           - name: JUNGLE
             weight: 15
           - name: ACULTA
-            weight: 15			
+            weight: 15
           - name: IDT_FOREST
             weight: 30
     - id: 1 #FARM
@@ -29,7 +29,7 @@ globe:
           - name: PLAINSTROP
             weight: 40
           - name: ACULTA
-            weight: 20	
+            weight: 20
           - name: IDT_VILLAGE
             weight: 30
     - id: 2 # FARM
@@ -79,7 +79,7 @@ globe:
           - name: PLAINSSAND
             weight: 15
           - name: ACULTASAND
-            weight: 10		
+            weight: 10
     - id: 8 # DESERT
       terrain:
           - name: PLAINSMUDD
@@ -93,7 +93,7 @@ globe:
           - name: PLAINSSAND
             weight: 15
           - name: ACULTASAND
-            weight: 10		
+            weight: 10
     - id: 9 # POLAR
       terrain:
           - name: ACULTASNOW
@@ -115,7 +115,7 @@ globe:
           - name: PLAINSGRASS
             weight: 25
           - name: PLAINSROCK
-            weight: 25		
+            weight: 25
     - id: 11 # FOREST
       terrain:
           - name: FOREST
@@ -123,7 +123,7 @@ globe:
           - name: JUNGLE
             weight: 40
           - name: ACULTA
-            weight: 15	
+            weight: 15
           - name: IDT_FOREST
             weight: 15
     - id: 12 # POLAR

@@ -241,6 +241,7 @@ fixedUserOptions:
   anytimePsiTraining: true
   oxcePlayBriefingMusicDuringEquipment: true
   canTransferCraftsWhileAirborne: true
+  canSellLiveAliens: false
 #  customInitialBase: true
 
 statisticalBulletConservation: true
@@ -370,7 +371,6 @@ items:
       ArmorEffectiveness: 0
     size: 0.1
     costBuy: 0
-    costSell: 194700
     weight: 10
     bigSprite: 33
     floorSprite: 32

@@ -498,6 +498,10 @@ extended:
           return bonus;
 
 items:
+  - delete: STR_ROCKET_LAUNCHER
+  - delete: STR_SMALL_ROCKET
+  - delete: STR_LARGE_ROCKET
+  - delete: STR_INCENDIARY_ROCKET
   - type: STR_SKULLJACK
     categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
     tags:
@@ -562,9 +566,9 @@ items:
       - STR_PSI_LAB
     tags:
       PSI_AMP_TYPE: 1
-    costBuy: 350000
+    costBuy: 3500
     size: 0.1
-    costSell: 194700
+    costSell: 1947
     weight: 10
     bigSprite: 401
     floorSprite: 401
@@ -608,7 +612,7 @@ items:
       PSI_AMP_TYPE: 2
     costBuy: 0
     size: 0.1
-    costSell: 194700
+    costSell: 11200
     weight: 10
     bigSprite: 402
     floorSprite: 402
@@ -651,7 +655,6 @@ items:
     bigSprite: 520
     floorSprite: 520
     # PASSIVE ITEM
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -676,7 +679,6 @@ items:
     bigSprite: 519
     floorSprite: 519
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -696,7 +698,6 @@ items:
     bigSprite: 521
     floorSprite: 521
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -715,7 +716,6 @@ items:
     bigSprite: 522
     floorSprite: 522
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -735,7 +735,6 @@ items:
     bigSprite: 523
     floorSprite: 523
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -755,7 +754,6 @@ items:
     bigSprite: 524
     floorSprite: 524
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -775,7 +773,6 @@ items:
     bigSprite: 525
     floorSprite: 525
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -794,7 +791,6 @@ items:
     bigSprite: 526
     floorSprite: 526
     hitSound: 37
-    power: 0
     hidePower: true
     battleType: 10
     fuseType: -2
@@ -863,8 +859,8 @@ items:
       - STR_MOTION_SCANNER
     requiresBuy:
       - STR_MOTION_SCANNER
-    costSell: 46500
-    costBuy: 50000
+    costSell: 75
+    costBuy: 100
   - type: STR_MIND_PROBE
     categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
     requires:
@@ -883,7 +879,6 @@ items:
     floorSprite: 527
     invHeight: 2
     invWidth: 2
-    power: 0
     damageType: 0
     damageAlter:
       FixRadius: 0
@@ -949,6 +944,18 @@ items:
     costSell: 0
   - type: STR_PLASMA_BEAM
     costSell: 0
+  - type: STR_PLASMA_PISTOL
+    costBuy: 0
+    costSell: 150
+  - type: STR_PLASMA_PISTOL_CLIP
+    costBuy: 0
+    costSell: 25
+  - type: STR_HEAVY_PLASMA
+    costBuy: 0
+    costSell: 250
+  - type: STR_HEAVY_PLASMA_CLIP
+    costBuy: 0
+    costSell: 25
 
 extraSprites:
   - type: BIGOBS.PCK

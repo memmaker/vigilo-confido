@@ -11,7 +11,7 @@ extraStrings:
     strings:
      MAP_ACULTA: "Ghothic Grass"
      MAP_ACULTASNOW: "Ghothic Snow"
-     MAP_ACULTASAND: "Ghothic Sand"	 
+     MAP_ACULTASAND: "Ghothic Sand" 
      MAP_MOUNT: "MOUNTAINS Wasteland"
      MAP_MOUNTSNOW: "MOUNTAINS Snow"
      MAP_MOUNTMUDD: "MOUNTAINS Mudd"
@@ -42,7 +42,7 @@ extraStrings:
     strings:
      MAP_ACULTA: "Ghotic Grass"
      MAP_ACULTASNOW: "Ghotic Snow"
-     MAP_ACULTASAND: "Ghotic Sand"	 
+     MAP_ACULTASAND: "Ghotic Sand" 
      MAP_MOUNT: "MOUNTAINS Wasteland"
      MAP_MOUNTSNOW: "MOUNTAINS Snow"
      MAP_MOUNTMUDD: "MOUNTAINS Mudd"

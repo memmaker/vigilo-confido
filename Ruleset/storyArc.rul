@@ -112,10 +112,8 @@ research:
       - STR_INTRODUCTION
   - name: STR_INTRO_ENGINEERING
     cost: 1
-    cutscene: intro.engineering
   - name: STR_INTRO_SCIENCE
     cost: 1
-    cutscene: intro.science
   - name: STR_XENO_BIOLOGY
     getOneFree:
       - STR_OBJECTIVES_ARC1

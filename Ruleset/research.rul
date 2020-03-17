@@ -107,7 +107,7 @@ research:
   - name: STR_SKULLJACK # unlocks manuf. of skulljack
     cost: 120
     points: 50
-    dependencies: 
+    dependencies:
       - STR_XENO_BIOLOGY
   - name: STR_OUTSIDER_SHARD # unlocks manuf. of skeleton key
     cost: 500
@@ -523,9 +523,12 @@ research:
   - name: STR_ALIEN_WEAPON_USAGE
     cost: 999
     points: 10
-    needItem: true
+    dependencies:
+      - STR_ALIEN_WEAPON_USAGE
+
 extraStrings:
   - type: en-US
     strings:
       STR_PLASMA_WEAPONS: Plasma Weapons
       STR_XENO_BIOLOGY: Xeno Biology
+      STR_ACTIVATE_ETHEREAL_DEVICE: Activate the Ethereal Device

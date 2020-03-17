@@ -109,16 +109,6 @@ alienRaces:
       - [STR_ETHEREAL, STR_MUTON_ELITE]
       - [STR_REAPER, STR_MUTON_BERSERKER]
       - [STR_CYBERDISC, STR_ANDROMEDON, STR_SECTOPOD]
-  - id: STR_CYDONIA_LANDING_CREW
-    membersRandom:
-      - [STR_SECTOID]
-      - [STR_MUTON_ELITE]
-      - [STR_MUTON_ELITE]
-      - [STR_MUTON_ELITE]
-      - [STR_MUTON_ELITE]
-      - [STR_MUTON_ELITE, STR_SECTOID]
-      - [STR_SECTOPOD, STR_CYBERDISC]
-      - [STR_SECTOPOD]
   - id: STR_CHRYSSALID
     membersRandom:
       - [STR_CHRYSSALID]
@@ -145,4 +135,3 @@ extraStrings:
       STR_TIER_ONE_MIXED: T1 mixed
       STR_TIER_TWO_MIXED: T2 mixed
       STR_TIER_THREE_MIXED: T3 mixed
-      STR_CYDONIA_LANDING_CREW: Cydonia Landing

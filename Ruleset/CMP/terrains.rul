@@ -1197,7 +1197,7 @@ terrains:
         length: 20
       - name: MOUNT12
         width: 20
-        length: 20		
+        length: 20
   - name: MOUNTROCK # MOUNTAINS MOUNTAINS MOUNTAINS MOUNTAINS MOUNTAINS
     mapDataSets:
       - BLANKS
@@ -1293,7 +1293,7 @@ terrains:
         length: 20
       - name: MOUNT12
         width: 20
-        length: 20		
+        length: 20
   - name: PLAINS #PLAINS PLAINS PLAINS PLAINS PLAINS PLAINS PLAINS
     mapDataSets:
       - BLANKS

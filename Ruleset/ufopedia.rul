@@ -6,6 +6,12 @@ ufopaedia:
   - delete: STR_CELATID_AUTOPSY
   - delete: STR_SILACOID_AUTOPSY
   - delete: STR_REAPER_AUTOPSY
+  - id: STR_SKULLJACK
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_SKULLJACK
+    text: STR_SKULLJACK_UFOPEDIA
   - id: STR_OUTSIDER_SHARD
     type_id: 7
     section: STR_ALIEN_ARTIFACTS
@@ -249,7 +255,7 @@ extraStrings:
       STR_SKELETON_KEY_UFOPEDIA: "This device is the culmination of our research into the shard recovered from the alien Outsider. It should allow our troops to infiltrate the alien base and find out what's inside."
       STR_HYPERWAVE_BEACON_UFOPEDIA: "As far-fetched as it may seem, several members of the research team have theorized that this device may be capable of transmitting and receiving signals beyond our own dimension. If my suspicions are correct, this beacon may provide us with a means of detecting previously unknown contacts."
       STR_ETHEREAL_DEVICE_UFOPEDIA: "The 'Psi-Link', as it is now being called, appears to provide a direct link to the psionic 'network' used by the aliens for field communications. If we manage to locate a soldier with an aptitude for psionics, and find a means to develop these abilities further, I believe it will only be a matter of time before we succeed in activating the device and finding the source of this invasion."
-
+      STR_SKULLJACK_UFOPEDIA: "Before we even had time for field trials, the troops had already taken to calling it a 'Skulljack', In the simplest of terms, it's a physical interface designed to neutralize the brain waves inside the aliens' skulls, applied using directed blunt force."
 extraSprites:
   - type: UFOPAEDIA_IMG_MUTON_CPAL
     singleImage: true
