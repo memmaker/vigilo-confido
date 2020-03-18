@@ -18,7 +18,7 @@ armors:
       - 1
       - 1
       - 1
-      - 1
+      - 1.2
       - 1
       - 0
       - 1
@@ -82,16 +82,16 @@ armors:
       - 1
       - 1
       - 1
-      - 1
-      - 1
-      - 1
-      - 1
+      - 0.5
       - 1
       - 1
       - 0
       - 1
       - 1
+      - 0
       - 1
+      - 1
+      - 1.3
     meleeDodge:
       reactions: 0
   - type: SECTOPOD_ARMOR
@@ -102,17 +102,17 @@ armors:
     damageModifier:
       - 1
       - 1
+      - 0.8
+      - 0.5
+      - 1.2
       - 1
-      - 1
-      - 1
-      - 1
-      - 1
+      - 0
       - 1
       - 1
       - 0
       - 1
       - 1
-      - 1
+      - 1.3
     meleeDodge:
       reactions: 0
   - type: SNAKEMAN_ARMOR0
@@ -123,16 +123,16 @@ armors:
     damageModifier:
       - 1
       - 1
+      - 1.2
       - 1
       - 1
       - 1
       - 1
       - 1
-      - 1
-      - 1
+      - 0.8
       - 0
       - 1
-      - 1
+      - 0.4
       - 1
     meleeDodge:
       reactions: 0.5
@@ -150,7 +150,7 @@ armors:
       - 1
       - 1
       - 1
-      - 1
+      - 0.9
       - 1
       - 0
       - 1
@@ -171,7 +171,7 @@ armors:
       - 1
       - 1
       - 1
-      - 1
+      - 1.1
       - 1
       - 0
       - 1
@@ -192,7 +192,7 @@ armors:
       - 1
       - 1
       - 1
-      - 1
+      - 1.1
       - 1
       - 0
       - 1
@@ -208,7 +208,7 @@ armors:
     damageModifier:
       - 1
       - 1
-      - 1
+      - 1.3
       - 1
       - 1
       - 1
@@ -231,10 +231,10 @@ armors:
       - 1
       - 1
       - 1
+      - 1.3
       - 1
       - 1
-      - 1
-      - 1
+      - 1.3
       - 1
       - 0
       - 1
@@ -259,11 +259,11 @@ armors:
       - 1
       - 1
       - 1
-      - 1
-      - 1
+      - 1.2
+      - 0.8
       - 0
       - 1
-      - 1
+      - 0.5
       - 1
     loftempsSet: [3]
     meleeDodge:
@@ -285,7 +285,7 @@ armors:
       - 1
       - 1
       - 1
-      - 1
+      - 0.9
       - 1
       - 0
       - 1
@@ -312,7 +312,7 @@ armors:
       - 1
       - 1
       - 1
-      - 1
+      - 0.9
       - 1
       - 0
       - 1
@@ -333,7 +333,7 @@ armors:
     damageModifier:
       - 1
       - 1
-      - 1
+      - 0.8
       - 1
       - 1
       - 1
@@ -367,13 +367,13 @@ armors:
       - 0.8
       - 0.8
       - 0.8
-      - 1
+      - 0
       - 0.8
       - 0
       - 0
       - 0
       - 0
-      - 1
+      - 1.3
     loftempsSet: [3]
     forcedTorso: 1
     drawingRoutine: 0
@@ -423,20 +423,20 @@ armors:
     damageModifier:
       - 1
       - 1
+      - 0.8
       - 1
       - 1
       - 1
-      - 1
-      - 1
-      - 1.4
+      - 0
+      - 1.2
       - 1
       - 0
       - 1
       - 1
-      - 1
+      - 1.3
     loftempsSet: [3]
     meleeDodge:
-      reactions: 0.1
+      reactions: 0.3
 
 units:
   - delete: STR_SECTOID_SOLDIER

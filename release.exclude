@@ -4,3 +4,6 @@
 TechTree*.*
 data.sheet.ods
 release.exclude
+csv_data/
+*.sh
+.~lock*

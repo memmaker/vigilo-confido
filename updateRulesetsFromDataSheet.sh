@@ -1,5 +1,5 @@
 #!/bin/bash
-
+mkdir -p csv_data
 ods2csv CSV_Units data.sheet.ods > ./csv_data/units.csv
 patchrules units csv_data/units.csv ./Ruleset/
 

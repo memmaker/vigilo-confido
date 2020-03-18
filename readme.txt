@@ -5,6 +5,8 @@ Survive. Adapt. Win.
 
 A vanilla expansion for OXCE featuring content from EU2012 and others.
 
+Download "Work-in-Progress" version 0.8.2 here: https://drive.google.com/open?id=1DJyNHXi1-pS75q03lfpycNFBiG7SL2kB
+
 === Features ===
 
  - 5 soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
@@ -117,11 +119,9 @@ T3 - Warden Armor   & Plasma Weapons
  - test new enemies
  - Test Psi Class and everything Psi
  - change sprite of combat experience commendation
- - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - missing gremlin corpse?
  - Weapon specific crit chances and crit damage
  - Ufopedia entries (Grenades & Status Effects, Armors, Autopsies)
- - Melee, Dodge, etc.
  - Complete research bonuses for corpses
  - Reduce dealing of fatal wounds and apply increasing chances of bleeding out instead of instant death
  - Test shredder and shred damage and the toArmor toArmorPre stuff
@@ -129,7 +129,6 @@ T3 - Warden Armor   & Plasma Weapons
  - EU2012 Story: https://www.ufopaedia.org/index.php/Storyline_(EU2012)
  - A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
  - Purge Reapers, Naked Mutons, Celatids & Silacoids
- - Skulljack Ufopedia Page and lookup
 
 === Out of Scope for 1.0 ===
  - More Units to add: Waspite?, Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
@@ -140,7 +139,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Gene Lab & MECs
  - flagByKills for experience indicator
  - Battle Focus costs for flying
-- Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
+ - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
+ - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
 
 
 "Bellator in Machina" - "Warrior in the machine"
