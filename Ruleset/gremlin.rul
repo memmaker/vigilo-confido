@@ -115,15 +115,24 @@ items:
   - type: STR_GREMLIN_CORPSE
     size: 2
     weight: 40
-#    bigSprite: 1170
-#    floorSprite: 1152
+    bigSprite: 450
+    floorSprite: 450
     invWidth: 2
     invHeight: 3
     armor: 30
     recover: true
     listOrder: 4990
 
+
 extraSprites:
+# floor
+  - type: FLOOROB.PCK
+    files:
+      450: Resources/Units/Gremlin/gremlin.corpse.png
+# bigobs
+  - type: BIGOBS.PCK
+    files:
+      450: Resources/Units/Gremlin/gremlin.inventory.corpse.png
   - type: GREMLIN3.PCK
     width: 256
     height: 400

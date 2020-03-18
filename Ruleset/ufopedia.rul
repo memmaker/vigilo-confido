@@ -58,6 +58,55 @@ ufopaedia:
       - STR_ALIEN_PSI_AMP
     text: STR_ALIEN_PSI_AMP_UFOPEDIA
     listOrder: 4510
+  - id: STR_ACID_GRENADE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_ANDROMEDON_AUTOPSY
+    text: STR_ACID_GRENADE_UFOPEDIA
+  - id: STR_EMP_GRENADE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_CYBERDISC_AUTOPSY
+    text: STR_EMP_GRENADE_UFOPEDIA
+  - id: STR_FLASHBANG_GRENADE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_DRONE_AUTOPSY
+    text: STR_FLASHBANG_GRENADE_UFOPEDIA
+  - id: STR_FREEZE_GRENADE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_MUTON_ELITE_AUTOPSY
+    text: STR_FREEZE_GRENADE_UFOPEDIA
+  - id: STR_GAS_GRENADE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_THIN_MAN_AUTOPSY
+    text: STR_GAS_GRENADE_UFOPEDIA
+  - id: STR_SCOPE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_INTRO_ENGINEERING
+    text: STR_SCOPE_UFOPEDIA
+  - id: STR_PERSONAL_MIND_SHIELD
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_ETHEREAL_AUTOPSY
+    text: STR_PERSONAL_MIND_SHIELD_UFOPEDIA
+  - id: STR_NANO_MEDI_KIT
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_NANO_MEDI_KIT
+    text: STR_NANO_MEDI_KIT_UFOPEDIA
+
   - id: STR_NANOSCALE_VEST
     type_id: 7
     section: STR_WEAPONS_AND_EQUIPMENT
@@ -256,6 +305,15 @@ extraStrings:
       STR_HYPERWAVE_BEACON_UFOPEDIA: "As far-fetched as it may seem, several members of the research team have theorized that this device may be capable of transmitting and receiving signals beyond our own dimension. If my suspicions are correct, this beacon may provide us with a means of detecting previously unknown contacts."
       STR_ETHEREAL_DEVICE_UFOPEDIA: "The 'Psi-Link', as it is now being called, appears to provide a direct link to the psionic 'network' used by the aliens for field communications. If we manage to locate a soldier with an aptitude for psionics, and find a means to develop these abilities further, I believe it will only be a matter of time before we succeed in activating the device and finding the source of this invasion."
       STR_SKULLJACK_UFOPEDIA: "Before we even had time for field trials, the troops had already taken to calling it a 'Skulljack', In the simplest of terms, it's a physical interface designed to neutralize the brain waves inside the aliens' skulls, applied using directed blunt force."
+      STR_NANO_MEDI_KIT_UFOPEDIA: "The Nanomedikit represents a substantial upgrade over our standard Medikit, increasing the health restored to injured soldiers.{NEWLINE}{NEWLINE}RESTORES> 60 Health"
+      STR_PERSONAL_MIND_SHIELD_UFOPEDIA: "Developed using the cybernetic implants we removed from the skull of the Ethereal alien species, this device should allow for a greater resistance to offensive psi attacks."
+      STR_SCOPE_UFOPEDIA: "When equipped, this advanced targeting module integrates with XCOM's Active HUD system to offer a significant increase to our soldier's aim.{NEWLINE}{NEWLINE}PASSIVE> Provides an Aim bonus of 10 to the user"
+      STR_GAS_GRENADE_UFOPEDIA: "Our advanced research in alien physiology has allowed us to synthesize a modified version of the poison projected by the Thin Man, and containerize it in grenade form."
+      STR_FREEZE_GRENADE_UFOPEDIA: "The charges on this grenade don't seem all that powerful, but according to Shen, the liquefied gases inside should lead to an instantaneous freeze effect."
+      STR_FLASHBANG_GRENADE_UFOPEDIA: "This grenade-style weapon emits a disorienting flash of light accompanying sounds. Any enemy that can see the blast will be disoriented, suffering severe penalties to Aim and movement. Robotic and psionic enemies are immune."
+      STR_EMP_GRENADE_UFOPEDIA: "EMP Grenades wreak havoc on the delicated electronic systems in mechanical and robotic enemies, dealing considerable damage and potentially rendering them inoperable for a short period of time. Organic enemies are completely immune to these effects, however."
+      STR_ACID_GRENADE_UFOPEDIA: "The addition of a corrosive chemical additive to our standard frag grenades results in a small explosive that is especially effective at removing enemy armor. Targets will continue to suffer persistent damage as the acid clings to them and continues to eat away at any surface it touches."
+
 extraSprites:
   - type: UFOPAEDIA_IMG_MUTON_CPAL
     singleImage: true

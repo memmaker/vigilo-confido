@@ -1,0 +1,154 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta name="viewport" content="width=device-width,  
+        initial-scale=1"> 
+        <style>
+        .inner {
+          padding: 10px;
+        }
+        .outer {
+          position: relative;
+          color: aqua;
+        }
+        .outer:before {
+          display: block;
+          content: "";
+          width: 100%;
+          padding-top: 62.5%;
+        }
+        .outer > .inner {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-image: url('https://github.com/memmaker/oxce-skills-classes/raw/master/Resources/UFOPedia/ufopedia_berserker_new.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        #description {
+          width: 50%;
+        }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js-yaml.min.js"></script>
+        <script type="text/javascript">
+        const skipDirection = {
+          forward: 1,
+          backward: -1
+        };
+        var currentPageIndex = 0;
+        var ufopediaData = {};
+        var imageBasePath = 'https://github.com/memmaker/oxce-skills-classes/raw/master/';
+        
+        function skipIndex(direction) {
+          do
+          {
+            currentPageIndex = currentPageIndex + direction;
+            var nextEntry = ufopediaData['ufopaedia'][currentPageIndex];
+          }
+          while (!nextEntry.hasOwnProperty('id'))
+        }
+
+        function updatePage() {
+          var entry = ufopediaData['ufopaedia'][currentPageIndex];
+          var entryId = entry['id'];
+          
+          $('#title').html(entryId);
+
+          console.log(entry);
+          if (ufopediaData.hasOwnProperty('extraStrings'))
+          {
+            var allTexts = ufopediaData['extraStrings'][0]['strings'];
+            if (allTexts.hasOwnProperty(entryId))
+            {
+              $('#title').html(allTexts[entryId]);
+            }
+
+            if (entry.hasOwnProperty('text'))
+            {
+              var textId = entry['text'];
+              if (allTexts.hasOwnProperty(textId))
+              {
+                var textEntry = allTexts[textId];
+                textEntry = textEntry.replace('{NEWLINE}','<br/>');
+                $('#description').html(textEntry);
+              }
+            }
+          }
+          
+          if (entry.hasOwnProperty('image_id') && ufopediaData.hasOwnProperty('extraSprites'))
+          {
+            var imageId = entry['image_id'];
+            var allSprites = ufopediaData['extraSprites'];
+            var imageEntry = allSprites.find(elem => elem['type'] == imageId);
+            var imagePath = imageBasePath + imageEntry['files'][0];
+            $('.outer > .inner').css('background-image', 'url(' + imagePath + ')');
+          }
+          
+        }
+
+        function checkAllLoaded()
+        {
+          if (ufopediaData.hasOwnProperty('extraSprites') && ufopediaData.hasOwnProperty('extraStrings'))
+          {
+            skipIndex(skipDirection.forward);
+            updatePage();
+          }
+        }
+        $.get( 'https://raw.githubusercontent.com/memmaker/oxce-skills-classes/master/Ruleset/ufopedia.rul', function( data ) {
+            ufopediaData = jsyaml.load( data, {json: true});
+            if (!ufopediaData.hasOwnProperty('extraSprites'))
+            {
+              $.get( 'https://raw.githubusercontent.com/SolariusScorch/XComFiles/master/Ruleset/extraSprites_XCOMFILES.rul', function( data ) {
+                  var extraSprites = jsyaml.load( data, {json: true});
+                  if (extraSprites.hasOwnProperty('extraSprites'))
+                  {
+                    ufopediaData['extraSprites'] = extraSprites['extraSprites'];
+                    console.log( ufopediaData );
+                    checkAllLoaded();
+                  }
+              });
+            }
+            if (!ufopediaData.hasOwnProperty('extraStrings'))
+            {
+              $.get( 'https://raw.githubusercontent.com/SolariusScorch/XComFiles/master/Language/en-US.yml', function( data ) {
+                  var extraStrings = jsyaml.load( data, {json: true} );
+                  
+                  if (extraStrings.hasOwnProperty('en-US'))
+                  {
+                    ufopediaData['extraStrings'] = [{'strings': extraStrings['en-US']}];
+                    console.log( ufopediaData );
+                    checkAllLoaded();
+                  }
+              });
+            }
+            checkAllLoaded();
+            console.log( ufopediaData );
+        });
+
+        $(document).ready(function() {
+          $( "#forward_button" ).click(function() {
+            skipIndex(skipDirection.forward);
+            updatePage();
+          });
+          $( "#back_button" ).click(function() {
+            skipIndex(skipDirection.backward);
+            updatePage();
+          });
+        });
+        
+        </script>
+        </head> 
+    <body> 
+        <div class="outer">
+          <div class="inner">
+            <button id="back_button">&lt;&lt;</button><button id="forward_button">&gt;&gt;</button>  
+            <h4 id="title">Here be dragons</h4>
+            <p id="description">Here be dragons</p>
+          </div>
+        </div>
+    </body> 
+</html>

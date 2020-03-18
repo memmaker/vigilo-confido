@@ -113,35 +113,25 @@ T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
 === Known Issues / Backlog ===
-
- - resistances to damage types
- - Sound effects (Gremlin, Minigun)
- - test new enemies
- - Test Psi Class and everything Psi
- - change sprite of combat experience commendation
- - missing gremlin corpse?
- - Weapon specific crit chances and crit damage
- - Ufopedia entries (Grenades & Status Effects, Armors, Autopsies)
- - Complete research bonuses for corpses
- - Reduce dealing of fatal wounds and apply increasing chances of bleeding out instead of instant death
- - Test shredder and shred damage and the toArmor toArmorPre stuff
- - Make the Firestorm useful
- - EU2012 Story: https://www.ufopaedia.org/index.php/Storyline_(EU2012)
- - A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
- - Purge Reapers, Naked Mutons, Celatids & Silacoids
+ - Testing
+ - Sound effects (Gremlin, Drone)
+ - Sprite of combat experience commendation
 
 === Out of Scope for 1.0 ===
- - More Units to add: Waspite?, Flying Drone, Stun Lancer(?), Mechtoid(?), Outsider(?), Faceless(?), Turret, Exalt?
- - You could make a critically wounded soldier into a cyborg, instead of waiting for a month to recuperate.
- - Base Facilities
+ - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
  - Crafts & Craft Weapons
  - New Mission Objectives
  - Gene Lab & MECs
- - flagByKills for experience indicator
+ - FlagByKills for experience indicator
  - Battle Focus costs for flying
  - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
- - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
+ - Weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
+ - Bleedout & Fatal Wounds
 
+=== Notes to self ===
+
+EU2012 Story: https://www.ufopaedia.org/index.php/Storyline_(EU2012)
+A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
 
 "Bellator in Machina" - "Warrior in the machine"
 "Mutare ad custodiam" - "We Change to Protect"

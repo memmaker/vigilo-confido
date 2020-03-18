@@ -160,6 +160,17 @@ manufacture:
       STR_MUTON_ELITE_CORPSE: 1
     producedItems:
       STR_FREEZE_GRENADE: 1
+  - name: STR_DRONE_EXTRACTION
+    category: STR_TECHNOLOGY_EXTRACTION
+    space: 0
+    time: 120
+    cost: 15000
+    requires:
+      - STR_DRONE_AUTOPSY
+    requiredItems:
+      STR_DRONE_CORPSE: 1
+    producedItems:
+      STR_FLASHBANG_GRENADE: 1
   - name: STR_SECTOPOD_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0

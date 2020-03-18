@@ -9,8 +9,9 @@ items:
     costBuy: 0
     costSell: 12000
     weight: 3
-    bigSprite: 20
-    floorSprite: 20
+    bigSprite: 803
+    floorSprite: 803
+    handSprite: 824
     power: 40
     hidePower: true
     damageType: 6
@@ -136,8 +137,9 @@ items:
     costBuy: 0
     costSell: 12000
     weight: 3
-    bigSprite: 20
-    floorSprite: 20
+    bigSprite: 804
+    floorSprite: 804
+    handSprite: 832
     power: 40
     hidePower: true
     damageType: 14
@@ -638,11 +640,17 @@ extraSprites:
       800: Resources/Weapons_Imported/GrenadeAcid/Gas_Grenade.png
       801: Resources/Weapons_Imported/GrenadeFreeze/Knockout_Grenade.gif
       802: Resources/Weapons_Imported/GrenadePoison/Acid_Grenade.png
+      803: Resources/Weapons_Imported/GrenadeFlash/Flash_Grenade.png
+      804: Resources/Weapons_Imported/GrenadeEmp/EMP_Grenade.png
+
   - type: FLOOROB.PCK
     files:
       800: Resources/Weapons_Imported/GrenadeAcid/FloorGasGrenade.png
       801: Resources/Weapons_Imported/GrenadeFreeze/FloorKnockoutGrenade.png
       802: Resources/Weapons_Imported/GrenadePoison/FloorAcidGrenade.png
+      803: Resources/Weapons_Imported/GrenadeFlash/FloorFlashGrenade.png
+      804: Resources/Weapons_Imported/GrenadeEmp/FloorEmpGrenade.png
+
   - type: HANDOB.PCK
     height: 40
     width: 256
@@ -652,3 +660,5 @@ extraSprites:
       800: Resources/Weapons_Imported/GrenadeAcid/HandObGasGrenade.png
       808: Resources/Weapons_Imported/GrenadeFreeze/HandObKnockoutGrenade.png
       816: Resources/Weapons_Imported/GrenadePoison/HandObAcidGrenade.png
+      824: Resources/Weapons_Imported/GrenadeFlash/HandObFlashGrenade.png
+      832: Resources/Weapons_Imported/GrenadeEmp/HandObEmpGrenade.png

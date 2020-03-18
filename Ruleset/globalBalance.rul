@@ -6,6 +6,7 @@ constants:
   damageRange: 20
   explosiveDamageRange: 10
   fireDamageRange: [10, 20]
+  extendedRunningCost: true
 
 difficultyCoefficient: [0, 1, 2, 3, 4]
 defeatFunds: -1000

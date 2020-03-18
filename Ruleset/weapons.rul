@@ -1,7 +1,7 @@
 extraSounds:
   - type: BATTLE.CAT
     files:
-      300: Resources/Weapons_Imported/AlloyCannon/fire.wav
+      300: Resources/Weapons_Imported/AlloyCannon/minigun.ogg
       301: Resources/Weapons_Imported/AlloyShotgun/shotgun_fire.wav
       302: Resources/Weapons_Imported/AlloyShotgun/shotgun_reload.wav
       303: Resources/Weapons_Imported/AlloySniper/Fire.wav
@@ -196,7 +196,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 2
-      RUPTURE_DAMAGE: 5
+      RUPTURE_DAMAGE: 15
     costBuy: 250
     costSell: 0
     twoHanded: true
@@ -253,7 +253,7 @@ items:
   - type: STR_LASER_SWORD
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
-      RUPTURE_DAMAGE: 20
+      RUPTURE_DAMAGE: 15
     listOrder: 3450
     requires:
       - STR_LASER_WEAPONS
@@ -315,7 +315,7 @@ items:
     tags:
       CRIT_CHANCE: 20
       GUN_TYPE: 4
-      RUPTURE_DAMAGE: 20
+      RUPTURE_DAMAGE: 30
     listOrder: 2250
     size: 0.2
     costBuy: 560
@@ -432,7 +432,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 5
-      RUPTURE_DAMAGE: 5
+      RUPTURE_DAMAGE: 30
     listOrder: 2400
     size: 0.8
     costBuy: 1200
@@ -496,7 +496,7 @@ items:
     tags:
       CRIT_CHANCE: 10
       GUN_TYPE: 1
-      RUPTURE_DAMAGE: 10
+      RUPTURE_DAMAGE: 5
     listOrder: 3500
     size: 0.1
     costSell: 0
@@ -536,7 +536,7 @@ items:
     tags:
       CRIT_CHANCE: 10
       GUN_TYPE: 2
-      RUPTURE_DAMAGE: 5
+      RUPTURE_DAMAGE: 10
     listOrder: 3600
     size: 0.2
     costSell: 0
@@ -681,7 +681,7 @@ items:
       - STR_XCOM_HEAVY_LASER
     tags:
       GUN_TYPE: 5
-      RUPTURE_DAMAGE: 5
+      RUPTURE_DAMAGE: 25
     size: 0.3
     costSell: 0
     costBuy: 0 #45000
@@ -782,7 +782,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
       GUN_TYPE: 2
-      RUPTURE_DAMAGE: 5
+      RUPTURE_DAMAGE: 15
     requires:
       - STR_PLASMA_WEAPONS
     requiresBuy:
@@ -852,6 +852,7 @@ items:
     tags:
       GUN_TYPE: 4
       RUPTURE_DAMAGE: 20
+      CRIT_CHANCE: 20
     listOrder: 3725
     size: 0.2
     costBuy: 0 #150000
@@ -976,6 +977,8 @@ items:
     clipSize: 5
     battleType: 2
     armor: 20
+    tags:
+      RUPTURE_DAMAGE: 20
   - type: STR_XCOM_HEAVY_PLASMA
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
@@ -1046,6 +1049,8 @@ items:
     invWidth: 2
     invHeight: 1
 
+    tags:
+      RUPTURE_DAMAGE: 20
 manufacture:
   - delete: STR_LASER_PISTOL
   - delete: STR_LASER_RIFLE

@@ -164,6 +164,13 @@ research:
     points: 20
     dependencies:
       - STR_PROXIMITY_GRENADE
+  - name: STR_ALIEN_GRENADE
+    cost: 80
+    points: 20
+    dependencies:
+      - STR_INCENDIARY_GRENADE
+    needItem: true
+    destroyItem: true
   - name: STR_NANO_MEDI_KIT
     cost: 190
     points: 25
@@ -223,6 +230,9 @@ research:
     points: 50
     needItem: true
   - name: STR_CYBERDISC_AUTOPSY
+    points: 50
+    needItem: true
+  - name: STR_DRONE_AUTOPSY
     points: 50
     needItem: true
 ## Autopsies for new units

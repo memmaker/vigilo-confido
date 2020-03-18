@@ -13,6 +13,7 @@ musics:
   - type: 1080_CIN_TP07_HyperwaveUplink_LOC
   - type: 1080_CIN_TP08_Firestorm_LOC
   - type: 1080_CIN_TP10_DeviceRetrieved_LOC
+  - type: 1080_BattleOver_LOC
   - type: base.defense
   - type: base.defense.fail
   - type: base.defense.success
@@ -62,7 +63,7 @@ constants:
   buttonPress: 77
 
 gameOver:
-  loseRating: lose.council
+  loseRating: loseGame
 
 extraSounds:
   - type: GEO.CAT
@@ -81,6 +82,11 @@ cutscenes:
   - delete: intro
   - delete: winGame
   - delete: loseGame
+  - type: loseMiss
+    videos:
+      - Resources/ANIMS/1080_BattleOver_LOC.FLI
+    audioTracks:
+      - 1080_BattleOver_LOC
   - type: intro
     useUfoAudioSequence: false
     videos:
@@ -112,7 +118,7 @@ cutscenes:
       - Resources/ANIMS/1080_CIN_TP03_CodeRevealed_LOC.FLI
     audioTracks:
       - 1080_CIN_TP03_CodeRevealed_LOC
-  - type: lose.council
+  - type: loseGame
     videos:
       - Resources/ANIMS/1080_CIN_TP04_AlienPact_LOC.FLI
     audioTracks:
@@ -124,10 +130,12 @@ cutscenes:
     audioTracks:
       - 1080_CIN_TP05_AlienBaseDetected_LOC
 # Hyperwave Beacon retrieved, alien leader?
-  - type: hyberwave.beacon.retrieved
+  - type: alien.base.assault.success
     videos:
+      - Resources/ANIMS/alien.base.assault.success.fli
       - Resources/ANIMS/1080_CIN_TP06_HyperwaveRetrieved_LOC.FLI
     audioTracks:
+      - alien.base.assault.success
       - 1080_CIN_TP06_HyperwaveRetrieved_LOC
 # Mission Won - Neutralized Central Command, Took out their leider
   - type: assault.won
@@ -153,49 +161,11 @@ cutscenes:
       - Resources/ANIMS/1080_CIN_TP10_DeviceRetrieved_LOC.FLI
     audioTracks:
       - 1080_CIN_TP10_DeviceRetrieved_LOC
-  - type: hyperwave.decoder
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/hyperwave.decoder.fli
-    audioTracks:
-      - hyperwave.decoder
-  - type: hyperwave.acquired
-    useUfoAudioSequence: false
-    videos:
-      - Resources/ANIMS/hyperwave.acquired.fli
-    audioTracks:
-      - hyperwave.acquired
-
   - type: winGame
     videos:
       - Resources/ANIMS/good.ending.fli
     audioTracks:
       - good.ending
-
-  - type: loseGame
-    videos:
-      - Resources/ANIMS/LGMWLD_7.FLC
-    audioTracks:
-      - LGMWLD_7
-    slideshow:
-      transitionSeconds: 30
-      musicId: GMLOSE
-      slides:
-        - imagePath: UFOINTRO/PICT4.LBM
-          caption: STR_GAME_OVER_1
-          captionSize: [190, 104]
-          captionPos: [0, 0]
-          captionColor: 249
-        - imagePath: UFOINTRO/PICT5.LBM
-          caption: STR_GAME_OVER_2
-          captionSize: [200, 34]
-          captionPos: [32, 0]
-          captionColor: 249
-  - type: winMiss
-    videos:
-      - Resources/ANIMS/WMISS_7.FLC
-    audioTracks:
-      - WMISS_7
 
   - type: laser.weapons
     videos:
@@ -217,11 +187,6 @@ cutscenes:
       - Resources/ANIMS/titan.armor.fli
     audioTracks:
       - titan.armor
-  - type: alien.base.assault.success
-    videos:
-      - Resources/ANIMS/alien.base.assault.success.fli
-    audioTracks:
-      - alien.base.assault.success
   - type: base.defense
     useUfoAudioSequence: false
     videos:
@@ -453,7 +418,7 @@ alienDeployments:
   - type: STR_OVERSEER_DEPLOYMENT
     winCutscene: assault.won
   - type: STR_ALIEN_BASE_ASSAULT
-    winCutscene: hyberwave.beacon.retrieved
+    winCutscene: alien.base.assault.success
     loseCutscene: loseMiss
     abortCutscene: abortMiss
   - type: STR_BASE_DEFENSE
