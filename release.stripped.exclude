@@ -9,3 +9,7 @@ csv_data/
 *.sh
 .~lock*
 html/
+SOUND/
+ANIMS/
+Voices/
+cutscenes.rul

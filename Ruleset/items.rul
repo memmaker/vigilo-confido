@@ -915,6 +915,7 @@ items:
       - STR_PROXIMITY_GRENADE
     requiresBuy:
       - STR_PROXIMITY_GRENADE
+    power: 40
   - type: STR_ELECTRO_FLARE
     costBuy: 300
     costSell: 230

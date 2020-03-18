@@ -26,6 +26,8 @@ Muton Ufopedia Artwork by Neoworm (DeviantArt)
 Special Thanks to:
 Meridian for his fork, his merging of my PRs and his constant support
 Yankes for his script engine which made most of this possible and of course his support
+reaverofdarkness for being my first playtester
+Dioxine and SolariusScorch for their senior modders' advice
 Microprose and Julian Gollop
 
 Extra Special Thanks to the creators of these mods and their collaborators.

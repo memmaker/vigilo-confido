@@ -5,7 +5,11 @@ Survive. Adapt. Win.
 
 A vanilla expansion for OXCE featuring content from EU2012 and others.
 
-Download "Work-in-Progress" version 0.8.2 here: https://drive.google.com/open?id=1DJyNHXi1-pS75q03lfpycNFBiG7SL2kB
+Direct Download "Beta Release" version 0.9.1L here: https://drive.google.com/open?id=1pDt8rGHUFxYy673-ooHW2PTya0NJVX6F
+
+Mod.io page: https://openxcom.mod.io/vigilo-confido
+
+The mod is feature complete and definitely playable but has only seen testing by me.
 
 === Features ===
 
@@ -39,6 +43,9 @@ OpenXcom Extended (OXCE) 6.4
 
 Download release versions of OXCE here:
 https://openxcom.org/oxce/release/
+
+NOTE: For the intended experience, make sure you have sound turned on and the intro animation enabled.
+At least on your first start.
 
 === Quickstart (via Ufopedia) ===
 
@@ -116,6 +123,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Testing
  - Sound effects (Gremlin, Drone)
  - Sprite of combat experience commendation
+ - STR_MANA_SHORT not displayed with lang en-GB
+ - Proximity mine article visible in Ufopedia
 
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)

@@ -76,6 +76,12 @@ ufopaedia:
     requires:
       - STR_DRONE_AUTOPSY
     text: STR_FLASHBANG_GRENADE_UFOPEDIA
+  - id: STR_PROXIMITY_GRENADE
+    type_id: 4
+    section: STR_WEAPONS_AND_EQUIPMENT
+    requires:
+      - STR_PROXIMITY_GRENADE
+    text: STR_PROXIMITY_GRENADE_UFOPEDIA
   - id: STR_FREEZE_GRENADE
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT

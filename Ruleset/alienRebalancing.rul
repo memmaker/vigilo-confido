@@ -1484,7 +1484,6 @@ alienDeployments:
       textOffset: -16
       background: BACK01.SCR
       showTarget: false
-      cutscene: alien.base.detected
     objectiveType: 3
     markerName: STR_ALIEN_BASE
     markerIcon: 7
@@ -1648,7 +1647,6 @@ alienDeployments:
       palette: 0
       background: BACK01.SCR
       music: GMENBASE
-      cutscene: base.defense
   - type: STR_THE_FINAL_ASSAULT
     data:
       - alienRank: 0
@@ -1999,7 +1997,8 @@ extraStrings:
     strings:
       STR_OVERSEER_DEPLOYMENT: OVERSEER SHIP
       STR_THE_FINAL_ASSAULT: THE FINAL ASSAULT
-      STR_THE_FINAL_ASSAULT_BRIEFING: We finally have the strength to face the Ethereals on their own ship. The future of humanity is at stake. Expect extreme resistance.
+      STR_THE_FINAL_ASSAULT_BRIEFING: We finally have the strength to face the Ethereals
+        on their own ship. The future of humanity is at stake. Expect extreme resistance.
       STR_ALIEN_BASE_ASSAULT: ALIEN BASE ASSAULT
       STR_ALIEN_BASE_ASSAULT_BRIEFING: X-Com operatives have gained entrance to an
         alien base. The control center must be destroyed to render the base inoperative.

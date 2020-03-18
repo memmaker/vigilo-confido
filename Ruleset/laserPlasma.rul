@@ -134,6 +134,8 @@ items:
   - type: STR_XCOM_LASER_PISTOL
     tags:
       LASER: 1
+      CRIT_CHANCE: 10
+      RUPTURE_DAMAGE: 5
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -154,6 +156,8 @@ items:
   - type: STR_XCOM_LASER_RIFLE
     tags:
       LASER: 1
+      CRIT_CHANCE: 10
+      RUPTURE_DAMAGE: 10
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -174,6 +178,8 @@ items:
   - type: STR_LASER_SHOTGUN
     tags:
       LASER: 1
+      CRIT_CHANCE: 20
+      RUPTURE_DAMAGE: 20
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -194,6 +200,7 @@ items:
   - type: STR_LASER_SNIPER_RIFLE
     tags:
       LASER: 1
+      CRIT_CHANCE: 15
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -214,6 +221,7 @@ items:
   - type: STR_XCOM_HEAVY_LASER
     tags:
       LASER: 1
+      RUPTURE_DAMAGE: 25
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -234,21 +242,26 @@ items:
   - type: STR_XCOM_PLASMA_PISTOL
     tags:
       PLASMA: 1
+      RUPTURE_DAMAGE: 10
     costBuy: 0
     costSell: 0
   - type: STR_XCOM_PLASMA_RIFLE
     tags:
       PLASMA: 1
+      RUPTURE_DAMAGE: 15
     costBuy: 0
     costSell: 0
   - type: STR_PLASMA_SHOTGUN
     tags:
       PLASMA: 1
+      CRIT_CHANCE: 20
+      RUPTURE_DAMAGE: 20
     costBuy: 0
     costSell: 0
   - type: STR_PLASMA_SNIPER_RIFLE
     tags:
       PLASMA: 1
+      CRIT_CHANCE: 15
     costBuy: 0
     costSell: 0
   - type: STR_XCOM_HEAVY_PLASMA
