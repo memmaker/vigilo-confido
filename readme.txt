@@ -113,14 +113,10 @@ T3 - Warden Armor   & Plasma Weapons
 === Known Issues / Backlog ===
 
  - resistances to damage types
- - item categories, list orders
  - Sound effects (Gremlin, Minigun)
- - balancing of stuff (item costs, armors, etc.)
- - Economics
  - test new enemies
  - Test Psi Class and everything Psi
  - change sprite of combat experience commendation
- - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
  - weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - missing gremlin corpse?
  - Weapon specific crit chances and crit damage
@@ -144,6 +140,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Gene Lab & MECs
  - flagByKills for experience indicator
  - Battle Focus costs for flying
+- Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
+
 
 "Bellator in Machina" - "Warrior in the machine"
 "Mutare ad custodiam" - "We Change to Protect"

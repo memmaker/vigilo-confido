@@ -62,18 +62,21 @@ armors:
     underArmor: 0
     drawingRoutine: 4
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
       - 1.2
       - 1.6
-      - 1.0
-    loftempsSet: [ 3 ]
-    scripts:     
+      - 0
+      - 1
+      - 1
+      - 1
+    loftempsSet: [3]
+    scripts:
       createUnit: |
         var ptre RuleArmor armor_rule;
         var int turn_to_wakeup;
@@ -93,7 +96,7 @@ armors:
         end;
 
         unit.getTag countdown Tag.TIME_TO_SURPRISE;
-        
+
         if eq countdown 0;
           # wake up
           unit.setHealth 0;      # kill the civilian
@@ -103,7 +106,9 @@ armors:
           unit.setTag Tag.TIME_TO_SURPRISE countdown;
         end;
         return;
-  
+
+    meleeDodge:
+      reactions: 0.1
   - type: SURPRISE_F_ARMOR
     refNode: *SURPRISE_M_ARMOR
     spriteSheet: CIVF.PCK

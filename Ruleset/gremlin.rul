@@ -13,17 +13,22 @@ armors:
     movementType: 1
     size: 1
     damageModifier:
-      - 1.0
-      - 1.0
+      - 1
+      - 1
       - 0.4
       - 0.8
       - 0.8
       - 0.8
-      - 0.0
+      - 0
       - 0.2
       - 1.4
-      - 0.0
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [3]
+    meleeDodge:
+      reactions: 0.1
 
 units:
   - type: STR_GREMLIN

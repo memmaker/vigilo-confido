@@ -11,19 +11,21 @@ armors:
     rearArmor: 2
     underArmor: 3
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0
   - type: SECTOID_ARMOR1
     spriteSheet: SECTOID.PCK
     corpseBattle:
@@ -33,17 +35,22 @@ armors:
     rearArmor: 2
     underArmor: 2
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
       - 1.2
       - 1.6
-      - 0.0
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [2]
+    meleeDodge:
+      reactions: 0
   - type: FLOATER_ARMOR0
     spriteInv: Inventory_FLOATER
     frontArmor: 8
@@ -51,76 +58,84 @@ armors:
     rearArmor: 4
     underArmor: 6
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: CYBERDISC_ARMOR
     frontArmor: 30
     sideArmor: 30
     rearArmor: 30
     underArmor: 28
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0
   - type: SECTOPOD_ARMOR
     frontArmor: 40
     sideArmor: 38
     rearArmor: 34
     underArmor: 40
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0
   - type: SNAKEMAN_ARMOR0
     frontArmor: 10
     sideArmor: 8
     rearArmor: 6
     underArmor: 10
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.5
   - type: MUTON_ARMOR0
     spriteInv: Inventory_MUTON
     frontArmor: 8
@@ -128,95 +143,105 @@ armors:
     rearArmor: 6
     underArmor: 3
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 1
   - type: ETHEREAL_ARMOR0
     frontArmor: 20
     sideArmor: 20
     rearArmor: 20
     underArmor: 20
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: ETHEREAL_ARMOR1
     frontArmor: 30
     sideArmor: 30
     rearArmor: 30
     underArmor: 30
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: CHRYSSALID_ARMOR
     frontArmor: 10
     sideArmor: 10
     rearArmor: 10
     underArmor: 10
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0
   - type: ZOMBIE_ARMOR
     frontArmor: 4
     sideArmor: 4
     rearArmor: 4
     underArmor: 4
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: THIN_MAN_ARMOR
     spriteSheet: THIN_MAN.PCK
     spriteInv: INV_HUMAN_AGENT
@@ -227,20 +252,22 @@ armors:
     rearArmor: 5
     underArmor: 2
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [3]
+    meleeDodge:
+      reactions: 0.1
   - type: MUTON_BERSERKER_ARMOR
     spriteSheet: MUTONBERSERKER.PCK
     corpseBattle:
@@ -251,20 +278,22 @@ armors:
     underArmor: 12
     drawingRoutine: 10
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [3]
+    meleeDodge:
+      reactions: 1
   - type: MUTON_ELITE_ARMOR
     spriteSheet: MUTONELITE.PCK
     spriteInv: Inventory_MUTON_ELITE
@@ -276,20 +305,22 @@ armors:
     underArmor: 22
     drawingRoutine: 10
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [3]
+    meleeDodge:
+      reactions: 1
   - type: STR_ANDROMEDON_SUIT_UC
     spriteSheet: ANDROMEDON.PCK
     spriteInv: Inventory_ANDROMEDON
@@ -300,22 +331,24 @@ armors:
     rearArmor: 30
     underArmor: 50
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.2  # 7  Melee
-      - 0.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 0.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1.2
+      - 0
+      - 0
+      - 1
+      - 0
+      - 1
     loftempsSet: [3]
     forcedTorso: 1
     drawingRoutine: 0
+    meleeDodge:
+      reactions: 0.1
   - type: STR_ANDROMEDON_SHELL_SUIT_UC
     tags:
       MECHANICAL: 1
@@ -328,22 +361,24 @@ armors:
     rearArmor: 0
     underArmor: 0
     damageModifier:
-      - 1.0  # 0  None
-      - 0.8  # 1  Projectile
-      - 0.0  # 2  Incendiary
-      - 0.8  # 3  High-Explosive
-      - 0.8  # 4  Laser 
-      - 0.8  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 0.8  # 7  Melee
-      - 0.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 0.0  # 10 Psionic
-      - 0.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 0.8
+      - 0
+      - 0.8
+      - 0.8
+      - 0.8
+      - 1
+      - 0.8
+      - 0
+      - 0
+      - 0
+      - 0
+      - 1
     loftempsSet: [3]
     forcedTorso: 1
     drawingRoutine: 0
+    meleeDodge:
+      reactions: 0.1
   - type: OUTSIDER_ARMOR
     spriteSheet: OUTSIDER.PCK
     spriteInv: inventory_OUTSIDER
@@ -355,20 +390,22 @@ armors:
     underArmor: 3
     drawingRoutine: 0
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 0.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [2]
+    meleeDodge:
+      reactions: 0.1
   - type: STR_DRONE_ARMOR
     spriteInv: inventory_DRONE
     spriteSheet: DRONE.PCK
@@ -384,19 +421,22 @@ armors:
     movementType: 1
     size: 1
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
       - 1.4
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [3]
+    meleeDodge:
+      reactions: 0.1
 
 units:
   - delete: STR_SECTOID_SOLDIER
@@ -467,13 +507,13 @@ units:
       firing: 52
       throwing: 58
       strength: 30
-      psiStrength: 50
-      psiSkill: 60
+      psiStrength: 90
+      psiSkill: 30
       melee: 76
     armor: SECTOID_ARMOR1
     standHeight: 16
     kneelHeight: 12
-    value: 25
+    value: 50
     deathSound: 10
     intelligence: 8
     aggression: 0
@@ -527,8 +567,8 @@ units:
     race: STR_CHRYSSALID
     rank: STR_LIVE_TERRORIST
     stats:
-      tu: 110
-      stamina: 140
+      tu: 80
+      stamina: 100
       health: 80
       bravery: 100
       reactions: 70
@@ -616,9 +656,9 @@ units:
     armor: MUTON_ARMOR0
     standHeight: 21
     kneelHeight: 16
-    value: 15
+    value: 20
     deathSound: 6
-    intelligence: 2
+    intelligence: 4
     aggression: 2
     energyRecovery: 40
   - type: STR_MUTON_BERSERKER
@@ -633,7 +673,7 @@ units:
       firing: 5
       throwing: 5
       strength: 95
-      psiStrength: 255
+      psiStrength: 60
       psiSkill: 0
       melee: 85
     armor: MUTON_BERSERKER_ARMOR
@@ -642,7 +682,7 @@ units:
     value: 25
     deathSound: 6
     intelligence: 1
-    aggression: 2
+    aggression: 8
     energyRecovery: 40
     meleeWeapon: STR_BERSERKER_PUNCH
     isLeeroyJenkins: true
@@ -650,9 +690,9 @@ units:
     race: STR_MUTON_ELITE
     rank: STR_LIVE_COMMANDER
     stats:
-      tu: 80
-      stamina: 150
-      health: 180
+      tu: 60
+      stamina: 120
+      health: 140
       bravery: 95
       reactions: 85
       firing: 75
@@ -741,7 +781,7 @@ units:
     race: STR_ETHEREAL
     rank: STR_LIVE_SOLDIER
     stats:
-      tu: 68
+      tu: 50
       stamina: 96
       health: 55
       bravery: 80
@@ -755,7 +795,7 @@ units:
     armor: ETHEREAL_ARMOR0
     standHeight: 20
     kneelHeight: 15
-    value: 20
+    value: 60
     deathSound: 9
     intelligence: 6
     aggression: 1
@@ -764,7 +804,7 @@ units:
     race: STR_ETHEREAL
     rank: STR_LIVE_LEADER
     stats:
-      tu: 68
+      tu: 50
       stamina: 96
       health: 55
       bravery: 80
@@ -773,12 +813,12 @@ units:
       throwing: 80
       strength: 48
       psiStrength: 60
-      psiSkill: 45
+      psiSkill: 50
       melee: 85
     armor: ETHEREAL_ARMOR1
     standHeight: 20
     kneelHeight: 15
-    value: 30
+    value: 100
     deathSound: 9
     intelligence: 7
     aggression: 1
@@ -795,7 +835,7 @@ units:
       firing: 65
       throwing: 50
       strength: 70
-      psiStrength: 200
+      psiStrength: 30
       psiSkill: 0
       melee: 60
     armor: OUTSIDER_ARMOR
@@ -814,7 +854,7 @@ units:
       health: 35
       bravery: 110
       reactions: 30
-      firing: 90
+      firing: 70
       throwing: 90
       strength: 50
       psiStrength: 120
@@ -829,11 +869,13 @@ units:
     deathSound: 23
     moveSound: 14
     livingWeapon: true
+    intelligence: 3
+    aggression: 1
   - type: STR_SECTOPOD
     race: STR_SECTOPOD
     rank: STR_LIVE_TERRORIST
     stats:
-      tu: 62
+      tu: 55
       stamina: 90
       health: 280
       bravery: 110
@@ -860,13 +902,13 @@ units:
     stats:
       tu: 32
       stamina: 110
-      health: 10
+      health: 100
       bravery: 110
       reactions: 40
       firing: 0
       throwing: 0
       strength: 65
-      psiStrength: 80
+      psiStrength: 40
       psiSkill: 0
       melee: 80
     armor: ZOMBIE_ARMOR

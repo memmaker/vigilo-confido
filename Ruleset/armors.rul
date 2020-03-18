@@ -136,19 +136,21 @@ armors:
     rearArmor: 0
     underArmor: 0
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.3  # 2  Incendiary
-      - 1.3  # 3  High-Explosive
-      - 1.3  # 4  Laser 
-      - 1.3  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.3  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1.3
+      - 1.3
+      - 1.3
+      - 1.3
+      - 1
+      - 1
+      - 1.3
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.3
   - type: STR_PERSONAL_ARMOR_UC  # Kevlar
     tags:
       ABLATIVE_ARMOR_BONUS: 10
@@ -157,19 +159,21 @@ armors:
     rearArmor: 0
     underArmor: 0
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.2
   - type: STR_PREDATOR_ARMOR_UC   # Predator
     spriteSheet: XOPS_XCOM_10.PCK
     spriteInv: XOP_10
@@ -184,19 +188,21 @@ armors:
     tags:
       ABLATIVE_ARMOR_BONUS: 45
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.2
   - type: STR_PREDATOR_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_12.PCK
     spriteInv: XOP_12
@@ -211,19 +217,21 @@ armors:
     tags:
       ABLATIVE_ARMOR_BONUS: 45
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.2
   - type: STR_SKY_STRIKE_ARMOR_UC
     spriteSheet: XOPS_XCOM_27.PCK
     spriteInv: XOP_27
@@ -241,19 +249,21 @@ armors:
     underArmor: 4
     movementType: 1
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: STR_SKY_STRIKE_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_28.PCK
     spriteInv: XOP_28
@@ -271,19 +281,21 @@ armors:
     underArmor: 4
     movementType: 1
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 1.0  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: STR_PSI_ARMOR_BLUE_UC
     spriteSheet: XOPS_XCOM_45.PCK
     spriteInv: XOP_45
@@ -306,19 +318,21 @@ armors:
     underArmor: 4
     movementType: 0
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.2  # 6  Stun
-      - 1.5  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 0.5  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1.2
+      - 1.5
+      - 1
+      - 0
+      - 0.5
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: STR_WARDEN_ARMOR_WHITE_UC
     spriteSheet: XOPS_XCOM_41.PCK
     spriteInv: XOP_41
@@ -339,19 +353,21 @@ armors:
     underArmor: 8
     movementType: 1
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 0.8  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0.8
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: STR_WARDEN_ARMOR_UC
     spriteSheet: XOPS_XCOM_42.PCK
     spriteInv: XOP_42
@@ -372,19 +388,21 @@ armors:
     underArmor: 8
     movementType: 1
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 0.8  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0.8
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
   - type: STR_WARDEN_ARMOR_BLACK_UC
     spriteSheet: XOPS_XCOM_43.PCK
     spriteInv: XOP_43
@@ -405,20 +423,21 @@ armors:
     underArmor: 8
     movementType: 1
     damageModifier:
-      - 1.0  # 0  None
-      - 1.0  # 1  Projectile
-      - 1.0  # 2  Incendiary
-      - 1.0  # 3  High-Explosive
-      - 1.0  # 4  Laser 
-      - 1.0  # 5  Plasma
-      - 1.0  # 6  Stun
-      - 0.8  # 7  Melee
-      - 1.0  # 8  Acid
-      - 1.0  # 9  Smoke
-      - 1.0  # 10 Psionic
-      - 1.0  # 11 Poison
-      - 1.0  # 12 Electric
-
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0.8
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
+    meleeDodge:
+      reactions: 0.1
 extraSprites:
 #---BIG OBJECTS------------------------------------------
   - type: BIGOBS.PCK

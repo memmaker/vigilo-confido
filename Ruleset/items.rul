@@ -568,7 +568,7 @@ items:
       PSI_AMP_TYPE: 1
     costBuy: 3500
     size: 0.1
-    costSell: 1947
+    costSell: 1980
     weight: 10
     bigSprite: 401
     floorSprite: 401
@@ -873,7 +873,7 @@ items:
     categories: [STR_SOLDIER_GEAR, STR_EXPLOSIVES]
     size: 0.1
     costBuy: 0 # cannot buy
-    costSell: 12000
+    costSell: 11000
     weight: 3
     bigSprite: 527
     floorSprite: 527
@@ -1043,16 +1043,19 @@ armors:
     rearArmor: 12
     underArmor: 12
     damageModifier:
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
-      - 1.0
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1
     loftempsSet: [3]
     scripts:
       createUnit: |
@@ -1106,6 +1109,8 @@ armors:
         end;
         return;
 
+    meleeDodge:
+      reactions: 0.1
 extraStrings:
   - type: en-US
     strings:
