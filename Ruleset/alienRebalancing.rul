@@ -1802,7 +1802,7 @@ startingConditions:
 items:
   - type: STR_ALIEN_ALLOYS
     size: 0.1
-    costSell: 90
+    costSell: 85
     specialType: 10
     recoveryPoints: 1
     recoveryDividers:
