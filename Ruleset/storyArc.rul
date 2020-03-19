@@ -92,7 +92,7 @@ events:
     timer: 60
     timerRandom: 0
     music: Hello_Commander
-    researchList: [STR_INTRODUCTION]
+    researchList: [STR_OBJECTIVES_ARC0]
 
 arcScripts:
   - type: setupObjectives
@@ -104,12 +104,6 @@ arcScripts:
     maxArcs: 1
 
 research:
-  - name: STR_INTRODUCTION
-    cost: 100
-    getOneFree:
-      - STR_OBJECTIVES_ARC0
-    dependencies:
-      - STR_INTRODUCTION
   - name: STR_INTRO_ENGINEERING
     cost: 1
   - name: STR_INTRO_SCIENCE

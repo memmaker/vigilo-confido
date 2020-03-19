@@ -119,12 +119,23 @@ T1 - Kevlar Armor   & Conventional Weapons
 T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
+=== Changes in v0.9.3 ===
+ - Increased throwing stats for specialist (To allow for field logistics)
+ - Reset general store size to normal
+ - Set proximity grenade to intended power
+ - Nanoscale research now needed for experimental armor project
+ - Medi-kit now avaiable from the start (So the specialist is more useful)
+ - Fixed introduction research topic showing up as researchable
+ - Fixed crashes on mission end
+ - Various bugfixes
+
 === Known Issues / Backlog ===
  - Testing
  - Sound effects (Gremlin, Drone)
  - Sprite of combat experience commendation
- - STR_MANA_SHORT not displayed with lang en-GB
  - Proximity mine article visible in Ufopedia
+ - Explain passive items delayed effect
+ - Heads-up about research in Ufopedia
 
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)

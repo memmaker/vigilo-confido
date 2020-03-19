@@ -97,6 +97,7 @@ research:
   - delete: STR_COMMANDER_PLUS
   - delete: STR_THE_MARTIAN_SOLUTION
   - delete: STR_CYDONIA_OR_BUST
+  - delete: STR_MEDI_KIT
   - name: STR_XENO_BIOLOGY # unlocks manuf. of alien containment
     cost: 40
     points: 10
