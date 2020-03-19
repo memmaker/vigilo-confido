@@ -143,10 +143,6 @@ research:
     dependencies: [STR_INTRO_SCIENCE]
     cost: 70
     points: 20
-  - name: STR_MEDI_KIT
-    dependencies: [STR_INTRO_SCIENCE]
-    cost: 90
-    points: 20
   - name: STR_NANOSCALE_VEST
     dependencies: [STR_INTRO_SCIENCE]
     cost: 90
@@ -156,7 +152,7 @@ research:
     cost: 70
     points: 20
   - name: STR_EXPERIMENTAL_ARMOR
-    dependencies: [STR_INTRO_ENGINEERING]
+    dependencies: [STR_NANOSCALE_VEST, STR_INTRO_ENGINEERING]
     cost: 70
     points: 20
   - name: STR_INCENDIARY_GRENADE

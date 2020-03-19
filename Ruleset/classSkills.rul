@@ -861,7 +861,7 @@ soldiers:
       reactions: 50
       firing: 40
       throwing: 20
-      strength: 30
+      strength: 25
       psiStrength: 50
       psiSkill: 0
       melee: 40
@@ -874,7 +874,7 @@ soldiers:
       reactions: 70
       firing: 70
       throwing: 80
-      strength: 50
+      strength: 45
       psiStrength: 100
       psiSkill: 0
       melee: 80
@@ -889,7 +889,7 @@ soldiers:
       throwing: 100
       strength: 90
       psiStrength: 100
-      psiSkill: 60
+      psiSkill: 0
       melee: 120
       mana: 12
     standHeight: 22
@@ -986,7 +986,7 @@ soldiers:
       throwing: 70
       strength: 110
       psiStrength: 100
-      psiSkill: 50
+      psiSkill: 0
       melee: 60
       mana: 12
     standHeight: 22
@@ -1082,7 +1082,7 @@ soldiers:
       throwing: 120
       strength: 50
       psiStrength: 100
-      psiSkill: 60
+      psiSkill: 0
       melee: 20
       mana: 12
     standHeight: 22
@@ -1142,7 +1142,7 @@ soldiers:
       bravery: 50
       reactions: 40
       firing: 40
-      throwing: 20
+      throwing: 40
       strength: 20
       psiStrength: 50
       psiSkill: 0
@@ -1155,7 +1155,7 @@ soldiers:
       bravery: 80
       reactions: 70
       firing: 70
-      throwing: 40
+      throwing: 60
       strength: 50
       psiStrength: 100
       psiSkill: 0
@@ -1168,10 +1168,10 @@ soldiers:
       bravery: 120
       reactions: 120
       firing: 100
-      throwing: 65
+      throwing: 90
       strength: 70
       psiStrength: 100
-      psiSkill: 60
+      psiSkill: 0
       melee: 70
       mana: 12
     standHeight: 22

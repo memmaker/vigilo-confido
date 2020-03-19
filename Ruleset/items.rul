@@ -803,10 +803,6 @@ items:
     size: 0.3
     weight: 8
     categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
-    requires:
-      - STR_MEDI_KIT
-    requiresBuy:
-      - STR_MEDI_KIT
     bigSprite: 528
     floorSprite: 528
     handSprite: 524
