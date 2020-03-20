@@ -151,7 +151,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Added short intro
  - Adjusted Sectopod Armor 
  - Introduced elerium cores
- - Adjusted manufacturing costs
+ - Adjusted research & manufacturing costs
 
 === Changes in v0.9.3 ===
  - Restructured introductionary research and story arc
