@@ -494,6 +494,7 @@ items:
     requiresBuy:
       - STR_LASER_WEAPONS
     tags:
+      LASER: 1
       CRIT_CHANCE: 10
       GUN_TYPE: 1
       RUPTURE_DAMAGE: 5
@@ -509,6 +510,21 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 12
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 12;
+          debug_log "Recharged Laser Pistol" item;
+        end;
+        return;
     power: 40
     damageType: 4
     damageAlter:
@@ -523,7 +539,6 @@ items:
     aimRange: 14
     autoRange: 8
     dropoff: 4   # 4 points of accuracy decrease per tile
-    clipSize: -1
     battleType: 1
     invWidth: 1
     invHeight: 2
@@ -534,6 +549,7 @@ items:
     requiresBuy:
       - STR_LASER_WEAPONS
     tags:
+      LASER: 1
       CRIT_CHANCE: 10
       GUN_TYPE: 2
       RUPTURE_DAMAGE: 10
@@ -549,6 +565,21 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 19
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 19;
+          debug_log "Recharged Scatter Laser Rifle" item;
+        end;
+        return;
     tuSnap: 50
     tuAimed: 60
     tuAuto: 0
@@ -568,7 +599,6 @@ items:
       ToArmor: 0
       ArmorEffectiveness: 0.3
     damageType: 4
-    clipSize: -1
     battleType: 1
     twoHanded: true
     oneHandedPenalty: 95
@@ -577,6 +607,7 @@ items:
   - type: STR_LASER_SHOTGUN
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
+      LASER: 1
       CRIT_CHANCE: 20
       GUN_TYPE: 4
       RUPTURE_DAMAGE: 20
@@ -596,6 +627,21 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 6
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 6;
+          debug_log "Recharged Scatter Laser" item;
+        end;
+        return;
     accuracySnap: 90
     accuracyAimed: 110
     accuracyAuto: 80
@@ -617,7 +663,6 @@ items:
     damageAlter:
       ToArmor: 0
       ArmorEffectiveness: 0.2
-    clipSize: -1
     battleType: 1
     twoHanded: true
     oneHandedPenalty: 95
@@ -632,6 +677,7 @@ items:
     requiresBuy:
       - STR_LASER_SNIPER_RIFLE
     tags:
+      LASER: 1
       CRIT_CHANCE: 15
       GUN_TYPE: 3
       RUPTURE_DAMAGE: 15
@@ -647,6 +693,21 @@ items:
     fireSound: 11
     hitSound: 19
     hitAnimation: 36
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 5
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 5;
+          debug_log "Recharged Laser Sniper" item;
+        end;
+        return;
     power: 70
     damageType: 4
     damageAlter:
@@ -666,7 +727,6 @@ items:
     tuAuto: 0
     confAuto:
       shots: 2
-    clipSize: -1
     battleType: 1
     twoHanded: true
     oneHandedPenalty: 95
@@ -681,7 +741,23 @@ items:
       - STR_XCOM_HEAVY_LASER
     tags:
       GUN_TYPE: 5
+      LASER: 1
       RUPTURE_DAMAGE: 25
+    fuseType: 2
+    primeActionName: STR_LASER_RECHARGE
+    primeActionMessage: STR_LASER_RECHARGE_MESSAGE
+    clipSize: 21
+    scripts:
+      newTurnItem: |
+        var int temp;
+        item.getFuseTimer temp;
+        if gt temp 0;
+          item.setFuseTimer -1;
+          item.setFuseEnabled 0;
+          item.setAmmoQuantity 21;
+          debug_log "Recharged Heavy Laser" item;
+        end;
+        return;
     size: 0.3
     costSell: 0
     costBuy: 0 #45000
@@ -710,7 +786,6 @@ items:
       shots: 5
     autoShots: 10
     sprayWaypoints: 2
-    clipSize: -1
     damageAlter:
       ArmorEffectiveness: 0.2
       ToArmorPre: 0.3
@@ -728,6 +803,7 @@ items:
       - STR_PLASMA_WEAPONS
     tags:
       GUN_TYPE: 1
+      PLASMA: 1
       RUPTURE_DAMAGE: 10
     listOrder: 3705
     size: 0.1
@@ -781,6 +857,7 @@ items:
   - type: STR_XCOM_PLASMA_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
+      PLASMA: 1
       GUN_TYPE: 2
       RUPTURE_DAMAGE: 15
     requires:
@@ -850,6 +927,7 @@ items:
     requiresBuy:
       - STR_PLASMA_SHOTGUN
     tags:
+      PLASMA: 1
       GUN_TYPE: 4
       RUPTURE_DAMAGE: 20
       CRIT_CHANCE: 20
@@ -986,6 +1064,7 @@ items:
     requiresBuy:
       - STR_XCOM_HEAVY_PLASMA
     tags:
+      PLASMA: 1
       GUN_TYPE: 5
       RUPTURE_DAMAGE: 5
     listOrder: 3745
@@ -1061,7 +1140,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_LASER_WEAPONS
-    space: 2
+    space: 0
     time: 300
     cost: 8000
     requiredItems:
@@ -1071,7 +1150,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_LASER_WEAPONS
-    space: 2
+    space: 0
     time: 400
     cost: 12000
     requiredItems:
@@ -1081,7 +1160,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_LASER_SHOTGUN
-    space: 2
+    space: 0
     time: 450
     cost: 13000
     requiredItems:
@@ -1091,7 +1170,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_LASER_SNIPER_RIFLE
-    space: 2
+    space: 0
     time: 450
     cost: 13000
     requiredItems:
@@ -1101,7 +1180,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_XCOM_HEAVY_LASER
-    space: 3
+    space: 0
     time: 500
     cost: 16000
     requiredItems:
@@ -1112,7 +1191,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_PLASMA_WEAPONS
-    space: 3
+    space: 0
     time: 600
     cost: 56000
     requiredItems:
@@ -1122,7 +1201,7 @@ manufacture:
     category: STR_AMMUNITION
     requires:
       - STR_PLASMA_WEAPONS
-    space: 3
+    space: 0
     time: 60
     cost: 2000
     requiredItems:
@@ -1133,7 +1212,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_PLASMA_WEAPONS
-    space: 3
+    space: 0
     time: 700
     cost: 76000
     requiredItems:
@@ -1143,7 +1222,7 @@ manufacture:
     category: STR_AMMUNITION
     requires:
       - STR_PLASMA_WEAPONS
-    space: 3
+    space: 0
     time: 80
     cost: 3000
     requiredItems:
@@ -1154,7 +1233,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_PLASMA_SHOTGUN
-    space: 3
+    space: 0
     time: 800
     cost: 86000
     requiredItems:
@@ -1164,7 +1243,7 @@ manufacture:
     category: STR_AMMUNITION
     requires:
       - STR_PLASMA_SHOTGUN
-    space: 3
+    space: 0
     time: 80
     cost: 3000
     requiredItems:
@@ -1174,7 +1253,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_PLASMA_SNIPER_RIFLE
-    space: 3
+    space: 0
     time: 800
     cost: 86000
     requiredItems:
@@ -1184,7 +1263,7 @@ manufacture:
     category: STR_AMMUNITION
     requires:
       - STR_PLASMA_SNIPER_RIFLE
-    space: 3
+    space: 0
     time: 80
     cost: 3000
     requiredItems:
@@ -1194,7 +1273,7 @@ manufacture:
     category: STR_WEAPON
     requires:
       - STR_XCOM_HEAVY_PLASMA
-    space: 3
+    space: 0
     time: 700
     cost: 76000
     requiredItems:
@@ -1204,7 +1283,7 @@ manufacture:
     category: STR_AMMUNITION
     requires:
       - STR_XCOM_HEAVY_PLASMA
-    space: 3
+    space: 0
     time: 80
     cost: 3000
     requiredItems:
@@ -1508,3 +1587,5 @@ extraStrings:
         our laser based line of weapons does not require ammunition, they still require
         recharging. After activation of the RECHARGE mechanism, the weapon glows blue
         and will be recharged on the beginning of your next turn.
+      STR_LASER_RECHARGE: Recharge
+      STR_LASER_RECHARGE_MESSAGE: Laser is being recharged.

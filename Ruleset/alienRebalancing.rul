@@ -1865,7 +1865,6 @@ items:
     costSell: 0
   - type: STR_PLASMA_PISTOL
     requires: [STR_ALIEN_WEAPON_USAGE]
-    power: 50  # vanilla: 52
     tuAuto: 0 # vanilla: 30
     tuSnap: 40  # vanilla: 30
     tuAimed: 51
@@ -1885,7 +1884,6 @@ items:
     costSell: 0
   - type: STR_PLASMA_RIFLE
     requires: [STR_ALIEN_WEAPON_USAGE]
-    power: 65  # vanilla: 80
     tuSnap: 51 # vanilla: 30
     tuAuto: 0 # vanilla: 36
     tuAimed: 60
@@ -1904,7 +1902,6 @@ items:
     costSell: 0
   - type: STR_HEAVY_PLASMA
     requires: [STR_ALIEN_WEAPON_USAGE]
-    power: 100 # vanilla: 115
     tuSnap: 51 # vanilla: 30
     tuAuto: 0 # vanilla: 35
     tuAimed: 0

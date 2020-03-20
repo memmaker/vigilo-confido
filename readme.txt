@@ -146,6 +146,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Changed workspace requirements of manufacturing projects
  - Fixed display of Battle Focus costs in Skill Menu
  - Adjusted recovery times for wounded soldiers
+ - Adjusted research times for most research projects
  - Added short intro
 
 === Changes in v0.9.3 ===
