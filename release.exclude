@@ -9,3 +9,4 @@ csv_data/
 *.sh
 .~lock*
 html/
+slides.rul

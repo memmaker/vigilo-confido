@@ -1,0 +1,10 @@
+cutscenes:
+  - delete: intro
+  - type: intro
+    videos:
+      - Resources/Slides/intro.FLI
+#    slideshow:
+#      transitionSeconds: 10
+#      slides:
+#        - imagePath: Resources/Slides/intro.png
+#          captionColor: 247

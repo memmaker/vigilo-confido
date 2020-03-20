@@ -1,5 +1,7 @@
 armors:
   - type: STR_GREMLIN_ARMOR
+    tags:
+      MECHANICAL: 1
     spriteSheet: GREMLIN3.PCK
     deathFrames: 5
     allowInv: false

@@ -511,6 +511,7 @@ items:
     damageType: 6
     damageAlter:
       ArmorEffectiveness: 0
+      IgnorePainImmunity: false
     size: 0.1
     costBuy: 0
     costSell: 0
@@ -821,7 +822,7 @@ items:
     tuUse: 20
     flatRate: false
     costSell: 600
-    costBuy: 1200
+    costBuy: 0
   - type: STR_NANO_MEDI_KIT
     size: 0.1
     costSell: 1200
@@ -907,6 +908,8 @@ items:
     costSell: 750
     damageAlter:
       FixRadius: 3
+      ToArmor: 0
+      ToArmorPre: 0.25
     requires:
       - STR_PROXIMITY_GRENADE
     requiresBuy:
@@ -1133,7 +1136,7 @@ extraStrings:
       STR_EQUIPMENT: Misc. Equipment
       STR_EXPERIMENTAL_PROJECTS: Experimental Projects
       STR_ARMOR_MODIFICATIONS: Armor Modifications
-      STR_PASSIVE_BONUS_ITEMS: Utility
+      STR_PASSIVE_BONUS_ITEMS: Utility Items
       STR_DISASSEMBLY: Disassembly
       STR_TECHNOLOGY_EXTRACTION: Corpse Repurposing
       STR_EXPLOSIVES: Explosives

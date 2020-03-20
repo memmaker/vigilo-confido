@@ -1,24 +1,24 @@
 #TODO: use arc scripts to always have the current objectives in the UFOpedia
 
-eventScripts:
-  - type: STR_INTRO_EVENT_SCRIPT
-    oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
-    firstMonth: 0
-    lastMonth: 0
-    executionOdds: 100
-    minDifficulty: 0
-    maxDifficulty: 4
+# eventScripts:
+#   - type: STR_INTRO_EVENT_SCRIPT
+#     oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
+#     firstMonth: 0
+#     lastMonth: 0
+#     executionOdds: 100
+#     minDifficulty: 0
+#     maxDifficulty: 4
 
 extraStrings:
   - type: en-US
     strings:
       STR_MISSION_OBJECTIVES: MISSION OBJECTIVES
       STR_CURRENT_OBJECTIVES: Current Objectives
-      STR_INTRODUCTION_EVENT: Hello, Commander
-      STR_INTRODUCTION_TEXT: "Welcome to the X-Com project.{NEWLINE}{NEWLINE}Dr. Shen, head of Engineering, and Dr. Vahlen, our chief scientist, will welcome you tonight when the rest of the team arrives.{NEWLINE}{NEWLINE}Your first task is the acquisition of samples of alien genetic material. Our research team will analyse the samples once you acquired them.{NEWLINE}{NEWLINE}Good luck, Commander."
+      STR_INTRODUCTION_TITLE: Hello, Commander
       STR_INTRODUCTION: Introduction
       STR_INTRO_ENGINEERING: Setup Engineering
       STR_INTRO_SCIENCE: Setup Research
+      STR_OBJECTIVES_INTRO_TEXT: "Welcome to the X-Com project.{NEWLINE}{NEWLINE}Dr. Shen, head of Engineering, and Dr. Vahlen, our chief scientist, will welcome you tonight when the rest of the team arrives.{NEWLINE}{NEWLINE}Your first task is the acquisition of samples of alien genetic material. Our research team will analyse the samples once you acquired them.{NEWLINE}{NEWLINE}Good luck, Commander.{NEWLINE}{NEWLINE}> COMPLETE THE 'SETUP ENGINEERING' RESEARCH{NEWLINE}{NEWLINE}> COMPLETE THE 'SETUP RESEARCH' RESEARCH"
       STR_OBJECTIVES_ARC0_TEXT: "> SALVAGE AN ALIEN CORPSE{NEWLINE}{NEWLINE}> PERFORM AN AUTOPSY{NEWLINE}{NEWLINE}> RESEARCH 'XENO-BIOLOGY'"
       STR_OBJECTIVES_ARC1_TEXT: "> CONSTRUCT THE 'ALIEN CONTAINMENT' FACILITY{NEWLINE}{NEWLINE}> RESEARCH THE 'SKULLJACK'{NEWLINE}{NEWLINE}> BUILD A 'SKULLLJACK'{NEWLINE}{NEWLINE}> CAPTURE A LIVE ALIEN{NEWLINE}{NEWLINE}> INTERROGATE THE CAPTIVE ALIEN"
       STR_OBJECTIVES_ARC2_TEXT: "> CAPTURE AN 'OUTSIDER' ALIEN{NEWLINE}{NEWLINE}> RESEARCH THE 'OUTSIDER SHARD'{NEWLINE}{NEWLINE}> BUILD THE 'SKELETON KEY'"
@@ -27,6 +27,7 @@ extraStrings:
       STR_OBJECTIVES_ARC4_TEXT: "> RESEARCH AN ADVANCED FIGHTER CRAFT{NEWLINE}{NEWLINE}> BUILD THE 'FIRESTORM'{NEWLINE}{NEWLINE}> INTERCEPT THE OVERSEER UFO{NEWLINE}{NEWLINE}> ASSAULT THE CRASHED OVERSEER UFO"
       STR_OBJECTIVES_ARC5_TEXT: "> RESEARCH THE 'ETHEREAL DEVICE'{NEWLINE}{NEWLINE}> CONSTRUCT THE 'GOLLOP CHAMBER'{NEWLINE}{NEWLINE}> STUDY A PSIONIC ALIEN{NEWLINE}{NEWLINE}> BUILD THE 'PSI LABS' FACILITY{NEWLINE}{NEWLINE}> TEST SOLDIERS FOR POWERS{NEWLINE}{NEWLINE}> INCREASE SOLDIERS' PSIONIC STRENGTH{NEWLINE}{NEWLINE}> USE 'ETHEREAL DEVICE'"
       STR_OBJECTIVES_FINAL_TEXT: "> ASSAULT THE TEMPLE SHIP"
+      STR_OBJECTIVES_INTRO: Mission Objectives (Intro)
       STR_OBJECTIVES_ARC0: Mission Objectives (Act 0)
       STR_OBJECTIVES_ARC1: Mission Objectives (Act 1)
       STR_OBJECTIVES_ARC2: Mission Objectives (Act 2)
@@ -37,6 +38,12 @@ extraStrings:
       STR_OBJECTIVES_FINAL: Mission Objectives (Final Act)
 
 ufopaedia:
+  - id: STR_OBJECTIVES_INTRO
+    title: STR_INTRODUCTION_TITLE
+    type_id: 8
+    requires: [STR_OBJECTIVES_INTRO]
+    section: STR_MISSION_OBJECTIVES
+    text: STR_OBJECTIVES_INTRO_TEXT
   - id: STR_OBJECTIVES_ARC0
     title: STR_CURRENT_OBJECTIVES
     type_id: 8
@@ -92,12 +99,12 @@ events:
     timer: 60
     timerRandom: 0
     music: Hello_Commander
-    researchList: [STR_OBJECTIVES_ARC0]
+    researchList: [STR_OBJECTIVES_ARC0, STR_BASIC_DEPLOYMENT]
 
 arcScripts:
   - type: setupObjectives
     sequentialArcs:                     # the type of research topics to be "discovered", each month 0 or 1, processed sequentially
-      - STR_BASIC_DEPLOYMENT
+      - STR_OBJECTIVES_INTRO
     firstMonth: 0                       # months this command runs on, 0 runs on startup of a new game (default 0)
     lastMonth: 0                       # don't run after this month. -1 denotes no limit (default -1)
     executionOdds: 100                  # % chances of this command executing (default 100)
@@ -108,6 +115,7 @@ research:
     cost: 1
   - name: STR_INTRO_SCIENCE
     cost: 1
+    lookup: STR_OBJECTIVES_ARC0
   - name: STR_XENO_BIOLOGY
     getOneFree:
       - STR_OBJECTIVES_ARC1
@@ -116,8 +124,11 @@ research:
       - STR_POST_INTERROGATION
     getOneFree:
       - STR_OBJECTIVES_ARC2
+  - name: STR_OBJECTIVES_INTRO
+    dependencies: [STR_OBJECTIVES_INTRO]
   - name: STR_OBJECTIVES_ARC0
     dependencies: [STR_OBJECTIVES_ARC0]
+    disables: [STR_OBJECTIVES_INTRO]
   - name: STR_OBJECTIVES_ARC1
     dependencies: [STR_OBJECTIVES_ARC1]
     disables: [STR_OBJECTIVES_ARC0]

@@ -37,12 +37,15 @@ research:
 
 
 crafts:
+  - delete: STR_LIGHTNING
+  - delete: STR_AVENGER
   - type: STR_INTERCEPTOR
     costBuy: 3000
     costRent: 1300
     sightRange: 5000
   - &STR_SKYRANGER
     type: STR_SKYRANGER
+    spacecraft: true
     requires:
       - STR_BASIC_DEPLOYMENT
     sprite: 0

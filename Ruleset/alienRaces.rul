@@ -9,13 +9,54 @@ alienRaces:
 #      - STR_SECTOID       # alienRank 5 - STR_LIVE
 #      - STR_CYBERDISC   # alienRank 6 - STR_LIVE 1
 #      - STR_CYBERDISC   # alienRank 7 - STR_LIVE 2
+
+  - id: STR_ALIEN_BASE_CREW    # for alien base assault
+    membersRandom:
+      - [STR_SECTOID_COMMANDER]
+      - [STR_MUTON]
+      - [STR_MUTON, STR_DRONE]
+      - [STR_MUTON]
+      - [STR_MUTON, STR_FLOATER]
+      - [STR_FLOATER]
+      - [STR_CYBERDISC, STR_CHRYSSALID]
+      - [STR_CYBERDISC, STR_CHRYSSALID]
+  - id: STR_ALIEN_ASSAULT_CREW # for x-com base defense
+    membersRandom:
+      - [STR_ETHEREAL]
+      - [STR_MUTON]
+      - [STR_MUTON, STR_DRONE]
+      - [STR_THIN_MAN]
+      - [STR_MUTON_ELITE, STR_FLOATER]
+      - [STR_MUTON, STR_MUTON, STR_DRONE]
+      - [STR_CYBERDISC]
+      - [STR_SECTOPOD]
+  - id: STR_OVERSEER_CREW
+    membersRandom:
+      - [STR_ETHEREAL]
+      - [STR_MUTON_ELITE]
+      - [STR_MUTON_ELITE, STR_DRONE]
+      - [STR_MUTON_ELITE, STR_CYBERDISC]
+      - [STR_MUTON_ELITE, STR_FLOATER]
+      - [STR_MUTON_ELITE, STR_MUTON_ELITE, STR_DRONE]
+      - [STR_SECTOPOD]
+      - [STR_SECTOPOD]
+  - id: STR_TEMPLE_CREW        # final mission
+    membersRandom:
+      - [STR_ETHEREAL_LEADER]
+      - [STR_SECTOID, STR_FLOATER, STR_DRONE]
+      - [STR_MUTON, STR_SNAKEMAN]
+      - [STR_MUTON, STR_SNAKEMAN,]
+      - [STR_ETHEREAL, STR_MUTON_ELITE]
+      - [STR_ETHEREAL, STR_MUTON_ELITE]
+      - [STR_ANDROMEDON, STR_MUTON_BERSERKER]
+      - [STR_CYBERDISC, STR_SECTOPOD]
   - id: STR_SECTOID # sectoids / thin man
     membersRandom:
       - [STR_SECTOID]
       - [STR_SECTOID]
       - [STR_SECTOID, STR_OUTSIDER]
-      - [STR_SECTOID]
-      - [STR_SECTOID]
+      - [STR_SECTOID, STR_THIN_MAN]
+      - [STR_SECTOID, STR_THIN_MAN]
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_CHRYSSALID, STR_FLOATER]
       - [STR_CHRYSSALID, STR_FLOATER]
@@ -25,14 +66,14 @@ alienRaces:
       - [STR_FLOATER]
       - [STR_FLOATER, STR_OUTSIDER]
       - [STR_FLOATER]
-      - [STR_FLOATER]
-      - [STR_FLOATER]
+      - [STR_FLOATER, STR_THIN_MAN]
+      - [STR_FLOATER, STR_THIN_MAN]
       - [STR_REAPER, STR_CHRYSSALID]
       - [STR_REAPER, STR_CHRYSSALID]
   - id: STR_TIER_ONE_MIXED # t1 mixed
     membersRandom:
-      - [STR_SECTOID, STR_FLOATER]
-      - [STR_SECTOID, STR_FLOATER]
+      - [STR_SECTOID, STR_FLOATER, STR_THIN_MAN]
+      - [STR_SECTOID, STR_FLOATER, STR_THIN_MAN]
       - [STR_SECTOID, STR_FLOATER, STR_OUTSIDER]
       - [STR_SECTOID, STR_FLOATER, STR_OUTSIDER]
       - [STR_SECTOID, STR_FLOATER]
@@ -107,18 +148,9 @@ alienRaces:
       - [STR_MUTON, STR_SNAKEMAN]
       - [STR_ETHEREAL, STR_MUTON_ELITE]
       - [STR_ETHEREAL, STR_MUTON_ELITE]
-      - [STR_REAPER, STR_MUTON_BERSERKER]
+      - [STR_DRONE, STR_MUTON_BERSERKER]
       - [STR_CYBERDISC, STR_ANDROMEDON, STR_SECTOPOD]
-  - id: STR_CHRYSSALID
-    membersRandom:
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
-      - [STR_CHRYSSALID]
+
   - id: STR_DRONE
     membersRandom:
       - [STR_DRONE]
@@ -129,6 +161,28 @@ alienRaces:
       - [STR_DRONE]
       - [STR_SECTOID]
       - [STR_DRONE]
+
+# these are for testing
+  - id: STR_CHRYSSALID
+    membersRandom:
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
+  - id: STR_THIN_MAN
+    membersRandom:
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
+      - [STR_THIN_MAN]
 extraStrings:
   - type: en-US
     strings:

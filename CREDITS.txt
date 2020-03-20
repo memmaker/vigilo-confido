@@ -24,7 +24,8 @@ New Grenade Sprites from XPiratez Mod by Dioxine (couldn't find the creator in c
 Muton Ufopedia Artwork by Neoworm (DeviantArt)
 
 Special Thanks to:
-Meridian for his fork, his merging of my PRs and his constant support
+SupSuper & Warboy for their work on OpenXcom
+Meridian for his work on OpenXcom extended, his merging of my PRs and his constant support
 Yankes for his script engine which made most of this possible and of course his support
 reaverofdarkness for being my first playtester
 Dioxine and SolariusScorch for their senior modders' advice

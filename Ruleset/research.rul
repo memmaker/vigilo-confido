@@ -1,11 +1,3 @@
-arcScripts:
-  - type: earlyGame                     # the type/name is used for overwriting or deleting purposes
-    sequentialArcs:                     # the type of research topics to be "discovered", each month 0 or 1, processed sequentially
-      - STR_BASIC_DEPLOYMENT
-    firstMonth: 0                       # months this command runs on, 0 runs on startup of a new game (default 0)
-    lastMonth: 12                       # don't run after this month. -1 denotes no limit (default -1)
-    executionOdds: 100                  # % chances of this command executing (default 100)
-    maxArcs: 1                          # maximum number of arcs this command can generate (together during the whole game), -1 for infinite (default -1)
 
 # removing ranks notes:
 # Remove all ranks with two exceptions: A sectoid commander and an ethereal leader
@@ -98,6 +90,8 @@ research:
   - delete: STR_THE_MARTIAN_SOLUTION
   - delete: STR_CYDONIA_OR_BUST
   - delete: STR_MEDI_KIT
+  - delete: STR_NEW_FIGHTER_TRANSPORTER
+  - delete: STR_ULTIMATE_CRAFT
   - name: STR_XENO_BIOLOGY # unlocks manuf. of alien containment
     cost: 40
     points: 10
@@ -140,6 +134,11 @@ research:
       - STR_ETHEREAL_DEVICE
       - STR_PSI_LAB
     unlockFinalMission: true
+  - name: STR_GRAV_SHIELD
+    cost: 930
+    points: 25
+    dependencies:
+      - STR_HYPERWAVE_BEACON
   - name: STR_MOTION_SCANNER
     dependencies: [STR_INTRO_SCIENCE]
     cost: 70

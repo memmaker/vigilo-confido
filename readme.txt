@@ -5,11 +5,9 @@ Survive. Adapt. Win.
 
 A vanilla expansion for OXCE featuring content from EU2012 and others.
 
-Direct Download "Beta Release" version 0.9.1L here: https://drive.google.com/open?id=1pDt8rGHUFxYy673-ooHW2PTya0NJVX6F
-
 Mod.io page: https://openxcom.mod.io/vigilo-confido
 
-The mod is feature complete and definitely playable but has only seen testing by me.
+The mod is feature complete and playable but has only seen testing by me.
 
 === Features ===
 
@@ -119,23 +117,12 @@ T1 - Kevlar Armor   & Conventional Weapons
 T2 - Predator Armor & Laser Weapons
 T3 - Warden Armor   & Plasma Weapons
 
-=== Changes in v0.9.3 ===
- - Increased throwing stats for specialist (To allow for field logistics)
- - Reset general store size to normal
- - Set proximity grenade to intended power
- - Nanoscale research now needed for experimental armor project
- - Medi-kit now avaiable from the start (So the specialist is more useful)
- - Fixed introduction research topic showing up as researchable
- - Fixed crashes on mission end
- - Various bugfixes
-
 === Known Issues / Backlog ===
- - Testing
+ - Testing, Balancing
  - Sound effects (Gremlin, Drone)
  - Sprite of combat experience commendation
- - Proximity mine article visible in Ufopedia
- - Explain passive items delayed effect
- - Heads-up about research in Ufopedia
+ - No Heads-up about research in Ufopedia
+ - Check Thin Man and Andromedon special abilities
 
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
@@ -147,8 +134,41 @@ T3 - Warden Armor   & Plasma Weapons
  - Enemy abilities (hardened ability: critical hit chance against this unit reduced by 60%)
  - Weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - Bleedout & Fatal Wounds
+ - (You should also reduce the chance they go unconscious from normal shooting.)
 
-=== Notes to self ===
+=== Changelog ===
+
+=== Changes in v0.9.4 ===
+ - Plot mission deployments re-defined
+ - Fixed floater not capturable
+ - Fixed chryssalid crash
+ 
+=== Changes in v0.9.3 ===
+ - Restructured introductionary research and story arc
+ - Nerfed specialist shooting skill max cap
+ - Re-balanced throwing starting stats for all classes
+ - Added 10 points armor damage to proximity grenades (same as standard grenade)
+ - Added passive bonus stats to items in ufopedia entries
+ - Medi-kit is now a manufacture project (So these engineers got sth. to do)
+ - Fixed some units missing the MECHANICAL tag
+ - Reduced power of blaster launcher and small launcher
+ - Added poison spit to thin man
+ - Fixed special ability on andromedon
+ - Removed Avenger and Lightning
+
+=== Changes in v0.9.2 ===
+ - Increased throwing stats for specialist (To allow for field logistics)
+ - Reset general store size to normal
+ - Set proximity grenade to intended power
+ - Nanoscale research now needed for experimental armor project
+ - Medi-kit now avaiable from the start (So the specialist is more useful)
+ - Fixed introduction research topic showing up as researchable
+ - Fixed crashes on mission end
+ - Various bugfixes
+
+=== Notes to self - HERE BE SPOILERS ===
+
+DON'T READ IF YOU WANT TO EXPERIENCE THE STORY LINE FOR THE FIRST TIME:
 
 EU2012 Story: https://www.ufopaedia.org/index.php/Storyline_(EU2012)
 A list of cutscene names for special events. More info: https://openxcom.org/forum/index.php/topic,7476.msg117830.html#msg117830
@@ -171,3 +191,6 @@ Cutscene triggers:
 Feature Wishlist:
 requiredSoldierType for startingCondition
 itemFlag: canNotSell
+Ability to trigger skills for aliens, or at least let them choose between two weapons.
+
+L: https://drive.google.com/open?id=1pDt8rGHUFxYy673-ooHW2PTya0NJVX6F

@@ -2,7 +2,7 @@ extended:
   tags:
     RuleArmor:
       MECHANICAL: int
-
+      SPECIAL_ABILITY: int
 
 armors:
   - type: SECTOID_ARMOR0
@@ -24,6 +24,8 @@ armors:
       - 1
       - 1
       - 1
+    fearImmune: true
+    painImmune: true
     meleeDodge:
       reactions: 0
   - type: SECTOID_ARMOR1
@@ -52,6 +54,8 @@ armors:
     meleeDodge:
       reactions: 0
   - type: FLOATER_ARMOR0
+    tags:
+      MECHANICAL: 1
     spriteInv: Inventory_FLOATER
     frontArmor: 8
     sideArmor: 6
@@ -74,6 +78,8 @@ armors:
     meleeDodge:
       reactions: 0.1
   - type: CYBERDISC_ARMOR
+    tags:
+      MECHANICAL: 1
     frontArmor: 30
     sideArmor: 30
     rearArmor: 30
@@ -92,9 +98,13 @@ armors:
       - 1
       - 1
       - 1.3
+    painImmune: true
+    fearImmune: true
     meleeDodge:
       reactions: 0
   - type: SECTOPOD_ARMOR
+    tags:
+      MECHANICAL: 1
     frontArmor: 40
     sideArmor: 38
     rearArmor: 34
@@ -113,6 +123,8 @@ armors:
       - 1
       - 1
       - 1.3
+    painImmune: true
+    fearImmune: true
     meleeDodge:
       reactions: 0
   - type: SNAKEMAN_ARMOR0
@@ -198,6 +210,8 @@ armors:
       - 1
       - 1
       - 1
+    painImmune: true
+    fearImmune: true
     meleeDodge:
       reactions: 0.1
   - type: CHRYSSALID_ARMOR
@@ -219,6 +233,7 @@ armors:
       - 1
       - 1
       - 1
+    painImmune: true
     meleeDodge:
       reactions: 0
   - type: ZOMBIE_ARMOR
@@ -240,10 +255,13 @@ armors:
       - 1
       - 1
       - 1
+    painImmune: true
     meleeDodge:
       reactions: 0.1
   - type: THIN_MAN_ARMOR
     spriteSheet: THIN_MAN.PCK
+    tags:
+      SPECIAL_ABILITY: 1
     spriteInv: INV_HUMAN_AGENT
     corpseBattle:
       - STR_THIN_MAN_CORPSE
@@ -374,6 +392,7 @@ armors:
       - 0
       - 0
       - 1.3
+    painImmune: true
     loftempsSet: [3]
     forcedTorso: 1
     drawingRoutine: 0
@@ -407,6 +426,8 @@ armors:
     meleeDodge:
       reactions: 0.1
   - type: STR_DRONE_ARMOR
+    tags:
+      MECHANICAL: 1
     spriteInv: inventory_DRONE
     spriteSheet: DRONE.PCK
     deathFrames: 5
@@ -434,6 +455,7 @@ armors:
       - 1
       - 1
       - 1.3
+    painImmune: true
     loftempsSet: [3]
     meleeDodge:
       reactions: 0.3
@@ -539,6 +561,10 @@ units:
     deathSound: 102
     intelligence: 4
     aggression: 1
+    builtInWeaponSets:
+      - [STR_THIN_MAN_POISON]
+      - [STR_THIN_MAN_POISON]
+      - [STR_THIN_MAN_POISON]
   - type: STR_FLOATER
     race: STR_FLOATER
     rank: STR_LIVE_SOLDIER
@@ -725,7 +751,6 @@ units:
       psiSkill: 0
       melee: 80
     armor: STR_ANDROMEDON_SUIT_UC
-    specab: 2
     standHeight: 18
     kneelHeight: 18
     value: 50
@@ -767,6 +792,7 @@ units:
       psiSkill: 0
       melee: 60
     armor: STR_ANDROMEDON_SHELL_SUIT_UC
+    specab: 2
     standHeight: 18
     kneelHeight: 18
     value: 25
@@ -804,7 +830,7 @@ units:
     race: STR_ETHEREAL
     rank: STR_LIVE_LEADER
     stats:
-      tu: 50
+      tu: 55
       stamina: 96
       health: 55
       bravery: 80
@@ -812,8 +838,8 @@ units:
       firing: 74
       throwing: 80
       strength: 48
-      psiStrength: 60
-      psiSkill: 50
+      psiStrength: 120
+      psiSkill: 80
       melee: 85
     armor: ETHEREAL_ARMOR1
     standHeight: 20
@@ -821,6 +847,7 @@ units:
     value: 100
     deathSound: 9
     intelligence: 7
+    specab: 1
     aggression: 1
     energyRecovery: 40
   - type: STR_OUTSIDER
@@ -918,7 +945,7 @@ units:
     intelligence: 3
     aggression: 2
     energyRecovery: 20
-    spawnUnit: STR_CHRYSSALID_TERRORIST
+    spawnUnit: STR_CHRYSSALID
     livingWeapon: true
     # Zombies are silent on death, no deathSound
 
@@ -960,6 +987,23 @@ items:
   - delete: STR_REAPER_CORPSE
   - delete: STR_CELATID_CORPSE
   - delete: STR_SILACOID_CORPSE
+# Live Aliens
+  - type: STR_SECTOID
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_SECTOID_COMMANDER
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_THIN_MAN
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+    listOrder: 15051
   - type: STR_OUTSIDER
     size: 0.0
     recover: true
@@ -967,6 +1011,63 @@ items:
     costSell: 0
     recoveryTransformations:
       STR_OUTSIDER_SHARD: [1]
+  - type: STR_CHRYSSALID
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_FLOATER
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+    listOrder: 15051
+  - type: STR_SNAKEMAN
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_MUTON
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_CYBERDISC
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_MUTON_BERSERKER
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_ETHEREAL
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_ETHEREAL_LEADER
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_MUTON_ELITE
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_ANDROMEDON
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_DRONE
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+# Alien corpses
   - type: STR_OUTSIDER_CORPSE
     size: 0.4
     costSell: 20000
@@ -979,12 +1080,6 @@ items:
     recover: false
     battleType: 11
     armor: 26
-  - type: STR_THIN_MAN
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
-    listOrder: 15051
   - type: STR_THIN_MAN_CORPSE
     costSell: 70
     size: 0.4
@@ -998,11 +1093,17 @@ items:
     recoveryPoints: 1
     armor: 35
     listOrder: 8506
-  - type: STR_MUTON_BERSERKER
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+  - type: STR_FLOATER_CORPSE
+    size: 0.4
+    costSell: 20000
+    weight: 20
+    bigSprite: 52
+    floorSprite: 48
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    battleType: 11
+    armor: 26
   - type: STR_MUTON_BERSERKER_CORPSE
     size: 0.4
     costSell: 350
@@ -1014,11 +1115,6 @@ items:
     recoveryPoints: 5
     battleType: 11
     armor: 26
-  - type: STR_MUTON_ELITE
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
   - type: STR_MUTON_ELITE_CORPSE
     size: 0.4
     costSell: 600
@@ -1030,27 +1126,6 @@ items:
     recoveryPoints: 5
     battleType: 11
     armor: 26
-  - type: STR_BERSERKER_PUNCH
-    categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
-    fixedWeapon: true
-    recover: false
-    specialUseEmptyHand: true
   - type: STR_ANDROMEDON_CORPSE
     weight: 26
     costSell: 250
@@ -1060,28 +1135,9 @@ items:
     invHeight: 3
     armor: 40
     recover: true
-  - type: STR_ANDROMEDON_PUNCH
-    categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    power: 10
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
-    fixedWeapon: true
-    recover: false
-    specialUseEmptyHand: true
+  - type: STR_ETHEREAL_CORPSE
+    power: 30
+    blastRadius: 3
   - type: STR_DRONE_CORPSE
     size: 0.4
     costSell: 600
@@ -1093,27 +1149,7 @@ items:
     recoveryPoints: 5
     battleType: 11
     armor: 26
-  - type: DRONE_WEAPON
-    categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    power: 10
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
-    fixedWeapon: true
-    recover: false
+
 
 extraSprites:
 # floor
@@ -1266,7 +1302,6 @@ extraStrings:
       STR_MUTON_BERSERKER: Berserker
       STR_MUTON_BERSERKER_CORPSE: Berserker Corpse
       STR_ANDROMEDON: Andromedon
-      STR_ANDROMEDON_TERRORIST: Andromedon
       STR_ANDROMEDON_SHELL: Andromedon Shell
       STR_ANDROMEDON_CORPSE: Andromedon Corpse
       STR_THIN_MAN_AUTOPSY: Thin Man autopsy

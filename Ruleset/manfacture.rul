@@ -25,29 +25,36 @@ manufacture:
   - delete: STR_MIND_PROBE
   - delete: STR_BLASTER_LAUNCHER
   - delete: STR_BLASTER_BOMB
+  - delete: STR_AVENGER
+  - delete: STR_LIGHTNING
   - name: STR_SCOPE
-    space: 0
+    space: 2
     time: 120
     cost: 200
+    requires: [STR_INTRO_ENGINEERING]
+  - name: STR_MEDI_KIT
+    space: 2
+    time: 220
+    cost: 1200
     requires: [STR_INTRO_ENGINEERING]
   - name: STR_NANO_MEDI_KIT
     requires:
       - STR_NANO_MEDI_KIT
-    space: 0
+    space: 2
     time: 500
     cost: 16000
   - name: STR_NANOSCALE_VEST
     category: STR_PASSIVE_BONUS_ITEMS
     requires:
       - STR_NANOSCALE_VEST
-    space: 0
+    space: 3
     time: 500
     cost: 2200
   - name: STR_ALIEN_PSI_AMP
     category: STR_EQUIPMENT
     requires:
       - STR_ALIEN_PSI_AMP
-    space: 0
+    space: 3
     time: 500
     cost: 160000
     requiredItems:
@@ -56,8 +63,8 @@ manufacture:
   - name: STR_SKULLJACK
     listOrder: 50
     category: STR_EQUIPMENT
-    space: 0
-    time: 150
+    space: 5
+    time: 350
     cost: 20000
     requires:
       - STR_SKULLJACK
@@ -66,8 +73,8 @@ manufacture:
   - name: STR_SKELETON_KEY
     listOrder: 51
     category: STR_EQUIPMENT
-    space: 0
-    time: 150
+    space: 3
+    time: 350
     cost: 20000
     requires:
       - STR_OUTSIDER_SHARD
@@ -78,7 +85,7 @@ manufacture:
     category: STR_EQUIPMENT
     requires:
       - STR_PSI_LAB
-    space: 0
+    space: 4
     time: 500
     cost: 160000
     requiredItems:

@@ -1048,7 +1048,6 @@ items:
     recoveryPoints: 1
     invWidth: 2
     invHeight: 1
-
     tags:
       RUPTURE_DAMAGE: 20
 manufacture:

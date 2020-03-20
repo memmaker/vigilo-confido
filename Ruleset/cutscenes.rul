@@ -74,7 +74,6 @@ interfaces:
     music: engineering.ambience
 
 cutscenes:
-  - delete: intro
   - delete: winGame
   - delete: loseGame
   - type: loseMiss
@@ -82,7 +81,7 @@ cutscenes:
       - Resources/ANIMS/1080_BattleOver_LOC.FLI
     audioTracks:
       - 1080_BattleOver_LOC
-  - type: intro
+  - type: intro_VIDEO
     useUfoAudioSequence: false
     videos:
       - Resources/ANIMS/INTRO_320_17_5fps.FLI

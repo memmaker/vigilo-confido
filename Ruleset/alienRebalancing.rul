@@ -439,10 +439,10 @@ alienMissions:
     raceWeights: # In the case of a shootdown, race comes from the UFO that triggered the mission.
       0:
         STR_SNAKEMAN: 18
-        STR_ETHEREAL: 18
+        STR_ETHEREAL: 10
         STR_MUTON: 18
         STR_FLOATER: 18
-        STR_SECTOPOD: 18
+        STR_SECTOPOD: 10
         STR_MIXED: 10
     waves:
       - ufo: STR_SMALL_SCOUT
@@ -476,23 +476,7 @@ alienMissions:
     targetBaseOdds: 100
     raceWeights:
       0:
-        STR_ETHEREAL: 70
-        STR_TIER_TWO_MIXED: 25
-        STR_TIER_ONE_MIXED: 5
-      1:
-        STR_SECTOPOD: 70
-        STR_ETHEREAL: 20
-        STR_TIER_TWO_MIXED: 5
-        STR_TIER_ONE_MIXED: 5
-      2:
-        STR_TIER_THREE_MIXED: 70
-        STR_TIER_TWO_MIXED: 30
-      3:
-        STR_SECTOPOD: 10
-        STR_ETHEREAL: 10
-        STR_TIER_THREE_MIXED: 50
-        STR_TIER_TWO_MIXED: 15
-        STR_TIER_ONE_MIXED: 15
+        STR_OVERSEER_CREW: 100
     points: 0
     objective: 5
     waves:
@@ -506,6 +490,7 @@ alienDeployments:
   - delete: STR_MARS_THE_FINAL_ASSAULT
   - delete: STR_MARS_CYDONIA_LANDING
   - type: STR_SMALL_SCOUT
+    keepCraftAfterFailedMission: true
     data:
       - alienRank: 5
         lowQty: 1
@@ -529,6 +514,7 @@ alienDeployments:
     height: 4
     maxShade: 6
   - type: STR_MEDIUM_SCOUT
+    keepCraftAfterFailedMission: true
     data:
       - alienRank: 5
         lowQty: 1
@@ -569,6 +555,7 @@ alienDeployments:
     height: 4
     maxShade: 6
   - type: STR_LARGE_SCOUT
+    keepCraftAfterFailedMission: true
     data:
       - alienRank: 5
         lowQty: 1
@@ -631,6 +618,7 @@ alienDeployments:
     height: 4
     maxShade: 6
   - type: STR_HARVESTER
+    keepCraftAfterFailedMission: true
     maxShade: 6
     data:
       - alienRank: 5
@@ -714,6 +702,7 @@ alienDeployments:
     length: 50
     height: 4
   - type: STR_ABDUCTOR
+    keepCraftAfterFailedMission: true
     maxShade: 6
     data:
       - alienRank: 5
@@ -898,6 +887,7 @@ alienDeployments:
     length: 50
     height: 4
   - type: STR_BATTLESHIP
+    keepCraftAfterFailedMission: true
     maxShade: 6
     data:
       - alienRank: 5
@@ -1027,6 +1017,7 @@ alienDeployments:
     length: 50
     height: 4
   - type: STR_SUPPLY_SHIP
+    keepCraftAfterFailedMission: true
     maxShade: 6
     data:
       - alienRank: 5
@@ -1106,6 +1097,7 @@ alienDeployments:
     length: 50
     height: 4
   - type: STR_TERROR_MISSION
+    keepCraftAfterFailedMission: true
     maxShade: 6
     data:
       - alienRank: 5
@@ -1288,7 +1280,7 @@ alienDeployments:
               - STR_BLASTER_BOMB
               - STR_BLASTER_BOMB
       - alienRank: 1
-        lowQty: 1
+        lowQty: 2
         highQty: 3
         dQty: 0
         percentageOutsideUfo: 0
@@ -1347,9 +1339,11 @@ alienDeployments:
     width: 50
     length: 50
     height: 4
+    race: STR_OVERSEER_CREW
     missionBountyItem: STR_ETHEREAL_DEVICE
     unlockedResearch: STR_OBJECTIVES_ARC5
   - type: STR_ALIEN_BASE_ASSAULT
+    keepCraftAfterFailedMission: true
     data:
       - alienRank: 6
         lowQty: 1
@@ -1476,6 +1470,7 @@ alienDeployments:
     width: 60     # Changed by C.M.P.
     length: 60    # Changed by C.M.P.
     height: 2
+    race: STR_ALIEN_BASE_CREW
     terrains:
       - UBASE
     shade: 10     # Changed by C.M.P.
@@ -1518,8 +1513,8 @@ alienDeployments:
               - STR_FREEZE_GRENADE
               - STR_HEAVY_PLASMA_CLIP
       - alienRank: 4
-        lowQty: 1
-        highQty: 2
+        lowQty: 3
+        highQty: 5
         dQty: 0
         percentageOutsideUfo: 20
         itemSets:
@@ -1536,8 +1531,8 @@ alienDeployments:
               - STR_PLASMA_PISTOL_CLIP
               - STR_GAS_GRENADE
       - alienRank: 3
-        lowQty: 1
-        highQty: 2
+        lowQty: 3
+        highQty: 5
         dQty: 0
         percentageOutsideUfo: 20
         itemSets:
@@ -1555,8 +1550,8 @@ alienDeployments:
               - STR_PLASMA_PISTOL_CLIP
               - STR_FREEZE_GRENADE
       - alienRank: 2
-        lowQty: 1
-        highQty: 2
+        lowQty: 3
+        highQty: 5
         dQty: 0
         percentageOutsideUfo: 20
         itemSets:
@@ -1574,8 +1569,8 @@ alienDeployments:
               - STR_BLASTER_BOMB
               - STR_BLASTER_BOMB
       - alienRank: 1
-        lowQty: 1
-        highQty: 3
+        lowQty: 3
+        highQty: 5
         dQty: 0
         percentageOutsideUfo: 0
         itemSets:
@@ -1595,7 +1590,7 @@ alienDeployments:
               - STR_BLASTER_BOMB
       - alienRank: 0
         lowQty: 1
-        highQty: 1
+        highQty: 2
         dQty: 0
         percentageOutsideUfo: 0
         itemSets:
@@ -1620,8 +1615,8 @@ alienDeployments:
           - [STR_NOTHING, STR_NOTHING, STR_XCOM_ARCHIVES_FOLDER1, STR_XCOM_ARCHIVES_FOLDER2,
             STR_XCOM_ARCHIVES_FOLDER3, STR_XCOM_ARCHIVES_FOLDER4]
       - alienRank: 6
-        lowQty: 0
-        highQty: 2
+        lowQty: 1
+        highQty: 3
         dQty: 1
         percentageOutsideUfo: 50
         itemSets:
@@ -1629,8 +1624,8 @@ alienDeployments:
           - []
           - []
       - alienRank: 7
-        lowQty: 0
-        highQty: 2
+        lowQty: 1
+        highQty: 3
         dQty: 1
         percentageOutsideUfo: 50
         itemSets:
@@ -1643,6 +1638,7 @@ alienDeployments:
     terrains:
       - XBASE
     shade: 5
+    race: STR_ALIEN_ASSAULT_CREW
     briefing:
       palette: 0
       background: BACK01.SCR
@@ -1650,8 +1646,8 @@ alienDeployments:
   - type: STR_THE_FINAL_ASSAULT
     data:
       - alienRank: 0
-        lowQty: 2
-        highQty: 4
+        lowQty: 1
+        highQty: 3
         dQty: 0
         percentageOutsideUfo: 0
         itemSets:
@@ -1775,7 +1771,7 @@ alienDeployments:
     terrains:
       - UBASE
     shade: 5
-    race: STR_MIXED
+    race: STR_TEMPLE_CREW
     briefing:
       textOffset: -16
       palette: 6
@@ -1784,8 +1780,8 @@ alienDeployments:
       showCraft: false
       background: BACK01.SCR
     script: BOSSBATTLE
-    objectiveType: 14
-    objectivesRequired: 1
+#    objectiveType: 14
+#    objectivesRequired: 1
     finalDestination: true
 
 startingConditions:
@@ -1966,6 +1962,127 @@ items:
     flatRate: false
     damageAlter:
       ToArmor: 0
+  - type: STR_BLASTER_BOMB
+    power: 90
+  - type: STR_STUN_BOMB
+    power: 40
+  - type: STR_ANDROMEDON_PUNCH
+    categories: [STR_BUILT_INS]
+    weight: 0
+    meleeHitSound: 109
+    meleeAnimation: 0
+    power: 10
+    damageType: 7
+    strengthApplied: true
+    confMelee:
+      name: STR_PUNCH
+    costMelee:
+      time: 8
+      energy: 2
+    flatRate: true
+    battleType: 3
+    clipSize: -1
+    experienceTrainingMode: 13
+    invWidth: 2
+    invHeight: 2
+    fixedWeapon: true
+    recover: false
+    specialUseEmptyHand: true
+  - type: DRONE_WEAPON
+    categories: [STR_BUILT_INS]
+    weight: 0
+    meleeHitSound: 109
+    meleeAnimation: 0
+    power: 10
+    damageType: 7
+    strengthApplied: true
+    confMelee:
+      name: STR_PUNCH
+    costMelee:
+      time: 8
+      energy: 2
+    flatRate: true
+    battleType: 3
+    clipSize: -1
+    experienceTrainingMode: 13
+    invWidth: 2
+    invHeight: 2
+    fixedWeapon: true
+    recover: false
+  - type: STR_BERSERKER_PUNCH
+    categories: [STR_BUILT_INS]
+    weight: 0
+    meleeHitSound: 109
+    meleeAnimation: 0
+    damageType: 7
+    strengthApplied: true
+    confMelee:
+      name: STR_PUNCH
+    costMelee:
+      time: 8
+      energy: 2
+    flatRate: true
+    battleType: 3
+    clipSize: -1
+    experienceTrainingMode: 13
+    invWidth: 2
+    invHeight: 2
+    fixedWeapon: true
+    recover: false
+    specialUseEmptyHand: true
+
+  - type: STR_THIN_MAN_POISON
+    tags:
+      INFLICT_EFFECT: 4 # poison
+      INFLICT_CHANCE: 50
+      EFFECT_POWER: 20
+    weight: 3
+    bigSprite:
+        mod: xcom1
+        index: 60
+    floorSprite:
+        mod: xcom1
+        index: 31
+    handSprite:
+        mod: xcom1
+        index: 104
+    #bigSprite: 60
+    #floorSprite: 31
+    #handSprite: 104
+    bulletSprite: 8
+    fireSound: 51
+    hitSound: 19
+    hitAnimation: 46
+    power: 40
+    damageType: 12
+    accuracySnap: 75
+    accuracyAimed: 110
+    tuSnap: 34
+    tuAimed: 45
+    battleType: 1
+    fixedWeapon: true
+    accuracyMultiplier:
+      firing: 0.0
+      throwing: 1.0
+    invWidth: 2
+    invHeight: 3
+    clipSize: 1
+    recover: false
+    arcingShot: true
+    damageAlter:
+      SmokeThreshold: 1000
+      ResistType: 12
+      RandomType: 3
+      FixRadius: 4
+      IgnorePainImmunity: true
+      ArmorEffectiveness: 0
+      ToStun: 0.1
+      ToMorale: 0.1
+      ToHealth: 0
+      ToArmor: 0
+      ToTile: 0
+      ToItem: 0
+      ToWound: 0
 
 ufos:
   - type: STR_OVERSEER_UFO

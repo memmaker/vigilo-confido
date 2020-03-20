@@ -838,7 +838,7 @@ extraStrings:
       STR_PERSONAL_ARMOR_UC: Kevlar Armor
       STR_PERSONAL_ARMOR_UFOPEDIA: This is a standard issue X-Com battle armor. Manufactured
         for the purpose of xeno operations, they have been assembled from specialized
-        kevlar plates. Our government would never send us in the field without this.
+        kevlar plates. Our government would never send us in the field without this.{NEWLINE}{NEWLINE}> 10 HP
       STR_POWER_SUIT: Hazmat Suit
       STR_POWER_SUIT_UC: Hazmat Suit
       STR_POWER_SUIT_UFOPEDIA: This heavy suit allows the wearer to walk through hazardous
@@ -853,7 +853,7 @@ extraStrings:
       STR_UFOPEDIA_PREDATOR_ARMOR: Our Predator Armor was designed to offer substantially
         better protection against the alien plasma weaponry through the use of their
         alloys. Tests indicate a substantial survivability increase relative to conventional
-        kevlar armor.
+        kevlar armor.{NEWLINE}{NEWLINE}> 45 HP
       STR_WARDEN_ARMOR: Warden Armor
       STR_WARDEN_ARMOR_UC: Warden Armor
       STR_WARDEN_ARMOR_WHITE_UC: Warden Armor (White)
@@ -861,7 +861,7 @@ extraStrings:
       STR_UFOPEDIA_POWER_ARMOR: "Our new mastery of the alien's Elerium technology\
         \ has lead us to the ultimate in battle armor: the Warden Armor. Elerium powered\
         \ armor provides unprecedented survivability and versatility in the battle\
-        \ against increasingly powerful alien enemies."
+        \ against increasingly powerful alien enemies.{NEWLINE}{NEWLINE}> 100 HP"
       STR_SKY_STRIKE_ARMOR: Archangel Armor
       STR_SKY_STRIKE_ARMOR_UC: Archangel Armor
       STR_SKY_STRIKE_ARMOR_BLUE: Archangel Armor (Blue)
@@ -870,9 +870,9 @@ extraStrings:
         Engineer, when combined with our standard-issue armor systems, result in an
         armored suit with high damage resistance and improved mobility. The built-in
         propulsion system allows temporary flight, enabling the wearer to rapidly
-        change locations.
+        change locations.{NEWLINE}> 50 HP
       STR_PSI_ARMOR: Psi Armor
       STR_PSI_ARMOR_BLUE_UC: Psi Armor
       STR_UFOPEDIA_PSI_ARMOR: Our most powerful armored suit, this equipment serves
         to amplify the wearer's psionic abilities through a system modeled after the
-        alien's own cybernetic implants.
+        alien's own cybernetic implants.{NEWLINE}{NEWLINE}> 40 HP
