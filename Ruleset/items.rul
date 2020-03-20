@@ -507,7 +507,6 @@ items:
     tags:
       SKULLJACK: 1
     power: 20
-    hidePower: true
     damageType: 6
     damageAlter:
       ArmorEffectiveness: 0

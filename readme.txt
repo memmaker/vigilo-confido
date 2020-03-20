@@ -136,6 +136,7 @@ T3 - Warden Armor   & Plasma Weapons
  - (You should also reduce the chance they go unconscious from normal shooting.)
  - Recovery time too high?
  - Very easy to exhaust the one medi-kit activation on oneself 
+ - Deployment research?
 
 === Changelog ===
 
@@ -149,6 +150,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Fixed plasma weapon damage to intended values
  - Added short intro
  - Adjusted Sectopod Armor 
+ - Introduced elerium cores
+ - Adjusted manufacturing costs
 
 === Changes in v0.9.3 ===
  - Restructured introductionary research and story arc

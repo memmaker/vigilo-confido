@@ -16,3 +16,9 @@ patchrules items csv_data/items.csv ${MODPATH}
 
 ods2csv CSV_Armors data.sheet.ods > ./csv_data/armors.csv
 patchrules armors csv_data/armors.csv ${MODPATH}
+
+ods2csv CSV_Manufacture data.sheet.ods > ./csv_data/manufacture.csv
+patchrules manufacture csv_data/manufacture.csv ${MODPATH}
+
+ods2csv CSV_Research data.sheet.ods > ./csv_data/research.csv
+patchrules research csv_data/research.csv ${MODPATH}

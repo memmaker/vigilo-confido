@@ -9,3 +9,5 @@ fi
 rul2ods ${MODPATH} CSV_Items data.sheet.ods
 rul2ods ${MODPATH} CSV_Armors data.sheet.ods
 rul2ods ${MODPATH} CSV_Units data.sheet.ods
+rul2ods ${MODPATH} CSV_Research data.sheet.ods
+rul2ods ${MODPATH} CSV_Manufacture data.sheet.ods

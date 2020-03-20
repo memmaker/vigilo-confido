@@ -1810,10 +1810,22 @@ items:
     recoveryDividers:
       STR_UFO: 50
     recoveryPoints: 5
+  - type: STR_ELERIUM_CORE
+    size: 1
+    costSell: 430
+    weight: 5
+    bigSprite: 56
+    floorSprite: 37
+    invWidth: 1
+    invHeight: 1
+    recoveryPoints: 10
   - type: STR_SECTOID_CORPSE
     costSell: 70
   - type: STR_UFO_POWER_SOURCE
     costSell: 2200
+    recoveryTransformations:
+      STR_ELERIUM_CORE: [80, 20]
+      STR_UFO_POWER_SOURCE: [20, 80]
   - type: STR_UFO_NAVIGATION
     costSell: 1350
   - type: STR_LASER_PISTOL
