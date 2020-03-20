@@ -942,18 +942,6 @@ items:
     costSell: 0
   - type: STR_PLASMA_BEAM
     costSell: 0
-  - type: STR_PLASMA_PISTOL
-    costBuy: 0
-    costSell: 0
-  - type: STR_PLASMA_PISTOL_CLIP
-    costBuy: 0
-    costSell: 0
-  - type: STR_HEAVY_PLASMA
-    costBuy: 0
-    costSell: 0
-  - type: STR_HEAVY_PLASMA_CLIP
-    costBuy: 0
-    costSell: 0
 
 extraSprites:
   - type: BIGOBS.PCK
