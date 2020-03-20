@@ -42,21 +42,21 @@ manufacture:
       - STR_NANO_MEDI_KIT
     space: 0
     time: 500
-    cost: 16000
+    cost: 2200
   - name: STR_NANOSCALE_VEST
     category: STR_PASSIVE_BONUS_ITEMS
     requires:
       - STR_NANOSCALE_VEST
     space: 0
     time: 500
-    cost: 2200
+    cost: 1500
   - name: STR_ALIEN_PSI_AMP
     category: STR_EQUIPMENT
     requires:
       - STR_ALIEN_PSI_AMP
     space: 0
     time: 500
-    cost: 160000
+    cost: 3400
     requiredItems:
       STR_ALIEN_ALLOYS: 1
       STR_ETHEREAL_CORPSE: 1
@@ -65,7 +65,7 @@ manufacture:
     category: STR_EQUIPMENT
     space: 0
     time: 350
-    cost: 20000
+    cost: 1500
     requires:
       - STR_SKULLJACK
     requiredItems:
@@ -75,7 +75,7 @@ manufacture:
     category: STR_EQUIPMENT
     space: 0
     time: 350
-    cost: 20000
+    cost: 1200
     requires:
       - STR_OUTSIDER_SHARD
     requiredItems:
@@ -87,14 +87,14 @@ manufacture:
       - STR_PSI_LAB
     space: 0
     time: 500
-    cost: 160000
+    cost: 1400
     requiredItems:
       STR_ELERIUM_115: 1
   - name: STR_THIN_MAN_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_THIN_MAN_AUTOPSY
     requiredItems:
@@ -105,7 +105,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_ANDROMEDON_AUTOPSY
     requiredItems:
@@ -116,7 +116,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_CYBERDISC_AUTOPSY
     requiredItems:
@@ -127,7 +127,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_MUTON_AUTOPSY
     requiredItems:
@@ -138,7 +138,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_BERSERKER_AUTOPSY
     requiredItems:
@@ -149,7 +149,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_ETHEREAL_AUTOPSY
     requiredItems:
@@ -160,7 +160,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_CHRYSSALID_AUTOPSY
     requiredItems:
@@ -171,7 +171,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_MUTON_ELITE_AUTOPSY
     requiredItems:
@@ -182,7 +182,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_DRONE_AUTOPSY
     requiredItems:
@@ -193,7 +193,7 @@ manufacture:
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0
     time: 120
-    cost: 15000
+    cost: 4000
     requires:
       - STR_SECTOPOD_AUTOPSY
     requiredItems:
@@ -207,25 +207,22 @@ manufacture:
     requires: [STR_NANOSCALE_VEST, STR_EXPERIMENTAL_ARMOR]
     space: 0
     time: 160
-    cost: 100
+    cost: 8000
     producedItems: {} # override default product
     requiredItems:
       STR_ELERIUM_CORE: 1
     randomProducedItems:
-      -
-        - 30
-        - STR_STASIS_VEST: 1
-      -
-        - 30
-        - STR_HAZMAT_VEST: 1
-      -
-        - 30
-        - STR_PLATED_VEST: 1
+      -   - 30
+          - STR_STASIS_VEST: 1
+      -   - 30
+          - STR_HAZMAT_VEST: 1
+      -   - 30
+          - STR_PLATED_VEST: 1
   - name: STR_SKY_STRIKE_ARMOR
     category: STR_PERSONAL_ARMOR
     space: 0
     time: 360
-    cost: 23000
+    cost: 9000
     requires:
       - STR_SKY_STRIKE_ARMOR
     producedItems:

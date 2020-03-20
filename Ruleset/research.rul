@@ -1,4 +1,3 @@
-
 # removing ranks notes:
 # Remove all ranks with two exceptions: A sectoid commander and an ethereal leader
 # make sure these research topics can still be researched somehow:
@@ -451,7 +450,7 @@ research:
     dependencies:
       - STR_LASER_WEAPONS
   - name: STR_HEAVY_PLASMA # Alien Heavy Plasma
-    cost: 800
+    cost: 480
     points: 30
     needItem: true
     destroyItem: true
@@ -466,7 +465,7 @@ research:
     needItem: true
     destroyItem: true
   - name: STR_PLASMA_RIFLE_CLIP
-    cost: 400
+    cost: 10
     points: 6
     needItem: true
     destroyItem: true
@@ -476,12 +475,12 @@ research:
     needItem: true
     destroyItem: true
   - name: STR_PLASMA_PISTOL_CLIP
-    cost: 400
+    cost: 10
     points: 5
     needItem: true
     destroyItem: true
   - name: STR_PLASMA_WEAPONS # X-Com Plasma Weapons
-    cost: 0
+    cost: 400
     points: 40
     dependencies: [STR_ELERIUM_115, STR_PLASMA_PISTOL, STR_PLASMA_RIFLE, STR_HEAVY_PLASMA]
   - name: STR_PLASMA_SHOTGUN # X-Com Plasma Shotgun
@@ -509,17 +508,17 @@ research:
       - STR_LASER_WEAPONS
       - STR_PSI_LAB
   - name: STR_UFO_POWER_SOURCE
-    cost: 450
+    cost: 200
     points: 30
     needItem: true
     destroyItem: true
   - name: STR_UFO_NAVIGATION
-    cost: 450
+    cost: 200
     points: 30
     needItem: true
     destroyItem: true
   - name: STR_ALIEN_ALLOYS
-    cost: 400
+    cost: 220
     points: 30
     needItem: true
     destroyItem: true

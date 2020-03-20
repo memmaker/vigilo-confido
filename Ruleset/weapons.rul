@@ -1142,7 +1142,7 @@ manufacture:
       - STR_LASER_WEAPONS
     space: 0
     time: 300
-    cost: 8000
+    cost: 2000
     requiredItems:
       STR_LASER_PISTOL: 1
       STR_ALIEN_ALLOYS: 2
@@ -1152,7 +1152,7 @@ manufacture:
       - STR_LASER_WEAPONS
     space: 0
     time: 400
-    cost: 12000
+    cost: 3000
     requiredItems:
       STR_LASER_RIFLE: 1
       STR_ALIEN_ALLOYS: 4
@@ -1162,7 +1162,7 @@ manufacture:
       - STR_LASER_SHOTGUN
     space: 0
     time: 450
-    cost: 13000
+    cost: 4000
     requiredItems:
       STR_LASER_RIFLE: 1
       STR_ALIEN_ALLOYS: 5
@@ -1172,7 +1172,7 @@ manufacture:
       - STR_LASER_SNIPER_RIFLE
     space: 0
     time: 450
-    cost: 13000
+    cost: 4000
     requiredItems:
       STR_LASER_RIFLE: 1
       STR_ALIEN_ALLOYS: 5
@@ -1182,7 +1182,7 @@ manufacture:
       - STR_XCOM_HEAVY_LASER
     space: 0
     time: 500
-    cost: 16000
+    cost: 4200
     requiredItems:
       STR_LASER_RIFLE: 2
       STR_ALIEN_ALLOYS: 10
@@ -1193,7 +1193,7 @@ manufacture:
       - STR_PLASMA_WEAPONS
     space: 0
     time: 600
-    cost: 56000
+    cost: 7500
     requiredItems:
       STR_PLASMA_PISTOL: 1
       STR_ALIEN_ALLOYS: 2
@@ -1214,7 +1214,7 @@ manufacture:
       - STR_PLASMA_WEAPONS
     space: 0
     time: 700
-    cost: 76000
+    cost: 9000
     requiredItems:
       STR_PLASMA_RIFLE: 1
       STR_ALIEN_ALLOYS: 4
@@ -1235,7 +1235,7 @@ manufacture:
       - STR_PLASMA_SHOTGUN
     space: 0
     time: 800
-    cost: 86000
+    cost: 10000
     requiredItems:
       STR_HEAVY_PLASMA: 1
       STR_ALIEN_ALLOYS: 4
@@ -1255,7 +1255,7 @@ manufacture:
       - STR_PLASMA_SNIPER_RIFLE
     space: 0
     time: 800
-    cost: 86000
+    cost: 10000
     requiredItems:
       STR_HEAVY_PLASMA: 1
       STR_ALIEN_ALLOYS: 4
@@ -1275,7 +1275,7 @@ manufacture:
       - STR_XCOM_HEAVY_PLASMA
     space: 0
     time: 700
-    cost: 76000
+    cost: 11000
     requiredItems:
       STR_HEAVY_PLASMA: 1
       STR_ALIEN_ALLOYS: 10

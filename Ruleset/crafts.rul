@@ -1,6 +1,6 @@
 research:
   - name: STR_BASIC_DEPLOYMENT
-    cost: 180
+    cost: 140
     points: 20
     dependencies:
       - STR_BASIC_DEPLOYMENT
@@ -10,7 +10,7 @@ research:
     dependencies:
       - STR_BASIC_DEPLOYMENT
       - STR_ALIEN_ALLOYS
-    cost: 480
+    cost: 140
     points: 20
   # - name: STR_ADVANCED_DEPLOYMENT2
   #   disables:
@@ -32,7 +32,7 @@ research:
     dependencies:
       - STR_ADVANCED_DEPLOYMENT1
       - STR_ELERIUM_115
-    cost: 800
+    cost: 140
     points: 20
 
 
@@ -73,14 +73,14 @@ crafts:
           width: 10
           length: 10
     deployment:
-     - [2, 2, 0, 5]
-     - [2, 6, 0, 6]
+      - [2, 2, 0, 5]
+      - [2, 6, 0, 6]
 
-     - [5, 7, 0, 3]
-     - [5, 1, 0, 7]
+      - [5, 7, 0, 3]
+      - [5, 1, 0, 7]
 
-     - [8, 6, 0, 1]
-     - [8, 2, 0, 2]
+      - [8, 6, 0, 1]
+      - [8, 2, 0, 2]
 
   - type: STR_SKYRANGER_SIX
     refNode: *STR_SKYRANGER
@@ -99,14 +99,14 @@ crafts:
           width: 10
           length: 10
     deployment:
-     - [2, 2, 0, 5]
-     - [2, 6, 0, 6]
+      - [2, 2, 0, 5]
+      - [2, 6, 0, 6]
 
-     - [5, 7, 0, 3]
-     - [5, 1, 0, 7]
+      - [5, 7, 0, 3]
+      - [5, 1, 0, 7]
 
-     - [8, 6, 0, 1]
-     - [8, 2, 0, 2]
+      - [8, 6, 0, 1]
+      - [8, 2, 0, 2]
 
 
   - type: STR_SKYRANGER_EIGHT
@@ -126,17 +126,16 @@ crafts:
           width: 10
           length: 10
     deployment:
-     - [2, 2, 0, 5]
-     - [2, 6, 0, 6]
-     
-     - [5, 7, 0, 3]
-     - [5, 1, 0, 7]
+      - [2, 2, 0, 5]
+      - [2, 6, 0, 6]
+      - [5, 7, 0, 3]
+      - [5, 1, 0, 7]
 
-     - [8, 6, 0, 1]
-     - [8, 2, 0, 2]
+      - [8, 6, 0, 1]
+      - [8, 2, 0, 2]
 
-     - [6, 5, 0, 1]
-     - [6, 4, 0, 2]
+      - [6, 5, 0, 1]
+      - [6, 4, 0, 2]
 
 
   - type: STR_SKYRANGER_TEN
@@ -156,20 +155,19 @@ crafts:
           width: 10
           length: 10
     deployment:
-     - [2, 2, 0, 5]
-     - [2, 6, 0, 6]
+      - [2, 2, 0, 5]
+      - [2, 6, 0, 6]
 
-     - [1, 4, 0, 5]
-     - [3, 4, 0, 6]
-     
-     - [5, 7, 0, 3]
-     - [5, 1, 0, 7]
+      - [1, 4, 0, 5]
+      - [3, 4, 0, 6]
+      - [5, 7, 0, 3]
+      - [5, 1, 0, 7]
 
-     - [8, 6, 0, 1]
-     - [8, 2, 0, 2]
+      - [8, 6, 0, 1]
+      - [8, 2, 0, 2]
 
-     - [6, 5, 0, 1]
-     - [6, 3, 0, 2]
+      - [6, 5, 0, 1]
+      - [6, 3, 0, 2]
   - type: STR_SKYRANGER_TWELVE
     refNode: *STR_SKYRANGER
     requires:
@@ -187,20 +185,20 @@ crafts:
           width: 10
           length: 10
     deployment:
-     - [2, 2, 0, 5]
-     - [2, 3, 0, 5]
-     - [2, 6, 0, 6]
-     - [2, 7, 0, 6]
+      - [2, 2, 0, 5]
+      - [2, 3, 0, 5]
+      - [2, 6, 0, 6]
+      - [2, 7, 0, 6]
 
-     - [5, 7, 0, 3]
-     - [5, 8, 0, 3]
-     - [5, 1, 0, 7]
-     - [5, 2, 0, 7]
+      - [5, 7, 0, 3]
+      - [5, 8, 0, 3]
+      - [5, 1, 0, 7]
+      - [5, 2, 0, 7]
 
-     - [8, 6, 0, 1]
-     - [8, 7, 0, 1]
-     - [8, 2, 0, 2]
-     - [8, 3, 0, 2]
+      - [8, 6, 0, 1]
+      - [8, 7, 0, 1]
+      - [8, 2, 0, 2]
+      - [8, 3, 0, 2]
 
   - type: STR_SKYRANGER_FOURTEEN
     refNode: *STR_SKYRANGER
@@ -219,23 +217,23 @@ crafts:
           width: 10
           length: 10
     deployment:
-     - [2, 2, 0, 5]
-     - [2, 3, 0, 5]
-     - [2, 6, 0, 6]
-     - [2, 7, 0, 6]
+      - [2, 2, 0, 5]
+      - [2, 3, 0, 5]
+      - [2, 6, 0, 6]
+      - [2, 7, 0, 6]
 
-     - [5, 7, 0, 3]
-     - [5, 8, 0, 3]
-     - [5, 1, 0, 7]
-     - [5, 2, 0, 7]
+      - [5, 7, 0, 3]
+      - [5, 8, 0, 3]
+      - [5, 1, 0, 7]
+      - [5, 2, 0, 7]
 
-     - [8, 6, 0, 1]
-     - [8, 7, 0, 1]
-     - [8, 2, 0, 2]
-     - [8, 3, 0, 2]
+      - [8, 6, 0, 1]
+      - [8, 7, 0, 1]
+      - [8, 2, 0, 2]
+      - [8, 3, 0, 2]
 
-     - [6, 5, 0, 1]
-     - [6, 4, 0, 2]
+      - [6, 5, 0, 1]
+      - [6, 4, 0, 2]
 
 extraStrings:
   - type: en-US
@@ -251,8 +249,12 @@ extraStrings:
       STR_SKYRANGER_TEN: SKYRANGER
       STR_SKYRANGER_TWELVE: SKYRANGER
       STR_SKYRANGER_FOURTEEN: SKYRANGER
-      STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA: "The council has granted us access to an upgraded Skyranger with enough space for five operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't forget to sell the old Skyranger and buy a new, shiny, upgraded one."
-      STR_FULL_DEPLOYMENT_UFOPAEDIA: "The council has granted us access to the final Skyranger upgrade with enough space for six operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't forget to sell the old Skyranger and buy a new, shiny, upgraded one."
+      STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA: The council has granted us access to an
+        upgraded Skyranger with enough space for five operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
+      STR_FULL_DEPLOYMENT_UFOPAEDIA: The council has granted us access to the final
+        Skyranger upgrade with enough space for six operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
 
 ufopaedia:
   - id: STR_ADVANCED_DEPLOYMENT1
