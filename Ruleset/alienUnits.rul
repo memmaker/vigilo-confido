@@ -830,7 +830,7 @@ units:
     race: STR_ETHEREAL
     rank: STR_LIVE_LEADER
     stats:
-      tu: 55
+      tu: 50
       stamina: 96
       health: 55
       bravery: 80
@@ -838,8 +838,8 @@ units:
       firing: 74
       throwing: 80
       strength: 48
-      psiStrength: 120
-      psiSkill: 80
+      psiStrength: 60
+      psiSkill: 50
       melee: 85
     armor: ETHEREAL_ARMOR1
     standHeight: 20
@@ -1063,6 +1063,26 @@ items:
     liveAlien: true
     costSell: 0
   - type: STR_DRONE
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_ZOMBIE
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_SECTOPOD
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_ANDROMEDON
+    size: 0.0
+    recover: true
+    liveAlien: true
+    costSell: 0
+  - type: STR_ANDROMEDON_SHELL
     size: 0.0
     recover: true
     liveAlien: true

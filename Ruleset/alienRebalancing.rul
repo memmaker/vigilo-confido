@@ -2038,14 +2038,14 @@ items:
       EFFECT_POWER: 20
     weight: 3
     bigSprite:
-        mod: xcom1
-        index: 60
+      mod: xcom1
+      index: 60
     floorSprite:
-        mod: xcom1
-        index: 31
+      mod: xcom1
+      index: 31
     handSprite:
-        mod: xcom1
-        index: 104
+      mod: xcom1
+      index: 104
     #bigSprite: 60
     #floorSprite: 31
     #handSprite: 104

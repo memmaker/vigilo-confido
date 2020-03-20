@@ -93,38 +93,38 @@ research:
   - delete: STR_NEW_FIGHTER_TRANSPORTER
   - delete: STR_ULTIMATE_CRAFT
   - name: STR_XENO_BIOLOGY # unlocks manuf. of alien containment
-    cost: 40
+    cost: 90
     points: 10
     dependencies:
       - STR_SECTOID_AUTOPSY
     unlocks:
       - STR_SKULLJACK
   - name: STR_SKULLJACK # unlocks manuf. of skulljack
-    cost: 120
+    cost: 90
     points: 50
     dependencies:
       - STR_XENO_BIOLOGY
   - name: STR_OUTSIDER_SHARD # unlocks manuf. of skeleton key
-    cost: 500
+    cost: 140
     points: 100
     needItem: true
     destroyItem: true
   - name: STR_HYPERWAVE_BEACON # unlocks manuf. of hyperwave decoder (relay)
-    cost: 500
+    cost: 210
     points: 100
     needItem: true
   - name: STR_ETHEREAL_DEVICE # unlocks construction of gollop chamber
-    cost: 500
+    cost: 280
     points: 100
     needItem: true
   - name: STR_PSI_LAB
-    cost: 420
+    cost: 230
     points: 25
     dependencies:
       - STR_ETHEREAL
       - STR_SECTOID_COMMANDER
   - name: STR_ACTIVATE_ETHEREAL_DEVICE # unlocks final mission
-    cost: 520
+    cost: 420
     points: 50
     getOneFree:
       - STR_OBJECTIVES_FINAL
@@ -135,7 +135,7 @@ research:
       - STR_PSI_LAB
     unlockFinalMission: true
   - name: STR_GRAV_SHIELD
-    cost: 930
+    cost: 330
     points: 25
     dependencies:
       - STR_HYPERWAVE_BEACON
@@ -178,7 +178,7 @@ research:
     dependencies:
       - STR_ETHEREAL_AUTOPSY
   - name: STR_ALIEN_PSI_AMP
-    cost: 700
+    cost: 320
     points: 20
     dependencies:
       - STR_PSI_LAB
@@ -389,19 +389,19 @@ research:
     dependencies:
       - STR_ALIEN_ALLOYS
   - name: STR_WARDEN_ARMOR # Warden Armor
-    cost: 550
+    cost: 330
     points: 20
     dependencies:
       - STR_SKY_STRIKE_ARMOR
       - STR_ELERIUM_115
   - name: STR_PSI_ARMOR # Psi Armor
-    cost: 550
+    cost: 420
     points: 20
     dependencies:
       - STR_WARDEN_ARMOR
       - STR_PSI_LAB
   - name: STR_SKY_STRIKE_ARMOR # New Flying Suit
-    cost: 550
+    cost: 420
     points: 20
     dependencies:
       - STR_PREDATOR_ARMOR
@@ -461,7 +461,7 @@ research:
     needItem: true
     destroyItem: true
   - name: STR_PLASMA_RIFLE # Alien Plasma Rifle
-    cost: 700
+    cost: 450
     points: 25
     needItem: true
     destroyItem: true
@@ -471,7 +471,7 @@ research:
     needItem: true
     destroyItem: true
   - name: STR_PLASMA_PISTOL # Alien Plasma Pistol
-    cost: 600
+    cost: 450
     points: 20
     needItem: true
     destroyItem: true
@@ -485,23 +485,23 @@ research:
     points: 40
     dependencies: [STR_ELERIUM_115, STR_PLASMA_PISTOL, STR_PLASMA_RIFLE, STR_HEAVY_PLASMA]
   - name: STR_PLASMA_SHOTGUN # X-Com Plasma Shotgun
-    cost: 680
+    cost: 450
     points: 35
     dependencies:
       - STR_PLASMA_WEAPONS
   - name: STR_PLASMA_SNIPER_RIFLE # X-Com Plasma Sniper
-    cost: 680
+    cost: 450
     points: 35
     dependencies:
       - STR_PLASMA_WEAPONS
   - name: STR_XCOM_HEAVY_PLASMA # X-Com Heavy Plasma
-    cost: 730
+    cost: 450
     points: 35
     dependencies:
       - STR_PLASMA_WEAPONS
 ## VANILLA TIER CHANGES ##
   - name: STR_ELERIUM_115
-    cost: 750
+    cost: 500
     points: 60
     needItem: true
     destroyItem: true

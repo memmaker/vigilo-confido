@@ -319,11 +319,6 @@ soldierBonuses:
   - name: STR_PSI_OPERATIVE_ELITE_BONUS
 
 items:
-  - type: STR_MEDI_KIT
-    medikitTargetMatrix: 15
-    medikitTargetSelf: true
-    costBuy: 1200
-    costSell: 600
   - type: STR_HEAVY_ROCKET_SKILL # USED BY GRENADIER AS SPECIAL WEAPON
     tags:
       CLASS_SKILL_ACTIVATION: 1
@@ -2721,7 +2716,31 @@ extended:
         code: |
           var int healed_by_field_surgeon;
           var int factor;
+          var int max_health;
+          var int recover_min;
+          var int recover_max;
 
+          unit.getHealthMax max_health;
+
+          # hp loss: ~0-120
+
+          debug_log unit "HP LOSS:" health_loss;
+          debug_log "Original recovery time:" recovery_time;  
+          limit_upper health_loss max_health;
+          debug_log unit "Adjusted HP LOSS:" health_loss;
+          set recover_min health_loss;
+          div recover_min 3;
+          limit_upper recover_min 20;
+
+          set recover_max recovery_time;
+          limit_upper recover_max 25;
+
+          if ge recover_min recover_max;
+            set recovery_time recover_max;
+          else;
+            battle_game.randomRange recovery_time recover_min recover_max;
+          end;
+          debug_log "Adjusted recovery time to:" recovery_time;
           unit.getTag healed_by_field_surgeon Tag.HEALED_BY_FIELD_SURGEON;
 
           if gt healed_by_field_surgeon 0;
@@ -3110,7 +3129,7 @@ extraStrings:
       STR_MANA_MISSING: FOCUS MISSING
       STR_MANA_RECOVERY: FOCUS RECOVERY
       STR_NOT_ENOUGH_MANA: Not Enough Focus!
-      STR_MANA_SHORT: FC
+      STR_MANA_SHORT: "FC>{ALT}{0}"
       STR_MANA_ABBREVIATION: FOC
       STR_MANA_CURRENT: CURRENT FOCUS
       STR_MANA_NORMALIZED: NORMALIZED FOCUS

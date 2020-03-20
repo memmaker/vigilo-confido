@@ -135,14 +135,19 @@ T3 - Warden Armor   & Plasma Weapons
  - Weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - Bleedout & Fatal Wounds
  - (You should also reduce the chance they go unconscious from normal shooting.)
+ - Recovery time too high?
+ - Very easy to exhaust the one medi-kit activation on oneself 
 
 === Changelog ===
 
 === Changes in v0.9.4 ===
  - Plot mission deployments re-defined
- - Fixed floater not capturable
- - Fixed chryssalid crash
- 
+ - Fixed mission completion bugs
+ - Changed workspace requirements of manufacturing projects
+ - Fixed display of Battle Focus costs in Skill Menu
+ - Adjusted recovery times for wounded soldiers
+ - Added short intro
+
 === Changes in v0.9.3 ===
  - Restructured introductionary research and story arc
  - Nerfed specialist shooting skill max cap

@@ -826,11 +826,9 @@ items:
   - type: STR_NANO_MEDI_KIT
     size: 0.1
     costSell: 1200
-    costBuy: 2400
+    costBuy: 0
     categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
     requires:
-      - STR_NANO_MEDI_KIT
-    requiresBuy:
       - STR_NANO_MEDI_KIT
     weight: 5
     bigSprite: 24

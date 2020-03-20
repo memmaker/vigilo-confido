@@ -23,6 +23,10 @@ Psi Amp Sprites by efrenespartano & Badfella (Shoutout to I.D.T.)
 New Grenade Sprites from XPiratez Mod by Dioxine (couldn't find the creator in credits)
 Muton Ufopedia Artwork by Neoworm (DeviantArt)
 
+Some assets have been derived from the original XCOM: Enemy Unknown and XCOM2 artwork,
+Take2/Firaxis are the copyright holders of these images.
+As this project is completely non-profit, please, instead of suing, send an e-mail to: memmaker@32kb.org
+
 Special Thanks to:
 SupSuper & Warboy for their work on OpenXcom
 Meridian for his work on OpenXcom extended, his merging of my PRs and his constant support
@@ -30,6 +34,7 @@ Yankes for his script engine which made most of this possible and of course his 
 reaverofdarkness for being my first playtester
 Dioxine and SolariusScorch for their senior modders' advice
 Microprose and Julian Gollop
+Firaxis and Jake Solomon
 
 Extra Special Thanks to the creators of these mods and their collaborators.
 I frequently consulted their RuleSets in order to learn for myself.
