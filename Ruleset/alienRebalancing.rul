@@ -1882,6 +1882,10 @@ items:
     isConsumable: true       # when primed is not recoverable anymore
     costBuy: 0
     costSell: 0
+  - type: STR_PLASMA_PISTOL_CLIP
+    power: 50
+    costBuy: 0
+    costSell: 0
   - type: STR_PLASMA_RIFLE
     requires: [STR_ALIEN_WEAPON_USAGE]
     tuSnap: 51 # vanilla: 30
@@ -1900,6 +1904,9 @@ items:
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
     costSell: 0
+  - type: STR_PLASMA_RIFLE_CLIP
+    power: 65
+    costSell: 0
   - type: STR_HEAVY_PLASMA
     requires: [STR_ALIEN_WEAPON_USAGE]
     tuSnap: 51 # vanilla: 30
@@ -1916,6 +1923,10 @@ items:
     fuseType: 0              # 0 turn timer
     isExplodingInHands: true
     isConsumable: true       # when primed is not recoverable anymore
+    costBuy: 0
+    costSell: 0
+  - type: STR_HEAVY_PLASMA_CLIP
+    power: 100
     costBuy: 0
     costSell: 0
   - type: CYBERDISC_WEAPON
