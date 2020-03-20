@@ -122,8 +122,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Sound effects (Gremlin, Drone)
  - Sprite of combat experience commendation
  - No Heads-up about research in Ufopedia
- - Check Thin Man and Andromedon special abilities
-
+ 
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
  - Crafts & Craft Weapons
@@ -147,7 +146,9 @@ T3 - Warden Armor   & Plasma Weapons
  - Fixed display of Battle Focus costs in Skill Menu
  - Adjusted recovery times for wounded soldiers
  - Adjusted research times for most research projects
+ - Fixed plasma weapon damage to intended values
  - Added short intro
+ - Adjusted Sectopod Armor 
 
 === Changes in v0.9.3 ===
  - Restructured introductionary research and story arc
