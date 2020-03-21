@@ -1,6 +1,0 @@
-extended:
-  tags:
-    RuleArmor:
-      SPECIAL_ABILITY: int
-#  scripts:
-#    newTurnUnit:
