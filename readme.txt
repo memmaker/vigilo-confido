@@ -135,7 +135,6 @@ T3 - Warden Armor   & Plasma Weapons
  - Weapon fragments: https://openxcom.org/forum/index.php/topic,6868.0.html
  - Bleedout & Fatal Wounds
  - (You should also reduce the chance they go unconscious from normal shooting.)
- - Recovery time too high?
  - Very easy to exhaust the one medi-kit activation on oneself 
 
 === Changelog ===
@@ -143,9 +142,8 @@ T3 - Warden Armor   & Plasma Weapons
 === Changes in v0.9.5 ===
  - Fixed terror mission crash
  - Reduced skill use cost of Aid Protocol (Specialist)
- - Minor andjustments to the scoring
+ - Scoring andjustments
  - Restructured alien missions
- - More changes to the scoring
 
 === Changes in v0.9.4 ===
  - Plot mission deployments re-defined
