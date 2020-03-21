@@ -9,8 +9,8 @@ constants:
   extendedRunningCost: true
 
 difficultyCoefficient: [0, 1, 2, 3, 4]
-defeatFunds: -1000
-defeatScore: -900
+defeatFunds: -10000
+defeatScore: -5000
 aimAndArmorMultipliers: [1.0, 1.0, 1.0, 1.0, 1.0]
 
 statGrowthMultipliers:

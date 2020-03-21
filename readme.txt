@@ -122,7 +122,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Sound effects (Gremlin, Drone)
  - Sprite of combat experience commendation
  - No Heads-up about research in Ufopedia
- 
+ - Integrate with https://openxcom.mod.io/extra-explosions
+
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
  - Crafts & Craft Weapons
@@ -136,9 +137,15 @@ T3 - Warden Armor   & Plasma Weapons
  - (You should also reduce the chance they go unconscious from normal shooting.)
  - Recovery time too high?
  - Very easy to exhaust the one medi-kit activation on oneself 
- - Deployment research?
 
 === Changelog ===
+
+=== Changes in v0.9.5 ===
+ - Fixed terror mission crash
+ - Reduced skill use cost of Aid Protocol (Specialist)
+ - Minor andjustments to the scoring
+ - Restructured alien missions
+ - More changes to the scoring
 
 === Changes in v0.9.4 ===
  - Plot mission deployments re-defined
@@ -202,5 +209,3 @@ Feature Wishlist:
 requiredSoldierType for startingCondition
 itemFlag: canNotSell
 Ability to trigger skills for aliens, or at least let them choose between two weapons.
-
-L: https://drive.google.com/open?id=1pDt8rGHUFxYy673-ooHW2PTya0NJVX6F

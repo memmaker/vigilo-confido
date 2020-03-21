@@ -218,9 +218,6 @@ research:
   - name: STR_CHRYSSALID_AUTOPSY
     points: 50
     needItem: true
-  - name: STR_REAPER_AUTOPSY
-    points: 50
-    needItem: true
   - name: STR_SECTOPOD_AUTOPSY
     points: 50
     needItem: true

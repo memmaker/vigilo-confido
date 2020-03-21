@@ -1,0 +1,25 @@
+
+ufos:
+  - type: STR_OVERSEER_UFO
+    size: STR_VERY_LARGE
+    sprite: 6
+    damageMax: 4000
+    speedMax: 5000
+    power: 140
+    range: 65
+    score: 700
+    reload: 24
+    breakOffTime: 4000
+    craftCustomDeploy: STR_OVERSEER_DEPLOYMENT
+    battlescapeTerrainData:
+      name: UFO_160
+      mapDataSets:
+        - BLANKS
+        - U_EXT02
+        - U_WALL02
+        - U_PODS
+        - U_BITS
+      mapBlocks:
+        - name: UFO_160
+          width: 30
+          length: 30

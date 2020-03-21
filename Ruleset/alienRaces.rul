@@ -68,8 +68,8 @@ alienRaces:
       - [STR_FLOATER]
       - [STR_FLOATER, STR_THIN_MAN]
       - [STR_FLOATER, STR_THIN_MAN]
-      - [STR_REAPER, STR_CHRYSSALID]
-      - [STR_REAPER, STR_CHRYSSALID]
+      - [STR_FLOATER, STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
   - id: STR_TIER_ONE_MIXED # t1 mixed
     membersRandom:
       - [STR_SECTOID, STR_FLOATER, STR_THIN_MAN]
@@ -79,7 +79,7 @@ alienRaces:
       - [STR_SECTOID, STR_FLOATER]
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_CHRYSSALID, STR_FLOATER]
-      - [STR_CHRYSSALID, STR_REAPER]
+      - [STR_CHRYSSALID]
   - id: STR_MUTON # mutons / cyberdiscs
     membersRandom:
       - [STR_MUTON]

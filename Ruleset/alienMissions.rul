@@ -1,5 +1,3 @@
-# Player needs T2 until month: 3-6
-# Player needs T3 until month: 7-9
 
 alienItemLevels:
   - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] # 0
@@ -35,7 +33,7 @@ missionScripts:
       0:
         STR_ALIEN_RESEARCH: 100
     firstMonth: 0
-    lastMonth: 5
+    lastMonth: 1
     targetBaseOdds: 100
     raceWeights:
       0:
@@ -51,19 +49,29 @@ missionScripts:
     firstMonth: 1
 
   - type: recon
-    firstMonth: 1
+    firstMonth: 2
+    missionWeights:
+      0:
+        STR_ALIEN_RESEARCH: 10
+        STR_ALIEN_HARVEST: 10
+        STR_ALIEN_ABDUCTION: 10
 
   - type: invasion
     firstMonth: 6
+    missionWeights:
+      0:
+        STR_ALIEN_INFILTRATION: 10
+        STR_ALIEN_BASE: 10
 
   - type: attackOnXcomBase
     missionWeights:
       0:
         STR_ALIEN_RETALIATION: 100
+    firstMonth: 0
     researchTriggers:
       STR_OBJECTIVES_ARC3: true
     startDelay: 20000
-    targetBaseOdds: 10000
+    targetBaseOdds: 100
     maxRuns: 1
     varName: scbd_eu2012
     useTable: false
@@ -94,6 +102,8 @@ missionScripts:
     varName: overseer_eu2012
     targetBaseOdds: 100
     executionOdds: 100
+    itemTriggers:
+      STR_HYPERWAVE_BEACON: true
     facilityTriggers:
       STR_HYPERWAVE_DECODER: true
 
@@ -1789,345 +1799,6 @@ startingConditions:
     requiredItems:
       STR_SKELETON_KEY: 1
     destroyRequiredItems: true
-
-items:
-  - type: STR_ALIEN_ALLOYS
-    size: 0.1
-    costSell: 85
-    specialType: 10
-    recoveryPoints: 1
-    recoveryDividers:
-      STR_UFO: 50
-      STR_OTHER: 150
-  - type: STR_ELERIUM_115
-    size: 0.1
-    costSell: 140
-    weight: 3
-    bigSprite: 56
-    floorSprite: 37
-    invWidth: 1
-    invHeight: 1
-    recoveryDividers:
-      STR_UFO: 50
-    recoveryPoints: 5
-  - type: STR_ELERIUM_CORE
-    size: 1
-    costSell: 430
-    weight: 5
-    bigSprite: 56
-    floorSprite: 37
-    invWidth: 1
-    invHeight: 1
-    recoveryPoints: 10
-  - type: STR_SECTOID_CORPSE
-    costSell: 70
-  - type: STR_UFO_POWER_SOURCE
-    costSell: 2200
-    recoveryTransformations:
-      STR_ELERIUM_CORE: [80, 20]
-      STR_UFO_POWER_SOURCE: [20, 80]
-  - type: STR_UFO_NAVIGATION
-    costSell: 1350
-  - type: STR_LASER_PISTOL
-    requires: [STR_ALIEN_WEAPON_USAGE]
-    power: 20  # vanilla: 46
-    tuAimed: 45
-    tuSnap: 35 # vanilla: 20
-    tuAuto: 45 # vanilla: 25
-    accuracyAuto: 28
-    accuracySnap: 30 # vanilla: 40
-    accuracyAimed: 68
-    snapRange: 10
-    aimRange: 14
-    autoRange: 8
-    dropoff: 4
-    damageAlter:
-      ToArmor: 0
-    # for disabled weapons
-    tuPrime: 0
-    tuUnprime: 0             # only activated by scripts
-    fuseType: 0              # 0 turn timer
-    isExplodingInHands: true
-    isConsumable: true       # when primed is not recoverable anymore
-    costSell: 0
-  - type: STR_LASER_RIFLE
-    requires: [STR_ALIEN_WEAPON_USAGE]
-    power: 30  # vanilla: 60
-    tuAimed: 60
-    tuSnap: 51 # vanilla: 25
-    tuAuto: 0 # vanilla: 34
-    accuracyAuto: 46
-    accuracySnap: 55 # vanilla: 65
-    accuracyAimed: 100
-    snapRange: 12
-    aimRange: 16
-    autoRange: 10
-    dropoff: 4
-    damageAlter:
-      ToArmor: 0
-    # for disabled weapons
-    tuPrime: 0
-    tuUnprime: 0             # only activated by scripts
-    fuseType: 0              # 0 turn timer
-    isExplodingInHands: true
-    isConsumable: true       # when primed is not recoverable anymore
-    costSell: 0
-  - type: STR_HEAVY_LASER
-    requires: [STR_ALIEN_WEAPON_USAGE]
-    costSell: 0
-  - type: STR_PLASMA_PISTOL
-    requires: [STR_ALIEN_WEAPON_USAGE]
-    tuAuto: 0 # vanilla: 30
-    tuSnap: 40  # vanilla: 30
-    tuAimed: 51
-    snapRange: 10
-    aimRange: 14
-    autoRange: 8
-    dropoff: 4
-    damageAlter:
-      ToArmor: 0
-    # for disabled weapons
-    tuPrime: 0
-    tuUnprime: 0             # only activated by scripts
-    fuseType: 0              # 0 turn timer
-    isExplodingInHands: true
-    isConsumable: true       # when primed is not recoverable anymore
-    costBuy: 0
-    costSell: 0
-  - type: STR_PLASMA_PISTOL_CLIP
-    power: 50
-    costBuy: 0
-    costSell: 0
-  - type: STR_PLASMA_RIFLE
-    requires: [STR_ALIEN_WEAPON_USAGE]
-    tuSnap: 51 # vanilla: 30
-    tuAuto: 0 # vanilla: 36
-    tuAimed: 60
-    snapRange: 12
-    aimRange: 16
-    autoRange: 10
-    dropoff: 4
-    damageAlter:
-      ToArmor: 0
-    # for disabled weapons
-    tuPrime: 0
-    tuUnprime: 0             # only activated by scripts
-    fuseType: 0              # 0 turn timer
-    isExplodingInHands: true
-    isConsumable: true       # when primed is not recoverable anymore
-    costSell: 0
-  - type: STR_PLASMA_RIFLE_CLIP
-    power: 65
-    costSell: 0
-  - type: STR_HEAVY_PLASMA
-    requires: [STR_ALIEN_WEAPON_USAGE]
-    tuSnap: 51 # vanilla: 30
-    tuAuto: 0 # vanilla: 35
-    tuAimed: 0
-    snapRange: 14
-    aimRange: 14
-    autoRange: 14
-    damageAlter:
-      ToArmor: 0
-    # for disabled weapons
-    tuPrime: 0
-    tuUnprime: 0             # only activated by scripts
-    fuseType: 0              # 0 turn timer
-    isExplodingInHands: true
-    isConsumable: true       # when primed is not recoverable anymore
-    costBuy: 0
-    costSell: 0
-  - type: STR_HEAVY_PLASMA_CLIP
-    power: 100
-    costBuy: 0
-    costSell: 0
-  - type: CYBERDISC_WEAPON
-    power: 75
-    accuracySnap: 75
-    accuracyAimed: 110
-    tuSnap: 30
-    tuAimed: 60
-    damageAlter:
-      ToArmor: 0
-  - type: REAPER_WEAPON
-    strengthApplied: true
-    accuracyMelee: 100
-    tuMelee: 50
-    flatRate: false
-    damageAlter:
-      ToArmor: 0
-  - type: CHRYSSALID_WEAPON
-    strengthApplied: true
-    accuracyMelee: 90
-    tuMelee: 50
-    flatRate: false
-    zombieUnit: STR_ZOMBIE
-    meleeAnimation: 100
-    damageAlter:
-      ToArmor: 0
-  - type: SECTOPOD_WEAPON
-    power: 100
-    accuracyAuto: 50
-    accuracySnap: 75
-    accuracyAimed: 110
-    tuAuto: 35
-    tuSnap: 30
-    tuAimed: 60
-    damageAlter:
-      ToArmor: 0
-  - type: ZOMBIE_WEAPON
-    strengthApplied: true
-    accuracyMelee: 100
-    tuMelee: 45
-    flatRate: false
-    damageAlter:
-      ToArmor: 0
-  - type: STR_BLASTER_BOMB
-    power: 90
-  - type: STR_STUN_BOMB
-    power: 40
-  - type: STR_ANDROMEDON_PUNCH
-    categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    power: 10
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
-    fixedWeapon: true
-    recover: false
-    specialUseEmptyHand: true
-  - type: DRONE_WEAPON
-    categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    power: 10
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
-    fixedWeapon: true
-    recover: false
-  - type: STR_BERSERKER_PUNCH
-    categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
-    fixedWeapon: true
-    recover: false
-    specialUseEmptyHand: true
-
-  - type: STR_THIN_MAN_POISON
-    tags:
-      INFLICT_EFFECT: 4 # poison
-      INFLICT_CHANCE: 50
-      EFFECT_POWER: 20
-    weight: 3
-    bigSprite:
-      mod: xcom1
-      index: 60
-    floorSprite:
-      mod: xcom1
-      index: 31
-    handSprite:
-      mod: xcom1
-      index: 104
-    #bigSprite: 60
-    #floorSprite: 31
-    #handSprite: 104
-    bulletSprite: 8
-    fireSound: 51
-    hitSound: 19
-    hitAnimation: 46
-    power: 40
-    damageType: 12
-    accuracySnap: 75
-    accuracyAimed: 110
-    tuSnap: 34
-    tuAimed: 45
-    battleType: 1
-    fixedWeapon: true
-    accuracyMultiplier:
-      firing: 0.0
-      throwing: 1.0
-    invWidth: 2
-    invHeight: 3
-    clipSize: 1
-    recover: false
-    arcingShot: true
-    damageAlter:
-      SmokeThreshold: 1000
-      ResistType: 12
-      RandomType: 3
-      FixRadius: 4
-      IgnorePainImmunity: true
-      ArmorEffectiveness: 0
-      ToStun: 0.1
-      ToMorale: 0.1
-      ToHealth: 0
-      ToArmor: 0
-      ToTile: 0
-      ToItem: 0
-      ToWound: 0
-
-ufos:
-  - type: STR_OVERSEER_UFO
-    size: STR_VERY_LARGE
-    sprite: 6
-    damageMax: 4000
-    speedMax: 5000
-    power: 140
-    range: 65
-    score: 700
-    reload: 24
-    breakOffTime: 4000
-    craftCustomDeploy: STR_OVERSEER_DEPLOYMENT
-    battlescapeTerrainData:
-      name: UFO_160
-      mapDataSets:
-        - BLANKS
-        - U_EXT02
-        - U_WALL02
-        - U_PODS
-        - U_BITS
-      mapBlocks:
-        - name: UFO_160
-          width: 30
-          length: 30
 
 extraStrings:
   - type: en-US

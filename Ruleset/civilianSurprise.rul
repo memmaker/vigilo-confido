@@ -21,7 +21,7 @@ units:
     armor: SURPRISE_M_ARMOR
     standHeight: 21
     kneelHeight: 14
-    value: 30
+    value: 5
     intelligence: 4
     energyRecovery: 20
     deathSound: [41, 42, 43]
@@ -44,7 +44,7 @@ units:
     armor: SURPRISE_F_ARMOR
     standHeight: 21
     kneelHeight: 14
-    value: 30
+    value: 10
     intelligence: 4
     energyRecovery: 20
     deathSound: [44, 45, 46]

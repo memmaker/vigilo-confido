@@ -730,7 +730,7 @@ skills:
     tags:
       SKILL_ID: 41
     costUse:
-      time: 50
+      time: 40
       mana: 6
     flatUse:
       mana: true
@@ -847,7 +847,7 @@ soldiers:
       - STR_REAPER
     costBuy: 400
     costSalary: 200
-    value: 30
+    value: 10
     minStats:
       tu: 50
       stamina: 60
@@ -944,7 +944,7 @@ soldiers:
       - STR_RUPTURE
     costBuy: 400
     costSalary: 200
-    value: 30
+    value: 10
     minStats:
       tu: 45
       stamina: 60
@@ -1040,7 +1040,7 @@ soldiers:
       - STR_SERIAL
     costBuy: 400
     costSalary: 200
-    value: 30
+    value: 10
     minStats:
       tu: 50
       stamina: 50
@@ -1129,7 +1129,7 @@ soldiers:
       - STR_ELECTRIC_REINFORCEMENT
     costBuy: 400
     costSalary: 200
-    value: 30
+    value: 10
     minStats:
       tu: 50
       stamina: 45
@@ -1216,7 +1216,7 @@ soldiers:
       CLASS: 5
     costBuy: 400
     costSalary: 200
-    value: 30
+    value: 10
     minStats:
       tu: 45
       stamina: 40
