@@ -612,6 +612,7 @@ units:
     aggression: 1
     energyRecovery: 40
     livingWeapon: true
+    capturable: false
   - type: STR_SNAKEMAN
     race: STR_SNAKEMAN
     rank: STR_LIVE_SOLDIER
@@ -897,6 +898,7 @@ units:
     livingWeapon: true
     intelligence: 3
     aggression: 1
+    capturable: false
   - type: STR_SECTOPOD
     race: STR_SECTOPOD
     rank: STR_LIVE_TERRORIST
@@ -948,6 +950,7 @@ units:
     livingWeapon: true
     # Zombies are silent on death, no deathSound
 
+    capturable: false
 items:
   - delete: STR_SECTOID_SOLDIER
   - delete: STR_SECTOID_MEDIC
