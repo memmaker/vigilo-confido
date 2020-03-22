@@ -116,7 +116,7 @@ events:
     timer: 60
     timerRandom: 0
     music: Hello_Commander
-    researchList: [STR_OBJECTIVES_ARC0, STR_BASIC_DEPLOYMENT]
+    researchList: [STR_OBJECTIVES_ARC0]
 
 arcScripts:
   - type: setupObjectives

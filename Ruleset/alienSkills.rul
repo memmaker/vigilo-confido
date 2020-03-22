@@ -1,0 +1,8 @@
+extended:
+  scripts:
+    newTurnUnit:
+      - offset: 19 # for psi shield
+
+# idea
+
+# Tag.MIND_MERGE_SKILL_STATE: 0 = None, 1 = Available, 2 = Has been used

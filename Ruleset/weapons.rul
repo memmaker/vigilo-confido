@@ -238,7 +238,8 @@ items:
     handSprite: 256
     meleeAnimation: 112
     power: 40
-    strengthApplied: true
+    damageBonus:
+      strength: 0.1
     damageType: 7
     accuracyMelee: 100
     tuMelee: 35
@@ -268,7 +269,6 @@ items:
     handSprite: 264
     meleeAnimation: 116
     power: 50
-    strengthApplied: true
     damageType: 4
     accuracyMelee: 100
     tuMelee: 35
@@ -298,7 +298,6 @@ items:
     handSprite: 272
     meleeAnimation: 120
     power: 60
-    strengthApplied: true
     damageType: 5
     accuracyMelee: 115
     tuMelee: 35

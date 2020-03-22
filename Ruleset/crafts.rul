@@ -1,9 +1,7 @@
 research:
   - name: STR_BASIC_DEPLOYMENT
-    cost: 140
-    points: 20
-    dependencies:
-      - STR_BASIC_DEPLOYMENT
+    cost: 10
+    points: 10
   - name: STR_ADVANCED_DEPLOYMENT1
     disables:
       - STR_BASIC_DEPLOYMENT

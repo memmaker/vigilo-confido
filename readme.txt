@@ -139,6 +139,11 @@ T3 - Warden Armor   & Plasma Weapons
 
 === Changelog ===
 
+=== Changes in v.0.9.6 ===
+ - Strength not applied anymore to laser and plasma swords
+ - Fixed Skyranger not purchasable and Basic Deployment unavailable
+ - Adjusted build costs for new bases
+
 === Changes in v0.9.5 ===
  - Fixed terror mission crash
  - Reduced skill use cost of Aid Protocol (Specialist)
