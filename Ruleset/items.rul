@@ -1162,23 +1162,20 @@ items:
     specialUseEmptyHand: true
   - type: DRONE_WEAPON
     categories: [STR_BUILT_INS]
-    weight: 0
-    meleeHitSound: 109
-    meleeAnimation: 0
-    power: 10
-    damageType: 7
-    strengthApplied: true
-    confMelee:
-      name: STR_PUNCH
-    costMelee:
-      time: 8
-      energy: 2
-    flatRate: true
-    battleType: 3
-    clipSize: -1
-    experienceTrainingMode: 13
-    invWidth: 2
-    invHeight: 2
+    power: 20  # vanilla: 60
+    tuAimed: 60
+    tuSnap: 50 # vanilla: 25
+    tuAuto: 0 # vanilla: 34
+    accuracyAuto: 46
+    accuracySnap: 55 # vanilla: 65
+    accuracyAimed: 100
+    snapRange: 12
+    aimRange: 16
+    autoRange: 10
+    dropoff: 4
+    damageAlter:
+      ToArmor: 0
+    costSell: 0
     fixedWeapon: true
     recover: false
   - type: STR_BERSERKER_PUNCH

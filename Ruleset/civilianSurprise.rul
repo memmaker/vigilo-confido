@@ -25,7 +25,7 @@ units:
     intelligence: 4
     energyRecovery: 20
     deathSound: [41, 42, 43]
-    spawnUnit: STR_FLOATER_COMMANDER
+    spawnUnit: STR_FLOATER
 
   - type: FEMALE_SURPRISE_A
     race: STR_CIVILIAN
@@ -48,7 +48,7 @@ units:
     intelligence: 4
     energyRecovery: 20
     deathSound: [44, 45, 46]
-    spawnUnit: STR_SNAKEMAN_SOLDIER
+    spawnUnit: STR_SNAKEMAN
 
 armors:
   - &SURPRISE_M_ARMOR

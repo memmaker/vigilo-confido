@@ -241,14 +241,11 @@ fixedUserOptions:
   anytimePsiTraining: true
   oxcePlayBriefingMusicDuringEquipment: true
   canTransferCraftsWhileAirborne: true
-  canSellLiveAliens: false
+#  canSellLiveAliens: false # debug only
 #  customInitialBase: true
 
 statisticalBulletConservation: true
 tuRecoveryWakeUpNewTurn: 55
-
-enableUnitResponseSounds: true
-unitResponseSoundsFrequency: [50, 50, 50, 20]
 
 # CQC
 enableCloseQuartersCombat: 1       # default is 0 to disable this new code, 1 enables it
@@ -903,24 +900,6 @@ soldiers:
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/RangerNames/
-    deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
-      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
-      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
-      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
-      151, 152, 153]
-    panicFemale: [154, 155, 156, 157, 158, 159, 160]
-    berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
-    deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
-      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
-      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
-      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
-      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
-      260, 261, 262, 263, 264, 265, 266, 267, 268]
-    panicMale: [269, 270, 271, 272, 273, 274, 275]
-    berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
       - STR_ROOKIE_RANGER_RANK
       - STR_SQUADDIE_RANGER_RANK
@@ -1000,24 +979,6 @@ soldiers:
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/GrenadierNames/
-    deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
-      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
-      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
-      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
-      151, 152, 153]
-    panicFemale: [154, 155, 156, 157, 158, 159, 160]
-    berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
-    deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
-      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
-      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
-      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
-      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
-      260, 261, 262, 263, 264, 265, 266, 267, 268]
-    panicMale: [269, 270, 271, 272, 273, 274, 275]
-    berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
       - STR_ROOKIE_GRENADIER_RANK
       - STR_SQUADDIE_GRENADIER_RANK
@@ -1087,24 +1048,6 @@ soldiers:
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/SniperNames/
-    deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
-      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
-      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
-      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
-      151, 152, 153]
-    panicFemale: [154, 155, 156, 157, 158, 159, 160]
-    berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
-    deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
-      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
-      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
-      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
-      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
-      260, 261, 262, 263, 264, 265, 266, 267, 268]
-    panicMale: [269, 270, 271, 272, 273, 274, 275]
-    berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
       - STR_ROOKIE_SNIPER_RANK
       - STR_SQUADDIE_SNIPER_RANK
@@ -1176,24 +1119,6 @@ soldiers:
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/SpecialistNames/
-    deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
-      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
-      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
-      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
-      151, 152, 153]
-    panicFemale: [154, 155, 156, 157, 158, 159, 160]
-    berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
-    deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
-      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
-      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
-      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
-      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
-      260, 261, 262, 263, 264, 265, 266, 267, 268]
-    panicMale: [269, 270, 271, 272, 273, 274, 275]
-    berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
       - STR_ROOKIE_SPECIALIST_RANK
       - STR_SQUADDIE_SPECIALIST_RANK
@@ -1263,24 +1188,6 @@ soldiers:
     soldierNames:               # extended *.nam file format allows for male & female callsigns
       - delete
       - SoldierNames/PsiOpNames/
-    deathFemale: [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
-    startMovingFemale: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-      84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102,
-      103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,
-      119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134,
-      135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
-      151, 152, 153]
-    panicFemale: [154, 155, 156, 157, 158, 159, 160]
-    berserkFemale: [161, 162, 163, 164, 165, 166, 167, 168, 169]
-    deathMale: [170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]
-    startMovingMale: [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
-      196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
-      212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227,
-      228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243,
-      244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259,
-      260, 261, 262, 263, 264, 265, 266, 267, 268]
-    panicMale: [269, 270, 271, 272, 273, 274, 275]
-    berserkMale: [276, 277, 278, 279, 280, 281, 282, 283, 284]
     rankStrings:
       - STR_ROOKIE_PSI_OPERATIVE_RANK
       - STR_SQUADDIE_PSI_OPERATIVE_RANK
@@ -1392,6 +1299,23 @@ extended:
       SHREDDER_DAMAGE: int
       INFLICT_DISORIENT: int
   scripts:
+    createUnit:
+      - offset: 23   # for Combat Information
+        code: |
+          var int has_basic_combat_information;
+          var ptr RuleSoldier soldier_rule;
+          var int has_advanced_combat_information;
+          var int current_info_level;
+
+          unit.getRuleSoldier soldier_rule;
+
+          soldier_rule.getTag has_basic_combat_information Tag.BASIC_COMBAT_INFORMATION;
+          battle_game.getTag current_info_level Tag.COMBAT_INFORMATION_LEVEL;
+
+          if and gt has_basic_combat_information 0 lt current_info_level 1;
+            battle_game.setTag Tag.COMBAT_INFORMATION_LEVEL 1;
+          end;
+          return;
     skillUseUnit:
       - offset: 23
         code: |
@@ -1769,22 +1693,6 @@ extended:
               unit.setTag Tag.REINFORCED 0;
               unit.setTag Tag.VIS_EFFECT 0;
             end;
-          end;
-          return;
-      - offset: 36   # for Combat Information
-        code: |
-          var int has_basic_combat_information;
-          var ptr RuleSoldier soldier_rule;
-          var int has_advanced_combat_information;
-          var int current_info_level;
-
-          unit.getRuleSoldier soldier_rule;
-
-          soldier_rule.getTag has_basic_combat_information Tag.BASIC_COMBAT_INFORMATION;
-          battle_game.getTag current_info_level Tag.COMBAT_INFORMATION_LEVEL;
-
-          if and gt has_basic_combat_information 0 lt current_info_level 1;
-            battle_game.setTag Tag.COMBAT_INFORMATION_LEVEL 1;
           end;
           return;
     hitUnit:
@@ -2339,7 +2247,8 @@ extended:
           var int attacker_faction;
 
           item.getRuleItem item_rule;
-
+          attacker.getFaction attacker_faction;
+          victim.getFaction victim_faction;
           item_rule.getBattleType battle_type;
           item_rule.getTag is_skill_amp Tag.CLASS_SKILL_ACTIVATION;
           item_rule.getTag psi_amp_type Tag.PSI_AMP_TYPE;

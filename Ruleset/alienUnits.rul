@@ -873,6 +873,7 @@ units:
     intelligence: 6
     aggression: 1
     energyRecovery: 50
+    capturable: true
   - type: STR_DRONE
     race: STR_DRONE_SCOUT
     stats:
@@ -1007,12 +1008,12 @@ items:
     costSell: 0
     listOrder: 15051
   - type: STR_OUTSIDER
+    recoveryTransformations:
+      STR_OUTSIDER_SHARD: [1]
     size: 0.0
     recover: true
     liveAlien: true
-    costSell: 0
-    recoveryTransformations:
-      STR_OUTSIDER_SHARD: [1]
+    costSell: 1000
   - type: STR_CHRYSSALID
     size: 0.0
     recover: true
@@ -1099,7 +1100,8 @@ items:
     invWidth: 2
     invHeight: 3
     recoveryPoints: 5
-    recover: false
+    recover: true
+    recoverCorpse: false
     battleType: 11
     armor: 26
   - type: STR_THIN_MAN_CORPSE
@@ -1335,3 +1337,4 @@ extraStrings:
       STR_OUTSIDER_AUTOPSY: Outsider autopsy
       STR_DRONE: Drone
       STR_DRONE_CORPSE: Drone Wreck
+      STR_OUTSIDER_SHARDS: Outsider Shards

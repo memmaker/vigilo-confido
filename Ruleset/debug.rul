@@ -5,3 +5,17 @@ facilities:
     radarChance: 100
   - type: STR_GENERAL_STORES
     storage: 1000
+
+extended:
+  scripts:
+    newTurnUnit:
+      - offset: 19
+        code: |
+          var ptr RuleItem scope_rules;
+          var ptre BattleItem scope_item;
+
+          debug_log "First Phase Test";
+          rules.getRuleItem scope_rules "STR_SCOPE" 0;
+          unit.getInventoryItem scope_item scope_rules;
+          debug_log unit "scope info" scope_item;
+          return;

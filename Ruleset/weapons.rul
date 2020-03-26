@@ -121,7 +121,8 @@ extended:
       CRIT_DAMAGE: int                # crit damage (percent of additional orig damage to health)
       GUN_TYPE: int                   # 1 = Pistol, 2 = Rifle, 3 = Sniper Rifle, 4 = Shotgun, 5 = Heavy
       RUPTURE_DAMAGE: int             # additional dmg. per hit to ruptured targets
-
+      LASER: int
+      PLASMA: int
 items:
   - delete: STR_HEAVY_CANNON
   - delete: STR_AUTO_CANNON

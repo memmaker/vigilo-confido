@@ -1,5 +1,3 @@
-#TODO: use arc scripts to always have the current objectives in the UFOpedia
-
 # eventScripts:
 #   - type: STR_INTRO_EVENT_SCRIPT
 #     oneTimeSequentialEvents: [STR_INTRODUCTION_EVENT]
@@ -110,12 +108,12 @@ ufopaedia:
     requires: [STR_OBJECTIVES_FINAL]
     text: STR_OBJECTIVES_FINAL_TEXT
 
+# Currently not used
 events:
   - name: STR_INTRODUCTION_EVENT
     description: STR_INTRODUCTION_TEXT
     timer: 60
     timerRandom: 0
-    music: Hello_Commander
     researchList: [STR_OBJECTIVES_ARC0]
 
 arcScripts:

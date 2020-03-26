@@ -263,15 +263,10 @@ research:
     points: 50
     lookup: STR_ANDROMEDON_AUTOPSY
     needItem: true
-  - name: STR_OUTSIDER_CORPSE
-    cost: 30
-    points: 50
-    lookup: STR_OUTSIDER_AUTOPSY
-    needItem: true
   - name: STR_DRONE_CORPSE
     cost: 30
     points: 50
-    lookup: STR_OUTSIDER_AUTOPSY
+    lookup: STR_DRONE_AUTOPSY
     needItem: true
 ## Live Alien Captures
   - name: STR_SECTOID_COMMANDER
@@ -363,10 +358,6 @@ research:
     needItem: true
     destroyItem: true
   - name: STR_THIN_MAN
-    cost: 50
-    points: 50
-    needItem: true
-  - name: STR_OUTSIDER
     cost: 50
     points: 50
     needItem: true

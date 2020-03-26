@@ -200,6 +200,7 @@ extended:
           var int org_thr;
           var int faction;
           var int temp;
+          var ptr RuleUnit zombie_unit;
 
           unit.getFaction faction;
 
@@ -280,7 +281,8 @@ extended:
               unit.getHealth temp;
               sub temp chryssalid_poisoned;
               if le temp 0;
-                #unit.setSpawnUnit "STR_ZOMBIE"; # Disabled until merged
+                rules.getRuleUnit zombie_unit "STR_ZOMBIE" 1;
+                unit.setSpawnUnit zombie_unit; # Disabled until merged
                 debug_log "Death by chryssalid poison:" unit;
               end;
               unit.setHealth temp;

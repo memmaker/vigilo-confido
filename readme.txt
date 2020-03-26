@@ -123,6 +123,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Sprite of combat experience commendation
  - No Heads-up about research in Ufopedia
  - Integrate with https://openxcom.mod.io/extra-explosions
+ - Test newTurnUnit before first turn with extremes: killing, panic, etc.
 
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
@@ -212,3 +213,8 @@ Feature Wishlist:
 requiredSoldierType for startingCondition
 itemFlag: canNotSell
 Ability to trigger skills for aliens, or at least let them choose between two weapons.
+
+---
+
+A: https://drive.google.com/open?id=1vszFp8uydC9u-NtU2nyGnt9LNLGHAP5B
+V: https://drive.google.com/open?id=1KGaCwcHqP56GWiJFJ5_RF-0pr_evblXm
