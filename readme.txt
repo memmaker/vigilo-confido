@@ -124,6 +124,8 @@ T3 - Warden Armor   & Plasma Weapons
  - No Heads-up about research in Ufopedia
  - Integrate with https://openxcom.mod.io/extra-explosions
  - Test newTurnUnit before first turn with extremes: killing, panic, etc.
+ - Add Abduction missions without UFOs
+ - Remove "Shard Assembly" when OXCE has been updated
 
 === Out of Scope for 1.0 ===
  - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
@@ -148,6 +150,7 @@ T3 - Warden Armor   & Plasma Weapons
  - Integrated CMP Rice Farm patch
  - Added numeral suffixes to the Skyranger names, indicating deployment size
  - Added built-in medi-kit to Gremlin to match Ufopedia description
+ - Fixed missing string
 
 === Changes in v.0.9.6 ===
  - Strength not applied anymore to laser and plasma swords

@@ -283,18 +283,17 @@ research:
   - name: STR_SECTOID
     cost: 50
     points: 50
-    getOneFree:
-      - STR_SECTOID
     needItem: true
     destroyItem: true
+    getOneFree:
+      - STR_OBJECTIVES_ARC2
   - name: STR_FLOATER
     cost: 50
     points: 50
     needItem: true
     destroyItem: true
-    lookup: STR_FLOATER
     getOneFree:
-      - STR_FLOATER
+      - STR_OBJECTIVES_ARC2
   - name: STR_SNAKEMAN
     cost: 50
     points: 50
@@ -302,7 +301,7 @@ research:
     needItem: true
     destroyItem: true
     getOneFree:
-      - STR_SNAKEMAN
+      - STR_OBJECTIVES_ARC2
   - name: STR_ETHEREAL_LEADER
     cost: 50
     points: 50
@@ -321,8 +320,6 @@ research:
     needItem: true
     destroyItem: true
     lookup: STR_ETHEREAL
-    getOneFree:
-      - STR_ETHEREAL
     unlocks:
       - STR_PSI_LAB
   - name: STR_MUTON
@@ -331,14 +328,10 @@ research:
     needItem: true
     destroyItem: true
     lookup: STR_MUTON
-    getOneFree:
-      - STR_MUTON
   - name: STR_CHRYSSALID
     cost: 50
     points: 50
     lookup: STR_CHRYSSALID
-    getOneFree:
-      - STR_CHRYSSALID
     needItem: true
     destroyItem: true
   - name: STR_CYBERDISC
@@ -353,14 +346,14 @@ research:
     cost: 50
     points: 50
     lookup: STR_SECTOPOD
-    getOneFree:
-      - STR_SECTOPOD
     needItem: true
     destroyItem: true
   - name: STR_THIN_MAN
     cost: 50
     points: 50
     needItem: true
+    getOneFree:
+      - STR_OBJECTIVES_ARC2
   - name: STR_BERSERKER
     cost: 50
     points: 50

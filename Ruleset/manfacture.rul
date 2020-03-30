@@ -16,7 +16,7 @@ extraStrings:
       STR_MUTON_ELITE_EXTRACTION: Extraction (Muton Elite)
       STR_DRONE_EXTRACTION: Extraction (Drone)
       STR_SECTOPOD_EXTRACTION: Extraction (Sectopod)
-
+      STR_SHARD_ASSEMBLY: Shard Assembly
 
 manufacture:
   - delete: STR_ALIEN_GRENADE
