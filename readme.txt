@@ -143,7 +143,8 @@ T3 - Warden Armor   & Plasma Weapons
 === Changelog ===
 
 === Changes in v.0.9.7 ===
- - Recovery of the hyperwave beacon from a stunned Outsider should now work as intended
+ - Fixed: Mission objectives not updating when interrogating first live alien
+ - Recovery of the hyperwave beacon from a stunned Outsider should now work (nearly as intended)
  - Adjusted facility build costs
  - Fixed Berserker corpses
  - Corrected X-Com Heavy Laser Ufopedia entry
