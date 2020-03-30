@@ -80,7 +80,7 @@ crafts:
       - [8, 6, 0, 1]
       - [8, 2, 0, 2]
 
-  - type: STR_SKYRANGER_SIX
+  - type: STR_SKYRANGER_FIVE
     refNode: *STR_SKYRANGER
     requires:
       - STR_ADVANCED_DEPLOYMENT1
@@ -107,7 +107,7 @@ crafts:
       - [8, 2, 0, 2]
 
 
-  - type: STR_SKYRANGER_EIGHT
+  - type: STR_SKYRANGER_SIX
     refNode: *STR_SKYRANGER
     requires:
       - STR_FULL_DEPLOYMENT
@@ -241,8 +241,9 @@ extraStrings:
       STR_ADVANCED_DEPLOYMENT2: Advanced Deployment 2
       STR_ADVANCED_DEPLOYMENT3: Advanced Deployment 3
       STR_FULL_DEPLOYMENT: Full Deployment
-      STR_SKYRANGER: SKYRANGER
-      STR_SKYRANGER_SIX: SKYRANGER
+      STR_SKYRANGER: SKYRANGER (4)
+      STR_SKYRANGER_FIVE: SKYRANGER (5)
+      STR_SKYRANGER_SIX: SKYRANGER (6)
       STR_SKYRANGER_EIGHT: SKYRANGER
       STR_SKYRANGER_TEN: SKYRANGER
       STR_SKYRANGER_TWELVE: SKYRANGER

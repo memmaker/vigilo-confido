@@ -183,6 +183,16 @@ alienRaces:
       - [STR_THIN_MAN]
       - [STR_THIN_MAN]
       - [STR_THIN_MAN]
+  - id: STR_MUTON_BERSERKER
+    membersRandom:
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
+      - [STR_MUTON_BERSERKER]
 extraStrings:
   - type: en-US
     strings:

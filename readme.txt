@@ -140,6 +140,15 @@ T3 - Warden Armor   & Plasma Weapons
 
 === Changelog ===
 
+=== Changes in v.0.9.7 ===
+ - Recovery of the hyperwave beacon from a stunned Outsider should now work as intended
+ - Adjusted facility build costs
+ - Fixed Berserker corpses
+ - Corrected X-Com Heavy Laser Ufopedia entry
+ - Integrated CMP Rice Farm patch
+ - Added numeral suffixes to the Skyranger names, indicating deployment size
+ - Added built-in medi-kit to Gremlin to match Ufopedia description
+
 === Changes in v.0.9.6 ===
  - Strength not applied anymore to laser and plasma swords
  - Fixed Skyranger not purchasable and Basic Deployment unavailable

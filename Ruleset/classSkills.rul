@@ -3367,6 +3367,7 @@ extraSprites:
       4: Resources/UI/SPICON_SNIPER.png
       5: Resources/UI/SPICON_SPECIALIST.png
       6: Resources/UI/SPICON_PSIOP.png
+      7: Resources/UI/SPICON_MEDI.png
   - type: UFOPAEDIA_IMG_MOLDING_CPAL
     singleImage: true
     width: 320

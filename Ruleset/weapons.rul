@@ -1495,7 +1495,7 @@ extraStrings:
       STR_XCOM_HEAVY_LASER: Heavy Laser
       STR_UFOPAEDIA_HEAVY_LASER: The X3 Heavy Laser requires a supplementary power
         supply that makes it somewhat unwieldy in combat, but it is capable of dealing
-        high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 35{NEWLINE}{NEWLINE}BURST>
+        high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 21{NEWLINE}{NEWLINE}BURST>
         5
       STR_LASER_PISTOL: Alien Laser Pistol
       STR_XCOM_LASER_PISTOL: Laser Pistol

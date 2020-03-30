@@ -46,7 +46,7 @@ facilities:
   - type: STR_LARGE_RADAR_SYSTEM
     spriteShape: 1
     spriteFacility: 22
-    buildCost: 8000
+    buildCost: 5000
     buildTime: 25
     monthlyCost: 2500
     radarRange: 2577
@@ -55,7 +55,7 @@ facilities:
   - type: STR_MISSILE_DEFENSES
     spriteShape: 2
     spriteFacility: 23
-    buildCost: 20000
+    buildCost: 17000
     buildTime: 16
     monthlyCost: 5000
     defense: 500
@@ -86,7 +86,7 @@ facilities:
       - STR_LASER_DEFENSE
     spriteShape: 3
     spriteFacility: 26
-    buildCost: 400000
+    buildCost: 40000
     buildTime: 24
     monthlyCost: 10000
     defense: 600
@@ -99,7 +99,7 @@ facilities:
       - STR_PLASMA_DEFENSE
     spriteShape: 3
     spriteFacility: 27
-    buildCost: 600000
+    buildCost: 60000
     buildTime: 34
     monthlyCost: 12000
     defense: 900
@@ -112,7 +112,7 @@ facilities:
       - STR_FUSION_DEFENSE
     spriteShape: 3
     spriteFacility: 28
-    buildCost: 800000
+    buildCost: 30000
     buildTime: 34
     monthlyCost: 14000
     defense: 1200
@@ -126,7 +126,7 @@ facilities:
     grav: true
     spriteShape: 2
     spriteFacility: 29
-    buildCost: 1200000
+    buildCost: 40000
     buildTime: 38
     monthlyCost: 15000
     mapName: XBASE_12
@@ -136,7 +136,7 @@ facilities:
     mind: true
     spriteShape: 2
     spriteFacility: 30
-    buildCost: 1300000
+    buildCost: 60000
     buildTime: 33
     monthlyCost: 5000
     mapName: XBASE_13
@@ -145,7 +145,7 @@ facilities:
       - STR_PSI_LAB
     spriteShape: 1
     spriteFacility: 31
-    buildCost: 750000
+    buildCost: 12000
     buildTime: 24
     monthlyCost: 16000
     psiLabs: 5
@@ -162,7 +162,7 @@ facilities:
        refund: 1
     spriteShape: 1
     spriteFacility: 59
-    buildCost: 750000
+    buildCost: 15000
     buildTime: 24
     monthlyCost: 16000
     psiLabs: 5
@@ -178,7 +178,7 @@ facilities:
     hyper: true
     spriteShape: 2
     spriteFacility: 32
-    buildCost: 1400000
+    buildCost: 14000
     buildTime: 26
     monthlyCost: 30000
     radarRange: 2759

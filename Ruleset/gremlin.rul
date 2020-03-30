@@ -30,7 +30,8 @@ armors:
       - 1
     loftempsSet: [3]
     meleeDodge:
-      reactions: 0.1
+      reactions: 0.1    
+    specialWeapon: STR_FIXED_MEDI_KIT
 
 units:
   - type: STR_GREMLIN
@@ -71,7 +72,36 @@ items:
   - delete: STR_TANK_ROCKET_LAUNCHER
   - delete: STR_HWP_ROCKETS
   - delete: STR_TANK_LASER_CANNON
-
+  - type: STR_FIXED_MEDI_KIT
+    size: 0.3
+    weight: 8
+    categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
+    bigSprite: 528
+    floorSprite: 528
+    handSprite: 524
+    battleType: 6
+    invWidth: 2
+    invHeight: 2
+    medikitType: 1
+    medikitTargetSelf: false
+    medikitTargetMatrix: 15
+    heal: 1
+    painKiller: 0
+    stimulant: 0
+    woundRecovery: 10
+    healthRecovery: 40
+    stunRecovery: 0
+    energyRecovery: 0
+    costUse:
+      time: 40
+      mana: 6
+    flatUse:
+      time: false
+      mana: true
+    tuThrow: 0
+    costSell: 0
+    costBuy: 0
+    specialIconSprite: 7
   - type: STR_GREMLIN
     size: 6
     costSell: 8800
@@ -113,6 +143,7 @@ items:
     turretType: -1
     clipSize: -1
     listOrder: 1390
+
 
   - type: STR_GREMLIN_CORPSE
     size: 2

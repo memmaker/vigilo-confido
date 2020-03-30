@@ -1132,8 +1132,8 @@ items:
     size: 0.4
     costSell: 350
     weight: 20
-    bigSprite: 809
-    floorSprite: 809
+    bigSprite: 411
+    floorSprite: 411
     invWidth: 2
     invHeight: 3
     recoveryPoints: 5
