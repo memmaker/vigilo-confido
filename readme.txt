@@ -142,6 +142,10 @@ T3 - Warden Armor   & Plasma Weapons
 
 === Changelog ===
 
+=== Changes in v.0.9.8 ===
+ - Fixed alien melee weapons not hitting
+ - No more early game base defense
+
 === Changes in v.0.9.7 ===
  - Fixed: Mission objectives not updating when interrogating first live alien
  - Recovery of the hyperwave beacon from a stunned Outsider should now work (nearly as intended)
@@ -230,4 +234,4 @@ Ability to trigger skills for aliens, or at least let them choose between two we
 ---
 
 A: https://drive.google.com/open?id=1vszFp8uydC9u-NtU2nyGnt9LNLGHAP5B
-V: https://drive.google.com/open?id=1KGaCwcHqP56GWiJFJ5_RF-0pr_evblXm
+V: https://drive.google.com/open?id=1-9TXCAiZ3B7GOQouKd7bAGwvI76Ejm88

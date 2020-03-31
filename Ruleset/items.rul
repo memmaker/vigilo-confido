@@ -1146,6 +1146,7 @@ items:
     power: 10
     damageType: 7
     strengthApplied: true
+    accuracyMelee: 80
     confMelee:
       name: STR_PUNCH
     costMelee:
@@ -1184,6 +1185,7 @@ items:
     meleeHitSound: 109
     meleeAnimation: 0
     damageType: 7
+    accuracyMelee: 80
     strengthApplied: true
     confMelee:
       name: STR_PUNCH
