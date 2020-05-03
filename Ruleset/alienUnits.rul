@@ -458,6 +458,38 @@ armors:
     loftempsSet: [3]
     meleeDodge:
       reactions: 0.3
+  - type: MECHTOID_ARMOR
+    tags:
+      MECHANICAL: 1
+    spriteSheet: MECHTOID.PCK
+    corpseBattle:
+      - MECHTOID_CORPSE_1
+      - MECHTOID_CORPSE_2
+      - MECHTOID_CORPSE_3
+      - MECHTOID_CORPSE_4
+    corpseGeo: STR_MECHTOID_CORPSE
+    frontArmor: 50
+    sideArmor: 46
+    rearArmor: 42
+    underArmor: 45
+    drawingRoutine: 5
+    painImmune: true
+    size: 2
+    damageModifier:
+      - 1
+      - 1
+      - 0.8
+      - 0.8
+      - 1
+      - 1
+      - 0
+      - 0.8
+      - 1
+      - 0
+      - 1
+      - 1
+      - 1.1
+    loftempsSet: [ 92, 89, 90, 91 ]
 
 units:
   - delete: STR_SECTOID_SOLDIER
@@ -950,8 +982,32 @@ units:
     spawnUnit: STR_CHRYSSALID
     livingWeapon: true
     # Zombies are silent on death, no deathSound
-
     capturable: false
+  - type: STR_MECHTOID
+    race: STR_MECHTOID
+    rank: STR_LIVE_TERRORIST
+    stats:
+      tu: 56
+      stamina: 90
+      health: 200
+      bravery: 110
+      reactions: 65
+      firing: 70
+      throwing: 0
+      strength: 60
+      psiStrength: 100
+      psiSkill: 50
+      melee: 80
+    armor: MECHTOID_ARMOR
+    standHeight: 23
+    kneelHeight: 16
+    value: 30
+    deathSound: 23
+    intelligence: 3
+    aggression: 5
+    energyRecovery: 50
+    livingWeapon: true
+
 items:
   - delete: STR_SECTOID_SOLDIER
   - delete: STR_SECTOID_MEDIC
@@ -1090,6 +1146,11 @@ items:
     recover: true
     liveAlien: true
     costSell: 0
+  - type: STR_MECHTOID
+    size: 0.0
+    costSell: 0
+    recover: false
+    liveAlien: true
 # Alien corpses
   - type: STR_OUTSIDER_CORPSE
     size: 0.4
@@ -1173,6 +1234,35 @@ items:
     recoveryPoints: 5
     battleType: 11
     armor: 26
+  - type: STR_MECHTOID_CORPSE
+    size: 1
+    costSell: 20000
+    battleType: 11
+  - type: MECHTOID_CORPSE_1
+    name: STR_MECHTOID_CORPSE
+    floorSprite: 415
+    invWidth: 0
+    invHeight: 0
+    battleType: 11
+    recoveryPoints: 3
+  - type: MECHTOID_CORPSE_2
+    floorSprite: 416
+    invWidth: 0
+    invHeight: 0
+    battleType: 11
+    recover: false
+  - type: MECHTOID_CORPSE_3
+    floorSprite: 417
+    invWidth: 0
+    invHeight: 0
+    battleType: 11
+    recover: false
+  - type: MECHTOID_CORPSE_4
+    floorSprite: 418
+    invWidth: 0
+    invHeight: 0
+    battleType: 11
+    recover: false
 
 
 extraSprites:
@@ -1187,6 +1277,10 @@ extraSprites:
       412: Resources/Units/EliteMuton/Armored_Muton_Commander_Corpse.gif
       413: Resources/Units/Overlord/Overlord_Corpse.gif
       414: Resources/Units/Drone/drone.corpse.png
+      415: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-1.png
+      416: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-2.png
+      417: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-3.png
+      418: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-4.png
 
 # bigobs
   - type: BIGOBS.PCK
@@ -1295,6 +1389,14 @@ extraSprites:
     height: 720
     files:
       0: Resources/Armor_Imported/GreenPowerArmor/shell.sheet.png
+  - type: MECHTOID.PCK
+    subX: 32
+    subY: 40
+    width: 256
+    height: 840
+    files:
+      0: Resources/Units/Mechtoid/mechtoid.png
+
 # ufopedia
   - type: UP018.SPK
     singleImage: true
@@ -1338,3 +1440,4 @@ extraStrings:
       STR_DRONE: Drone
       STR_DRONE_CORPSE: Drone Wreck
       STR_OUTSIDER_SHARDS: Outsider Shards
+      STR_MECHTOID: Mechtoid

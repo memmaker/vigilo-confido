@@ -18,8 +18,8 @@ alienRaces:
       - [STR_MUTON]
       - [STR_MUTON, STR_FLOATER]
       - [STR_FLOATER]
-      - [STR_CYBERDISC, STR_CHRYSSALID]
-      - [STR_CYBERDISC, STR_CHRYSSALID]
+      - [STR_CYBERDISC, STR_SECTOPOD]
+      - [STR_CYBERDISC, STR_MECHTOID]
   - id: STR_ALIEN_ASSAULT_CREW # for x-com base defense
     membersRandom:
       - [STR_ETHEREAL]
@@ -38,7 +38,7 @@ alienRaces:
       - [STR_MUTON_ELITE, STR_CYBERDISC]
       - [STR_MUTON_ELITE, STR_FLOATER]
       - [STR_MUTON_ELITE, STR_MUTON_ELITE, STR_DRONE]
-      - [STR_SECTOPOD]
+      - [STR_MECHTOID]
       - [STR_SECTOPOD]
   - id: STR_TEMPLE_CREW        # final mission
     membersRandom:
@@ -49,7 +49,7 @@ alienRaces:
       - [STR_ETHEREAL, STR_MUTON_ELITE]
       - [STR_ETHEREAL, STR_MUTON_ELITE]
       - [STR_ANDROMEDON, STR_MUTON_BERSERKER]
-      - [STR_CYBERDISC, STR_SECTOPOD]
+      - [STR_MECHTOID, STR_SECTOPOD]
   - id: STR_SECTOID # sectoids / thin man
     membersRandom:
       - [STR_SECTOID]
@@ -58,8 +58,8 @@ alienRaces:
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_SECTOID, STR_THIN_MAN]
-      - [STR_CHRYSSALID, STR_FLOATER]
-      - [STR_CHRYSSALID, STR_FLOATER]
+      - [STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
   - id: STR_FLOATER # floater / reaper
     membersRandom:
       - [STR_FLOATER]
@@ -68,7 +68,7 @@ alienRaces:
       - [STR_FLOATER]
       - [STR_FLOATER, STR_THIN_MAN]
       - [STR_FLOATER, STR_THIN_MAN]
-      - [STR_FLOATER, STR_CHRYSSALID]
+      - [STR_CHRYSSALID]
       - [STR_CHRYSSALID]
   - id: STR_TIER_ONE_MIXED # t1 mixed
     membersRandom:
@@ -78,7 +78,7 @@ alienRaces:
       - [STR_SECTOID, STR_FLOATER, STR_OUTSIDER]
       - [STR_SECTOID, STR_FLOATER]
       - [STR_SECTOID, STR_THIN_MAN]
-      - [STR_CHRYSSALID, STR_FLOATER]
+      - [STR_CHRYSSALID]
       - [STR_CHRYSSALID]
   - id: STR_MUTON # mutons / cyberdiscs
     membersRandom:
@@ -129,7 +129,7 @@ alienRaces:
       - [STR_MUTON_ELITE]
       - [STR_MUTON_ELITE, STR_DRONE]
       - [STR_SECTOPOD, STR_DRONE]
-      - [STR_SECTOPOD]
+      - [STR_SECTOPOD, STR_MECHTOID]
   - id: STR_TIER_THREE_MIXED # t3 mixed
     membersRandom:
       - [STR_ETHEREAL, STR_MUTON_ELITE]
@@ -148,9 +148,10 @@ alienRaces:
       - [STR_MUTON, STR_SNAKEMAN]
       - [STR_ETHEREAL, STR_MUTON_ELITE]
       - [STR_ETHEREAL, STR_MUTON_ELITE]
-      - [STR_DRONE, STR_MUTON_BERSERKER]
+      - [STR_DRONE, STR_MECHTOID, STR_MUTON_BERSERKER]
       - [STR_CYBERDISC, STR_ANDROMEDON, STR_SECTOPOD]
 
+# these are for testing
   - id: STR_DRONE
     membersRandom:
       - [STR_DRONE]
@@ -161,8 +162,6 @@ alienRaces:
       - [STR_DRONE]
       - [STR_SECTOID]
       - [STR_DRONE]
-
-# these are for testing
   - id: STR_CHRYSSALID
     membersRandom:
       - [STR_CHRYSSALID]
@@ -193,6 +192,16 @@ alienRaces:
       - [STR_MUTON_BERSERKER]
       - [STR_MUTON_BERSERKER]
       - [STR_MUTON_BERSERKER]
+  - id: STR_MECHTOID
+    membersRandom:
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
+      - [STR_MECHTOID]
 extraStrings:
   - type: en-US
     strings:

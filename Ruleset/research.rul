@@ -103,6 +103,13 @@ research:
     points: 50
     dependencies:
       - STR_XENO_BIOLOGY
+  - name: STR_SKELETON_KEY
+    cost: 140
+    points: 100
+    needItem: true
+    destroyItem: false
+    getOneFree:
+      - STR_OBJECTIVES_ARC2_HALF
   - name: STR_OUTSIDER_SHARD # unlocks manuf. of skeleton key
     cost: 140
     points: 100

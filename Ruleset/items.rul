@@ -1201,7 +1201,6 @@ items:
     fixedWeapon: true
     recover: false
     specialUseEmptyHand: true
-
   - type: STR_THIN_MAN_POISON
     tags:
       INFLICT_EFFECT: 4 # poison
@@ -1254,7 +1253,30 @@ items:
       ToTile: 0
       ToItem: 0
       ToWound: 0
-
+  - type: MECHTOID_WEAPON
+    damageType: 8
+    battleType: 1
+    weight: 6
+    bigSprite: 7
+    bulletSprite: 8
+    fireSound: 18
+    hitSound: 19
+    hitAnimation: 46
+    accuracySnap: 70
+    accuracyAuto: 50
+    tuSnap: 50
+    confSnap:
+      shots: 6
+    clipSize: -1
+    fixedWeapon: true
+    invWidth: 2
+    invHeight: 3
+    recover: false
+    power: 12
+    damageAlter:
+      ArmorEffectiveness: 0.15
+      ToArmorPre: 0.15
+      ToArmor: 0
 
 
 

@@ -72,6 +72,7 @@ missionScripts:
       STR_OBJECTIVES_ARC3: true
     startDelay: 20000
     targetBaseOdds: 100
+    executionOdds: 100
     maxRuns: 1
     varName: scbd_eu2012
     useTable: false
@@ -446,45 +447,6 @@ alienMissions:
         trajectory: P7
         timer: 9000
         objective: true
-  - type: STR_ALIEN_RETALIATION
-    points: 50
-    retaliationOdds: 0
-    raceWeights:
-      0:
-        STR_SECTOID: 100
-      1:
-        STR_SECTOID: 40
-        STR_FLOATER: 60
-      3:
-        STR_SECTOID: 50
-        STR_FLOATER: 50
-      6:
-        STR_SECTOID: 30
-        STR_FLOATER: 70
-      9:
-        STR_SECTOID: 50
-        STR_FLOATER: 50
-    waves:
-      - ufo: STR_SMALL_SCOUT
-        count: 1
-        trajectory: P0
-        timer: 15000
-      - ufo: STR_MEDIUM_SCOUT
-        count: 1
-        trajectory: P1
-        timer: 18000
-      - ufo: STR_LARGE_SCOUT
-        count: 1
-        trajectory: P3
-        timer: 9000
-      - ufo: STR_ABDUCTOR
-        count: 1
-        trajectory: P3
-        timer: 9000
-      - ufo: STR_ABDUCTOR
-        count: 2
-        trajectory: P4
-        timer: 60
   - type: STR_ATTACK_XCOM_BASE
     points: 0
     objective: 4

@@ -15,7 +15,8 @@ extended:
           var ptre BattleItem scope_item;
 
           debug_log "First Phase Test";
-          rules.getRuleItem scope_rules "STR_SCOPE" 0;
+          rules.getRuleItem scope_rules "STR_SCOPE";
+          debug_log scope_rules;
           unit.getInventoryItem scope_item scope_rules;
           debug_log unit "scope info" scope_item;
           return;

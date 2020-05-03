@@ -281,7 +281,7 @@ extended:
               unit.getHealth temp;
               sub temp chryssalid_poisoned;
               if le temp 0;
-                rules.getRuleUnit zombie_unit "STR_ZOMBIE" 1;
+                rules.getRuleUnit zombie_unit "STR_ZOMBIE";
                 unit.setSpawnUnit zombie_unit; # Disabled until merged
                 debug_log "Death by chryssalid poison:" unit;
               end;

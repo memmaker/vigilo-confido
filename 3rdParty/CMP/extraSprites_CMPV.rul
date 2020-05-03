@@ -1,0 +1,17 @@
+extraSprites:
+#A New Colour Pallet has been created to avoid a issue with the Interceptor screen, i will leave the old version in here just incase a NEW issue appears...Luke83
+
+  - type: TEXTURE.DAT
+    width: 880
+    height: 96
+    subX: 32
+    subY: 32
+    files:
+      # 0: Resources/Globe/CMP_NEW_TEXTURES_1d_SETUP.png # used for testign globe
+      0: Resources/Globe/CMP_NEW_TEXTURES_1g.png
+# customPalettes:
+#   - type: PAL_GEOSCAPE_NEW
+#     target: PAL_GEOSCAPE
+#     file: Resources/PALS/LUKESGEOhybrid4.pal  
+
+

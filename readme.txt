@@ -126,9 +126,24 @@ T3 - Warden Armor   & Plasma Weapons
  - Test newTurnUnit before first turn with extremes: killing, panic, etc.
  - Add Abduction missions without UFOs
  - Remove "Shard Assembly" when OXCE has been updated
+ - Update to CMP 0.3
+ - Callsigns second to names?
+ - Make "Inventory Stats" a fixed user Option
+ - Longer research
+ - People can research "Basic Deployment"?
+ - Normalize the music
+ - Static smoke
+ - Min Strength for Snipers should be higher
+ - No UFOs, only terror missions in May?
+ - Nanoscale Vest (More weight and nicer Sprite)
+ - Weapon sounds
+ - Predator accessible too early?
+ - Poison working correctly? (With armor and vests?)
+ - Nerf health of most aliens? Reduce TU costs?
+ - Nerf Chryssalids and Zombies.
 
 === Out of Scope for 1.0 ===
- - More Units: Waspite?, Stun Lancer(?), Mechtoid(?), Faceless(?), Turret,(?) Exalt(?)
+ - More Units: Waspite?, Stun Lancer(?), Faceless(?), Turret(?), Exalt(?)
  - Crafts & Craft Weapons
  - New Mission Objectives
  - Gene Lab & MECs
@@ -145,6 +160,9 @@ T3 - Warden Armor   & Plasma Weapons
 === Changes in v.0.9.8 ===
  - Fixed alien melee weapons not hitting
  - No more early game base defense
+ - Added Mechtoid enemy
+ - Skeleton Key is now researchable (Will Update the mission objectives)
+ - Floaters not spawning as Terrorists anymore
 
 === Changes in v.0.9.7 ===
  - Fixed: Mission objectives not updating when interrogating first live alien
