@@ -1070,11 +1070,11 @@ items:
     recover: true
     liveAlien: true
     costSell: 1000
-  - type: STR_CHRYSSALID
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_CHRYSSALID
+#    size: 0.0
+#    recover: true
+#    liveAlien: true
+#    costSell: 0
   - type: STR_FLOATER
     size: 0.0
     recover: true
@@ -1091,11 +1091,11 @@ items:
     recover: true
     liveAlien: true
     costSell: 0
-  - type: STR_CYBERDISC
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_CYBERDISC
+#    size: 0.0
+#    recover: true
+#    liveAlien: true
+#    costSell: 0
   - type: STR_MUTON_BERSERKER
     size: 0.0
     recover: true
@@ -1121,21 +1121,21 @@ items:
     recover: true
     liveAlien: true
     costSell: 0
-  - type: STR_DRONE
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_DRONE
+#    size: 0.0
+#    recover: true
+#    liveAlien: false
+#    costSell: 0
   - type: STR_ZOMBIE
     size: 0.0
     recover: true
     liveAlien: true
     costSell: 0
-  - type: STR_SECTOPOD
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_SECTOPOD
+#    size: 0.0
+#    recover: true
+#    liveAlien: true
+#    costSell: 0
   - type: STR_ANDROMEDON
     size: 0.0
     recover: true
