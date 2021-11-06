@@ -205,3 +205,14 @@ extraSprites:
   - type: BASEBITS.PCK
     files:
       59: Resources/Facilities/GollopChamber/GollopChamberBaseBit.png
+
+ufopaedia:
+  - id: STR_HYPERWAVE_DECODER
+    type_id: 6
+    section: STR_BASE_FACILITIES
+    requires:
+      - STR_HYPER_WAVE_DECODER
+    text: STR_HYPER_WAVE_DECODER_UFOPEDIA
+
+  - delete: STR_HYPER_WAVE_DECODER
+
