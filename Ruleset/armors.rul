@@ -27,6 +27,7 @@ items:
     costSell: 2000
     listOrder: 10611
   - type: STR_CORPSE_PREDATOR_ARMOR
+    battleType: 11
     name: STR_CORPSE
     weight: 24
     bigSprite: 92
@@ -36,6 +37,7 @@ items:
     armor: 30
     recover: false
   - type: STR_CORPSE_PREDATOR_ARMOR_BLUE
+    battleType: 11
     name: STR_CORPSE
     weight: 24
     bigSprite: 94
@@ -55,6 +57,7 @@ items:
     costSell: 7500
     listOrder: 10617
   - type: STR_CORPSE_SKY_STRIKE_ARMOR
+    battleType: 11
     name: STR_CORPSE
     weight: 24
     bigSprite: 106
@@ -64,6 +67,7 @@ items:
     armor: 30
     recover: false
   - type: STR_CORPSE_SKY_STRIKE_ARMOR_BLUE
+    battleType: 11
     name: STR_CORPSE
     weight: 24
     bigSprite: 107
@@ -83,6 +87,7 @@ items:
     costSell: 7500
     listOrder: 10802
   - type: STR_CORPSE_PSI_ARMOR_BLUE
+    battleType: 11
     name: STR_CORPSE
     weight: 24
     bigSprite: 123
@@ -102,6 +107,7 @@ items:
     costSell: 6200
     listOrder: 10810
   - type: STR_CORPSE_WARDEN_ARMOR_WHITE
+    battleType: 11
     name: STR_CORPSE
     weight: 26
     bigSprite: 120
@@ -111,6 +117,7 @@ items:
     armor: 30
     recover: false
   - type: STR_CORPSE_WARDEN_ARMOR_GREY
+    battleType: 11
     name: STR_CORPSE
     weight: 26
     bigSprite: 121
@@ -120,6 +127,7 @@ items:
     armor: 30
     recover: false
   - type: STR_CORPSE_WARDEN_ARMOR_BLACK
+    battleType: 11
     name: STR_CORPSE
     weight: 26
     bigSprite: 122
@@ -130,6 +138,12 @@ items:
     recover: false
 
 armors:
+  - delete: CELATID_ARMOR
+  - delete: REAPER_ARMOR
+  - delete: SILACOID_ARMOR
+
+
+
   - type: STR_NONE_UC
     frontArmor: 0
     sideArmor: 0

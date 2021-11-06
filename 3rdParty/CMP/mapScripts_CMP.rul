@@ -556,29 +556,29 @@ mapScripts:
       direction: both
       rects:
         - [1, 1, 4, 4]
-    - type: addLine
-      label: 4
-      conditionals: [-1, -2, -3]
-      direction: vertical
-      executionChances: 50
-      verticalGroup: 7
-      rects:
-        - [1, 1, 4, 1]
-    - type: addLine
-      label: 5
-      conditionals: [-1, -2, -3, -4]
-      executionChances: 50
-      direction: both
-      verticalGroup: 7
-      crossingGroup: 8
-      rects:
-        - [1, 1, 4, 4]
+#    - type: addLine
+#      label: 4
+#      conditionals: [-1, -2, -3]
+#      direction: vertical
+#      executionChances: 50
+#      verticalGroup: 7
+#      rects:
+#        - [1, 1, 4, 1]
+#    - type: addLine
+#      label: 5
+#      conditionals: [-1, -2, -3, -4]
+#      executionChances: 50
+#      direction: both
+#      verticalGroup: 7
+#      crossingGroup: 8
+#      rects:
+#        - [1, 1, 4, 4]
     - type: addBlock
       size: 2
       executions: 3
-    - type: addBlock
-      conditionals: [-3, -5]
-      size: 2
+#    - type: addBlock
+#      conditionals: [-3, -5]
+#      size: 2
     - type: fillArea
 
   - type: COMRCURBAN # Thanks to Dioxine

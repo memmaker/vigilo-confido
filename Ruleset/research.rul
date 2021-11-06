@@ -519,6 +519,24 @@ research:
     dependencies:
       - STR_ALIEN_WEAPON_USAGE
 
+  - name: STR_OUTSIDER
+    cost: 50
+    points: 50
+    needItem: true
+    destroyItem: true
+
+  - name: STR_ANDROMEDON
+    cost: 50
+    points: 50
+    needItem: true
+    destroyItem: true
+
+  - name: STR_MUTON_BERSERKER
+    cost: 50
+    points: 50
+    needItem: true
+    destroyItem: true
+
 extraStrings:
   - type: en-US
     strings:

@@ -10,20 +10,23 @@ research:
       - STR_ALIEN_ALLOYS
     cost: 140
     points: 20
-  # - name: STR_ADVANCED_DEPLOYMENT2
-  #   disables:
-  #     - STR_ADVANCED_DEPLOYMENT1
-  #   dependencies:
-  #     - STR_ADVANCED_DEPLOYMENT1
-  #   cost: 180
-  #   points: 20
-  # - name: STR_ADVANCED_DEPLOYMENT3
-  #   disables:
-  #     - STR_ADVANCED_DEPLOYMENT2
-  #   dependencies:
-  #     - STR_ADVANCED_DEPLOYMENT2
-  #   cost: 180
-  #   points: 20
+
+  - name: STR_ADVANCED_DEPLOYMENT2
+    disables:
+      - STR_ADVANCED_DEPLOYMENT1
+    dependencies:
+      - STR_ADVANCED_DEPLOYMENT1
+    cost: 180
+    points: 20
+    needItem: true # TODO: Integrate this fully; Remove needItem: true when done
+  - name: STR_ADVANCED_DEPLOYMENT3
+    disables:
+      - STR_ADVANCED_DEPLOYMENT2
+    dependencies:
+      - STR_ADVANCED_DEPLOYMENT2
+    cost: 180
+    points: 20
+    needItem: true # TODO: Integrate this fully; Remove needItem: true when done
   - name: STR_FULL_DEPLOYMENT
     disables:
       - STR_ADVANCED_DEPLOYMENT1
@@ -251,6 +254,12 @@ extraStrings:
       STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA: The council has granted us access to an
         upgraded Skyranger with enough space for five operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
         forget to sell the old Skyranger and buy a new, shiny, upgraded one.
+      STR_ADVANCED_DEPLOYMENT2_UFOPAEDIA: The council has granted us access to an
+        upgraded Skyranger with enough space for ten operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
+      STR_ADVANCED_DEPLOYMENT3_UFOPAEDIA: The council has granted us access to an
+        upgraded Skyranger with enough space for twelve operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
       STR_FULL_DEPLOYMENT_UFOPAEDIA: The council has granted us access to the final
         Skyranger upgrade with enough space for six operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
         forget to sell the old Skyranger and buy a new, shiny, upgraded one.
@@ -260,6 +269,11 @@ ufopaedia:
     type_id: 8
     text: STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA
     requires: [STR_ADVANCED_DEPLOYMENT1]
+    section: STR_XCOM_CRAFT_ARMAMENT
+  - id: STR_ADVANCED_DEPLOYMENT2
+    type_id: 8
+    text: STR_ADVANCED_DEPLOYMENT2_UFOPAEDIA
+    requires: [STR_ADVANCED_DEPLOYMENT2]
     section: STR_XCOM_CRAFT_ARMAMENT
   - id: STR_FULL_DEPLOYMENT
     type_id: 8

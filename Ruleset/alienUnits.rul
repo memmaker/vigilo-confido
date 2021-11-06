@@ -29,7 +29,7 @@ armors:
   - type: SECTOID_ARMOR1
     spriteSheet: SECTOID.PCK
     corpseBattle:
-      - STR_PSI_SECTOID_CORPSE
+      - STR_SECTOID_CORPSE
     frontArmor: 4
     sideArmor: 3
     rearArmor: 2
@@ -261,7 +261,7 @@ armors:
     spriteSheet: THIN_MAN.PCK
     tags:
       SPECIAL_ABILITY: 1
-    spriteInv: INV_HUMAN_AGENT
+    spriteInv: INV_HUMAN_AGENT # TODO: Find suitable graphic
     corpseBattle:
       - STR_THIN_MAN_CORPSE
     frontArmor: 8
@@ -1070,11 +1070,11 @@ items:
     recover: true
     liveAlien: true
     costSell: 1000
-  - type: STR_CHRYSSALID
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_CHRYSSALID
+#    size: 0.0
+#    recover: true
+#    liveAlien: true
+#    costSell: 0
   - type: STR_FLOATER
     size: 0.0
     recover: true
@@ -1091,11 +1091,11 @@ items:
     recover: true
     liveAlien: true
     costSell: 0
-  - type: STR_CYBERDISC
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_CYBERDISC
+#    size: 0.0
+#    recover: true
+#    liveAlien: true
+#    costSell: 0
   - type: STR_MUTON_BERSERKER
     size: 0.0
     recover: true
@@ -1121,21 +1121,21 @@ items:
     recover: true
     liveAlien: true
     costSell: 0
-  - type: STR_DRONE
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_DRONE
+#    size: 0.0
+#    recover: true
+#    liveAlien: false
+#    costSell: 0
   - type: STR_ZOMBIE
     size: 0.0
     recover: true
     liveAlien: true
     costSell: 0
-  - type: STR_SECTOPOD
-    size: 0.0
-    recover: true
-    liveAlien: true
-    costSell: 0
+#  - type: STR_SECTOPOD
+#    size: 0.0
+#    recover: true
+#    liveAlien: true
+#    costSell: 0
   - type: STR_ANDROMEDON
     size: 0.0
     recover: true
@@ -1212,6 +1212,7 @@ items:
     battleType: 11
     armor: 26
   - type: STR_ANDROMEDON_CORPSE
+    battleType: 11
     weight: 26
     costSell: 250
     bigSprite: 380
@@ -1441,3 +1442,4 @@ extraStrings:
       STR_DRONE_CORPSE: Drone Wreck
       STR_OUTSIDER_SHARDS: Outsider Shards
       STR_MECHTOID: Mechtoid
+      STR_ALIEN_AGENT: "Alien Agent"
