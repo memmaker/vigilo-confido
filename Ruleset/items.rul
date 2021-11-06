@@ -502,6 +502,11 @@ items:
   - delete: STR_SMALL_ROCKET
   - delete: STR_LARGE_ROCKET
   - delete: STR_INCENDIARY_ROCKET
+
+
+  - type: STR_XTURRET_CANNON_CORPSE
+    battleType: 11
+
   - type: STR_SKULLJACK
     categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
     tags:
@@ -1349,7 +1354,7 @@ armors:
   - type: MIMIC_ARMOR
     tags:
       IS_MIMIC: 1
-    units: [STR_SOLDIER_MIMIC]
+#    units: [STR_SOLDIER_MIMIC]
     corpseBattle:
       - STR_CORPSE
     allowsMoving: false

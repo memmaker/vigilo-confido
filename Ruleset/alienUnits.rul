@@ -29,7 +29,7 @@ armors:
   - type: SECTOID_ARMOR1
     spriteSheet: SECTOID.PCK
     corpseBattle:
-      - STR_PSI_SECTOID_CORPSE
+      - STR_SECTOID_CORPSE
     frontArmor: 4
     sideArmor: 3
     rearArmor: 2

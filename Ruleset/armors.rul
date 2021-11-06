@@ -130,6 +130,12 @@ items:
     recover: false
 
 armors:
+  - delete: CELATID_ARMOR
+  - delete: REAPER_ARMOR
+  - delete: SILACOID_ARMOR
+
+
+
   - type: STR_NONE_UC
     frontArmor: 0
     sideArmor: 0
