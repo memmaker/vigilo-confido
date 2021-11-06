@@ -167,7 +167,7 @@ facilities:
     monthlyCost: 16000
     psiLabs: 5
     maxAllowedPerBase: 1
-    mapName: XBASE_GOLLOP
+    mapName: XBASE_GOLLOP # TODO: Requires terrain
   - type: STR_HYPERWAVE_DECODER
     requires:
       - STR_HYPERWAVE_BEACON

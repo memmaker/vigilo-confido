@@ -9,6 +9,8 @@ itemCategories:
   - type: STR_PASSIVE_BONUS_ITEMS
   - type: STR_SOLDIER_GEAR
   - type: STR_PLOT_ITEMS
+  - type: STR_EQUIPMENT
+  - type: STR_BUILT_INS
 
 extended:
   tags:
@@ -506,6 +508,8 @@ items:
 
   - type: STR_XTURRET_CANNON_CORPSE
     battleType: 11
+
+  - type: STR_NOTHING # todo
 
   - type: STR_SKULLJACK
     categories: [STR_SOLDIER_GEAR, STR_EQUIPMENT]
@@ -1146,7 +1150,7 @@ items:
   - type: STR_ANDROMEDON_PUNCH
     categories: [STR_BUILT_INS]
     weight: 0
-    meleeHitSound: 109
+    meleeHitSound: 109 # TODO: find suitable sound
     meleeAnimation: 0
     power: 10
     damageType: 7
@@ -1172,7 +1176,7 @@ items:
     tuAimed: 60
     tuSnap: 50 # vanilla: 25
     tuAuto: 0 # vanilla: 34
-    accuracyAuto: 46
+#    accuracyAuto: 46
     accuracySnap: 55 # vanilla: 65
     accuracyAimed: 100
     snapRange: 12
@@ -1187,7 +1191,7 @@ items:
   - type: STR_BERSERKER_PUNCH
     categories: [STR_BUILT_INS]
     weight: 0
-    meleeHitSound: 109
+    meleeHitSound: 109  # TODO: find suitable sound
     meleeAnimation: 0
     damageType: 7
     accuracyMelee: 80
@@ -1268,7 +1272,7 @@ items:
     hitSound: 19
     hitAnimation: 46
     accuracySnap: 70
-    accuracyAuto: 50
+#    accuracyAuto: 50
     tuSnap: 50
     confSnap:
       shots: 6

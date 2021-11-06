@@ -114,8 +114,8 @@ items:
     fireSound: 12
     tuSnap: 0
     tuAimed: 0
-    tuMelee: 100
-    meleeHitSound: 109
+#    tuMelee: 100
+    meleeHitSound: 109 # TODO: find suitable sound
     meleeAnimation: 58
     power: 10
     damageType: 14
@@ -146,6 +146,7 @@ items:
 
 
   - type: STR_GREMLIN_CORPSE
+    battleType: 11
     size: 2
     weight: 40
     bigSprite: 450

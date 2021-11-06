@@ -330,7 +330,7 @@ items:
       - STR_SHOTGUN_AMMO
     accuracySnap: 90
     accuracyAimed: 110
-    accuracyAuto: 80
+#    accuracyAuto: 80
     accuracyMultiplier: # Shotgun Accuracy Learning Curve
       firing: [2.4757187257187256, -0.031759906759906760, 0.00016705516705516706]
     tuSnap: 55
@@ -389,7 +389,7 @@ items:
     fireSound: 303
     compatibleAmmo:
       - STR_SNIPER_RIFLE_CLIP
-    accuracyAuto: 90
+#    accuracyAuto: 90
     accuracySnap: 100
     accuracyAimed: 110
     accuracyMultiplier: # Sniper Accuracy Learning Curve
@@ -445,7 +445,7 @@ items:
     fireSound: 300
     compatibleAmmo:
       - STR_HEAVY_CANNON_CLIP
-    accuracyAuto: 75
+#    accuracyAuto: 75
     accuracySnap: 75
     accuracyAimed: 0
     accuracyMultiplier: # Heavy Accuracy Learning Curve
@@ -643,8 +643,8 @@ items:
         end;
         return;
     accuracySnap: 90
-    accuracyAimed: 110
-    accuracyAuto: 80
+#    accuracyAimed: 110
+#    accuracyAuto: 80
     accuracyMultiplier: # Shotgun Accuracy Learning Curve
       firing: [2.4757187257187256, -0.031759906759906760, 0.00016705516705516706]
     tuSnap: 55
@@ -717,7 +717,7 @@ items:
     aimRange: 22
     autoRange: 18
     dropoff: 10   # 10 points of accuracy decrease per tile
-    accuracyAuto: 90
+#    accuracyAuto: 90
     accuracySnap: 100
     accuracyAimed: 110
     accuracyMultiplier: # Sniper Accuracy Learning Curve
@@ -771,7 +771,7 @@ items:
     hitAnimation: 36
     power: 14
     damageType: 4
-    accuracyAuto: 75
+#    accuracyAuto: 75
     accuracySnap: 75
     accuracyAimed: 0
     accuracyMultiplier: # Heavy Accuracy Learning Curve
@@ -822,7 +822,7 @@ items:
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100
-    accuracyAuto: 85
+#    accuracyAuto: 85
     snapRange: 10
     aimRange: 14
     autoRange: 8
@@ -876,7 +876,7 @@ items:
     fireSound: 18
     compatibleAmmo:
       - STR_XCOM_PLASMA_RIFLE_CLIP
-    accuracyAuto: 55
+#    accuracyAuto: 55
     accuracySnap: 86
     accuracyAimed: 100
     tuAuto: 0
@@ -944,8 +944,8 @@ items:
     compatibleAmmo:
       - STR_PLASMA_SHOTGUN_AMMO
     accuracySnap: 90
-    accuracyAimed: 110
-    accuracyAuto: 80
+#    accuracyAimed: 110
+#    accuracyAuto: 80
     accuracyMultiplier: # Shotgun Accuracy Learning Curve
       firing: [2.4757187257187256, -0.031759906759906760, 0.00016705516705516706]
     tuSnap: 55
@@ -1017,7 +1017,7 @@ items:
     aimRange: 22
     autoRange: 18
     dropoff: 10   # 10 points of accuracy decrease per tile
-    accuracyAuto: 90
+#    accuracyAuto: 90
     accuracySnap: 100
     accuracyAimed: 110
     accuracyMultiplier: # Sniper Accuracy Learning Curve
@@ -1079,7 +1079,7 @@ items:
     fireSound: 18
     compatibleAmmo:
       - STR_XCOM_HEAVY_PLASMA_CLIP
-    accuracyAuto: 75
+#    accuracyAuto: 75
     accuracySnap: 75
     accuracyAimed: 0
     accuracyMultiplier: # Heavy Accuracy Learning Curve
