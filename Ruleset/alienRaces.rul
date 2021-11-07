@@ -54,7 +54,7 @@ alienRaces:
     membersRandom:
       - [STR_SECTOID]
       - [STR_SECTOID]
-      - [STR_SECTOID, STR_OUTSIDER]
+      - [STR_OUTSIDER]
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_SECTOID, STR_THIN_MAN]
@@ -64,7 +64,7 @@ alienRaces:
     membersRandom:
       - [STR_FLOATER]
       - [STR_FLOATER]
-      - [STR_FLOATER, STR_OUTSIDER]
+      - [STR_OUTSIDER]
       - [STR_FLOATER]
       - [STR_FLOATER, STR_THIN_MAN]
       - [STR_FLOATER, STR_THIN_MAN]
@@ -75,7 +75,7 @@ alienRaces:
       - [STR_SECTOID, STR_FLOATER, STR_THIN_MAN]
       - [STR_SECTOID, STR_FLOATER, STR_THIN_MAN]
       - [STR_SECTOID, STR_FLOATER, STR_OUTSIDER]
-      - [STR_SECTOID, STR_FLOATER, STR_OUTSIDER]
+      - [STR_OUTSIDER]
       - [STR_SECTOID, STR_FLOATER]
       - [STR_SECTOID, STR_THIN_MAN]
       - [STR_CHRYSSALID]

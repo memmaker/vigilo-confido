@@ -101,17 +101,6 @@ manufacture:
       STR_THIN_MAN_CORPSE: 1
     producedItems:
       STR_GAS_GRENADE: 1
-  - name: STR_SHARD_ASSEMBLY
-    space: 0
-    time: 60
-    cost: 1000
-    requires:
-      - STR_XENO_BIOLOGY
-      - STR_SKULLJACK
-    requiredItems:
-      STR_OUTSIDER: 1
-    producedItems:
-      STR_OUTSIDER_SHARD: 1
   - name: STR_ANDROMEDON_EXTRACTION
     category: STR_TECHNOLOGY_EXTRACTION
     space: 0

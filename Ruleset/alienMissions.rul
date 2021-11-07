@@ -90,23 +90,23 @@ missionScripts:
     executionOdds: 100
     researchTriggers:
       STR_OUTSIDER_SHARD: true
+      STR_HYPERWAVE_DECODER: false
     itemTriggers:
       STR_SKELETON_KEY: true
 
   - type: sendTheOverseerUfo
-    firstMonth: 1
+    firstMonth: 0
     missionWeights:
       0:
         STR_ALIEN_OVERSEER: 100
     useTable: false
-    maxRuns: 1
     varName: overseer_eu2012
     targetBaseOdds: 100
     executionOdds: 100
-    itemTriggers:
-      STR_HYPERWAVE_BEACON: true
     facilityTriggers:
       STR_HYPERWAVE_DECODER: true
+    researchTriggers:
+      STR_NEW_FIGHTER_CRAFT: true
 
 alienMissions:
   - type: STR_ALIEN_RESEARCH
@@ -116,15 +116,19 @@ alienMissions:
       0:
         STR_SECTOID: 100
       1:
-        STR_FLOATER: 70
-        STR_SECTOID: 15
-        STR_TIER_ONE_MIXED: 15
+        STR_FLOATER: 15
+        STR_SECTOID: 80
+        STR_TIER_ONE_MIXED: 5
       3:
-        STR_MUTON: 70
-        STR_TIER_ONE_MIXED: 30
+        STR_FLOATER: 10
+        STR_SECTOID: 70
+        STR_MUTON: 15
+        STR_TIER_ONE_MIXED: 5
       5:
-        STR_SNAKEMAN: 70
-        STR_MUTON: 25
+        STR_SECTOID: 60
+        STR_SNAKEMAN: 15
+        STR_MUTON: 15
+        STR_FLOATER: 10
         STR_TIER_ONE_MIXED: 5
       7:
         STR_ETHEREAL: 70
@@ -477,7 +481,7 @@ alienMissions:
         trajectory: P8
         timer: 3000
   - type: STR_ALIEN_SUPPLY
-    points: 0
+    points: 1
     objective: 5
     retaliationOdds: 0
     raceWeights: {} #Special case, race comes from base.
@@ -488,13 +492,11 @@ alienMissions:
         timer: 6000
         objective: true
   - type: STR_ALIEN_OVERSEER
-    operationType: 0
-    targetBaseOdds: 100
     raceWeights:
       0:
         STR_OVERSEER_CREW: 100
-    points: 0
-    objective: 5
+    points: 10
+    objective: 0
     waves:
       - ufo: STR_OVERSEER_UFO
         count: 1
@@ -1226,7 +1228,7 @@ alienDeployments:
     markerName: STR_TERROR_SITE
     duration: [4, 10]
     despawnPenalty: 1000
-  - type: STR_OVERSEER_DEPLOYMENT
+  - type: STR_OVERSEER_UFO
     maxShade: 6
     data:
       - alienRank: 5
@@ -1796,6 +1798,8 @@ alienDeployments:
       showCraft: false
       background: BACK01.SCR
     script: BOSSBATTLE
+    winCutscene: winGame
+    loseCutscene: loseGame
 #    objectiveType: 14
 #    objectivesRequired: 1
     finalDestination: true
@@ -1809,7 +1813,10 @@ startingConditions:
 extraStrings:
   - type: en-US
     strings:
-      STR_OVERSEER_DEPLOYMENT: OVERSEER SHIP
+      STR_ATTACK_XCOM_BASE: Attack on X-Com base
+      STR_OVERSEER_UFO: Overseer Ship
+      STR_OVERSEER_CREW: Enemy Unknown
+      STR_ALIEN_OVERSEER: Administration
       STR_THE_FINAL_ASSAULT: THE FINAL ASSAULT
       STR_THE_FINAL_ASSAULT_BRIEFING: We finally have the strength to face the Ethereals
         on their own ship. The future of humanity is at stake. Expect extreme resistance.

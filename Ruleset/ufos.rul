@@ -10,7 +10,6 @@ ufos:
     score: 700
     reload: 24
     breakOffTime: 4000
-    craftCustomDeploy: STR_OVERSEER_DEPLOYMENT
     battlescapeTerrainData:
       name: UFO_160
       mapDataSets:
@@ -23,3 +22,6 @@ ufos:
         - name: UFO_160
           width: 30
           length: 30
+    scripts:
+      detectUfoFromBase: |
+        return 3 100;

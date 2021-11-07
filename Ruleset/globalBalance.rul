@@ -39,22 +39,6 @@ ai:
   useDelayPsionic: 4
 
 extended:
-  tags:
-    BattleGame:
-      COMBAT_INFORMATION_LEVEL: int
-    BattleUnit:
-      LAST_HIT_FRAME: int
-      LAST_DAMAGE_FRAME: int
-      LAST_DAMAGE_TYPE: int
-      ORIGINAL_ACCURACY: int
-      CRIT_CHANCE_BASE: int       # never reset during a mission
-      CRIT_CHANCE_THIS_TURN: int  # gets reset every turn
-      CRIT_CHANCE_NEXT_HIT: int   # gets reset after a hit
-      CRIT_DAMAGE_NEXT_HIT: int   # gets reset after a hit
-      HARDENED_STATE: int # unit has hardened ability
-    RuleItem:
-      CRIT_CHANCE: int                # base crit chance of item
-      CRIT_DAMAGE: int                # crit factor (percent of additional orig damage to health)
   scripts:
     visibilityUnit:
       - offset: -1 # alien exposer

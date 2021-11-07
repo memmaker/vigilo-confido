@@ -1,0 +1,6 @@
+open.errors.log
+
+STR_NOTHING items
+
+[07-11-2021_20-04-34]	[INFO]	Supressed Error for 'STR_DRONE': There is live alien item but unit is not recoverable (missing capturable)
+[07-11-2021_20-04-34]	[INFO]	Supressed Error for 'STR_SECTOPOD': There is live alien item but unit is not recoverable (missing capturable)

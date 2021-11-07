@@ -29,6 +29,7 @@ Take2/Firaxis are the copyright holders of these images.
 As this project is completely non-profit, please, instead of suing, send an e-mail to: memmaker@32kb.org
 
 Special Thanks to:
+Buscher for updating the Mod to OXCE 7.1
 SupSuper & Warboy for their work on OpenXcom
 Meridian for his work on OpenXcom extended, his merging of my PRs and his constant support
 Yankes for his script engine which made most of this possible and of course his support

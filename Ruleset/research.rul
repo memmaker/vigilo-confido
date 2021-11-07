@@ -114,11 +114,21 @@ research:
     cost: 140
     points: 100
     needItem: true
-    destroyItem: true
+    destroyItem: false
   - name: STR_HYPERWAVE_BEACON # unlocks manuf. of hyperwave decoder (relay)
     cost: 210
     points: 100
     needItem: true
+  - name: STR_UFO_CONSTRUCTION
+    cost: 150
+    points: 50
+    dependencies: [STR_ALIEN_ALLOYS, STR_UFO_POWER_SOURCE, STR_UFO_NAVIGATION]
+  - name: STR_NEW_FIGHTER_CRAFT # unlocks arc4
+    dependencies: [STR_UFO_CONSTRUCTION, STR_HYPERWAVE_BEACON]
+    getOneFree:
+      - STR_OBJECTIVES_ARC4
+    cost: 200
+    points: 100
   - name: STR_ETHEREAL_DEVICE # unlocks construction of gollop chamber
     cost: 280
     points: 100

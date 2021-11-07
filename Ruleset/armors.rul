@@ -53,7 +53,7 @@ items:
     requiresBuy:
       - STR_SKY_STRIKE_ARMOR
     size: 0.6
-    costBuy: 8000
+    costBuy: 0
     costSell: 7500
     listOrder: 10617
   - type: STR_CORPSE_SKY_STRIKE_ARMOR

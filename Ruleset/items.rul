@@ -1328,6 +1328,9 @@ extraSprites:
       708: Resources/PsiAmps/AdvancedPsiAmp_handOb.png
       716: Resources/PsiAmps/AlienPsiAmp_handOb.png
 
+soldiers:
+  - type: STR_SOLDIER_MIMIC
+
 units:
   - type: STR_SOLDIER_MIMIC
     race: STR_SOLDIER_MIMIC
@@ -1358,7 +1361,7 @@ armors:
   - type: MIMIC_ARMOR
     tags:
       IS_MIMIC: 1
-#    units: [STR_SOLDIER_MIMIC]
+    units: [STR_SOLDIER_MIMIC]
     corpseBattle:
       - STR_CORPSE
     allowsMoving: false

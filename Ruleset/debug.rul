@@ -1,3 +1,9 @@
+initialFunding: 9999
+
+startingBase:
+  scientists: 1000
+  engineers: 1000
+
 facilities:
   - type: STR_SMALL_RADAR_SYSTEM
     radarRange: 15000
@@ -5,6 +11,39 @@ facilities:
     radarChance: 100
   - type: STR_GENERAL_STORES
     storage: 1000
+  - type: STR_LABORATORY
+    labs: 1000
+  - type: STR_WORKSHOP
+    workshops: 1000
+
+crafts:
+  - type: STR_INTERCEPTOR
+    fuelMax: 10000
+    damageMax: 1000
+    speedMax: 4900
+    accel: 4
+    weapons: 2
+    forceShowInMonthlyCosts: true
+    refuelRate: 5000
+    transferTime: 96
+    armor: 100
+    
+craftWeapons:
+  - type: STR_STINGRAY
+    sprite: 0
+    sound: 5
+    damage: 70
+    range: 90
+    accuracy: 100
+    reloadCautious: 12
+    reloadStandard: 8
+    reloadAggressive: 4
+    ammoMax: 100
+    launcher: STR_STINGRAY_LAUNCHER
+    clip: STR_STINGRAY_MISSILES
+    projectileType: 0
+    projectileSpeed: 32
+    tractorBeamPower: 24
 
 extended:
   scripts:

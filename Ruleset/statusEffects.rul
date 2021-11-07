@@ -161,27 +161,6 @@ items:
       FixRadius: 4
 
 extended:
-  tags:
-    RuleItem:
-      INFLICT_EFFECT: int
-      INFLICT_CHANCE: int
-      EFFECT_POWER: int
-    BattleUnit:
-      DISORIENTED: int
-      ACID_BURN: int
-      POISONED: int
-      FROZEN: int
-      SHUTDOWN: int
-      CHRYSSALID_POISONED: int
-#      STUNNED: int # ??? make it so, that stun damage also reduces TU
-#      BURNING: int # ??? make it so, that burning disables weapon usage
-      ORIGINAL_FIRING_ACCURACY: int
-      ORIGINAL_THROWING_ACCURACY: int
-      VIS_EFFECT: int
-      VIS_COLOR: int
-      VIS_DELAY: int
-      VIS_REPLACE_COLOR: int
-      VIS_REGION: int  # 0 = Affect all, 1 = Only Armor, 2 = Only Face, 3 = Only item
   scripts:
     newTurnUnit:
       - offset: 97    # handling new turns for status effects
