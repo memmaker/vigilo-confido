@@ -8,13 +8,14 @@ A vanilla expansion for OXCE featuring content from EU2012 and others.
 Mod.io page: https://openxcom.mod.io/vigilo-confido
 
 The mod is feature complete and playable but has only seen testing by me.
+So it will probably still contain bugs.
 
 === Features ===
 
  - 5 soldier classes (Ranger, Grenadier, Specialist, Sniper, Psi Operative)
  - ~50 scripted abilities with unique skills for each class
  - 500+ callsigns for each soldier class
- - 20+ cutscenes from the remakes
+ - 20+ cutscenes from the remakes (removed due to licensing reasons)
  - 200+ voice files (Unit responsonse sounds)
  - 8 new alien units (Cyber Floater, Thin Man, Berserker, Armored Muton, Sectopod Drone, Muton Elite, Andromedon, Outsider)
  - 3 new weapon types in T1, T2 & T3 versions (Swords, Shotguns, Sniper Rifles)
@@ -37,7 +38,7 @@ The mod is feature complete and playable but has only seen testing by me.
 
 === Requirements ===
 
-OpenXcom Extended (OXCE) 6.4
+OpenXcom Extended (OXCE) 7.1
 
 Download release versions of OXCE here:
 https://openxcom.org/oxce/release/
@@ -121,16 +122,9 @@ T3 - Warden Armor   & Plasma Weapons
  - Testing, Balancing
  - Sound effects (Gremlin, Drone)
  - Sprite of combat experience commendation
- - No Heads-up about research in Ufopedia
- - Integrate with https://openxcom.mod.io/extra-explosions
  - Test newTurnUnit before first turn with extremes: killing, panic, etc.
  - Add Abduction missions without UFOs
- - Update to CMP 0.3
- - Callsigns second to names?
- - Make "Inventory Stats" a fixed user Option
  - Longer research
- - Normalize the music
- - Static smoke
  - Min Strength for Snipers should be higher
  - No UFOs, only terror missions in May?
  - Nanoscale Vest (More weight and nicer Sprite)
@@ -139,8 +133,16 @@ T3 - Warden Armor   & Plasma Weapons
  - Poison working correctly? (With armor and vests?)
  - Nerf health of most aliens? Reduce TU costs?
  - Nerf Chryssalids and Zombies.
+ - The stuff in open.errors.log
+ - The ending still talks about Cydonia (on the button, etc.), so do the cutscenes
 
-=== Out of Scope for 1.0 ===
+=== Nice to have ===
+ - Integrate with https://openxcom.mod.io/extra-explosions
+ - A Heads-up about research in Ufopedia
+ - Make "Inventory Stats" a fixed user Option
+ - Update to CMP 0.3 (or another mappack?)
+ - Normalized music
+ - Static smoke
  - More Units: Waspite?, Stun Lancer(?), Faceless(?), Turret(?), Exalt(?)
  - Crafts & Craft Weapons
  - New Mission Objectives
@@ -154,6 +156,15 @@ T3 - Warden Armor   & Plasma Weapons
  - Very easy to exhaust the one medi-kit activation on oneself 
 
 === Changelog ===
+
+=== Changes in v.0.9.8.2 ===
+ - OXCE 7.1 compatibility (thanks to Buscher)
+ - Various Bugfixes & missing Strings
+ - Outsider is now easier to find
+ - Researching "Outsider Shard" no longer destroys it
+ - Firestorm research tree changed
+ - Fixed Overseer UFO not appearing, it will now always be detected
+ - Some mission objectives have been slightly changed
 
 === Changes in v.0.9.8 ===
  - Fixed alien melee weapons not hitting
