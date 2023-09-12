@@ -1,0 +1,13 @@
+ru:
+  STR_INTERCEPT: "ㄷ  ПЕРЕХВАТ  ㄹ"
+  STR_BASES: "ㅁ БАЗЫ "
+  STR_GRAPHS: "ㅂ ГРАФИКИ "
+  STR_UFOPAEDIA_UC: "ㅅ УФОПЕДИЯ "
+  STR_OPTIONS_UC: "ㅇ НАСТРОЙКИ "
+  STR_FUNDING_UC: "ㅈ ФИНАНСЫ "
+  STR_5_SECONDS: "ㅊ 5с"
+  STR_1_MINUTE: "ㅋ 1м"
+  STR_5_MINUTES: "ㅍ 5м"
+  STR_30_MINUTES: "ㅌ 30м"
+  STR_1_HOUR: "ㅎ 1ч"
+  STR_1_DAY: "ㅆ 1д"

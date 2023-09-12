@@ -1,0 +1,67 @@
+musics:
+  - type: GMDEFEND
+    normalization: 1.0
+  - type: GMENBASE
+    normalization: 1.0
+  - type: GMGEO1
+    normalization: 1.0
+  - type: GMGEO2
+    normalization: 1.0
+  - type: GMGEO3
+    normalization: 1.0
+  - type: GMGEO4
+    normalization: 1.0    
+  - type: GMINTER
+    normalization: 1.0
+  - type: GMINTRO1
+    catPos: 19
+    normalization: 0.8
+  - type: GMINTRO2
+    catPos: 20
+    normalization: 0.8
+  - type: GMINTRO3
+    catPos: 21
+    normalization: 0.8
+  - type: GMLOSE
+    normalization: 1.0
+  - type: GMMARS
+    normalization: 1.0
+  - type: GMNEWMAR
+    catPos: 8
+    normalization: 0.81
+  - type: GMSTORY
+    normalization: 1.5
+  - type: GMTACTIC1
+    normalization: 1.0
+  - type: GMTACTIC2
+    normalization: 1.0
+  - type: GMTACTIC3
+    normalization: 1.0
+  - type: GMTACTIC4
+    normalization: 1.0
+  - type: GMTACTIC5
+    normalization: 1.0
+  - type: GMTACTIC6
+    normalization: 1.0
+  - type: GMWIN
+    catPos: 11
+    normalization: 0.84
+
+extraStrings:
+  - type: en-US
+    strings:
+
+      GMSTORY: "Main Menu Theme"
+      GMGEO1: "HQ - Act 1"
+      GMGEO2: "HQ - Act 2"
+      GMGEO3: "HQ - Act 3"
+      GMGEO4: "Mission Control"
+      GMTACTIC2: "Combat Music 2"
+      GMTACTIC3: "Combat Music 3"
+      GMTACTIC4: "Combat Music 4"
+      GMTACTIC5: "Combat Music 5"
+      GMTACTIC6: "Combat Music 6"
+      GMENBASE: "Ready for Battle"
+      GMDEFEND: "Ready for Battle"
+      
+     

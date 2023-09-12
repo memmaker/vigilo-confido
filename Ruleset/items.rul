@@ -613,7 +613,7 @@ items:
     accuracyMultiplier:
       psiStrength: 0.5
       psiSkill: 0.5
-    psiTargetMatrix: 7 # everyone
+    targetMatrix: 7 # everyone
   - type: STR_ALIEN_PSI_AMP
     requires:
       - STR_ALIEN_PSI_AMP
@@ -653,7 +653,7 @@ items:
     accuracyMultiplier:
       psiStrength: 0.5
       psiSkill: 0.5
-    psiTargetMatrix: 7 # everyone
+    targetMatrix: 7 # everyone
   - type: STR_SCOPE
     tags:
       ACCURACY_BONUS: 10
@@ -1150,7 +1150,7 @@ items:
   - type: STR_ANDROMEDON_PUNCH
     categories: [STR_BUILT_INS]
     weight: 0
-    meleeHitSound: 109 # TODO: find suitable sound
+    meleeHitSound: 54 # TODO: find suitable sound
     meleeAnimation: 0
     power: 10
     damageType: 7
@@ -1191,7 +1191,7 @@ items:
   - type: STR_BERSERKER_PUNCH
     categories: [STR_BUILT_INS]
     weight: 0
-    meleeHitSound: 109  # TODO: find suitable sound
+    meleeHitSound: 54  # TODO: find suitable sound
     meleeAnimation: 0
     damageType: 7
     accuracyMelee: 80
@@ -1330,6 +1330,8 @@ extraSprites:
 
 soldiers:
   - type: STR_SOLDIER_MIMIC
+    armor: MIMIC_ARMOR
+    
 
 units:
   - type: STR_SOLDIER_MIMIC

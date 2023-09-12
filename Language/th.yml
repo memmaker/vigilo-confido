@@ -1,0 +1,13 @@
+th:
+  STR_INTERCEPT: "ㄷ  ตอบโต้  ㄹ"
+  STR_BASES: "ㅁ ฐานทัพ "
+  STR_GRAPHS: "ㅂ สถิติ "
+  STR_UFOPAEDIA_UC: "ㅅ ข้อมูลยูเอฟโอ "
+  STR_OPTIONS_UC: "ㅇ ตัวเลือก "
+  STR_FUNDING_UC: "ㅈ เงินสนับสนุน"
+  STR_5_SECONDS: "ㅊ 5 วิ"
+  STR_1_MINUTE: "ㅋ 1 น"
+  STR_5_MINUTES: "ㅍ 5 น"
+  STR_30_MINUTES: "ㅌ 30 น"
+  STR_1_HOUR: "ㅎ 1 ชม"
+  STR_1_DAY: "ㅆ 1 วัน"

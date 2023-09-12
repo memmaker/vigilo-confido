@@ -1,4 +1,5 @@
-useCustomCategories: true
+ 
+displayCustomCategories: 2
 customTrainingFactor: 10
 maxDarknessToSeeUnits: 15
 
@@ -10,7 +11,7 @@ constants:
 
 difficultyCoefficient: [0, 1, 2, 3, 4]
 defeatFunds: -10000
-defeatScore: -5000
+defeatScore: -20000
 aimAndArmorMultipliers: [1.0, 1.0, 1.0, 1.0, 1.0]
 
 statGrowthMultipliers:
@@ -29,7 +30,7 @@ statGrowthMultipliers:
 bughuntMinTurn: 16
 bughuntMaxEnemies: 2
 bughuntRank: -1
-surrenderMode: 1
+surrenderMode: 2
 
 ai:
   useDelayBlaster: 3

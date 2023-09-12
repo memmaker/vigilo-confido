@@ -92,6 +92,8 @@ research:
   - delete: STR_NEW_FIGHTER_TRANSPORTER
   - delete: STR_ULTIMATE_CRAFT
   - name: STR_XENO_BIOLOGY # unlocks manuf. of alien containment
+    getOneFree:
+      - STR_OBJECTIVES_ARC1
     cost: 90
     points: 10
     dependencies:
@@ -201,8 +203,6 @@ research:
       - STR_ETHEREAL
 
 ## Autopsies for Vanilla Units
-  - name: STR_SECTOID_CORPSE
-    cost: 30
   - name: STR_FLOATER_CORPSE
     cost: 30
   - name: STR_SNAKEMAN_CORPSE
@@ -259,6 +259,16 @@ research:
     needItem: true
   - name: STR_OUTSIDER_AUTOPSY
     points: 50
+    needItem: true
+  - name: STR_SECTOID_CORPSE
+    cost: 30
+    points: 50
+    lookup: STR_SECTOID_AUTOPSY
+    needItem: true
+  - name: STR_SECTOID_COMMANDER_CORPSE
+    cost: 30
+    points: 50
+    lookup: STR_SECTOID_AUTOPSY
     needItem: true
   - name: STR_THIN_MAN_CORPSE
     cost: 30
@@ -411,24 +421,30 @@ research:
   - delete: STR_PLASMA_RIFLE
   - delete: STR_HEAVY_PLASMA
   - name: STR_LASER_PISTOL # Alien Laser Pistol
-    cost: 150
+    cost: 100
     points: 10
     needItem: true
     destroyItem: true
   - name: STR_LASER_RIFLE  # Alien Laser Rifle
-    cost: 180
+    cost: 140
+    points: 10
+    needItem: true
+    destroyItem: true
+  - name: STR_HEAVY_LASER  # Alien Heavy Laser Rifle
+    cost: 160
     points: 10
     needItem: true
     destroyItem: true
   - name: STR_LASER_WEAPONS # X-COM Laser Weapons
-    cost: 250
+    cost: 200
     points: 20
     dependencies:
       - STR_ALIEN_ALLOYS
       - STR_LASER_PISTOL
       - STR_LASER_RIFLE
+      - STR_HEAVY_LASER
   - name: STR_LASER_SHOTGUN # X-Com Laser Shotgun
-    cost: 280
+    cost: 250
     points: 15
     dependencies:
       - STR_LASER_WEAPONS
@@ -438,7 +454,7 @@ research:
     dependencies:
       - STR_LASER_WEAPONS
   - name: STR_XCOM_HEAVY_LASER # X-Com Heavy Laser
-    cost: 330
+    cost: 300
     points: 15
     dependencies:
       - STR_LASER_WEAPONS

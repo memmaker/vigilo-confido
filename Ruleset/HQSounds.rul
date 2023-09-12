@@ -1,0 +1,191 @@
+
+items:
+
+
+    
+  - type: STR_LASER_PISTOL
+    
+  - type: STR_LASER_RIFLE
+    fireSound: 11
+    hitSound: 19
+  - type: STR_HEAVY_LASER
+    
+
+  # - type: STR_STUN_ROD
+    # meleeSound: 54
+#--------------------------####
+#-----WEAPON PLATFORMS-----####
+#--------------------------####
+  - type: STR_TANK_CANNON
+    fireSound: 72
+  - type: STR_TANK_ROCKET_LAUNCHER
+    fireSound: 52
+  - type: STR_TANK_LASER_CANNON
+    fireSound: 75
+    hitSound: 19
+  - type: STR_HOVERTANK_PLASMA
+    fireSound: 77
+    hitSound: 78
+  - type: STR_HOVERTANK_LAUNCHER
+    fireSound: 53
+  - type: CYBERDISC_WEAPON
+    fireSound: 77
+    hitSound: 78
+  - type: SECTOPOD_WEAPON
+    fireSound: 18
+    hitSound: 78
+  - type: CHRYSSALID_WEAPON
+    meleeSound: 61
+  - type: ZOMBIE_WEAPON
+
+facilities:
+  - type: STR_LASER_DEFENSES
+    fireSound: 14
+craftWeapons:
+  - type: STR_STINGRAY
+    sound: 15
+  # - type: STR_AVALANCHE
+    # sound: 5
+  # - type: STR_STORMLANCE
+    # sound: 5
+  # - type: STR_CANNON_UC
+    # sound: 4
+  # - type: STR_PLASMA_BEAM_UC
+    # sound: 9
+  # - type: STR_FUSION_BALL_UC
+    # sound: 7
+  - type: STR_LASER_CANNON_UC
+    sound: 14
+extraSounds:
+  - type: GEO.CAT
+    files:
+      0: Resources/HQSounds/Geo/geo_button_1.ogg	#button1
+      1: Resources/HQSounds/Geo/geo_window.ogg	#window close
+      2: Resources/HQSounds/Geo/geo_whoosh_1.ogg	#window open1
+      3: Resources/HQSounds/Geo/geo_whoosh_2.ogg	#window open2
+      4: Resources/HQSounds/Geo/geo_cannon.ogg	#cannon
+      5: Resources/HQSounds/Geo/geo_missile.ogg	#missile (AVALANCHE)
+      6: Resources/HQSounds/Geo/geo_button_2.ogg #button2 #geo_button_1.ogg
+      7: Resources/HQSounds/Geo/geo_fusionball.ogg	#Fusion Ball
+      8: Resources/HQSounds/Geo/geo_ufoattack.ogg	#laser -> ufo attack (actual laser changed to 14)
+      9: Resources/HQSounds/Geo/geo_plasma.ogg	#plasma
+      10: Resources/HQSounds/Geo/geo_planehit.ogg	#xcom craft hit
+      11: Resources/HQSounds/Geo/geo_ufodestroyed.ogg	#ufo destroyed
+      12: Resources/HQSounds/Geo/geo_ufohit.ogg	#ufo hit
+      13: Resources/HQSounds/Geo/geo_planedestroyed.ogg  #xcom craft destroy
+#--------------NEW, ADDITIONAL
+      14: Resources/HQSounds/Geo/geo_laser.ogg	#LASER
+      15: Resources/HQSounds/Geo/geo_missile_smaller.ogg	#STINGRAY
+#-------------###
+#-------------###
+#----BATTLE---###
+#-------------###
+#-------------###
+  - type: BATTLE.CAT
+    files:
+      0: Resources/HQSounds/Battle/walk_snakeman.ogg	#snakeman move
+      1: Resources/HQSounds/Battle/death_snakeman.ogg	#snakeman scream
+      2: Resources/HQSounds/Battle/small_explosion.ogg	#small explosion
+      3: Resources/HQSounds/Battle/door_barn.ogg	#door open
+      4: Resources/HQSounds/Battle/b_normal_fire.ogg	#standard pistol/rifle shot
+      5: Resources/HQSounds/Battle/large_explosion.ogg	#large explosion
+#------------------
+      6: Resources/HQSounds/Battle/death_muton.ogg	#muton death
+      7: Resources/HQSounds/Battle/death_silacoid.ogg	#celatid death
+      8: Resources/HQSounds/Battle/death_snakeman_old.ogg	#snakeman death old
+      9: Resources/HQSounds/Battle/death_ethereal.ogg	#ethereal death
+      10: Resources/HQSounds/Battle/death_sectoid.ogg	#sectoid/floater death
+#------------------
+      11: Resources/HQSounds/Weapons/LaserRifle_fire.ogg	#laser rifle shot
+      12: Resources/HQSounds/Battle/b_cannon_fire.ogg	#standard cannon shoot
+      13: Resources/HQSounds/Battle/b_cannon_hit.ogg	#ammo metal hit
+      14: Resources/HQSounds/Battle/move_tank.ogg	#tank move
+      15: Resources/HQSounds/Battle/move_hover_small_1.ogg	#floater move
+      16: Resources/HQSounds/Battle/walk_snakeman.ogg	#celatid/snakeman move#############duplicate 0
+      17: Resources/HQSounds/Battle/b_reload.ogg	#reload
+      18: Resources/HQSounds/Weapons/PlasmaRifle_fire.ogg	#plasma rifle shot
+      19: Resources/HQSounds/Battle/b_laser_hit.ogg	#laser/plasma hit
+      20: Resources/HQSounds/Battle/door_ufomain.ogg	#ufo door main
+      21: Resources/HQSounds/Battle/door_inner.ogg	#ufo door inner
+      22: Resources/HQSounds/Battle/b_normal_hit.ogg	#pistol/rifle hit
+      23: Resources/HQSounds/Battle/tank_destroyed.ogg	#metal crunch (machine death)
+#-------------------
+      24: Resources/HQSounds/Battle/walk_metal1.ogg	#footsteps metal 1
+      25: Resources/HQSounds/Battle/walk_metal2.ogg	#footsteps metal 2
+      26: Resources/HQSounds/Battle/walk_ground1.ogg	#footsteps ground 1
+      27: Resources/HQSounds/Battle/walk_ground2.ogg	#footsteps ground 2
+      28: Resources/HQSounds/Battle/walk_martian1.ogg	#footsteps mars 1
+      29: Resources/HQSounds/Battle/walk_martian2.ogg	#footsteps mars 2
+      30: Resources/HQSounds/Battle/walk_water1.ogg	#footsteps mud 1
+      31: Resources/HQSounds/Battle/walk_water2.ogg	#footsteps mud 2
+      32: Resources/HQSounds/Battle/walk_sand1.ogg	#footsteps sand 1
+      33: Resources/HQSounds/Battle/walk_sand2.ogg	#footsteps sand 2
+      34: Resources/HQSounds/Battle/walk_snow1.ogg	#footsteps snow 1
+      35: Resources/HQSounds/Battle/walk_snow2.ogg	#footsteps snow 2
+#---------------------
+      36: Resources/HQSounds/Battle/psy_attack.ogg	#mind control
+      37: Resources/HQSounds/Battle/psy_check.ogg	#mindprobe
+      38: Resources/HQSounds/Battle/place.ogg	#item drop
+      39: Resources/HQSounds/Battle/throw.ogg	#item throw
+      40: Resources/HQSounds/Battle/move_hover.ogg	#hovertank/cyberdisc move
+#---------------------
+      41: Resources/HQSounds/Battle/death_x_m1.ogg	#male scream 1
+      42: Resources/HQSounds/Battle/death_x_m2.ogg	#male scream 2
+      43: Resources/HQSounds/Battle/death_x_m3.ogg	#male scream 3
+      44: Resources/HQSounds/Battle/death_x_f1.ogg	#female scream 1
+      45: Resources/HQSounds/Battle/death_x_f2.ogg	#female scream 2
+      46: Resources/HQSounds/Battle/death_x_f3.ogg	#female scream 3
+#---------------------
+      47: Resources/HQSounds/Battle/move_silacoid.ogg	#rock drag (silacoid move)
+      48: Resources/HQSounds/Battle/attack_reaper.ogg	#reaper/zombie growl ---melee attack reaper/zombie/chryssalid/silacoid
+      49: Resources/HQSounds/Battle/scream_chryssalid.ogg	#chryssalid growl
+      50: Resources/HQSounds/Battle/attack_celatid.ogg	#celatid attack
+      51: Resources/HQSounds/Battle/death_celatid.ogg	#celatid death
+#---------------------
+      52: Resources/HQSounds/Battle/b_rocket_launcher.ogg	#rocket launch
+      53: Resources/HQSounds/Battle/b_blaster_launcher.ogg	#blaster bomb launcher
+#---------------------
+      54: Resources/HQSounds/Battle/stun_rod.ogg	#stun rod (electric zap)
+####---ADDITIONAL SOUNDS------##
+#-------------------------------
+#-----NEW DEATH/WALK SOUNDS-----
+#-------------------------------
+      55: Resources/HQSounds/Battle/death_zombie.ogg	#zombie scream
+      56: Resources/HQSounds/Battle/death_reaper.ogg	#reaper scream
+      57: Resources/HQSounds/Battle/death_sectoid_new.ogg	#sectoid scream
+      58: Resources/HQSounds/Battle/death_floater.ogg	#floater scream
+      59: Resources/HQSounds/Battle/death_chryssalid.ogg	#chryssalid scream
+      61: Resources/HQSounds/Battle/attack_chryssalid.ogg	#chryssalid attack
+      62: Resources/HQSounds/Battle/attack_zombie.ogg	#zombie attack
+      63: Resources/HQSounds/Battle/attack_silacoid.ogg	#silacoid attack
+#-----------------
+#-----WEAPONS-----
+#-----------------
+      70: Resources/HQSounds/Weapons/Pistol_fire.ogg
+      71: Resources/HQSounds/Weapons/Rifle_fire.ogg
+      72: Resources/HQSounds/Weapons/HeavyCannon_fire.ogg
+      73: Resources/HQSounds/Weapons/AutoCannon_fire.ogg
+      74: Resources/HQSounds/Weapons/LaserPistol_fire.ogg
+      75: Resources/HQSounds/Weapons/LaserHeavy_fire.ogg
+      76: Resources/HQSounds/Weapons/PlasmaPistol_fire.ogg
+      77: Resources/HQSounds/Weapons/PlasmaHeavy_fire.ogg
+      78: Resources/HQSounds/Battle/b_plasma_hit.ogg
+      79: Resources/HQSounds/Battle/b_auto_hit.ogg
+#-----------------
+#-----------------
+#-----------------
+# Version 1.0
+# - added all missing sounds + some more
+# - changed general approach, trying to make the sounds more scary and better fitting for intense X-Com atmosphere
+# - changed volume of most of the new sounds, so they better match original sounds now
+# - [Geoscape] added different launch sounds for Avalanche and Stingray missiles
+# - [Geoscape] changed loud UFO attack sound from laser (default in OpenXCom) to more subtle one
+# - [Geoscape] swapped UFO hit and X-Com craft hit sounds (since they're swapped in OpenXCom comparing to UFO:EU sound documentation)
+# - [Geoscape] added X-Com craft destroy sound
+# - [Geoscape] tweaked Cannon sound
+# - [Battlescape] added all missing sounds
+# - [Battlescape] changed many sounds to make them fit the game better
+# - [Battlescape] added new fire sounds for each basic gun (pistol, rifle, heavy cannon, auto cannon)
+# - [Battlescape] added new fire sounds for each laser and plasma variant (pistol, rifle, heavy)
+# - [Battlescape] added new hit effects for plasma and autocannon
+# - [Battlescape] added new a lot of new alien death/scream/attack sound effects so that each alien would have his own set of sounds

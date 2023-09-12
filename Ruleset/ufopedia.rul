@@ -8,6 +8,7 @@ ufopaedia:
   - delete: STR_REAPER_AUTOPSY
   - delete: STR_LIGHTNING
   - delete: STR_AVENGER
+
   - id: STR_SKULLJACK
     type_id: 4
     section: STR_WEAPONS_AND_EQUIPMENT

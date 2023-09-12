@@ -1,0 +1,15 @@
+# spellchecker:words Snds chrys sila cela secto
+
+extraSounds:
+  - type: BATTLE.CAT
+    files:
+      901: Resources/2012Snds/sectoid_death.wav
+      902: Resources/2012Snds/cyber_death.wav
+      903: Resources/2012Snds/floater_death.wav
+      904: Resources/2012Snds/snake_death.wav
+      905: Resources/2012Snds/chrys_death.wav
+      906: Resources/2012Snds/muton_death.wav
+      907: Resources/2012Snds/sila_death.wav
+      908: Resources/2012Snds/cela_death.wav
+      909: Resources/2012Snds/ether_death.wav
+      910: Resources/2012Snds/secto_death.wav

@@ -58,20 +58,88 @@ units:
     moveSound: 14
 
 manufacture:
-  - delete: STR_HOVERTANK_LAUNCHER
-  - delete: STR_HOVERTANK_PLASMA
-  - delete: STR_HWP_FUSION_BOMB
-  - delete: STR_TANK_LASER_CANNON
+#  - delete: STR_HOVERTANK_LAUNCHER
+#  - delete: STR_HOVERTANK_PLASMA
+#  - delete: STR_HWP_FUSION_BOMB
+#  - delete: STR_TANK_LASER_CANNON
+
+  - name: STR_TANK_LASER_CANNON
+    category: STR_HEAVY_WEAPONS_PLATFORM
+    requires:
+      - STR_LASER_CANNON
+    space: 0
+    time: 1200
+    cost: 12000
+  - name: STR_HOVERTANK_PLASMA
+    category: STR_HEAVY_WEAPONS_PLATFORM
+    requires:
+      - STR_PLASMA_WEAPONS
+      - STR_NEW_FIGHTER_CRAFT
+    space: 0
+    time: 1200
+    cost: 20000
+    requiredItems:
+      STR_ALIEN_ALLOYS: 4
+      STR_ELERIUM_115: 5
+  - name: STR_HOVERTANK_LAUNCHER
+    category: STR_HEAVY_WEAPONS_PLATFORM
+    requires:
+      - STR_SECTOPOD_AUTOPSY
+      - STR_NEW_FIGHTER_CRAFT
+    space: 0
+    time: 1400
+    cost: 22000
+    requiredItems:
+      STR_ALIEN_ALLOYS: 4
+      STR_ELERIUM_115: 5
+  - name: STR_HWP_FUSION_BOMB
+    category: STR_HWP_CANNON_SHELLS
+    requires:
+      - STR_SECTOPOD_AUTOPSY
+      - STR_NEW_FIGHTER_CRAFT
+    space: 25
+    time: 400
+    cost: 15000
+    requiredItems:
+      STR_ALIEN_ALLOYS: 4
+      STR_ELERIUM_115: 1
 
 items:
-  - delete: STR_HOVERTANK_LAUNCHER
-  - delete: STR_HOVERTANK_PLASMA
-  - delete: STR_HWP_FUSION_BOMB
-  - delete: STR_TANK_CANNON
-  - delete: STR_HWP_CANNON_SHELLS
-  - delete: STR_TANK_ROCKET_LAUNCHER
-  - delete: STR_HWP_ROCKETS
-  - delete: STR_TANK_LASER_CANNON
+#  - delete: STR_HOVERTANK_LAUNCHER
+#  - delete: STR_HOVERTANK_PLASMA
+#  - delete: STR_HWP_FUSION_BOMB
+#  - delete: STR_TANK_CANNON
+#  - delete: STR_HWP_CANNON_SHELLS
+#  - delete: STR_TANK_ROCKET_LAUNCHER
+#  - delete: STR_HWP_ROCKETS
+#  - delete: STR_TANK_LASER_CANNON
+
+  - type: STR_TANK_CANNON
+    size: 6
+    costBuy: 22000
+    costSell: 14000
+  - type: STR_HWP_CANNON_SHELLS
+    size: 0.1
+    costBuy: 200
+    costSell: 100
+  - type: STR_TANK_ROCKET_LAUNCHER
+    size: 6
+    costBuy: 28000
+    costSell: 16000
+  - type: STR_HWP_ROCKETS
+    size: 0.6
+    costBuy: 400
+    costSell: 325
+  - type: STR_TANK_LASER_CANNON
+    size: 6
+    costSell: 30400
+  - type: STR_HOVERTANK_PLASMA
+    size: 6
+    costSell: 40000    
+  - type: STR_HOVERTANK_LAUNCHER
+    size: 6
+    costSell: 54000    
+
   - type: STR_FIXED_MEDI_KIT
     size: 0.3
     weight: 8
@@ -115,7 +183,7 @@ items:
     tuSnap: 0
     tuAimed: 0
 #    tuMelee: 100
-    meleeHitSound: 109 # TODO: find suitable sound
+    meleeHitSound: 54 # TODO: find suitable sound
     meleeAnimation: 58
     power: 10
     damageType: 14
@@ -189,14 +257,14 @@ extraSprites:
       58: Resources/Animation/spark_hit.png
 
 ufopaedia:
-  - delete: STR_HOVERTANK_LAUNCHER
-  - delete: STR_HOVERTANK_PLASMA
-  - delete: STR_HWP_FUSION_BOMB
-  - delete: STR_TANK_CANNON
-  - delete: STR_HWP_CANNON_SHELLS
-  - delete: STR_TANK_ROCKET_LAUNCHER
-  - delete: STR_HWP_ROCKETS
-  - delete: STR_TANK_LASER_CANNON
+#  - delete: STR_HOVERTANK_LAUNCHER
+#  - delete: STR_HOVERTANK_PLASMA
+#  - delete: STR_HWP_FUSION_BOMB
+#  - delete: STR_TANK_CANNON
+#  - delete: STR_HWP_CANNON_SHELLS
+#  - delete: STR_TANK_ROCKET_LAUNCHER
+#  - delete: STR_HWP_ROCKETS
+#  - delete: STR_TANK_LASER_CANNON
   - id: STR_GREMLIN
     type_id: 3
     section: STR_HEAVY_WEAPONS_PLATFORMS

@@ -1,0 +1,201 @@
+extraSprites:
+  - type: TANK_CANNON.SPK
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/TANK_CANNON.png
+  - type: ROCKET_LAUNCHER.SPK
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/TANK_ROCKET.png
+  - type: LASER_CANNON.SPK
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/TANK_LASER.png
+  - type: HOVERTANK_PLASMA.SPK
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/HOVERTANK_PLASMA.png
+  - type: HOVERTANK_LAUNCHER.SPK
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/HOVERTANK_LAUNCHER.png
+  - type: oxceLinks
+    width: 32
+    height: 16
+    singleImage: true
+    files:
+      0: resources/Extended/oxceLinks.png
+  - type: oxceLinksInv
+    width: 23
+    height: 22
+    singleImage: true
+    files:
+      0: resources/Extended/oxceLinksInv.png
+  - type: InvCopy
+    width: 32
+    height: 22
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/invcopy.png
+  - type: InvCopyActive
+    width: 32
+    height: 22
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/invcopy_active.png
+  - type: InvPaste
+    width: 32
+    height: 22
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/invpaste.png
+  - type: InvPasteEmpty
+    width: 32
+    height: 22
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/invpaste_empty.png
+  - type: TAC01.SCR
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/TAC01.png
+  - type: ICONS.PCK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ui.png
+  - type: KneelButton
+    width: 32
+    height: 32
+    subX: 32
+    subY: 16
+    files:
+      0: resources/ui/battlescape/kneelButton.png
+  - type: DETBORD.PCK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/DETBORD.png
+  - type: MEDIBORD.PCK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/MEDIBORD.png
+  - type: SCANBORD.PCK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/SCANBORD.png
+  - type: UNIBORD.PCK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/UNIBORD.png
+  - type: SPICONS.DAT
+    files:
+      0: resources/ui/battlescape/SPICONS.png
+  - type: GEOBORD.SCR
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/GEOBORD.png
+  - type: INTERWIN.DAT
+    width: 160
+    height: 96
+    singleImage: true
+    files:
+      0: resources/ui/geograph/INTERWIN.png
+  - type: BIGOBS.PCK
+    files:
+      40: resources/INVOBS/PLHOV.png
+      42: resources/INVOBS/MTANK.png
+      43: resources/INVOBS/PRTANK.png
+      54: resources/INVOBS/LTANK.png
+  - type: BACK15.SCR
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: resources/ui/geograph/BACK15.png
+  - type: AL_CEL.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_CEL.png
+  - type: AL_CHR
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_CHR.png
+  - type: AL_CY.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_CY.png
+  - type: AL_ETH.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_ETH.png
+  - type: AL_FL.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_FL.png
+  - type: AL_MUTON.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_MUTON.png
+  - type: AL_REP.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_REP.png
+  - type: AL_SECT.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_SECT.png
+  - type: AL_SEPOD.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_SEPOD.png
+  - type: AL_SIL.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_SIL.png
+  - type: AL_SNK.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_SNK.png
+  - type: AL_ZOM.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/AL_ZOM.png
+  - type: XC_TANKNOR.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/XC_TANKNOR.png
+  - type: XC_TANKMISS.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/XC_TANKMISS.png
+  - type: XC_TANKLAS.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/XC_TANKLAS.png
+  - type: XC_HOVERPLA.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/XC_HOVERPLA.png
+  - type: XC_HOVERLAU.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/XC_HOVERLAU.png
+  - type: NE_CIVM.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/NE_CIVM.png
+  - type: NE_CIVF.SPK
+    singleImage: true
+    files:
+      0: resources/ui/battlescape/ALINV/NE_CIVF.png

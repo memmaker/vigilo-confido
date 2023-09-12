@@ -130,11 +130,11 @@ research:
   - name: STR_INTRO_SCIENCE
     cost: 1
     lookup: STR_OBJECTIVES_ARC0
-  - name: STR_XENO_BIOLOGY
-    getOneFree:
-      - STR_OBJECTIVES_ARC1
-    cost: 90
-    points: 10
+  #- name: STR_XENO_BIOLOGY
+  #  getOneFree:
+  #    - STR_OBJECTIVES_ARC1
+  #  cost: 90
+  #  points: 10
   - name: STR_POST_INTERROGATION
     dependencies:
       - STR_POST_INTERROGATION
