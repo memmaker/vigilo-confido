@@ -32,7 +32,7 @@ facilities:
     buildTime: 32
     monthlyCost: 900
     workshops: 10
-    maxAllowedPerBase: 2
+    maxAllowedPerBase: 3
     mapName: XBASE_03
   - type: STR_SMALL_RADAR_SYSTEM
     spriteShape: 2
