@@ -1,0 +1,48 @@
+cutscenes:
+  - delete: winGame
+  - delete: loseGame
+  - type: winGame
+    slideshow:
+      transitionSeconds: 30
+      musicId: GMWIN
+      slides:
+        - imagePath: UFOINTRO/PICT1.png
+          caption: STR_VICTORY_1
+          captionSize: [126, 150]
+          captionPos: [25, 70]
+          captionColor: 249
+        - imagePath: UFOINTRO/PICT2.png
+          caption: STR_VICTORY_2
+          captionSize: [200, 150]
+          captionPos: [100, 120]
+          captionColor: 249
+        - imagePath: UFOINTRO/PICT3.png
+          caption: STR_VICTORY_3
+          captionSize: [200, 100]
+          captionPos: [70, 135]
+          captionColor: 50
+        - imagePath: UFOINTRO/PICT6.png
+          caption: STR_VICTORY_4
+          captionSize: [185, 100]
+          captionPos: [50, 150]
+          captionColor: 100
+        - imagePath: UFOINTRO/PICT7.png
+          caption: STR_VICTORY_5
+          captionSize: [145, 130]
+          captionPos: [15, 128]
+          captionColor: 200
+  - type: loseGame
+    slideshow:
+      transitionSeconds: 30
+      musicId: GMLOSE
+      slides:
+        - imagePath: UFOINTRO/PICT4.png
+          caption: STR_GAME_OVER_1
+          captionSize: [150, 150]
+          captionPos: [20, 20]
+          captionColor: 100
+        - imagePath: UFOINTRO/PICT5.png
+          caption: STR_GAME_OVER_2
+          captionSize: [125, 152]
+          captionPos: [40, 155]
+          captionColor: 100

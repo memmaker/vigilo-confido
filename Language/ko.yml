@@ -1,0 +1,13 @@
+ko:
+  STR_INTERCEPT: "ㄷ  요격  ㄹ"
+  STR_BASES: "ㅁ  기지 "
+  STR_GRAPHS: "ㅂ  그래프 "
+  STR_UFOPAEDIA_UC: "ㅅ UFO 사전"
+  STR_OPTIONS_UC: "ㅇ 메뉴 "
+  STR_FUNDING_UC: "ㅈ  자금 "
+  STR_5_SECONDS: "ㅊ 5초"
+  STR_1_MINUTE: "ㅋ 1분"
+  STR_5_MINUTES: "ㅍ 5분"
+  STR_30_MINUTES: "ㅌ 30분"
+  STR_1_HOUR: "ㅎ 1시간"
+  STR_1_DAY: "ㅆ 하루"

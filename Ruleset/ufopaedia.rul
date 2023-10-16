@@ -1,0 +1,39 @@
+ufopaedia:
+  - id: STR_TANK_CANNON
+    type_id: 3
+    section: STR_HEAVY_WEAPONS_PLATFORMS
+    text: STR_TANK_CANNON_UFOPEDIA
+    image_id: TANK_CANNON.SPK
+    weapon: STR_CANNON
+  - id: STR_TANK_ROCKET_LAUNCHER
+    type_id: 3
+    section: STR_HEAVY_WEAPONS_PLATFORMS
+    text: STR_TANK_ROCKET_LAUNCHER_UFOPEDIA
+    image_id: ROCKET_LAUNCHER.SPK
+    weapon: STR_ROCKET_LAUNCHER
+  - id: STR_TANK_LASER_CANNON
+    type_id: 3
+    section: STR_HEAVY_WEAPONS_PLATFORMS
+    requires:
+      - STR_LASER_CANNON
+    text: STR_TANK_LASER_CANNON_UFOPEDIA
+    image_id: LASER_CANNON.SPK
+    weapon: STR_LASER_CANNON
+  - id: STR_HOVERTANK_PLASMA
+    type_id: 3
+    section: STR_HEAVY_WEAPONS_PLATFORMS
+    requires:
+      - STR_PLASMA_CANNON
+      - STR_NEW_FIGHTER_CRAFT
+    text: STR_HOVERTANK_PLASMA_UFOPEDIA
+    image_id: HOVERTANK_PLASMA.SPK
+    weapon: STR_PLASMA_CANNON
+  - id: STR_HOVERTANK_LAUNCHER
+    type_id: 3
+    section: STR_HEAVY_WEAPONS_PLATFORMS
+    requires:
+      - STR_FUSION_MISSILE
+      - STR_NEW_FIGHTER_CRAFT
+    text: STR_HOVERTANK_LAUNCHER_UFOPEDIA
+    image_id: HOVERTANK_LAUNCHER.SPK
+    weapon: STR_FUSION_BALL_LAUNCHER

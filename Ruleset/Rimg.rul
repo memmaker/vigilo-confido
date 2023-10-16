@@ -1,0 +1,313 @@
+extraSprites:
+  - type: GRAPHS.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/GRAPHS.png
+  - type: BACK01.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK01.png
+  - type: BACK02.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK02.png
+  - type: BACK05.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK05.png
+  - type: BACK06.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK06.png
+  - type: BACK07.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK07.png
+  - type: BACK08.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK08.png
+  - type: BACK09.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK09.png
+  - type: BACK10.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK10.png
+  - type: BACK11.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK11.png
+  - type: BACK12.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK12.png
+  - type: BACK13.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK13.png
+  - type: BACK14.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK14.png
+  - type: BACK15.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK15.png
+  - type: BACK16.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK16.png
+  - type: BACK17.SCR
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/BACK17.png
+  - type: UP001.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP001.png
+  - type: UP002.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP002.png
+  - type: UP003.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP003.png
+  - type: UP004.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP004.png
+  - type: UP005.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP005.png
+  - type: UP012.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP012.png
+  - type: UP013.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP013.png
+  - type: UP014.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP014.png
+  - type: UP015.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP015.png
+  - type: UP016.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP016.png
+  - type: UP017.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP017.png
+  - type: UP018A.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP018.png
+  - type: UP019A.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP019.png
+  - type: UP020.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP020.png
+  - type: UP021.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP021.png
+  - type: UP022.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP022.png
+  - type: UP023.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP023.png
+  - type: UP024.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP024.png
+  - type: UP025.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP025.png
+  - type: UP026.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP026.png
+  - type: UP027.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP027.png
+  - type: UP028.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP028.png
+  - type: UP029.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP029.png
+  - type: UP030.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP030.png
+  - type: UP031.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP031.png
+  - type: UP032.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP032.png
+  - type: UP033.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP033.png
+  - type: UP034.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP034.png
+  - type: UP035.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP035.png
+  - type: UP036.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP036.png
+  - type: UP037.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP037.png
+  - type: UP038.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP038.png
+  - type: UP039.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP039.png
+  - type: UP040.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP040.png
+  - type: UP041.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP041.png
+  - type: UP042.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: resources/ui/geograph/research/UP042.png

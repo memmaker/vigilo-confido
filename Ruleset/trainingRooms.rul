@@ -1,7 +1,7 @@
 facilities:
   - type: STR_TRAINING_ROOM
     spriteShape: 1
-    spriteFacility: 56
+    spriteFacility: 60
     buildCost: 2200
     buildTime: 20
     monthlyCost: 1000
@@ -22,7 +22,7 @@ terrains:
 extraSprites:
   - type: BASEBITS.PCK
     files:
-      56: Resources/TrainingRoom/basebits_56_0.gif
+      60: Resources/TrainingRoom/basebits_56_0.gif
     width: 32
     height: 40
 ufopaedia:

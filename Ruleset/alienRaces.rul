@@ -85,7 +85,7 @@ alienRaces:
       - [STR_MUTON]
       - [STR_MUTON]
       - [STR_MUTON]
-      - [STR_MUTON]
+      - [STR_OUTSIDER]
       - [STR_MUTON]
       - [STR_MUTON]
       - [STR_CYBERDISC]
@@ -95,7 +95,7 @@ alienRaces:
       - [STR_SNAKEMAN]
       - [STR_SNAKEMAN]
       - [STR_SNAKEMAN]
-      - [STR_SNAKEMAN]
+      - [STR_OUTSIDER]
       - [STR_SNAKEMAN]
       - [STR_SNAKEMAN]
       - [STR_ANDROMEDON]
@@ -205,6 +205,10 @@ alienRaces:
 extraStrings:
   - type: en-US
     strings:
-      STR_TIER_ONE_MIXED: T1 mixed
-      STR_TIER_TWO_MIXED: T2 mixed
-      STR_TIER_THREE_MIXED: T3 mixed
+      STR_TIER_ONE_MIXED: "T1 Mixed"
+      STR_TIER_TWO_MIXED: "T2 Mixed"
+      STR_TIER_THREE_MIXED: "T3 Mixed" 
+      STR_OVERSEER_CREW: "Overseer Crew"
+      STR_ALIEN_BASE_CREW: "Alien Base Crew"
+      STR_ALIEN_ASSAULT_CREW: "Retaliation Crew"
+      STR_TEMPLE_CREW: "Temple Ship Crew"

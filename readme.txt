@@ -157,6 +157,31 @@ T3 - Warden Armor   & Plasma Weapons
 
 === Changelog ===
 
+=== Changes in v.0.9.9 ===
+ - Armors now recover Battle Focus (No armor gets 3 points, all the rest 2 points per turn)
+ - Delayed missionScripts for alien bases to 12 and 16 months (solving the July game breaking issue)
+ - Increased Blademaster flat damage from 20 to 30
+ - Decreased TU cost for T1, T2 and T3 Swords, Machine Guns and Pistols
+ - Decreased Battle Focus cost for Slash (from 6 to 4)
+ - Increased damage from 10 to 15 on T1 shotgun shells, added 15% spread
+ - Enabled layered paperdolls (code by b1ackwolf, sprites by XCom Files devs)
+ - Replaced vanilla Personal Armor sprites with custom Kevlar Vest (sprites by XOps)
+ - Replaced Tier 1 sprites and sounds with XOps sprites
+ - Replaced Sword, Fusion Blade, vanilla Plasmas sprite with Hans Woofington sprite 
+ - Replaced vanilla (alien) laser weapons with sprites by Drages 
+ - Added XROSS overhaul mod, modified and expanded by efrenespartano
+ - Replaced vanilla interceptor sprites woth EU2012 ones (Raven by MickTheMage, Firestom by Tyran_Nick)
+ - Reworked Skyranger craft-less deployments and research topics with custom Skyrangers, removed needItem dependency
+ - Improved Thin Man assets, sprites  by efrenespartano, The Martian and NeoWorm
+ - Improved Sectoid assets, sprites by efrenespartano, b1ackwolf and NeoWorm
+ - Added XCOM Base Security NPCs to Base Defense
+
+=== Changes in v.0.9.8.3 ===
+ - OXCE 7.9.8 compatibility 
+ - Various Bugfixes
+ - Integrated CMP Extended v0.8
+ - Updated Mechtoid sprites (by efrenespartano)
+
 === Changes in v.0.9.8.2 ===
  - OXCE 7.1 compatibility (thanks to Buscher)
  - Various Bugfixes & missing Strings

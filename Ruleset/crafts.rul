@@ -18,7 +18,7 @@ research:
       - STR_ADVANCED_DEPLOYMENT1
     cost: 180
     points: 20
-    needItem: true # TODO: Integrate this fully; Remove needItem: true when done
+   # needItem: true # TODO: Integrate this fully; Remove needItem: true when done
   - name: STR_ADVANCED_DEPLOYMENT3
     disables:
       - STR_ADVANCED_DEPLOYMENT2
@@ -26,12 +26,12 @@ research:
       - STR_ADVANCED_DEPLOYMENT2
     cost: 180
     points: 20
-    needItem: true # TODO: Integrate this fully; Remove needItem: true when done
+    #needItem: true # TODO: Integrate this fully; Remove needItem: true when done
   - name: STR_FULL_DEPLOYMENT
     disables:
-      - STR_ADVANCED_DEPLOYMENT1
+      - STR_ADVANCED_DEPLOYMENT3
     dependencies:
-      - STR_ADVANCED_DEPLOYMENT1
+      - STR_ADVANCED_DEPLOYMENT3
       - STR_ELERIUM_115
     cost: 140
     points: 20
@@ -40,16 +40,33 @@ research:
 crafts:
   - delete: STR_LIGHTNING
   - delete: STR_AVENGER
+
+  - type: STR_FIRESTORM
+    sprite: 22
+    marker: 11
+
   - type: STR_INTERCEPTOR
     costBuy: 3000
     costRent: 1300
     sightRange: 5000
+    marker: 10
+    sprite: 23
+    fuelMax: 1200
+    damageMax: 150
+    speedMax: 2900
+    accel: 5
+    weapons: 2
+    costSell: 225000
+    refuelRate: 40
+    transferTime: 90
+    score: 250
   - &STR_SKYRANGER
     type: STR_SKYRANGER
     spacecraft: true
+    marker: 9
     requires:
       - STR_BASIC_DEPLOYMENT
-    sprite: 0
+    sprite: 99
     fuelMax: 1500
     damageMax: 150
     speedMax: 760
@@ -65,78 +82,50 @@ crafts:
     vehicles: 1
     maxItems: 40
     battlescapeTerrainData:
-      name: DEPLOYED6
+      name: SKYSPOTTER
       mapDataSets:
         - BLANKS
-        - U_BASE
+        - PLANE
       mapBlocks:
-        - name: DEPLOYED6
+        - name: SKYSPOTTER
           width: 10
-          length: 10
-    deployment:
-      - [2, 2, 0, 5]
-      - [2, 6, 0, 6]
+          length: 20
 
-      - [5, 7, 0, 3]
-      - [5, 1, 0, 7]
-
-      - [8, 6, 0, 1]
-      - [8, 2, 0, 2]
-
-  - type: STR_SKYRANGER_FIVE
-    refNode: *STR_SKYRANGER
-    requires:
-      - STR_ADVANCED_DEPLOYMENT1
-    soldiers: 5
-    vehicles: 1
-    maxItems: 50
-    battlescapeTerrainData:
-      name: DEPLOYED6
-      mapDataSets:
-        - BLANKS
-        - U_BASE
-      mapBlocks:
-        - name: DEPLOYED6
-          width: 10
-          length: 10
-    deployment:
-      - [2, 2, 0, 5]
-      - [2, 6, 0, 6]
-
-      - [5, 7, 0, 3]
-      - [5, 1, 0, 7]
-
-      - [8, 6, 0, 1]
-      - [8, 2, 0, 2]
+  #- type: STR_SKYRANGER_FIVE
+  #  refNode: *STR_SKYRANGER
+  #  requires:
+  #    - STR_ADVANCED_DEPLOYMENT1
+  #  soldiers: 5
+  #  vehicles: 1
+  #  maxItems: 50
+  #  battlescapeTerrainData:
+  #    name: SKYSPOTTER
+  #    mapDataSets:
+  #      - BLANKS
+  #      - PLANE
+  #    mapBlocks:
+  #     - name: SKYSPOTTER
+  #        width: 10
+  #       length: 20
 
 
   - type: STR_SKYRANGER_SIX
     refNode: *STR_SKYRANGER
     requires:
-      - STR_FULL_DEPLOYMENT
+      - STR_ADVANCED_DEPLOYMENT1
     soldiers: 6
     vehicles: 2
     maxItems: 60
+    sprite: 100
     battlescapeTerrainData:
-      name: DEPLOYED8
+      name: SKYWATCHER
       mapDataSets:
         - BLANKS
-        - U_BASE
+        - PLANE
       mapBlocks:
-        - name: DEPLOYED8
+        - name: SKYWATCHER
           width: 10
-          length: 10
-    deployment:
-      - [2, 2, 0, 5]
-      - [2, 6, 0, 6]
-      - [5, 7, 0, 3]
-      - [5, 1, 0, 7]
-
-      - [8, 6, 0, 1]
-      - [8, 2, 0, 2]
-
-      - [6, 5, 0, 1]
-      - [6, 4, 0, 2]
+          length: 20
 
 
   - type: STR_SKYRANGER_TEN
@@ -145,30 +134,17 @@ crafts:
       - STR_ADVANCED_DEPLOYMENT2
     soldiers: 10
     vehicles: 2
+    sprite: 0
     maxItems: 100
     battlescapeTerrainData:
-      name: DEPLOYED10
+      name: PLANE
       mapDataSets:
         - BLANKS
-        - U_BASE
+        - PLANE
       mapBlocks:
-        - name: DEPLOYED10
+        - name: PLANE
           width: 10
-          length: 10
-    deployment:
-      - [2, 2, 0, 5]
-      - [2, 6, 0, 6]
-
-      - [1, 4, 0, 5]
-      - [3, 4, 0, 6]
-      - [5, 7, 0, 3]
-      - [5, 1, 0, 7]
-
-      - [8, 6, 0, 1]
-      - [8, 2, 0, 2]
-
-      - [6, 5, 0, 1]
-      - [6, 3, 0, 2]
+          length: 20
   - type: STR_SKYRANGER_TWELVE
     refNode: *STR_SKYRANGER
     requires:
@@ -176,93 +152,64 @@ crafts:
     soldiers: 12
     vehicles: 2
     maxItems: 120
+    sprite: 101
     battlescapeTerrainData:
-      name: DEPLOYED12
+      name: SKYTROOPER_WE
       mapDataSets:
         - BLANKS
-        - U_BASE
+        - PLANE
       mapBlocks:
-        - name: DEPLOYED12
+        - name: SKYTROOPER_WE
           width: 10
-          length: 10
-    deployment:
-      - [2, 2, 0, 5]
-      - [2, 3, 0, 5]
-      - [2, 6, 0, 6]
-      - [2, 7, 0, 6]
-
-      - [5, 7, 0, 3]
-      - [5, 8, 0, 3]
-      - [5, 1, 0, 7]
-      - [5, 2, 0, 7]
-
-      - [8, 6, 0, 1]
-      - [8, 7, 0, 1]
-      - [8, 2, 0, 2]
-      - [8, 3, 0, 2]
+          length: 20
 
   - type: STR_SKYRANGER_FOURTEEN
     refNode: *STR_SKYRANGER
     requires:
-      - STR_ADVANCED_DEPLOYMENT2
+      - STR_FULL_DEPLOYMENT
     soldiers: 14
     vehicles: 3
     maxItems: 140
+    sprite: 102
     battlescapeTerrainData:
-      name: DEPLOYED14
+      name: SKYLANDER_WE_LD
       mapDataSets:
         - BLANKS
-        - U_BASE
+        - PLANE
       mapBlocks:
-        - name: DEPLOYED14
+        - name: SKYLANDER_WE_LD
           width: 10
-          length: 10
-    deployment:
-      - [2, 2, 0, 5]
-      - [2, 3, 0, 5]
-      - [2, 6, 0, 6]
-      - [2, 7, 0, 6]
-
-      - [5, 7, 0, 3]
-      - [5, 8, 0, 3]
-      - [5, 1, 0, 7]
-      - [5, 2, 0, 7]
-
-      - [8, 6, 0, 1]
-      - [8, 7, 0, 1]
-      - [8, 2, 0, 2]
-      - [8, 3, 0, 2]
-
-      - [6, 5, 0, 1]
-      - [6, 4, 0, 2]
+          length: 20
 
 extraStrings:
   - type: en-US
     strings:
+      STR_INTERCEPTOR: "RAVEN"
+      STR_INTERCEPTOR_UFOPEDIA: "THE RAVEN IS A PULSE-ENGINE HEAVILY MODIFIED AND AUGMENTED FAST ATTACK FIGHTER. THIS NEW INTERCEPTOR IS BASED ON THE LATEST EARTH TECHNOLOGY. AVIONICS, TRACKING, AND ENGINES HAVE ALL RECEIVED SUBSTANTIAL BOOSTS. DESPITE THESE IMPROVEMENTS ARMOR AND FRAME DURABILITY WILL BE A MAJOR ISSUE WHEN ENGAGING ANY BUT THE SMALLEST UFOS."
       STR_BASIC_DEPLOYMENT: Basic Deployment
       STR_ADVANCED_DEPLOYMENT1: Advanced Deployment
       STR_ADVANCED_DEPLOYMENT2: Advanced Deployment 2
       STR_ADVANCED_DEPLOYMENT3: Advanced Deployment 3
       STR_FULL_DEPLOYMENT: Full Deployment
-      STR_SKYRANGER: SKYRANGER IV
-      STR_SKYRANGER_FIVE: SKYRANGER V
-      STR_SKYRANGER_SIX: SKYRANGER VI
+      STR_SKYRANGER: SKYSENTRY IV
+      STR_SKYRANGER_FIVE: SKYWATCHER V
+      STR_SKYRANGER_SIX: SKYWATCHER VI
       STR_SKYRANGER_EIGHT: SKYRANGER
-      STR_SKYRANGER_TEN: SKYRANGER
-      STR_SKYRANGER_TWELVE: SKYRANGER
-      STR_SKYRANGER_FOURTEEN: SKYRANGER
+      STR_SKYRANGER_TEN: SKYRANGER X
+      STR_SKYRANGER_TWELVE: SKYWARDEN XII
+      STR_SKYRANGER_FOURTEEN: SKYLANDER XIV
       STR_ADVANCED_DEPLOYMENT1_UFOPAEDIA: The council has granted us access to an
-        upgraded Skyranger with enough space for five operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
-        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
+        upgraded Skywatcher with enough space for six operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        forget to sell the old Skysentry and buy a new, shiny, upgraded one.
       STR_ADVANCED_DEPLOYMENT2_UFOPAEDIA: The council has granted us access to an
         upgraded Skyranger with enough space for ten operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
-        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
+        forget to sell the old Skywatcher and buy a new, shiny, upgraded one.
       STR_ADVANCED_DEPLOYMENT3_UFOPAEDIA: The council has granted us access to an
-        upgraded Skyranger with enough space for twelve operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        upgraded Skywarden with enough space for twelve operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
         forget to sell the old Skyranger and buy a new, shiny, upgraded one.
       STR_FULL_DEPLOYMENT_UFOPAEDIA: The council has granted us access to the final
-        Skyranger upgrade with enough space for six operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
-        forget to sell the old Skyranger and buy a new, shiny, upgraded one.
+        Skylander upgrade with enough space for fourteen operatives.{NEWLINE}{NEWLINE}NOTE>{NEWLINE}Don't
+        forget to sell the old Skywarden and buy a new, shiny, upgraded one.
 
 ufopaedia:
   - id: STR_ADVANCED_DEPLOYMENT1
@@ -275,6 +222,11 @@ ufopaedia:
     text: STR_ADVANCED_DEPLOYMENT2_UFOPAEDIA
     requires: [STR_ADVANCED_DEPLOYMENT2]
     section: STR_XCOM_CRAFT_ARMAMENT
+  - id: STR_ADVANCED_DEPLOYMENT3
+    type_id: 8
+    text: STR_ADVANCED_DEPLOYMENT3_UFOPAEDIA
+    requires: [STR_ADVANCED_DEPLOYMENT3]
+    section: STR_XCOM_CRAFT_ARMAMENT    
   - id: STR_FULL_DEPLOYMENT
     type_id: 8
     text: STR_FULL_DEPLOYMENT_UFOPAEDIA
@@ -295,21 +247,7 @@ ufopaedia:
       width: 140
       height: 100
     text: STR_SKYRANGER_UFOPEDIA
-  - id: STR_SKYRANGER_EIGHT
-    type_id: 1
-    section: STR_NOT_AVAILABLE
-    image_id: UP004.SPK
-    rect_stats:
-      x: 160
-      y: 5
-      width: 160
-      height: 60
-    rect_text:
-      x: 5
-      y: 40
-      width: 140
-      height: 100
-    text: STR_SKYRANGER_UFOPEDIA
+
   - id: STR_SKYRANGER_TEN
     type_id: 1
     section: STR_NOT_AVAILABLE
@@ -355,3 +293,70 @@ ufopaedia:
       width: 140
       height: 100
     text: STR_SKYRANGER_UFOPEDIA
+
+  - id: STR_INTERCEPTOR
+    type_id: 1
+    section: STR_XCOM_CRAFT_ARMAMENT
+    #listOrder: 401
+    image_id: UP002B.SPK
+    rect_stats:
+      x: 5
+      y: 40
+      width: 140
+      height: 60
+    rect_text:
+      x: 5
+      y: 140
+      width: 310
+      height: 60
+    text: STR_INTERCEPTOR_UFOPEDIA
+
+  - id: STR_FIRESTORM
+    rect_stats:
+      x: 180
+      y: 132
+      width: 140
+      height: 60
+    rect_text:
+      x: 5
+      y: 132
+      width: 140
+      height: 60
+    image_id: UFOIMAGE
+
+extraSprites:
+  - type: UP002B.SPK
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/Crafts/Raven/raven_ufopedia.gif
+  - type: UFOIMAGE
+    singleImage: true
+    width: 320
+    height: 200
+    files:
+      0: Resources/Crafts/Firestorm/FireStormUfo.gif
+
+  - type: BASEBITS.PCK
+    files:
+      55: Resources/Crafts/Firestorm/FireStormBase2.gif
+      56: Resources/Crafts/Raven/raven_base.gif
+      132: Resources/Crafts/Skyranger/Skyspotter_BASEBITS.png
+      133: Resources/Crafts/Skyranger/Skywatcher_BASEBITS.png
+      134: Resources/Crafts/Skyranger/Skytrooper_BASEBITS.png
+      135: Resources/Crafts/Skyranger/Skylander_BASEBITS.png
+  - type: INTICON.PCK
+    files:
+      22: Resources/Crafts/Firestorm/FireStormMinimized.gif
+      23: Resources/Crafts/Raven/raven_minimised.gif
+      34: Resources/Crafts/Raven/raven_dogfight.gif
+      33: Resources/Crafts/Firestorm/FireStormDogfight.gif
+      99: Resources/Crafts/Skyranger/SkyspotterMinimized_INTICON.png
+      100: Resources/Crafts/Skyranger/SkywatcherMinimized_INTICON.png
+      101: Resources/Crafts/Skyranger/SkytrooperMinimized_INTICON.png
+      102: Resources/Crafts/Skyranger/SkylanderMinimized_INTICON.png
+      110: Resources/Crafts/Skyranger/SkyspotterDogfight_INTICON.png
+      111: Resources/Crafts/Skyranger/SkywatcherDogfight_INTICON.png
+      112: Resources/Crafts/Skyranger/SkytrooperDogfight_INTICON.png
+      113: Resources/Crafts/Skyranger/SkylanderDogfight_INTICON.png

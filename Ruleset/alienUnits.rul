@@ -6,6 +6,11 @@ extended:
 
 armors:
   - type: SECTOID_ARMOR0
+    spriteSheet: SECTOID_SPRITESHEET.PCK
+    allowInv: true
+    spriteInv: Inventory_SECTOID
+    corpseBattle:
+      - STR_SECTOID_CORPSE
     frontArmor: 4
     sideArmor: 3
     rearArmor: 2
@@ -27,9 +32,11 @@ armors:
     meleeDodge:
       reactions: 0
   - type: SECTOID_ARMOR1
-    spriteSheet: SECTOID.PCK
+    spriteSheet: SECTOID_COMMANDER.PCK
+    allowInv: true
+    spriteInv: Inventory_SECTOID_COMMANDER
     corpseBattle:
-      - STR_SECTOID_CORPSE
+      - STR_SECTOID_COMMANDER_CORPSE
     frontArmor: 4
     sideArmor: 3
     rearArmor: 2
@@ -259,9 +266,9 @@ armors:
       reactions: 0.1
   - type: THIN_MAN_ARMOR
     spriteSheet: THIN_MAN.PCK
+    spriteInv: Inventory_THIN_MAN
     tags:
       SPECIAL_ABILITY: 1
-    spriteInv: INV_HUMAN_AGENT # TODO: Find suitable graphic
     corpseBattle:
       - STR_THIN_MAN_CORPSE
     frontArmor: 8
@@ -461,7 +468,8 @@ armors:
   - type: MECHTOID_ARMOR
     tags:
       MECHANICAL: 1
-    spriteSheet: MECHTOID.PCK
+    spriteInv: Inventory_MECHTOID
+    spriteSheet: MECHTOID_SPRITESHEET.PCK
     corpseBattle:
       - MECHTOID_CORPSE_1
       - MECHTOID_CORPSE_2
@@ -545,7 +553,7 @@ units:
     standHeight: 16
     kneelHeight: 12
     value: 10
-    deathSound: 10
+    deathSound: 901
     intelligence: 3
     aggression: 2
   - type: STR_SECTOID_COMMANDER
@@ -619,7 +627,7 @@ units:
     standHeight: 21
     kneelHeight: 16
     floatHeight: 2
-    deathSound: 101
+    deathSound: 903
   - type: STR_CHRYSSALID
     race: STR_CHRYSSALID
     rank: STR_LIVE_TERRORIST
@@ -639,12 +647,13 @@ units:
     standHeight: 21
     kneelHeight: 16
     value: 25
-    deathSound: 9
+    deathSound: 905
+    aggroSound: 49
     intelligence: 4
     aggression: 1
     energyRecovery: 40
     livingWeapon: true
-    capturable: false
+    liveAlien: ""
   - type: STR_SNAKEMAN
     race: STR_SNAKEMAN
     rank: STR_LIVE_SOLDIER
@@ -664,7 +673,7 @@ units:
     standHeight: 18
     kneelHeight: 18
     value: 15
-    deathSound: 8
+    deathSound: 904
     moveSound: 0
     intelligence: 2
     aggression: 2
@@ -688,14 +697,14 @@ units:
     kneelHeight: 15
     floatHeight: 2
     value: 20
-    deathSound: 23
+    deathSound: 902
     moveSound: 40
     intelligence: 5
     aggression: 1
     energyRecovery: 50
     specab: 1
     livingWeapon: true
-    capturable: false
+    liveAlien: ""
   - type: STR_MUTON
     race: STR_MUTON
     rank: STR_LIVE_SOLDIER
@@ -715,7 +724,7 @@ units:
     standHeight: 21
     kneelHeight: 16
     value: 20
-    deathSound: 6
+    deathSound: 906
     intelligence: 4
     aggression: 2
     energyRecovery: 40
@@ -738,7 +747,7 @@ units:
     standHeight: 21
     kneelHeight: 16
     value: 25
-    deathSound: 6
+    deathSound: 906
     intelligence: 1
     aggression: 8
     energyRecovery: 40
@@ -763,7 +772,7 @@ units:
     standHeight: 21
     kneelHeight: 16
     value: 19
-    deathSound: 6
+    deathSound: 906
     intelligence: 6
     aggression: 2
     energyRecovery: 50
@@ -793,7 +802,7 @@ units:
     moraleLossWhenKilled: 200
     pickUpWeaponsMoreActively: 1
     aggression: 8
-    capturable: false
+    liveAlien: ""
     builtInWeaponSets:
       -   - STR_LASER_RIFLE
           - STR_ACID_GRENADE
@@ -854,7 +863,7 @@ units:
     standHeight: 20
     kneelHeight: 15
     value: 60
-    deathSound: 9
+    deathSound: 909
     intelligence: 6
     aggression: 1
     energyRecovery: 40
@@ -877,7 +886,7 @@ units:
     standHeight: 20
     kneelHeight: 15
     value: 100
-    deathSound: 9
+    deathSound: 909
     intelligence: 7
     specab: 1
     aggression: 1
@@ -926,12 +935,12 @@ units:
     kneelHeight: 16
     floatHeight: 12
     value: 16
-    deathSound: 23
+    deathSound: 902
     moveSound: 14
     livingWeapon: true
     intelligence: 3
     aggression: 1
-    capturable: false
+    liveAlien: ""
   - type: STR_SECTOPOD
     race: STR_SECTOPOD
     rank: STR_LIVE_TERRORIST
@@ -951,12 +960,12 @@ units:
     standHeight: 23
     kneelHeight: 16
     value: 50
-    deathSound: 23
+    deathSound: 910
     intelligence: 4
     aggression: 1
     energyRecovery: 50
     livingWeapon: true
-    capturable: false
+    liveAlien: ""
   - type: STR_ZOMBIE
     race: STR_ZOMBIE
     rank: STR_LIVE_TERRORIST
@@ -980,9 +989,10 @@ units:
     aggression: 2
     energyRecovery: 20
     spawnUnit: STR_CHRYSSALID
-    livingWeapon: true
+    livingWeapon: true 
+    deathSound: 55
     # Zombies are silent on death, no deathSound
-    capturable: false
+    liveAlien: ""
   - type: STR_MECHTOID
     race: STR_MECHTOID
     rank: STR_LIVE_TERRORIST
@@ -1002,7 +1012,7 @@ units:
     standHeight: 23
     kneelHeight: 16
     value: 30
-    deathSound: 23
+    deathSound: 910
     intelligence: 3
     aggression: 5
     energyRecovery: 50
@@ -1152,6 +1162,28 @@ items:
     recover: false
     liveAlien: true
 # Alien corpses
+  - type: STR_SECTOID_CORPSE
+    size: 0.4
+    costSell: 20000
+    weight: 30
+    bigSprite: 419
+    floorSprite: 419
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    battleType: 11
+    armor: 26
+  - type: STR_SECTOID_COMMANDER_CORPSE
+    size: 0.4
+    costSell: 20000
+    weight: 30
+    bigSprite: 420
+    floorSprite: 420
+    invWidth: 2
+    invHeight: 3
+    recoveryPoints: 5
+    battleType: 11
+    armor: 26
   - type: STR_OUTSIDER_CORPSE
     size: 0.4
     costSell: 20000
@@ -1278,10 +1310,12 @@ extraSprites:
       412: Resources/Units/EliteMuton/Armored_Muton_Commander_Corpse.gif
       413: Resources/Units/Overlord/Overlord_Corpse.gif
       414: Resources/Units/Drone/drone.corpse.png
-      415: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-1.png
-      416: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-2.png
-      417: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-3.png
-      418: Resources/Units/Mechtoid/OXC-WOS--MECHTOID_CORPSE-4.png
+      415: Resources/Units/Mechtoid/MECHTOID_CORPSE_1.png
+      416: Resources/Units/Mechtoid/MECHTOID_CORPSE_2.png
+      417: Resources/Units/Mechtoid/MECHTOID_CORPSE_3.png
+      418: Resources/Units/Mechtoid/MECHTOID_CORPSE_4.png
+      419: Resources/Units/Sectoid/SECTOID_CORPSE_FLOOROB.png
+      420: Resources/Units/Sectoid/SECTOID_COMMANDER_CORPSE_FLOOROB.png
 
 # bigobs
   - type: BIGOBS.PCK
@@ -1294,6 +1328,8 @@ extraSprites:
       412: Resources/Units/EliteMuton/ArmoredMutonCommanderInventoryCorpse.gif
       413: Resources/Units/Overlord/OverlordInventoryCorpse.gif
       414: Resources/Units/Drone/drone.inventory.corpse.png
+      419: Resources/Units/Sectoid/SECTOID_CORPSE_BIGOB.png
+      420: Resources/Units/Sectoid/SECTOID_COMMANDER_CORPSE_BIGOB.png
 
 # inventory
   - type: inventory_DRONE
@@ -1326,6 +1362,29 @@ extraSprites:
     singleImage: true
     files:
       0: Resources/Armor_Imported/GreenPowerArmor/andromedon.inventory.png
+  - type: Inventory_MECHTOID
+    singleImage: true
+    files:
+      0: Resources/Units/Mechtoid/MECHTOID_INVENTORY.png
+  - type: Inventory_THIN_MAN
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: Resources/Units/ThinMan/THIN_MAN_INV.png
+  - type: Inventory_SECTOID
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: Resources/Units/Sectoid/SECTOID_INV.png
+  - type: Inventory_SECTOID_COMMANDER
+    width: 320
+    height: 200
+    singleImage: true
+    files:
+      0: Resources/Units/Sectoid/SECTOID_LEADER_INV.png 
+
 # battlescape
   - type: DRONE.PCK
     width: 256
@@ -1390,13 +1449,27 @@ extraSprites:
     height: 720
     files:
       0: Resources/Armor_Imported/GreenPowerArmor/shell.sheet.png
-  - type: MECHTOID.PCK
+  - type: SECTOID_SPRITESHEET.PCK
+    subX: 32
+    subY: 40
+    width: 512
+    height: 680
+    files:
+      0: Resources/Units/Sectoid/SectoidSpritesheet.png
+  - type: SECTOID_COMMANDER.PCK
+    subX: 32
+    subY: 40
+    width: 512
+    height: 680
+    files:
+      0: Resources/Units/Sectoid/SectoidCommanderSpritesheet.png
+  - type: MECHTOID_SPRITESHEET.PCK
     subX: 32
     subY: 40
     width: 256
     height: 840
     files:
-      0: Resources/Units/Mechtoid/mechtoid.png
+      0: Resources/Units/Mechtoid/MECHTOID_SPRITESHEET.png
 
 # ufopedia
   - type: UP018.SPK
@@ -1426,6 +1499,7 @@ extraStrings:
       STR_THIN_MAN_CORPSE: Thin Man Corpse
       STR_MUTON_ELITE: Muton Elite
       STR_MUTON_ELITE_CORPSE: Muton Elite Corpse
+      STR_BERSERKER_CORPSE: "Berserker Corpse"
       STR_MUTON_BERSERKER: Berserker
       STR_MUTON_BERSERKER_CORPSE: Berserker Corpse
       STR_ANDROMEDON: Andromedon
@@ -1443,3 +1517,4 @@ extraStrings:
       STR_OUTSIDER_SHARDS: Outsider Shards
       STR_MECHTOID: Mechtoid
       STR_ALIEN_AGENT: "Alien Agent"
+      STR_SECTOID_COMMANDER_CORPSE: "Sectoid Commander Corpse"

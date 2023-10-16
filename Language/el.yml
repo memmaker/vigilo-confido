@@ -1,0 +1,13 @@
+el:
+  STR_INTERCEPT: "ㄷ ΑΝΑΧΑΙΤΙΣΕ ㄹ"
+  STR_BASES: "ㅁ ΒΑΣΕΙΣ "
+  STR_GRAPHS: "ㅂ ΓΡΑΦΙΜΑΤΑ "
+  STR_UFOPAEDIA_UC: "ㅅ ΟΥΦΟΠΑΙΔΕΙΑ "
+  STR_OPTIONS_UC: "ㅇ ΕΠΙΛΟΓΕΣ "
+  STR_FUNDING_UC: "ㅈΧΡΗΜΑΤΟΔΟΤΗΣΗ"
+  STR_5_SECONDS: "ㅊ 5δ"
+  STR_1_MINUTE: "ㅋ 1Λ"
+  STR_5_MINUTES: "ㅍ 5Λ"
+  STR_30_MINUTES: "ㅌ 30Λ"
+  STR_1_HOUR: "ㅎ 1Ώ"
+  STR_1_DAY: "ㅆ 1Μ"

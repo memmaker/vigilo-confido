@@ -2,17 +2,31 @@ extraSounds:
   - type: BATTLE.CAT
     files:
       300: Resources/Weapons_Imported/AlloyCannon/minigun.ogg
-      301: Resources/Weapons_Imported/AlloyShotgun/shotgun_fire.wav
-      302: Resources/Weapons_Imported/AlloyShotgun/shotgun_reload.wav
+      301: Resources/Weapons_Imported/AlloyShotgun/shotgun_fire.ogg
+      302: Resources/Weapons_Imported/AlloyShotgun/shotgun_reload.ogg
       303: Resources/Weapons_Imported/AlloySniper/Fire.wav
       304: Resources/Weapons_Imported/AlloySniper/Hit.wav
 
 extraSprites:
   - type: BIGOBS.PCK
     files:
+      0: Resources/Weapons_Imported/AlienLaserRifle/BigLaserRifle.png
+      1: Resources/Weapons_Imported/HumanRifle/BigRifle.png
+      2: Resources/Weapons_Imported/HumanRifle/BigRifleMag.png
+      3: Resources/Weapons_Imported/HumanPistol/BigPistol.png
+      4: Resources/Weapons_Imported/HumanPistol/BigPistolMag.png
+      5: Resources/Weapons_Imported/AlienLaserPistol/BigLaserPistol.png
+      6: Resources/Weapons_Imported/AlienLaserCannon/BigLaserCannon.png
+      25: Resources/Weapons_Imported/AlienPlasmaCannon/BigHeavyPlasmaMag.png
+      30: Resources/Weapons_Imported/AlienPlasmaCannon/BigHeavyPlasma.png
+      31: Resources/Weapons_Imported/AlienPlasmaRifle/BigPlasmaRifle.png
+      32: Resources/Weapons_Imported/AlienPlasmaPistol/BigPlasmaPistol.png
+      34: Resources/Weapons_Imported/AlienPlasmaPistol/BigPlasmaPistolMag.png
+      41: Resources/Weapons_Imported/AlienPlasmaRifle/BigPlasmaRifleMag.png
+
       200: Resources/Weapons_Imported/AlloySword/bigob_AlloySword.png
       201: Resources/Weapons_Imported/LaserSword/bigob_LaserSword.gif
-      202: Resources/Weapons_Imported/PlasmaSword/bigob_PlasmaSword.gif
+      202: Resources/Weapons_Imported/PlasmaSword/bigob_PlasmaSword.PNG
       203: Resources/Weapons_Imported/AlloyCannon/bigob_AlloyCannon.png
       204: Resources/Weapons_Imported/AlloyCannon/bigob_AlloyCannon_Ammo.png
       205: Resources/Weapons_Imported/AlloyShotgun/bigob_Shotgun.png
@@ -52,9 +66,22 @@ extraSprites:
 
   - type: FLOOROB.PCK
     files:
+      0: Resources/Weapons_Imported/AlienLaserRifle/FloorLaserRifle.png
+      1: Resources/Weapons_Imported/HumanRifle/FloorRifle.png
+      2: Resources/Weapons_Imported/HumanRifle/FloorRifleMag.png
+      3: Resources/Weapons_Imported/HumanPistol/FloorPistol.png
+      4: Resources/Weapons_Imported/HumanPistol/FloorPistolMag.png
+      5: Resources/Weapons_Imported/AlienLaserPistol/FloorLaserPistol.png
+      6: Resources/Weapons_Imported/AlienLaserCannon/FloorLaserCannon.png
+      25: Resources/Weapons_Imported/AlienPlasmaCannon/FloorHeavyPlasmaMag.png
+      30: Resources/Weapons_Imported/AlienPlasmaCannon/FloorHeavyPlasma.png
+      31: Resources/Weapons_Imported/AlienPlasmaRifle/FloorPlasmaRifle.png
+      32: Resources/Weapons_Imported/AlienPlasmaPistol/FloorPlasmaPistol.png
+      34: Resources/Weapons_Imported/AlienPlasmaPistol/FloorPlasmaPistolMag.png
+      41: Resources/Weapons_Imported/AlienPlasmaRifle/FloorPlasmaRifleMag.png
       200: Resources/Weapons_Imported/AlloySword/floorob_AlloySword.png
       201: Resources/Weapons_Imported/LaserSword/floorob_LaserSword.png
-      202: Resources/Weapons_Imported/PlasmaSword/floorob_PlasmaSword.gif
+      202: Resources/Weapons_Imported/PlasmaSword/floorob_PlasmaSword.PNG
       203: Resources/Weapons_Imported/AlloyCannon/floorob_AlloyCannon.png
       204: Resources/Weapons_Imported/AlloyCannon/floorob_AlloyCannon_Ammo.png
       205: Resources/Weapons_Imported/AlloyShotgun/floorob_Shotgun.png
@@ -96,9 +123,23 @@ extraSprites:
     subX: 32
     subY: 40
     files:
+      0: Resources/Weapons_Imported/HumanRifle/HandRifle.png
+      8: Resources/Weapons_Imported/AlienLaserRifle/HandLaserRifle.png
+      16: Resources/Weapons_Imported/AlienLaserCannon/HandLaserCannon.png
+#      24: #HeavyCannon
+      40: Resources/Weapons_Imported/AlienPlasmaCannon/HandHeavyPlasma.png
+      48: Resources/Weapons_Imported/AlienPlasmaRifle/HandPlasmaRifle.png
+#      56: #BlasterLauncher
+#      64: #Small Launcher
+#      72: Resources/Weapons/Bullet/Handobs/RocketLauncher.png #RocketLauncher
+#      80: Resources/Weapons/Bullet/Handobs/StunRod.png #StunRod
+#      88: #Psi-Amp
+      96: Resources/Weapons_Imported/HumanPistol/HandPistol.png
+      104: Resources/Weapons_Imported/AlienPlasmaPistol/HandPlasmaPistol.png
+      112: Resources/Weapons_Imported/AlienLaserPistol/HandLaserPistol.png
       256: Resources/Weapons_Imported/AlloySword/handob_AlloySword.png
       264: Resources/Weapons_Imported/LaserSword/handob_LaserSword.png
-      272: Resources/Weapons_Imported/PlasmaSword/handob_PlasmaSword.gif
+      272: Resources/Weapons_Imported/PlasmaSword/handob_PlasmaSword.PNG
       280: Resources/Weapons_Imported/AlloyCannon/handob_AlloyCannon.png
       288: Resources/Weapons_Imported/AlloyShotgun/handob_Shotgun.png
       296: Resources/Weapons_Imported/AlloySniper/handob_AlloySniper.gif
@@ -175,8 +216,8 @@ items:
       RUPTURE_DAMAGE: 10
     costBuy: 200
     costSell: 0
-    tuSnap: 40
-    tuAimed: 51
+    tuSnap: 20
+    tuAimed: 40
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100
@@ -184,6 +225,7 @@ items:
     snapRange: 10
     aimRange: 14
     autoRange: 8
+    fireSound: 70
     dropoff: 4   # 4 points of accuracy decrease per tile
   - type: STR_PISTOL_CLIP
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
@@ -191,6 +233,10 @@ items:
     costBuy: 20
     costSell: 0
     clipSize: 12
+    hitSound: 22
+    vaporColorSurface: 0
+    vaporDensitySurface: 2
+    vaporProbabilitySurface: 100
     damageAlter:
       ToArmor: 0
   - type: STR_RIFLE
@@ -211,6 +257,7 @@ items:
     snapRange: 12
     aimRange: 16
     autoRange: 10
+    fireSound: [71, 72]
     dropoff: 4   # 4 points of accuracy decrease per tile
     confSnap:
       shots: 3
@@ -222,6 +269,13 @@ items:
     clipSize: 20
     costBuy: 25
     costSell: 0
+    bulletSpeed: 20
+    explosionSpeed: 5
+    bulletSprite: 28
+    hitSound: 22
+    vaporColorSurface: 0
+    vaporDensitySurface: 1
+    vaporProbabilitySurface: 100
     damageAlter:
       ToArmor: 0
       ArmorEffectiveness: 0.3
@@ -243,7 +297,7 @@ items:
       strength: 0.1
     damageType: 7
     accuracyMelee: 100
-    tuMelee: 35
+    tuMelee: 25
     clipSize: -1
     battleType: 3
     invWidth: 1
@@ -255,6 +309,7 @@ items:
   - type: STR_LASER_SWORD
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
+      LASER: 1
       RUPTURE_DAMAGE: 15
     listOrder: 3450
     requires:
@@ -272,7 +327,7 @@ items:
     power: 50
     damageType: 4
     accuracyMelee: 100
-    tuMelee: 35
+    tuMelee: 25
     clipSize: -1
     battleType: 3
     invWidth: 1
@@ -284,6 +339,7 @@ items:
   - type: STR_PLASMA_SWORD
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
+      PLASMA: 1
       RUPTURE_DAMAGE: 20
     listOrder: 3703
     requires:
@@ -301,7 +357,7 @@ items:
     power: 60
     damageType: 5
     accuracyMelee: 115
-    tuMelee: 35
+    tuMelee: 25
     clipSize: -1
     battleType: 3
     invWidth: 1
@@ -334,7 +390,7 @@ items:
     accuracyMultiplier: # Shotgun Accuracy Learning Curve
       firing: [2.4757187257187256, -0.031759906759906760, 0.00016705516705516706]
     tuSnap: 55
-    tuAimed: 0
+    tuAimed: 65
     tuAuto: 0
     confAuto:
       shots: 2
@@ -361,15 +417,19 @@ items:
     floorSprite: 206
     hitSound: 22
     hitAnimation: 26
-    power: 10
+    power: 20
     damageType: 1
     damageAlter:
       ToArmor: 0
       ArmorEffectiveness: 0.2
     clipSize: 6
+    vaporColorSurface: 0
+    vaporDensitySurface: 4
+    vaporProbabilitySurface: 100
     battleType: 2
     armor: 20
     shotgunPellets: 5
+    shotgunSpread: 15
     bulletSpeed: 2
   - type: STR_SNIPER_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
@@ -385,7 +445,8 @@ items:
     bigSprite: 208
     floorSprite: 207
     handSprite: 296
-    bulletSprite: 2
+    bulletSprite: 28
+    bulletSpeed: 20
     fireSound: 303
     compatibleAmmo:
       - STR_SNIPER_RIFLE_CLIP
@@ -426,6 +487,9 @@ items:
     damageAlter:
       ToArmor: 0
     clipSize: 5
+    vaporColorSurface: 0
+    vaporDensitySurface: 4
+    vaporProbabilitySurface: 100
     battleType: 2
     armor: 20
   - type: STR_HEAVY_CANNON
@@ -441,8 +505,8 @@ items:
     bigSprite: 203
     floorSprite: 203
     handSprite: 280
-    bulletSprite: 2
-    fireSound: 300
+    bulletSprite: 29
+    fireSound: [300, 73]
     compatibleAmmo:
       - STR_HEAVY_CANNON_CLIP
 #    accuracyAuto: 75
@@ -455,7 +519,7 @@ items:
     autoRange: 14
     dropoff: 4   # 4 points of accuracy decrease per tile
     tuAuto: 0
-    tuSnap: 75
+    tuSnap: 50
     tuAimed: 0
     confSnap:
       shots: 5
@@ -464,7 +528,7 @@ items:
     battleType: 1
     twoHanded: true
     blockBothHands: true
-    invWidth: 2
+    invWidth: 1
     invHeight: 3
   - type: STR_HEAVY_CANNON_CLIP
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
@@ -475,18 +539,23 @@ items:
     weight: 6
     bigSprite: 204
     floorSprite: 204
-    hitSound: 22
     hitAnimation: 26
     power: 10
     damageType: 1
+    hitSound: 79
     clipSize: 30
+    bulletSpeed: 30
+    explosionSpeed: 50
     damageAlter:
       ArmorEffectiveness: 0.2
       ToArmorPre: 0.2
       ToArmor: 0
     battleType: 2
+    vaporColorSurface: 0
+    vaporDensitySurface: 3
+    vaporProbabilitySurface: 100
     invWidth: 2
-    invHeight: 2
+    invHeight: 1
   - type: STR_XCOM_LASER_PISTOL
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
@@ -506,10 +575,10 @@ items:
     bigSprite: 217
     floorSprite: 213
     handSprite: 320
-    bulletSprite: 5
-    fireSound: 11
+    bulletSprite: 29
+    fireSound: 74
     hitSound: 19
-    hitAnimation: 36
+    hitAnimation: 130
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -529,8 +598,8 @@ items:
     damageType: 4
     damageAlter:
       ToArmor: 0
-    tuSnap: 40
-    tuAimed: 51
+    tuSnap: 20
+    tuAimed: 40
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100
@@ -542,6 +611,8 @@ items:
     battleType: 1
     invWidth: 1
     invHeight: 2
+    bulletSpeed: 20
+    explosionSpeed: 1
   - type: STR_XCOM_LASER_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
@@ -561,10 +632,10 @@ items:
     bigSprite: 221
     floorSprite: 214
     handSprite: 328
-    bulletSprite: 6
+    bulletSprite: 29
     fireSound: 11
     hitSound: 19
-    hitAnimation: 36
+    hitAnimation: 130
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -604,6 +675,8 @@ items:
     oneHandedPenalty: 95
     invWidth: 1
     invHeight: 3
+    bulletSpeed: 20
+    explosionSpeed: 3
   - type: STR_LASER_SHOTGUN
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     tags:
@@ -623,10 +696,10 @@ items:
     bigSprite: 225
     floorSprite: 215
     handSprite: 336
-    bulletSprite: 6
-    fireSound: 11
+    bulletSprite: 29
+    fireSound: 75
     hitSound: 19
-    hitAnimation: 36
+    hitAnimation: 130
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -658,7 +731,7 @@ items:
     dropoff: 3   # 4 points of accuracy decrease per tile
     powerRangeThreshold: 20 # full power until tile 20
     powerRangeReduction: 10 # minus 10 power per tile after that
-    power: 14
+    power: 20
     damageType: 4
     damageAlter:
       ToArmor: 0
@@ -668,7 +741,8 @@ items:
     oneHandedPenalty: 95
     invWidth: 1
     invHeight: 3
-    shotgunPellets: 5
+    shotgunPellets: 6
+    shotgunSpread: 12
     bulletSpeed: 2
   - type: STR_LASER_SNIPER_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
@@ -689,10 +763,10 @@ items:
     bigSprite: 229
     floorSprite: 216
     handSprite: 344
-    bulletSprite: 6
+    bulletSprite: 29
+    hitAnimation: 130
     fireSound: 11
     hitSound: 19
-    hitAnimation: 36
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
@@ -732,6 +806,8 @@ items:
     oneHandedPenalty: 95
     invWidth: 1
     invHeight: 3
+    bulletSpeed: 20
+    explosionSpeed: 1
   - type: STR_XCOM_HEAVY_LASER
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     listOrder: 3700
@@ -765,10 +841,10 @@ items:
     bigSprite: 213
     floorSprite: 212
     handSprite: 312
-    bulletSprite: 7
-    fireSound: 11
+    bulletSprite: 29
+    fireSound: 75
     hitSound: 19
-    hitAnimation: 36
+    hitAnimation: 130
     power: 14
     damageType: 4
 #    accuracyAuto: 75
@@ -779,7 +855,7 @@ items:
     snapRange: 14
     aimRange: 14
     autoRange: 14
-    tuSnap: 75
+    tuSnap: 50
     tuAimed: 0
     tuAuto: 0
     confSnap:
@@ -795,6 +871,8 @@ items:
     blockBothHands: true
     invWidth: 2
     invHeight: 3
+    bulletSpeed: 20
+    explosionSpeed: 3
   - type: STR_XCOM_PLASMA_PISTOL
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
     requires:
@@ -814,11 +892,11 @@ items:
     floorSprite: 221
     handSprite: 360
     bulletSprite: 8
-    fireSound: 18
+    fireSound: 76
     compatibleAmmo:
       - STR_XCOM_PLASMA_PISTOL_CLIP
-    tuSnap: 40
-    tuAimed: 51
+    tuSnap: 20
+    tuAimed: 40
     tuAuto: 0
     accuracySnap: 90
     accuracyAimed: 100
@@ -845,7 +923,7 @@ items:
     weight: 3
     bigSprite: 238
     floorSprite: 222
-    hitSound: 19
+    hitSound: 78
     hitAnimation: 46
     power: 50
     damageType: 5
@@ -873,7 +951,7 @@ items:
     floorSprite: 224
     handSprite: 368
     bulletSprite: 8
-    fireSound: 18
+    fireSound: 77
     compatibleAmmo:
       - STR_XCOM_PLASMA_RIFLE_CLIP
 #    accuracyAuto: 55
@@ -910,7 +988,7 @@ items:
     weight: 3
     bigSprite: 242
     floorSprite: 225
-    hitSound: 19
+    hitSound: 78
     hitAnimation: 46
     power: 27
     damageType: 5
@@ -940,7 +1018,7 @@ items:
     floorSprite: 229
     handSprite: 376
     bulletSprite: 8
-    fireSound: 18
+    fireSound: 77
     compatibleAmmo:
       - STR_PLASMA_SHOTGUN_AMMO
     accuracySnap: 90
@@ -978,9 +1056,9 @@ items:
     weight: 3
     bigSprite: 246
     floorSprite: 230
-    hitSound: 19
+    hitSound: 78
     hitAnimation: 46
-    power: 18
+    power: 25
     damageType: 5
     damageAlter:
       ToArmor: 0
@@ -988,7 +1066,8 @@ items:
     clipSize: 6
     battleType: 2
     armor: 20
-    shotgunPellets: 5
+    shotgunPellets: 6
+    shotgunSpread: 10
     bulletSpeed: 2
   - type: STR_PLASMA_SNIPER_RIFLE
     categories: [STR_SOLDIER_GEAR, STR_WEAPONS_AND_AMMO]
@@ -997,6 +1076,7 @@ items:
     requiresBuy:
       - STR_PLASMA_SNIPER_RIFLE
     tags:
+      PLASMA: 1
       CRIT_CHANCE: 15
       GUN_TYPE: 3
       RUPTURE_DAMAGE: 15
@@ -1046,7 +1126,7 @@ items:
     weight: 4
     bigSprite: 250
     floorSprite: 234
-    hitSound: 19
+    hitSound: 78
     hitAnimation: 46
     power: 90
     damageType: 5
@@ -1076,7 +1156,7 @@ items:
     floorSprite: 217
     handSprite: 352
     bulletSprite: 8
-    fireSound: 18
+    fireSound: 77
     compatibleAmmo:
       - STR_XCOM_HEAVY_PLASMA_CLIP
 #    accuracyAuto: 75
@@ -1088,7 +1168,7 @@ items:
     aimRange: 14
     autoRange: 14
     tuAuto: 0
-    tuSnap: 75
+    tuSnap: 50
     tuAimed: 0
     confSnap:
       shots: 5
@@ -1114,7 +1194,7 @@ items:
     weight: 3
     bigSprite: 234
     floorSprite: 218
-    hitSound: 19
+    hitSound: 78
     hitAnimation: 46
     power: 18
     damageType: 5
@@ -1129,6 +1209,39 @@ items:
     invHeight: 1
     tags:
       RUPTURE_DAMAGE: 20
+ 
+  - type: STR_PLASMA_PISTOL
+    fireSound: 76
+    tags:
+      PLASMA: 1
+  - type: STR_PLASMA_RIFLE
+    fireSound: 18
+    tags:
+      PLASMA: 1
+  - type: STR_HEAVY_PLASMA
+    fireSound: 77
+    tags:
+      PLASMA: 1
+  - type: STR_PLASMA_PISTOL_CLIP
+    hitSound: 78
+  - type: STR_PLASMA_RIFLE_CLIP
+    hitSound: 78
+  - type: STR_HEAVY_PLASMA_CLIP
+    hitSound: 78
+
+  - type: STR_LASER_PISTOL
+    hitSound: 19
+    tags:
+      LASER: 1
+  - type: STR_LASER_RIFLE
+    hitSound: 19
+    tags:
+      LASER: 1
+  - type: STR_HEAVY_LASER
+    hitSound: 19
+    tags:
+      LASER: 1
+
 manufacture:
   - delete: STR_LASER_PISTOL
   - delete: STR_LASER_RIFLE
@@ -1184,7 +1297,7 @@ manufacture:
     time: 500
     cost: 4200
     requiredItems:
-      STR_LASER_RIFLE: 2
+      STR_HEAVY_LASER: 1
       STR_ALIEN_ALLOYS: 10
 
   - name: STR_XCOM_PLASMA_PISTOL
@@ -1476,9 +1589,9 @@ extraStrings:
         of setting enemies aflame.
       STR_RIFLE_UFOPEDIA: The standard issue X9 rifle is a very durable field weapon
         and has seen extensive use over the years.{NEWLINE}{NEWLINE}BURST> 3
-      STR_HEAVY_CANNON: Heavy Cannon
-      STR_HEAVY_CANNON_CLIP: Heavy Cannon Clip
-      STR_UFOPAEDIA_CANNON: The Cannon is an improvised light support weapon, specialized
+      STR_HEAVY_CANNON: Machine Gun
+      STR_HEAVY_CANNON_CLIP: Machine Gun Belt
+      STR_UFOPAEDIA_CANNON: The Machine Gun is an improved light support weapon, specialized
         for high volume fire.{NEWLINE}{NEWLINE}BURST> 5
       STR_SHOTGUN: Shotgun
       STR_SHOTGUN_AMMO: Shotgun Ammo
@@ -1492,17 +1605,20 @@ extraStrings:
       STR_UFOPAEDIA_GRENADE_LAUNCHER: The standard issue grenade launcher can operate
         with hand-held grenades.
       STR_HEAVY_LASER: Alien Heavy Laser
+      STR_HEAVY_LASER_UFOPEDIA: "A large and cumbersome energy weapon, used with devastating effects."
       STR_XCOM_HEAVY_LASER: Heavy Laser
       STR_UFOPAEDIA_HEAVY_LASER: The X3 Heavy Laser requires a supplementary power
         supply that makes it somewhat unwieldy in combat, but it is capable of dealing
         high amounts of damage.{NEWLINE}{NEWLINE}CHARGES> 21{NEWLINE}{NEWLINE}BURST>
         5
       STR_LASER_PISTOL: Alien Laser Pistol
+      STR_LASER_PISTOL_UFOPEDIA: "Compact semi-automatic laser weapon. Maintains accuracy at high rates of fire."
       STR_XCOM_LASER_PISTOL: Laser Pistol
       STR_UFOPAEDIA_XCOM_LASER_PISTOL: The X22 Laser Pistol relies on our latest advancements
         to provide a more powerful sidearm that does not require reloading in the
         field.{NEWLINE}{NEWLINE}CHARGES> 12
       STR_LASER_RIFLE: Alien Laser Rifle
+      STR_LASER_RIFLE_UFOPEDIA: "Mid-range laser infantry weapon."
       STR_XCOM_LASER_RIFLE: Laser Rifle
       STR_UFOPAEDIA_XCOM_LASER_RIFLE: The X24 Laser Assault Rifle relies on our latest
         in optics technology to offer a substantial increase in output over the conventional

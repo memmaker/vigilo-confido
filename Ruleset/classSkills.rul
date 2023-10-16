@@ -258,7 +258,7 @@ mana:
   enabled: true
   battleUI: true
   trainingPrimary: false
-  trainingSecondary: false
+  trainingSecondary: true
   replenishAfterMission: true
 
 commendations:
@@ -382,7 +382,7 @@ items:
       mana: 12
     tuPanic: 0
     tuMindControl: 0
-    psiTargetMatrix: 7
+    targetMatrix: 7
 
 soldierTransformation:
   - name: STR_RANGER_ADVANCED_TRAINING
@@ -564,7 +564,7 @@ skills:
       SKILL_ID: 11
     costUse:
       time: 0
-      mana: 6
+      mana: 4
     flatUse:
       mana: true
     targetMode: 10
@@ -834,7 +834,7 @@ soldiers:
     showTypeInInventory: true
     tags:
       CLASS: 1
-      BLADEMASTER: 20         #X (1-xxx) flat bonus to power (for attacks with sword)
+      BLADEMASTER: 30         #X (1-xxx) flat bonus to power (for attacks with sword)
     skillIconSprite: 2
     skills:
       - STR_RUN_AND_GUN

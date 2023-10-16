@@ -1,0 +1,72 @@
+units:
+  - type: STR_XCOM_BASE_SECURITY
+    race: STR_CIVILIAN
+    rank: STR_LIVE_SOLDIER
+    stats:
+      tu: 64
+      stamina: 90
+      health: 40
+      bravery: 80
+      reactions: 52
+      firing: 61
+      throwing: 68
+      strength: 49
+      psiStrength: 40
+      psiSkill: 0
+      melee: 30
+    armor: STR_PERSONAL_ARMOR_NPC
+    standHeight: 22
+    kneelHeight: 14
+    value: 10
+    deathSound: 48
+    liveAlien: "" # NO RECOVERABLE LIVE ALIEN
+    intelligence: 5
+    aggression: 1
+    builtInWeaponSets:
+      - 
+        - STR_RIFLE
+        - STR_RIFLE_CLIP
+        - STR_RIFLE_CLIP
+        - STR_GRENADE       
+      - 
+        - STR_HEAVY_CANNON
+        - STR_HEAVY_CANNON_CLIP
+        - STR_HEAVY_CANNON_CLIP
+        - STR_GRENADE
+      - 
+        - STR_RIFLE
+        - STR_RIFLE_CLIP
+        - STR_RIFLE_CLIP
+        - STR_GRENADE
+        
+armors:
+  - type: STR_PERSONAL_ARMOR_NPC
+    tags:
+      ABLATIVE_ARMOR_BONUS: 10
+    spriteSheet: XCOM_4.PCK
+    corpseBattle:
+      - STR_CORPSE_ARMOR
+    allowInv: true
+    spriteInv: MAN_4M0.SPK
+    overKill: 100000.0
+    frontArmor: 0
+    sideArmor: 0
+    rearArmor: 0
+    underArmor: 0
+    damageModifier:
+      - 1.0
+      - 0.8
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 0.9
+      - 0.9
+      - 1.1
+      - 2.0
+    loftempsSet: [ 3 ]
+
+extraStrings:
+  - type: en-US
+    strings:
+      STR_XCOM_BASE_SECURITY: "XCOM Base Security"   

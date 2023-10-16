@@ -56,12 +56,17 @@ missionScripts:
         STR_ALIEN_HARVEST: 10
         STR_ALIEN_ABDUCTION: 10
 
-  - type: invasion
-    firstMonth: 6
+  - type: settlement
+    firstMonth: 16
     missionWeights:
       0:
-        STR_ALIEN_INFILTRATION: 10
-        STR_ALIEN_BASE: 10
+        STR_ALIEN_INFILTRATION: 100
+
+  - type: invasion
+    firstMonth: 12
+    missionWeights:
+      0:
+        STR_ALIEN_BASE: 100
 
   - type: attackOnXcomBase
     missionWeights:
@@ -522,10 +527,9 @@ alienDeployments:
               - STR_PLASMA_PISTOL
               - STR_PLASMA_PISTOL_CLIP
               - STR_MIND_PROBE
-          -   - STR_PLASMA_PISTOL
+          -   - STR_HEAVY_LASER
+              - STR_PLASMA_PISTOL
               - STR_PLASMA_PISTOL_CLIP
-              - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
               - STR_MIND_PROBE
     width: 40
     length: 40
@@ -546,8 +550,7 @@ alienDeployments:
               - STR_PLASMA_PISTOL
               - STR_PLASMA_PISTOL_CLIP
               - STR_MIND_PROBE
-          -   - STR_PLASMA_PISTOL
-              - STR_PLASMA_PISTOL_CLIP
+          -   - STR_LASER_PISTOL
               - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_MIND_PROBE
@@ -563,8 +566,7 @@ alienDeployments:
               - STR_PLASMA_PISTOL
               - STR_PLASMA_PISTOL_CLIP
               - STR_MIND_PROBE
-          -   - STR_PLASMA_PISTOL
-              - STR_PLASMA_PISTOL_CLIP
+          -   - STR_LASER_PISTOL
               - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_MIND_PROBE
@@ -585,12 +587,11 @@ alienDeployments:
               - STR_MIND_PROBE
           -   - STR_LASER_RIFLE
               - STR_PLASMA_PISTOL
-              - STR_PLASMA_PISTOL_CLIP
+              - STR_LASER_PISTOL
               - STR_MIND_PROBE
-          -   - STR_PLASMA_PISTOL
+          -   - STR_HEAVY_LASER
+              - STR_PLASMA_PISTOL
               - STR_PLASMA_PISTOL_CLIP
-              - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
               - STR_MIND_PROBE
       - alienRank: 4
         lowQty: 1
@@ -621,9 +622,7 @@ alienDeployments:
               - STR_MIND_PROBE
           -   - STR_PLASMA_PISTOL
               - STR_PLASMA_PISTOL_CLIP
-              - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_RIFLE_CLIP
+              - STR_HEAVY_LASER
               - STR_MIND_PROBE
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
@@ -659,13 +658,14 @@ alienDeployments:
         dQty: 0
         percentageOutsideUfo: 20
         itemSets:
-          -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_HEAVY_LASER
+          -   - STR_HEAVY_LASER
+              - STR_LASER_PISTOL
               - STR_ALIEN_GRENADE
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_HEAVY_PLASMA_CLIP
+              - STR_LASER_PISTOL
       - alienRank: 3
         lowQty: 1
         highQty: 2
@@ -691,10 +691,8 @@ alienDeployments:
         dQty: 0
         percentageOutsideUfo: 30
         itemSets:
-          -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_HEAVY_PLASMA
+          -   - STR_HEAVY_LASER
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
       - alienRank: 1
@@ -733,8 +731,7 @@ alienDeployments:
           -   - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_PISTOL
-              - STR_PLASMA_PISTOL_CLIP
+              - STR_LASER_PISTOL
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_GAS_GRENADE
@@ -749,9 +746,11 @@ alienDeployments:
         percentageOutsideUfo: 20
         itemSets:
           -   - STR_LASER_RIFLE
+              - STR_LASER_PISTOL          
           -   - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_PLASMA_RIFLE_CLIP
+              - STR_LASER_PISTOL
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_ALIEN_GRENADE
@@ -763,6 +762,7 @@ alienDeployments:
         percentageOutsideUfo: 20
         itemSets:
           -   - STR_LASER_RIFLE
+              - STR_LASER_PISTOL          
           -   - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_ALIEN_GRENADE
@@ -778,9 +778,11 @@ alienDeployments:
         percentageOutsideUfo: 30
         itemSets:
           -   - STR_LASER_RIFLE
+              - STR_LASER_PISTOL          
           -   - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_PLASMA_RIFLE_CLIP
+              - STR_LASER_PISTOL    
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_ALIEN_GRENADE
@@ -792,8 +794,9 @@ alienDeployments:
         percentageOutsideUfo: 0
         itemSets:
           -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
+              - STR_LASER_PISTOL          
+          -   - STR_HEAVY_LASER
+              - STR_PLASMA_PISTOL
               - STR_PLASMA_RIFLE_CLIP
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
@@ -819,9 +822,11 @@ alienDeployments:
               - STR_PLASMA_RIFLE_CLIP
               - STR_ALIEN_GRENADE
               - STR_PLASMA_RIFLE_CLIP
+              - STR_LASER_PISTOL
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_ALIEN_GRENADE
+              - STR_LASER_PISTOL
               - STR_HEAVY_PLASMA_CLIP
       - alienRank: 4
         lowQty: 1
@@ -830,9 +835,9 @@ alienDeployments:
         percentageOutsideUfo: 20
         itemSets:
           -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_HEAVY_LASER
+              - STR_PLASMA_PISTOL
+              - STR_PLASMA_PISTOL_CLIP
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_HEAVY_PLASMA_CLIP
@@ -844,8 +849,8 @@ alienDeployments:
         itemSets:
           -   - STR_LASER_RIFLE
               - STR_ALIEN_GRENADE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_LASER_RIFLE
+              - STR_PLASMA_PISTOL
               - STR_ALIEN_GRENADE
               - STR_PLASMA_RIFLE_CLIP
           -   - STR_SMALL_LAUNCHER
@@ -1048,9 +1053,11 @@ alienDeployments:
           -   - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_PLASMA_RIFLE_CLIP
+              - STR_LASER_PISTOL
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_HEAVY_PLASMA_CLIP
+              - STR_LASER_PISTOL
               - STR_ALIEN_GRENADE
       - alienRank: 4
         lowQty: 1
@@ -1072,10 +1079,10 @@ alienDeployments:
         dQty: 0
         percentageOutsideUfo: 20
         itemSets:
-          -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_LASER_PISTOL
+          -   - STR_PLASMA_PISTOl
+              - STR_PLASMA_PISTOL_CLIP
+              - STR_PLASMA_PISTOL_CLIP
           -   - STR_SMALL_LAUNCHER
               - STR_STUN_BOMB
               - STR_STUN_BOMB
@@ -1087,9 +1094,7 @@ alienDeployments:
         percentageOutsideUfo: 20
         itemSets:
           -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_HEAVY_LASER
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_HEAVY_PLASMA_CLIP
@@ -1101,9 +1106,7 @@ alienDeployments:
         percentageOutsideUfo: 0
         itemSets:
           -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_HEAVY_LASER
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_HEAVY_PLASMA_CLIP
@@ -1125,10 +1128,7 @@ alienDeployments:
         percentageOutsideUfo: 70
         itemSets:
           -   - STR_LASER_RIFLE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
-              - STR_ALIEN_GRENADE
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_HEAVY_LASER
           -   - STR_HEAVY_PLASMA
               - STR_HEAVY_PLASMA_CLIP
               - STR_ALIEN_GRENADE
@@ -1152,12 +1152,12 @@ alienDeployments:
         dQty: 1
         percentageOutsideUfo: 20
         itemSets:
-          -   - STR_LASER_RIFLE
+          -   - STR_LASER_PISTOL
               - STR_ALIEN_GRENADE
-          -   - STR_PLASMA_RIFLE
-              - STR_PLASMA_RIFLE_CLIP
+          -   - STR_PLASMA_PISTOL
+              - STR_PLASMA_PISTOL_CLIP
               - STR_ALIEN_GRENADE
-              - STR_PLASMA_RIFLE_CLIP
+              - STR_PLASMA_PISTOL_CLIP
           -   - STR_SMALL_LAUNCHER
               - STR_STUN_BOMB
               - STR_STUN_BOMB
@@ -1168,7 +1168,7 @@ alienDeployments:
         dQty: 0
         percentageOutsideUfo: 20
         itemSets:
-          -   - STR_LASER_RIFLE
+          -   - STR_HEAVY_LASER
           -   - STR_PLASMA_RIFLE
               - STR_PLASMA_RIFLE_CLIP
               - STR_PLASMA_RIFLE_CLIP
@@ -1656,6 +1656,8 @@ alienDeployments:
     terrains:
       - XBASE
     shade: 5
+    civiliansByType:
+      STR_XCOM_BASE_SECURITY: 8
     race: STR_ALIEN_ASSAULT_CREW
     briefing:
       palette: 0

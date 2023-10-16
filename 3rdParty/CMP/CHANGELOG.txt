@@ -1,0 +1,51 @@
+2-October-2022: CMP Extended v0.8
+- Updated to OXCE v7.7.3
+- Fixed issue with crashing tile on Corn Farm terrain, reported by Fegelein, throwaway666888154, solution provided by Meridian
+- New terrains, all by cevaralien:
+	- Forest Mount
+	- Desert Mount
+	- Desert City
+	- Snow City
+	- Jungle City
+	- Mountain City
+- Added new terrains to Geoscape and terror sites
+
+16-April-2022: CMP Extended v0.7
+- Updated to OXCE v7.5.3
+- New terrains:
+	- Corn Farm, by efrenespartano, Luke83 and Solarius Scorch
+	- Arctic Outpost, by Solarius Scorch, Dioxine and Brain_322
+- Added new terrains to Geoscape
+- Improved and expanded IDT_AIRPORT into Military Airport, added new mapblocks
+- Updated credits
+- Added missing Antarctica bases, reported by mmm2342
+
+17-Nov-2020: CMP Extended v0.6
+- Updated to OXCE v6.7.2
+- Fixed issue with missing Shipping Lanes alien terror mission, reported by Valmont and Meridian
+- Minor ruleset cleaning, by efrenespartano
+- Deleted custom BOSSBATTLE mapScript, Cydonia 2nd stage is vanilla again, by efrenespartano
+
+1-Sep-2020: CMP Extended v0.5
+- Reuploaded
+- Updated to OXCE v6.6
+- New terrains by Solarius Scorch, with maps by Civilian and Finnik:
+	- Forest
+	- Forest Swamp
+	- Forest Snow
+	- Forest Swamp Snow
+- Improved CHEMTOWN52 map, by Dioxine
+- Fixed issues with Alien Base mapScript, by efrenespartano
+- Reorganized the terrain distribution on the Globe, by efrenespartano
+- Globe data imported from ruleset to .DAT file, thanks to memmaker
+- Improved globe textures, by efrenespartano:
+	- North America has two mountain ranges: the Rockies and Sierra Madre, California and Mexico got more polygons
+	- South America has better Jungle/Rain Forest textures, Patagonia got new polys
+	- Europe has new mountain ranges: the Alps, the Carpathians, the Pyrenees, the Caucausus and the Urals
+- New custom Terror Sites, by efrenespartano and hellrazor
+- Added Big Cruise Liner Terror Site, by Solarius Scorch
+- Added Small Cruiser Liner and Cargo Ship, by hellrazor
+- Fixed issues with mapblocks on IDT SnowVillage and IDT Rice Farm, by Dioxine
+- Added special coordinates for Rice Farm, by Solarius Scorch
+- Fixed issues with Forest Swamp terrain, by Solarius Scorch
+- Fixed issues with Terror Site Industrial (missing terrains), reported by The Reaver of Darkness
