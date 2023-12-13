@@ -23,6 +23,12 @@ Psi Amp Sprites by efrenespartano & Badfella (Shoutout to I.D.T.)
 New Grenade Sprites from XPiratez Mod by Dioxine (couldn't find the creator in credits)
 Muton Ufopedia Artwork by Neoworm (DeviantArt)
 Mechtoid by jackstraw2323
+UI Overhaul by XROSS
+Raven by MickTheMage
+Firestorm by Tyran_Nick
+Extra Skyranger variants, by Aldorn
+Thin Man & Sectoid sprites, by efrenespartano, b1ackwolf, The Martian and NeoWorm
+Sword, Fusion Blade, vanilla Plasmas by Hans Woofington
 
 Some assets have been derived from the original XCOM: Enemy Unknown and XCOM2 artwork,
 Take2/Firaxis are the copyright holders of these images.

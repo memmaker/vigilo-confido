@@ -170,8 +170,8 @@ T3 - Warden Armor   & Plasma Weapons
  - Replaced Sword, Fusion Blade, vanilla Plasmas sprite with Hans Woofington sprite 
  - Replaced vanilla (alien) laser weapons with sprites by Drages 
  - Added XROSS overhaul mod, modified and expanded by efrenespartano
- - Replaced vanilla interceptor sprites woth EU2012 ones (Raven by MickTheMage, Firestom by Tyran_Nick)
- - Reworked Skyranger craft-less deployments and research topics with custom Skyrangers, removed needItem dependency
+ - Replaced vanilla interceptor sprites with EU2012 ones (Raven by MickTheMage, Firestom by Tyran_Nick)
+ - Reworked Skyranger craft-less deployments and research topics with custom Skyrangers (maps by Aldorn), removed needItem dependency
  - Improved Thin Man assets, sprites  by efrenespartano, The Martian and NeoWorm
  - Improved Sectoid assets, sprites by efrenespartano, b1ackwolf and NeoWorm
  - Added XCOM Base Security NPCs to Base Defense
